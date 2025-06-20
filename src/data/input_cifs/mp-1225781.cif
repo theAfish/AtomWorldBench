@@ -1,0 +1,44 @@
+# generated using pymatgen
+data_DyScSi
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.14820203
+_cell_length_b   8.58415575
+_cell_length_c   9.12188392
+_cell_angle_alpha   122.10690003
+_cell_angle_beta   89.99811331
+_cell_angle_gamma   90.00967691
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   DyScSi
+_chemical_formula_sum   'Dy6 Sc6 Si6'
+_cell_volume   407.79637399
+_cell_formula_units_Z   6
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Dy  Dy0  1  0.75007000  0.27662200  0.97722500  1
+  Dy  Dy1  1  0.74996600  0.72347200  0.70069500  1
+  Dy  Dy2  1  0.74999600  0.99985000  0.31176000  1
+  Dy  Dy3  1  0.24992200  0.74638900  0.99643800  1
+  Dy  Dy4  1  0.25003400  0.25385100  0.25002000  1
+  Dy  Dy5  1  0.25001300  0.00000100  0.75485400  1
+  Sc  Sc6  1  0.49918000  0.30811800  0.65759100  1
+  Sc  Sc7  1  0.49908800  0.69184500  0.34937700  1
+  Sc  Sc8  1  0.00087100  0.69187100  0.34936100  1
+  Sc  Sc9  1  0.00086100  0.30815100  0.65762100  1
+  Sc  Sc10  1  0.74986200  0.64781900  0.99638400  1
+  Sc  Sc11  1  0.75005900  0.35171600  0.34822800  1
+  Si  Si12  1  0.55970000  0.00012800  0.02503500  1
+  Si  Si13  1  0.94029100  0.00015200  0.02504200  1
+  Si  Si14  1  0.75000500  0.99993100  0.62161000  1
+  Si  Si15  1  0.25011800  0.40618700  0.98621800  1
+  Si  Si16  1  0.24996100  0.59391000  0.58010700  1
+  Si  Si17  1  0.25000300  0.99998700  0.41243600  1

@@ -1,0 +1,37 @@
+data_image0
+_chemical_formula_structural       Na3CoSnSbO6
+_chemical_formula_sum              "Na3 Co1 Sn1 Sb1 O6"
+_cell_length_a       5.42599938
+_cell_length_b       5.72327175
+_cell_length_c       5.416211250000001
+_cell_angle_alpha    99.52999307
+_cell_angle_beta     119.75764504000001
+_cell_angle_gamma    99.01660804
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Na  Na1       1.0  0.5008260000000001  0.5005160000000001  0.49937000000000004  1.0000
+  Na  Na2       1.0  0.8260500000000001  0.499899  0.174029  1.0000
+  Na  Na3       1.0  0.17309200000000008  0.499527  0.826835  1.0000
+  Co  Co1       1.0  0.665081  0.00016000000000000004  0.333129  1.0000
+  Sn  Sn1       1.0  0.33383700000000005  0.9999439999999999  0.666436  1.0000
+  Sb  Sb1       1.0  0.99949  0.9999179999999999  0.99926  1.0000
+  O   O1        1.0  0.755238  0.20407199999999998  0.753722  1.0000
+  O   O2        1.0  0.247758  0.7974939999999999  0.24738  1.0000
+  O   O3        1.0  0.9305299999999999  0.7933939999999999  0.61507  1.0000
+  O   O4        1.0  0.383255  0.20473800000000003  0.067814  1.0000
+  O   O5        1.0  0.6169230000000002  0.794704  0.9321250000000001  1.0000
+  O   O6        1.0  0.06792  0.20563499999999998  0.384831  1.0000

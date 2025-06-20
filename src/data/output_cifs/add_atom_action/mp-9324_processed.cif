@@ -1,0 +1,40 @@
+data_image0
+_chemical_formula_structural       Ba6Mn2N6Fl
+_chemical_formula_sum              "Ba6 Mn2 N6 Fl1"
+_cell_length_a       8.20261968
+_cell_length_b       8.20245301
+_cell_length_c       5.53376274
+_cell_angle_alpha    90.0
+_cell_angle_beta     90.0
+_cell_angle_gamma    120.00174635000002
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ba  Ba1       1.0  0.63714156  0.7217356299999997  0.75  1.0000
+  Ba  Ba2       1.0  0.9153772200000001  0.63713019  0.25  1.0000
+  Ba  Ba3       1.0  0.7217337199999998  0.08461038  0.25  1.0000
+  Ba  Ba4       1.0  0.27826703999999997  0.9154064399999999  0.75  1.0000
+  Ba  Ba5       1.0  0.08460402  0.36285258  0.75  1.0000
+  Ba  Ba6       1.0  0.36286233  0.27825481  0.25  1.0000
+  Mn  Mn1       1.0  0.33332309  0.66667717  0.25  1.0000
+  Mn  Mn2       1.0  0.66668081  0.3333266899999999  0.75  1.0000
+  N   N1        1.0  0.86771014  0.55086581  0.75  1.0000
+  N   N2        1.0  0.31684207  0.86773755  0.25  1.0000
+  N   N3        1.0  0.55078645  0.68315755  0.25  1.0000
+  N   N4        1.0  0.44917249000000004  0.31683077  0.75  1.0000
+  N   N5        1.0  0.6831711  0.13223374  0.75  1.0000
+  N   N6        1.0  0.13232895  0.44918068999999994  0.25  1.0000
+  Fl  Fl1       1.0  0.23564407390853623  0.8176042365067853  0.25169628511032915  1.0000

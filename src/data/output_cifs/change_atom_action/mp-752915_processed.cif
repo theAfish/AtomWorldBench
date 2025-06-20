@@ -1,0 +1,38 @@
+data_image0
+_chemical_formula_structural       LiV2Si2O5NhO2
+_chemical_formula_sum              "Li1 V2 Si2 O7 Nh1"
+_cell_length_a       4.86263869
+_cell_length_b       4.86263869
+_cell_length_c       6.26437
+_cell_angle_alpha    90.0
+_cell_angle_beta     90.0
+_cell_angle_gamma    112.3598841
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Li  Li1       1.0  0.325724  0.674276  0.4999999999999999  1.0000
+  V   V1        1.0  0.996702  0.003298  0.242058  1.0000
+  V   V2        1.0  0.996702  0.003298  0.757942  1.0000
+  Si  Si1       1.0  0.350285  0.649715  0.0  1.0000
+  Si  Si2       1.0  0.6528050000000001  0.347195  0.4999999999999999  1.0000
+  O   O1        1.0  0.23452900000000004  0.765471  0.785399  1.0000
+  O   O2        1.0  0.23452900000000004  0.765471  0.214601  1.0000
+  O   O3        1.0  0.21719100000000002  0.279024  0.0  1.0000
+  O   O4        1.0  0.284182  0.227156  0.4999999999999999  1.0000
+  O   O5        1.0  0.720976  0.782809  0.0  1.0000
+  Nh  Nh1       1.0  0.772844  0.715818  0.4999999999999999  1.0000
+  O   O6        1.0  0.774037  0.22596300000000002  0.7062429999999998  1.0000
+  O   O7        1.0  0.774037  0.22596300000000002  0.29375699999999993  1.0000

@@ -1,0 +1,45 @@
+data_image0
+_chemical_formula_structural       GdRhGd4Cu6Sb8
+_chemical_formula_sum              "Gd5 Rh1 Cu6 Sb8"
+_cell_length_a       8.37332943
+_cell_length_b       8.37332943
+_cell_length_c       8.37332943
+_cell_angle_alpha    109.47122063
+_cell_angle_beta     109.47122063
+_cell_angle_gamma    109.47122063
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Gd  Gd1       1.0  0.875  0.25  0.125  1.0000
+  Rh  Rh1       1.0  0.6250000000000002  0.7500000000000002  0.375  1.0000
+  Gd  Gd2       1.0  0.25  0.12499999999999999  0.875  1.0000
+  Gd  Gd3       1.0  0.75  0.3750000000000001  0.625  1.0000
+  Gd  Gd4       1.0  0.12499999999999997  0.875  0.25  1.0000
+  Gd  Gd5       1.0  0.37500000000000017  0.6250000000000002  0.75  1.0000
+  Cu  Cu1       1.0  0.375  0.25  0.625  1.0000
+  Cu  Cu2       1.0  0.12500000000000008  0.7500000000000002  0.875  1.0000
+  Cu  Cu3       1.0  0.2500000000000001  0.6250000000000002  0.375  1.0000
+  Cu  Cu4       1.0  0.75  0.875  0.125  1.0000
+  Cu  Cu5       1.0  0.6250000000000001  0.3750000000000001  0.25  1.0000
+  Cu  Cu6       1.0  0.875  0.12499999999999999  0.75  1.0000
+  Sb  Sb1       1.0  0.659057  0.5  0.0  1.0000
+  Sb  Sb2       1.0  0.5  0.0  0.659057  1.0000
+  Sb  Sb3       1.0  0.0  0.659057  0.5  1.0000
+  Sb  Sb4       1.0  0.840943  0.840943  0.840943  1.0000
+  Sb  Sb5       1.0  0.5  0.0  0.159057  1.0000
+  Sb  Sb6       1.0  0.159057  0.5  0.0  1.0000
+  Sb  Sb7       1.0  3.314759779567029e-17  0.15905700000000006  0.5  1.0000
+  Sb  Sb8       1.0  0.340943  0.340943  0.340943  1.0000

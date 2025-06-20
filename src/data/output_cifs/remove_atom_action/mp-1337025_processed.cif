@@ -1,0 +1,43 @@
+data_image0
+_chemical_formula_structural       Ti4Fe3O11
+_chemical_formula_sum              "Ti4 Fe3 O11"
+_cell_length_a       6.47841388
+_cell_length_b       6.478413879999999
+_cell_length_c       6.478413879999999
+_cell_angle_alpha    109.47122063
+_cell_angle_beta     109.47122063
+_cell_angle_gamma    109.47122063
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ti  Ti1       1.0  0.5  0.5  0.5  1.0000
+  Ti  Ti2       1.0  0.0  0.5  0.0  1.0000
+  Ti  Ti3       1.0  0.0  0.0  0.5  1.0000
+  Ti  Ti4       1.0  0.5  0.0  0.0  1.0000
+  Fe  Fe1       1.0  0.5  0.5  0.0  1.0000
+  Fe  Fe2       1.0  0.5  0.0  0.5  1.0000
+  Fe  Fe3       1.0  0.0  0.5  0.5  1.0000
+  O   O1        1.0  0.197872  0.889008  0.691136  1.0000
+  O   O2        1.0  0.197872  0.506736  0.308864  1.0000
+  O   O3        1.0  0.802128  0.493264  0.691136  1.0000
+  O   O4        1.0  0.308864  0.197872  0.506736  1.0000
+  O   O5        1.0  0.889008  0.691136  0.197872  1.0000
+  O   O6        1.0  0.11099199999999998  0.308864  0.802128  1.0000
+  O   O7        1.0  0.308864  0.802128  0.110992  1.0000
+  O   O8        1.0  0.506736  0.308864  0.197872  1.0000
+  O   O9        1.0  0.691136  0.197872  0.889008  1.0000
+  O   O10       1.0  0.691136  0.802128  0.493264  1.0000
+  O   O11       1.0  0.493264  0.691136  0.802128  1.0000

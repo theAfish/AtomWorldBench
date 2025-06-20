@@ -1,0 +1,36 @@
+data_image0
+_chemical_formula_structural       Ti4As3Rh4
+_chemical_formula_sum              "Ti4 As3 Rh4"
+_cell_length_a       3.81464214
+_cell_length_b       6.37028541
+_cell_length_c       7.39709866
+_cell_angle_alpha    90.0
+_cell_angle_beta     90.0
+_cell_angle_gamma    90.0
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ti  Ti1       1.0  0.7500000000000002  0.03156072  0.3180778399999999  1.0000
+  Ti  Ti2       1.0  0.25  0.96843928  0.6819221599999998  1.0000
+  Ti  Ti3       1.0  0.25  0.46843928  0.8180778399999997  1.0000
+  Ti  Ti4       1.0  0.7500000000000002  0.5315607199999999  0.18192216  1.0000
+  As  As1       1.0  0.25  0.25110135  0.12168279  1.0000
+  As  As2       1.0  0.25  0.7511013499999998  0.37831721  1.0000
+  As  As3       1.0  0.7500000000000002  0.24889864999999994  0.6216827899999999  1.0000
+  Rh  Rh1       1.0  0.7500000000000002  0.14298185  0.9357262999999998  1.0000
+  Rh  Rh2       1.0  0.25  0.8570181499999999  0.0642737  1.0000
+  Rh  Rh3       1.0  0.25  0.35701815  0.4357263  1.0000
+  Rh  Rh4       1.0  0.7500000000000002  0.6429818499999997  0.5642736999999998  1.0000

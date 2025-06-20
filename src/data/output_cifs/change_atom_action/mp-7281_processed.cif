@@ -1,0 +1,35 @@
+data_image0
+_chemical_formula_structural       Dy4PoDyNi4
+_chemical_formula_sum              "Dy5 Po1 Ni4"
+_cell_length_a       3.63900163
+_cell_length_b       6.84507404
+_cell_length_c       9.53261978
+_cell_angle_alpha    104.44003164999998
+_cell_angle_beta     90.0
+_cell_angle_gamma    105.41519017
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Dy  Dy1       1.0  0.14470307000000004  0.28940714  0.36379803  1.0000
+  Dy  Dy2       1.0  0.8552969300000002  0.71059286  0.63620197  1.0000
+  Dy  Dy3       1.0  0.5971643900000002  0.19432976999999996  0.67402172  1.0000
+  Dy  Dy4       1.0  0.4028356100000001  0.80567023  0.32597828  1.0000
+  Po  Po1       1.0  0.8687805999999999  0.7375621999999998  0.0018686499999999997  1.0000
+  Dy  Dy5       1.0  0.13121939999999999  0.2624377999999999  0.99813135  1.0000
+  Ni  Ni1       1.0  0.25667601999999995  0.5133530299999999  0.7749928199999998  1.0000
+  Ni  Ni2       1.0  0.74332398  0.48664696999999996  0.22500718  1.0000
+  Ni  Ni3       1.0  0.4653792099999998  0.9307594299999997  0.8566603899999998  1.0000
+  Ni  Ni4       1.0  0.53462079  0.06924056999999999  0.14333960999999998  1.0000

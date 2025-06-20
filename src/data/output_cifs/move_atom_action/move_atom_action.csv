@@ -1,0 +1,1001 @@
+input_cif,action_prompt,output_cif
+input_cifs\mp-1013842.cif,Move atom at index 64 by [ 0.29787301 -1.52335959 -0.91117773] in the cif file.,output_cifs\move_atom_action\mp-1013842_processed.cif
+input_cifs\mp-1015026.cif,Move atom at index 3 by [-0.74158975  2.6751866   1.88903357] in the cif file.,output_cifs\move_atom_action\mp-1015026_processed.cif
+input_cifs\mp-1016569.cif,Move atom at index 4 by [ 0.00653703  0.855857   -2.04616835] in the cif file.,output_cifs\move_atom_action\mp-1016569_processed.cif
+input_cifs\mp-1016660.cif,Move atom at index 5 by [ 1.87674456 -1.17268414  1.17351553] in the cif file.,output_cifs\move_atom_action\mp-1016660_processed.cif
+input_cifs\mp-1020181.cif,Move atom at index 14 by [0.54664312 3.44462387 0.95988435] in the cif file.,output_cifs\move_atom_action\mp-1020181_processed.cif
+input_cifs\mp-1020716.cif,Move atom at index 16 by [-1.57009786 -0.91558779  4.98510503] in the cif file.,output_cifs\move_atom_action\mp-1020716_processed.cif
+input_cifs\mp-1021278.cif,Move atom at index 11 by [-2.12059925  2.58547159  0.15621401] in the cif file.,output_cifs\move_atom_action\mp-1021278_processed.cif
+input_cifs\mp-1021658.cif,Move atom at index 6 by [-0.83682019  2.46471692 -1.86409553] in the cif file.,output_cifs\move_atom_action\mp-1021658_processed.cif
+input_cifs\mp-1021682.cif,Move atom at index 9 by [2.84588941 1.27754959 1.50145105] in the cif file.,output_cifs\move_atom_action\mp-1021682_processed.cif
+input_cifs\mp-1022203.cif,Move atom at index 10 by [ 0.14283524  0.42458447 -1.91419279] in the cif file.,output_cifs\move_atom_action\mp-1022203_processed.cif
+input_cifs\mp-1026634.cif,Move atom at index 11 by [-0.67286599  0.56745795 -1.03087838] in the cif file.,output_cifs\move_atom_action\mp-1026634_processed.cif
+input_cifs\mp-1026773.cif,Move atom at index 9 by [-0.17173021  0.45445137 -0.33322553] in the cif file.,output_cifs\move_atom_action\mp-1026773_processed.cif
+input_cifs\mp-1026775.cif,Move atom at index 10 by [2.37228042 0.52853434 3.55077199] in the cif file.,output_cifs\move_atom_action\mp-1026775_processed.cif
+input_cifs\mp-1026818.cif,Move atom at index 2 by [-0.77023351  2.23051299  3.06626439] in the cif file.,output_cifs\move_atom_action\mp-1026818_processed.cif
+input_cifs\mp-1026852.cif,Move atom at index 7 by [-2.72299945  1.67899017 -2.89700293] in the cif file.,output_cifs\move_atom_action\mp-1026852_processed.cif
+input_cifs\mp-1026901.cif,Move atom at index 7 by [-2.07230774 -1.67492639  0.82734022] in the cif file.,output_cifs\move_atom_action\mp-1026901_processed.cif
+input_cifs\mp-1027134.cif,Move atom at index 7 by [3.32324315 3.9224301  0.37353788] in the cif file.,output_cifs\move_atom_action\mp-1027134_processed.cif
+input_cifs\mp-1027152.cif,Move atom at index 6 by [-1.17781402 -0.27654401 -3.51623765] in the cif file.,output_cifs\move_atom_action\mp-1027152_processed.cif
+input_cifs\mp-1027852.cif,Move atom at index 15 by [-0.74942498 -2.13300044  1.0538521 ] in the cif file.,output_cifs\move_atom_action\mp-1027852_processed.cif
+input_cifs\mp-1027965.cif,Move atom at index 15 by [-1.55611804 -0.39318152 -2.36276297] in the cif file.,output_cifs\move_atom_action\mp-1027965_processed.cif
+input_cifs\mp-1027971.cif,Move atom at index 7 by [-0.41247333 -2.3769499   1.76553255] in the cif file.,output_cifs\move_atom_action\mp-1027971_processed.cif
+input_cifs\mp-1028124.cif,Move atom at index 6 by [ 2.62183068 -0.07982591 -0.9719207 ] in the cif file.,output_cifs\move_atom_action\mp-1028124_processed.cif
+input_cifs\mp-1028136.cif,Move atom at index 9 by [-1.56586459  2.5851923  -0.64777184] in the cif file.,output_cifs\move_atom_action\mp-1028136_processed.cif
+input_cifs\mp-1028229.cif,Move atom at index 6 by [0.77356446 1.9124706  0.96829375] in the cif file.,output_cifs\move_atom_action\mp-1028229_processed.cif
+input_cifs\mp-1028374.cif,Move atom at index 12 by [-2.21086704  1.94493631 -2.59889988] in the cif file.,output_cifs\move_atom_action\mp-1028374_processed.cif
+input_cifs\mp-1028383.cif,Move atom at index 6 by [-1.68249873 -0.01844662  1.22244441] in the cif file.,output_cifs\move_atom_action\mp-1028383_processed.cif
+input_cifs\mp-1028854.cif,Move atom at index 9 by [-0.59876269 -1.27607399 -3.5093177 ] in the cif file.,output_cifs\move_atom_action\mp-1028854_processed.cif
+input_cifs\mp-1029113.cif,Move atom at index 2 by [-0.58043866 -1.77735547  1.9194646 ] in the cif file.,output_cifs\move_atom_action\mp-1029113_processed.cif
+input_cifs\mp-1029368.cif,Move atom at index 7 by [-1.09793708 -2.83904887  0.35164116] in the cif file.,output_cifs\move_atom_action\mp-1029368_processed.cif
+input_cifs\mp-1031131.cif,Move atom at index 3 by [ 2.13465046  1.41679319 -3.12419509] in the cif file.,output_cifs\move_atom_action\mp-1031131_processed.cif
+input_cifs\mp-1032360.cif,Move atom at index 1 by [-0.6284068   1.75704244  0.24894593] in the cif file.,output_cifs\move_atom_action\mp-1032360_processed.cif
+input_cifs\mp-1033383.cif,Move atom at index 4 by [ 3.02214843 -1.19466173  0.3972412 ] in the cif file.,output_cifs\move_atom_action\mp-1033383_processed.cif
+input_cifs\mp-1034355.cif,Move atom at index 3 by [ 2.7618163  -2.67286139 -0.98658759] in the cif file.,output_cifs\move_atom_action\mp-1034355_processed.cif
+input_cifs\mp-1035597.cif,Move atom at index 16 by [-0.73182834 -1.56833286  4.38188292] in the cif file.,output_cifs\move_atom_action\mp-1035597_processed.cif
+input_cifs\mp-1035800.cif,Move atom at index 0 by [ 2.48427896e+00  1.01029570e+00 -1.92238391e-03] in the cif file.,output_cifs\move_atom_action\mp-1035800_processed.cif
+input_cifs\mp-1037450.cif,Move atom at index 51 by [-3.38670652 -1.44659324  0.44943684] in the cif file.,output_cifs\move_atom_action\mp-1037450_processed.cif
+input_cifs\mp-1038247.cif,Move atom at index 22 by [ 2.72478562 -2.47183143  0.98390528] in the cif file.,output_cifs\move_atom_action\mp-1038247_processed.cif
+input_cifs\mp-1038590.cif,Move atom at index 59 by [-1.69287834  1.48278367  1.59190158] in the cif file.,output_cifs\move_atom_action\mp-1038590_processed.cif
+input_cifs\mp-1038638.cif,Move atom at index 52 by [ 2.55425715 -0.81137746 -1.83416399] in the cif file.,output_cifs\move_atom_action\mp-1038638_processed.cif
+input_cifs\mp-1039951.cif,Move atom at index 54 by [ 0.31538348 -0.8554409   1.16129007] in the cif file.,output_cifs\move_atom_action\mp-1039951_processed.cif
+input_cifs\mp-1040370.cif,Move atom at index 63 by [-0.57461678 -0.34173118  0.50589872] in the cif file.,output_cifs\move_atom_action\mp-1040370_processed.cif
+input_cifs\mp-1041045.cif,Move atom at index 21 by [-0.01654501 -2.80983164  0.26676331] in the cif file.,output_cifs\move_atom_action\mp-1041045_processed.cif
+input_cifs\mp-1041056.cif,Move atom at index 18 by [-0.91130937  0.79972975  2.72969427] in the cif file.,output_cifs\move_atom_action\mp-1041056_processed.cif
+input_cifs\mp-1041213.cif,Move atom at index 11 by [-0.3126439   1.25586999  0.3459836 ] in the cif file.,output_cifs\move_atom_action\mp-1041213_processed.cif
+input_cifs\mp-1042028.cif,Move atom at index 13 by [ 2.88632647  0.89716274 -0.5285625 ] in the cif file.,output_cifs\move_atom_action\mp-1042028_processed.cif
+input_cifs\mp-1042158.cif,Move atom at index 22 by [ 3.56553037 -1.0144916  -1.16369594] in the cif file.,output_cifs\move_atom_action\mp-1042158_processed.cif
+input_cifs\mp-1042205.cif,Move atom at index 2 by [ 0.62634773 -1.08959619  2.0812216 ] in the cif file.,output_cifs\move_atom_action\mp-1042205_processed.cif
+input_cifs\mp-1042378.cif,Move atom at index 2 by [0.08595501 2.83387774 0.5306825 ] in the cif file.,output_cifs\move_atom_action\mp-1042378_processed.cif
+input_cifs\mp-1042415.cif,Move atom at index 27 by [ 0.7657683  -5.09767245  1.7281863 ] in the cif file.,output_cifs\move_atom_action\mp-1042415_processed.cif
+input_cifs\mp-1042656.cif,Move atom at index 2 by [-4.42716134  1.25071153  3.10650114] in the cif file.,output_cifs\move_atom_action\mp-1042656_processed.cif
+input_cifs\mp-1042677.cif,Move atom at index 6 by [ 0.16673161 -2.80557414 -1.06017756] in the cif file.,output_cifs\move_atom_action\mp-1042677_processed.cif
+input_cifs\mp-1042685.cif,Move atom at index 2 by [-0.50133693  1.73885489 -2.54426994] in the cif file.,output_cifs\move_atom_action\mp-1042685_processed.cif
+input_cifs\mp-1042896.cif,Move atom at index 13 by [2.99929434 2.18746869 2.4213916 ] in the cif file.,output_cifs\move_atom_action\mp-1042896_processed.cif
+input_cifs\mp-1043828.cif,Move atom at index 26 by [-1.63323106  2.91119703 -0.86669197] in the cif file.,output_cifs\move_atom_action\mp-1043828_processed.cif
+input_cifs\mp-1044049.cif,Move atom at index 5 by [3.53376518 0.75599399 1.04061885] in the cif file.,output_cifs\move_atom_action\mp-1044049_processed.cif
+input_cifs\mp-1044636.cif,Move atom at index 46 by [-2.58566596  1.70587558  0.39917069] in the cif file.,output_cifs\move_atom_action\mp-1044636_processed.cif
+input_cifs\mp-1045786.cif,Move atom at index 29 by [1.0955535  1.17685528 0.70432274] in the cif file.,output_cifs\move_atom_action\mp-1045786_processed.cif
+input_cifs\mp-1045992.cif,Move atom at index 8 by [-1.02018416  5.00522743  0.41314902] in the cif file.,output_cifs\move_atom_action\mp-1045992_processed.cif
+input_cifs\mp-1046286.cif,Move atom at index 16 by [-0.23865828 -1.50379927 -2.10500719] in the cif file.,output_cifs\move_atom_action\mp-1046286_processed.cif
+input_cifs\mp-1047007.cif,Move atom at index 9 by [-2.75745133  4.71782108  2.25136115] in the cif file.,output_cifs\move_atom_action\mp-1047007_processed.cif
+input_cifs\mp-1047085.cif,Move atom at index 6 by [-0.39417233  1.03941685 -1.80863715] in the cif file.,output_cifs\move_atom_action\mp-1047085_processed.cif
+input_cifs\mp-1047504.cif,Move atom at index 6 by [-1.16672727 -1.94384001  0.26496373] in the cif file.,output_cifs\move_atom_action\mp-1047504_processed.cif
+input_cifs\mp-1047641.cif,Move atom at index 3 by [1.05942896 0.31174022 2.6668625 ] in the cif file.,output_cifs\move_atom_action\mp-1047641_processed.cif
+input_cifs\mp-1047798.cif,Move atom at index 2 by [ 0.70007721 -0.64828063 -0.50700104] in the cif file.,output_cifs\move_atom_action\mp-1047798_processed.cif
+input_cifs\mp-1048141.cif,Move atom at index 12 by [-4.24087331  0.11125364  2.445346  ] in the cif file.,output_cifs\move_atom_action\mp-1048141_processed.cif
+input_cifs\mp-1048241.cif,Move atom at index 1 by [1.20994542 0.73164476 0.46232304] in the cif file.,output_cifs\move_atom_action\mp-1048241_processed.cif
+input_cifs\mp-1048742.cif,Move atom at index 8 by [-1.36184454 -2.11344403  1.83257192] in the cif file.,output_cifs\move_atom_action\mp-1048742_processed.cif
+input_cifs\mp-1048819.cif,Move atom at index 9 by [4.56375247 3.75098882 2.2789269 ] in the cif file.,output_cifs\move_atom_action\mp-1048819_processed.cif
+input_cifs\mp-10543.cif,Move atom at index 7 by [ 0.81983613  0.82290927 -2.35482955] in the cif file.,output_cifs\move_atom_action\mp-10543_processed.cif
+input_cifs\mp-1073454.cif,Move atom at index 23 by [ 1.68102967 -3.3084026  -3.2739744 ] in the cif file.,output_cifs\move_atom_action\mp-1073454_processed.cif
+input_cifs\mp-1073857.cif,Move atom at index 9 by [-2.62660904 -0.29747674  0.74068869] in the cif file.,output_cifs\move_atom_action\mp-1073857_processed.cif
+input_cifs\mp-1074382.cif,Move atom at index 7 by [-1.17979942 -2.1061972  -3.20614432] in the cif file.,output_cifs\move_atom_action\mp-1074382_processed.cif
+input_cifs\mp-1075115.cif,Move atom at index 7 by [1.39430247 2.07138324 0.03872193] in the cif file.,output_cifs\move_atom_action\mp-1075115_processed.cif
+input_cifs\mp-1076171.cif,Move atom at index 17 by [ 2.43877582 -0.44068397  1.80473932] in the cif file.,output_cifs\move_atom_action\mp-1076171_processed.cif
+input_cifs\mp-1076264.cif,Move atom at index 37 by [-2.11669346 -1.4660041   0.27213928] in the cif file.,output_cifs\move_atom_action\mp-1076264_processed.cif
+input_cifs\mp-1080179.cif,Move atom at index 7 by [ 1.97902932e+00  5.09193903e-01 -8.00148961e-04] in the cif file.,output_cifs\move_atom_action\mp-1080179_processed.cif
+input_cifs\mp-1080349.cif,Move atom at index 16 by [ 0.75062415 -2.40268564 -3.35866301] in the cif file.,output_cifs\move_atom_action\mp-1080349_processed.cif
+input_cifs\mp-1080354.cif,Move atom at index 19 by [-2.32940644 -2.26553992 -2.50348608] in the cif file.,output_cifs\move_atom_action\mp-1080354_processed.cif
+input_cifs\mp-1080713.cif,Move atom at index 8 by [ 0.33406603 -1.60848312  4.4822485 ] in the cif file.,output_cifs\move_atom_action\mp-1080713_processed.cif
+input_cifs\mp-1094804.cif,Move atom at index 4 by [ 5.48162618  1.43150803 -3.66133955] in the cif file.,output_cifs\move_atom_action\mp-1094804_processed.cif
+input_cifs\mp-1095083.cif,Move atom at index 9 by [-1.05262389 -0.22695343  2.37951489] in the cif file.,output_cifs\move_atom_action\mp-1095083_processed.cif
+input_cifs\mp-1095476.cif,Move atom at index 0 by [-0.03451573  2.14963177 -0.560851  ] in the cif file.,output_cifs\move_atom_action\mp-1095476_processed.cif
+input_cifs\mp-1095575.cif,Move atom at index 8 by [-2.08409658 -4.22995406  0.79348946] in the cif file.,output_cifs\move_atom_action\mp-1095575_processed.cif
+input_cifs\mp-1095585.cif,Move atom at index 9 by [ 3.25929773 -0.82068995  1.24123987] in the cif file.,output_cifs\move_atom_action\mp-1095585_processed.cif
+input_cifs\mp-1095643.cif,Move atom at index 5 by [-3.42061564  2.95044109 -0.02152968] in the cif file.,output_cifs\move_atom_action\mp-1095643_processed.cif
+input_cifs\mp-1095675.cif,Move atom at index 0 by [ 0.04726138 -0.07543876  5.07876335] in the cif file.,output_cifs\move_atom_action\mp-1095675_processed.cif
+input_cifs\mp-1095677.cif,Move atom at index 9 by [ 1.00051629 -0.82679167 -0.09164613] in the cif file.,output_cifs\move_atom_action\mp-1095677_processed.cif
+input_cifs\mp-1096913.cif,Move atom at index 10 by [-1.08964934 -1.91934764 -0.68136183] in the cif file.,output_cifs\move_atom_action\mp-1096913_processed.cif
+input_cifs\mp-1099100.cif,Move atom at index 3 by [-2.83057866 -0.14572246  0.90777002] in the cif file.,output_cifs\move_atom_action\mp-1099100_processed.cif
+input_cifs\mp-1100340.cif,Move atom at index 3 by [-0.21148193  0.48527045  1.01518351] in the cif file.,output_cifs\move_atom_action\mp-1100340_processed.cif
+input_cifs\mp-1100512.cif,Move atom at index 21 by [-0.19203666 -1.52844863 -1.69779031] in the cif file.,output_cifs\move_atom_action\mp-1100512_processed.cif
+input_cifs\mp-1100602.cif,Move atom at index 18 by [-0.62357292 -1.42374637 -2.89204411] in the cif file.,output_cifs\move_atom_action\mp-1100602_processed.cif
+input_cifs\mp-1100645.cif,Move atom at index 19 by [-1.94640334 -1.57156486  1.82984184] in the cif file.,output_cifs\move_atom_action\mp-1100645_processed.cif
+input_cifs\mp-1100655.cif,Move atom at index 8 by [ 3.35180473 -0.12366911 -1.29762792] in the cif file.,output_cifs\move_atom_action\mp-1100655_processed.cif
+input_cifs\mp-1100709.cif,Move atom at index 10 by [-0.68469407  1.68134888 -2.25163501] in the cif file.,output_cifs\move_atom_action\mp-1100709_processed.cif
+input_cifs\mp-1100895.cif,Move atom at index 12 by [ 0.49846774 -1.53730207 -0.34435756] in the cif file.,output_cifs\move_atom_action\mp-1100895_processed.cif
+input_cifs\mp-1101365.cif,Move atom at index 76 by [ 1.31340901 -0.45215727  0.28826367] in the cif file.,output_cifs\move_atom_action\mp-1101365_processed.cif
+input_cifs\mp-1101490.cif,Move atom at index 65 by [-0.13368704  0.31051438  4.12004149] in the cif file.,output_cifs\move_atom_action\mp-1101490_processed.cif
+input_cifs\mp-1101729.cif,Move atom at index 7 by [-2.11594934 -2.94160069  3.07246228] in the cif file.,output_cifs\move_atom_action\mp-1101729_processed.cif
+input_cifs\mp-1101899.cif,Move atom at index 11 by [-2.86391751 -0.33715745 -1.80930643] in the cif file.,output_cifs\move_atom_action\mp-1101899_processed.cif
+input_cifs\mp-1102433.cif,Move atom at index 7 by [ 1.21836233 -0.75647927  2.55347259] in the cif file.,output_cifs\move_atom_action\mp-1102433_processed.cif
+input_cifs\mp-1102534.cif,Move atom at index 7 by [0.14940418 1.92359643 0.18989932] in the cif file.,output_cifs\move_atom_action\mp-1102534_processed.cif
+input_cifs\mp-1102795.cif,Move atom at index 10 by [-1.91109983  1.29791521  0.79034727] in the cif file.,output_cifs\move_atom_action\mp-1102795_processed.cif
+input_cifs\mp-1102865.cif,Move atom at index 1 by [-1.04544379  2.73652705  0.35090158] in the cif file.,output_cifs\move_atom_action\mp-1102865_processed.cif
+input_cifs\mp-1102948.cif,Move atom at index 7 by [ 1.39887217 -1.0678864  -1.12337381] in the cif file.,output_cifs\move_atom_action\mp-1102948_processed.cif
+input_cifs\mp-1102963.cif,Move atom at index 3 by [3.67052819 0.1353324  0.99585355] in the cif file.,output_cifs\move_atom_action\mp-1102963_processed.cif
+input_cifs\mp-1103212.cif,Move atom at index 5 by [-0.34692445 -0.59778013  1.96806438] in the cif file.,output_cifs\move_atom_action\mp-1103212_processed.cif
+input_cifs\mp-1103303.cif,Move atom at index 3 by [ 2.60168444 -0.60035533  1.36985576] in the cif file.,output_cifs\move_atom_action\mp-1103303_processed.cif
+input_cifs\mp-1103651.cif,Move atom at index 4 by [ 1.01219438 -3.55482965  0.96554661] in the cif file.,output_cifs\move_atom_action\mp-1103651_processed.cif
+input_cifs\mp-1104386.cif,Move atom at index 2 by [-1.16341015  3.85481344 -2.16014943] in the cif file.,output_cifs\move_atom_action\mp-1104386_processed.cif
+input_cifs\mp-1104404.cif,Move atom at index 0 by [1.54173236 3.58768205 3.67856576] in the cif file.,output_cifs\move_atom_action\mp-1104404_processed.cif
+input_cifs\mp-1104448.cif,Move atom at index 5 by [ 0.61455691  0.24896788 -3.11502119] in the cif file.,output_cifs\move_atom_action\mp-1104448_processed.cif
+input_cifs\mp-1105372.cif,Move atom at index 5 by [-1.35822545  3.69402312 -0.27896552] in the cif file.,output_cifs\move_atom_action\mp-1105372_processed.cif
+input_cifs\mp-1105581.cif,Move atom at index 10 by [-1.1294068   0.45864123  0.58919982] in the cif file.,output_cifs\move_atom_action\mp-1105581_processed.cif
+input_cifs\mp-1105587.cif,Move atom at index 15 by [-3.64167681 -0.51453253  3.25448517] in the cif file.,output_cifs\move_atom_action\mp-1105587_processed.cif
+input_cifs\mp-1105631.cif,Move atom at index 2 by [-4.28705097 -0.13686511 -1.37936144] in the cif file.,output_cifs\move_atom_action\mp-1105631_processed.cif
+input_cifs\mp-1105736.cif,Move atom at index 14 by [-0.69846667 -0.22824648 -2.17343963] in the cif file.,output_cifs\move_atom_action\mp-1105736_processed.cif
+input_cifs\mp-1105952.cif,Move atom at index 4 by [ 2.25712504 -1.43253837  1.91214003] in the cif file.,output_cifs\move_atom_action\mp-1105952_processed.cif
+input_cifs\mp-1105985.cif,Move atom at index 15 by [-0.96462806  1.01617686  1.27204928] in the cif file.,output_cifs\move_atom_action\mp-1105985_processed.cif
+input_cifs\mp-1106159.cif,Move atom at index 14 by [ 2.73279624 -2.08861055  0.29642746] in the cif file.,output_cifs\move_atom_action\mp-1106159_processed.cif
+input_cifs\mp-1110626.cif,Move atom at index 0 by [ 3.1509406  -0.28521148 -0.28914512] in the cif file.,output_cifs\move_atom_action\mp-1110626_processed.cif
+input_cifs\mp-1110754.cif,Move atom at index 5 by [ 1.46798727  0.04574907 -3.1223458 ] in the cif file.,output_cifs\move_atom_action\mp-1110754_processed.cif
+input_cifs\mp-1111211.cif,Move atom at index 9 by [ 1.33710128 -2.20039434  1.28114106] in the cif file.,output_cifs\move_atom_action\mp-1111211_processed.cif
+input_cifs\mp-1111610.cif,Move atom at index 2 by [-1.34337689  0.16128838  1.00119758] in the cif file.,output_cifs\move_atom_action\mp-1111610_processed.cif
+input_cifs\mp-1111940.cif,Move atom at index 3 by [ 1.48862546 -0.53188834 -2.11346811] in the cif file.,output_cifs\move_atom_action\mp-1111940_processed.cif
+input_cifs\mp-1112257.cif,Move atom at index 9 by [-0.63961689  0.15843675 -0.56162942] in the cif file.,output_cifs\move_atom_action\mp-1112257_processed.cif
+input_cifs\mp-1112416.cif,Move atom at index 6 by [-1.39536863  0.64851267  1.96648478] in the cif file.,output_cifs\move_atom_action\mp-1112416_processed.cif
+input_cifs\mp-11143.cif,Move atom at index 18 by [ 0.03290257 -1.80185999  1.43878884] in the cif file.,output_cifs\move_atom_action\mp-11143_processed.cif
+input_cifs\mp-11145.cif,Move atom at index 27 by [2.96697534 4.2933008  0.83798528] in the cif file.,output_cifs\move_atom_action\mp-11145_processed.cif
+input_cifs\mp-1120749.cif,Move atom at index 3 by [-0.88584097  0.61446709 -0.84081423] in the cif file.,output_cifs\move_atom_action\mp-1120749_processed.cif
+input_cifs\mp-11250.cif,Move atom at index 7 by [-0.86543457 -0.68025273 -2.78154993] in the cif file.,output_cifs\move_atom_action\mp-11250_processed.cif
+input_cifs\mp-1157680.cif,Move atom at index 1 by [-2.17968524  1.03462667  0.57073111] in the cif file.,output_cifs\move_atom_action\mp-1157680_processed.cif
+input_cifs\mp-1173361.cif,Move atom at index 1 by [ 0.93271173  0.63999883 -0.22814058] in the cif file.,output_cifs\move_atom_action\mp-1173361_processed.cif
+input_cifs\mp-1173548.cif,Move atom at index 9 by [ 0.62138137  0.80071903 -2.50336762] in the cif file.,output_cifs\move_atom_action\mp-1173548_processed.cif
+input_cifs\mp-1173561.cif,Move atom at index 30 by [ 0.28912772 -0.66136683  2.68141874] in the cif file.,output_cifs\move_atom_action\mp-1173561_processed.cif
+input_cifs\mp-1173706.cif,Move atom at index 9 by [-1.27020705  3.00070097 -2.48745283] in the cif file.,output_cifs\move_atom_action\mp-1173706_processed.cif
+input_cifs\mp-1173883.cif,Move atom at index 11 by [1.79613133 3.62593365 2.67603831] in the cif file.,output_cifs\move_atom_action\mp-1173883_processed.cif
+input_cifs\mp-1174010.cif,Move atom at index 17 by [ 2.17000103 -0.05740703 -0.82546293] in the cif file.,output_cifs\move_atom_action\mp-1174010_processed.cif
+input_cifs\mp-1174079.cif,Move atom at index 3 by [-1.44740208  1.67658861  1.03079616] in the cif file.,output_cifs\move_atom_action\mp-1174079_processed.cif
+input_cifs\mp-1174299.cif,Move atom at index 24 by [ 1.01461969 -0.71747998 -1.3066773 ] in the cif file.,output_cifs\move_atom_action\mp-1174299_processed.cif
+input_cifs\mp-1174536.cif,Move atom at index 9 by [ 1.51209235  0.28789441 -1.71137558] in the cif file.,output_cifs\move_atom_action\mp-1174536_processed.cif
+input_cifs\mp-1174549.cif,Move atom at index 3 by [ 1.44049616  0.30716497 -1.83893414] in the cif file.,output_cifs\move_atom_action\mp-1174549_processed.cif
+input_cifs\mp-1174561.cif,Move atom at index 5 by [-0.08816393 -1.04065303  0.82430915] in the cif file.,output_cifs\move_atom_action\mp-1174561_processed.cif
+input_cifs\mp-1174631.cif,Move atom at index 25 by [ 0.38324571  4.02688381 -2.3099606 ] in the cif file.,output_cifs\move_atom_action\mp-1174631_processed.cif
+input_cifs\mp-1174708.cif,Move atom at index 7 by [-1.73034254 -0.65143028 -1.81845781] in the cif file.,output_cifs\move_atom_action\mp-1174708_processed.cif
+input_cifs\mp-1175060.cif,Move atom at index 14 by [-3.33385675  1.592729   -0.203178  ] in the cif file.,output_cifs\move_atom_action\mp-1175060_processed.cif
+input_cifs\mp-1175670.cif,Move atom at index 6 by [ 1.2266536  -1.25221751 -2.70028998] in the cif file.,output_cifs\move_atom_action\mp-1175670_processed.cif
+input_cifs\mp-1175676.cif,Move atom at index 2 by [ 3.18481713  0.01004634 -0.3728819 ] in the cif file.,output_cifs\move_atom_action\mp-1175676_processed.cif
+input_cifs\mp-1175716.cif,Move atom at index 12 by [0.60486958 3.42164534 1.23277216] in the cif file.,output_cifs\move_atom_action\mp-1175716_processed.cif
+input_cifs\mp-1176074.cif,Move atom at index 13 by [ 0.24063823 -0.41415756  2.71903799] in the cif file.,output_cifs\move_atom_action\mp-1176074_processed.cif
+input_cifs\mp-1176243.cif,Move atom at index 16 by [ 1.51662935 -0.95716846 -0.71247665] in the cif file.,output_cifs\move_atom_action\mp-1176243_processed.cif
+input_cifs\mp-1176471.cif,Move atom at index 14 by [1.60373278 0.20835449 3.90542306] in the cif file.,output_cifs\move_atom_action\mp-1176471_processed.cif
+input_cifs\mp-1176486.cif,Move atom at index 33 by [1.10566366 0.06637921 1.96634817] in the cif file.,output_cifs\move_atom_action\mp-1176486_processed.cif
+input_cifs\mp-1176593.cif,Move atom at index 17 by [-2.04677833  0.73940467 -4.19746002] in the cif file.,output_cifs\move_atom_action\mp-1176593_processed.cif
+input_cifs\mp-1176664.cif,Move atom at index 7 by [ 0.32671981  0.2752218  -2.79880517] in the cif file.,output_cifs\move_atom_action\mp-1176664_processed.cif
+input_cifs\mp-1176678.cif,Move atom at index 26 by [ 0.14540919 -1.8367788   3.73814153] in the cif file.,output_cifs\move_atom_action\mp-1176678_processed.cif
+input_cifs\mp-1176692.cif,Move atom at index 21 by [ 2.09745685  0.57520646 -0.1144138 ] in the cif file.,output_cifs\move_atom_action\mp-1176692_processed.cif
+input_cifs\mp-1176965.cif,Move atom at index 77 by [ 0.87440123 -1.15182142 -0.73255642] in the cif file.,output_cifs\move_atom_action\mp-1176965_processed.cif
+input_cifs\mp-1177279.cif,Move atom at index 27 by [-0.48909838  1.90426533 -0.69887205] in the cif file.,output_cifs\move_atom_action\mp-1177279_processed.cif
+input_cifs\mp-1177537.cif,Move atom at index 21 by [ 3.07088476  0.55918208 -1.44148184] in the cif file.,output_cifs\move_atom_action\mp-1177537_processed.cif
+input_cifs\mp-1177559.cif,Move atom at index 73 by [ 0.23969527  0.84264101 -3.53556772] in the cif file.,output_cifs\move_atom_action\mp-1177559_processed.cif
+input_cifs\mp-1177564.cif,Move atom at index 3 by [-0.36103806  1.05508588  3.4791349 ] in the cif file.,output_cifs\move_atom_action\mp-1177564_processed.cif
+input_cifs\mp-1177801.cif,Move atom at index 15 by [-1.9485905  -1.30940138 -1.54967349] in the cif file.,output_cifs\move_atom_action\mp-1177801_processed.cif
+input_cifs\mp-1178026.cif,Move atom at index 2 by [ 2.83933559 -0.25736294 -2.78685699] in the cif file.,output_cifs\move_atom_action\mp-1178026_processed.cif
+input_cifs\mp-1178085.cif,Move atom at index 0 by [-4.34379936 -1.53460894 -2.7111006 ] in the cif file.,output_cifs\move_atom_action\mp-1178085_processed.cif
+input_cifs\mp-1178148.cif,Move atom at index 20 by [ 2.49943983 -2.42033804  0.12954725] in the cif file.,output_cifs\move_atom_action\mp-1178148_processed.cif
+input_cifs\mp-1178259.cif,Move atom at index 8 by [ 0.17510111 -2.36503294  5.71215679] in the cif file.,output_cifs\move_atom_action\mp-1178259_processed.cif
+input_cifs\mp-1178586.cif,Move atom at index 69 by [ 0.5128492  -0.6761138   1.88187591] in the cif file.,output_cifs\move_atom_action\mp-1178586_processed.cif
+input_cifs\mp-1180130.cif,Move atom at index 23 by [-3.64511538 -2.39233009 -2.79329446] in the cif file.,output_cifs\move_atom_action\mp-1180130_processed.cif
+input_cifs\mp-1180252.cif,Move atom at index 2 by [-0.52671501 -1.94042876 -0.9503073 ] in the cif file.,output_cifs\move_atom_action\mp-1180252_processed.cif
+input_cifs\mp-1180744.cif,Move atom at index 12 by [-2.2407174   0.99826378  3.12614656] in the cif file.,output_cifs\move_atom_action\mp-1180744_processed.cif
+input_cifs\mp-1180763.cif,Move atom at index 26 by [ 4.26932856 -1.3884884   0.44301259] in the cif file.,output_cifs\move_atom_action\mp-1180763_processed.cif
+input_cifs\mp-1181255.cif,Move atom at index 28 by [ 0.43027449  3.41167309 -0.4004514 ] in the cif file.,output_cifs\move_atom_action\mp-1181255_processed.cif
+input_cifs\mp-1181584.cif,Move atom at index 10 by [ 0.35977711 -1.14750458 -2.32577545] in the cif file.,output_cifs\move_atom_action\mp-1181584_processed.cif
+input_cifs\mp-1182011.cif,Move atom at index 33 by [ 1.65401169 -2.23741045  0.22655013] in the cif file.,output_cifs\move_atom_action\mp-1182011_processed.cif
+input_cifs\mp-1182045.cif,Move atom at index 16 by [-2.05624601 -0.66489591 -0.90954066] in the cif file.,output_cifs\move_atom_action\mp-1182045_processed.cif
+input_cifs\mp-1182066.cif,Move atom at index 10 by [1.71722442 1.52546911 1.45122749] in the cif file.,output_cifs\move_atom_action\mp-1182066_processed.cif
+input_cifs\mp-1182302.cif,Move atom at index 33 by [-2.29417238  0.00472122  2.1425131 ] in the cif file.,output_cifs\move_atom_action\mp-1182302_processed.cif
+input_cifs\mp-1182516.cif,Move atom at index 5 by [-0.56135747 -0.0869772   4.24486611] in the cif file.,output_cifs\move_atom_action\mp-1182516_processed.cif
+input_cifs\mp-1182952.cif,Move atom at index 2 by [ 1.38795847  1.23474311 -1.99281563] in the cif file.,output_cifs\move_atom_action\mp-1182952_processed.cif
+input_cifs\mp-1182993.cif,Move atom at index 39 by [ 0.54377614  1.93303724 -0.09135206] in the cif file.,output_cifs\move_atom_action\mp-1182993_processed.cif
+input_cifs\mp-1185691.cif,Move atom at index 11 by [ 0.40225553 -0.03466356  0.36489672] in the cif file.,output_cifs\move_atom_action\mp-1185691_processed.cif
+input_cifs\mp-1185729.cif,Move atom at index 18 by [-0.60604933 -3.47319918 -0.60213634] in the cif file.,output_cifs\move_atom_action\mp-1185729_processed.cif
+input_cifs\mp-1185730.cif,Move atom at index 6 by [ 0.01965647  3.2561804  -0.01993128] in the cif file.,output_cifs\move_atom_action\mp-1185730_processed.cif
+input_cifs\mp-1186069.cif,Move atom at index 1 by [-0.97961375  4.39823083  0.62914235] in the cif file.,output_cifs\move_atom_action\mp-1186069_processed.cif
+input_cifs\mp-1188168.cif,Move atom at index 9 by [ 2.10443982  1.14264301 -1.46496576] in the cif file.,output_cifs\move_atom_action\mp-1188168_processed.cif
+input_cifs\mp-1188839.cif,Move atom at index 5 by [-0.65552165 -1.89682387  0.82557961] in the cif file.,output_cifs\move_atom_action\mp-1188839_processed.cif
+input_cifs\mp-1189137.cif,Move atom at index 1 by [ 2.01145709 -0.68897833  1.08720946] in the cif file.,output_cifs\move_atom_action\mp-1189137_processed.cif
+input_cifs\mp-1189325.cif,Move atom at index 3 by [-2.04136271  0.25119004 -1.55621684] in the cif file.,output_cifs\move_atom_action\mp-1189325_processed.cif
+input_cifs\mp-1189617.cif,Move atom at index 0 by [-3.59848785 -2.165798   -2.03596093] in the cif file.,output_cifs\move_atom_action\mp-1189617_processed.cif
+input_cifs\mp-1190360.cif,Move atom at index 23 by [ 2.2147905   0.27574733 -2.00080226] in the cif file.,output_cifs\move_atom_action\mp-1190360_processed.cif
+input_cifs\mp-1190450.cif,Move atom at index 21 by [ 1.35619292 -2.30446357 -0.33956465] in the cif file.,output_cifs\move_atom_action\mp-1190450_processed.cif
+input_cifs\mp-1190471.cif,Move atom at index 17 by [ 1.01941661 -2.90877897  0.03827785] in the cif file.,output_cifs\move_atom_action\mp-1190471_processed.cif
+input_cifs\mp-1190593.cif,Move atom at index 1 by [ 1.98057576 -1.61866372 -0.53483749] in the cif file.,output_cifs\move_atom_action\mp-1190593_processed.cif
+input_cifs\mp-1190765.cif,Move atom at index 9 by [ 3.91732149 -3.0460524  -1.78879504] in the cif file.,output_cifs\move_atom_action\mp-1190765_processed.cif
+input_cifs\mp-1190906.cif,Move atom at index 8 by [ 0.27419886  1.5683874  -0.72940379] in the cif file.,output_cifs\move_atom_action\mp-1190906_processed.cif
+input_cifs\mp-1191263.cif,Move atom at index 13 by [-1.6903238   0.91929838 -0.59573899] in the cif file.,output_cifs\move_atom_action\mp-1191263_processed.cif
+input_cifs\mp-1191575.cif,Move atom at index 13 by [0.32337943 1.7688822  0.11979148] in the cif file.,output_cifs\move_atom_action\mp-1191575_processed.cif
+input_cifs\mp-1191633.cif,Move atom at index 21 by [ 1.81404535  2.07372312 -1.27730897] in the cif file.,output_cifs\move_atom_action\mp-1191633_processed.cif
+input_cifs\mp-1191681.cif,Move atom at index 8 by [-0.65286181  2.29506382  2.51824378] in the cif file.,output_cifs\move_atom_action\mp-1191681_processed.cif
+input_cifs\mp-1192077.cif,Move atom at index 17 by [ 1.88226164 -0.83197675 -0.82188813] in the cif file.,output_cifs\move_atom_action\mp-1192077_processed.cif
+input_cifs\mp-1192111.cif,Move atom at index 8 by [-2.48368803  1.39552449 -0.76381779] in the cif file.,output_cifs\move_atom_action\mp-1192111_processed.cif
+input_cifs\mp-1192527.cif,Move atom at index 20 by [-2.0006117   3.88950466  0.51947722] in the cif file.,output_cifs\move_atom_action\mp-1192527_processed.cif
+input_cifs\mp-1192550.cif,Move atom at index 16 by [4.66837944 1.13638286 1.03881682] in the cif file.,output_cifs\move_atom_action\mp-1192550_processed.cif
+input_cifs\mp-1192556.cif,Move atom at index 15 by [-0.97326754  0.48909472 -1.81463228] in the cif file.,output_cifs\move_atom_action\mp-1192556_processed.cif
+input_cifs\mp-1192588.cif,Move atom at index 24 by [-4.03744417 -0.5493607   4.02661939] in the cif file.,output_cifs\move_atom_action\mp-1192588_processed.cif
+input_cifs\mp-1192755.cif,Move atom at index 8 by [-1.47396647  0.26049633  1.89721723] in the cif file.,output_cifs\move_atom_action\mp-1192755_processed.cif
+input_cifs\mp-1192984.cif,Move atom at index 14 by [1.02330667 0.64267979 0.95629982] in the cif file.,output_cifs\move_atom_action\mp-1192984_processed.cif
+input_cifs\mp-1193276.cif,Move atom at index 8 by [-5.60906344  1.31708902  0.05871359] in the cif file.,output_cifs\move_atom_action\mp-1193276_processed.cif
+input_cifs\mp-1193461.cif,Move atom at index 15 by [2.98398937 0.14502583 1.59749386] in the cif file.,output_cifs\move_atom_action\mp-1193461_processed.cif
+input_cifs\mp-1193658.cif,Move atom at index 14 by [ 0.63492712  1.14751155 -0.25362263] in the cif file.,output_cifs\move_atom_action\mp-1193658_processed.cif
+input_cifs\mp-1193669.cif,Move atom at index 6 by [-2.34108331 -2.56632386 -2.21927046] in the cif file.,output_cifs\move_atom_action\mp-1193669_processed.cif
+input_cifs\mp-1193753.cif,Move atom at index 3 by [ 0.99642883 -0.67481338 -0.35622824] in the cif file.,output_cifs\move_atom_action\mp-1193753_processed.cif
+input_cifs\mp-1194315.cif,Move atom at index 6 by [-3.41346838  0.78526903 -1.42265581] in the cif file.,output_cifs\move_atom_action\mp-1194315_processed.cif
+input_cifs\mp-1194467.cif,Move atom at index 6 by [-1.87184571  0.05496663  1.02154866] in the cif file.,output_cifs\move_atom_action\mp-1194467_processed.cif
+input_cifs\mp-1194648.cif,Move atom at index 22 by [ 0.27576409  0.47431756 -2.11283797] in the cif file.,output_cifs\move_atom_action\mp-1194648_processed.cif
+input_cifs\mp-1194808.cif,Move atom at index 37 by [ 0.79732636 -1.90556721  0.74512963] in the cif file.,output_cifs\move_atom_action\mp-1194808_processed.cif
+input_cifs\mp-1194897.cif,Move atom at index 14 by [-1.2095727   0.48321618 -1.35544426] in the cif file.,output_cifs\move_atom_action\mp-1194897_processed.cif
+input_cifs\mp-1194954.cif,Move atom at index 31 by [ 0.94208286 -1.6451515   0.42792807] in the cif file.,output_cifs\move_atom_action\mp-1194954_processed.cif
+input_cifs\mp-1195087.cif,Move atom at index 29 by [-0.50115337 -0.54341065  0.95920142] in the cif file.,output_cifs\move_atom_action\mp-1195087_processed.cif
+input_cifs\mp-1195106.cif,Move atom at index 39 by [ 0.94665456  0.73688536 -1.68005466] in the cif file.,output_cifs\move_atom_action\mp-1195106_processed.cif
+input_cifs\mp-1195319.cif,Move atom at index 20 by [-3.32093139 -0.68866366 -2.41147332] in the cif file.,output_cifs\move_atom_action\mp-1195319_processed.cif
+input_cifs\mp-1195337.cif,Move atom at index 35 by [-1.78731923 -2.59504393  2.14295898] in the cif file.,output_cifs\move_atom_action\mp-1195337_processed.cif
+input_cifs\mp-1195540.cif,Move atom at index 15 by [-1.1129224   0.70534061 -2.14350943] in the cif file.,output_cifs\move_atom_action\mp-1195540_processed.cif
+input_cifs\mp-1195827.cif,Move atom at index 33 by [1.6781379  1.64803818 2.0950989 ] in the cif file.,output_cifs\move_atom_action\mp-1195827_processed.cif
+input_cifs\mp-1195929.cif,Move atom at index 33 by [-0.20468804  3.31050433  0.27703286] in the cif file.,output_cifs\move_atom_action\mp-1195929_processed.cif
+input_cifs\mp-1195965.cif,Move atom at index 24 by [-2.93729635  3.31930921  2.54261802] in the cif file.,output_cifs\move_atom_action\mp-1195965_processed.cif
+input_cifs\mp-1195967.cif,Move atom at index 18 by [ 2.13237791 -1.81783423 -3.86540724] in the cif file.,output_cifs\move_atom_action\mp-1195967_processed.cif
+input_cifs\mp-1196244.cif,Move atom at index 65 by [0.83275334 1.45177379 0.54467307] in the cif file.,output_cifs\move_atom_action\mp-1196244_processed.cif
+input_cifs\mp-1196468.cif,Move atom at index 49 by [ 2.94149789 -2.10835219 -1.06349211] in the cif file.,output_cifs\move_atom_action\mp-1196468_processed.cif
+input_cifs\mp-1196513.cif,Move atom at index 13 by [-1.20041247  1.93042305 -2.13090366] in the cif file.,output_cifs\move_atom_action\mp-1196513_processed.cif
+input_cifs\mp-1196514.cif,Move atom at index 2 by [-0.27998549 -0.09525823 -0.31341674] in the cif file.,output_cifs\move_atom_action\mp-1196514_processed.cif
+input_cifs\mp-1197108.cif,Move atom at index 11 by [ 0.00123098 -0.43654164 -0.68491741] in the cif file.,output_cifs\move_atom_action\mp-1197108_processed.cif
+input_cifs\mp-1197227.cif,Move atom at index 13 by [ 0.68620651 -0.28016803  1.52304536] in the cif file.,output_cifs\move_atom_action\mp-1197227_processed.cif
+input_cifs\mp-1197238.cif,Move atom at index 21 by [-2.27071753  0.61979513  2.32690717] in the cif file.,output_cifs\move_atom_action\mp-1197238_processed.cif
+input_cifs\mp-1197636.cif,Move atom at index 1 by [ 0.435626   -0.82522198  1.91180714] in the cif file.,output_cifs\move_atom_action\mp-1197636_processed.cif
+input_cifs\mp-1197877.cif,Move atom at index 2 by [ 1.45733974 -1.63664806 -4.17950619] in the cif file.,output_cifs\move_atom_action\mp-1197877_processed.cif
+input_cifs\mp-1198057.cif,Move atom at index 27 by [-1.38993902 -2.60139892  0.36329336] in the cif file.,output_cifs\move_atom_action\mp-1198057_processed.cif
+input_cifs\mp-1198140.cif,Move atom at index 31 by [-0.89416096 -2.36561389  1.06096526] in the cif file.,output_cifs\move_atom_action\mp-1198140_processed.cif
+input_cifs\mp-1198411.cif,Move atom at index 44 by [-1.3029661  -2.29020776 -1.38184465] in the cif file.,output_cifs\move_atom_action\mp-1198411_processed.cif
+input_cifs\mp-1198574.cif,Move atom at index 4 by [-3.72632609 -0.577011   -0.85355899] in the cif file.,output_cifs\move_atom_action\mp-1198574_processed.cif
+input_cifs\mp-1198593.cif,Move atom at index 53 by [ 1.63844052  0.97535513 -0.34211536] in the cif file.,output_cifs\move_atom_action\mp-1198593_processed.cif
+input_cifs\mp-1198603.cif,Move atom at index 26 by [ 1.60479635  0.04971513 -0.49992531] in the cif file.,output_cifs\move_atom_action\mp-1198603_processed.cif
+input_cifs\mp-1198841.cif,Move atom at index 45 by [-0.20124365 -0.91800855 -0.14281248] in the cif file.,output_cifs\move_atom_action\mp-1198841_processed.cif
+input_cifs\mp-1199018.cif,Move atom at index 63 by [-0.340146   -0.88185738  2.64741188] in the cif file.,output_cifs\move_atom_action\mp-1199018_processed.cif
+input_cifs\mp-1199088.cif,Move atom at index 5 by [0.98745956 2.31688689 1.90317031] in the cif file.,output_cifs\move_atom_action\mp-1199088_processed.cif
+input_cifs\mp-1199566.cif,Move atom at index 25 by [3.01567087 2.76997194 2.68857787] in the cif file.,output_cifs\move_atom_action\mp-1199566_processed.cif
+input_cifs\mp-1199672.cif,Move atom at index 21 by [ 0.27700018  1.00660052 -1.25041442] in the cif file.,output_cifs\move_atom_action\mp-1199672_processed.cif
+input_cifs\mp-1200359.cif,Move atom at index 9 by [ 0.28708282 -2.00868837  1.38476721] in the cif file.,output_cifs\move_atom_action\mp-1200359_processed.cif
+input_cifs\mp-1200542.cif,Move atom at index 40 by [-0.03976046 -1.56251265  2.09202348] in the cif file.,output_cifs\move_atom_action\mp-1200542_processed.cif
+input_cifs\mp-1200692.cif,Move atom at index 24 by [-2.17968022  0.40424007  1.494682  ] in the cif file.,output_cifs\move_atom_action\mp-1200692_processed.cif
+input_cifs\mp-1200758.cif,Move atom at index 25 by [-3.4039386   1.58106186 -2.22290089] in the cif file.,output_cifs\move_atom_action\mp-1200758_processed.cif
+input_cifs\mp-1201497.cif,Move atom at index 2 by [-1.91833284  4.58174203 -0.0551104 ] in the cif file.,output_cifs\move_atom_action\mp-1201497_processed.cif
+input_cifs\mp-1201607.cif,Move atom at index 6 by [0.83953547 0.63867935 1.48640209] in the cif file.,output_cifs\move_atom_action\mp-1201607_processed.cif
+input_cifs\mp-1201876.cif,Move atom at index 23 by [-3.45018126  1.86027693 -0.8803627 ] in the cif file.,output_cifs\move_atom_action\mp-1201876_processed.cif
+input_cifs\mp-1201895.cif,Move atom at index 0 by [-2.147948    2.23296295  1.91176014] in the cif file.,output_cifs\move_atom_action\mp-1201895_processed.cif
+input_cifs\mp-1202389.cif,Move atom at index 7 by [-0.65758208  2.23956307  0.07905909] in the cif file.,output_cifs\move_atom_action\mp-1202389_processed.cif
+input_cifs\mp-1202709.cif,Move atom at index 9 by [-0.14202644 -1.11883404  3.40862329] in the cif file.,output_cifs\move_atom_action\mp-1202709_processed.cif
+input_cifs\mp-1202898.cif,Move atom at index 23 by [-0.95194931  0.05595556 -4.009381  ] in the cif file.,output_cifs\move_atom_action\mp-1202898_processed.cif
+input_cifs\mp-1202901.cif,Move atom at index 43 by [ 2.62052317  1.0198548  -3.67055952] in the cif file.,output_cifs\move_atom_action\mp-1202901_processed.cif
+input_cifs\mp-1203035.cif,Move atom at index 6 by [-2.92900026 -1.26441584  2.69095094] in the cif file.,output_cifs\move_atom_action\mp-1203035_processed.cif
+input_cifs\mp-1203146.cif,Move atom at index 20 by [ 4.03270502 -3.22970593  0.47662555] in the cif file.,output_cifs\move_atom_action\mp-1203146_processed.cif
+input_cifs\mp-1203196.cif,Move atom at index 3 by [1.67377093 1.90136812 0.82556274] in the cif file.,output_cifs\move_atom_action\mp-1203196_processed.cif
+input_cifs\mp-1203220.cif,Move atom at index 35 by [ 0.1364875  -1.51990085 -0.54007648] in the cif file.,output_cifs\move_atom_action\mp-1203220_processed.cif
+input_cifs\mp-1203746.cif,Move atom at index 49 by [ 3.94356045 -0.02969158 -4.58196701] in the cif file.,output_cifs\move_atom_action\mp-1203746_processed.cif
+input_cifs\mp-1203808.cif,Move atom at index 0 by [ 0.5250555   2.59216113 -2.14662476] in the cif file.,output_cifs\move_atom_action\mp-1203808_processed.cif
+input_cifs\mp-1203996.cif,Move atom at index 46 by [-2.67526187 -5.49720864 -1.53463581] in the cif file.,output_cifs\move_atom_action\mp-1203996_processed.cif
+input_cifs\mp-1204064.cif,Move atom at index 47 by [-5.12156456 -0.65145764  0.92524587] in the cif file.,output_cifs\move_atom_action\mp-1204064_processed.cif
+input_cifs\mp-1204087.cif,Move atom at index 11 by [-0.45305254 -3.75183182 -2.24616404] in the cif file.,output_cifs\move_atom_action\mp-1204087_processed.cif
+input_cifs\mp-1204178.cif,Move atom at index 2 by [0.58882262 2.83700238 1.07464148] in the cif file.,output_cifs\move_atom_action\mp-1204178_processed.cif
+input_cifs\mp-1204195.cif,Move atom at index 52 by [ 2.65946971 -1.20407366  0.21264858] in the cif file.,output_cifs\move_atom_action\mp-1204195_processed.cif
+input_cifs\mp-1204482.cif,Move atom at index 12 by [ 0.89773131  0.92948583 -0.22762092] in the cif file.,output_cifs\move_atom_action\mp-1204482_processed.cif
+input_cifs\mp-1204573.cif,Move atom at index 57 by [ 0.26730169 -0.82465752 -0.52796893] in the cif file.,output_cifs\move_atom_action\mp-1204573_processed.cif
+input_cifs\mp-1204620.cif,Move atom at index 57 by [-0.19692603  0.18770196 -0.74168913] in the cif file.,output_cifs\move_atom_action\mp-1204620_processed.cif
+input_cifs\mp-1204800.cif,Move atom at index 9 by [ 2.96410829 -0.18889773 -0.53346245] in the cif file.,output_cifs\move_atom_action\mp-1204800_processed.cif
+input_cifs\mp-1205388.cif,Move atom at index 10 by [ 1.10685114 -1.01952736 -1.51451209] in the cif file.,output_cifs\move_atom_action\mp-1205388_processed.cif
+input_cifs\mp-1205391.cif,Move atom at index 15 by [3.43452843 0.00463892 3.18328843] in the cif file.,output_cifs\move_atom_action\mp-1205391_processed.cif
+input_cifs\mp-1205393.cif,Move atom at index 8 by [2.44944194 2.8481627  5.83527645] in the cif file.,output_cifs\move_atom_action\mp-1205393_processed.cif
+input_cifs\mp-1205503.cif,Move atom at index 0 by [-3.80814395  0.40875999  3.87003364] in the cif file.,output_cifs\move_atom_action\mp-1205503_processed.cif
+input_cifs\mp-1205523.cif,Move atom at index 5 by [-0.34428141 -0.74944276 -2.00670103] in the cif file.,output_cifs\move_atom_action\mp-1205523_processed.cif
+input_cifs\mp-1205660.cif,Move atom at index 7 by [-0.36979943 -1.91123909  2.83234056] in the cif file.,output_cifs\move_atom_action\mp-1205660_processed.cif
+input_cifs\mp-1205745.cif,Move atom at index 4 by [ 0.0168895   0.63838979 -0.90106614] in the cif file.,output_cifs\move_atom_action\mp-1205745_processed.cif
+input_cifs\mp-1205771.cif,Move atom at index 8 by [ 2.35853186  1.23138315 -0.29167264] in the cif file.,output_cifs\move_atom_action\mp-1205771_processed.cif
+input_cifs\mp-1206201.cif,Move atom at index 2 by [-0.78074102 -1.31116031  0.99013226] in the cif file.,output_cifs\move_atom_action\mp-1206201_processed.cif
+input_cifs\mp-1206250.cif,Move atom at index 9 by [ 1.88692696  0.95807923 -3.01461253] in the cif file.,output_cifs\move_atom_action\mp-1206250_processed.cif
+input_cifs\mp-1206569.cif,Move atom at index 5 by [ 0.35051674 -1.49463682  0.88704926] in the cif file.,output_cifs\move_atom_action\mp-1206569_processed.cif
+input_cifs\mp-1206737.cif,Move atom at index 7 by [0.71209903 0.11988787 1.75628982] in the cif file.,output_cifs\move_atom_action\mp-1206737_processed.cif
+input_cifs\mp-1207144.cif,Move atom at index 8 by [-0.44273879  2.82782209  4.49286947] in the cif file.,output_cifs\move_atom_action\mp-1207144_processed.cif
+input_cifs\mp-1207398.cif,Move atom at index 5 by [-0.67315214  0.63121003 -1.38251073] in the cif file.,output_cifs\move_atom_action\mp-1207398_processed.cif
+input_cifs\mp-1207522.cif,Move atom at index 12 by [ 1.0367398   0.85531406 -0.73725288] in the cif file.,output_cifs\move_atom_action\mp-1207522_processed.cif
+input_cifs\mp-1207549.cif,Move atom at index 1 by [0.33582567 1.79207587 0.54480396] in the cif file.,output_cifs\move_atom_action\mp-1207549_processed.cif
+input_cifs\mp-1207596.cif,Move atom at index 10 by [ 2.8337672   0.09177608 -0.82765795] in the cif file.,output_cifs\move_atom_action\mp-1207596_processed.cif
+input_cifs\mp-1207733.cif,Move atom at index 6 by [-0.32551274  1.44000734  0.36153125] in the cif file.,output_cifs\move_atom_action\mp-1207733_processed.cif
+input_cifs\mp-1207797.cif,Move atom at index 3 by [ 1.50114473 -3.24278461 -1.05234372] in the cif file.,output_cifs\move_atom_action\mp-1207797_processed.cif
+input_cifs\mp-1207993.cif,Move atom at index 2 by [-0.46963679 -2.59381525 -2.21916015] in the cif file.,output_cifs\move_atom_action\mp-1207993_processed.cif
+input_cifs\mp-1208058.cif,Move atom at index 8 by [-0.58276768  2.16596983  1.00066769] in the cif file.,output_cifs\move_atom_action\mp-1208058_processed.cif
+input_cifs\mp-1208219.cif,Move atom at index 6 by [0.77211837 1.37395474 0.05578144] in the cif file.,output_cifs\move_atom_action\mp-1208219_processed.cif
+input_cifs\mp-1208275.cif,Move atom at index 27 by [-1.67096131 -1.42883502 -0.51780566] in the cif file.,output_cifs\move_atom_action\mp-1208275_processed.cif
+input_cifs\mp-1208331.cif,Move atom at index 1 by [3.0782192  3.40840375 0.75722119] in the cif file.,output_cifs\move_atom_action\mp-1208331_processed.cif
+input_cifs\mp-1208361.cif,Move atom at index 17 by [-0.65060053  0.12907629 -1.06400509] in the cif file.,output_cifs\move_atom_action\mp-1208361_processed.cif
+input_cifs\mp-1208425.cif,Move atom at index 2 by [-1.52364748 -2.49022727  1.85567939] in the cif file.,output_cifs\move_atom_action\mp-1208425_processed.cif
+input_cifs\mp-1208879.cif,Move atom at index 3 by [-0.12810075  1.23086036  0.94471702] in the cif file.,output_cifs\move_atom_action\mp-1208879_processed.cif
+input_cifs\mp-1209036.cif,Move atom at index 3 by [-1.75513909 -1.27162538  2.1328275 ] in the cif file.,output_cifs\move_atom_action\mp-1209036_processed.cif
+input_cifs\mp-1209206.cif,Move atom at index 24 by [-0.04637013  2.19103706  1.89893687] in the cif file.,output_cifs\move_atom_action\mp-1209206_processed.cif
+input_cifs\mp-1209348.cif,Move atom at index 11 by [2.42152811 2.07801911 0.21620069] in the cif file.,output_cifs\move_atom_action\mp-1209348_processed.cif
+input_cifs\mp-1209483.cif,Move atom at index 6 by [-0.22719508  2.82698071 -0.88628375] in the cif file.,output_cifs\move_atom_action\mp-1209483_processed.cif
+input_cifs\mp-1209534.cif,Move atom at index 40 by [ 0.69233276  0.64758828 -1.77070823] in the cif file.,output_cifs\move_atom_action\mp-1209534_processed.cif
+input_cifs\mp-1209695.cif,Move atom at index 52 by [-0.91587822 -1.06129425  0.52928662] in the cif file.,output_cifs\move_atom_action\mp-1209695_processed.cif
+input_cifs\mp-1210015.cif,Move atom at index 1 by [-0.39212634  0.38691552 -0.20328508] in the cif file.,output_cifs\move_atom_action\mp-1210015_processed.cif
+input_cifs\mp-1210035.cif,Move atom at index 7 by [-0.85175128 -2.02375412  4.07795109] in the cif file.,output_cifs\move_atom_action\mp-1210035_processed.cif
+input_cifs\mp-1210161.cif,Move atom at index 20 by [ 0.92369287  2.16679914 -0.01637139] in the cif file.,output_cifs\move_atom_action\mp-1210161_processed.cif
+input_cifs\mp-1210237.cif,Move atom at index 9 by [0.8596565  1.13494656 0.42762709] in the cif file.,output_cifs\move_atom_action\mp-1210237_processed.cif
+input_cifs\mp-1210462.cif,Move atom at index 5 by [-1.17886854  1.20026299  1.67056645] in the cif file.,output_cifs\move_atom_action\mp-1210462_processed.cif
+input_cifs\mp-1210502.cif,Move atom at index 21 by [0.78467699 3.0205139  0.39936623] in the cif file.,output_cifs\move_atom_action\mp-1210502_processed.cif
+input_cifs\mp-1210518.cif,Move atom at index 0 by [-2.42707516  3.81838743 -0.684731  ] in the cif file.,output_cifs\move_atom_action\mp-1210518_processed.cif
+input_cifs\mp-1210584.cif,Move atom at index 12 by [-2.00348027 -3.6235294   1.27330096] in the cif file.,output_cifs\move_atom_action\mp-1210584_processed.cif
+input_cifs\mp-1211181.cif,Move atom at index 2 by [ 1.94755262 -1.04930785  2.98754937] in the cif file.,output_cifs\move_atom_action\mp-1211181_processed.cif
+input_cifs\mp-1211192.cif,Move atom at index 14 by [-0.1639796   0.70475816  2.10500156] in the cif file.,output_cifs\move_atom_action\mp-1211192_processed.cif
+input_cifs\mp-1211198.cif,Move atom at index 12 by [ 0.69471502 -4.07284729  0.28907379] in the cif file.,output_cifs\move_atom_action\mp-1211198_processed.cif
+input_cifs\mp-1211303.cif,Move atom at index 13 by [-0.84975138 -1.42322975  1.70757096] in the cif file.,output_cifs\move_atom_action\mp-1211303_processed.cif
+input_cifs\mp-1211402.cif,Move atom at index 18 by [-1.49367056  0.61126932 -0.15240046] in the cif file.,output_cifs\move_atom_action\mp-1211402_processed.cif
+input_cifs\mp-1211546.cif,Move atom at index 34 by [-2.50757825  0.72332572  0.0675312 ] in the cif file.,output_cifs\move_atom_action\mp-1211546_processed.cif
+input_cifs\mp-1211686.cif,Move atom at index 12 by [-0.89205339 -1.23588147 -0.15950293] in the cif file.,output_cifs\move_atom_action\mp-1211686_processed.cif
+input_cifs\mp-1211861.cif,Move atom at index 22 by [-1.28902831 -0.54614424 -3.903417  ] in the cif file.,output_cifs\move_atom_action\mp-1211861_processed.cif
+input_cifs\mp-1211971.cif,Move atom at index 39 by [-2.75661548 -3.63806484 -1.88635014] in the cif file.,output_cifs\move_atom_action\mp-1211971_processed.cif
+input_cifs\mp-1212118.cif,Move atom at index 1 by [ 0.46620242  0.3607235  -0.42795696] in the cif file.,output_cifs\move_atom_action\mp-1212118_processed.cif
+input_cifs\mp-1212387.cif,Move atom at index 7 by [-0.04348406  0.70318988  1.57621946] in the cif file.,output_cifs\move_atom_action\mp-1212387_processed.cif
+input_cifs\mp-1212504.cif,Move atom at index 18 by [-4.26683392 -2.82628422 -0.33176096] in the cif file.,output_cifs\move_atom_action\mp-1212504_processed.cif
+input_cifs\mp-1212600.cif,Move atom at index 19 by [ 0.24049188 -0.0382139  -3.06349139] in the cif file.,output_cifs\move_atom_action\mp-1212600_processed.cif
+input_cifs\mp-1212621.cif,Move atom at index 32 by [-2.51108151  0.3954747  -1.96255945] in the cif file.,output_cifs\move_atom_action\mp-1212621_processed.cif
+input_cifs\mp-1212645.cif,Move atom at index 0 by [-0.73442821 -2.25908827  0.45375947] in the cif file.,output_cifs\move_atom_action\mp-1212645_processed.cif
+input_cifs\mp-1212670.cif,Move atom at index 7 by [ 1.10904023 -3.64666447 -1.0893529 ] in the cif file.,output_cifs\move_atom_action\mp-1212670_processed.cif
+input_cifs\mp-1212757.cif,Move atom at index 9 by [ 0.34029198  0.9771247  -0.08831824] in the cif file.,output_cifs\move_atom_action\mp-1212757_processed.cif
+input_cifs\mp-1213080.cif,Move atom at index 14 by [ 0.39790747  0.39674099 -0.59493742] in the cif file.,output_cifs\move_atom_action\mp-1213080_processed.cif
+input_cifs\mp-1213206.cif,Move atom at index 5 by [ 2.4887677   2.36528937 -2.14542152] in the cif file.,output_cifs\move_atom_action\mp-1213206_processed.cif
+input_cifs\mp-1213529.cif,Move atom at index 23 by [-1.04580079  0.35720832 -0.83990232] in the cif file.,output_cifs\move_atom_action\mp-1213529_processed.cif
+input_cifs\mp-1213562.cif,Move atom at index 27 by [ 2.8472874   2.88983951 -1.73699557] in the cif file.,output_cifs\move_atom_action\mp-1213562_processed.cif
+input_cifs\mp-1213790.cif,Move atom at index 13 by [-0.09898879  2.83986859  1.17707338] in the cif file.,output_cifs\move_atom_action\mp-1213790_processed.cif
+input_cifs\mp-1214336.cif,Move atom at index 9 by [-1.58062795 -3.7696286  -2.70576719] in the cif file.,output_cifs\move_atom_action\mp-1214336_processed.cif
+input_cifs\mp-1214464.cif,Move atom at index 27 by [-1.85166087 -1.70145016 -3.88307389] in the cif file.,output_cifs\move_atom_action\mp-1214464_processed.cif
+input_cifs\mp-1214610.cif,Move atom at index 12 by [-3.80792094 -0.32084796  0.58031453] in the cif file.,output_cifs\move_atom_action\mp-1214610_processed.cif
+input_cifs\mp-1214788.cif,Move atom at index 22 by [-2.74429624 -2.02193371  2.00239799] in the cif file.,output_cifs\move_atom_action\mp-1214788_processed.cif
+input_cifs\mp-1214890.cif,Move atom at index 26 by [-1.53874871 -0.85711366  0.29379313] in the cif file.,output_cifs\move_atom_action\mp-1214890_processed.cif
+input_cifs\mp-1214936.cif,Move atom at index 66 by [0.8671553  1.60918875 0.65644906] in the cif file.,output_cifs\move_atom_action\mp-1214936_processed.cif
+input_cifs\mp-1215141.cif,Move atom at index 11 by [-0.06913233 -0.93437588  2.04875505] in the cif file.,output_cifs\move_atom_action\mp-1215141_processed.cif
+input_cifs\mp-1215289.cif,Move atom at index 12 by [ 1.76660198 -0.14342396  0.50033967] in the cif file.,output_cifs\move_atom_action\mp-1215289_processed.cif
+input_cifs\mp-1215601.cif,Move atom at index 4 by [ 0.6359367   1.55534864 -5.05059404] in the cif file.,output_cifs\move_atom_action\mp-1215601_processed.cif
+input_cifs\mp-1215607.cif,Move atom at index 6 by [-0.79496235  0.63718553 -2.34797685] in the cif file.,output_cifs\move_atom_action\mp-1215607_processed.cif
+input_cifs\mp-1215624.cif,Move atom at index 2 by [ 2.77647009 -0.92816996 -1.16648749] in the cif file.,output_cifs\move_atom_action\mp-1215624_processed.cif
+input_cifs\mp-1215653.cif,Move atom at index 23 by [-2.56597211  1.85818665  0.57155004] in the cif file.,output_cifs\move_atom_action\mp-1215653_processed.cif
+input_cifs\mp-1215929.cif,Move atom at index 0 by [-1.46579202  1.94525239 -5.63384864] in the cif file.,output_cifs\move_atom_action\mp-1215929_processed.cif
+input_cifs\mp-1216177.cif,Move atom at index 13 by [-0.76870145 -3.1712592   0.59018392] in the cif file.,output_cifs\move_atom_action\mp-1216177_processed.cif
+input_cifs\mp-1216179.cif,Move atom at index 4 by [ 1.83899168  1.50458215 -1.32281235] in the cif file.,output_cifs\move_atom_action\mp-1216179_processed.cif
+input_cifs\mp-1216787.cif,Move atom at index 1 by [ 0.45991885 -2.315758   -0.16115486] in the cif file.,output_cifs\move_atom_action\mp-1216787_processed.cif
+input_cifs\mp-1216925.cif,Move atom at index 11 by [ 0.54125033 -1.94027459  3.31229655] in the cif file.,output_cifs\move_atom_action\mp-1216925_processed.cif
+input_cifs\mp-1217133.cif,Move atom at index 2 by [-0.3927182  -3.50188032  2.64281903] in the cif file.,output_cifs\move_atom_action\mp-1217133_processed.cif
+input_cifs\mp-1217420.cif,Move atom at index 7 by [-3.92923857 -4.49104136  3.815274  ] in the cif file.,output_cifs\move_atom_action\mp-1217420_processed.cif
+input_cifs\mp-1217464.cif,Move atom at index 9 by [2.01126819 1.07703148 0.05579017] in the cif file.,output_cifs\move_atom_action\mp-1217464_processed.cif
+input_cifs\mp-1217479.cif,Move atom at index 33 by [-0.34904089  6.6559308  -4.49115268] in the cif file.,output_cifs\move_atom_action\mp-1217479_processed.cif
+input_cifs\mp-1217682.cif,Move atom at index 5 by [ 0.16132246  3.21104152 -3.32463814] in the cif file.,output_cifs\move_atom_action\mp-1217682_processed.cif
+input_cifs\mp-1217834.cif,Move atom at index 5 by [ 1.62428519 -0.24179276 -0.85620485] in the cif file.,output_cifs\move_atom_action\mp-1217834_processed.cif
+input_cifs\mp-1218011.cif,Move atom at index 7 by [ 1.191732   -1.4069312  -1.86219344] in the cif file.,output_cifs\move_atom_action\mp-1218011_processed.cif
+input_cifs\mp-1218423.cif,Move atom at index 19 by [-1.98891663 -3.67920351  0.82122838] in the cif file.,output_cifs\move_atom_action\mp-1218423_processed.cif
+input_cifs\mp-1218682.cif,Move atom at index 37 by [-0.56563241 -0.46622265  3.73840499] in the cif file.,output_cifs\move_atom_action\mp-1218682_processed.cif
+input_cifs\mp-1218922.cif,Move atom at index 2 by [-0.56185395 -2.48325669 -0.99249554] in the cif file.,output_cifs\move_atom_action\mp-1218922_processed.cif
+input_cifs\mp-1219071.cif,Move atom at index 13 by [-3.99237612 -1.51031355 -1.71715366] in the cif file.,output_cifs\move_atom_action\mp-1219071_processed.cif
+input_cifs\mp-1219127.cif,Move atom at index 4 by [ 2.64454855  3.25357026 -2.044511  ] in the cif file.,output_cifs\move_atom_action\mp-1219127_processed.cif
+input_cifs\mp-1219578.cif,Move atom at index 9 by [ 0.27397935 -1.50870847  1.17812098] in the cif file.,output_cifs\move_atom_action\mp-1219578_processed.cif
+input_cifs\mp-1219615.cif,Move atom at index 7 by [ 0.8565577  -5.19389691 -1.44505873] in the cif file.,output_cifs\move_atom_action\mp-1219615_processed.cif
+input_cifs\mp-1219892.cif,Move atom at index 17 by [-4.47667863  0.36657451 -5.17306357] in the cif file.,output_cifs\move_atom_action\mp-1219892_processed.cif
+input_cifs\mp-1219893.cif,Move atom at index 5 by [ 2.19313138 -2.55399637  1.74236027] in the cif file.,output_cifs\move_atom_action\mp-1219893_processed.cif
+input_cifs\mp-1220065.cif,Move atom at index 27 by [-1.77264405 -2.0949657   0.05431107] in the cif file.,output_cifs\move_atom_action\mp-1220065_processed.cif
+input_cifs\mp-1220070.cif,Move atom at index 22 by [ 1.02822769 -1.00757008  1.76557435] in the cif file.,output_cifs\move_atom_action\mp-1220070_processed.cif
+input_cifs\mp-1220202.cif,Move atom at index 2 by [-1.16303642  3.22195934 -3.59798681] in the cif file.,output_cifs\move_atom_action\mp-1220202_processed.cif
+input_cifs\mp-1220419.cif,Move atom at index 10 by [-2.14734154  1.87788447  0.23942411] in the cif file.,output_cifs\move_atom_action\mp-1220419_processed.cif
+input_cifs\mp-1220444.cif,Move atom at index 7 by [ 0.8565708  -0.54851889 -1.15475335] in the cif file.,output_cifs\move_atom_action\mp-1220444_processed.cif
+input_cifs\mp-1220553.cif,Move atom at index 16 by [ 1.56841746 -1.39925843 -0.89352894] in the cif file.,output_cifs\move_atom_action\mp-1220553_processed.cif
+input_cifs\mp-1220692.cif,Move atom at index 5 by [ 3.60531799 -1.38590856 -1.48742121] in the cif file.,output_cifs\move_atom_action\mp-1220692_processed.cif
+input_cifs\mp-1220760.cif,Move atom at index 2 by [-8.09092324  1.35103577 -0.32111417] in the cif file.,output_cifs\move_atom_action\mp-1220760_processed.cif
+input_cifs\mp-1221207.cif,Move atom at index 7 by [-0.90582973  3.19878148  2.52721191] in the cif file.,output_cifs\move_atom_action\mp-1221207_processed.cif
+input_cifs\mp-1221380.cif,Move atom at index 13 by [2.11636034 0.51770226 1.6863401 ] in the cif file.,output_cifs\move_atom_action\mp-1221380_processed.cif
+input_cifs\mp-1221838.cif,Move atom at index 8 by [ 1.38862302 -0.28936109 -1.99608115] in the cif file.,output_cifs\move_atom_action\mp-1221838_processed.cif
+input_cifs\mp-1221843.cif,Move atom at index 10 by [ 0.20263    -2.986014    0.61072485] in the cif file.,output_cifs\move_atom_action\mp-1221843_processed.cif
+input_cifs\mp-1221998.cif,Move atom at index 4 by [ 1.54121564  1.62071896 -0.88303525] in the cif file.,output_cifs\move_atom_action\mp-1221998_processed.cif
+input_cifs\mp-1222146.cif,Move atom at index 12 by [ 3.09886387  2.24584038 -1.71971635] in the cif file.,output_cifs\move_atom_action\mp-1222146_processed.cif
+input_cifs\mp-1222327.cif,Move atom at index 8 by [-2.93843284 -0.54981589 -3.000956  ] in the cif file.,output_cifs\move_atom_action\mp-1222327_processed.cif
+input_cifs\mp-1222509.cif,Move atom at index 4 by [ 0.53472778 -1.98819516  0.36416989] in the cif file.,output_cifs\move_atom_action\mp-1222509_processed.cif
+input_cifs\mp-1222563.cif,Move atom at index 17 by [2.04454969 2.09204631 1.0199074 ] in the cif file.,output_cifs\move_atom_action\mp-1222563_processed.cif
+input_cifs\mp-1222827.cif,Move atom at index 0 by [-3.41105751 -1.54312216  0.02630413] in the cif file.,output_cifs\move_atom_action\mp-1222827_processed.cif
+input_cifs\mp-1223169.cif,Move atom at index 14 by [ 1.69760907  1.61544322 -0.60801701] in the cif file.,output_cifs\move_atom_action\mp-1223169_processed.cif
+input_cifs\mp-1223295.cif,Move atom at index 22 by [-1.95291241 -1.06509356  2.25567299] in the cif file.,output_cifs\move_atom_action\mp-1223295_processed.cif
+input_cifs\mp-1223429.cif,Move atom at index 38 by [ 3.99302512 -1.93035961 -1.00695273] in the cif file.,output_cifs\move_atom_action\mp-1223429_processed.cif
+input_cifs\mp-1223578.cif,Move atom at index 70 by [ 0.52198054  3.21416441 -0.37052829] in the cif file.,output_cifs\move_atom_action\mp-1223578_processed.cif
+input_cifs\mp-1223597.cif,Move atom at index 18 by [-0.66468828 -0.11660454 -1.15923817] in the cif file.,output_cifs\move_atom_action\mp-1223597_processed.cif
+input_cifs\mp-1223626.cif,Move atom at index 7 by [-0.5535547   4.85957554  0.23268299] in the cif file.,output_cifs\move_atom_action\mp-1223626_processed.cif
+input_cifs\mp-1223895.cif,Move atom at index 2 by [0.16249343 1.01736549 0.27090012] in the cif file.,output_cifs\move_atom_action\mp-1223895_processed.cif
+input_cifs\mp-1224478.cif,Move atom at index 8 by [-4.92034446  0.33222556 -2.95504424] in the cif file.,output_cifs\move_atom_action\mp-1224478_processed.cif
+input_cifs\mp-1224502.cif,Move atom at index 2 by [ 1.11318496 -0.99863851  1.85895788] in the cif file.,output_cifs\move_atom_action\mp-1224502_processed.cif
+input_cifs\mp-1225147.cif,Move atom at index 0 by [-1.14101086 -0.29264716  1.81373929] in the cif file.,output_cifs\move_atom_action\mp-1225147_processed.cif
+input_cifs\mp-1225213.cif,Move atom at index 17 by [-1.01346336  0.14534233 -2.39561508] in the cif file.,output_cifs\move_atom_action\mp-1225213_processed.cif
+input_cifs\mp-1225229.cif,Move atom at index 6 by [ 0.33021777 -0.17999947  0.00223808] in the cif file.,output_cifs\move_atom_action\mp-1225229_processed.cif
+input_cifs\mp-1225237.cif,Move atom at index 32 by [-2.27795528 -0.86956553  0.92409702] in the cif file.,output_cifs\move_atom_action\mp-1225237_processed.cif
+input_cifs\mp-1225440.cif,Move atom at index 5 by [-1.78317547  0.24576549 -1.6713574 ] in the cif file.,output_cifs\move_atom_action\mp-1225440_processed.cif
+input_cifs\mp-1225651.cif,Move atom at index 24 by [ 0.32695738  1.16437526 -0.0177395 ] in the cif file.,output_cifs\move_atom_action\mp-1225651_processed.cif
+input_cifs\mp-1225781.cif,Move atom at index 17 by [-4.39218014 -0.57754955  0.078567  ] in the cif file.,output_cifs\move_atom_action\mp-1225781_processed.cif
+input_cifs\mp-1226113.cif,Move atom at index 22 by [3.18818806 0.57737016 4.93928637] in the cif file.,output_cifs\move_atom_action\mp-1226113_processed.cif
+input_cifs\mp-1226144.cif,Move atom at index 16 by [-2.13906443 -0.26867461  1.6943666 ] in the cif file.,output_cifs\move_atom_action\mp-1226144_processed.cif
+input_cifs\mp-1226291.cif,Move atom at index 8 by [-1.16023396 -0.27901959  0.44590021] in the cif file.,output_cifs\move_atom_action\mp-1226291_processed.cif
+input_cifs\mp-1226695.cif,Move atom at index 11 by [4.0967125  2.50527602 3.33255394] in the cif file.,output_cifs\move_atom_action\mp-1226695_processed.cif
+input_cifs\mp-1227099.cif,Move atom at index 0 by [-3.13769502  2.53012993  1.84641363] in the cif file.,output_cifs\move_atom_action\mp-1227099_processed.cif
+input_cifs\mp-1227106.cif,Move atom at index 3 by [-2.35638789  1.62794299  1.626     ] in the cif file.,output_cifs\move_atom_action\mp-1227106_processed.cif
+input_cifs\mp-1227447.cif,Move atom at index 8 by [-2.95640213  1.84585118  0.19114136] in the cif file.,output_cifs\move_atom_action\mp-1227447_processed.cif
+input_cifs\mp-1227574.cif,Move atom at index 3 by [ 2.02333095  0.93819638 -0.58152836] in the cif file.,output_cifs\move_atom_action\mp-1227574_processed.cif
+input_cifs\mp-1227644.cif,Move atom at index 9 by [ 1.3973545  -2.31938277  0.45550043] in the cif file.,output_cifs\move_atom_action\mp-1227644_processed.cif
+input_cifs\mp-1227756.cif,Move atom at index 15 by [-3.17198109  2.30677016 -1.1669876 ] in the cif file.,output_cifs\move_atom_action\mp-1227756_processed.cif
+input_cifs\mp-1227836.cif,Move atom at index 6 by [ 0.21721264  0.03691111 -2.30228295] in the cif file.,output_cifs\move_atom_action\mp-1227836_processed.cif
+input_cifs\mp-1227849.cif,Move atom at index 10 by [ 1.88600005 -3.2569035   1.45721539] in the cif file.,output_cifs\move_atom_action\mp-1227849_processed.cif
+input_cifs\mp-1227954.cif,Move atom at index 19 by [ 0.65470997 -0.85912445 -3.65221699] in the cif file.,output_cifs\move_atom_action\mp-1227954_processed.cif
+input_cifs\mp-1228056.cif,Move atom at index 22 by [3.39159329 2.09275821 1.97807044] in the cif file.,output_cifs\move_atom_action\mp-1228056_processed.cif
+input_cifs\mp-1228315.cif,Move atom at index 13 by [-4.09440274  1.46964894  0.34874755] in the cif file.,output_cifs\move_atom_action\mp-1228315_processed.cif
+input_cifs\mp-1228494.cif,Move atom at index 4 by [-0.95238582  0.73815447 -3.62772209] in the cif file.,output_cifs\move_atom_action\mp-1228494_processed.cif
+input_cifs\mp-1228522.cif,Move atom at index 13 by [-0.33700138  1.47021412  1.38552823] in the cif file.,output_cifs\move_atom_action\mp-1228522_processed.cif
+input_cifs\mp-1228836.cif,Move atom at index 11 by [ 0.81934054 -3.90377107  4.64065959] in the cif file.,output_cifs\move_atom_action\mp-1228836_processed.cif
+input_cifs\mp-1229286.cif,Move atom at index 15 by [ 0.64439577 -2.79474483 -1.86016559] in the cif file.,output_cifs\move_atom_action\mp-1229286_processed.cif
+input_cifs\mp-1232260.cif,Move atom at index 18 by [-3.38840024 -2.52501574 -1.03265242] in the cif file.,output_cifs\move_atom_action\mp-1232260_processed.cif
+input_cifs\mp-1232340.cif,Move atom at index 6 by [-1.80737881  2.07649613  0.56170764] in the cif file.,output_cifs\move_atom_action\mp-1232340_processed.cif
+input_cifs\mp-1233155.cif,Move atom at index 3 by [-2.02438107 -1.43212491  1.69795862] in the cif file.,output_cifs\move_atom_action\mp-1233155_processed.cif
+input_cifs\mp-1233280.cif,Move atom at index 14 by [0.79255789 1.00042841 0.74286807] in the cif file.,output_cifs\move_atom_action\mp-1233280_processed.cif
+input_cifs\mp-1233390.cif,Move atom at index 20 by [ 0.16497853  1.5400284  -2.43761702] in the cif file.,output_cifs\move_atom_action\mp-1233390_processed.cif
+input_cifs\mp-1233443.cif,Move atom at index 30 by [ 0.70535356 -0.98562385 -2.3042183 ] in the cif file.,output_cifs\move_atom_action\mp-1233443_processed.cif
+input_cifs\mp-1233468.cif,Move atom at index 21 by [1.38100848 2.51267239 0.32206517] in the cif file.,output_cifs\move_atom_action\mp-1233468_processed.cif
+input_cifs\mp-1233776.cif,Move atom at index 17 by [2.65596812 2.57851286 2.09448255] in the cif file.,output_cifs\move_atom_action\mp-1233776_processed.cif
+input_cifs\mp-1233932.cif,Move atom at index 11 by [ 2.02140108 -0.8975843   0.49728782] in the cif file.,output_cifs\move_atom_action\mp-1233932_processed.cif
+input_cifs\mp-1233998.cif,Move atom at index 8 by [ 2.34117759 -0.0605174  -1.94322155] in the cif file.,output_cifs\move_atom_action\mp-1233998_processed.cif
+input_cifs\mp-1234032.cif,Move atom at index 8 by [-2.04198008 -0.37252528 -4.12403891] in the cif file.,output_cifs\move_atom_action\mp-1234032_processed.cif
+input_cifs\mp-1234239.cif,Move atom at index 36 by [1.03998065 0.86734765 0.76881268] in the cif file.,output_cifs\move_atom_action\mp-1234239_processed.cif
+input_cifs\mp-12343.cif,Move atom at index 2 by [-0.06476098 -0.44172666  0.89111334] in the cif file.,output_cifs\move_atom_action\mp-12343_processed.cif
+input_cifs\mp-1234325.cif,Move atom at index 14 by [ 2.48378672  1.34113593 -5.37971725] in the cif file.,output_cifs\move_atom_action\mp-1234325_processed.cif
+input_cifs\mp-1234413.cif,Move atom at index 11 by [ 1.39196529 -2.66288905 -3.82449384] in the cif file.,output_cifs\move_atom_action\mp-1234413_processed.cif
+input_cifs\mp-1234620.cif,Move atom at index 21 by [ 1.40703217 -2.76340959  0.1484169 ] in the cif file.,output_cifs\move_atom_action\mp-1234620_processed.cif
+input_cifs\mp-1234667.cif,Move atom at index 2 by [-2.91616774 -0.86652438  1.30967413] in the cif file.,output_cifs\move_atom_action\mp-1234667_processed.cif
+input_cifs\mp-1234741.cif,Move atom at index 23 by [ 1.82357868 -1.306569    1.5883409 ] in the cif file.,output_cifs\move_atom_action\mp-1234741_processed.cif
+input_cifs\mp-1235023.cif,Move atom at index 13 by [-2.62448529 -1.49039641  0.44508793] in the cif file.,output_cifs\move_atom_action\mp-1235023_processed.cif
+input_cifs\mp-1235295.cif,Move atom at index 3 by [-3.25955133  0.56847161  2.89058751] in the cif file.,output_cifs\move_atom_action\mp-1235295_processed.cif
+input_cifs\mp-1235548.cif,Move atom at index 4 by [-2.18995603 -0.51073763 -3.10199643] in the cif file.,output_cifs\move_atom_action\mp-1235548_processed.cif
+input_cifs\mp-1235562.cif,Move atom at index 6 by [-0.51797062 -1.73620617 -2.16282865] in the cif file.,output_cifs\move_atom_action\mp-1235562_processed.cif
+input_cifs\mp-1235571.cif,Move atom at index 14 by [2.20685156 1.59294261 4.06951976] in the cif file.,output_cifs\move_atom_action\mp-1235571_processed.cif
+input_cifs\mp-1235672.cif,Move atom at index 16 by [ 2.48887665  0.45126074 -0.60621681] in the cif file.,output_cifs\move_atom_action\mp-1235672_processed.cif
+input_cifs\mp-1235780.cif,Move atom at index 18 by [ 1.48883043 -5.80924263  0.78634503] in the cif file.,output_cifs\move_atom_action\mp-1235780_processed.cif
+input_cifs\mp-1236433.cif,Move atom at index 5 by [-0.39969408 -1.64913347  1.01222508] in the cif file.,output_cifs\move_atom_action\mp-1236433_processed.cif
+input_cifs\mp-1236543.cif,Move atom at index 9 by [-1.86865278 -3.16972363  0.28640683] in the cif file.,output_cifs\move_atom_action\mp-1236543_processed.cif
+input_cifs\mp-1237278.cif,Move atom at index 8 by [ 2.50730858 -0.36685648 -1.76071683] in the cif file.,output_cifs\move_atom_action\mp-1237278_processed.cif
+input_cifs\mp-1237483.cif,Move atom at index 0 by [-1.44345183  2.1243942   1.12613431] in the cif file.,output_cifs\move_atom_action\mp-1237483_processed.cif
+input_cifs\mp-1238409.cif,Move atom at index 8 by [-0.4755476   1.24083561 -2.95090271] in the cif file.,output_cifs\move_atom_action\mp-1238409_processed.cif
+input_cifs\mp-1239078.cif,Move atom at index 13 by [1.46706378 1.5260817  2.81143194] in the cif file.,output_cifs\move_atom_action\mp-1239078_processed.cif
+input_cifs\mp-1239118.cif,Move atom at index 6 by [-1.08373758 -1.26469958  0.11781354] in the cif file.,output_cifs\move_atom_action\mp-1239118_processed.cif
+input_cifs\mp-1239141.cif,Move atom at index 16 by [ 1.14671579  3.69600528 -0.89028088] in the cif file.,output_cifs\move_atom_action\mp-1239141_processed.cif
+input_cifs\mp-1239223.cif,Move atom at index 0 by [ 3.04565919 -2.23916338 -3.27829144] in the cif file.,output_cifs\move_atom_action\mp-1239223_processed.cif
+input_cifs\mp-1245280.cif,Move atom at index 22 by [1.80446705 1.473448   0.89091981] in the cif file.,output_cifs\move_atom_action\mp-1245280_processed.cif
+input_cifs\mp-1245339.cif,Move atom at index 0 by [ 1.37463787 -0.44779811 -1.43155513] in the cif file.,output_cifs\move_atom_action\mp-1245339_processed.cif
+input_cifs\mp-1245361.cif,Move atom at index 45 by [1.22204349 2.57597903 0.93662074] in the cif file.,output_cifs\move_atom_action\mp-1245361_processed.cif
+input_cifs\mp-1245365.cif,Move atom at index 3 by [-3.2720719  -2.09452528 -1.45856132] in the cif file.,output_cifs\move_atom_action\mp-1245365_processed.cif
+input_cifs\mp-1245626.cif,Move atom at index 7 by [-1.78233174 -2.9173373  -1.69551344] in the cif file.,output_cifs\move_atom_action\mp-1245626_processed.cif
+input_cifs\mp-1245657.cif,Move atom at index 19 by [-0.27262906 -0.97423248 -0.40801629] in the cif file.,output_cifs\move_atom_action\mp-1245657_processed.cif
+input_cifs\mp-1245740.cif,Move atom at index 8 by [-2.17186468  1.03221297  0.87498223] in the cif file.,output_cifs\move_atom_action\mp-1245740_processed.cif
+input_cifs\mp-1246144.cif,Move atom at index 5 by [-2.60203969 -0.06504641  1.66104683] in the cif file.,output_cifs\move_atom_action\mp-1246144_processed.cif
+input_cifs\mp-1246228.cif,Move atom at index 12 by [-2.3751847  -3.75262538 -0.11263013] in the cif file.,output_cifs\move_atom_action\mp-1246228_processed.cif
+input_cifs\mp-1246371.cif,Move atom at index 44 by [ 0.72888529 -0.6728468  -1.18455282] in the cif file.,output_cifs\move_atom_action\mp-1246371_processed.cif
+input_cifs\mp-1246720.cif,Move atom at index 11 by [-1.3094911  -2.01433968 -0.75797268] in the cif file.,output_cifs\move_atom_action\mp-1246720_processed.cif
+input_cifs\mp-1246726.cif,Move atom at index 5 by [ 0.84639466  0.82201728 -2.79826891] in the cif file.,output_cifs\move_atom_action\mp-1246726_processed.cif
+input_cifs\mp-1246860.cif,Move atom at index 6 by [ 3.02116131  2.39879445 -2.73948309] in the cif file.,output_cifs\move_atom_action\mp-1246860_processed.cif
+input_cifs\mp-1247094.cif,Move atom at index 2 by [-2.20394253  1.00067306  2.35166225] in the cif file.,output_cifs\move_atom_action\mp-1247094_processed.cif
+input_cifs\mp-1247286.cif,Move atom at index 39 by [-0.56711581  3.78428678 -2.10518544] in the cif file.,output_cifs\move_atom_action\mp-1247286_processed.cif
+input_cifs\mp-1247309.cif,Move atom at index 12 by [-3.92467034  1.89315713  0.75905904] in the cif file.,output_cifs\move_atom_action\mp-1247309_processed.cif
+input_cifs\mp-1247354.cif,Move atom at index 10 by [-2.21308709 -0.93952543 -1.79494379] in the cif file.,output_cifs\move_atom_action\mp-1247354_processed.cif
+input_cifs\mp-1247634.cif,Move atom at index 18 by [ 0.49502734  4.75120824 -2.2679829 ] in the cif file.,output_cifs\move_atom_action\mp-1247634_processed.cif
+input_cifs\mp-1247690.cif,Move atom at index 27 by [ 0.99090022  0.67542244 -2.70741096] in the cif file.,output_cifs\move_atom_action\mp-1247690_processed.cif
+input_cifs\mp-1250148.cif,Move atom at index 13 by [ 1.36995781 -0.74015949 -1.60747728] in the cif file.,output_cifs\move_atom_action\mp-1250148_processed.cif
+input_cifs\mp-1250558.cif,Move atom at index 30 by [ 2.3175101  -0.07082606  3.51974469] in the cif file.,output_cifs\move_atom_action\mp-1250558_processed.cif
+input_cifs\mp-1253019.cif,Move atom at index 17 by [-0.79931089 -0.34764732 -1.42596013] in the cif file.,output_cifs\move_atom_action\mp-1253019_processed.cif
+input_cifs\mp-1262123.cif,Move atom at index 8 by [ 0.58470491 -2.77632454 -0.88402807] in the cif file.,output_cifs\move_atom_action\mp-1262123_processed.cif
+input_cifs\mp-12645.cif,Move atom at index 5 by [ 0.35968431 -1.95898728 -0.51801577] in the cif file.,output_cifs\move_atom_action\mp-12645_processed.cif
+input_cifs\mp-1273464.cif,Move atom at index 11 by [2.23404183 1.87514914 2.33747943] in the cif file.,output_cifs\move_atom_action\mp-1273464_processed.cif
+input_cifs\mp-1274050.cif,Move atom at index 12 by [-4.50768162 -3.20887196  0.06583147] in the cif file.,output_cifs\move_atom_action\mp-1274050_processed.cif
+input_cifs\mp-1275879.cif,Move atom at index 4 by [-4.53969698  0.88090056 -0.28022025] in the cif file.,output_cifs\move_atom_action\mp-1275879_processed.cif
+input_cifs\mp-1278738.cif,Move atom at index 5 by [-3.87184167 -0.24633147  3.35508146] in the cif file.,output_cifs\move_atom_action\mp-1278738_processed.cif
+input_cifs\mp-1290926.cif,Move atom at index 9 by [-0.85438701  1.2134485  -0.45928284] in the cif file.,output_cifs\move_atom_action\mp-1290926_processed.cif
+input_cifs\mp-1290947.cif,Move atom at index 0 by [-0.66590903 -2.19749365  0.46783145] in the cif file.,output_cifs\move_atom_action\mp-1290947_processed.cif
+input_cifs\mp-1293037.cif,Move atom at index 12 by [-2.83750206  0.62236575 -0.07389355] in the cif file.,output_cifs\move_atom_action\mp-1293037_processed.cif
+input_cifs\mp-1294897.cif,Move atom at index 9 by [-0.55087454 -1.07722482  4.34461193] in the cif file.,output_cifs\move_atom_action\mp-1294897_processed.cif
+input_cifs\mp-1297758.cif,Move atom at index 20 by [2.34743654 1.10034734 0.49966015] in the cif file.,output_cifs\move_atom_action\mp-1297758_processed.cif
+input_cifs\mp-1299593.cif,Move atom at index 24 by [ 0.34974768  2.74985317 -0.24951474] in the cif file.,output_cifs\move_atom_action\mp-1299593_processed.cif
+input_cifs\mp-1301981.cif,Move atom at index 6 by [ 2.8804919   0.70028344 -3.00160047] in the cif file.,output_cifs\move_atom_action\mp-1301981_processed.cif
+input_cifs\mp-1302395.cif,Move atom at index 26 by [4.66094993 1.93826305 2.48926712] in the cif file.,output_cifs\move_atom_action\mp-1302395_processed.cif
+input_cifs\mp-1307565.cif,Move atom at index 20 by [-2.09619491 -3.37375945 -1.23276027] in the cif file.,output_cifs\move_atom_action\mp-1307565_processed.cif
+input_cifs\mp-1310460.cif,Move atom at index 22 by [ 0.54327174 -1.28528452 -2.31902347] in the cif file.,output_cifs\move_atom_action\mp-1310460_processed.cif
+input_cifs\mp-1311133.cif,Move atom at index 14 by [-0.77092443 -0.94711055  0.19454998] in the cif file.,output_cifs\move_atom_action\mp-1311133_processed.cif
+input_cifs\mp-1323.cif,Move atom at index 57 by [-0.59067051 -5.03875641 -1.01619811] in the cif file.,output_cifs\move_atom_action\mp-1323_processed.cif
+input_cifs\mp-1329989.cif,Move atom at index 27 by [-0.09250837  1.10425074 -2.35049794] in the cif file.,output_cifs\move_atom_action\mp-1329989_processed.cif
+input_cifs\mp-1330925.cif,Move atom at index 41 by [-3.07345136 -2.89940647 -1.88426583] in the cif file.,output_cifs\move_atom_action\mp-1330925_processed.cif
+input_cifs\mp-1337025.cif,Move atom at index 10 by [ 2.66302712  2.68871984 -2.64959263] in the cif file.,output_cifs\move_atom_action\mp-1337025_processed.cif
+input_cifs\mp-1337931.cif,Move atom at index 27 by [-0.75588088  0.3882727   0.98659042] in the cif file.,output_cifs\move_atom_action\mp-1337931_processed.cif
+input_cifs\mp-1344766.cif,Move atom at index 2 by [-2.31132992 -2.02183947 -1.22673688] in the cif file.,output_cifs\move_atom_action\mp-1344766_processed.cif
+input_cifs\mp-1347018.cif,Move atom at index 13 by [-1.5784053  -0.91080834 -4.13495929] in the cif file.,output_cifs\move_atom_action\mp-1347018_processed.cif
+input_cifs\mp-1348043.cif,Move atom at index 12 by [ 1.1453178   1.8565292  -1.49332137] in the cif file.,output_cifs\move_atom_action\mp-1348043_processed.cif
+input_cifs\mp-1350284.cif,Move atom at index 3 by [ 0.25706044 -1.6622377  -2.84520613] in the cif file.,output_cifs\move_atom_action\mp-1350284_processed.cif
+input_cifs\mp-1354141.cif,Move atom at index 27 by [3.61179563 0.11182368 2.17668903] in the cif file.,output_cifs\move_atom_action\mp-1354141_processed.cif
+input_cifs\mp-13560.cif,Move atom at index 4 by [-1.52572903 -0.54310726 -1.68844562] in the cif file.,output_cifs\move_atom_action\mp-13560_processed.cif
+input_cifs\mp-1368020.cif,Move atom at index 3 by [-1.56560836 -2.57102065 -0.51491371] in the cif file.,output_cifs\move_atom_action\mp-1368020_processed.cif
+input_cifs\mp-1370295.cif,Move atom at index 11 by [-0.19727196 -0.84905814 -3.10624679] in the cif file.,output_cifs\move_atom_action\mp-1370295_processed.cif
+input_cifs\mp-1373337.cif,Move atom at index 4 by [ 0.81100282  0.63636652 -0.92502227] in the cif file.,output_cifs\move_atom_action\mp-1373337_processed.cif
+input_cifs\mp-1376405.cif,Move atom at index 0 by [-0.84472226 -0.11578981  0.75904252] in the cif file.,output_cifs\move_atom_action\mp-1376405_processed.cif
+input_cifs\mp-1377393.cif,Move atom at index 16 by [ 0.77362698 -2.49204197  0.17408068] in the cif file.,output_cifs\move_atom_action\mp-1377393_processed.cif
+input_cifs\mp-1377991.cif,Move atom at index 13 by [ 1.38111406 -2.25098819 -0.22031582] in the cif file.,output_cifs\move_atom_action\mp-1377991_processed.cif
+input_cifs\mp-1385417.cif,Move atom at index 0 by [-0.05310039 -0.2465802  -1.7391027 ] in the cif file.,output_cifs\move_atom_action\mp-1385417_processed.cif
+input_cifs\mp-1388114.cif,Move atom at index 9 by [ 1.17647961  0.39090366 -0.1163957 ] in the cif file.,output_cifs\move_atom_action\mp-1388114_processed.cif
+input_cifs\mp-1388425.cif,Move atom at index 14 by [-1.17977932  1.44840307 -0.16876058] in the cif file.,output_cifs\move_atom_action\mp-1388425_processed.cif
+input_cifs\mp-1391777.cif,Move atom at index 4 by [ 3.16142981 -2.65441915  0.95331364] in the cif file.,output_cifs\move_atom_action\mp-1391777_processed.cif
+input_cifs\mp-14005.cif,Move atom at index 7 by [ 0.0232249  -1.14792311 -0.05057185] in the cif file.,output_cifs\move_atom_action\mp-14005_processed.cif
+input_cifs\mp-1401385.cif,Move atom at index 10 by [-1.03353758 -0.20808681  0.12989479] in the cif file.,output_cifs\move_atom_action\mp-1401385_processed.cif
+input_cifs\mp-1405211.cif,Move atom at index 1 by [ 1.09669472 -0.46064251  1.75627404] in the cif file.,output_cifs\move_atom_action\mp-1405211_processed.cif
+input_cifs\mp-1412002.cif,Move atom at index 2 by [ 3.22675731  3.23081039 -0.15565089] in the cif file.,output_cifs\move_atom_action\mp-1412002_processed.cif
+input_cifs\mp-1419122.cif,Move atom at index 5 by [ 1.81692255 -1.36408987 -1.19683717] in the cif file.,output_cifs\move_atom_action\mp-1419122_processed.cif
+input_cifs\mp-1439.cif,Move atom at index 8 by [-3.36446401 -3.43844086  0.07301329] in the cif file.,output_cifs\move_atom_action\mp-1439_processed.cif
+input_cifs\mp-14555.cif,Move atom at index 65 by [-2.75731786 -0.57294623 -0.60794787] in the cif file.,output_cifs\move_atom_action\mp-14555_processed.cif
+input_cifs\mp-14556.cif,Move atom at index 56 by [ 2.41791556 -1.35833708  1.6193476 ] in the cif file.,output_cifs\move_atom_action\mp-14556_processed.cif
+input_cifs\mp-1516666.cif,Move atom at index 0 by [-1.035174    0.63846734 -1.01245812] in the cif file.,output_cifs\move_atom_action\mp-1516666_processed.cif
+input_cifs\mp-1517169.cif,Move atom at index 0 by [ 1.20602674  0.43822841 -2.36343465] in the cif file.,output_cifs\move_atom_action\mp-1517169_processed.cif
+input_cifs\mp-1517627.cif,Move atom at index 0 by [-1.40319505  0.15857428 -1.04201587] in the cif file.,output_cifs\move_atom_action\mp-1517627_processed.cif
+input_cifs\mp-1518007.cif,Move atom at index 37 by [ 6.17008553  1.92856113 -3.01141767] in the cif file.,output_cifs\move_atom_action\mp-1518007_processed.cif
+input_cifs\mp-1518014.cif,Move atom at index 7 by [-2.54477002 -0.47639222  0.25974884] in the cif file.,output_cifs\move_atom_action\mp-1518014_processed.cif
+input_cifs\mp-1518246.cif,Move atom at index 8 by [-0.17369662 -2.50780838  1.67819898] in the cif file.,output_cifs\move_atom_action\mp-1518246_processed.cif
+input_cifs\mp-1518458.cif,Move atom at index 8 by [ 1.20672512  0.15700642 -1.58217451] in the cif file.,output_cifs\move_atom_action\mp-1518458_processed.cif
+input_cifs\mp-1518757.cif,Move atom at index 2 by [-2.53340164 -0.87218844 -1.32547444] in the cif file.,output_cifs\move_atom_action\mp-1518757_processed.cif
+input_cifs\mp-1519002.cif,Move atom at index 9 by [-2.05457038  1.74399507  0.80147664] in the cif file.,output_cifs\move_atom_action\mp-1519002_processed.cif
+input_cifs\mp-1519698.cif,Move atom at index 31 by [2.20910198 2.08867823 2.40510684] in the cif file.,output_cifs\move_atom_action\mp-1519698_processed.cif
+input_cifs\mp-1519736.cif,Move atom at index 0 by [ 4.08735071  1.38386429 -1.22885028] in the cif file.,output_cifs\move_atom_action\mp-1519736_processed.cif
+input_cifs\mp-1519860.cif,Move atom at index 8 by [-1.32609358 -1.6975162   1.34557891] in the cif file.,output_cifs\move_atom_action\mp-1519860_processed.cif
+input_cifs\mp-1519983.cif,Move atom at index 3 by [ 2.16317945 -1.26726032 -0.62193286] in the cif file.,output_cifs\move_atom_action\mp-1519983_processed.cif
+input_cifs\mp-1519998.cif,Move atom at index 0 by [-2.31588896  5.2068003  -1.91139368] in the cif file.,output_cifs\move_atom_action\mp-1519998_processed.cif
+input_cifs\mp-1520500.cif,Move atom at index 7 by [-1.37714668 -2.5471551   0.66601003] in the cif file.,output_cifs\move_atom_action\mp-1520500_processed.cif
+input_cifs\mp-1521011.cif,Move atom at index 0 by [ 0.84561997 -1.30121167  0.37908069] in the cif file.,output_cifs\move_atom_action\mp-1521011_processed.cif
+input_cifs\mp-1521056.cif,Move atom at index 8 by [-2.62057064 -2.18324014  0.3840578 ] in the cif file.,output_cifs\move_atom_action\mp-1521056_processed.cif
+input_cifs\mp-1521082.cif,Move atom at index 2 by [1.92939847 0.28459952 3.12048069] in the cif file.,output_cifs\move_atom_action\mp-1521082_processed.cif
+input_cifs\mp-1521221.cif,Move atom at index 7 by [-2.09571682  0.16800908  0.90110188] in the cif file.,output_cifs\move_atom_action\mp-1521221_processed.cif
+input_cifs\mp-1521309.cif,Move atom at index 8 by [ 1.03127543 -0.88167216 -3.4301921 ] in the cif file.,output_cifs\move_atom_action\mp-1521309_processed.cif
+input_cifs\mp-1521702.cif,Move atom at index 8 by [ 1.61246742 -1.51818023 -1.369369  ] in the cif file.,output_cifs\move_atom_action\mp-1521702_processed.cif
+input_cifs\mp-1522205.cif,Move atom at index 16 by [-0.89174723 -2.0821034  -0.10204595] in the cif file.,output_cifs\move_atom_action\mp-1522205_processed.cif
+input_cifs\mp-1522629.cif,Move atom at index 7 by [-1.90670914  0.43538587  0.6222681 ] in the cif file.,output_cifs\move_atom_action\mp-1522629_processed.cif
+input_cifs\mp-1522792.cif,Move atom at index 7 by [ 4.17025499  1.66579445 -1.4073956 ] in the cif file.,output_cifs\move_atom_action\mp-1522792_processed.cif
+input_cifs\mp-1523004.cif,Move atom at index 3 by [-3.30621959  0.03843761 -1.4497221 ] in the cif file.,output_cifs\move_atom_action\mp-1523004_processed.cif
+input_cifs\mp-1523044.cif,Move atom at index 1 by [-2.23414583  0.8180283  -2.60600013] in the cif file.,output_cifs\move_atom_action\mp-1523044_processed.cif
+input_cifs\mp-1523067.cif,Move atom at index 8 by [-1.28328748  0.92733662  1.24154328] in the cif file.,output_cifs\move_atom_action\mp-1523067_processed.cif
+input_cifs\mp-1523239.cif,Move atom at index 9 by [ 1.19812739 -1.30561579  1.09519958] in the cif file.,output_cifs\move_atom_action\mp-1523239_processed.cif
+input_cifs\mp-15896.cif,Move atom at index 9 by [ 0.86354378 -1.34251997  3.1622783 ] in the cif file.,output_cifs\move_atom_action\mp-15896_processed.cif
+input_cifs\mp-1643677.cif,Move atom at index 3 by [ 0.94079816  0.93325674 -2.53787304] in the cif file.,output_cifs\move_atom_action\mp-1643677_processed.cif
+input_cifs\mp-1645697.cif,Move atom at index 38 by [ 0.47165383 -2.45330383  1.70046547] in the cif file.,output_cifs\move_atom_action\mp-1645697_processed.cif
+input_cifs\mp-1661789.cif,Move atom at index 0 by [1.06198992 1.556195   1.18690745] in the cif file.,output_cifs\move_atom_action\mp-1661789_processed.cif
+input_cifs\mp-1661936.cif,Move atom at index 5 by [2.83602405 1.98381985 2.42741713] in the cif file.,output_cifs\move_atom_action\mp-1661936_processed.cif
+input_cifs\mp-1662795.cif,Move atom at index 39 by [-1.90978296 -0.70594898  4.17843404] in the cif file.,output_cifs\move_atom_action\mp-1662795_processed.cif
+input_cifs\mp-1666930.cif,Move atom at index 24 by [-2.23692329  0.12870295  1.64500047] in the cif file.,output_cifs\move_atom_action\mp-1666930_processed.cif
+input_cifs\mp-17024.cif,Move atom at index 5 by [-0.61385866 -0.6391385   2.15443274] in the cif file.,output_cifs\move_atom_action\mp-17024_processed.cif
+input_cifs\mp-17282.cif,Move atom at index 8 by [0.85194443 1.70435708 0.18530226] in the cif file.,output_cifs\move_atom_action\mp-17282_processed.cif
+input_cifs\mp-17344.cif,Move atom at index 13 by [-0.41786716  2.15601429  3.89367179] in the cif file.,output_cifs\move_atom_action\mp-17344_processed.cif
+input_cifs\mp-17676.cif,Move atom at index 12 by [ 1.41776676  0.74949413 -1.23764547] in the cif file.,output_cifs\move_atom_action\mp-17676_processed.cif
+input_cifs\mp-17770.cif,Move atom at index 32 by [-1.53436073  6.66226913 -0.93056342] in the cif file.,output_cifs\move_atom_action\mp-17770_processed.cif
+input_cifs\mp-17838.cif,Move atom at index 3 by [ 1.99626627 -1.41216732  1.10447871] in the cif file.,output_cifs\move_atom_action\mp-17838_processed.cif
+input_cifs\mp-17861.cif,Move atom at index 25 by [-1.3047547  -0.13167546 -2.70407428] in the cif file.,output_cifs\move_atom_action\mp-17861_processed.cif
+input_cifs\mp-18469.cif,Move atom at index 22 by [-1.78229301 -4.2031792  -1.62493502] in the cif file.,output_cifs\move_atom_action\mp-18469_processed.cif
+input_cifs\mp-18525.cif,Move atom at index 1 by [-0.11535051  0.02118929  3.21832533] in the cif file.,output_cifs\move_atom_action\mp-18525_processed.cif
+input_cifs\mp-18612.cif,Move atom at index 25 by [1.09610466 1.30033053 1.95906644] in the cif file.,output_cifs\move_atom_action\mp-18612_processed.cif
+input_cifs\mp-18701.cif,Move atom at index 6 by [-1.04647846  1.43508831  0.05780654] in the cif file.,output_cifs\move_atom_action\mp-18701_processed.cif
+input_cifs\mp-18713.cif,Move atom at index 21 by [ 1.25079068  0.66202204 -0.42097658] in the cif file.,output_cifs\move_atom_action\mp-18713_processed.cif
+input_cifs\mp-18817.cif,Move atom at index 1 by [ 0.26093181 -1.95075237  1.79261535] in the cif file.,output_cifs\move_atom_action\mp-18817_processed.cif
+input_cifs\mp-18833.cif,Move atom at index 1 by [-0.73931794  3.12159696  2.61623236] in the cif file.,output_cifs\move_atom_action\mp-18833_processed.cif
+input_cifs\mp-18848.cif,Move atom at index 0 by [-0.53574184 -1.4408233  -1.61604293] in the cif file.,output_cifs\move_atom_action\mp-18848_processed.cif
+input_cifs\mp-18996.cif,Move atom at index 8 by [-0.35174361  0.44374225  0.3607165 ] in the cif file.,output_cifs\move_atom_action\mp-18996_processed.cif
+input_cifs\mp-19070.cif,Move atom at index 7 by [-0.31576769  0.44650074 -0.70261099] in the cif file.,output_cifs\move_atom_action\mp-19070_processed.cif
+input_cifs\mp-19087.cif,Move atom at index 11 by [ 1.09999536 -1.06008871  0.13008138] in the cif file.,output_cifs\move_atom_action\mp-19087_processed.cif
+input_cifs\mp-19123.cif,Move atom at index 13 by [-0.29853551  3.1876214   2.30661076] in the cif file.,output_cifs\move_atom_action\mp-19123_processed.cif
+input_cifs\mp-19162.cif,Move atom at index 9 by [ 0.86703054 -1.36140482  0.50918717] in the cif file.,output_cifs\move_atom_action\mp-19162_processed.cif
+input_cifs\mp-19426.cif,Move atom at index 4 by [ 5.09385425  0.35785735 -1.81516252] in the cif file.,output_cifs\move_atom_action\mp-19426_processed.cif
+input_cifs\mp-19785.cif,Move atom at index 15 by [0.83043729 0.05066382 0.07695216] in the cif file.,output_cifs\move_atom_action\mp-19785_processed.cif
+input_cifs\mp-1987603.cif,Move atom at index 7 by [-5.14932939  2.26489806 -3.06414976] in the cif file.,output_cifs\move_atom_action\mp-1987603_processed.cif
+input_cifs\mp-19903.cif,Move atom at index 9 by [0.49224324 1.15118454 0.03394032] in the cif file.,output_cifs\move_atom_action\mp-19903_processed.cif
+input_cifs\mp-19931.cif,Move atom at index 13 by [ 2.76197073  2.12867991 -0.90119951] in the cif file.,output_cifs\move_atom_action\mp-19931_processed.cif
+input_cifs\mp-20276.cif,Move atom at index 14 by [ 1.50101787 -0.09558042 -0.98808288] in the cif file.,output_cifs\move_atom_action\mp-20276_processed.cif
+input_cifs\mp-2030372.cif,Move atom at index 8 by [-0.21013111 -2.88136289 -2.15925043] in the cif file.,output_cifs\move_atom_action\mp-2030372_processed.cif
+input_cifs\mp-20460.cif,Move atom at index 7 by [ 3.2221257  -3.08516703 -0.38279814] in the cif file.,output_cifs\move_atom_action\mp-20460_processed.cif
+input_cifs\mp-20499.cif,Move atom at index 4 by [3.12962808 1.69546861 3.52288878] in the cif file.,output_cifs\move_atom_action\mp-20499_processed.cif
+input_cifs\mp-2053129.cif,Move atom at index 6 by [-1.3409868  -2.68163849 -2.77364101] in the cif file.,output_cifs\move_atom_action\mp-2053129_processed.cif
+input_cifs\mp-20633.cif,Move atom at index 3 by [ 1.65230489 -1.10743508  1.59179517] in the cif file.,output_cifs\move_atom_action\mp-20633_processed.cif
+input_cifs\mp-21208.cif,Move atom at index 4 by [ 0.91275096  0.40271355 -1.8540599 ] in the cif file.,output_cifs\move_atom_action\mp-21208_processed.cif
+input_cifs\mp-21493.cif,Move atom at index 4 by [ 2.10964254 -3.08782581 -0.38860069] in the cif file.,output_cifs\move_atom_action\mp-21493_processed.cif
+input_cifs\mp-21658.cif,Move atom at index 12 by [-0.85835915 -0.22247436  0.05737378] in the cif file.,output_cifs\move_atom_action\mp-21658_processed.cif
+input_cifs\mp-21799.cif,Move atom at index 6 by [-0.00701682  2.04438408  1.2532248 ] in the cif file.,output_cifs\move_atom_action\mp-21799_processed.cif
+input_cifs\mp-22042.cif,Move atom at index 6 by [-1.46019203 -3.40598018  3.56883203] in the cif file.,output_cifs\move_atom_action\mp-22042_processed.cif
+input_cifs\mp-2206289.cif,Move atom at index 2 by [ 0.28677759 -0.78050027 -1.95133646] in the cif file.,output_cifs\move_atom_action\mp-2206289_processed.cif
+input_cifs\mp-22076.cif,Move atom at index 7 by [1.44107692 3.43325556 1.45484031] in the cif file.,output_cifs\move_atom_action\mp-22076_processed.cif
+input_cifs\mp-2215910.cif,Move atom at index 14 by [1.55972468 0.54759664 0.92262243] in the cif file.,output_cifs\move_atom_action\mp-2215910_processed.cif
+input_cifs\mp-2217621.cif,Move atom at index 5 by [-1.93180797  1.01535724  0.78541957] in the cif file.,output_cifs\move_atom_action\mp-2217621_processed.cif
+input_cifs\mp-2217707.cif,Move atom at index 4 by [-2.36138652 -0.36163291 -1.12290304] in the cif file.,output_cifs\move_atom_action\mp-2217707_processed.cif
+input_cifs\mp-2217878.cif,Move atom at index 6 by [-0.95340472  1.64647723  1.30189902] in the cif file.,output_cifs\move_atom_action\mp-2217878_processed.cif
+input_cifs\mp-2218067.cif,Move atom at index 9 by [ 1.66414031 -0.77953283  2.88386972] in the cif file.,output_cifs\move_atom_action\mp-2218067_processed.cif
+input_cifs\mp-2218172.cif,Move atom at index 2 by [ 1.67271186 -2.85506296 -0.09317134] in the cif file.,output_cifs\move_atom_action\mp-2218172_processed.cif
+input_cifs\mp-2218202.cif,Move atom at index 7 by [ 2.07967956  1.36409962 -1.05878988] in the cif file.,output_cifs\move_atom_action\mp-2218202_processed.cif
+input_cifs\mp-2218885.cif,Move atom at index 2 by [-0.06232881  0.65941438  0.59113365] in the cif file.,output_cifs\move_atom_action\mp-2218885_processed.cif
+input_cifs\mp-2218969.cif,Move atom at index 8 by [-1.81538164 -0.9855837   1.03610112] in the cif file.,output_cifs\move_atom_action\mp-2218969_processed.cif
+input_cifs\mp-2219052.cif,Move atom at index 10 by [-2.08638473  0.92215279  1.96989235] in the cif file.,output_cifs\move_atom_action\mp-2219052_processed.cif
+input_cifs\mp-2219166.cif,Move atom at index 5 by [ 0.73230972 -0.86305936  1.02655039] in the cif file.,output_cifs\move_atom_action\mp-2219166_processed.cif
+input_cifs\mp-2219262.cif,Move atom at index 5 by [-0.02239162  0.66560553  0.08655981] in the cif file.,output_cifs\move_atom_action\mp-2219262_processed.cif
+input_cifs\mp-2219466.cif,Move atom at index 7 by [-0.01994998  0.72216844 -1.93976305] in the cif file.,output_cifs\move_atom_action\mp-2219466_processed.cif
+input_cifs\mp-2222780.cif,Move atom at index 0 by [0.46603436 0.69660117 0.76570782] in the cif file.,output_cifs\move_atom_action\mp-2222780_processed.cif
+input_cifs\mp-2223884.cif,Move atom at index 0 by [-0.08479431 -0.52949751  0.10076734] in the cif file.,output_cifs\move_atom_action\mp-2223884_processed.cif
+input_cifs\mp-2224443.cif,Move atom at index 4 by [-0.77541489 -1.04730032 -1.07611818] in the cif file.,output_cifs\move_atom_action\mp-2224443_processed.cif
+input_cifs\mp-2224447.cif,Move atom at index 1 by [-2.83067481  2.17576782 -4.80103285] in the cif file.,output_cifs\move_atom_action\mp-2224447_processed.cif
+input_cifs\mp-22248.cif,Move atom at index 3 by [-1.0857651   2.33438007 -1.62640969] in the cif file.,output_cifs\move_atom_action\mp-22248_processed.cif
+input_cifs\mp-2224811.cif,Move atom at index 2 by [ 3.44199964 -3.1133548  -0.39212913] in the cif file.,output_cifs\move_atom_action\mp-2224811_processed.cif
+input_cifs\mp-2224860.cif,Move atom at index 34 by [ 0.77122383 -2.66619051  4.97293933] in the cif file.,output_cifs\move_atom_action\mp-2224860_processed.cif
+input_cifs\mp-2225000.cif,Move atom at index 10 by [ 0.59869985 -4.87733074 -1.46457439] in the cif file.,output_cifs\move_atom_action\mp-2225000_processed.cif
+input_cifs\mp-2228328.cif,Move atom at index 12 by [ 1.01397166  0.13529611 -2.12923567] in the cif file.,output_cifs\move_atom_action\mp-2228328_processed.cif
+input_cifs\mp-2228374.cif,Move atom at index 9 by [1.76958433 0.26440728 4.41273609] in the cif file.,output_cifs\move_atom_action\mp-2228374_processed.cif
+input_cifs\mp-2228437.cif,Move atom at index 17 by [ 1.05653    -1.8733225  -0.24661231] in the cif file.,output_cifs\move_atom_action\mp-2228437_processed.cif
+input_cifs\mp-2228500.cif,Move atom at index 0 by [-2.17799005 -0.78490507  4.47342526] in the cif file.,output_cifs\move_atom_action\mp-2228500_processed.cif
+input_cifs\mp-2228706.cif,Move atom at index 9 by [1.15157643 0.92652984 2.00321296] in the cif file.,output_cifs\move_atom_action\mp-2228706_processed.cif
+input_cifs\mp-2228915.cif,Move atom at index 13 by [-0.29048811  1.19743186  0.6568699 ] in the cif file.,output_cifs\move_atom_action\mp-2228915_processed.cif
+input_cifs\mp-2228929.cif,Move atom at index 15 by [-0.26028676 -0.64103296 -0.59167015] in the cif file.,output_cifs\move_atom_action\mp-2228929_processed.cif
+input_cifs\mp-2229660.cif,Move atom at index 1 by [-3.50684449  1.14740842  0.27331485] in the cif file.,output_cifs\move_atom_action\mp-2229660_processed.cif
+input_cifs\mp-2230032.cif,Move atom at index 9 by [0.01726069 3.78415096 0.70376714] in the cif file.,output_cifs\move_atom_action\mp-2230032_processed.cif
+input_cifs\mp-2230094.cif,Move atom at index 10 by [ 2.31596815  2.45507399 -1.49564103] in the cif file.,output_cifs\move_atom_action\mp-2230094_processed.cif
+input_cifs\mp-2230252.cif,Move atom at index 15 by [ 0.2365318   0.84619518 -3.97250379] in the cif file.,output_cifs\move_atom_action\mp-2230252_processed.cif
+input_cifs\mp-2230521.cif,Move atom at index 0 by [-1.38935605  2.03802631 -0.62666025] in the cif file.,output_cifs\move_atom_action\mp-2230521_processed.cif
+input_cifs\mp-2230812.cif,Move atom at index 14 by [ 0.58076891 -0.85670335  0.32626642] in the cif file.,output_cifs\move_atom_action\mp-2230812_processed.cif
+input_cifs\mp-2231004.cif,Move atom at index 1 by [ 0.59520149 -2.02701065  1.47472166] in the cif file.,output_cifs\move_atom_action\mp-2231004_processed.cif
+input_cifs\mp-2231286.cif,Move atom at index 10 by [ 0.96139291  2.25838255 -0.98246867] in the cif file.,output_cifs\move_atom_action\mp-2231286_processed.cif
+input_cifs\mp-2232282.cif,Move atom at index 9 by [-0.57756702 -0.063467    1.04488434] in the cif file.,output_cifs\move_atom_action\mp-2232282_processed.cif
+input_cifs\mp-2239868.cif,Move atom at index 6 by [-1.86398394  0.542961   -0.53004676] in the cif file.,output_cifs\move_atom_action\mp-2239868_processed.cif
+input_cifs\mp-2240173.cif,Move atom at index 6 by [ 3.723136   -1.0654624  -0.32052213] in the cif file.,output_cifs\move_atom_action\mp-2240173_processed.cif
+input_cifs\mp-2241358.cif,Move atom at index 2 by [-1.24737991e-03 -1.41607452e+00  1.74345725e+00] in the cif file.,output_cifs\move_atom_action\mp-2241358_processed.cif
+input_cifs\mp-2254.cif,Move atom at index 1 by [1.34740979 1.69044847 1.84279369] in the cif file.,output_cifs\move_atom_action\mp-2254_processed.cif
+input_cifs\mp-23418.cif,Move atom at index 12 by [ 1.24008852  1.97924591 -1.0565844 ] in the cif file.,output_cifs\move_atom_action\mp-23418_processed.cif
+input_cifs\mp-23498.cif,Move atom at index 17 by [ 2.63921728 -4.63594378 -0.82805586] in the cif file.,output_cifs\move_atom_action\mp-23498_processed.cif
+input_cifs\mp-23586.cif,Move atom at index 10 by [-0.71053409 -0.06013305 -5.55363673] in the cif file.,output_cifs\move_atom_action\mp-23586_processed.cif
+input_cifs\mp-23979.cif,Move atom at index 26 by [-0.40458893 -0.68233788  2.5166545 ] in the cif file.,output_cifs\move_atom_action\mp-23979_processed.cif
+input_cifs\mp-24037.cif,Move atom at index 1 by [ 4.94532721 -0.13604249 -5.47921466] in the cif file.,output_cifs\move_atom_action\mp-24037_processed.cif
+input_cifs\mp-24044.cif,Move atom at index 13 by [-4.97525636 -1.10570775 -0.86751807] in the cif file.,output_cifs\move_atom_action\mp-24044_processed.cif
+input_cifs\mp-24515.cif,Move atom at index 19 by [0.0081677  2.71160333 0.44365449] in the cif file.,output_cifs\move_atom_action\mp-24515_processed.cif
+input_cifs\mp-2480.cif,Move atom at index 2 by [ 1.87172665  0.09293213 -0.40580639] in the cif file.,output_cifs\move_atom_action\mp-2480_processed.cif
+input_cifs\mp-25405.cif,Move atom at index 4 by [-0.65328989  1.51973571 -0.93698943] in the cif file.,output_cifs\move_atom_action\mp-25405_processed.cif
+input_cifs\mp-25457.cif,Move atom at index 23 by [ 2.02266323 -2.03237547 -1.28655818] in the cif file.,output_cifs\move_atom_action\mp-25457_processed.cif
+input_cifs\mp-26179.cif,Move atom at index 13 by [-1.26265575 -1.74595578 -1.63734783] in the cif file.,output_cifs\move_atom_action\mp-26179_processed.cif
+input_cifs\mp-26270.cif,Move atom at index 1 by [-0.72855591  0.17891442 -0.36564947] in the cif file.,output_cifs\move_atom_action\mp-26270_processed.cif
+input_cifs\mp-2646946.cif,Move atom at index 17 by [-0.18203622  1.67098985  3.06291413] in the cif file.,output_cifs\move_atom_action\mp-2646946_processed.cif
+input_cifs\mp-26612.cif,Move atom at index 35 by [ 2.24281686 -3.03484514  1.57218482] in the cif file.,output_cifs\move_atom_action\mp-26612_processed.cif
+input_cifs\mp-2715259.cif,Move atom at index 63 by [-0.67832373  1.5032693   1.44467746] in the cif file.,output_cifs\move_atom_action\mp-2715259_processed.cif
+input_cifs\mp-2715379.cif,Move atom at index 12 by [-0.62842422 -1.01463556  1.3197886 ] in the cif file.,output_cifs\move_atom_action\mp-2715379_processed.cif
+input_cifs\mp-27286.cif,Move atom at index 18 by [-1.66293356 -4.64036446  1.42430874] in the cif file.,output_cifs\move_atom_action\mp-27286_processed.cif
+input_cifs\mp-27341.cif,Move atom at index 67 by [ 0.23249952 -1.49671321 -2.94840822] in the cif file.,output_cifs\move_atom_action\mp-27341_processed.cif
+input_cifs\mp-27383.cif,Move atom at index 40 by [0.32655646 0.90937784 1.06414744] in the cif file.,output_cifs\move_atom_action\mp-27383_processed.cif
+input_cifs\mp-2751271.cif,Move atom at index 15 by [-0.26969179  1.44647864  2.08996506] in the cif file.,output_cifs\move_atom_action\mp-2751271_processed.cif
+input_cifs\mp-28393.cif,Move atom at index 31 by [-0.4319735  -3.1832279   0.26717315] in the cif file.,output_cifs\move_atom_action\mp-28393_processed.cif
+input_cifs\mp-28394.cif,Move atom at index 25 by [-0.37094237 -1.40405073  2.55526743] in the cif file.,output_cifs\move_atom_action\mp-28394_processed.cif
+input_cifs\mp-28430.cif,Move atom at index 8 by [1.34982486 0.47436809 0.458371  ] in the cif file.,output_cifs\move_atom_action\mp-28430_processed.cif
+input_cifs\mp-28450.cif,Move atom at index 3 by [2.27536532 2.02591147 0.71513958] in the cif file.,output_cifs\move_atom_action\mp-28450_processed.cif
+input_cifs\mp-28544.cif,Move atom at index 6 by [-2.73474517  2.55594792  2.23250125] in the cif file.,output_cifs\move_atom_action\mp-28544_processed.cif
+input_cifs\mp-28580.cif,Move atom at index 4 by [-1.04396114 -0.32912789  0.59502167] in the cif file.,output_cifs\move_atom_action\mp-28580_processed.cif
+input_cifs\mp-28824.cif,Move atom at index 14 by [-1.61853566  1.39748999  0.97068814] in the cif file.,output_cifs\move_atom_action\mp-28824_processed.cif
+input_cifs\mp-2901870.cif,Move atom at index 0 by [-0.94830852 -1.4297312  -3.57508454] in the cif file.,output_cifs\move_atom_action\mp-2901870_processed.cif
+input_cifs\mp-2911.cif,Move atom at index 18 by [-0.13505505 -2.042683    2.03930003] in the cif file.,output_cifs\move_atom_action\mp-2911_processed.cif
+input_cifs\mp-29144.cif,Move atom at index 0 by [-3.52040554 -5.94495857  3.94991317] in the cif file.,output_cifs\move_atom_action\mp-29144_processed.cif
+input_cifs\mp-29412.cif,Move atom at index 28 by [-4.17688067 -0.49645783 -0.99850607] in the cif file.,output_cifs\move_atom_action\mp-29412_processed.cif
+input_cifs\mp-29415.cif,Move atom at index 11 by [-0.26865573  4.4883296   0.36342744] in the cif file.,output_cifs\move_atom_action\mp-29415_processed.cif
+input_cifs\mp-29755.cif,Move atom at index 3 by [ 1.93017122 -1.70051112  0.47769769] in the cif file.,output_cifs\move_atom_action\mp-29755_processed.cif
+input_cifs\mp-29770.cif,Move atom at index 1 by [ 2.54189796  0.93441436 -4.78242875] in the cif file.,output_cifs\move_atom_action\mp-29770_processed.cif
+input_cifs\mp-30305.cif,Move atom at index 15 by [0.54109643 1.04020503 0.87613585] in the cif file.,output_cifs\move_atom_action\mp-30305_processed.cif
+input_cifs\mp-30320.cif,Move atom at index 18 by [ 0.05724991 -2.0374477  -0.16338753] in the cif file.,output_cifs\move_atom_action\mp-30320_processed.cif
+input_cifs\mp-30859.cif,Move atom at index 14 by [-3.38973808 -2.69019879  2.54683807] in the cif file.,output_cifs\move_atom_action\mp-30859_processed.cif
+input_cifs\mp-30908.cif,Move atom at index 7 by [0.72659816 1.27822943 2.89049574] in the cif file.,output_cifs\move_atom_action\mp-30908_processed.cif
+input_cifs\mp-31251.cif,Move atom at index 60 by [3.52743447 0.13138961 3.38110183] in the cif file.,output_cifs\move_atom_action\mp-31251_processed.cif
+input_cifs\mp-31314.cif,Move atom at index 42 by [ 0.21429802 -3.01047762 -1.50850775] in the cif file.,output_cifs\move_atom_action\mp-31314_processed.cif
+input_cifs\mp-3138.cif,Move atom at index 22 by [-3.26058713 -0.82834474 -0.03617859] in the cif file.,output_cifs\move_atom_action\mp-3138_processed.cif
+input_cifs\mp-31394.cif,Move atom at index 41 by [-3.17033782  2.40174265 -1.42412716] in the cif file.,output_cifs\move_atom_action\mp-31394_processed.cif
+input_cifs\mp-3205.cif,Move atom at index 3 by [-1.43337639 -4.38309833 -0.68929687] in the cif file.,output_cifs\move_atom_action\mp-3205_processed.cif
+input_cifs\mp-3216726.cif,Move atom at index 9 by [ 1.2648009   0.4128     -1.71596094] in the cif file.,output_cifs\move_atom_action\mp-3216726_processed.cif
+input_cifs\mp-32528.cif,Move atom at index 14 by [ 1.63264985 -2.05280788 -0.68570001] in the cif file.,output_cifs\move_atom_action\mp-32528_processed.cif
+input_cifs\mp-3316.cif,Move atom at index 7 by [0.12290408 3.05893451 2.34555791] in the cif file.,output_cifs\move_atom_action\mp-3316_processed.cif
+input_cifs\mp-33325.cif,Move atom at index 37 by [-0.42710377  1.48076652 -3.52200762] in the cif file.,output_cifs\move_atom_action\mp-33325_processed.cif
+input_cifs\mp-34185.cif,Move atom at index 5 by [-1.56326563 -1.50950081 -0.98090401] in the cif file.,output_cifs\move_atom_action\mp-34185_processed.cif
+input_cifs\mp-3538.cif,Move atom at index 53 by [-2.84812447 -2.77277961  1.33571181] in the cif file.,output_cifs\move_atom_action\mp-3538_processed.cif
+input_cifs\mp-36310.cif,Move atom at index 2 by [-0.1605474  -1.34514524 -4.62941031] in the cif file.,output_cifs\move_atom_action\mp-36310_processed.cif
+input_cifs\mp-36484.cif,Move atom at index 37 by [-2.14264762 -0.21146058  1.27686995] in the cif file.,output_cifs\move_atom_action\mp-36484_processed.cif
+input_cifs\mp-4419.cif,Move atom at index 8 by [ 2.73551889  1.47395862 -0.91562468] in the cif file.,output_cifs\move_atom_action\mp-4419_processed.cif
+input_cifs\mp-4421.cif,Move atom at index 8 by [ 3.76701622 -1.62828715 -2.82744492] in the cif file.,output_cifs\move_atom_action\mp-4421_processed.cif
+input_cifs\mp-504149.cif,Move atom at index 66 by [-0.63947479 -1.59535978  1.04879723] in the cif file.,output_cifs\move_atom_action\mp-504149_processed.cif
+input_cifs\mp-504509.cif,Move atom at index 28 by [-2.52311488  2.87920693 -0.01525054] in the cif file.,output_cifs\move_atom_action\mp-504509_processed.cif
+input_cifs\mp-505074.cif,Move atom at index 27 by [-0.35412051  3.24381562 -1.80382785] in the cif file.,output_cifs\move_atom_action\mp-505074_processed.cif
+input_cifs\mp-505217.cif,Move atom at index 20 by [-3.10886043  0.95583994 -1.44676661] in the cif file.,output_cifs\move_atom_action\mp-505217_processed.cif
+input_cifs\mp-505540.cif,Move atom at index 8 by [ 0.37742795 -1.8795841  -1.30912461] in the cif file.,output_cifs\move_atom_action\mp-505540_processed.cif
+input_cifs\mp-505573.cif,Move atom at index 17 by [ 0.87459703 -0.44352685  1.83208828] in the cif file.,output_cifs\move_atom_action\mp-505573_processed.cif
+input_cifs\mp-505766.cif,Move atom at index 1 by [ 3.74637006  0.89801301 -0.22479586] in the cif file.,output_cifs\move_atom_action\mp-505766_processed.cif
+input_cifs\mp-510544.cif,Move atom at index 0 by [-1.67409608 -0.35246183 -0.10168508] in the cif file.,output_cifs\move_atom_action\mp-510544_processed.cif
+input_cifs\mp-510717.cif,Move atom at index 23 by [ 1.37101434  0.60600097 -0.8315488 ] in the cif file.,output_cifs\move_atom_action\mp-510717_processed.cif
+input_cifs\mp-5151.cif,Move atom at index 6 by [ 0.70465995  0.30234494 -5.02990169] in the cif file.,output_cifs\move_atom_action\mp-5151_processed.cif
+input_cifs\mp-530379.cif,Move atom at index 14 by [-0.6615373   2.25628963 -2.11175448] in the cif file.,output_cifs\move_atom_action\mp-530379_processed.cif
+input_cifs\mp-530850.cif,Move atom at index 64 by [-5.10480438  2.65564225 -3.57237145] in the cif file.,output_cifs\move_atom_action\mp-530850_processed.cif
+input_cifs\mp-540740.cif,Move atom at index 27 by [-1.21351208  0.62944123  0.08487334] in the cif file.,output_cifs\move_atom_action\mp-540740_processed.cif
+input_cifs\mp-540798.cif,Move atom at index 18 by [ 3.79870878 -4.05832918 -0.37160325] in the cif file.,output_cifs\move_atom_action\mp-540798_processed.cif
+input_cifs\mp-540938.cif,Move atom at index 13 by [ 0.36337039 -3.0315692   3.93736705] in the cif file.,output_cifs\move_atom_action\mp-540938_processed.cif
+input_cifs\mp-540977.cif,Move atom at index 1 by [-3.36159965  3.61791597 -0.75701751] in the cif file.,output_cifs\move_atom_action\mp-540977_processed.cif
+input_cifs\mp-541595.cif,Move atom at index 17 by [ 3.40968919 -2.79694086  2.76769159] in the cif file.,output_cifs\move_atom_action\mp-541595_processed.cif
+input_cifs\mp-541619.cif,Move atom at index 21 by [-3.48741836 -0.70987107  2.11831037] in the cif file.,output_cifs\move_atom_action\mp-541619_processed.cif
+input_cifs\mp-541894.cif,Move atom at index 19 by [-0.8167681  -5.74056079  2.96980339] in the cif file.,output_cifs\move_atom_action\mp-541894_processed.cif
+input_cifs\mp-541991.cif,Move atom at index 16 by [-2.28701941 -1.68814504  1.07975055] in the cif file.,output_cifs\move_atom_action\mp-541991_processed.cif
+input_cifs\mp-542024.cif,Move atom at index 13 by [-0.14797212 -1.48023389 -0.42325382] in the cif file.,output_cifs\move_atom_action\mp-542024_processed.cif
+input_cifs\mp-542151.cif,Move atom at index 5 by [ 3.3298507   3.21827945 -0.03573498] in the cif file.,output_cifs\move_atom_action\mp-542151_processed.cif
+input_cifs\mp-542342.cif,Move atom at index 14 by [0.49013848 0.98015146 1.03247561] in the cif file.,output_cifs\move_atom_action\mp-542342_processed.cif
+input_cifs\mp-542435.cif,Move atom at index 35 by [1.71120699 5.91182638 0.05325076] in the cif file.,output_cifs\move_atom_action\mp-542435_processed.cif
+input_cifs\mp-542448.cif,Move atom at index 4 by [ 2.5327212  -0.42699109 -0.33812759] in the cif file.,output_cifs\move_atom_action\mp-542448_processed.cif
+input_cifs\mp-542812.cif,Move atom at index 8 by [-1.82417034 -1.51410462 -0.41950247] in the cif file.,output_cifs\move_atom_action\mp-542812_processed.cif
+input_cifs\mp-543036.cif,Move atom at index 59 by [-1.19431694  4.59493351 -1.73256547] in the cif file.,output_cifs\move_atom_action\mp-543036_processed.cif
+input_cifs\mp-543042.cif,Move atom at index 0 by [-1.52573255 -0.55686979 -0.62202419] in the cif file.,output_cifs\move_atom_action\mp-543042_processed.cif
+input_cifs\mp-554174.cif,Move atom at index 81 by [ 2.26510947 -2.54460187  1.37167586] in the cif file.,output_cifs\move_atom_action\mp-554174_processed.cif
+input_cifs\mp-554264.cif,Move atom at index 75 by [1.67934955 1.24600832 0.72791084] in the cif file.,output_cifs\move_atom_action\mp-554264_processed.cif
+input_cifs\mp-554383.cif,Move atom at index 13 by [-1.10385985  3.6038463   0.44810987] in the cif file.,output_cifs\move_atom_action\mp-554383_processed.cif
+input_cifs\mp-554799.cif,Move atom at index 5 by [ 1.9590682  -1.83517007 -0.86789423] in the cif file.,output_cifs\move_atom_action\mp-554799_processed.cif
+input_cifs\mp-554818.cif,Move atom at index 11 by [0.95421136 1.18060316 3.06249814] in the cif file.,output_cifs\move_atom_action\mp-554818_processed.cif
+input_cifs\mp-555198.cif,Move atom at index 12 by [-1.04477917  3.31232062  0.97656447] in the cif file.,output_cifs\move_atom_action\mp-555198_processed.cif
+input_cifs\mp-555534.cif,Move atom at index 24 by [-1.8566727  -2.82611946 -1.66772095] in the cif file.,output_cifs\move_atom_action\mp-555534_processed.cif
+input_cifs\mp-555790.cif,Move atom at index 1 by [ 0.23820194  1.10005923 -0.11726817] in the cif file.,output_cifs\move_atom_action\mp-555790_processed.cif
+input_cifs\mp-556185.cif,Move atom at index 9 by [-1.30219035  1.71733842 -1.42793958] in the cif file.,output_cifs\move_atom_action\mp-556185_processed.cif
+input_cifs\mp-556236.cif,Move atom at index 30 by [-3.13782717  0.59076381  1.45680259] in the cif file.,output_cifs\move_atom_action\mp-556236_processed.cif
+input_cifs\mp-556319.cif,Move atom at index 5 by [ 0.64776556 -3.17457196  1.18581951] in the cif file.,output_cifs\move_atom_action\mp-556319_processed.cif
+input_cifs\mp-556404.cif,Move atom at index 28 by [-3.68175988  3.84416026 -3.8847701 ] in the cif file.,output_cifs\move_atom_action\mp-556404_processed.cif
+input_cifs\mp-557059.cif,Move atom at index 81 by [-3.33148544 -0.64915949  2.78737584] in the cif file.,output_cifs\move_atom_action\mp-557059_processed.cif
+input_cifs\mp-557180.cif,Move atom at index 37 by [-0.10133888 -1.95581415 -3.73939755] in the cif file.,output_cifs\move_atom_action\mp-557180_processed.cif
+input_cifs\mp-557215.cif,Move atom at index 21 by [ 3.25130368 -1.24525308 -0.71192928] in the cif file.,output_cifs\move_atom_action\mp-557215_processed.cif
+input_cifs\mp-557266.cif,Move atom at index 2 by [ 1.62773407 -1.34631797 -0.02969788] in the cif file.,output_cifs\move_atom_action\mp-557266_processed.cif
+input_cifs\mp-557389.cif,Move atom at index 30 by [ 0.37533087  1.48625522 -2.59262625] in the cif file.,output_cifs\move_atom_action\mp-557389_processed.cif
+input_cifs\mp-557574.cif,Move atom at index 5 by [-5.36024381 -2.21275192  2.37961925] in the cif file.,output_cifs\move_atom_action\mp-557574_processed.cif
+input_cifs\mp-557589.cif,Move atom at index 31 by [-0.84191747 -3.35254344  2.27637235] in the cif file.,output_cifs\move_atom_action\mp-557589_processed.cif
+input_cifs\mp-557752.cif,Move atom at index 2 by [ 1.40901915 -0.70289618  0.66997059] in the cif file.,output_cifs\move_atom_action\mp-557752_processed.cif
+input_cifs\mp-557824.cif,Move atom at index 25 by [1.47040799 0.9114366  0.58242072] in the cif file.,output_cifs\move_atom_action\mp-557824_processed.cif
+input_cifs\mp-557864.cif,Move atom at index 23 by [-1.27967299 -1.26987345 -0.80077724] in the cif file.,output_cifs\move_atom_action\mp-557864_processed.cif
+input_cifs\mp-557961.cif,Move atom at index 14 by [ 1.52376707 -1.24068116  0.41027834] in the cif file.,output_cifs\move_atom_action\mp-557961_processed.cif
+input_cifs\mp-558023.cif,Move atom at index 24 by [0.19931477 1.84016828 0.50042888] in the cif file.,output_cifs\move_atom_action\mp-558023_processed.cif
+input_cifs\mp-558368.cif,Move atom at index 1 by [ 3.57463056 -0.27940535 -0.82669172] in the cif file.,output_cifs\move_atom_action\mp-558368_processed.cif
+input_cifs\mp-558382.cif,Move atom at index 11 by [ 2.91103942 -0.69683136 -0.58590653] in the cif file.,output_cifs\move_atom_action\mp-558382_processed.cif
+input_cifs\mp-559140.cif,Move atom at index 11 by [-1.20647077  1.71987678 -1.12023924] in the cif file.,output_cifs\move_atom_action\mp-559140_processed.cif
+input_cifs\mp-559223.cif,Move atom at index 32 by [-0.5979975  -1.20542655  2.59986674] in the cif file.,output_cifs\move_atom_action\mp-559223_processed.cif
+input_cifs\mp-559929.cif,Move atom at index 7 by [1.14607611 2.84883459 1.2347874 ] in the cif file.,output_cifs\move_atom_action\mp-559929_processed.cif
+input_cifs\mp-560091.cif,Move atom at index 19 by [-1.63398305 -2.85182129 -0.57756869] in the cif file.,output_cifs\move_atom_action\mp-560091_processed.cif
+input_cifs\mp-560380.cif,Move atom at index 4 by [-0.22939953 -1.20757423  3.72211642] in the cif file.,output_cifs\move_atom_action\mp-560380_processed.cif
+input_cifs\mp-560535.cif,Move atom at index 15 by [2.38570187 2.79832927 1.62213627] in the cif file.,output_cifs\move_atom_action\mp-560535_processed.cif
+input_cifs\mp-560605.cif,Move atom at index 9 by [1.72932049 2.48317788 0.29053679] in the cif file.,output_cifs\move_atom_action\mp-560605_processed.cif
+input_cifs\mp-560751.cif,Move atom at index 24 by [ 0.74198608 -3.91680832  0.83662686] in the cif file.,output_cifs\move_atom_action\mp-560751_processed.cif
+input_cifs\mp-560754.cif,Move atom at index 25 by [-0.15225268 -0.46180441  2.25905621] in the cif file.,output_cifs\move_atom_action\mp-560754_processed.cif
+input_cifs\mp-561641.cif,Move atom at index 2 by [ 0.93078579 -2.0191493   2.48633157] in the cif file.,output_cifs\move_atom_action\mp-561641_processed.cif
+input_cifs\mp-567492.cif,Move atom at index 15 by [-0.45128677 -1.6614117  -0.71449765] in the cif file.,output_cifs\move_atom_action\mp-567492_processed.cif
+input_cifs\mp-567540.cif,Move atom at index 19 by [ 2.38211001  1.78399027 -1.97284407] in the cif file.,output_cifs\move_atom_action\mp-567540_processed.cif
+input_cifs\mp-568306.cif,Move atom at index 8 by [-1.93211003  1.65942752 -1.19567994] in the cif file.,output_cifs\move_atom_action\mp-568306_processed.cif
+input_cifs\mp-568716.cif,Move atom at index 29 by [ 1.69970589 -2.27146773  3.32922457] in the cif file.,output_cifs\move_atom_action\mp-568716_processed.cif
+input_cifs\mp-568757.cif,Move atom at index 42 by [ 2.23706256 -1.02727552 -2.73039483] in the cif file.,output_cifs\move_atom_action\mp-568757_processed.cif
+input_cifs\mp-570044.cif,Move atom at index 16 by [ 4.042236   -0.14800205 -0.33350501] in the cif file.,output_cifs\move_atom_action\mp-570044_processed.cif
+input_cifs\mp-571428.cif,Move atom at index 9 by [-2.00166012  1.88925048 -2.14211904] in the cif file.,output_cifs\move_atom_action\mp-571428_processed.cif
+input_cifs\mp-571566.cif,Move atom at index 4 by [-3.81400073  1.74613442  2.43468177] in the cif file.,output_cifs\move_atom_action\mp-571566_processed.cif
+input_cifs\mp-5730.cif,Move atom at index 14 by [-2.92414869 -2.11285058 -0.58522836] in the cif file.,output_cifs\move_atom_action\mp-5730_processed.cif
+input_cifs\mp-574339.cif,Move atom at index 0 by [-1.63005674 -1.77740538  1.76273081] in the cif file.,output_cifs\move_atom_action\mp-574339_processed.cif
+input_cifs\mp-581471.cif,Move atom at index 11 by [ 0.55328661  4.49324594 -1.36785368] in the cif file.,output_cifs\move_atom_action\mp-581471_processed.cif
+input_cifs\mp-582081.cif,Move atom at index 19 by [ 0.79505219 -0.9448585   2.40816979] in the cif file.,output_cifs\move_atom_action\mp-582081_processed.cif
+input_cifs\mp-582587.cif,Move atom at index 48 by [1.14151894 0.95847928 1.47805971] in the cif file.,output_cifs\move_atom_action\mp-582587_processed.cif
+input_cifs\mp-603694.cif,Move atom at index 25 by [ 0.19991994  1.39432102 -2.8951613 ] in the cif file.,output_cifs\move_atom_action\mp-603694_processed.cif
+input_cifs\mp-607525.cif,Move atom at index 0 by [0.77069843 1.49298319 1.73126222] in the cif file.,output_cifs\move_atom_action\mp-607525_processed.cif
+input_cifs\mp-608206.cif,Move atom at index 0 by [4.27450575 0.88803746 3.80654784] in the cif file.,output_cifs\move_atom_action\mp-608206_processed.cif
+input_cifs\mp-6112.cif,Move atom at index 13 by [1.6318239  1.34959634 1.83140246] in the cif file.,output_cifs\move_atom_action\mp-6112_processed.cif
+input_cifs\mp-613327.cif,Move atom at index 8 by [ 1.30707794  2.27032531 -4.73761262] in the cif file.,output_cifs\move_atom_action\mp-613327_processed.cif
+input_cifs\mp-616210.cif,Move atom at index 10 by [ 2.5002885  -3.10685239 -0.86484211] in the cif file.,output_cifs\move_atom_action\mp-616210_processed.cif
+input_cifs\mp-616407.cif,Move atom at index 0 by [-0.77377448 -1.19239655  1.02479845] in the cif file.,output_cifs\move_atom_action\mp-616407_processed.cif
+input_cifs\mp-621964.cif,Move atom at index 24 by [-0.05134588  0.38091138  1.19713061] in the cif file.,output_cifs\move_atom_action\mp-621964_processed.cif
+input_cifs\mp-6257.cif,Move atom at index 12 by [-0.78812764 -0.90301038  0.57034047] in the cif file.,output_cifs\move_atom_action\mp-6257_processed.cif
+input_cifs\mp-625744.cif,Move atom at index 16 by [-0.41694006  0.47062699  0.9316193 ] in the cif file.,output_cifs\move_atom_action\mp-625744_processed.cif
+input_cifs\mp-626565.cif,Move atom at index 8 by [-2.42921075 -1.00960261  0.71592152] in the cif file.,output_cifs\move_atom_action\mp-626565_processed.cif
+input_cifs\mp-630976.cif,Move atom at index 2 by [-1.77734416 -2.56096989  1.07833001] in the cif file.,output_cifs\move_atom_action\mp-630976_processed.cif
+input_cifs\mp-637599.cif,Move atom at index 9 by [-0.3408387   1.88984971  1.5686304 ] in the cif file.,output_cifs\move_atom_action\mp-637599_processed.cif
+input_cifs\mp-639826.cif,Move atom at index 1 by [0.37424423 1.38298131 0.25130511] in the cif file.,output_cifs\move_atom_action\mp-639826_processed.cif
+input_cifs\mp-642315.cif,Move atom at index 35 by [-0.06024991 -0.67001584 -0.2973599 ] in the cif file.,output_cifs\move_atom_action\mp-642315_processed.cif
+input_cifs\mp-644221.cif,Move atom at index 4 by [-0.30246688 -0.17041544 -3.01038449] in the cif file.,output_cifs\move_atom_action\mp-644221_processed.cif
+input_cifs\mp-644529.cif,Move atom at index 3 by [ 0.43368445  0.48552862 -0.17737848] in the cif file.,output_cifs\move_atom_action\mp-644529_processed.cif
+input_cifs\mp-644741.cif,Move atom at index 5 by [ 0.85173531 -1.54358958 -0.33863406] in the cif file.,output_cifs\move_atom_action\mp-644741_processed.cif
+input_cifs\mp-654225.cif,Move atom at index 37 by [-5.63484561  2.7343332   2.71402108] in the cif file.,output_cifs\move_atom_action\mp-654225_processed.cif
+input_cifs\mp-6653.cif,Move atom at index 5 by [ 0.19925079 -1.94769349  1.56163014] in the cif file.,output_cifs\move_atom_action\mp-6653_processed.cif
+input_cifs\mp-667200.cif,Move atom at index 39 by [-0.3470221  -4.08091647  2.3407795 ] in the cif file.,output_cifs\move_atom_action\mp-667200_processed.cif
+input_cifs\mp-669359.cif,Move atom at index 19 by [-4.49767188 -0.46866616 -2.50152085] in the cif file.,output_cifs\move_atom_action\mp-669359_processed.cif
+input_cifs\mp-669377.cif,Move atom at index 21 by [-0.12688705  0.80214953  3.35498881] in the cif file.,output_cifs\move_atom_action\mp-669377_processed.cif
+input_cifs\mp-672228.cif,Move atom at index 14 by [0.8008177 0.6921859 3.1363481] in the cif file.,output_cifs\move_atom_action\mp-672228_processed.cif
+input_cifs\mp-672972.cif,Move atom at index 9 by [-0.90189612 -0.73583158  1.42708214] in the cif file.,output_cifs\move_atom_action\mp-672972_processed.cif
+input_cifs\mp-6745.cif,Move atom at index 13 by [0.31933917 0.95177125 0.88248526] in the cif file.,output_cifs\move_atom_action\mp-6745_processed.cif
+input_cifs\mp-675118.cif,Move atom at index 19 by [ 1.49878499 -0.10942046 -0.35826856] in the cif file.,output_cifs\move_atom_action\mp-675118_processed.cif
+input_cifs\mp-675519.cif,Move atom at index 33 by [-1.90052128 -4.04900615 -0.223098  ] in the cif file.,output_cifs\move_atom_action\mp-675519_processed.cif
+input_cifs\mp-675778.cif,Move atom at index 1 by [-0.00846308  1.06825869 -3.17273124] in the cif file.,output_cifs\move_atom_action\mp-675778_processed.cif
+input_cifs\mp-676.cif,Move atom at index 2 by [ 2.05733628 -1.7234728   4.78700433] in the cif file.,output_cifs\move_atom_action\mp-676_processed.cif
+input_cifs\mp-676275.cif,Move atom at index 9 by [-1.8524836  -0.90388643 -2.77279925] in the cif file.,output_cifs\move_atom_action\mp-676275_processed.cif
+input_cifs\mp-676816.cif,Move atom at index 9 by [ 0.67129693  0.69227802 -0.12523749] in the cif file.,output_cifs\move_atom_action\mp-676816_processed.cif
+input_cifs\mp-676881.cif,Move atom at index 24 by [-1.65942033 -0.8263803  -0.55539184] in the cif file.,output_cifs\move_atom_action\mp-676881_processed.cif
+input_cifs\mp-677725.cif,Move atom at index 20 by [-2.44416427  3.08354506  0.40369119] in the cif file.,output_cifs\move_atom_action\mp-677725_processed.cif
+input_cifs\mp-6800.cif,Move atom at index 9 by [ 1.55963894 -3.50182083 -4.01919213] in the cif file.,output_cifs\move_atom_action\mp-6800_processed.cif
+input_cifs\mp-680260.cif,Move atom at index 15 by [-1.25573507 -1.62503599  3.47481676] in the cif file.,output_cifs\move_atom_action\mp-680260_processed.cif
+input_cifs\mp-684589.cif,Move atom at index 14 by [-1.47996681 -0.63771209  0.74516908] in the cif file.,output_cifs\move_atom_action\mp-684589_processed.cif
+input_cifs\mp-684710.cif,Move atom at index 20 by [1.71659971 2.28901231 0.17335821] in the cif file.,output_cifs\move_atom_action\mp-684710_processed.cif
+input_cifs\mp-685224.cif,Move atom at index 30 by [-1.00810059 -1.69693921  0.49456543] in the cif file.,output_cifs\move_atom_action\mp-685224_processed.cif
+input_cifs\mp-685418.cif,Move atom at index 30 by [-2.74328239  1.81869163 -1.46843366] in the cif file.,output_cifs\move_atom_action\mp-685418_processed.cif
+input_cifs\mp-690493.cif,Move atom at index 6 by [1.61660168 2.63183191 6.46419498] in the cif file.,output_cifs\move_atom_action\mp-690493_processed.cif
+input_cifs\mp-690517.cif,Move atom at index 12 by [1.95274613 1.76525002 1.25310774] in the cif file.,output_cifs\move_atom_action\mp-690517_processed.cif
+input_cifs\mp-690674.cif,Move atom at index 10 by [-0.92942129 -1.3367869   1.96860072] in the cif file.,output_cifs\move_atom_action\mp-690674_processed.cif
+input_cifs\mp-694979.cif,Move atom at index 4 by [-0.95712882 -2.20754816 -1.60074116] in the cif file.,output_cifs\move_atom_action\mp-694979_processed.cif
+input_cifs\mp-695946.cif,Move atom at index 24 by [-1.85739788 -0.25423085 -1.25964115] in the cif file.,output_cifs\move_atom_action\mp-695946_processed.cif
+input_cifs\mp-696298.cif,Move atom at index 2 by [-2.93643421  2.70779822 -3.99094774] in the cif file.,output_cifs\move_atom_action\mp-696298_processed.cif
+input_cifs\mp-696990.cif,Move atom at index 41 by [ 0.44458184 -3.06881502  2.62273394] in the cif file.,output_cifs\move_atom_action\mp-696990_processed.cif
+input_cifs\mp-697075.cif,Move atom at index 25 by [0.15508108 2.46287301 0.49502778] in the cif file.,output_cifs\move_atom_action\mp-697075_processed.cif
+input_cifs\mp-697458.cif,Move atom at index 13 by [ 0.58628084  0.4840899  -1.50600745] in the cif file.,output_cifs\move_atom_action\mp-697458_processed.cif
+input_cifs\mp-697721.cif,Move atom at index 0 by [-0.1324428  -0.28052605 -3.12403964] in the cif file.,output_cifs\move_atom_action\mp-697721_processed.cif
+input_cifs\mp-698312.cif,Move atom at index 4 by [ 0.20680776  1.82124464 -0.74250023] in the cif file.,output_cifs\move_atom_action\mp-698312_processed.cif
+input_cifs\mp-7022.cif,Move atom at index 8 by [ 1.97782808 -0.33601027 -2.83025585] in the cif file.,output_cifs\move_atom_action\mp-7022_processed.cif
+input_cifs\mp-703291.cif,Move atom at index 12 by [0.17228701 1.7281444  0.57056677] in the cif file.,output_cifs\move_atom_action\mp-703291_processed.cif
+input_cifs\mp-704116.cif,Move atom at index 14 by [-1.53272489  1.83465071 -3.04657837] in the cif file.,output_cifs\move_atom_action\mp-704116_processed.cif
+input_cifs\mp-704848.cif,Move atom at index 14 by [-1.01010512 -1.41638799 -0.59432991] in the cif file.,output_cifs\move_atom_action\mp-704848_processed.cif
+input_cifs\mp-705312.cif,Move atom at index 57 by [-4.69456281  0.11115093  2.44444805] in the cif file.,output_cifs\move_atom_action\mp-705312_processed.cif
+input_cifs\mp-706518.cif,Move atom at index 26 by [3.62643788 1.09876439 1.27460239] in the cif file.,output_cifs\move_atom_action\mp-706518_processed.cif
+input_cifs\mp-706524.cif,Move atom at index 7 by [ 0.64254122  0.13298845 -1.02230108] in the cif file.,output_cifs\move_atom_action\mp-706524_processed.cif
+input_cifs\mp-707406.cif,Move atom at index 52 by [ 0.10900318 -0.8266294   1.40217882] in the cif file.,output_cifs\move_atom_action\mp-707406_processed.cif
+input_cifs\mp-707744.cif,Move atom at index 47 by [ 3.82418483  3.85430089 -0.46435022] in the cif file.,output_cifs\move_atom_action\mp-707744_processed.cif
+input_cifs\mp-707840.cif,Move atom at index 12 by [-1.56955337  0.83755604 -0.76332766] in the cif file.,output_cifs\move_atom_action\mp-707840_processed.cif
+input_cifs\mp-715457.cif,Move atom at index 2 by [3.66819608 2.44875538 4.14506028] in the cif file.,output_cifs\move_atom_action\mp-715457_processed.cif
+input_cifs\mp-715553.cif,Move atom at index 1 by [-2.7560647  -2.79271572 -1.79966476] in the cif file.,output_cifs\move_atom_action\mp-715553_processed.cif
+input_cifs\mp-720104.cif,Move atom at index 28 by [ 3.11423013  0.49724923 -2.52216603] in the cif file.,output_cifs\move_atom_action\mp-720104_processed.cif
+input_cifs\mp-720572.cif,Move atom at index 8 by [ 1.53560529 -3.07702519 -1.40621094] in the cif file.,output_cifs\move_atom_action\mp-720572_processed.cif
+input_cifs\mp-722790.cif,Move atom at index 28 by [-0.06407238 -1.23293477  0.31793502] in the cif file.,output_cifs\move_atom_action\mp-722790_processed.cif
+input_cifs\mp-722980.cif,Move atom at index 39 by [ 1.0779936  -0.02057092 -0.49587126] in the cif file.,output_cifs\move_atom_action\mp-722980_processed.cif
+input_cifs\mp-726672.cif,Move atom at index 2 by [-3.16326867 -2.3189818   1.29184471] in the cif file.,output_cifs\move_atom_action\mp-726672_processed.cif
+input_cifs\mp-7281.cif,Move atom at index 1 by [-1.68021331 -3.38814158 -0.84802865] in the cif file.,output_cifs\move_atom_action\mp-7281_processed.cif
+input_cifs\mp-728374.cif,Move atom at index 46 by [-0.3157126   3.58671818  2.59467515] in the cif file.,output_cifs\move_atom_action\mp-728374_processed.cif
+input_cifs\mp-731813.cif,Move atom at index 9 by [ 0.53069002  0.52643108 -0.97456407] in the cif file.,output_cifs\move_atom_action\mp-731813_processed.cif
+input_cifs\mp-732021.cif,Move atom at index 30 by [-0.97162073 -3.816083    0.3938458 ] in the cif file.,output_cifs\move_atom_action\mp-732021_processed.cif
+input_cifs\mp-734013.cif,Move atom at index 2 by [-0.70268801 -1.7772578   1.53365935] in the cif file.,output_cifs\move_atom_action\mp-734013_processed.cif
+input_cifs\mp-738609.cif,Move atom at index 60 by [ 0.25975185  0.00515325 -1.00239362] in the cif file.,output_cifs\move_atom_action\mp-738609_processed.cif
+input_cifs\mp-752590.cif,Move atom at index 13 by [-3.17528511  0.83950327 -1.0525219 ] in the cif file.,output_cifs\move_atom_action\mp-752590_processed.cif
+input_cifs\mp-752623.cif,Move atom at index 18 by [ 2.01801215  1.41776226 -0.477487  ] in the cif file.,output_cifs\move_atom_action\mp-752623_processed.cif
+input_cifs\mp-752859.cif,Move atom at index 7 by [-1.41868651  1.76297587 -1.27732945] in the cif file.,output_cifs\move_atom_action\mp-752859_processed.cif
+input_cifs\mp-752896.cif,Move atom at index 5 by [ 0.73001798 -0.11995684  0.65821181] in the cif file.,output_cifs\move_atom_action\mp-752896_processed.cif
+input_cifs\mp-752915.cif,Move atom at index 7 by [-1.00164768 -2.55706788 -0.85371042] in the cif file.,output_cifs\move_atom_action\mp-752915_processed.cif
+input_cifs\mp-752916.cif,Move atom at index 7 by [ 1.67620045 -2.96728867 -0.11271378] in the cif file.,output_cifs\move_atom_action\mp-752916_processed.cif
+input_cifs\mp-752972.cif,Move atom at index 12 by [ 0.34042184  0.02444891 -1.88612745] in the cif file.,output_cifs\move_atom_action\mp-752972_processed.cif
+input_cifs\mp-753000.cif,Move atom at index 16 by [-0.53382731 -0.91847258  0.6961828 ] in the cif file.,output_cifs\move_atom_action\mp-753000_processed.cif
+input_cifs\mp-753018.cif,Move atom at index 20 by [-3.38449824 -2.96987485 -2.80177757] in the cif file.,output_cifs\move_atom_action\mp-753018_processed.cif
+input_cifs\mp-753047.cif,Move atom at index 4 by [-0.95517478  1.17730697  1.54927698] in the cif file.,output_cifs\move_atom_action\mp-753047_processed.cif
+input_cifs\mp-753220.cif,Move atom at index 26 by [0.37399843 0.32178647 2.82265841] in the cif file.,output_cifs\move_atom_action\mp-753220_processed.cif
+input_cifs\mp-753282.cif,Move atom at index 2 by [ 0.90847386 -2.30383023 -1.25587783] in the cif file.,output_cifs\move_atom_action\mp-753282_processed.cif
+input_cifs\mp-753309.cif,Move atom at index 8 by [ 1.3288124  -0.3571546  -0.99474341] in the cif file.,output_cifs\move_atom_action\mp-753309_processed.cif
+input_cifs\mp-753322.cif,Move atom at index 0 by [-1.10288952 -1.04227329  1.53496919] in the cif file.,output_cifs\move_atom_action\mp-753322_processed.cif
+input_cifs\mp-753612.cif,Move atom at index 10 by [-1.1357366  -0.7839898   1.48816247] in the cif file.,output_cifs\move_atom_action\mp-753612_processed.cif
+input_cifs\mp-753724.cif,Move atom at index 1 by [ 0.93108744  0.24654139 -0.08357839] in the cif file.,output_cifs\move_atom_action\mp-753724_processed.cif
+input_cifs\mp-753992.cif,Move atom at index 7 by [0.36794159 2.53656134 1.20395194] in the cif file.,output_cifs\move_atom_action\mp-753992_processed.cif
+input_cifs\mp-754070.cif,Move atom at index 6 by [ 1.40442037  0.55304084 -0.41201947] in the cif file.,output_cifs\move_atom_action\mp-754070_processed.cif
+input_cifs\mp-754274.cif,Move atom at index 16 by [-0.73162708 -3.05762707  1.28829311] in the cif file.,output_cifs\move_atom_action\mp-754274_processed.cif
+input_cifs\mp-754345.cif,Move atom at index 9 by [-3.17866756  0.21488273 -0.9078062 ] in the cif file.,output_cifs\move_atom_action\mp-754345_processed.cif
+input_cifs\mp-754644.cif,Move atom at index 2 by [ 1.60699143  2.61178891 -1.50013778] in the cif file.,output_cifs\move_atom_action\mp-754644_processed.cif
+input_cifs\mp-754745.cif,Move atom at index 5 by [ 1.70537183  0.34986575 -4.18070767] in the cif file.,output_cifs\move_atom_action\mp-754745_processed.cif
+input_cifs\mp-754794.cif,Move atom at index 10 by [-1.37390662 -1.04632783  4.19047747] in the cif file.,output_cifs\move_atom_action\mp-754794_processed.cif
+input_cifs\mp-754886.cif,Move atom at index 17 by [-0.84484788  2.49546953  2.19482783] in the cif file.,output_cifs\move_atom_action\mp-754886_processed.cif
+input_cifs\mp-755114.cif,Move atom at index 0 by [ 4.10783279 -0.21474958  1.7664574 ] in the cif file.,output_cifs\move_atom_action\mp-755114_processed.cif
+input_cifs\mp-755229.cif,Move atom at index 3 by [-1.60923725  4.66544214 -1.13503795] in the cif file.,output_cifs\move_atom_action\mp-755229_processed.cif
+input_cifs\mp-755317.cif,Move atom at index 1 by [ 0.43825342 -2.60543623  0.51388081] in the cif file.,output_cifs\move_atom_action\mp-755317_processed.cif
+input_cifs\mp-755498.cif,Move atom at index 10 by [ 1.31748735e+00 -1.78843657e+00  9.68533964e-04] in the cif file.,output_cifs\move_atom_action\mp-755498_processed.cif
+input_cifs\mp-755582.cif,Move atom at index 9 by [2.84682835 1.39623568 0.78373261] in the cif file.,output_cifs\move_atom_action\mp-755582_processed.cif
+input_cifs\mp-755926.cif,Move atom at index 5 by [-0.19604697 -0.33991242  1.04504064] in the cif file.,output_cifs\move_atom_action\mp-755926_processed.cif
+input_cifs\mp-755997.cif,Move atom at index 0 by [-0.44022203  1.11047324 -3.05818456] in the cif file.,output_cifs\move_atom_action\mp-755997_processed.cif
+input_cifs\mp-756062.cif,Move atom at index 3 by [-1.50711522  0.60314952  1.56195866] in the cif file.,output_cifs\move_atom_action\mp-756062_processed.cif
+input_cifs\mp-756382.cif,Move atom at index 11 by [-1.85842329  0.48736234 -0.828313  ] in the cif file.,output_cifs\move_atom_action\mp-756382_processed.cif
+input_cifs\mp-756670.cif,Move atom at index 4 by [-1.49741385  4.29931372  1.46453698] in the cif file.,output_cifs\move_atom_action\mp-756670_processed.cif
+input_cifs\mp-756859.cif,Move atom at index 8 by [-0.64345342 -0.75233276  1.79649535] in the cif file.,output_cifs\move_atom_action\mp-756859_processed.cif
+input_cifs\mp-756990.cif,Move atom at index 16 by [ 3.1173953  -3.03151527 -2.4437963 ] in the cif file.,output_cifs\move_atom_action\mp-756990_processed.cif
+input_cifs\mp-757189.cif,Move atom at index 9 by [-1.53908827  0.66405629 -1.00556689] in the cif file.,output_cifs\move_atom_action\mp-757189_processed.cif
+input_cifs\mp-757311.cif,Move atom at index 18 by [ 1.30237958  0.07286511 -0.79541559] in the cif file.,output_cifs\move_atom_action\mp-757311_processed.cif
+input_cifs\mp-757314.cif,Move atom at index 25 by [ 4.08512596 -0.53406237  0.44385551] in the cif file.,output_cifs\move_atom_action\mp-757314_processed.cif
+input_cifs\mp-757440.cif,Move atom at index 3 by [-0.03629228 -1.3835391  -0.40683651] in the cif file.,output_cifs\move_atom_action\mp-757440_processed.cif
+input_cifs\mp-757579.cif,Move atom at index 2 by [-4.21294781 -0.24765759 -0.09322166] in the cif file.,output_cifs\move_atom_action\mp-757579_processed.cif
+input_cifs\mp-757665.cif,Move atom at index 14 by [-1.28368815  2.33011825 -0.71421167] in the cif file.,output_cifs\move_atom_action\mp-757665_processed.cif
+input_cifs\mp-757787.cif,Move atom at index 13 by [ 0.90873744  1.33328786 -2.42318103] in the cif file.,output_cifs\move_atom_action\mp-757787_processed.cif
+input_cifs\mp-758534.cif,Move atom at index 56 by [-3.97198521 -0.77033035 -0.80384109] in the cif file.,output_cifs\move_atom_action\mp-758534_processed.cif
+input_cifs\mp-758565.cif,Move atom at index 4 by [-5.01934126  4.63556259  1.79588219] in the cif file.,output_cifs\move_atom_action\mp-758565_processed.cif
+input_cifs\mp-758722.cif,Move atom at index 11 by [ 0.01964887 -1.16633863  0.63068857] in the cif file.,output_cifs\move_atom_action\mp-758722_processed.cif
+input_cifs\mp-758858.cif,Move atom at index 1 by [ 1.81989797  1.19871983 -1.57779656] in the cif file.,output_cifs\move_atom_action\mp-758858_processed.cif
+input_cifs\mp-759080.cif,Move atom at index 28 by [-0.32707899  0.65464196 -0.2875831 ] in the cif file.,output_cifs\move_atom_action\mp-759080_processed.cif
+input_cifs\mp-759482.cif,Move atom at index 18 by [-0.09769808 -0.62292771  0.34136243] in the cif file.,output_cifs\move_atom_action\mp-759482_processed.cif
+input_cifs\mp-759507.cif,Move atom at index 20 by [ 4.11859309  0.46691805 -2.16465973] in the cif file.,output_cifs\move_atom_action\mp-759507_processed.cif
+input_cifs\mp-759524.cif,Move atom at index 25 by [1.41901245 0.87647371 1.9217924 ] in the cif file.,output_cifs\move_atom_action\mp-759524_processed.cif
+input_cifs\mp-759607.cif,Move atom at index 63 by [-1.85133012 -1.43559263  1.56355928] in the cif file.,output_cifs\move_atom_action\mp-759607_processed.cif
+input_cifs\mp-759656.cif,Move atom at index 12 by [-4.10881762  3.14925314 -1.84881189] in the cif file.,output_cifs\move_atom_action\mp-759656_processed.cif
+input_cifs\mp-759790.cif,Move atom at index 8 by [ 1.44649584 -3.96132289  1.42689527] in the cif file.,output_cifs\move_atom_action\mp-759790_processed.cif
+input_cifs\mp-759809.cif,Move atom at index 20 by [ 2.00618794  1.26921556 -2.15763697] in the cif file.,output_cifs\move_atom_action\mp-759809_processed.cif
+input_cifs\mp-760193.cif,Move atom at index 45 by [ 0.41261169 -2.48565926  1.42377432] in the cif file.,output_cifs\move_atom_action\mp-760193_processed.cif
+input_cifs\mp-760300.cif,Move atom at index 3 by [-4.25168455 -2.13295466  1.478957  ] in the cif file.,output_cifs\move_atom_action\mp-760300_processed.cif
+input_cifs\mp-761082.cif,Move atom at index 9 by [ 0.87397881 -1.30550101  2.5274776 ] in the cif file.,output_cifs\move_atom_action\mp-761082_processed.cif
+input_cifs\mp-761112.cif,Move atom at index 3 by [ 2.37630704 -0.83301983  1.61431846] in the cif file.,output_cifs\move_atom_action\mp-761112_processed.cif
+input_cifs\mp-7614.cif,Move atom at index 35 by [3.60996231 0.1143169  1.48419111] in the cif file.,output_cifs\move_atom_action\mp-7614_processed.cif
+input_cifs\mp-762304.cif,Move atom at index 9 by [-0.95194412 -2.25046166  1.21116295] in the cif file.,output_cifs\move_atom_action\mp-762304_processed.cif
+input_cifs\mp-7625.cif,Move atom at index 19 by [-1.34440183  1.80372201  0.16717815] in the cif file.,output_cifs\move_atom_action\mp-7625_processed.cif
+input_cifs\mp-762521.cif,Move atom at index 23 by [ 3.83200206  0.02149485 -2.56355573] in the cif file.,output_cifs\move_atom_action\mp-762521_processed.cif
+input_cifs\mp-763259.cif,Move atom at index 23 by [-2.40865968 -2.97217904 -3.38953225] in the cif file.,output_cifs\move_atom_action\mp-763259_processed.cif
+input_cifs\mp-763484.cif,Move atom at index 5 by [-1.86022052 -3.38529563  4.92820112] in the cif file.,output_cifs\move_atom_action\mp-763484_processed.cif
+input_cifs\mp-763920.cif,Move atom at index 17 by [-0.86741472  0.84331907 -0.12744802] in the cif file.,output_cifs\move_atom_action\mp-763920_processed.cif
+input_cifs\mp-765709.cif,Move atom at index 15 by [-0.05459624  2.00524203  0.05237363] in the cif file.,output_cifs\move_atom_action\mp-765709_processed.cif
+input_cifs\mp-766040.cif,Move atom at index 13 by [-0.01018413 -0.89355531 -2.66573068] in the cif file.,output_cifs\move_atom_action\mp-766040_processed.cif
+input_cifs\mp-766051.cif,Move atom at index 10 by [ 2.32886807  0.84968092 -0.87553418] in the cif file.,output_cifs\move_atom_action\mp-766051_processed.cif
+input_cifs\mp-766137.cif,Move atom at index 17 by [ 3.62074373  0.99837919 -1.39776482] in the cif file.,output_cifs\move_atom_action\mp-766137_processed.cif
+input_cifs\mp-766408.cif,Move atom at index 27 by [ 0.15696672  3.39687873 -2.75804002] in the cif file.,output_cifs\move_atom_action\mp-766408_processed.cif
+input_cifs\mp-766447.cif,Move atom at index 4 by [3.39317662 0.94671195 2.00361243] in the cif file.,output_cifs\move_atom_action\mp-766447_processed.cif
+input_cifs\mp-766539.cif,Move atom at index 21 by [-0.16425005 -0.36988819  2.73985364] in the cif file.,output_cifs\move_atom_action\mp-766539_processed.cif
+input_cifs\mp-768276.cif,Move atom at index 21 by [ 1.50417601  0.27829346 -1.48944279] in the cif file.,output_cifs\move_atom_action\mp-768276_processed.cif
+input_cifs\mp-768373.cif,Move atom at index 12 by [-1.80926932  3.58014464 -0.2592654 ] in the cif file.,output_cifs\move_atom_action\mp-768373_processed.cif
+input_cifs\mp-768854.cif,Move atom at index 16 by [ 3.13857791  1.8760282  -1.3978971 ] in the cif file.,output_cifs\move_atom_action\mp-768854_processed.cif
+input_cifs\mp-768859.cif,Move atom at index 30 by [ 0.78168514  2.64102368 -0.95916365] in the cif file.,output_cifs\move_atom_action\mp-768859_processed.cif
+input_cifs\mp-769049.cif,Move atom at index 12 by [ 1.30728572 -2.20143765 -2.42201933] in the cif file.,output_cifs\move_atom_action\mp-769049_processed.cif
+input_cifs\mp-769346.cif,Move atom at index 4 by [ 0.44815318 -4.02244058  3.64531503] in the cif file.,output_cifs\move_atom_action\mp-769346_processed.cif
+input_cifs\mp-769383.cif,Move atom at index 2 by [-1.70364476 -0.10117599  1.63061722] in the cif file.,output_cifs\move_atom_action\mp-769383_processed.cif
+input_cifs\mp-770406.cif,Move atom at index 24 by [ 0.86787756 -0.03548941  2.42181761] in the cif file.,output_cifs\move_atom_action\mp-770406_processed.cif
+input_cifs\mp-770508.cif,Move atom at index 19 by [-1.502018    3.86488506 -0.77765184] in the cif file.,output_cifs\move_atom_action\mp-770508_processed.cif
+input_cifs\mp-770714.cif,Move atom at index 15 by [ 3.11549003 -1.47367655 -0.2202856 ] in the cif file.,output_cifs\move_atom_action\mp-770714_processed.cif
+input_cifs\mp-770847.cif,Move atom at index 32 by [-0.66159227 -1.60572044  0.32228102] in the cif file.,output_cifs\move_atom_action\mp-770847_processed.cif
+input_cifs\mp-770865.cif,Move atom at index 13 by [-0.55350717  1.72325396 -1.51041901] in the cif file.,output_cifs\move_atom_action\mp-770865_processed.cif
+input_cifs\mp-770898.cif,Move atom at index 20 by [-1.48449011 -1.86219029 -1.50238878] in the cif file.,output_cifs\move_atom_action\mp-770898_processed.cif
+input_cifs\mp-770995.cif,Move atom at index 11 by [ 3.29746862  0.56724529 -0.01170371] in the cif file.,output_cifs\move_atom_action\mp-770995_processed.cif
+input_cifs\mp-771674.cif,Move atom at index 14 by [-1.74911839  1.08788534  0.09754461] in the cif file.,output_cifs\move_atom_action\mp-771674_processed.cif
+input_cifs\mp-772172.cif,Move atom at index 17 by [ 2.56919329  0.90294449 -1.19898362] in the cif file.,output_cifs\move_atom_action\mp-772172_processed.cif
+input_cifs\mp-772550.cif,Move atom at index 4 by [-2.3822583  -1.38235984 -1.57564566] in the cif file.,output_cifs\move_atom_action\mp-772550_processed.cif
+input_cifs\mp-772610.cif,Move atom at index 12 by [-1.77663105 -2.7999985  -2.81564855] in the cif file.,output_cifs\move_atom_action\mp-772610_processed.cif
+input_cifs\mp-772749.cif,Move atom at index 39 by [2.65979809 0.34682645 0.56177547] in the cif file.,output_cifs\move_atom_action\mp-772749_processed.cif
+input_cifs\mp-772763.cif,Move atom at index 12 by [ 2.35023695 -2.73589725  2.16139904] in the cif file.,output_cifs\move_atom_action\mp-772763_processed.cif
+input_cifs\mp-772999.cif,Move atom at index 16 by [-4.61278422 -0.80459522  4.13312384] in the cif file.,output_cifs\move_atom_action\mp-772999_processed.cif
+input_cifs\mp-773070.cif,Move atom at index 35 by [-2.87954827  3.25446774  2.38456071] in the cif file.,output_cifs\move_atom_action\mp-773070_processed.cif
+input_cifs\mp-774146.cif,Move atom at index 5 by [-0.96213422 -2.22320172  2.81741633] in the cif file.,output_cifs\move_atom_action\mp-774146_processed.cif
+input_cifs\mp-774370.cif,Move atom at index 29 by [ 1.68710221 -3.41024295 -2.07075423] in the cif file.,output_cifs\move_atom_action\mp-774370_processed.cif
+input_cifs\mp-774459.cif,Move atom at index 16 by [ 0.81801198 -1.19245439  0.28630205] in the cif file.,output_cifs\move_atom_action\mp-774459_processed.cif
+input_cifs\mp-774822.cif,Move atom at index 0 by [-2.12270736 -1.50294016  1.61353606] in the cif file.,output_cifs\move_atom_action\mp-774822_processed.cif
+input_cifs\mp-774929.cif,Move atom at index 22 by [-0.86550363  1.633125   -0.95557565] in the cif file.,output_cifs\move_atom_action\mp-774929_processed.cif
+input_cifs\mp-774940.cif,Move atom at index 30 by [-0.41194694  0.38948863 -1.80710567] in the cif file.,output_cifs\move_atom_action\mp-774940_processed.cif
+input_cifs\mp-775126.cif,Move atom at index 21 by [-0.47418082 -0.27899151  1.68740566] in the cif file.,output_cifs\move_atom_action\mp-775126_processed.cif
+input_cifs\mp-775216.cif,Move atom at index 29 by [ 0.6580946  -0.15835185 -0.41421451] in the cif file.,output_cifs\move_atom_action\mp-775216_processed.cif
+input_cifs\mp-775224.cif,Move atom at index 11 by [2.94317034 0.58998373 0.30273982] in the cif file.,output_cifs\move_atom_action\mp-775224_processed.cif
+input_cifs\mp-775268.cif,Move atom at index 41 by [-2.27404931  0.09548483 -2.06710444] in the cif file.,output_cifs\move_atom_action\mp-775268_processed.cif
+input_cifs\mp-775340.cif,Move atom at index 30 by [ 2.96941211 -3.34803888 -3.34837901] in the cif file.,output_cifs\move_atom_action\mp-775340_processed.cif
+input_cifs\mp-775989.cif,Move atom at index 27 by [-2.20879106  3.67099119  0.41776114] in the cif file.,output_cifs\move_atom_action\mp-775989_processed.cif
+input_cifs\mp-776097.cif,Move atom at index 10 by [-3.00787802 -1.62661589  2.8942591 ] in the cif file.,output_cifs\move_atom_action\mp-776097_processed.cif
+input_cifs\mp-776529.cif,Move atom at index 5 by [ 3.61778516 -2.932275   -2.70374974] in the cif file.,output_cifs\move_atom_action\mp-776529_processed.cif
+input_cifs\mp-7767.cif,Move atom at index 2 by [ 1.26040353 -2.89529741  2.56770063] in the cif file.,output_cifs\move_atom_action\mp-7767_processed.cif
+input_cifs\mp-776873.cif,Move atom at index 14 by [ 4.21662271  0.84166747 -4.90979747] in the cif file.,output_cifs\move_atom_action\mp-776873_processed.cif
+input_cifs\mp-777288.cif,Move atom at index 3 by [-0.38039321 -0.6499717   0.35170427] in the cif file.,output_cifs\move_atom_action\mp-777288_processed.cif
+input_cifs\mp-777458.cif,Move atom at index 21 by [-0.60577279 -0.5654017   2.50856451] in the cif file.,output_cifs\move_atom_action\mp-777458_processed.cif
+input_cifs\mp-777764.cif,Move atom at index 13 by [ 3.09804065 -1.05351209 -0.34546473] in the cif file.,output_cifs\move_atom_action\mp-777764_processed.cif
+input_cifs\mp-778141.cif,Move atom at index 20 by [0.69448273 1.30158709 1.14562233] in the cif file.,output_cifs\move_atom_action\mp-778141_processed.cif
+input_cifs\mp-778158.cif,Move atom at index 40 by [ 1.79829949 -1.21624301 -0.64061889] in the cif file.,output_cifs\move_atom_action\mp-778158_processed.cif
+input_cifs\mp-778252.cif,Move atom at index 30 by [-4.58923302  1.36135238  0.66017176] in the cif file.,output_cifs\move_atom_action\mp-778252_processed.cif
+input_cifs\mp-778260.cif,Move atom at index 30 by [4.11655725 2.31664516 0.17494499] in the cif file.,output_cifs\move_atom_action\mp-778260_processed.cif
+input_cifs\mp-779095.cif,Move atom at index 17 by [0.46664135 4.93553488 0.71133202] in the cif file.,output_cifs\move_atom_action\mp-779095_processed.cif
+input_cifs\mp-779789.cif,Move atom at index 9 by [-4.0791175  -4.30741874  0.22824615] in the cif file.,output_cifs\move_atom_action\mp-779789_processed.cif
+input_cifs\mp-780121.cif,Move atom at index 20 by [ 1.54309316  2.90028908 -1.17495295] in the cif file.,output_cifs\move_atom_action\mp-780121_processed.cif
+input_cifs\mp-780175.cif,Move atom at index 44 by [ 5.53399077  2.32962635 -1.88838464] in the cif file.,output_cifs\move_atom_action\mp-780175_processed.cif
+input_cifs\mp-780392.cif,Move atom at index 8 by [1.17312331 0.30930863 4.09177608] in the cif file.,output_cifs\move_atom_action\mp-780392_processed.cif
+input_cifs\mp-780797.cif,Move atom at index 10 by [-1.80812464  1.56915972 -2.83214836] in the cif file.,output_cifs\move_atom_action\mp-780797_processed.cif
+input_cifs\mp-782009.cif,Move atom at index 52 by [-2.22433767 -2.45432617  2.2091571 ] in the cif file.,output_cifs\move_atom_action\mp-782009_processed.cif
+input_cifs\mp-7926.cif,Move atom at index 4 by [ 0.63380456 -0.73865552  2.44096977] in the cif file.,output_cifs\move_atom_action\mp-7926_processed.cif
+input_cifs\mp-803628.cif,Move atom at index 9 by [ 1.96603504 -2.34511137  0.21329354] in the cif file.,output_cifs\move_atom_action\mp-803628_processed.cif
+input_cifs\mp-8058.cif,Move atom at index 10 by [4.90755312 0.58384268 1.48038472] in the cif file.,output_cifs\move_atom_action\mp-8058_processed.cif
+input_cifs\mp-807001.cif,Move atom at index 6 by [-3.22476537  2.53304664 -1.1189278 ] in the cif file.,output_cifs\move_atom_action\mp-807001_processed.cif
+input_cifs\mp-818638.cif,Move atom at index 17 by [-2.13382874 -2.70613166 -0.33001991] in the cif file.,output_cifs\move_atom_action\mp-818638_processed.cif
+input_cifs\mp-850260.cif,Move atom at index 13 by [ 0.91590813  0.90330091 -0.14027549] in the cif file.,output_cifs\move_atom_action\mp-850260_processed.cif
+input_cifs\mp-850784.cif,Move atom at index 29 by [ 1.70686296  2.73319778 -0.85037853] in the cif file.,output_cifs\move_atom_action\mp-850784_processed.cif
+input_cifs\mp-850942.cif,Move atom at index 2 by [-1.78476068  3.01682129 -1.37709184] in the cif file.,output_cifs\move_atom_action\mp-850942_processed.cif
+input_cifs\mp-861324.cif,Move atom at index 16 by [ 0.04179135 -2.6132814  -1.01718997] in the cif file.,output_cifs\move_atom_action\mp-861324_processed.cif
+input_cifs\mp-861689.cif,Move atom at index 49 by [ 0.2124303   0.395971   -1.77497197] in the cif file.,output_cifs\move_atom_action\mp-861689_processed.cif
+input_cifs\mp-863022.cif,Move atom at index 3 by [-2.96865716  4.49066581  1.09676203] in the cif file.,output_cifs\move_atom_action\mp-863022_processed.cif
+input_cifs\mp-863365.cif,Move atom at index 8 by [-2.598533    0.62145493 -4.8588545 ] in the cif file.,output_cifs\move_atom_action\mp-863365_processed.cif
+input_cifs\mp-863428.cif,Move atom at index 6 by [ 1.65068297  0.11215912 -3.16764444] in the cif file.,output_cifs\move_atom_action\mp-863428_processed.cif
+input_cifs\mp-863754.cif,Move atom at index 4 by [-1.00929348  1.19936129  1.11132863] in the cif file.,output_cifs\move_atom_action\mp-863754_processed.cif
+input_cifs\mp-865205.cif,Move atom at index 2 by [ 1.14720745 -0.77580614  1.23341871] in the cif file.,output_cifs\move_atom_action\mp-865205_processed.cif
+input_cifs\mp-866298.cif,Move atom at index 12 by [1.34560591 4.39755146 1.74086006] in the cif file.,output_cifs\move_atom_action\mp-866298_processed.cif
+input_cifs\mp-866520.cif,Move atom at index 1 by [-0.90318361 -1.24605904  0.92207855] in the cif file.,output_cifs\move_atom_action\mp-866520_processed.cif
+input_cifs\mp-867606.cif,Move atom at index 26 by [ 1.84951241 -1.13410328 -0.92692435] in the cif file.,output_cifs\move_atom_action\mp-867606_processed.cif
+input_cifs\mp-881189.cif,Move atom at index 16 by [-0.26826531 -0.38464501  0.97228475] in the cif file.,output_cifs\move_atom_action\mp-881189_processed.cif
+input_cifs\mp-9275.cif,Move atom at index 34 by [-3.09387199 -0.72787439  2.78364032] in the cif file.,output_cifs\move_atom_action\mp-9275_processed.cif
+input_cifs\mp-9324.cif,Move atom at index 3 by [-0.53148333 -1.30674646  3.02956803] in the cif file.,output_cifs\move_atom_action\mp-9324_processed.cif
+input_cifs\mp-935710.cif,Move atom at index 4 by [-1.57830612  2.09354451  2.26682017] in the cif file.,output_cifs\move_atom_action\mp-935710_processed.cif
+input_cifs\mp-9403.cif,Move atom at index 53 by [ 0.79670267 -2.83765284  0.87483767] in the cif file.,output_cifs\move_atom_action\mp-9403_processed.cif
+input_cifs\mp-9417.cif,Move atom at index 8 by [1.09703613 0.08014191 0.05801197] in the cif file.,output_cifs\move_atom_action\mp-9417_processed.cif
+input_cifs\mp-978989.cif,Move atom at index 14 by [-0.45411739  2.49822016 -0.99524432] in the cif file.,output_cifs\move_atom_action\mp-978989_processed.cif
+input_cifs\mp-979264.cif,Move atom at index 8 by [-0.74723977 -0.78203058  1.50790977] in the cif file.,output_cifs\move_atom_action\mp-979264_processed.cif
+input_cifs\mp-982385.cif,Move atom at index 17 by [-2.01297865 -4.80865395 -0.09680964] in the cif file.,output_cifs\move_atom_action\mp-982385_processed.cif
+input_cifs\mp-985468.cif,Move atom at index 10 by [ 4.48041323  0.56067004 -0.61447985] in the cif file.,output_cifs\move_atom_action\mp-985468_processed.cif
+input_cifs\mp-991772.cif,Move atom at index 10 by [ 0.56209373 -2.43880087  1.26443019] in the cif file.,output_cifs\move_atom_action\mp-991772_processed.cif
+input_cifs\mp-997585.cif,Move atom at index 9 by [-0.73043753 -1.8683124   1.10107964] in the cif file.,output_cifs\move_atom_action\mp-997585_processed.cif
+input_cifs\mp-998746.cif,Move atom at index 6 by [ 1.31986397  2.62850585 -3.20699094] in the cif file.,output_cifs\move_atom_action\mp-998746_processed.cif

@@ -1,0 +1,39 @@
+# generated using pymatgen
+data_Sm2Mg(BiO4)2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.60423662
+_cell_length_b   5.77569563
+_cell_length_c   7.04643390
+_cell_angle_alpha   70.21529071
+_cell_angle_beta   71.21694763
+_cell_angle_gamma   100.50223451
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Sm2Mg(BiO4)2
+_chemical_formula_sum   'Sm2 Mg1 Bi2 O8'
+_cell_volume   192.02201979
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Sm  Sm0  1  0.37098300  0.12218000  0.75993200  1
+  Sm  Sm1  1  0.62645600  0.87885000  0.24833600  1
+  Mg  Mg2  1  0.67639500  0.42895600  0.14789200  1
+  Bi  Bi3  1  0.07658500  0.32882100  0.34752500  1
+  Bi  Bi4  1  0.91177800  0.66312200  0.67853200  1
+  O  O5  1  0.60541400  0.27185600  0.93466500  1
+  O  O6  1  0.33235600  0.09042000  0.40604400  1
+  O  O7  1  0.76236300  0.50851100  0.40584200  1
+  O  O8  1  0.97855100  0.25192000  0.10639700  1
+  O  O9  1  0.96164600  0.79841800  0.93412700  1
+  O  O10  1  0.21904500  0.45449800  0.56828700  1
+  O  O11  1  0.71398300  0.98188500  0.56784700  1
+  O  O12  1  0.41581600  0.64792000  0.10655500  1

@@ -1,0 +1,38 @@
+data_image0
+_chemical_formula_structural       Sm2MgBi2OSeO6
+_chemical_formula_sum              "Sm2 Mg1 Bi2 O7 Se1"
+_cell_length_a       5.60423662
+_cell_length_b       5.7756956299999995
+_cell_length_c       7.0464339
+_cell_angle_alpha    70.21529071
+_cell_angle_beta     71.21694763
+_cell_angle_gamma    100.50223450999998
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Sm  Sm1       1.0  0.37098299999999984  0.12217999999999994  0.759932  1.0000
+  Sm  Sm2       1.0  0.626456  0.87885  0.248336  1.0000
+  Mg  Mg1       1.0  0.676395  0.428956  0.147892  1.0000
+  Bi  Bi1       1.0  0.07658499999999994  0.3288209999999999  0.3475250000000001  1.0000
+  Bi  Bi2       1.0  0.911778  0.6631220000000001  0.678532  1.0000
+  O   O1        1.0  0.605414  0.27185599999999993  0.934665  1.0000
+  Se  Se1       1.0  0.33235600000000004  0.09041999999999996  0.406044  1.0000
+  O   O2        1.0  0.7623630000000001  0.508511  0.40584200000000004  1.0000
+  O   O3        1.0  0.9785510000000001  0.25192  0.106397  1.0000
+  O   O4        1.0  0.9616460000000002  0.798418  0.934127  1.0000
+  O   O5        1.0  0.21904500000000002  0.45449799999999996  0.568287  1.0000
+  O   O6        1.0  0.7139830000000001  0.981885  0.5678470000000001  1.0000
+  O   O7        1.0  0.415816  0.64792  0.106555  1.0000

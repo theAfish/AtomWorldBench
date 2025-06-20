@@ -1,0 +1,36 @@
+data_image0
+_chemical_formula_structural       Sr2LiPTaN2O4
+_chemical_formula_sum              "Sr2 Li1 P1 Ta1 N2 O4"
+_cell_length_a       5.87527597
+_cell_length_b       5.887260540000001
+_cell_length_c       5.88680069
+_cell_angle_alpha    88.18949024
+_cell_angle_beta     121.11629064
+_cell_angle_gamma    121.11883074999999
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Sr  Sr1       1.0  0.49997  0.20005599999999998  0.725919  1.0000
+  Sr  Sr2       1.0  0.500027  0.77421  0.299958  1.0000
+  Li  Li1       1.0  0.49999899999999997  0.559954  0.940024  1.0000
+  P   P1        1.0  0.013522000000000001  0.011707  0.002411  1.0000
+  Ta  Ta1       1.0  0.986478  0.498191  0.48889600000000005  1.0000
+  N   N1        1.0  6.099999999999469e-05  0.256005  0.24368700000000001  1.0000
+  N   N2        1.0  0.9999400000000002  0.755919  0.7436510000000002  1.0000
+  O   O1        1.0  0.06465100000000007  0.2866020000000001  0.7778160000000001  1.0000
+  O   O2        1.0  0.5000010000000001  0.782069  0.7178730000000002  1.0000
+  O   O3        1.0  0.935348  0.722006  0.213221  1.0000
+  O   O4        1.0  0.500001  0.22099099999999997  0.27883600000000003  1.0000

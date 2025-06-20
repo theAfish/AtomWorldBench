@@ -1,0 +1,39 @@
+data_image0
+_chemical_formula_structural       Ca2Sn4O8
+_chemical_formula_sum              "Ca2 Sn4 O8"
+_cell_length_a       6.90943178
+_cell_length_b       6.90943178
+_cell_length_c       6.909431780000001
+_cell_angle_alpha    122.54641815
+_cell_angle_beta     121.47167803
+_cell_angle_gamma    86.55675842
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ca  Ca1       1.0  0.359052  0.609052  0.75  1.0000
+  Ca  Ca2       1.0  0.640948  0.390948  0.25  1.0000
+  Sn  Sn1       1.0  0.0  0.5  0.0  1.0000
+  Sn  Sn2       1.0  0.0  0.0  0.5  1.0000
+  Sn  Sn3       1.0  0.5  0.0  0.5  1.0000
+  Sn  Sn4       1.0  0.0  0.0  0.0  1.0000
+  O   O1        1.0  0.794521  0.30124  0.006719  1.0000
+  O   O2        1.0  0.21176700000000012  0.2488480000000001  0.962919  1.0000
+  O   O3        1.0  0.78593  0.248848  0.537081  1.0000
+  O   O4        1.0  0.9989722921109068  0.13794774660551434  0.9820869470904644  1.0000
+  O   O5        1.0  0.21406999999999998  0.751152  0.46291899999999997  1.0000
+  O   O6        1.0  0.788233  0.751152  0.037081  1.0000
+  O   O7        1.0  0.794521  0.787802  0.4932810000000001  1.0000
+  O   O8        1.0  0.205479  0.69876  0.993281  1.0000

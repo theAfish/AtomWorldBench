@@ -1,0 +1,38 @@
+data_image0
+_chemical_formula_structural       MgV3O4F4Zn
+_chemical_formula_sum              "Mg1 V3 O4 F4 Zn1"
+_cell_length_a       4.8902573
+_cell_length_b       9.80758737
+_cell_length_c       3.060462
+_cell_angle_alpha    90.0
+_cell_angle_beta     90.0
+_cell_angle_gamma    89.55221422999999
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Mg  Mg1       1.0  0.44615299999999997  0.094249  0.75  1.0000
+  V   V1        1.0  0.034627  0.840106  0.75  1.0000
+  V   V2        1.0  0.4107  0.386319  0.75  1.0000
+  V   V3        1.0  0.5503739999999999  0.636318  0.24999999999999994  1.0000
+  O   O1        1.0  0.27841399999999994  0.48638599999999993  0.24999999999999994  1.0000
+  O   O2        1.0  0.365511  0.737447  0.75  1.0000
+  O   O3        1.0  0.690232  0.529219  0.75  1.0000
+  O   O4        1.0  0.8615939999999999  0.757987  0.24999999999999994  1.0000
+  F   F1        1.0  0.15605499999999997  0.233213  0.75  1.0000
+  F   F2        1.0  0.27343  0.98187  0.24999999999999994  1.0000
+  F   F3        1.0  0.574959  0.237759  0.24999999999999994  1.0000
+  F   F4        1.0  0.7898529999999999  0.001109  0.75  1.0000
+  Zn  Zn1       1.0  0.6659527120810335  0.6116948427955983  0.9178324336746616  1.0000

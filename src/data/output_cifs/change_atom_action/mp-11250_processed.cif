@@ -1,0 +1,37 @@
+data_image0
+_chemical_formula_structural       Mg2BaMg5Au4
+_chemical_formula_sum              "Mg7 Ba1 Au4"
+_cell_length_a       4.33762471
+_cell_length_b       6.19823221
+_cell_length_c       8.49967062
+_cell_angle_alpha    90.0
+_cell_angle_beta     90.0
+_cell_angle_gamma    90.0
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Mg  Mg1       1.0  0.25  0.9588440500000002  0.69442463  1.0000
+  Mg  Mg2       1.0  0.75  0.04115595000000001  0.30557537  1.0000
+  Ba  Ba1       1.0  0.25  0.45884405000000006  0.8055753700000002  1.0000
+  Mg  Mg3       1.0  0.75  0.54115595  0.19442463  1.0000
+  Mg  Mg4       1.0  0.75  0.16562964  0.93998314  1.0000
+  Mg  Mg5       1.0  0.25  0.8343703600000002  0.060016860000000005  1.0000
+  Mg  Mg6       1.0  0.75  0.6656296400000002  0.56001686  1.0000
+  Mg  Mg7       1.0  0.25  0.33437036  0.43998314  1.0000
+  Au  Au1       1.0  0.25  0.76842314  0.37785474000000013  1.0000
+  Au  Au2       1.0  0.75  0.23157686000000002  0.6221452600000003  1.0000
+  Au  Au3       1.0  0.25  0.26842314  0.12214526000000002  1.0000
+  Au  Au4       1.0  0.75  0.73157686  0.87785474  1.0000

@@ -1,0 +1,40 @@
+data_image0
+_chemical_formula_structural       U15
+_chemical_formula_sum              "U15"
+_cell_length_a       7.38103762
+_cell_length_b       7.38103762
+_cell_length_c       16.320594
+_cell_angle_alpha    90.0
+_cell_angle_beta     90.0
+_cell_angle_gamma    94.1460368
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  U   U1        1.0  0.63118  0.36882  0.75  1.0000
+  U   U2        1.0  0.8688199999999998  0.13118  0.25  1.0000
+  U   U3        1.0  0.36882  0.6311800000000001  0.25  1.0000
+  U   U4        1.0  0.8814  0.1186  0.75  1.0000
+  U   U5        1.0  0.6185999999999998  0.3814  0.25  1.0000
+  U   U6        1.0  0.1186  0.8814000000000002  0.25  1.0000
+  U   U7        1.0  0.38139999999999985  0.6186  0.75  1.0000
+  U   U8        1.0  0.005050000000000006  0.49495  0.764628  1.0000
+  U   U9        1.0  0.50505  0.99495  0.735372  1.0000
+  U   U10       1.0  0.49495  0.005050000000000001  0.264628  1.0000
+  U   U11       1.0  0.9949499999999999  0.50505  0.235372  1.0000
+  U   U12       1.0  0.7567269999999999  0.743273  0.738059  1.0000
+  U   U13       1.0  0.256727  0.243273  0.761941  1.0000
+  U   U14       1.0  0.743273  0.7567270000000001  0.23805899999999994  1.0000
+  U   U15       1.0  0.24327299999999993  0.256727  0.261941  1.0000

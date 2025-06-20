@@ -1,0 +1,38 @@
+data_image0
+_chemical_formula_structural       Na3Mn2YbMnTe6
+_chemical_formula_sum              "Na3 Mn3 Yb1 Te6"
+_cell_length_a       7.93055645
+_cell_length_b       7.930556449999999
+_cell_length_c       7.57952679
+_cell_angle_alpha    89.43581906
+_cell_angle_beta     89.43581906
+_cell_angle_gamma    120.46423101000002
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Na  Na1       1.0  0.34828600000000004  0.6517140000000001  0.0  1.0000
+  Na  Na2       1.0  0.651714  0.3482860000000001  0.0  1.0000
+  Na  Na3       1.0  0.0  0.0  0.0  1.0000
+  Mn  Mn1       1.0  0.334132  0.013486000000000003  0.624056  1.0000
+  Mn  Mn2       1.0  0.9865140000000001  0.6658680000000002  0.3759440000000001  1.0000
+  Yb  Yb1       1.0  0.6658680000000001  0.9865140000000001  0.3759440000000001  1.0000
+  Mn  Mn3       1.0  0.013486000000000074  0.3341320000000001  0.624056  1.0000
+  Te  Te1       1.0  0.3221  0.3221  0.741298  1.0000
+  Te  Te2       1.0  0.6779  0.6779  0.258702  1.0000
+  Te  Te3       1.0  0.33509800000000023  0.9842050000000002  0.2625  1.0000
+  Te  Te4       1.0  0.01579500000000007  0.6649020000000001  0.7375  1.0000
+  Te  Te5       1.0  0.6649020000000002  0.015795  0.7375  1.0000
+  Te  Te6       1.0  0.9842050000000002  0.335098  0.2625  1.0000

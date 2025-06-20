@@ -1,0 +1,38 @@
+data_image0
+_chemical_formula_structural       Cr2Ag2Sn2S7
+_chemical_formula_sum              "Cr2 Ag2 Sn2 S7"
+_cell_length_a       7.45660172
+_cell_length_b       7.456601719999999
+_cell_length_c       7.45660172
+_cell_angle_alpha    120.88375523
+_cell_angle_beta     118.93580622000002
+_cell_angle_gamma    90.1645911
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Cr  Cr1       1.0  0.5  0.0  0.0  1.0000
+  Cr  Cr2       1.0  0.5  0.5  0.5  1.0000
+  Ag  Ag1       1.0  0.8848190000000002  0.6348190000000001  0.25  1.0000
+  Ag  Ag2       1.0  0.11518099999999999  0.3651810000000002  0.75  1.0000
+  Sn  Sn1       1.0  0.5  0.0  0.5  1.0000
+  Sn  Sn2       1.0  0.0  0.0  0.0  1.0000
+  S   S1        1.0  0.73  0.740012  0.510012  1.0000
+  S   S2        1.0  0.73  0.219988  0.989988  1.0000
+  S   S3        1.0  0.7184579999999999  0.7550390000000002  0.9634199999999999  1.0000
+  S   S4        1.0  0.26999999999999996  0.259988  0.4899879999999999  1.0000
+  S   S5        1.0  0.27  0.780012  0.010012  1.0000
+  S   S6        1.0  0.281542  0.2449610000000001  0.03658  1.0000
+  S   S7        1.0  0.7083810000000003  0.24496100000000007  0.46342  1.0000

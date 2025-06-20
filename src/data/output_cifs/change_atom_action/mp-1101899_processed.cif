@@ -1,0 +1,37 @@
+data_image0
+_chemical_formula_structural       Na4MtCO6
+_chemical_formula_sum              "Na4 Mt1 C1 O6"
+_cell_length_a       5.285432
+_cell_length_b       5.29514711
+_cell_length_c       6.285155640000001
+_cell_angle_alpha    94.93002162
+_cell_angle_beta     90.0
+_cell_angle_gamma    119.93932648
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Na  Na1       1.0  0.0  0.0  0.0  1.0000
+  Na  Na2       1.0  0.0  0.0  0.5  1.0000
+  Na  Na3       1.0  0.673785  0.34757  0.771329  1.0000
+  Na  Na4       1.0  0.326215  0.65243  0.228671  1.0000
+  Mt  Mt1       1.0  0.6696649999999998  0.3393290000000001  0.245193  1.0000
+  C   C1        1.0  0.33033499999999993  0.6606710000000001  0.754807  1.0000
+  O   O1        1.0  0.8144899999999998  0.202229  0.260372  1.0000
+  O   O2        1.0  0.387739  0.202229  0.260372  1.0000
+  O   O3        1.0  0.18551000000000004  0.7977710000000002  0.739628  1.0000
+  O   O4        1.0  0.612261  0.7977710000000002  0.739628  1.0000
+  O   O5        1.0  0.8075169999999999  0.615033  0.211667  1.0000
+  O   O6        1.0  0.19248299999999996  0.384967  0.788333  1.0000

@@ -1,0 +1,37 @@
+data_image0
+_chemical_formula_structural       Nd4Sb4Se2ScSe
+_chemical_formula_sum              "Nd4 Sb4 Se3 Sc1"
+_cell_length_a       4.21639574
+_cell_length_b       4.22560286
+_cell_length_c       18.33838904
+_cell_angle_alpha    90.0
+_cell_angle_beta     90.0
+_cell_angle_gamma    90.0
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Nd  Nd1       1.0  0.7500000000000002  0.23441948  0.85206102  1.0000
+  Nd  Nd2       1.0  0.7500000000000002  0.26558052  0.35206102  1.0000
+  Nd  Nd3       1.0  0.25  0.76558052  0.14793898  1.0000
+  Nd  Nd4       1.0  0.25  0.73441948  0.64793898  1.0000
+  Sb  Sb1       1.0  0.25  0.23383814  0.5006716  1.0000
+  Sb  Sb2       1.0  0.25  0.26616186  0.0006716  1.0000
+  Sb  Sb3       1.0  0.7500000000000002  0.76616186  0.49932839999999995  1.0000
+  Sb  Sb4       1.0  0.7500000000000002  0.73383814  0.9993283999999999  1.0000
+  Se  Se1       1.0  0.7500000000000002  0.23601904  0.68660183  1.0000
+  Se  Se2       1.0  0.7500000000000002  0.26398096  0.18660183  1.0000
+  Sc  Sc1       1.0  0.25  0.76398096  0.31339817  1.0000
+  Se  Se3       1.0  0.25  0.73601904  0.81339817  1.0000

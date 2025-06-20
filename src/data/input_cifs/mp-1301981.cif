@@ -1,0 +1,52 @@
+# generated using pymatgen
+data_Ba2YNi3O7
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.56395829
+_cell_length_b   12.16730260
+_cell_length_c   5.56398583
+_cell_angle_alpha   76.96808655
+_cell_angle_beta   90.76477743
+_cell_angle_gamma   76.96777240
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Ba2YNi3O7
+_chemical_formula_sum   'Ba4 Y2 Ni6 O14'
+_cell_volume   356.70076693
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ba  Ba0  1  0.59116500  0.81767800  0.09120400  1
+  Ba  Ba1  1  0.09120800  0.81767300  0.59116900  1
+  Ba  Ba2  1  0.90879900  0.18231500  0.40884600  1
+  Ba  Ba3  1  0.40884300  0.18231000  0.90881000  1
+  Y  Y4  1  0.75000700  0.50000900  0.24998500  1
+  Y  Y5  1  0.24998700  0.50000600  0.75000500  1
+  Ni  Ni6  1  0.50004100  0.99993300  0.50003200  1
+  Ni  Ni7  1  0.00000400  0.99998600  0.00001400  1
+  Ni  Ni8  1  0.67065700  0.65875700  0.67065700  1
+  Ni  Ni9  1  0.17134700  0.65735800  0.17135100  1
+  Ni  Ni10  1  0.32934800  0.34123100  0.32934900  1
+  Ni  Ni11  1  0.82864700  0.34265400  0.82864600  1
+  O  O12  1  0.76316900  0.99999300  0.23686200  1
+  O  O13  1  0.23683500  0.99999200  0.76315100  1
+  O  O14  1  0.43772100  0.62370900  0.43772100  1
+  O  O15  1  0.93853400  0.62371000  0.93853600  1
+  O  O16  1  0.06145400  0.37632100  0.06145300  1
+  O  O17  1  0.56225800  0.37631900  0.56225700  1
+  O  O18  1  0.93862300  0.62388200  0.43747400  1
+  O  O19  1  0.43750000  0.62388300  0.93859300  1
+  O  O20  1  0.56249400  0.37612100  0.06140700  1
+  O  O21  1  0.06139800  0.37612200  0.56249900  1
+  O  O22  1  0.58172100  0.83639900  0.58172100  1
+  O  O23  1  0.08108500  0.83788700  0.08108300  1
+  O  O24  1  0.41823800  0.16363900  0.41825100  1
+  O  O25  1  0.91891500  0.16211100  0.91892700  1

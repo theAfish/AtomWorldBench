@@ -1,0 +1,38 @@
+data_image0
+_chemical_formula_structural       Ca2W2O8Mt
+_chemical_formula_sum              "Ca2 W2 O8 Mt1"
+_cell_length_a       5.25406013
+_cell_length_b       5.25792658
+_cell_length_c       6.78383774
+_cell_angle_alpha    112.81745158
+_cell_angle_beta     112.80157821999998
+_cell_angle_gamma    89.95755461999998
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ca  Ca1       1.0  0.87506869  0.62506566  0.25012524  1.0000
+  Ca  Ca2       1.0  0.12493131000000003  0.37493434  0.74987476  1.0000
+  W   W1        1.0  0.37479351  0.12479648999999998  0.24955483000000003  1.0000
+  W   W2        1.0  0.62520649  0.8752035099999999  0.75044517  1.0000
+  O   O1        1.0  0.55707548  0.71992118  0.92319646  1.0000
+  O   O2        1.0  0.8660942399999999  0.20322675999999998  0.9231826599999999  1.0000
+  O   O3        1.0  0.44292452  0.28007882  0.07680354  1.0000
+  O   O4        1.0  0.13390576  0.79677324  0.07681734  1.0000
+  O   O5        1.0  0.21972814000000002  0.36550285  0.42277756  1.0000
+  O   O6        1.0  0.7030568999999999  0.05726112  0.42274588  1.0000
+  O   O7        1.0  0.78027186  0.63449715  0.57722244  1.0000
+  O   O8        1.0  0.2969431  0.94273888  0.57725412  1.0000
+  Mt  Mt1       1.0  0.6820025896703119  0.2312703499290482  0.06811534222053095  1.0000

@@ -1,0 +1,35 @@
+data_image0
+_chemical_formula_structural       MgMn2Al2O5
+_chemical_formula_sum              "Mg1 Mn2 Al2 O5"
+_cell_length_a       5.12726195
+_cell_length_b       5.12453471
+_cell_length_c       5.75752607
+_cell_angle_alpha    63.63890354999999
+_cell_angle_beta     116.61885063999999
+_cell_angle_gamma    119.96359078
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Mg  Mg1       1.0  2e-06  0.0  1e-06  1.0000
+  Mn  Mn1       1.0  0.6245629999999999  0.37819699999999995  0.8698250000000001  1.0000
+  Mn  Mn2       1.0  0.375436  0.621805  0.130172  1.0000
+  Al  Al1       1.0  0.823673  0.175669  0.47224800000000006  1.0000
+  Al  Al2       1.0  0.17632599999999998  0.824331  0.527752  1.0000
+  O   O1        1.0  0.9598989999999997  0.8104349999999999  0.729595  1.0000
+  O   O2        1.0  0.5815690000000001  0.0433160000000001  0.728676  1.0000
+  O   O3        1.0  0.19112100000000004  0.42022799999999993  0.731125  1.0000
+  O   O4        1.0  0.808878  0.5797709999999999  0.268876  1.0000
+  O   O5        1.0  0.040101999999999985  0.18956499999999998  0.270406  1.0000

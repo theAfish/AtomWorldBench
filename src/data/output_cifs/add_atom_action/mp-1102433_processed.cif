@@ -1,0 +1,38 @@
+data_image0
+_chemical_formula_structural       Mg4F8Hg
+_chemical_formula_sum              "Mg4 F8 Hg1"
+_cell_length_a       3.397602
+_cell_length_b       5.271534
+_cell_length_c       6.744474
+_cell_angle_alpha    90.0
+_cell_angle_beta     90.0
+_cell_angle_gamma    90.0
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Mg  Mg1       1.0  0.24999999999999994  0.263012  0.08457800000000003  1.0000
+  Mg  Mg2       1.0  0.24999999999999994  0.763012  0.41542200000000007  1.0000
+  Mg  Mg3       1.0  0.75  0.736988  0.9154220000000002  1.0000
+  Mg  Mg4       1.0  0.75  0.236988  0.584578  1.0000
+  F   F1        1.0  0.24999999999999994  0.8755779999999999  0.099947  1.0000
+  F   F2        1.0  0.24999999999999994  0.37557799999999997  0.400053  1.0000
+  F   F3        1.0  0.75  0.12442199999999999  0.900053  1.0000
+  F   F4        1.0  0.75  0.6244219999999999  0.599947  1.0000
+  F   F5        1.0  0.24999999999999994  0.514243  0.858618  1.0000
+  F   F6        1.0  0.24999999999999994  0.014242999999999999  0.641382  1.0000
+  F   F7        1.0  0.75  0.4857569999999999  0.141382  1.0000
+  F   F8        1.0  0.75  0.9857569999999998  0.3586180000000001  1.0000
+  Hg  Hg1       1.0  0.46078279996405913  0.9879103382989055  0.30748361889780823  1.0000

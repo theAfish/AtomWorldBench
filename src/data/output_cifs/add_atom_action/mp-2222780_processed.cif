@@ -1,0 +1,37 @@
+data_image0
+_chemical_formula_structural       MgTl2Sb2O6La
+_chemical_formula_sum              "Mg1 Tl2 Sb2 O6 La1"
+_cell_length_a       8.04135161
+_cell_length_b       8.04135178
+_cell_length_c       8.04135197
+_cell_angle_alpha    39.66361657000001
+_cell_angle_beta     39.66361328
+_cell_angle_gamma    39.66362409000001
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Mg  Mg1       1.0  0.0  0.0  0.0  1.0000
+  Tl  Tl1       1.0  0.6237779999999998  0.6237779999999999  0.623778  1.0000
+  Tl  Tl2       1.0  0.37622200000000033  0.37622199999999995  0.376222  1.0000
+  Sb  Sb1       1.0  0.8316989999999999  0.8316990000000001  0.831699  1.0000
+  Sb  Sb2       1.0  0.16830100000000003  0.16830099999999998  0.16830100000000003  1.0000
+  O   O1        1.0  0.8368910000000002  0.444847  0.063746  1.0000
+  O   O2        1.0  0.4448469999999999  0.06374599999999989  0.8368910000000002  1.0000
+  O   O3        1.0  0.06374600000000001  0.836891  0.444847  1.0000
+  O   O4        1.0  0.16310900000000003  0.555153  0.936254  1.0000
+  O   O5        1.0  0.9362539999999998  0.16310899999999995  0.5551530000000002  1.0000
+  O   O6        1.0  0.5551530000000001  0.936254  0.163109  1.0000
+  La  La1       1.0  0.5334247966998596  0.24296642431405283  0.46869086265773835  1.0000

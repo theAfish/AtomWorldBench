@@ -1,0 +1,36 @@
+data_image0
+_chemical_formula_structural       TmMgPaPb2O6
+_chemical_formula_sum              "Tm1 Mg1 Pa1 Pb2 O6"
+_cell_length_a       7.51496723
+_cell_length_b       7.514968420000001
+_cell_length_c       7.5149678
+_cell_angle_alpha    45.51788378
+_cell_angle_beta     45.517881409999994
+_cell_angle_gamma    45.51788356000001
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Tm  Tm1       1.0  0.007062580000000002  0.00706258  0.007062579999999999  1.0000
+  Mg  Mg1       1.0  0.6402054799999998  0.6402054800000001  0.64020548  1.0000
+  Pa  Pa1       1.0  0.43045077999999987  0.43045078  0.43045078000000003  1.0000
+  Pb  Pb1       1.0  0.8537113200000004  0.8537113199999999  0.8537113199999999  1.0000
+  Pb  Pb2       1.0  0.2671604699999998  0.26716047000000004  0.26716047  1.0000
+  O   O1        1.0  0.38786971  0.08355396999999998  0.66159447  1.0000
+  O   O2        1.0  0.66159447  0.38786971  0.08355397  1.0000
+  O   O3        1.0  0.08355396999999984  0.66159447  0.38786971  1.0000
+  O   O4        1.0  0.6942717799999999  0.8534853500000001  0.24563409999999997  1.0000
+  O   O5        1.0  0.24563410000000013  0.69427178  0.85348535  1.0000
+  O   O6        1.0  0.8534853499999999  0.24563409999999994  0.69427178  1.0000

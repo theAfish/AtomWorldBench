@@ -1,0 +1,45 @@
+# generated using pymatgen
+data_MgFe4(TeO6)2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.30704482
+_cell_length_b   5.30459529
+_cell_length_c   9.00799271
+_cell_angle_alpha   89.99747316
+_cell_angle_beta   89.99723208
+_cell_angle_gamma   76.35087886
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   MgFe4(TeO6)2
+_chemical_formula_sum   'Mg1 Fe4 Te2 O12'
+_cell_volume   246.42889480
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Mg  Mg0  1  0.81031249  0.81117794  0.50000412  1
+  Fe  Fe1  1  0.08952856  0.08986331  0.31644853  1
+  Fe  Fe2  1  0.49594419  0.49683096  0.84124854  1
+  Fe  Fe3  1  0.08954971  0.08987112  0.68355645  1
+  Fe  Fe4  1  0.49597649  0.49686878  0.15872398  1
+  Te  Te5  1  0.92699984  0.92827590  -0.00001141  1
+  Te  Te6  1  0.47393066  0.47444251  0.50002632  1
+  O  O7  1  0.63998043  0.64120310  0.65209673  1
+  O  O8  1  0.32565716  0.32550116  0.66316708  1
+  O  O9  1  0.63999927  0.64122218  0.34787881  1
+  O  O10  1  0.17922235  0.80391965  0.15616174  1
+  O  O11  1  0.80401498  0.18109916  0.15611838  1
+  O  O12  1  0.80401110  0.18107678  0.84388407  1
+  O  O13  1  0.35293874  0.35263109  0.00001524  1
+  O  O14  1  0.18330907  0.79111027  0.49999855  1
+  O  O15  1  0.79098624  0.18426553  0.49999680  1
+  O  O16  1  0.17920815  0.80391561  0.84384233  1
+  O  O17  1  0.32563498  0.32548325  0.33682266  1
+  O  O18  1  0.69834861  0.70067973  0.00001807  1

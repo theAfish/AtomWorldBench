@@ -1,0 +1,43 @@
+data_image0
+_chemical_formula_structural       Zr3Ta3SiPtSi4Ru6
+_chemical_formula_sum              "Zr3 Ta3 Si5 Pt1 Ru6"
+_cell_length_a       3.771132
+_cell_length_b       6.564656
+_cell_length_c       11.269338569999999
+_cell_angle_alpha    89.7138234
+_cell_angle_beta     90.0
+_cell_angle_gamma    90.0
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Zr  Zr1       1.0  0.5  0.288085  0.290012  1.0000
+  Zr  Zr2       1.0  0.5  0.288814  0.710255  1.0000
+  Zr  Zr3       1.0  0.5  0.7890659999999999  0.20914300000000002  1.0000
+  Ta  Ta1       1.0  0.5  0.423126  0.99886  1.0000
+  Ta  Ta2       1.0  0.5  0.920617  0.502264  1.0000
+  Ta  Ta3       1.0  0.5  0.7889319999999999  0.7911890000000001  1.0000
+  Si  Si1       1.0  0.5  0.005637  0.995897  1.0000
+  Pt  Pt1       1.0  0.5  0.507333  0.500095  1.0000
+  Si  Si2       1.0  0.0  0.992706  0.667439  1.0000
+  Si  Si3       1.0  0.0  0.498165  0.1622  1.0000
+  Si  Si4       1.0  0.0  0.502849  0.835142  1.0000
+  Si  Si5       1.0  0.0  0.996776  0.337662  1.0000
+  Ru  Ru1       1.0  0.0  0.251545  0.502428  1.0000
+  Ru  Ru2       1.0  0.0  0.75364  0.9968430000000001  1.0000
+  Ru  Ru3       1.0  0.0  0.624903  0.624309  1.0000
+  Ru  Ru4       1.0  0.0  0.122959  0.12098000000000002  1.0000
+  Ru  Ru5       1.0  0.0  0.122373  0.876418  1.0000
+  Ru  Ru6       1.0  0.0  0.622672  0.378864  1.0000

@@ -1,0 +1,39 @@
+data_image0
+_chemical_formula_structural       Li4Mn2F6EuF
+_chemical_formula_sum              "Li4 Mn2 F7 Eu1"
+_cell_length_a       5.47850299
+_cell_length_b       5.47850299
+_cell_length_c       6.134323369999999
+_cell_angle_alpha    89.60906913
+_cell_angle_beta     89.60906913
+_cell_angle_gamma    59.990786199999995
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Li  Li1       1.0  0.3002199999999999  0.378991  0.165569  1.0000
+  Li  Li2       1.0  0.024248999999999948  0.9757510000000001  0.5  1.0000
+  Li  Li3       1.0  0.022483  0.9775169999999999  0.0  1.0000
+  Li  Li4       1.0  0.621009  0.69978  0.834431  1.0000
+  Mn  Mn1       1.0  0.409363  0.286446  0.6744959999999998  1.0000
+  Mn  Mn2       1.0  0.7135539999999999  0.590637  0.325504  1.0000
+  F   F1        1.0  0.352658  0.10548299999999998  0.950751  1.0000
+  F   F2        1.0  0.15048800000000004  0.301534  0.42646399999999995  1.0000
+  F   F3        1.0  0.2659589999999999  0.712381  0.741076  1.0000
+  F   F4        1.0  0.7944489999999997  0.263868  0.746785  1.0000
+  F   F5        1.0  0.736132  0.205551  0.253215  1.0000
+  F   F6        1.0  0.287619  0.734041  0.258924  1.0000
+  Eu  Eu1       1.0  0.698466  0.849512  0.5735359999999999  1.0000
+  F   F7        1.0  0.8945169999999999  0.647342  0.049249  1.0000

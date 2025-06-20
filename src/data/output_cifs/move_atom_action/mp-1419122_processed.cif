@@ -1,0 +1,37 @@
+data_image0
+_chemical_formula_structural       U2Cl10
+_chemical_formula_sum              "U2 Cl10"
+_cell_length_a       6.913354
+_cell_length_b       7.545836949999999
+_cell_length_c       10.26720503
+_cell_angle_alpha    108.54983082
+_cell_angle_beta     91.04258329
+_cell_angle_gamma    116.20380668
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  U   U1        1.0  0.892569  0.0005199999999999916  0.211284  1.0000
+  U   U2        1.0  0.10743099999999987  0.99948  0.7887159999999998  1.0000
+  Cl  Cl1       1.0  0.517403  0.7718220000000001  0.42042399999999996  1.0000
+  Cl  Cl2       1.0  0.482597  0.22817800000000008  0.579576  1.0000
+  Cl  Cl3       1.0  0.27264500000000014  0.2134630000000001  0.95754  1.0000
+  Cl  Cl4       1.0  0.8564275110071795  0.5160619346344006  0.9173064465605888  1.0000
+  Cl  Cl5       1.0  0.25510499999999997  0.7705079999999999  0.8476949999999999  1.0000
+  Cl  Cl6       1.0  0.744895  0.22949200000000003  0.15230499999999997  1.0000
+  Cl  Cl7       1.0  0.9515919999999998  0.228952  0.747763  1.0000
+  Cl  Cl8       1.0  0.04840799999999999  0.771048  0.252237  1.0000
+  Cl  Cl9       1.0  0.894633  0.766204  0.6735  1.0000
+  Cl  Cl10      1.0  0.10536700000000004  0.23379600000000006  0.3265  1.0000

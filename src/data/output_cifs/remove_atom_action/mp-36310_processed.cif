@@ -1,0 +1,38 @@
+data_image0
+_chemical_formula_structural       Al4Cr2S7
+_chemical_formula_sum              "Al4 Cr2 S7"
+_cell_length_a       7.11322731
+_cell_length_b       7.113227309999999
+_cell_length_c       7.11322731
+_cell_angle_alpha    120.50298340999998
+_cell_angle_beta     119.24200488
+_cell_angle_gamma    90.22444446
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Al  Al1       1.0  0.880967  0.1309669999999999  0.7499999999999998  1.0000
+  Al  Al2       1.0  0.11903300000000003  0.869033  0.25  1.0000
+  Al  Al3       1.0  1.2681391556822604e-17  0.5  0.5  1.0000
+  Al  Al4       1.0  0.5  0.5  0.0  1.0000
+  Cr  Cr1       1.0  0.5  0.5  0.5  1.0000
+  Cr  Cr2       1.0  0.5  0.0  0.0  1.0000
+  S   S1        1.0  0.255118  0.741297  0.513821  1.0000
+  S   S2        1.0  0.7274770000000003  0.7412969999999999  0.9861789999999999  1.0000
+  S   S3        1.0  0.25679499999999994  0.27147499999999997  0.5146799999999999  1.0000
+  S   S4        1.0  0.2567949999999999  0.7421149999999999  0.9853199999999999  1.0000
+  S   S5        1.0  0.743205  0.257885  0.01468  1.0000
+  S   S6        1.0  0.743205  0.728525  0.48532  1.0000
+  S   S7        1.0  0.744882  0.258703  0.486179  1.0000

@@ -1,0 +1,39 @@
+data_image0
+_chemical_formula_structural       Mg8Si6
+_chemical_formula_sum              "Mg8 Si6"
+_cell_length_a       6.054324
+_cell_length_b       6.9988796
+_cell_length_c       7.49828082
+_cell_angle_alpha    112.67198056
+_cell_angle_beta     97.99736879999999
+_cell_angle_gamma    104.18080779999998
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Mg  Mg1       1.0  0.772627  0.6342139999999998  0.530993  1.0000
+  Mg  Mg2       1.0  0.10568499999999997  0.9287839999999998  0.085839  1.0000
+  Mg  Mg3       1.0  0.703569  0.35829699999999987  0.7810039999999999  1.0000
+  Mg  Mg4       1.0  0.962652  0.091651  0.490033  1.0000
+  Mg  Mg5       1.0  0.3819400000000001  0.820491  0.432879  1.0000
+  Mg  Mg6       1.0  0.8557940000000002  0.314219  0.177377  1.0000
+  Mg  Mg7       1.0  0.29588099999999995  0.41555399999999987  0.014022  1.0000
+  Mg  Mg8       1.0  0.12926161492938285  0.31134904138990965  0.5117141603922002  1.0000
+  Si  Si1       1.0  0.534945  0.172243  0.361835  1.0000
+  Si  Si2       1.0  0.15696900000000005  0.576272  0.711406  1.0000
+  Si  Si3       1.0  0.24300900000000003  0.981689  0.769298  1.0000
+  Si  Si4       1.0  0.783826  0.672767  0.181784  1.0000
+  Si  Si5       1.0  0.284118  0.3987129999999999  0.410134  1.0000
+  Si  Si6       1.0  0.8593489999999999  0.033952  0.811713  1.0000

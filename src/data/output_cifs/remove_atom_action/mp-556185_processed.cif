@@ -1,0 +1,36 @@
+data_image0
+_chemical_formula_structural       RbNa2Ti2O6
+_chemical_formula_sum              "Rb1 Na2 Ti2 O6"
+_cell_length_a       6.33650384
+_cell_length_b       6.33650384
+_cell_length_c       5.58627156
+_cell_angle_alpha    88.74027881
+_cell_angle_beta     88.74027881
+_cell_angle_gamma    123.97108513000002
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Rb  Rb1       1.0  0.26745700000000006  0.732543  0.25  1.0000
+  Na  Na1       1.0  0.424514  0.575486  0.75  1.0000
+  Na  Na2       1.0  0.575486  0.42451399999999995  0.25  1.0000
+  Ti  Ti1       1.0  0.9483510000000002  0.051648999999999994  0.25  1.0000
+  Ti  Ti2       1.0  0.051648999999999896  0.9483509999999999  0.75  1.0000
+  O   O1        1.0  0.7773830000000003  0.79516  0.9978860000000002  1.0000
+  O   O2        1.0  0.20484000000000002  0.22261699999999998  0.502114  1.0000
+  O   O3        1.0  0.7896350000000002  0.21036499999999997  0.25  1.0000
+  O   O4        1.0  0.22261700000000006  0.20484  0.0021140000000000004  1.0000
+  O   O5        1.0  0.7951600000000001  0.7773829999999999  0.4978860000000001  1.0000
+  O   O6        1.0  0.21036500000000014  0.7896350000000001  0.75  1.0000

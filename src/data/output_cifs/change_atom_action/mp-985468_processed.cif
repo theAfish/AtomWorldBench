@@ -1,0 +1,36 @@
+data_image0
+_chemical_formula_structural       TeErGa8Co
+_chemical_formula_sum              "Te1 Er1 Ga8 Co1"
+_cell_length_a       4.17043652
+_cell_length_b       4.170437539999999
+_cell_length_c       10.96686556
+_cell_angle_alpha    89.99999472
+_cell_angle_beta     90.0
+_cell_angle_gamma    90.0004046
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Te  Te1       1.0  0.9999990000000001  1e-06  0.30573779  1.0000
+  Er  Er1       1.0  0.0  0.0  0.69426221  1.0000
+  Ga  Ga1       1.0  0.5  0.0  0.11591624  1.0000
+  Ga  Ga2       1.0  0.0  0.5  0.11591624  1.0000
+  Ga  Ga3       1.0  0.5  0.5  0.3049910900000001  1.0000
+  Ga  Ga4       1.0  0.5  0.0  0.5  1.0000
+  Ga  Ga5       1.0  1e-06  0.5  0.5  1.0000
+  Ga  Ga6       1.0  0.5  0.5  0.69500991  1.0000
+  Ga  Ga7       1.0  0.500001  0.0  0.8840837600000002  1.0000
+  Ga  Ga8       1.0  0.0  0.5  0.8840837600000002  1.0000
+  Co  Co1       1.0  1e-06  0.0  0.0  1.0000

@@ -1,0 +1,37 @@
+data_image0
+_chemical_formula_structural       Y2Mg2Al5BeAl2
+_chemical_formula_sum              "Y2 Mg2 Al7 Be1"
+_cell_length_a       5.52074885
+_cell_length_b       5.520748850000001
+_cell_length_c       8.913024
+_cell_angle_alpha    90.0
+_cell_angle_beta     90.0
+_cell_angle_gamma    120.00001021
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Y   Y1        1.0  0.6666670000000001  0.3333330000000001  0.9300559999999999  1.0000
+  Y   Y2        1.0  0.333333  0.666667  0.069944  1.0000
+  Mg  Mg1       1.0  0.333333  0.666667  0.441032  1.0000
+  Mg  Mg2       1.0  0.6666670000000001  0.3333330000000001  0.558968  1.0000
+  Al  Al1       1.0  0.0  0.0  0.5  1.0000
+  Al  Al2       1.0  0.0  0.0  0.0  1.0000
+  Al  Al3       1.0  0.829826  0.170174  0.251958  1.0000
+  Al  Al4       1.0  0.829826  0.659651  0.251958  1.0000
+  Al  Al5       1.0  0.340349  0.170174  0.251958  1.0000
+  Be  Be1       1.0  0.17017400000000008  0.8298260000000001  0.748042  1.0000
+  Al  Al6       1.0  0.170174  0.340349  0.748042  1.0000
+  Al  Al7       1.0  0.6596510000000001  0.8298260000000001  0.748042  1.0000

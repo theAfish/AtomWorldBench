@@ -1,0 +1,40 @@
+# generated using pymatgen
+data_Na(MoSe)3
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   8.77882209
+_cell_length_b   8.77717935
+_cell_length_c   4.48533995
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   120.02338483
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Na(MoSe)3
+_chemical_formula_sum   'Na2 Mo6 Se6'
+_cell_volume   299.23668190
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Na  Na0  1  0.33330615  0.66667230  0.25000100  1
+  Na  Na1  1  0.66669385  0.33332770  0.75000000  1
+  Mo  Mo2  1  0.14766593  0.19118847  0.25000100  1
+  Mo  Mo3  1  0.85233407  0.80881153  0.75000000  1
+  Mo  Mo4  1  0.80882362  0.95643706  0.25000100  1
+  Mo  Mo5  1  0.04349344  0.85237212  0.25000100  1
+  Mo  Mo6  1  0.95650656  0.14762788  0.75000000  1
+  Mo  Mo7  1  0.19117638  0.04356094  0.75000000  1
+  Se  Se8  1  0.91362333  0.29504190  0.25000100  1
+  Se  Se9  1  0.08637667  0.70496010  0.75000000  1
+  Se  Se10  1  0.70498943  0.61850978  0.25000100  1
+  Se  Se11  1  0.38154228  0.08664718  0.25000100  1
+  Se  Se12  1  0.61845872  0.91335282  0.75000000  1
+  Se  Se13  1  0.29501057  0.38149122  0.75000000  1

@@ -1,0 +1,39 @@
+data_image0
+_chemical_formula_structural       Mg4TlMgSi8
+_chemical_formula_sum              "Mg5 Tl1 Si8"
+_cell_length_a       5.97400325
+_cell_length_b       8.57211418
+_cell_length_c       6.54220409
+_cell_angle_alpha    116.53128039999999
+_cell_angle_beta     91.56483792
+_cell_angle_gamma    114.71083484000002
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Mg  Mg1       1.0  0.70169  0.4855669999999999  0.53164  1.0000
+  Mg  Mg2       1.0  0.24435599999999993  0.679612  0.920421  1.0000
+  Mg  Mg3       1.0  0.714453  0.045776  0.26162  1.0000
+  Mg  Mg4       1.0  0.910746  0.9435450000000001  0.7487830000000001  1.0000
+  Tl  Tl1       1.0  0.4216219999999999  0.4258929999999999  0.074932  1.0000
+  Mg  Mg5       1.0  0.217767  0.07387  0.291733  1.0000
+  Si  Si1       1.0  0.950308  0.6827149999999997  0.299019  1.0000
+  Si  Si2       1.0  0.406888  0.852785  0.500309  1.0000
+  Si  Si3       1.0  0.022994000000000004  0.273206  0.708892  1.0000
+  Si  Si4       1.0  0.582709  0.21771499999999994  0.673859  1.0000
+  Si  Si5       1.0  0.7821990000000001  0.727305  0.001793  1.0000
+  Si  Si6       1.0  0.9068119999999998  0.34518699999999997  0.104811  1.0000
+  Si  Si7       1.0  0.182676  0.422588  0.447999  1.0000
+  Si  Si8       1.0  0.454749  0.070875  0.934419  1.0000

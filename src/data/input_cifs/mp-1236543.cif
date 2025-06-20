@@ -1,0 +1,37 @@
+# generated using pymatgen
+data_Ba2LiMn2O6
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.88179500
+_cell_length_b   6.16381265
+_cell_length_c   5.22335173
+_cell_angle_alpha   104.07125263
+_cell_angle_beta   90.00040034
+_cell_angle_gamma   118.49336981
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Ba2LiMn2O6
+_chemical_formula_sum   'Ba2 Li1 Mn2 O6'
+_cell_volume   159.93583215
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ba  Ba0  1  0.66437500  0.32877500  0.23323500  1
+  Ba  Ba1  1  0.37371600  0.74742200  0.61704900  1
+  Li  Li2  1  0.20571400  0.41156900  0.99849400  1
+  Mn  Mn3  1  0.00058600  0.00116600  0.51034100  1
+  Mn  Mn4  1  0.97891200  0.95779700  0.00444800  1
+  O  O5  1  0.83710300  0.67415200  0.70254500  1
+  O  O6  1  0.14525900  0.84015200  0.22054200  1
+  O  O7  1  0.69497300  0.84017700  0.22059400  1
+  O  O8  1  0.27927700  0.13198900  0.81060300  1
+  O  O9  1  0.14450900  0.28900800  0.29651500  1
+  O  O10  1  0.85265900  0.13195900  0.81063500  1

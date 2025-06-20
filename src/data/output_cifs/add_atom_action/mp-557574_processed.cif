@@ -1,0 +1,42 @@
+data_image0
+_chemical_formula_structural       Cu4Hg2Ge2S8Mt
+_chemical_formula_sum              "Cu4 Hg2 Ge2 S8 Mt1"
+_cell_length_a       6.30823753
+_cell_length_b       6.52149587
+_cell_length_c       7.67806257
+_cell_angle_alpha    90.0
+_cell_angle_beta     90.0
+_cell_angle_gamma    90.0
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Cu  Cu1       1.0  0.02341151  0.16670873  0.7504372200000002  1.0000
+  Cu  Cu2       1.0  0.52341151  0.83329127  0.74956278  1.0000
+  Cu  Cu3       1.0  0.02341151  0.16670873  0.24956278000000007  1.0000
+  Cu  Cu4       1.0  0.52341151  0.83329127  0.25043722  1.0000
+  Hg  Hg1       1.0  0.52741491  0.34875666  0.0  1.0000
+  Hg  Hg2       1.0  0.02741491  0.65124334  0.5  1.0000
+  Ge  Ge1       1.0  0.01811196  0.6756843700000001  0.0  1.0000
+  Ge  Ge2       1.0  0.51811196  0.3243156300000001  0.5  1.0000
+  S   S1        1.0  0.38329608  0.15680651  0.26935333  1.0000
+  S   S2        1.0  0.88329608  0.84319349  0.7693533300000002  1.0000
+  S   S3        1.0  0.38329608  0.15680651  0.73064667  1.0000
+  S   S4        1.0  0.92913903  0.34016239  0.0  1.0000
+  S   S5        1.0  0.42913903  0.65983761  0.5  1.0000
+  S   S6        1.0  0.87391791  0.28916071  0.5  1.0000
+  S   S7        1.0  0.37391791  0.71083929  0.0  1.0000
+  S   S8        1.0  0.88329608  0.84319349  0.23064667  1.0000
+  Mt  Mt1       1.0  0.5904474601931788  0.17200958398090838  0.1726300383446866  1.0000

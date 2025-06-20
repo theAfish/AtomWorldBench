@@ -1,0 +1,40 @@
+data_image0
+_chemical_formula_structural       TaCr3Cu2S8O
+_chemical_formula_sum              "Ta1 Cr3 Cu2 S8 O1"
+_cell_length_a       3.440366
+_cell_length_b       5.910938
+_cell_length_c       11.475628809999998
+_cell_angle_alpha    89.73492511
+_cell_angle_beta     90.0
+_cell_angle_gamma    90.0
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ta  Ta1       1.0  0.5  0.528277  0.253685  1.0000
+  Cr  Cr1       1.0  0.0  0.01759499999999999  0.7603320000000001  1.0000
+  Cr  Cr2       1.0  0.0  0.968919  0.245863  1.0000
+  Cr  Cr3       1.0  0.5  0.4867949999999999  0.739567  1.0000
+  Cu  Cu1       1.0  0.5  0.504072  0.993933  1.0000
+  Cu  Cu2       1.0  0.0  0.008575  0.506249  1.0000
+  S   S1        1.0  0.5  0.174382  0.872208  1.0000
+  S   S2        1.0  0.5  0.836795  0.11736200000000002  1.0000
+  S   S3        1.0  0.0  0.665881  0.387352  1.0000
+  S   S4        1.0  0.0  0.332022  0.626998  1.0000
+  S   S5        1.0  0.0  0.662115  0.861054  1.0000
+  S   S6        1.0  0.0  0.321762  0.133836  1.0000
+  S   S7        1.0  0.5  0.150051  0.361334  1.0000
+  S   S8        1.0  0.5  0.8427589999999999  0.640227  1.0000
+  O   O1        1.0  0.4489760965760038  0.566470467959239  0.6645188759142141  1.0000

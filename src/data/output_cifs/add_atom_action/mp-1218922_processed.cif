@@ -1,0 +1,36 @@
+data_image0
+_chemical_formula_structural       SnTePb4S4Ag
+_chemical_formula_sum              "Sn1 Te1 Pb4 S4 Ag1"
+_cell_length_a       17.58300508
+_cell_length_b       17.583005080000003
+_cell_length_c       17.583004610000003
+_cell_angle_alpha    14.099117640000053
+_cell_angle_beta     14.09911764
+_cell_angle_gamma    14.099118990000052
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Sn  Sn1       1.0  0.594901  0.5949009999999999  0.594901  1.0000
+  Te  Te1       1.0  0.29811099999999996  0.298111  0.298111  1.0000
+  Pb  Pb1       1.0  0.0039539999999999974  0.003954  0.003954  1.0000
+  Pb  Pb2       1.0  0.4016700000000002  0.40166999999999997  0.4016700000000001  1.0000
+  Pb  Pb3       1.0  0.8001009999999995  0.800101  0.8001010000000002  1.0000
+  Pb  Pb4       1.0  0.19876800000000003  0.19876799999999997  0.198768  1.0000
+  S   S1        1.0  0.7021610000000001  0.7021609999999998  0.7021610000000003  1.0000
+  S   S2        1.0  0.10066199999999999  0.100662  0.100662  1.0000
+  S   S3        1.0  0.500212  0.500212  0.500212  1.0000
+  S   S4        1.0  0.8994580000000001  0.8994579999999998  0.899458  1.0000
+  Ag  Ag1       1.0  0.22026485781135496  0.7233458395234799  0.041544454272376075  1.0000

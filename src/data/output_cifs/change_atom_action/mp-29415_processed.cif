@@ -1,0 +1,39 @@
+data_image0
+_chemical_formula_structural       LvCd5P2Cl6
+_chemical_formula_sum              "Lv1 Cd5 P2 Cl6"
+_cell_length_a       7.69377032
+_cell_length_b       7.6937718
+_cell_length_c       7.16850952
+_cell_angle_alpha    90.0
+_cell_angle_beta     90.0
+_cell_angle_gamma    119.99999802999999
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Lv  Lv1       1.0  0.666667  0.333333  0.48868385000000003  1.0000
+  Cd  Cd1       1.0  0.33333299999999993  0.6666669999999998  0.5113161500000001  1.0000
+  Cd  Cd2       1.0  0.49999999999999994  0.4999999999999999  0.0  1.0000
+  Cd  Cd3       1.0  0.0  0.4999999999999999  0.0  1.0000
+  Cd  Cd4       1.0  0.5  0.0  0.0  1.0000
+  Cd  Cd5       1.0  0.0  0.0  0.5  1.0000
+  P   P1        1.0  0.666667  0.333333  0.14553814  1.0000
+  P   P2        1.0  0.33333299999999993  0.6666669999999998  0.85446186  1.0000
+  Cl  Cl1       1.0  0.3405566  0.17020181  0.69432056  1.0000
+  Cl  Cl2       1.0  0.8296432100000001  0.6594434  0.69432056  1.0000
+  Cl  Cl3       1.0  0.6594434  0.82979819  0.30567944  1.0000
+  Cl  Cl4       1.0  0.17035679  0.3405566  0.30567944  1.0000
+  Cl  Cl5       1.0  0.17020181  0.8296432099999999  0.30567944  1.0000
+  Cl  Cl6       1.0  0.82979819  0.17035678999999995  0.69432056  1.0000

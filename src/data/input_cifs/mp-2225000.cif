@@ -1,0 +1,41 @@
+# generated using pymatgen
+data_MgFe5CuO8
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.25533130
+_cell_length_b   6.25534880
+_cell_length_c   6.08912643
+_cell_angle_alpha   61.80147867
+_cell_angle_beta   61.80130187
+_cell_angle_gamma   59.94224702
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   MgFe5CuO8
+_chemical_formula_sum   'Mg1 Fe5 Cu1 O8'
+_cell_volume   172.84052231
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Mg  Mg0  1  0.78406288  0.78404261  0.20975303  1
+  Fe  Fe1  1  0.08072678  0.08073378  0.90314949  1
+  Fe  Fe2  1  0.11650149  0.64146089  0.61758809  1
+  Fe  Fe3  1  0.64145728  0.11650598  0.61758715  1
+  Fe  Fe4  1  0.56971402  0.56971851  0.15132735  1
+  Fe  Fe5  1  0.57196387  0.57197299  0.69874142  1
+  Cu  Cu6  1  0.22544631  0.22541343  0.27589545  1
+  O  O7  1  0.35473898  0.35474195  0.43799429  1
+  O  O8  1  0.36284952  0.36285764  0.87158124  1
+  O  O9  1  0.39915716  0.81731434  0.40401464  1
+  O  O10  1  0.81731280  0.39915272  0.40401917  1
+  O  O11  1  0.44216195  0.85675507  0.84487617  1
+  O  O12  1  0.85674751  0.44216836  0.84487552  1
+  O  O13  1  0.89914247  0.89914531  0.36596997  1
+  O  O14  1  0.89884897  0.89884842  0.83179304  1

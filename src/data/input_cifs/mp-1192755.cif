@@ -1,0 +1,50 @@
+# generated using pymatgen
+data_Nd3GaFeSe7
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.51444400
+_cell_length_b   10.40865269
+_cell_length_c   10.36433240
+_cell_angle_alpha   120.19953622
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Nd3GaFeSe7
+_chemical_formula_sum   'Nd6 Ga2 Fe2 Se14'
+_cell_volume   607.38925228
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Nd  Nd0  1  0.82105200  0.15870700  0.78220900  1
+  Nd  Nd1  1  0.81925600  0.21747500  0.37368200  1
+  Nd  Nd2  1  0.82115700  0.62454500  0.84424400  1
+  Nd  Nd3  1  0.32105200  0.84129300  0.21779100  1
+  Nd  Nd4  1  0.31925600  0.78252500  0.62631800  1
+  Nd  Nd5  1  0.32115700  0.37545500  0.15575600  1
+  Ga  Ga6  1  0.90034800  0.66674000  0.33377200  1
+  Ga  Ga7  1  0.40034800  0.33326000  0.66622800  1
+  Fe  Fe8  1  0.50922400  0.99759800  0.99524600  1
+  Fe  Fe9  1  0.00922400  0.00240200  0.00475400  1
+  Se  Se10  1  0.54956600  0.43470900  0.91408300  1
+  Se  Se11  1  0.54913900  0.08693800  0.52090700  1
+  Se  Se12  1  0.54987000  0.47904800  0.56580800  1
+  Se  Se13  1  0.04956600  0.56529100  0.08591700  1
+  Se  Se14  1  0.04913900  0.91306200  0.47909300  1
+  Se  Se15  1  0.04987000  0.52095200  0.43419200  1
+  Se  Se16  1  0.53086200  0.66647900  0.33369200  1
+  Se  Se17  1  0.03086200  0.33352100  0.66630800  1
+  Se  Se18  1  0.74327000  0.86547800  0.76421100  1
+  Se  Se19  1  0.74444100  0.23603200  0.10113700  1
+  Se  Se20  1  0.74261500  0.89966200  0.13505100  1
+  Se  Se21  1  0.24327000  0.13452200  0.23578900  1
+  Se  Se22  1  0.24444100  0.76396800  0.89886300  1
+  Se  Se23  1  0.24261500  0.10033800  0.86494900  1

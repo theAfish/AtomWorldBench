@@ -1,0 +1,39 @@
+data_image0
+_chemical_formula_structural       MgTe2Mo2W2Se4S2Ra
+_chemical_formula_sum              "Mg1 Te2 Mo2 W2 Se4 S2 Ra1"
+_cell_length_a       3.332359
+_cell_length_b       3.33250902
+_cell_length_c       38.095962
+_cell_angle_alpha    90.00104937
+_cell_angle_beta     89.99996023
+_cell_angle_gamma    120.00082422999999
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Mg  Mg1       1.0  0.647468  0.219575  0.882024  1.0000
+  Te  Te1       1.0  0.333371  0.666739  0.707405  1.0000
+  Te  Te2       1.0  0.333353  0.666702  0.607729  1.0000
+  Mo  Mo1       1.0  0.333382  0.66666  0.09386  1.0000
+  Mo  Mo2       1.0  0.66669  0.33338200000000007  0.657596  1.0000
+  W   W1        1.0  0.333312  0.666621  0.46961899999999995  1.0000
+  W   W2        1.0  0.666682  0.333363  0.281816  1.0000
+  Se  Se1       1.0  0.333365  0.666727  0.325874  1.0000
+  Se  Se2       1.0  0.666607  0.333266  0.050072  1.0000
+  Se  Se3       1.0  0.666613  0.333278  0.137691  1.0000
+  Se  Se4       1.0  0.33336300000000013  0.666721  0.23778299999999997  1.0000
+  S   S1        1.0  0.666647  0.333286  0.429607  1.0000
+  S   S2        1.0  0.666652  0.333294  0.509672  1.0000
+  Ra  Ra1       1.0  0.807979633562789  0.8881917380763535  0.2404466140393362  1.0000

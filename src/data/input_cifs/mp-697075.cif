@@ -1,0 +1,54 @@
+# generated using pymatgen
+data_Ti3Zn3N
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   8.07183455
+_cell_length_b   8.07185117
+_cell_length_c   8.07182259
+_cell_angle_alpha   60.00050417
+_cell_angle_beta   60.00040547
+_cell_angle_gamma   60.00045073
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Ti3Zn3N
+_chemical_formula_sum   'Ti12 Zn12 N4'
+_cell_volume   371.88312575
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ti  Ti0  1  0.81976586  0.81976944  0.18022853  1
+  Ti  Ti1  1  0.18023584  0.18023315  0.81976690  1
+  Ti  Ti2  1  0.81977119  0.18022479  0.81977081  1
+  Ti  Ti3  1  0.18022991  0.81977484  0.18022754  1
+  Ti  Ti4  1  0.18022405  0.81977518  0.81977128  1
+  Ti  Ti5  1  0.81977156  0.18023015  0.18022989  1
+  Ti  Ti6  1  0.43023098  0.43023186  0.06976732  1
+  Ti  Ti7  1  0.06976869  0.06976708  0.43023300  1
+  Ti  Ti8  1  0.43023083  0.06976659  0.43023468  1
+  Ti  Ti9  1  0.06976838  0.43023227  0.06976603  1
+  Ti  Ti10  1  0.06977397  0.43022499  0.43022769  1
+  Ti  Ti11  1  0.43022277  0.06977635  0.06977523  1
+  Zn  Zn12  1  0.12500589  0.62498877  0.62497357  1
+  Zn  Zn13  1  0.62499176  0.12500865  0.62502180  1
+  Zn  Zn14  1  0.62497481  0.62502008  0.12500945  1
+  Zn  Zn15  1  0.62503090  0.62497403  0.62499305  1
+  Zn  Zn16  1  0.75253734  0.41582194  0.41583720  1
+  Zn  Zn17  1  0.41582124  0.75253100  0.41579883  1
+  Zn  Zn18  1  0.41583585  0.41579961  0.75253184  1
+  Zn  Zn19  1  0.41579971  0.41584454  0.41583090  1
+  Zn  Zn20  1  0.49744722  0.83419211  0.83420987  1
+  Zn  Zn21  1  0.83419516  0.49744844  0.83416387  1
+  Zn  Zn22  1  0.83421175  0.83416427  0.49744625  1
+  Zn  Zn23  1  0.83415830  0.83419534  0.83418336  1
+  N  N24  1  0.62499975  0.12500032  0.12500845  1
+  N  N25  1  0.12499951  0.62500600  0.12498135  1
+  N  N26  1  0.12500822  0.12498179  0.62500593  1
+  N  N27  1  0.12499057  0.12501342  0.12500339  1

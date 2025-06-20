@@ -1,0 +1,40 @@
+# generated using pymatgen
+data_SrPr3CrNiO8
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.80372094
+_cell_length_b   6.80372094
+_cell_length_c   5.50407300
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   132.24996143
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   SrPr3CrNiO8
+_chemical_formula_sum   'Sr1 Pr3 Cr1 Ni1 O8'
+_cell_volume   188.59803017
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Sr  Sr0  1  0.14279200  0.85720800  0.50000000  1
+  Pr  Pr1  1  0.63641700  0.36358300  0.00000000  1
+  Pr  Pr2  1  0.36131600  0.63868400  0.00000000  1
+  Pr  Pr3  1  0.86431600  0.13568400  0.50000000  1
+  Cr  Cr4  1  0.50071900  0.49928100  0.50000000  1
+  Ni  Ni5  1  0.00306100  0.99693900  0.00000000  1
+  O  O6  1  0.74143200  0.74935100  0.24760700  1
+  O  O7  1  0.25064900  0.25856800  0.75239300  1
+  O  O8  1  0.74143200  0.74935100  0.75239300  1
+  O  O9  1  0.25064900  0.25856800  0.24760700  1
+  O  O10  1  0.82178800  0.17821200  0.00000000  1
+  O  O11  1  0.33664700  0.66335300  0.50000000  1
+  O  O12  1  0.17623800  0.82376200  0.00000000  1
+  O  O13  1  0.67254400  0.32745600  0.50000000  1

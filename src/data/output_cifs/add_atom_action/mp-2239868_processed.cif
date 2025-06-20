@@ -1,0 +1,37 @@
+data_image0
+_chemical_formula_structural       Ba2MgFeWO6Fe
+_chemical_formula_sum              "Ba2 Mg1 Fe2 W1 O6"
+_cell_length_a       6.78218481
+_cell_length_b       6.739810220000001
+_cell_length_c       6.78093982
+_cell_angle_alpha    74.47869084
+_cell_angle_beta     130.26873343
+_cell_angle_gamma    128.68313006
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ba  Ba1       1.0  0.50008  0.814832  0.314554  1.0000
+  Ba  Ba2       1.0  0.500542  0.185647  0.685654  1.0000
+  Mg  Mg1       1.0  0.4998090000000001  0.49971400000000005  0.00018  1.0000
+  Fe  Fe1       1.0  0.9995280000000001  0.499458  0.499504  1.0000
+  W   W1        1.0  0.999678  0.9996300000000001  5.3e-05  1.0000
+  O   O1        1.0  0.487691  0.733844  0.748478  1.0000
+  O   O2        1.0  0.986204  0.733732  0.24714599999999998  1.0000
+  O   O3        1.0  0.013204999999999965  0.26605  0.752535  1.0000
+  O   O4        1.0  0.511792  0.265547  0.251757  1.0000
+  O   O5        1.0  0.998868  0.190205  0.192216  1.0000
+  O   O6        1.0  0.0026040000000000564  0.8113410000000001  0.8079230000000001  1.0000
+  Fe  Fe2       1.0  0.5014363988303876  0.5097335836466453  0.606505833329939  1.0000
