@@ -55,13 +55,13 @@ class Evaluator:
                 continue
 
             # Check atom counts and structure match
-            atom_counts_match = check_atom_counts(input_structure, generated_structure)
+            atom_counts_match = check_atom_counts(output_structure, generated_structure)
             if not atom_counts_match:
                 print(f"Atom counts do not match for input: {input_cif}")
                 num_invalid_cif += 1
                 continue
             
-            rmsd, max_diff = match_structures(input_structure, generated_structure)
+            rmsd, max_diff = match_structures(output_structure, generated_structure)
             if rmsd == -1:
                 print(f"Structures do not match for input: {input_cif}")
                 num_invalid_cif += 1
@@ -75,6 +75,11 @@ class Evaluator:
                 "rmsd": rmsd,
                 "max_diff": max_diff,
             })
+            print(f"Processed input: {input_cif}, RMSD: {rmsd}, Max Diff: {max_diff}")
+
+        # Print summary of evaluation
+        print(f"Evaluation completed. Total inputs: {len(self.data)}, ")
+        print(f"Unreadable outputs: {num_unreadable_out}, Invalid CIFs: {num_invalid_cif}")
 
         # Save results to a DataFrame and then to a CSV file
         results_df = pd.DataFrame(results)

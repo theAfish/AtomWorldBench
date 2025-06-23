@@ -12,5 +12,6 @@ dependencies = [
     "ase",
     "pymatgen",
     "openai",
-    "h5py"
+    "h5py",
+    "pandas"
 ]
