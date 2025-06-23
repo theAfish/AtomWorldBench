@@ -56,14 +56,24 @@ class Evaluator:
 
             # Check atom counts and structure match
             atom_counts_match = check_atom_counts(input_structure, generated_structure)
-            structures_match = match_structures(input_structure, generated_structure)
+            if not atom_counts_match:
+                print(f"Atom counts do not match for input: {input_cif}")
+                num_invalid_cif += 1
+                continue
+            
+            rmsd, max_diff = match_structures(input_structure, generated_structure)
+            if rmsd == -1:
+                print(f"Structures do not match for input: {input_cif}")
+                num_invalid_cif += 1
+                continue
 
             results.append({
                 "input_cif": input_cif,
                 "action_prompt": action_prompt,
                 "generated_output": generated_output,
                 "atom_counts_match": atom_counts_match,
-                "structures_match": structures_match
+                "rmsd": rmsd,
+                "max_diff": max_diff,
             })
 
         # Save results to a DataFrame and then to a CSV file
