@@ -89,7 +89,9 @@ class SwapAtomsAction(BaseAction):
 
     def execute(self):
         if (0 <= self.index1 < len(self.atoms)) and (0 <= self.index2 < len(self.atoms)):
-            self.atoms[self.index1], self.atoms[self.index2] = self.atoms[self.index2], self.atoms[self.index1]
+            # Swap the types of the two atoms
+            self.atoms[self.index1].symbol, self.atoms[self.index2].symbol = \
+                self.atoms[self.index2].symbol, self.atoms[self.index1].symbol
             return self.atoms
         else:
             raise IndexError("Index out of bounds for atom swapping.")
@@ -237,14 +239,19 @@ class RotateAroundAtomAction(BaseAction):
 
     def execute(self):
         if 0 <= self.index < len(self.atoms):
-            from ase.geometry import rotate
             center_position = self.atoms[self.index].position
             distances = self.atoms.get_distances(self.index, range(len(self.atoms)), mic=True)
             indices_to_rotate = np.where(distances < self.radius)[0]
-            for i in indices_to_rotate:
-                if i != self.index:
-                    # Rotate the atom around the specified axis
-                    self.atoms[i].position = rotate(self.atoms[i].position - center_position, self.angle, self.axis) + center_position
+            indices_to_rotate = [i for i in indices_to_rotate if i != self.index]
+            if not indices_to_rotate:
+                return self.atoms  # Nothing to rotate
+            # Extract the atoms to rotate
+            sub_atoms = self.atoms[indices_to_rotate]
+            # Rotate in-place around the axis and center
+            sub_atoms.rotate(self.angle * 180 / np.pi, self.axis, center=center_position)
+            # Update positions in the main atoms object
+            for idx, sub_atom in zip(indices_to_rotate, sub_atoms):
+                self.atoms[idx].position = sub_atom.position
             return self.atoms
         else:
             raise IndexError("Index out of bounds for rotating around an atom.")

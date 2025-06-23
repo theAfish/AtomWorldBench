@@ -1,0 +1,1001 @@
+input_cif,action_prompt,output_cif
+input_cifs\mp-1013842.cif,Move all surrounding atoms within 3.4699133816014474 of the center atom at index 71 by [-1.02647382 -1.04004211  2.35235442] in the cif file.,mp-1013842_processed.cif
+input_cifs\mp-1015026.cif,Move all surrounding atoms within 2.9583734598698808 of the center atom at index 3 by [ 0.11149514 -1.90816773  3.36142385] in the cif file.,mp-1015026_processed.cif
+input_cifs\mp-1016569.cif,Move all surrounding atoms within 3.3480566638544835 of the center atom at index 14 by [ 0.78311173 -0.03631505  1.14491119] in the cif file.,mp-1016569_processed.cif
+input_cifs\mp-1016660.cif,Move all surrounding atoms within 2.650763522183625 of the center atom at index 11 by [-2.78864599 -0.848556    0.51575785] in the cif file.,mp-1016660_processed.cif
+input_cifs\mp-1020181.cif,Move all surrounding atoms within 3.840922725487545 of the center atom at index 36 by [-2.01708088 -3.3926902  -0.97137324] in the cif file.,mp-1020181_processed.cif
+input_cifs\mp-1020716.cif,Move all surrounding atoms within 2.619671547702382 of the center atom at index 36 by [ 1.16372    -2.82697339 -0.15713691] in the cif file.,mp-1020716_processed.cif
+input_cifs\mp-1021278.cif,Move all surrounding atoms within 3.0085461817780406 of the center atom at index 5 by [ 4.0290196   0.41756461 -0.7114904 ] in the cif file.,mp-1021278_processed.cif
+input_cifs\mp-1021658.cif,Move all surrounding atoms within 1.5404757493856067 of the center atom at index 10 by [ 2.0896111  -2.86939923 -1.94653468] in the cif file.,mp-1021658_processed.cif
+input_cifs\mp-1021682.cif,Move all surrounding atoms within 2.5787994216688617 of the center atom at index 6 by [ 0.0474285   0.44859729 -1.37591124] in the cif file.,mp-1021682_processed.cif
+input_cifs\mp-1022203.cif,Move all surrounding atoms within 1.741095555926317 of the center atom at index 7 by [-1.52956789  2.89532435 -0.60973893] in the cif file.,mp-1022203_processed.cif
+input_cifs\mp-1026634.cif,Move all surrounding atoms within 3.081083117592881 of the center atom at index 4 by [ 2.76484107  0.06483179 -1.31478585] in the cif file.,mp-1026634_processed.cif
+input_cifs\mp-1026773.cif,Move all surrounding atoms within 2.0370215953746507 of the center atom at index 13 by [ 1.16113323 -0.55530458 -1.61433283] in the cif file.,mp-1026773_processed.cif
+input_cifs\mp-1026775.cif,Move all surrounding atoms within 3.637589599312526 of the center atom at index 7 by [ 3.0673049   0.3040135  -1.53004031] in the cif file.,mp-1026775_processed.cif
+input_cifs\mp-1026818.cif,Move all surrounding atoms within 1.55409240218218 of the center atom at index 12 by [ 0.568649    2.09742238 -0.45537576] in the cif file.,mp-1026818_processed.cif
+input_cifs\mp-1026852.cif,Move all surrounding atoms within 1.5093278818054963 of the center atom at index 8 by [-2.88244795  1.53055538 -0.76187258] in the cif file.,mp-1026852_processed.cif
+input_cifs\mp-1026901.cif,Move all surrounding atoms within 1.952704262360395 of the center atom at index 9 by [0.08220779 0.11921282 0.70814893] in the cif file.,mp-1026901_processed.cif
+input_cifs\mp-1027134.cif,Move all surrounding atoms within 2.2652755137337266 of the center atom at index 5 by [ 0.38522176 -1.41989333 -1.02478408] in the cif file.,mp-1027134_processed.cif
+input_cifs\mp-1027152.cif,Move all surrounding atoms within 2.1262410373191134 of the center atom at index 11 by [-1.54555299 -0.47948679  0.17579521] in the cif file.,mp-1027152_processed.cif
+input_cifs\mp-1027852.cif,Move all surrounding atoms within 3.154683659716275 of the center atom at index 3 by [0.78768657 3.54862014 4.04879775] in the cif file.,mp-1027852_processed.cif
+input_cifs\mp-1027965.cif,Move all surrounding atoms within 3.371464374290774 of the center atom at index 10 by [ 2.01352622  3.4115412  -2.15445793] in the cif file.,mp-1027965_processed.cif
+input_cifs\mp-1027971.cif,Move all surrounding atoms within 2.728227677401642 of the center atom at index 4 by [-4.29366599  0.53865967  1.47098951] in the cif file.,mp-1027971_processed.cif
+input_cifs\mp-1028124.cif,Move all surrounding atoms within 1.559072895985675 of the center atom at index 7 by [-1.77505921  3.12161288 -0.74380489] in the cif file.,mp-1028124_processed.cif
+input_cifs\mp-1028136.cif,Move all surrounding atoms within 3.233304009606624 of the center atom at index 10 by [0.10747727 1.60143322 2.91545062] in the cif file.,mp-1028136_processed.cif
+input_cifs\mp-1028229.cif,Move all surrounding atoms within 3.819514056568642 of the center atom at index 3 by [-0.75046812 -1.09258641 -2.64145538] in the cif file.,mp-1028229_processed.cif
+input_cifs\mp-1028374.cif,Move all surrounding atoms within 2.6464647429141426 of the center atom at index 14 by [-0.98994026  1.60027954  0.66029676] in the cif file.,mp-1028374_processed.cif
+input_cifs\mp-1028383.cif,Move all surrounding atoms within 2.221731428451064 of the center atom at index 7 by [ 1.80710707  0.94976003 -0.16127284] in the cif file.,mp-1028383_processed.cif
+input_cifs\mp-1028854.cif,Move all surrounding atoms within 2.4825740999339763 of the center atom at index 10 by [-0.51074073  3.55846405  1.73638454] in the cif file.,mp-1028854_processed.cif
+input_cifs\mp-1029113.cif,Move all surrounding atoms within 1.688443033391497 of the center atom at index 5 by [1.18635975 0.24757787 1.05207936] in the cif file.,mp-1029113_processed.cif
+input_cifs\mp-1029368.cif,Move all surrounding atoms within 3.802247671965799 of the center atom at index 0 by [1.5721104  2.51401714 0.10019338] in the cif file.,mp-1029368_processed.cif
+input_cifs\mp-1031131.cif,Move all surrounding atoms within 3.5308290684915526 of the center atom at index 14 by [ 1.66051609 -1.00795135  0.24028064] in the cif file.,mp-1031131_processed.cif
+input_cifs\mp-1032360.cif,Move all surrounding atoms within 2.4899393047644582 of the center atom at index 2 by [ 0.70777678 -0.89059072  2.98787583] in the cif file.,mp-1032360_processed.cif
+input_cifs\mp-1033383.cif,Move all surrounding atoms within 2.864439975773568 of the center atom at index 3 by [-1.62438645  2.29216404  0.7146018 ] in the cif file.,mp-1033383_processed.cif
+input_cifs\mp-1034355.cif,Move all surrounding atoms within 2.511009572598039 of the center atom at index 9 by [-0.08653918 -2.68650612  0.82997063] in the cif file.,mp-1034355_processed.cif
+input_cifs\mp-1035597.cif,Move all surrounding atoms within 3.7544477831235556 of the center atom at index 8 by [1.57461199 1.0863005  2.49316042] in the cif file.,mp-1035597_processed.cif
+input_cifs\mp-1035800.cif,Move all surrounding atoms within 2.371580350375677 of the center atom at index 0 by [-0.30561751  0.37859677  0.40383361] in the cif file.,mp-1035800_processed.cif
+input_cifs\mp-1037450.cif,Move all surrounding atoms within 2.173523069501565 of the center atom at index 45 by [ 1.84255455 -0.38702093 -0.52768533] in the cif file.,mp-1037450_processed.cif
+input_cifs\mp-1038247.cif,Move all surrounding atoms within 2.276548801004022 of the center atom at index 52 by [-0.65996656  2.71870376  0.50538431] in the cif file.,mp-1038247_processed.cif
+input_cifs\mp-1038590.cif,Move all surrounding atoms within 1.6850983313133678 of the center atom at index 41 by [-0.38209684  2.59254581 -0.84941647] in the cif file.,mp-1038590_processed.cif
+input_cifs\mp-1038638.cif,Move all surrounding atoms within 3.3229597196508918 of the center atom at index 30 by [-1.50229319 -1.46254533  1.03500911] in the cif file.,mp-1038638_processed.cif
+input_cifs\mp-1039951.cif,Move all surrounding atoms within 2.1063477321273805 of the center atom at index 36 by [3.02316269 2.75873369 5.49265608] in the cif file.,mp-1039951_processed.cif
+input_cifs\mp-1040370.cif,Move all surrounding atoms within 1.6682035750645394 of the center atom at index 48 by [-3.12027449 -2.71946308  0.55631748] in the cif file.,mp-1040370_processed.cif
+input_cifs\mp-1041045.cif,Move all surrounding atoms within 2.210566016435981 of the center atom at index 24 by [-3.04550213  2.13775706  0.97158247] in the cif file.,mp-1041045_processed.cif
+input_cifs\mp-1041056.cif,Move all surrounding atoms within 2.4075898527950845 of the center atom at index 43 by [ 2.10224227 -1.15041412  0.21795796] in the cif file.,mp-1041056_processed.cif
+input_cifs\mp-1041213.cif,Move all surrounding atoms within 2.2895104074115125 of the center atom at index 16 by [-1.57360266 -1.1663021   0.33511784] in the cif file.,mp-1041213_processed.cif
+input_cifs\mp-1042028.cif,Move all surrounding atoms within 1.8825679494292689 of the center atom at index 2 by [ 0.0652795  -0.40297584 -2.39592244] in the cif file.,mp-1042028_processed.cif
+input_cifs\mp-1042158.cif,Move all surrounding atoms within 1.8304811909905228 of the center atom at index 2 by [ 0.54802456  2.46264366 -1.72681186] in the cif file.,mp-1042158_processed.cif
+input_cifs\mp-1042205.cif,Move all surrounding atoms within 2.2122199063523134 of the center atom at index 4 by [ 2.1154042  -1.1293404   1.67725784] in the cif file.,mp-1042205_processed.cif
+input_cifs\mp-1042378.cif,Move all surrounding atoms within 2.5415881869917776 of the center atom at index 10 by [-0.05651129 -1.0477716   3.27798005] in the cif file.,mp-1042378_processed.cif
+input_cifs\mp-1042415.cif,Move all surrounding atoms within 2.8253630359545276 of the center atom at index 20 by [ 2.21124262 -0.80954186  1.52921262] in the cif file.,mp-1042415_processed.cif
+input_cifs\mp-1042656.cif,Move all surrounding atoms within 3.2783493561334955 of the center atom at index 1 by [2.52606585 0.78977233 0.65311451] in the cif file.,mp-1042656_processed.cif
+input_cifs\mp-1042677.cif,Move all surrounding atoms within 3.2384090159588466 of the center atom at index 10 by [-0.71052028  0.41282401  0.39105424] in the cif file.,mp-1042677_processed.cif
+input_cifs\mp-1042685.cif,Move all surrounding atoms within 2.7476918434219346 of the center atom at index 55 by [0.35308186 2.86053741 3.60029576] in the cif file.,mp-1042685_processed.cif
+input_cifs\mp-1042896.cif,Move all surrounding atoms within 2.612402970812446 of the center atom at index 12 by [-2.94787131 -0.35596827 -0.15514315] in the cif file.,mp-1042896_processed.cif
+input_cifs\mp-1043828.cif,Move all surrounding atoms within 3.205904996278619 of the center atom at index 31 by [0.98418491 1.42691356 1.06098054] in the cif file.,mp-1043828_processed.cif
+input_cifs\mp-1044049.cif,Move all surrounding atoms within 3.1757509586124604 of the center atom at index 3 by [ 2.46559297 -1.37593108 -2.06390988] in the cif file.,mp-1044049_processed.cif
+input_cifs\mp-1044636.cif,Move all surrounding atoms within 2.3381543551405946 of the center atom at index 43 by [ 2.88078515 -1.3598168  -1.69927875] in the cif file.,mp-1044636_processed.cif
+input_cifs\mp-1045786.cif,Move all surrounding atoms within 2.043404054423389 of the center atom at index 12 by [ 0.91237211  1.15454337 -1.03950221] in the cif file.,mp-1045786_processed.cif
+input_cifs\mp-1045992.cif,Move all surrounding atoms within 3.331978727264322 of the center atom at index 2 by [-0.72998068  1.25991843 -1.70470782] in the cif file.,mp-1045992_processed.cif
+input_cifs\mp-1046286.cif,Move all surrounding atoms within 1.9286591671493984 of the center atom at index 11 by [-2.1533344   0.21118969 -2.13620139] in the cif file.,mp-1046286_processed.cif
+input_cifs\mp-1047007.cif,Move all surrounding atoms within 3.9651227058319836 of the center atom at index 2 by [-0.55695496  0.34303932 -0.54801034] in the cif file.,mp-1047007_processed.cif
+input_cifs\mp-1047085.cif,Move all surrounding atoms within 3.5008706227838697 of the center atom at index 11 by [ 1.84241395  0.90081596 -1.3350407 ] in the cif file.,mp-1047085_processed.cif
+input_cifs\mp-1047504.cif,Move all surrounding atoms within 3.2172535255846064 of the center atom at index 0 by [-3.62392753  3.64533073 -4.47436896] in the cif file.,mp-1047504_processed.cif
+input_cifs\mp-1047641.cif,Move all surrounding atoms within 3.8652789973761417 of the center atom at index 1 by [-1.00012058  2.23521046  1.01889277] in the cif file.,mp-1047641_processed.cif
+input_cifs\mp-1047798.cif,Move all surrounding atoms within 3.654020207630933 of the center atom at index 24 by [-0.99768098 -1.95643139  2.75690966] in the cif file.,mp-1047798_processed.cif
+input_cifs\mp-1048141.cif,Move all surrounding atoms within 2.444373267262673 of the center atom at index 4 by [ 0.56759285 -1.23923738 -3.38091616] in the cif file.,mp-1048141_processed.cif
+input_cifs\mp-1048241.cif,Move all surrounding atoms within 1.704489105971362 of the center atom at index 4 by [-0.8232495  -2.62272803 -0.58177338] in the cif file.,mp-1048241_processed.cif
+input_cifs\mp-1048742.cif,Move all surrounding atoms within 3.4873930582002246 of the center atom at index 16 by [2.0333111  0.2490645  0.60020211] in the cif file.,mp-1048742_processed.cif
+input_cifs\mp-1048819.cif,Move all surrounding atoms within 2.6572862233435157 of the center atom at index 15 by [ 1.4296695   1.05233299 -0.89186228] in the cif file.,mp-1048819_processed.cif
+input_cifs\mp-10543.cif,Move all surrounding atoms within 1.9388525017072014 of the center atom at index 7 by [-2.29856477 -3.12744723 -0.53757827] in the cif file.,mp-10543_processed.cif
+input_cifs\mp-1073454.cif,Move all surrounding atoms within 3.5095317526051244 of the center atom at index 7 by [ 3.1271004  -3.633317   -0.65031659] in the cif file.,mp-1073454_processed.cif
+input_cifs\mp-1073857.cif,Move all surrounding atoms within 2.4764024913547096 of the center atom at index 10 by [-0.42248547 -0.22761762 -1.14002189] in the cif file.,mp-1073857_processed.cif
+input_cifs\mp-1074382.cif,Move all surrounding atoms within 1.5707781371329619 of the center atom at index 4 by [ 1.6037591  -2.05349846  2.15520713] in the cif file.,mp-1074382_processed.cif
+input_cifs\mp-1075115.cif,Move all surrounding atoms within 2.2459066741101865 of the center atom at index 12 by [-1.22546744 -0.98533847  2.97032382] in the cif file.,mp-1075115_processed.cif
+input_cifs\mp-1076171.cif,Move all surrounding atoms within 1.77465193368 of the center atom at index 19 by [ 0.98906282  1.50316398 -0.38923588] in the cif file.,mp-1076171_processed.cif
+input_cifs\mp-1076264.cif,Move all surrounding atoms within 3.306762499377762 of the center atom at index 2 by [1.09960824 0.54819044 1.48471773] in the cif file.,mp-1076264_processed.cif
+input_cifs\mp-1080179.cif,Move all surrounding atoms within 2.6705015534939482 of the center atom at index 2 by [-0.03664532  0.79079646  2.79885077] in the cif file.,mp-1080179_processed.cif
+input_cifs\mp-1080349.cif,Move all surrounding atoms within 3.144113487333113 of the center atom at index 9 by [-0.10935066 -0.05541522  0.21884111] in the cif file.,mp-1080349_processed.cif
+input_cifs\mp-1080354.cif,Move all surrounding atoms within 2.1055848986547065 of the center atom at index 12 by [-1.56169654  0.67512099  1.97527808] in the cif file.,mp-1080354_processed.cif
+input_cifs\mp-1080713.cif,Move all surrounding atoms within 2.881349551059476 of the center atom at index 6 by [-3.20490154 -0.35831158 -1.68446272] in the cif file.,mp-1080713_processed.cif
+input_cifs\mp-1094804.cif,Move all surrounding atoms within 3.885674850590533 of the center atom at index 0 by [-0.96070074  2.08594204  2.06088363] in the cif file.,mp-1094804_processed.cif
+input_cifs\mp-1095083.cif,Move all surrounding atoms within 2.188933858204989 of the center atom at index 8 by [-2.23636822 -2.47099819  0.08244825] in the cif file.,mp-1095083_processed.cif
+input_cifs\mp-1095476.cif,Move all surrounding atoms within 2.267041936526974 of the center atom at index 4 by [-1.6147843   0.57752037 -3.0100887 ] in the cif file.,mp-1095476_processed.cif
+input_cifs\mp-1095575.cif,Move all surrounding atoms within 2.038639923085138 of the center atom at index 3 by [-1.07435452  0.82797364 -0.44008614] in the cif file.,mp-1095575_processed.cif
+input_cifs\mp-1095585.cif,Move all surrounding atoms within 2.3194595733557954 of the center atom at index 3 by [ 1.71078582 -1.45947963  0.63139016] in the cif file.,mp-1095585_processed.cif
+input_cifs\mp-1095643.cif,Move all surrounding atoms within 1.6768576792490995 of the center atom at index 11 by [ 0.49759403 -0.37785323 -1.47100754] in the cif file.,mp-1095643_processed.cif
+input_cifs\mp-1095675.cif,Move all surrounding atoms within 2.380064541323225 of the center atom at index 0 by [-2.04516417 -1.8151231  -1.25499617] in the cif file.,mp-1095675_processed.cif
+input_cifs\mp-1095677.cif,Move all surrounding atoms within 2.200552782169914 of the center atom at index 2 by [ 0.37514907 -1.43430676 -1.49524234] in the cif file.,mp-1095677_processed.cif
+input_cifs\mp-1096913.cif,Move all surrounding atoms within 3.6309814975011205 of the center atom at index 9 by [0.95887868 1.07367278 0.04793427] in the cif file.,mp-1096913_processed.cif
+input_cifs\mp-1099100.cif,Move all surrounding atoms within 3.393514587812475 of the center atom at index 7 by [0.64660005 1.08585188 1.66930384] in the cif file.,mp-1099100_processed.cif
+input_cifs\mp-1100340.cif,Move all surrounding atoms within 1.7447713084487655 of the center atom at index 17 by [ 1.55905095 -2.91391692 -0.5557823 ] in the cif file.,mp-1100340_processed.cif
+input_cifs\mp-1100512.cif,Move all surrounding atoms within 2.1422545843467686 of the center atom at index 8 by [ 0.85933421  2.04482216 -0.51838452] in the cif file.,mp-1100512_processed.cif
+input_cifs\mp-1100602.cif,Move all surrounding atoms within 1.523059315108276 of the center atom at index 11 by [ 0.2393699  -1.18720651 -0.80554053] in the cif file.,mp-1100602_processed.cif
+input_cifs\mp-1100645.cif,Move all surrounding atoms within 3.8856353212002053 of the center atom at index 4 by [-0.5072669  -2.37972168 -1.81992404] in the cif file.,mp-1100645_processed.cif
+input_cifs\mp-1100655.cif,Move all surrounding atoms within 3.3767457313948883 of the center atom at index 2 by [2.33736265 2.54222689 0.26749961] in the cif file.,mp-1100655_processed.cif
+input_cifs\mp-1100709.cif,Move all surrounding atoms within 2.623845999354848 of the center atom at index 6 by [ 3.01211172 -1.12404165  2.76896416] in the cif file.,mp-1100709_processed.cif
+input_cifs\mp-1100895.cif,Move all surrounding atoms within 3.1071694231015377 of the center atom at index 11 by [-3.91440326 -0.59951426  1.89251603] in the cif file.,mp-1100895_processed.cif
+input_cifs\mp-1101365.cif,Move all surrounding atoms within 3.812705081946845 of the center atom at index 72 by [ 0.29948754 -2.82274974  1.1205261 ] in the cif file.,mp-1101365_processed.cif
+input_cifs\mp-1101490.cif,Move all surrounding atoms within 3.435557855101318 of the center atom at index 43 by [ 2.05675567 -2.48015287  0.19780726] in the cif file.,mp-1101490_processed.cif
+input_cifs\mp-1101729.cif,Move all surrounding atoms within 3.594002521533813 of the center atom at index 60 by [ 2.608144   -2.24767587  0.11218503] in the cif file.,mp-1101729_processed.cif
+input_cifs\mp-1101899.cif,Move all surrounding atoms within 3.6384303073592026 of the center atom at index 5 by [0.23556082 0.006808   1.93237762] in the cif file.,mp-1101899_processed.cif
+input_cifs\mp-1102433.cif,Move all surrounding atoms within 2.4929396282556096 of the center atom at index 4 by [ 0.98520071  0.07163446 -0.03043947] in the cif file.,mp-1102433_processed.cif
+input_cifs\mp-1102534.cif,Move all surrounding atoms within 3.2554133087299295 of the center atom at index 10 by [-1.95281433 -1.08626118  0.27682204] in the cif file.,mp-1102534_processed.cif
+input_cifs\mp-1102795.cif,Move all surrounding atoms within 2.4586023349190986 of the center atom at index 1 by [-0.51574999  2.63762928  0.5141578 ] in the cif file.,mp-1102795_processed.cif
+input_cifs\mp-1102865.cif,Move all surrounding atoms within 2.040390205480894 of the center atom at index 2 by [-2.09501581 -0.48434596  2.08962676] in the cif file.,mp-1102865_processed.cif
+input_cifs\mp-1102948.cif,Move all surrounding atoms within 3.513471303461468 of the center atom at index 8 by [-1.82099942 -0.73060789 -0.74888166] in the cif file.,mp-1102948_processed.cif
+input_cifs\mp-1102963.cif,Move all surrounding atoms within 3.475377872389591 of the center atom at index 4 by [0.23972197 0.29941441 0.74883118] in the cif file.,mp-1102963_processed.cif
+input_cifs\mp-1103212.cif,Move all surrounding atoms within 2.1089460227066406 of the center atom at index 3 by [-2.15038349  4.26244816 -2.69616289] in the cif file.,mp-1103212_processed.cif
+input_cifs\mp-1103303.cif,Move all surrounding atoms within 3.1928040983411288 of the center atom at index 8 by [ 0.66056392 -1.4263681  -3.75113341] in the cif file.,mp-1103303_processed.cif
+input_cifs\mp-1103651.cif,Move all surrounding atoms within 2.7758079694986497 of the center atom at index 3 by [ 0.53297917 -5.32617117 -1.65117776] in the cif file.,mp-1103651_processed.cif
+input_cifs\mp-1104386.cif,Move all surrounding atoms within 3.9742767118615934 of the center atom at index 4 by [-2.01866839  4.46863516  3.15796293] in the cif file.,mp-1104386_processed.cif
+input_cifs\mp-1104404.cif,Move all surrounding atoms within 2.6256990635607718 of the center atom at index 14 by [ 2.31643309 -0.27384982  1.74376458] in the cif file.,mp-1104404_processed.cif
+input_cifs\mp-1104448.cif,Move all surrounding atoms within 2.591519132356936 of the center atom at index 8 by [ 1.38407631  1.35331837 -1.26110348] in the cif file.,mp-1104448_processed.cif
+input_cifs\mp-1105372.cif,Move all surrounding atoms within 1.6460697679702587 of the center atom at index 4 by [-2.57424269 -0.90974001 -0.83843341] in the cif file.,mp-1105372_processed.cif
+input_cifs\mp-1105581.cif,Move all surrounding atoms within 2.4458789118065822 of the center atom at index 3 by [-3.02834484  0.97261906 -0.21069198] in the cif file.,mp-1105581_processed.cif
+input_cifs\mp-1105587.cif,Move all surrounding atoms within 3.2316387861677613 of the center atom at index 16 by [-1.52747941  0.23297067  2.87654253] in the cif file.,mp-1105587_processed.cif
+input_cifs\mp-1105631.cif,Move all surrounding atoms within 3.598917043770964 of the center atom at index 14 by [ 1.56159185  1.50695634 -0.12141392] in the cif file.,mp-1105631_processed.cif
+input_cifs\mp-1105736.cif,Move all surrounding atoms within 3.6433406863342084 of the center atom at index 18 by [ 1.16839765  0.18871672 -3.53872936] in the cif file.,mp-1105736_processed.cif
+input_cifs\mp-1105952.cif,Move all surrounding atoms within 3.0695973434731494 of the center atom at index 10 by [ 0.38544825 -0.03146004 -1.00206369] in the cif file.,mp-1105952_processed.cif
+input_cifs\mp-1105985.cif,Move all surrounding atoms within 3.816549793148895 of the center atom at index 6 by [1.86162545 2.29138049 2.03530269] in the cif file.,mp-1105985_processed.cif
+input_cifs\mp-1106159.cif,Move all surrounding atoms within 2.1868360460349456 of the center atom at index 0 by [ 2.54016877 -1.09415415 -2.54795452] in the cif file.,mp-1106159_processed.cif
+input_cifs\mp-1110626.cif,Move all surrounding atoms within 2.4468306720436472 of the center atom at index 6 by [-2.01632028  2.39281893 -0.27856013] in the cif file.,mp-1110626_processed.cif
+input_cifs\mp-1110754.cif,Move all surrounding atoms within 2.6916210611710207 of the center atom at index 2 by [-1.35516101 -4.1114139   3.60897526] in the cif file.,mp-1110754_processed.cif
+input_cifs\mp-1111211.cif,Move all surrounding atoms within 3.8645950080523055 of the center atom at index 3 by [ 3.40879902 -2.27611313  0.51929936] in the cif file.,mp-1111211_processed.cif
+input_cifs\mp-1111610.cif,Move all surrounding atoms within 2.098797658672371 of the center atom at index 7 by [-0.86562426  1.10647385  2.39818288] in the cif file.,mp-1111610_processed.cif
+input_cifs\mp-1111940.cif,Move all surrounding atoms within 3.167116551154839 of the center atom at index 2 by [ 1.59510277  2.00865084 -1.12913315] in the cif file.,mp-1111940_processed.cif
+input_cifs\mp-1112257.cif,Move all surrounding atoms within 1.816049718743486 of the center atom at index 2 by [-2.8591915   0.37982403 -0.51558184] in the cif file.,mp-1112257_processed.cif
+input_cifs\mp-1112416.cif,Move all surrounding atoms within 1.6421752181722393 of the center atom at index 1 by [-0.14405609  0.69250323 -0.14591129] in the cif file.,mp-1112416_processed.cif
+input_cifs\mp-11143.cif,Move all surrounding atoms within 1.6452027184201676 of the center atom at index 20 by [ 1.93972089 -0.52816733 -0.92263108] in the cif file.,mp-11143_processed.cif
+input_cifs\mp-11145.cif,Move all surrounding atoms within 2.1126038067581634 of the center atom at index 25 by [ 1.13602394 -1.40473097 -0.45902939] in the cif file.,mp-11145_processed.cif
+input_cifs\mp-1120749.cif,Move all surrounding atoms within 2.347200562868858 of the center atom at index 19 by [2.07433459 0.05934103 1.6653593 ] in the cif file.,mp-1120749_processed.cif
+input_cifs\mp-11250.cif,Move all surrounding atoms within 2.9774482059875123 of the center atom at index 2 by [ 0.36864394 -2.25498456  0.82895652] in the cif file.,mp-11250_processed.cif
+input_cifs\mp-1157680.cif,Move all surrounding atoms within 1.58870731369774 of the center atom at index 18 by [-0.33320734 -1.31278398  0.50022902] in the cif file.,mp-1157680_processed.cif
+input_cifs\mp-1173361.cif,Move all surrounding atoms within 3.0241917689653857 of the center atom at index 9 by [-2.92059387  5.25959249 -0.99896485] in the cif file.,mp-1173361_processed.cif
+input_cifs\mp-1173548.cif,Move all surrounding atoms within 3.2701871482368907 of the center atom at index 13 by [ 2.24422975  1.1382944  -0.29986651] in the cif file.,mp-1173548_processed.cif
+input_cifs\mp-1173561.cif,Move all surrounding atoms within 3.9169526390570204 of the center atom at index 5 by [ 4.19633164 -2.61179987 -1.37347914] in the cif file.,mp-1173561_processed.cif
+input_cifs\mp-1173706.cif,Move all surrounding atoms within 2.0431009899676713 of the center atom at index 6 by [-1.40529052 -0.60728231 -2.43703695] in the cif file.,mp-1173706_processed.cif
+input_cifs\mp-1173883.cif,Move all surrounding atoms within 1.5978162006481016 of the center atom at index 6 by [ 3.02249044 -0.85531888 -1.58519292] in the cif file.,mp-1173883_processed.cif
+input_cifs\mp-1174010.cif,Move all surrounding atoms within 3.9641521011588408 of the center atom at index 5 by [3.3694068  0.72237758 1.85108832] in the cif file.,mp-1174010_processed.cif
+input_cifs\mp-1174079.cif,Move all surrounding atoms within 1.973402498202402 of the center atom at index 6 by [-1.66551201  2.82687814 -5.04901511] in the cif file.,mp-1174079_processed.cif
+input_cifs\mp-1174299.cif,Move all surrounding atoms within 2.8994253295097505 of the center atom at index 18 by [-2.64097617 -0.07130391 -1.90689904] in the cif file.,mp-1174299_processed.cif
+input_cifs\mp-1174536.cif,Move all surrounding atoms within 2.2084809219659745 of the center atom at index 16 by [-3.58028051  1.49909835 -0.0908379 ] in the cif file.,mp-1174536_processed.cif
+input_cifs\mp-1174549.cif,Move all surrounding atoms within 3.1418862058845836 of the center atom at index 23 by [1.08191485 0.19087099 0.64691654] in the cif file.,mp-1174549_processed.cif
+input_cifs\mp-1174561.cif,Move all surrounding atoms within 2.618792535559674 of the center atom at index 23 by [-2.2965998  -3.33250485 -2.58966653] in the cif file.,mp-1174561_processed.cif
+input_cifs\mp-1174631.cif,Move all surrounding atoms within 2.756243519519007 of the center atom at index 20 by [-0.39595694  1.54876968  0.12095151] in the cif file.,mp-1174631_processed.cif
+input_cifs\mp-1174708.cif,Move all surrounding atoms within 3.5466045754736557 of the center atom at index 6 by [-0.8384423  -2.33880086  2.19392438] in the cif file.,mp-1174708_processed.cif
+input_cifs\mp-1175060.cif,Move all surrounding atoms within 1.822396079011014 of the center atom at index 8 by [ 2.23991328 -2.16924946 -0.68188017] in the cif file.,mp-1175060_processed.cif
+input_cifs\mp-1175670.cif,Move all surrounding atoms within 2.331496808825395 of the center atom at index 12 by [ 1.86695407  2.13857426 -0.84402674] in the cif file.,mp-1175670_processed.cif
+input_cifs\mp-1175676.cif,Move all surrounding atoms within 3.6041443588618187 of the center atom at index 4 by [ 2.94165722 -1.72650389  1.39999795] in the cif file.,mp-1175676_processed.cif
+input_cifs\mp-1175716.cif,Move all surrounding atoms within 1.8212378517770642 of the center atom at index 21 by [-2.40749482  2.7156981  -0.21088686] in the cif file.,mp-1175716_processed.cif
+input_cifs\mp-1176074.cif,Move all surrounding atoms within 2.852926700256373 of the center atom at index 26 by [-0.75244585 -1.78625275  1.82990016] in the cif file.,mp-1176074_processed.cif
+input_cifs\mp-1176243.cif,Move all surrounding atoms within 3.3186075993395705 of the center atom at index 22 by [-1.18161157  1.67183806  1.78597071] in the cif file.,mp-1176243_processed.cif
+input_cifs\mp-1176471.cif,Move all surrounding atoms within 2.396593469348098 of the center atom at index 16 by [ 1.09960997 -2.19783568  2.89867513] in the cif file.,mp-1176471_processed.cif
+input_cifs\mp-1176486.cif,Move all surrounding atoms within 1.7345044182492053 of the center atom at index 29 by [-2.7661336   0.40036057  1.26076483] in the cif file.,mp-1176486_processed.cif
+input_cifs\mp-1176593.cif,Move all surrounding atoms within 3.6719485847596363 of the center atom at index 22 by [0.81825656 2.57161777 1.71020922] in the cif file.,mp-1176593_processed.cif
+input_cifs\mp-1176664.cif,Move all surrounding atoms within 2.293952476688851 of the center atom at index 11 by [-0.81619559  0.7790851  -1.96914412] in the cif file.,mp-1176664_processed.cif
+input_cifs\mp-1176678.cif,Move all surrounding atoms within 1.707993674346674 of the center atom at index 14 by [ 1.03058883 -2.54906358 -0.92234959] in the cif file.,mp-1176678_processed.cif
+input_cifs\mp-1176692.cif,Move all surrounding atoms within 2.970991168492751 of the center atom at index 6 by [-1.8696235  -2.84196343 -0.54174562] in the cif file.,mp-1176692_processed.cif
+input_cifs\mp-1176965.cif,Move all surrounding atoms within 3.106287224947427 of the center atom at index 47 by [2.13877876 0.30879267 0.70526312] in the cif file.,mp-1176965_processed.cif
+input_cifs\mp-1177279.cif,Move all surrounding atoms within 2.8887001116312945 of the center atom at index 4 by [0.49599586 0.69614924 1.72784706] in the cif file.,mp-1177279_processed.cif
+input_cifs\mp-1177537.cif,Move all surrounding atoms within 1.5265574614302917 of the center atom at index 15 by [-4.02775854 -2.31296631  1.47891923] in the cif file.,mp-1177537_processed.cif
+input_cifs\mp-1177559.cif,Move all surrounding atoms within 1.931713304138532 of the center atom at index 42 by [ 3.32092377 -1.10449838  0.5698029 ] in the cif file.,mp-1177559_processed.cif
+input_cifs\mp-1177564.cif,Move all surrounding atoms within 1.5888128666636958 of the center atom at index 15 by [-6.81693157  0.5709134  -0.4504366 ] in the cif file.,mp-1177564_processed.cif
+input_cifs\mp-1177801.cif,Move all surrounding atoms within 3.833507318348356 of the center atom at index 19 by [ 1.90684462 -0.17570815  2.48425954] in the cif file.,mp-1177801_processed.cif
+input_cifs\mp-1178026.cif,Move all surrounding atoms within 2.370506621656673 of the center atom at index 12 by [-0.84005774  0.93317764  2.6185859 ] in the cif file.,mp-1178026_processed.cif
+input_cifs\mp-1178085.cif,Move all surrounding atoms within 3.317654255746271 of the center atom at index 36 by [-0.80223472 -0.19152333  2.6706312 ] in the cif file.,mp-1178085_processed.cif
+input_cifs\mp-1178148.cif,Move all surrounding atoms within 2.4187001338375094 of the center atom at index 15 by [-1.37270794  0.1543595   1.89637649] in the cif file.,mp-1178148_processed.cif
+input_cifs\mp-1178259.cif,Move all surrounding atoms within 3.9307714080743907 of the center atom at index 41 by [ 0.55449603 -2.04683493  1.94297972] in the cif file.,mp-1178259_processed.cif
+input_cifs\mp-1178586.cif,Move all surrounding atoms within 2.8658440960690506 of the center atom at index 2 by [ 1.02413353 -1.23296099 -0.55804884] in the cif file.,mp-1178586_processed.cif
+input_cifs\mp-1180130.cif,Move all surrounding atoms within 3.506251925274313 of the center atom at index 2 by [ 1.83189291 -0.67452169  2.786043  ] in the cif file.,mp-1180130_processed.cif
+input_cifs\mp-1180252.cif,Move all surrounding atoms within 2.945860201619422 of the center atom at index 7 by [-3.33219052 -2.32049115  2.13660385] in the cif file.,mp-1180252_processed.cif
+input_cifs\mp-1180744.cif,Move all surrounding atoms within 2.4305755941689315 of the center atom at index 0 by [-2.82971053  0.21659727 -2.20268099] in the cif file.,mp-1180744_processed.cif
+input_cifs\mp-1180763.cif,Move all surrounding atoms within 2.5237737497452213 of the center atom at index 18 by [ 1.89560851  1.69773919 -1.80332526] in the cif file.,mp-1180763_processed.cif
+input_cifs\mp-1181255.cif,Move all surrounding atoms within 2.405667794596204 of the center atom at index 39 by [-1.32798577 -1.08984626 -3.82269842] in the cif file.,mp-1181255_processed.cif
+input_cifs\mp-1181584.cif,Move all surrounding atoms within 2.7172167474986226 of the center atom at index 25 by [-3.06111023  0.35681234  0.55775836] in the cif file.,mp-1181584_processed.cif
+input_cifs\mp-1182011.cif,Move all surrounding atoms within 2.255589373067198 of the center atom at index 28 by [-0.64441757 -0.80717937 -0.62231079] in the cif file.,mp-1182011_processed.cif
+input_cifs\mp-1182045.cif,Move all surrounding atoms within 2.097758813360322 of the center atom at index 33 by [ 3.30431611 -0.76196741 -0.13451877] in the cif file.,mp-1182045_processed.cif
+input_cifs\mp-1182066.cif,Move all surrounding atoms within 2.2861072973138317 of the center atom at index 1 by [ 1.09233119 -1.86799358  0.26539424] in the cif file.,mp-1182066_processed.cif
+input_cifs\mp-1182302.cif,Move all surrounding atoms within 3.3381012160035555 of the center atom at index 19 by [-0.89410359 -0.60888985  0.66779217] in the cif file.,mp-1182302_processed.cif
+input_cifs\mp-1182516.cif,Move all surrounding atoms within 2.5430919659034465 of the center atom at index 7 by [ 3.1070941  -0.61476493  1.33110535] in the cif file.,mp-1182516_processed.cif
+input_cifs\mp-1182952.cif,Move all surrounding atoms within 3.2317999734040743 of the center atom at index 11 by [-0.27396687  1.84272744 -0.15779131] in the cif file.,mp-1182952_processed.cif
+input_cifs\mp-1182993.cif,Move all surrounding atoms within 1.8487713963530605 of the center atom at index 38 by [ 1.06684067  2.21184662 -0.89672723] in the cif file.,mp-1182993_processed.cif
+input_cifs\mp-1185691.cif,Move all surrounding atoms within 2.4793907720951487 of the center atom at index 24 by [ 1.33185654  0.38434527 -5.07266721] in the cif file.,mp-1185691_processed.cif
+input_cifs\mp-1185729.cif,Move all surrounding atoms within 3.937740437891205 of the center atom at index 0 by [ 1.57587583 -0.0228919   2.44337142] in the cif file.,mp-1185729_processed.cif
+input_cifs\mp-1185730.cif,Move all surrounding atoms within 1.5721963757268107 of the center atom at index 12 by [-0.13482459  1.29521244  2.5467862 ] in the cif file.,mp-1185730_processed.cif
+input_cifs\mp-1186069.cif,Move all surrounding atoms within 3.096143175989986 of the center atom at index 2 by [ 1.24004912 -1.29938052  1.25156686] in the cif file.,mp-1186069_processed.cif
+input_cifs\mp-1188168.cif,Move all surrounding atoms within 3.265005734931526 of the center atom at index 15 by [ 1.16368608 -3.24754286  1.38244022] in the cif file.,mp-1188168_processed.cif
+input_cifs\mp-1188839.cif,Move all surrounding atoms within 2.597023815253562 of the center atom at index 4 by [-0.58431753 -1.17395425  1.67262051] in the cif file.,mp-1188839_processed.cif
+input_cifs\mp-1189137.cif,Move all surrounding atoms within 3.2592310416863954 of the center atom at index 6 by [-1.41918432 -2.39689735 -1.06328641] in the cif file.,mp-1189137_processed.cif
+input_cifs\mp-1189325.cif,Move all surrounding atoms within 1.8207424474372584 of the center atom at index 13 by [ 0.49900672 -1.23352525 -1.04712437] in the cif file.,mp-1189325_processed.cif
+input_cifs\mp-1189617.cif,Move all surrounding atoms within 1.7695036920668494 of the center atom at index 17 by [2.87854952 1.4997509  4.51512148] in the cif file.,mp-1189617_processed.cif
+input_cifs\mp-1190360.cif,Move all surrounding atoms within 3.5698306038959906 of the center atom at index 18 by [-1.05945743  3.16068134  0.8791156 ] in the cif file.,mp-1190360_processed.cif
+input_cifs\mp-1190450.cif,Move all surrounding atoms within 1.8341758840979945 of the center atom at index 21 by [ 0.64190658 -0.36185991  1.05154045] in the cif file.,mp-1190450_processed.cif
+input_cifs\mp-1190471.cif,Move all surrounding atoms within 2.981473462283337 of the center atom at index 6 by [-0.9593631   1.39351447  0.00953313] in the cif file.,mp-1190471_processed.cif
+input_cifs\mp-1190593.cif,Move all surrounding atoms within 3.233855697587973 of the center atom at index 10 by [-1.79880783  0.63412004 -1.03343235] in the cif file.,mp-1190593_processed.cif
+input_cifs\mp-1190765.cif,Move all surrounding atoms within 2.4718742725861587 of the center atom at index 21 by [ 0.9486827  -0.67500261  2.41214299] in the cif file.,mp-1190765_processed.cif
+input_cifs\mp-1190906.cif,Move all surrounding atoms within 1.7065769578009653 of the center atom at index 15 by [-1.39763101  0.24487905  1.84793292] in the cif file.,mp-1190906_processed.cif
+input_cifs\mp-1191263.cif,Move all surrounding atoms within 2.892486595415323 of the center atom at index 5 by [ 2.73039251  1.19308547 -4.04957854] in the cif file.,mp-1191263_processed.cif
+input_cifs\mp-1191575.cif,Move all surrounding atoms within 3.7826236698811218 of the center atom at index 5 by [ 0.17296779 -0.42504017  0.20652057] in the cif file.,mp-1191575_processed.cif
+input_cifs\mp-1191633.cif,Move all surrounding atoms within 2.1557486103180987 of the center atom at index 1 by [-1.45464818 -3.2349549  -1.94575915] in the cif file.,mp-1191633_processed.cif
+input_cifs\mp-1191681.cif,Move all surrounding atoms within 3.7604055216128573 of the center atom at index 1 by [-3.90179629  0.22227672 -1.90575389] in the cif file.,mp-1191681_processed.cif
+input_cifs\mp-1192077.cif,Move all surrounding atoms within 1.5258742873107662 of the center atom at index 17 by [ 0.104453   -1.10190965 -0.58290307] in the cif file.,mp-1192077_processed.cif
+input_cifs\mp-1192111.cif,Move all surrounding atoms within 2.62664692216761 of the center atom at index 11 by [ 1.01502698  0.5263913  -2.33718004] in the cif file.,mp-1192111_processed.cif
+input_cifs\mp-1192527.cif,Move all surrounding atoms within 3.0653509918568367 of the center atom at index 19 by [ 0.67472483 -1.98621024 -1.82087011] in the cif file.,mp-1192527_processed.cif
+input_cifs\mp-1192550.cif,Move all surrounding atoms within 3.078865690083753 of the center atom at index 21 by [-1.55782258 -3.81916216  1.73218736] in the cif file.,mp-1192550_processed.cif
+input_cifs\mp-1192556.cif,Move all surrounding atoms within 2.892084325982229 of the center atom at index 19 by [2.37920401 3.28761898 0.29873149] in the cif file.,mp-1192556_processed.cif
+input_cifs\mp-1192588.cif,Move all surrounding atoms within 2.3442488679160487 of the center atom at index 8 by [ 0.7338507  -1.4530589  -2.58466651] in the cif file.,mp-1192588_processed.cif
+input_cifs\mp-1192755.cif,Move all surrounding atoms within 1.971975815499913 of the center atom at index 16 by [-5.099551   -1.01883483 -0.70494086] in the cif file.,mp-1192755_processed.cif
+input_cifs\mp-1192984.cif,Move all surrounding atoms within 2.572976996188727 of the center atom at index 16 by [-2.49680377  4.35435496  3.92074698] in the cif file.,mp-1192984_processed.cif
+input_cifs\mp-1193276.cif,Move all surrounding atoms within 3.102151091515763 of the center atom at index 16 by [ 0.95783876  0.7415177  -2.13039138] in the cif file.,mp-1193276_processed.cif
+input_cifs\mp-1193461.cif,Move all surrounding atoms within 2.8112856913343216 of the center atom at index 23 by [ 2.01229354 -3.40475851  1.0223305 ] in the cif file.,mp-1193461_processed.cif
+input_cifs\mp-1193658.cif,Move all surrounding atoms within 1.7812928583580276 of the center atom at index 10 by [ 0.12167409  4.06854685 -1.48414736] in the cif file.,mp-1193658_processed.cif
+input_cifs\mp-1193669.cif,Move all surrounding atoms within 3.831279626454317 of the center atom at index 27 by [-0.72042296  0.23126676  0.66156963] in the cif file.,mp-1193669_processed.cif
+input_cifs\mp-1193753.cif,Move all surrounding atoms within 2.4670014797161484 of the center atom at index 10 by [-0.39914409 -0.48207449  1.48168131] in the cif file.,mp-1193753_processed.cif
+input_cifs\mp-1194315.cif,Move all surrounding atoms within 1.558508072822626 of the center atom at index 5 by [-0.7369625  -1.31865456 -2.73799871] in the cif file.,mp-1194315_processed.cif
+input_cifs\mp-1194467.cif,Move all surrounding atoms within 3.6001689524047635 of the center atom at index 1 by [-1.27008687  0.81792713  2.58184812] in the cif file.,mp-1194467_processed.cif
+input_cifs\mp-1194648.cif,Move all surrounding atoms within 2.701619702424189 of the center atom at index 60 by [1.22783606 1.07846483 0.30617485] in the cif file.,mp-1194648_processed.cif
+input_cifs\mp-1194808.cif,Move all surrounding atoms within 3.374310369970953 of the center atom at index 17 by [-1.80564482  1.9062023  -0.28857154] in the cif file.,mp-1194808_processed.cif
+input_cifs\mp-1194897.cif,Move all surrounding atoms within 1.5690954974202937 of the center atom at index 4 by [-1.44904474  1.64919988  0.20304984] in the cif file.,mp-1194897_processed.cif
+input_cifs\mp-1194954.cif,Move all surrounding atoms within 3.6924113386454884 of the center atom at index 24 by [-0.53629679  1.85007629 -1.42672279] in the cif file.,mp-1194954_processed.cif
+input_cifs\mp-1195087.cif,Move all surrounding atoms within 2.1781971458220393 of the center atom at index 14 by [-2.26230079 -2.12748389  3.2599068 ] in the cif file.,mp-1195087_processed.cif
+input_cifs\mp-1195106.cif,Move all surrounding atoms within 3.346261374040611 of the center atom at index 27 by [-1.97631299  0.25034511  2.00166381] in the cif file.,mp-1195106_processed.cif
+input_cifs\mp-1195319.cif,Move all surrounding atoms within 1.7016836428075772 of the center atom at index 55 by [-0.43106661  4.59211653 -1.56024522] in the cif file.,mp-1195319_processed.cif
+input_cifs\mp-1195337.cif,Move all surrounding atoms within 2.9935483272618266 of the center atom at index 48 by [-2.01655456  4.00153154 -0.42508013] in the cif file.,mp-1195337_processed.cif
+input_cifs\mp-1195540.cif,Move all surrounding atoms within 3.4602199677594463 of the center atom at index 24 by [-0.11167349 -4.06409257  0.16673871] in the cif file.,mp-1195540_processed.cif
+input_cifs\mp-1195827.cif,Move all surrounding atoms within 3.160168125231643 of the center atom at index 26 by [-4.48294166  1.65602836  1.33650873] in the cif file.,mp-1195827_processed.cif
+input_cifs\mp-1195929.cif,Move all surrounding atoms within 1.9201154193887067 of the center atom at index 19 by [ 0.14137623  0.85475369 -0.35661167] in the cif file.,mp-1195929_processed.cif
+input_cifs\mp-1195965.cif,Move all surrounding atoms within 1.8144009148412668 of the center atom at index 3 by [-2.4363864   1.95327404  2.13220475] in the cif file.,mp-1195965_processed.cif
+input_cifs\mp-1195967.cif,Move all surrounding atoms within 2.084654187711772 of the center atom at index 11 by [ 2.99060751  2.41109618 -1.357632  ] in the cif file.,mp-1195967_processed.cif
+input_cifs\mp-1196244.cif,Move all surrounding atoms within 1.8106759337920146 of the center atom at index 50 by [1.07422975 0.66124805 0.84168127] in the cif file.,mp-1196244_processed.cif
+input_cifs\mp-1196468.cif,Move all surrounding atoms within 2.5310172633222012 of the center atom at index 34 by [0.89644778 1.82595364 0.22355285] in the cif file.,mp-1196468_processed.cif
+input_cifs\mp-1196513.cif,Move all surrounding atoms within 2.8241587963337653 of the center atom at index 29 by [-5.538195    1.02874548 -1.34813891] in the cif file.,mp-1196513_processed.cif
+input_cifs\mp-1196514.cif,Move all surrounding atoms within 2.3473466276974175 of the center atom at index 22 by [-0.10253781  0.62088054 -0.64590713] in the cif file.,mp-1196514_processed.cif
+input_cifs\mp-1197108.cif,Move all surrounding atoms within 3.5360534978545646 of the center atom at index 39 by [-2.36610552 -3.44278021 -0.74572589] in the cif file.,mp-1197108_processed.cif
+input_cifs\mp-1197227.cif,Move all surrounding atoms within 2.6127873652211746 of the center atom at index 16 by [-4.25100228 -0.20878121  2.27367948] in the cif file.,mp-1197227_processed.cif
+input_cifs\mp-1197238.cif,Move all surrounding atoms within 3.757759903120118 of the center atom at index 10 by [-2.28889829  2.61967527 -1.38787435] in the cif file.,mp-1197238_processed.cif
+input_cifs\mp-1197636.cif,Move all surrounding atoms within 3.827159903731215 of the center atom at index 17 by [ 3.20755453 -0.94911856 -2.87745322] in the cif file.,mp-1197636_processed.cif
+input_cifs\mp-1197877.cif,Move all surrounding atoms within 3.5002971006051675 of the center atom at index 29 by [3.09570197 2.27158657 1.49080718] in the cif file.,mp-1197877_processed.cif
+input_cifs\mp-1198057.cif,Move all surrounding atoms within 2.743308901622105 of the center atom at index 13 by [ 4.73898583  0.21330814 -2.23045414] in the cif file.,mp-1198057_processed.cif
+input_cifs\mp-1198140.cif,Move all surrounding atoms within 2.5178258959201405 of the center atom at index 6 by [ 4.6881961   1.90990767 -0.98774488] in the cif file.,mp-1198140_processed.cif
+input_cifs\mp-1198411.cif,Move all surrounding atoms within 1.9874706449927872 of the center atom at index 82 by [-0.62564117 -2.37622721  0.02824381] in the cif file.,mp-1198411_processed.cif
+input_cifs\mp-1198574.cif,Move all surrounding atoms within 2.105014196262959 of the center atom at index 24 by [-1.12245924  0.13688695 -1.50011368] in the cif file.,mp-1198574_processed.cif
+input_cifs\mp-1198593.cif,Move all surrounding atoms within 2.611080478499594 of the center atom at index 35 by [-0.98145152 -2.36762727  0.19223424] in the cif file.,mp-1198593_processed.cif
+input_cifs\mp-1198603.cif,Move all surrounding atoms within 2.6525412068680154 of the center atom at index 4 by [-2.20285924 -0.41681114 -1.03898063] in the cif file.,mp-1198603_processed.cif
+input_cifs\mp-1198841.cif,Move all surrounding atoms within 2.2090212526682134 of the center atom at index 16 by [1.51575091 2.82500202 0.37640577] in the cif file.,mp-1198841_processed.cif
+input_cifs\mp-1199018.cif,Move all surrounding atoms within 2.1538806272440496 of the center atom at index 62 by [ 3.15492778 -3.11662746 -3.1136682 ] in the cif file.,mp-1199018_processed.cif
+input_cifs\mp-1199088.cif,Move all surrounding atoms within 3.537476236325018 of the center atom at index 43 by [-1.33671568  0.62511174 -2.25770032] in the cif file.,mp-1199088_processed.cif
+input_cifs\mp-1199566.cif,Move all surrounding atoms within 3.6248846410804045 of the center atom at index 3 by [-1.71094056 -0.35030825  0.21641065] in the cif file.,mp-1199566_processed.cif
+input_cifs\mp-1199672.cif,Move all surrounding atoms within 2.507249032478076 of the center atom at index 4 by [-1.44500466 -1.9254584  -2.65847623] in the cif file.,mp-1199672_processed.cif
+input_cifs\mp-1200359.cif,Move all surrounding atoms within 2.5893272460825507 of the center atom at index 17 by [ 0.68353349  0.2122071  -0.65211221] in the cif file.,mp-1200359_processed.cif
+input_cifs\mp-1200542.cif,Move all surrounding atoms within 3.547722513211061 of the center atom at index 43 by [-1.84757752  1.71835486 -1.51195887] in the cif file.,mp-1200542_processed.cif
+input_cifs\mp-1200692.cif,Move all surrounding atoms within 3.0828967927394166 of the center atom at index 9 by [-3.70232622  0.36090634 -0.51572595] in the cif file.,mp-1200692_processed.cif
+input_cifs\mp-1200758.cif,Move all surrounding atoms within 3.106810825369646 of the center atom at index 27 by [-0.94929001 -1.33840553 -3.13486483] in the cif file.,mp-1200758_processed.cif
+input_cifs\mp-1201497.cif,Move all surrounding atoms within 3.523673606554179 of the center atom at index 35 by [0.91109162 1.42298879 4.9346941 ] in the cif file.,mp-1201497_processed.cif
+input_cifs\mp-1201607.cif,Move all surrounding atoms within 3.2958196963981825 of the center atom at index 34 by [ 1.28152328  2.17488132 -5.5047007 ] in the cif file.,mp-1201607_processed.cif
+input_cifs\mp-1201876.cif,Move all surrounding atoms within 2.662280317281136 of the center atom at index 44 by [-1.79065117 -2.96296789  5.91078474] in the cif file.,mp-1201876_processed.cif
+input_cifs\mp-1201895.cif,Move all surrounding atoms within 3.7569908679619775 of the center atom at index 7 by [-0.06889224 -0.52351763  1.57886847] in the cif file.,mp-1201895_processed.cif
+input_cifs\mp-1202389.cif,Move all surrounding atoms within 1.8015772149648535 of the center atom at index 8 by [-3.27864902  2.24384744 -3.40678079] in the cif file.,mp-1202389_processed.cif
+input_cifs\mp-1202709.cif,Move all surrounding atoms within 1.5648132624556055 of the center atom at index 5 by [-0.13741392 -1.14724949  3.20327157] in the cif file.,mp-1202709_processed.cif
+input_cifs\mp-1202898.cif,Move all surrounding atoms within 1.6609555641059925 of the center atom at index 10 by [ 0.50982957  3.69487189 -1.66098963] in the cif file.,mp-1202898_processed.cif
+input_cifs\mp-1202901.cif,Move all surrounding atoms within 3.630798952819602 of the center atom at index 44 by [ 2.11722978 -1.87559856  3.36866829] in the cif file.,mp-1202901_processed.cif
+input_cifs\mp-1203035.cif,Move all surrounding atoms within 3.7585912537134414 of the center atom at index 5 by [ 0.03092726 -1.93834194 -1.14203379] in the cif file.,mp-1203035_processed.cif
+input_cifs\mp-1203146.cif,Move all surrounding atoms within 2.291290139092217 of the center atom at index 54 by [ 3.46784374  1.1315208  -1.95892809] in the cif file.,mp-1203146_processed.cif
+input_cifs\mp-1203196.cif,Move all surrounding atoms within 2.429130031132216 of the center atom at index 32 by [-1.27819288  0.45495038 -4.14113133] in the cif file.,mp-1203196_processed.cif
+input_cifs\mp-1203220.cif,Move all surrounding atoms within 2.667954521021392 of the center atom at index 13 by [ 1.29190767 -3.25664186 -0.26816267] in the cif file.,mp-1203220_processed.cif
+input_cifs\mp-1203746.cif,Move all surrounding atoms within 3.9912579797421834 of the center atom at index 50 by [-1.27293332  3.83598692  0.87290924] in the cif file.,mp-1203746_processed.cif
+input_cifs\mp-1203808.cif,Move all surrounding atoms within 1.9257839319631826 of the center atom at index 31 by [ 2.72213036 -1.0125837   1.07908143] in the cif file.,mp-1203808_processed.cif
+input_cifs\mp-1203996.cif,Move all surrounding atoms within 3.1049280302209668 of the center atom at index 18 by [-1.63111562 -2.3521983   0.45890259] in the cif file.,mp-1203996_processed.cif
+input_cifs\mp-1204064.cif,Move all surrounding atoms within 2.8673221797444377 of the center atom at index 3 by [-0.26495554  1.87444248 -0.54642699] in the cif file.,mp-1204064_processed.cif
+input_cifs\mp-1204087.cif,Move all surrounding atoms within 3.5014182955782975 of the center atom at index 32 by [-4.05666761 -0.19596082 -1.03930318] in the cif file.,mp-1204087_processed.cif
+input_cifs\mp-1204178.cif,Move all surrounding atoms within 2.505658651121908 of the center atom at index 32 by [-1.59325392 -6.62942984  2.00612106] in the cif file.,mp-1204178_processed.cif
+input_cifs\mp-1204195.cif,Move all surrounding atoms within 3.8870807897758626 of the center atom at index 24 by [ 4.16275558 -2.30165803  1.29795444] in the cif file.,mp-1204195_processed.cif
+input_cifs\mp-1204482.cif,Move all surrounding atoms within 3.879625502399338 of the center atom at index 23 by [ 0.75813416 -0.41530625 -1.24133583] in the cif file.,mp-1204482_processed.cif
+input_cifs\mp-1204573.cif,Move all surrounding atoms within 3.427920523009286 of the center atom at index 58 by [ 2.33017522 -0.06680577 -3.81018955] in the cif file.,mp-1204573_processed.cif
+input_cifs\mp-1204620.cif,Move all surrounding atoms within 2.8058584168485496 of the center atom at index 14 by [-1.58354702 -1.45842197  1.3831976 ] in the cif file.,mp-1204620_processed.cif
+input_cifs\mp-1204800.cif,Move all surrounding atoms within 1.5501199072799752 of the center atom at index 3 by [1.38246456 2.04332761 0.94205969] in the cif file.,mp-1204800_processed.cif
+input_cifs\mp-1205388.cif,Move all surrounding atoms within 2.209524740161828 of the center atom at index 11 by [ 0.59974821  2.79928252 -1.42502888] in the cif file.,mp-1205388_processed.cif
+input_cifs\mp-1205391.cif,Move all surrounding atoms within 2.1740287006140027 of the center atom at index 20 by [-0.5757358  -0.805858    0.13475795] in the cif file.,mp-1205391_processed.cif
+input_cifs\mp-1205393.cif,Move all surrounding atoms within 2.9937459044479633 of the center atom at index 14 by [-0.56875518  0.65831933 -2.16849543] in the cif file.,mp-1205393_processed.cif
+input_cifs\mp-1205503.cif,Move all surrounding atoms within 2.42557271126648 of the center atom at index 2 by [-3.80925343 -4.14563458  2.27703794] in the cif file.,mp-1205503_processed.cif
+input_cifs\mp-1205523.cif,Move all surrounding atoms within 3.134668441410173 of the center atom at index 3 by [-3.7907015  -2.77768506 -3.06208692] in the cif file.,mp-1205523_processed.cif
+input_cifs\mp-1205660.cif,Move all surrounding atoms within 2.0908017819583824 of the center atom at index 6 by [-6.9601493   2.89346471 -0.41971063] in the cif file.,mp-1205660_processed.cif
+input_cifs\mp-1205745.cif,Move all surrounding atoms within 2.9134583524642346 of the center atom at index 6 by [ 2.20731721  0.26198476 -0.78045558] in the cif file.,mp-1205745_processed.cif
+input_cifs\mp-1205771.cif,Move all surrounding atoms within 2.3896941558574643 of the center atom at index 7 by [ 0.32262464  0.34218225 -3.06221213] in the cif file.,mp-1205771_processed.cif
+input_cifs\mp-1206201.cif,Move all surrounding atoms within 3.4736519071507423 of the center atom at index 3 by [-0.11403504 -1.45417168  1.16683589] in the cif file.,mp-1206201_processed.cif
+input_cifs\mp-1206250.cif,Move all surrounding atoms within 3.449978067278848 of the center atom at index 3 by [ 0.99093624 -3.03121163 -0.77657979] in the cif file.,mp-1206250_processed.cif
+input_cifs\mp-1206569.cif,Move all surrounding atoms within 2.6148244062861363 of the center atom at index 4 by [ 0.6083946  -0.42507909 -0.73813074] in the cif file.,mp-1206569_processed.cif
+input_cifs\mp-1206737.cif,Move all surrounding atoms within 2.7017551384149843 of the center atom at index 3 by [ 0.22667258 -2.20704916  0.0770917 ] in the cif file.,mp-1206737_processed.cif
+input_cifs\mp-1207144.cif,Move all surrounding atoms within 2.5732276813314474 of the center atom at index 6 by [ 0.45744206  1.74159886 -2.68788417] in the cif file.,mp-1207144_processed.cif
+input_cifs\mp-1207398.cif,Move all surrounding atoms within 2.114685026142308 of the center atom at index 19 by [-1.30862876 -0.24350556 -0.85263451] in the cif file.,mp-1207398_processed.cif
+input_cifs\mp-1207522.cif,Move all surrounding atoms within 2.635298573320429 of the center atom at index 14 by [-0.59294828  1.73695637  2.54614253] in the cif file.,mp-1207522_processed.cif
+input_cifs\mp-1207549.cif,Move all surrounding atoms within 3.324247080983447 of the center atom at index 27 by [-1.34132826 -2.32808599  0.60384545] in the cif file.,mp-1207549_processed.cif
+input_cifs\mp-1207596.cif,Move all surrounding atoms within 3.1276090787685176 of the center atom at index 13 by [-4.70393413 -0.26375378  2.69450444] in the cif file.,mp-1207596_processed.cif
+input_cifs\mp-1207733.cif,Move all surrounding atoms within 2.3763459942811433 of the center atom at index 25 by [ 1.66941363 -0.88722853  2.15284385] in the cif file.,mp-1207733_processed.cif
+input_cifs\mp-1207797.cif,Move all surrounding atoms within 2.491792202538968 of the center atom at index 3 by [ 1.63517585  1.13553619 -0.82953218] in the cif file.,mp-1207797_processed.cif
+input_cifs\mp-1207993.cif,Move all surrounding atoms within 1.875600017751496 of the center atom at index 15 by [ 1.52914115 -1.87830579 -0.15281013] in the cif file.,mp-1207993_processed.cif
+input_cifs\mp-1208058.cif,Move all surrounding atoms within 3.408613085403628 of the center atom at index 26 by [-0.55576101  0.07389143 -0.19752079] in the cif file.,mp-1208058_processed.cif
+input_cifs\mp-1208219.cif,Move all surrounding atoms within 2.6058697461233273 of the center atom at index 22 by [ 4.58497416  2.10970625 -3.02671148] in the cif file.,mp-1208219_processed.cif
+input_cifs\mp-1208275.cif,Move all surrounding atoms within 1.8746985753919692 of the center atom at index 49 by [ 0.37622466 -1.34862645 -0.29009895] in the cif file.,mp-1208275_processed.cif
+input_cifs\mp-1208331.cif,Move all surrounding atoms within 2.837241394485037 of the center atom at index 4 by [ 0.37098755 -0.37792242  0.77738707] in the cif file.,mp-1208331_processed.cif
+input_cifs\mp-1208361.cif,Move all surrounding atoms within 3.02914658344541 of the center atom at index 11 by [-0.48319832 -4.0172435   0.02513141] in the cif file.,mp-1208361_processed.cif
+input_cifs\mp-1208425.cif,Move all surrounding atoms within 1.8044724807101808 of the center atom at index 22 by [ 0.42685566 -1.55309835 -1.75734158] in the cif file.,mp-1208425_processed.cif
+input_cifs\mp-1208879.cif,Move all surrounding atoms within 2.1490171194785743 of the center atom at index 1 by [ 0.58167244 -0.80234525  0.27689021] in the cif file.,mp-1208879_processed.cif
+input_cifs\mp-1209036.cif,Move all surrounding atoms within 3.4449258652962147 of the center atom at index 12 by [ 0.48627508 -0.25175387  1.82956353] in the cif file.,mp-1209036_processed.cif
+input_cifs\mp-1209206.cif,Move all surrounding atoms within 1.6986715115325353 of the center atom at index 26 by [ 0.04489718  1.42085263 -1.20651383] in the cif file.,mp-1209206_processed.cif
+input_cifs\mp-1209348.cif,Move all surrounding atoms within 1.6422899352440057 of the center atom at index 13 by [ 0.94684562 -0.54352032 -3.20580704] in the cif file.,mp-1209348_processed.cif
+input_cifs\mp-1209483.cif,Move all surrounding atoms within 3.263305956404857 of the center atom at index 0 by [ 0.02972021 -0.77883501  1.01394284] in the cif file.,mp-1209483_processed.cif
+input_cifs\mp-1209534.cif,Move all surrounding atoms within 2.4475084065130055 of the center atom at index 77 by [ 0.04110251  1.52960771 -1.17637311] in the cif file.,mp-1209534_processed.cif
+input_cifs\mp-1209695.cif,Move all surrounding atoms within 3.0267629446518183 of the center atom at index 14 by [ 0.7282877   0.98768287 -2.19746423] in the cif file.,mp-1209695_processed.cif
+input_cifs\mp-1210015.cif,Move all surrounding atoms within 3.784810448225632 of the center atom at index 7 by [ 0.45705392 -5.49846312 -2.9872616 ] in the cif file.,mp-1210015_processed.cif
+input_cifs\mp-1210035.cif,Move all surrounding atoms within 3.9187468374770202 of the center atom at index 1 by [ 2.86907489 -1.81725258 -0.21811626] in the cif file.,mp-1210035_processed.cif
+input_cifs\mp-1210161.cif,Move all surrounding atoms within 3.521352602723188 of the center atom at index 21 by [-0.67537684  0.28741943 -0.74223583] in the cif file.,mp-1210161_processed.cif
+input_cifs\mp-1210237.cif,Move all surrounding atoms within 2.55233577213846 of the center atom at index 3 by [0.77894548 1.83531829 1.71898131] in the cif file.,mp-1210237_processed.cif
+input_cifs\mp-1210462.cif,Move all surrounding atoms within 3.6133699871264526 of the center atom at index 16 by [ 1.74726426 -1.32503295 -1.40883573] in the cif file.,mp-1210462_processed.cif
+input_cifs\mp-1210502.cif,Move all surrounding atoms within 2.6117075919859962 of the center atom at index 30 by [3.53815609 3.90705165 1.04210441] in the cif file.,mp-1210502_processed.cif
+input_cifs\mp-1210518.cif,Move all surrounding atoms within 3.154871834823142 of the center atom at index 23 by [ 2.40105087  1.31280069 -1.16181082] in the cif file.,mp-1210518_processed.cif
+input_cifs\mp-1210584.cif,Move all surrounding atoms within 3.264175345590974 of the center atom at index 10 by [ 0.39228485  2.86899281 -1.18786088] in the cif file.,mp-1210584_processed.cif
+input_cifs\mp-1211181.cif,Move all surrounding atoms within 1.6816788662229427 of the center atom at index 9 by [ 0.54184363  0.52651969 -0.20860334] in the cif file.,mp-1211181_processed.cif
+input_cifs\mp-1211192.cif,Move all surrounding atoms within 2.1696559547763106 of the center atom at index 5 by [-0.20049241 -0.66636871 -0.55932421] in the cif file.,mp-1211192_processed.cif
+input_cifs\mp-1211198.cif,Move all surrounding atoms within 2.6194715928477263 of the center atom at index 0 by [-0.10534099 -4.98848633 -3.48310056] in the cif file.,mp-1211198_processed.cif
+input_cifs\mp-1211303.cif,Move all surrounding atoms within 3.960894963777465 of the center atom at index 13 by [ 3.41903512  0.80772316 -1.64110291] in the cif file.,mp-1211303_processed.cif
+input_cifs\mp-1211402.cif,Move all surrounding atoms within 3.405278200544061 of the center atom at index 16 by [ 0.22107912 -1.18519618 -0.12205082] in the cif file.,mp-1211402_processed.cif
+input_cifs\mp-1211546.cif,Move all surrounding atoms within 3.055858574320379 of the center atom at index 3 by [ 2.04065383 -1.193052    4.12965103] in the cif file.,mp-1211546_processed.cif
+input_cifs\mp-1211686.cif,Move all surrounding atoms within 3.9525521127004146 of the center atom at index 8 by [-0.46181209 -0.62726085  1.08876114] in the cif file.,mp-1211686_processed.cif
+input_cifs\mp-1211861.cif,Move all surrounding atoms within 1.8883657530776994 of the center atom at index 4 by [-2.30848042  2.1535915  -0.22080189] in the cif file.,mp-1211861_processed.cif
+input_cifs\mp-1211971.cif,Move all surrounding atoms within 2.3139608354469 of the center atom at index 3 by [3.29334162 0.45533436 2.26047161] in the cif file.,mp-1211971_processed.cif
+input_cifs\mp-1212118.cif,Move all surrounding atoms within 2.6187603651192415 of the center atom at index 5 by [ 1.10425512 -3.00418154  1.7978337 ] in the cif file.,mp-1212118_processed.cif
+input_cifs\mp-1212387.cif,Move all surrounding atoms within 2.333698892196695 of the center atom at index 12 by [ 1.87104208 -1.08209912 -0.31353023] in the cif file.,mp-1212387_processed.cif
+input_cifs\mp-1212504.cif,Move all surrounding atoms within 2.0381738637906004 of the center atom at index 19 by [ 0.45336355  1.12990151 -2.39178166] in the cif file.,mp-1212504_processed.cif
+input_cifs\mp-1212600.cif,Move all surrounding atoms within 2.2868435320423983 of the center atom at index 15 by [ 2.01356625 -1.86719455  2.86917173] in the cif file.,mp-1212600_processed.cif
+input_cifs\mp-1212621.cif,Move all surrounding atoms within 3.0095237419135348 of the center atom at index 46 by [-1.99926372  1.36742748 -0.67038619] in the cif file.,mp-1212621_processed.cif
+input_cifs\mp-1212645.cif,Move all surrounding atoms within 1.952037147114277 of the center atom at index 2 by [-3.15157347 -1.13610764  2.74114855] in the cif file.,mp-1212645_processed.cif
+input_cifs\mp-1212670.cif,Move all surrounding atoms within 1.9735284564452293 of the center atom at index 4 by [-1.55597143  1.64621234  1.87870797] in the cif file.,mp-1212670_processed.cif
+input_cifs\mp-1212757.cif,Move all surrounding atoms within 2.250809532897584 of the center atom at index 11 by [ 1.70782226  0.14494319 -2.32975617] in the cif file.,mp-1212757_processed.cif
+input_cifs\mp-1213080.cif,Move all surrounding atoms within 3.6071461546710273 of the center atom at index 13 by [3.76922325 1.95146173 1.36803839] in the cif file.,mp-1213080_processed.cif
+input_cifs\mp-1213206.cif,Move all surrounding atoms within 2.108139096590712 of the center atom at index 29 by [-2.7310281  -0.88973976  0.7787197 ] in the cif file.,mp-1213206_processed.cif
+input_cifs\mp-1213529.cif,Move all surrounding atoms within 3.0414592741559074 of the center atom at index 23 by [-1.04794195 -3.7833325  -2.75896902] in the cif file.,mp-1213529_processed.cif
+input_cifs\mp-1213562.cif,Move all surrounding atoms within 3.700830752485015 of the center atom at index 32 by [ 2.13831982 -2.14821131 -1.87581679] in the cif file.,mp-1213562_processed.cif
+input_cifs\mp-1213790.cif,Move all surrounding atoms within 3.5557457923935254 of the center atom at index 17 by [ 0.76112238 -1.03291707 -1.08763903] in the cif file.,mp-1213790_processed.cif
+input_cifs\mp-1214336.cif,Move all surrounding atoms within 1.6354811877433557 of the center atom at index 12 by [ 0.80249938 -1.16905856  1.08714296] in the cif file.,mp-1214336_processed.cif
+input_cifs\mp-1214464.cif,Move all surrounding atoms within 3.7228247932744063 of the center atom at index 2 by [-0.44631263 -1.67904626 -1.66056405] in the cif file.,mp-1214464_processed.cif
+input_cifs\mp-1214610.cif,Move all surrounding atoms within 1.6045044286814354 of the center atom at index 7 by [-0.52992626 -3.248684   -2.75401534] in the cif file.,mp-1214610_processed.cif
+input_cifs\mp-1214788.cif,Move all surrounding atoms within 1.933615860293299 of the center atom at index 12 by [-1.54728589 -0.20838912 -1.10200865] in the cif file.,mp-1214788_processed.cif
+input_cifs\mp-1214890.cif,Move all surrounding atoms within 3.044900448952488 of the center atom at index 22 by [ 0.20982614  0.62168241 -5.84190274] in the cif file.,mp-1214890_processed.cif
+input_cifs\mp-1214936.cif,Move all surrounding atoms within 1.9156168286952422 of the center atom at index 62 by [-1.44545808  1.61211036 -2.1223309 ] in the cif file.,mp-1214936_processed.cif
+input_cifs\mp-1215141.cif,Move all surrounding atoms within 3.909303275948594 of the center atom at index 7 by [-0.1586123   1.55668966  2.72623268] in the cif file.,mp-1215141_processed.cif
+input_cifs\mp-1215289.cif,Move all surrounding atoms within 3.844896980492593 of the center atom at index 7 by [-0.92568569  0.12139092 -0.10408989] in the cif file.,mp-1215289_processed.cif
+input_cifs\mp-1215601.cif,Move all surrounding atoms within 2.4164434980370038 of the center atom at index 5 by [-2.87338701 -0.1081273   2.97735649] in the cif file.,mp-1215601_processed.cif
+input_cifs\mp-1215607.cif,Move all surrounding atoms within 3.5086539011017304 of the center atom at index 11 by [-0.04338811  0.30082486 -3.9075899 ] in the cif file.,mp-1215607_processed.cif
+input_cifs\mp-1215624.cif,Move all surrounding atoms within 2.3821548185640156 of the center atom at index 7 by [-1.23579509  0.66948826  2.42592283] in the cif file.,mp-1215624_processed.cif
+input_cifs\mp-1215653.cif,Move all surrounding atoms within 2.645929356396842 of the center atom at index 1 by [ 3.32232512 -0.19030545  2.37267605] in the cif file.,mp-1215653_processed.cif
+input_cifs\mp-1215929.cif,Move all surrounding atoms within 3.013914806674344 of the center atom at index 1 by [ 0.03085178  2.18873886 -1.8077829 ] in the cif file.,mp-1215929_processed.cif
+input_cifs\mp-1216177.cif,Move all surrounding atoms within 2.4849642446886433 of the center atom at index 9 by [0.08356697 0.63222758 0.84041435] in the cif file.,mp-1216177_processed.cif
+input_cifs\mp-1216179.cif,Move all surrounding atoms within 2.345016816365997 of the center atom at index 9 by [-1.19368793  1.46416434  0.15430798] in the cif file.,mp-1216179_processed.cif
+input_cifs\mp-1216787.cif,Move all surrounding atoms within 1.7204081321018234 of the center atom at index 6 by [ 0.73602741  0.1527591  -2.5572048 ] in the cif file.,mp-1216787_processed.cif
+input_cifs\mp-1216925.cif,Move all surrounding atoms within 3.765683789208187 of the center atom at index 2 by [ 1.92935479  1.71524549 -1.67441151] in the cif file.,mp-1216925_processed.cif
+input_cifs\mp-1217133.cif,Move all surrounding atoms within 3.3620330455421934 of the center atom at index 5 by [-0.52986211 -0.42540369 -0.22899666] in the cif file.,mp-1217133_processed.cif
+input_cifs\mp-1217420.cif,Move all surrounding atoms within 1.9819949540638762 of the center atom at index 8 by [ 2.71130302  3.82085573 -6.12252113] in the cif file.,mp-1217420_processed.cif
+input_cifs\mp-1217464.cif,Move all surrounding atoms within 1.553485257813266 of the center atom at index 13 by [ 0.58319283  2.09532269 -2.37513487] in the cif file.,mp-1217464_processed.cif
+input_cifs\mp-1217479.cif,Move all surrounding atoms within 2.205270369068801 of the center atom at index 19 by [-0.02129522  1.03949744 -0.27084437] in the cif file.,mp-1217479_processed.cif
+input_cifs\mp-1217682.cif,Move all surrounding atoms within 3.3955864650704015 of the center atom at index 1 by [-0.16689053 -0.90236245 -0.43446465] in the cif file.,mp-1217682_processed.cif
+input_cifs\mp-1217834.cif,Move all surrounding atoms within 1.5919108984643273 of the center atom at index 8 by [-0.26518278 -0.8562697   1.12387996] in the cif file.,mp-1217834_processed.cif
+input_cifs\mp-1218011.cif,Move all surrounding atoms within 1.7096206051434282 of the center atom at index 11 by [-0.48629151 -0.76054452  0.97449606] in the cif file.,mp-1218011_processed.cif
+input_cifs\mp-1218423.cif,Move all surrounding atoms within 1.5976978970123243 of the center atom at index 7 by [-1.13446813 -1.79450423  4.24680962] in the cif file.,mp-1218423_processed.cif
+input_cifs\mp-1218682.cif,Move all surrounding atoms within 2.5095097574886336 of the center atom at index 38 by [-0.15105984 -1.75870605 -2.86673702] in the cif file.,mp-1218682_processed.cif
+input_cifs\mp-1218922.cif,Move all surrounding atoms within 3.4634927193036624 of the center atom at index 4 by [-2.93970041  3.13721831  0.17146227] in the cif file.,mp-1218922_processed.cif
+input_cifs\mp-1219071.cif,Move all surrounding atoms within 3.5135452034931216 of the center atom at index 2 by [-0.03439057 -1.51430718 -3.03163589] in the cif file.,mp-1219071_processed.cif
+input_cifs\mp-1219127.cif,Move all surrounding atoms within 2.7826544283286507 of the center atom at index 4 by [ 4.38009691 -2.79277353 -2.25138044] in the cif file.,mp-1219127_processed.cif
+input_cifs\mp-1219578.cif,Move all surrounding atoms within 3.817662432004737 of the center atom at index 2 by [-0.70797812 -1.02554751 -1.69910866] in the cif file.,mp-1219578_processed.cif
+input_cifs\mp-1219615.cif,Move all surrounding atoms within 3.8804031078977785 of the center atom at index 6 by [ 2.12251486  0.1451979  -2.70011193] in the cif file.,mp-1219615_processed.cif
+input_cifs\mp-1219892.cif,Move all surrounding atoms within 1.8741962280655833 of the center atom at index 16 by [ 1.81865452 -4.06393479  0.98348381] in the cif file.,mp-1219892_processed.cif
+input_cifs\mp-1219893.cif,Move all surrounding atoms within 3.495733270765509 of the center atom at index 9 by [-0.17939946 -0.85971906  2.12751857] in the cif file.,mp-1219893_processed.cif
+input_cifs\mp-1220065.cif,Move all surrounding atoms within 3.542957937807759 of the center atom at index 40 by [-0.46700635 -1.2495734   2.34043093] in the cif file.,mp-1220065_processed.cif
+input_cifs\mp-1220070.cif,Move all surrounding atoms within 3.269397760126629 of the center atom at index 3 by [-2.45909317  1.69214149  2.49954016] in the cif file.,mp-1220070_processed.cif
+input_cifs\mp-1220202.cif,Move all surrounding atoms within 3.9501100020547955 of the center atom at index 3 by [-3.41924587 -0.64719508 -2.97054593] in the cif file.,mp-1220202_processed.cif
+input_cifs\mp-1220419.cif,Move all surrounding atoms within 2.393687623958801 of the center atom at index 9 by [1.81902849 0.56540332 0.58360921] in the cif file.,mp-1220419_processed.cif
+input_cifs\mp-1220444.cif,Move all surrounding atoms within 2.2868554978506532 of the center atom at index 14 by [-6.76314942e-04 -1.90483421e+00  1.69190053e+00] in the cif file.,mp-1220444_processed.cif
+input_cifs\mp-1220553.cif,Move all surrounding atoms within 1.5724755296319084 of the center atom at index 14 by [1.72676606 0.59530436 0.18531918] in the cif file.,mp-1220553_processed.cif
+input_cifs\mp-1220692.cif,Move all surrounding atoms within 2.8558124037904693 of the center atom at index 8 by [0.23266435 0.13001243 1.88610095] in the cif file.,mp-1220692_processed.cif
+input_cifs\mp-1220760.cif,Move all surrounding atoms within 2.903125892736127 of the center atom at index 20 by [-2.83322328 -0.64849279 -0.95496252] in the cif file.,mp-1220760_processed.cif
+input_cifs\mp-1221207.cif,Move all surrounding atoms within 2.243122097692945 of the center atom at index 13 by [-1.42247305 -0.83913472 -3.6587437 ] in the cif file.,mp-1221207_processed.cif
+input_cifs\mp-1221380.cif,Move all surrounding atoms within 3.188130374459373 of the center atom at index 10 by [-2.45744107  0.09013732  1.00851344] in the cif file.,mp-1221380_processed.cif
+input_cifs\mp-1221838.cif,Move all surrounding atoms within 2.6902889003115305 of the center atom at index 3 by [ 2.08516257  3.26306726 -2.59617888] in the cif file.,mp-1221838_processed.cif
+input_cifs\mp-1221843.cif,Move all surrounding atoms within 3.091718306198091 of the center atom at index 8 by [1.34465483 0.85043182 2.84937247] in the cif file.,mp-1221843_processed.cif
+input_cifs\mp-1221998.cif,Move all surrounding atoms within 2.255093829373471 of the center atom at index 4 by [ 1.69110869  0.08277985 -2.28105574] in the cif file.,mp-1221998_processed.cif
+input_cifs\mp-1222146.cif,Move all surrounding atoms within 2.7741291184441135 of the center atom at index 4 by [-1.35759488  0.33814726  0.0019744 ] in the cif file.,mp-1222146_processed.cif
+input_cifs\mp-1222327.cif,Move all surrounding atoms within 1.5058451562202186 of the center atom at index 1 by [-3.02612108  1.33652627  4.53828627] in the cif file.,mp-1222327_processed.cif
+input_cifs\mp-1222509.cif,Move all surrounding atoms within 1.9429537920501323 of the center atom at index 4 by [-0.68651839  2.50022132  1.23369013] in the cif file.,mp-1222509_processed.cif
+input_cifs\mp-1222563.cif,Move all surrounding atoms within 1.6672612432388498 of the center atom at index 2 by [-0.67693955 -1.50839487 -3.6262545 ] in the cif file.,mp-1222563_processed.cif
+input_cifs\mp-1222827.cif,Move all surrounding atoms within 3.625374623656531 of the center atom at index 4 by [-1.43428444  2.94950577  1.08084623] in the cif file.,mp-1222827_processed.cif
+input_cifs\mp-1223169.cif,Move all surrounding atoms within 3.159465540212645 of the center atom at index 0 by [-0.06360882 -3.05539137  1.5565899 ] in the cif file.,mp-1223169_processed.cif
+input_cifs\mp-1223295.cif,Move all surrounding atoms within 2.1930789614290873 of the center atom at index 4 by [-0.37510627  0.4214055   1.0887145 ] in the cif file.,mp-1223295_processed.cif
+input_cifs\mp-1223429.cif,Move all surrounding atoms within 3.0416455350338913 of the center atom at index 0 by [ 1.7143911  -0.20201816  1.34964034] in the cif file.,mp-1223429_processed.cif
+input_cifs\mp-1223578.cif,Move all surrounding atoms within 3.211458805294048 of the center atom at index 34 by [ 1.24305871 -2.70029161 -1.51136327] in the cif file.,mp-1223578_processed.cif
+input_cifs\mp-1223597.cif,Move all surrounding atoms within 2.9653340790108897 of the center atom at index 35 by [-0.64550125  0.22621162  2.23601571] in the cif file.,mp-1223597_processed.cif
+input_cifs\mp-1223626.cif,Move all surrounding atoms within 1.978412348627221 of the center atom at index 8 by [ 0.12477195 -0.77837935 -3.84641233] in the cif file.,mp-1223626_processed.cif
+input_cifs\mp-1223895.cif,Move all surrounding atoms within 3.5803788605066496 of the center atom at index 17 by [-2.13126667  0.84151605 -0.6671704 ] in the cif file.,mp-1223895_processed.cif
+input_cifs\mp-1224478.cif,Move all surrounding atoms within 3.4077007737412495 of the center atom at index 34 by [-0.70002039 -1.73015295  3.06816929] in the cif file.,mp-1224478_processed.cif
+input_cifs\mp-1224502.cif,Move all surrounding atoms within 3.7788213774166466 of the center atom at index 8 by [ 0.35693933 -4.86890429  0.1092634 ] in the cif file.,mp-1224502_processed.cif
+input_cifs\mp-1225147.cif,Move all surrounding atoms within 2.202970262678551 of the center atom at index 4 by [-0.50620967  2.16745044  0.45732009] in the cif file.,mp-1225147_processed.cif
+input_cifs\mp-1225213.cif,Move all surrounding atoms within 3.9233870588669495 of the center atom at index 2 by [-1.17818657  2.75039946  0.21407634] in the cif file.,mp-1225213_processed.cif
+input_cifs\mp-1225229.cif,Move all surrounding atoms within 2.0123996091262146 of the center atom at index 11 by [-3.73151055 -0.47293757  1.59779421] in the cif file.,mp-1225229_processed.cif
+input_cifs\mp-1225237.cif,Move all surrounding atoms within 3.5141005869864754 of the center atom at index 0 by [-1.70203253  1.36063647  0.78649552] in the cif file.,mp-1225237_processed.cif
+input_cifs\mp-1225440.cif,Move all surrounding atoms within 2.9154899583704066 of the center atom at index 13 by [-1.48123912  0.25092905 -2.69584304] in the cif file.,mp-1225440_processed.cif
+input_cifs\mp-1225651.cif,Move all surrounding atoms within 3.923905270842507 of the center atom at index 32 by [-2.96462791 -0.54564611 -2.39380007] in the cif file.,mp-1225651_processed.cif
+input_cifs\mp-1225781.cif,Move all surrounding atoms within 2.4133626878130614 of the center atom at index 6 by [ 2.63943263 -2.90124429 -0.80704911] in the cif file.,mp-1225781_processed.cif
+input_cifs\mp-1226113.cif,Move all surrounding atoms within 3.1578340111024557 of the center atom at index 16 by [-1.28560613 -1.1912573   2.24973267] in the cif file.,mp-1226113_processed.cif
+input_cifs\mp-1226144.cif,Move all surrounding atoms within 1.6148904360902872 of the center atom at index 17 by [-0.11002011  1.61522143  1.43621453] in the cif file.,mp-1226144_processed.cif
+input_cifs\mp-1226291.cif,Move all surrounding atoms within 3.3004213501809048 of the center atom at index 10 by [-1.28927925  1.37190521  1.93891792] in the cif file.,mp-1226291_processed.cif
+input_cifs\mp-1226695.cif,Move all surrounding atoms within 2.164180632461165 of the center atom at index 47 by [-1.25591617 -1.32831841 -1.18083466] in the cif file.,mp-1226695_processed.cif
+input_cifs\mp-1227099.cif,Move all surrounding atoms within 2.587130437893547 of the center atom at index 4 by [-0.35189448 -1.5737733   1.63084861] in the cif file.,mp-1227099_processed.cif
+input_cifs\mp-1227106.cif,Move all surrounding atoms within 2.6553670228087314 of the center atom at index 16 by [-0.68535549  1.6395226   0.97181356] in the cif file.,mp-1227106_processed.cif
+input_cifs\mp-1227447.cif,Move all surrounding atoms within 2.317953946572186 of the center atom at index 4 by [ 0.45106848  0.27269132 -2.50630441] in the cif file.,mp-1227447_processed.cif
+input_cifs\mp-1227574.cif,Move all surrounding atoms within 3.9987350826734698 of the center atom at index 4 by [-1.95109755  3.04292678  3.66134496] in the cif file.,mp-1227574_processed.cif
+input_cifs\mp-1227644.cif,Move all surrounding atoms within 3.3173069523220065 of the center atom at index 31 by [ 1.10395854 -2.40325333 -4.45947617] in the cif file.,mp-1227644_processed.cif
+input_cifs\mp-1227756.cif,Move all surrounding atoms within 3.542461597244702 of the center atom at index 19 by [-1.01723624 -0.56499226 -2.5239301 ] in the cif file.,mp-1227756_processed.cif
+input_cifs\mp-1227836.cif,Move all surrounding atoms within 2.7987636973385572 of the center atom at index 6 by [-0.47684422 -2.25639366 -2.75756508] in the cif file.,mp-1227836_processed.cif
+input_cifs\mp-1227849.cif,Move all surrounding atoms within 2.161646074737057 of the center atom at index 3 by [ 0.56373891 -1.90149228 -0.72430093] in the cif file.,mp-1227849_processed.cif
+input_cifs\mp-1227954.cif,Move all surrounding atoms within 3.4979235562060778 of the center atom at index 70 by [-3.05498247  2.15162464  4.24764237] in the cif file.,mp-1227954_processed.cif
+input_cifs\mp-1228056.cif,Move all surrounding atoms within 3.258956068390467 of the center atom at index 8 by [-2.56894024  0.87360458 -1.67931607] in the cif file.,mp-1228056_processed.cif
+input_cifs\mp-1228315.cif,Move all surrounding atoms within 3.46456197053509 of the center atom at index 15 by [-2.44736659 -0.62459067  1.27131511] in the cif file.,mp-1228315_processed.cif
+input_cifs\mp-1228494.cif,Move all surrounding atoms within 3.934934377500422 of the center atom at index 3 by [ 2.88309443 -4.00410433  0.39817888] in the cif file.,mp-1228494_processed.cif
+input_cifs\mp-1228522.cif,Move all surrounding atoms within 3.372694194944188 of the center atom at index 5 by [-4.45201654  2.79774659 -2.75670107] in the cif file.,mp-1228522_processed.cif
+input_cifs\mp-1228836.cif,Move all surrounding atoms within 3.8537084412246227 of the center atom at index 61 by [-0.32610764 -2.30412464  1.99599812] in the cif file.,mp-1228836_processed.cif
+input_cifs\mp-1229286.cif,Move all surrounding atoms within 2.220016029754201 of the center atom at index 10 by [2.30330544 1.67736761 2.90100114] in the cif file.,mp-1229286_processed.cif
+input_cifs\mp-1232260.cif,Move all surrounding atoms within 1.749390021972522 of the center atom at index 13 by [ 0.6167639   2.51566606 -2.88308553] in the cif file.,mp-1232260_processed.cif
+input_cifs\mp-1232340.cif,Move all surrounding atoms within 2.199210838608958 of the center atom at index 8 by [-1.81661185 -0.92342421 -0.97277737] in the cif file.,mp-1232340_processed.cif
+input_cifs\mp-1233155.cif,Move all surrounding atoms within 3.0436422732270234 of the center atom at index 3 by [ 0.70115697 -0.29593281  2.49336621] in the cif file.,mp-1233155_processed.cif
+input_cifs\mp-1233280.cif,Move all surrounding atoms within 3.8622262101984264 of the center atom at index 1 by [ 4.13622907  2.31964605 -0.51146651] in the cif file.,mp-1233280_processed.cif
+input_cifs\mp-1233390.cif,Move all surrounding atoms within 2.9477455741490615 of the center atom at index 1 by [ 0.87833595 -1.87625789 -3.23457983] in the cif file.,mp-1233390_processed.cif
+input_cifs\mp-1233443.cif,Move all surrounding atoms within 3.4140444056098294 of the center atom at index 41 by [-0.25178449 -0.80845104  3.568912  ] in the cif file.,mp-1233443_processed.cif
+input_cifs\mp-1233468.cif,Move all surrounding atoms within 2.2544578879119097 of the center atom at index 38 by [-2.04998063  1.24895656  3.51242095] in the cif file.,mp-1233468_processed.cif
+input_cifs\mp-1233776.cif,Move all surrounding atoms within 3.739079891522831 of the center atom at index 14 by [-1.32605211 -2.22607042  2.24119157] in the cif file.,mp-1233776_processed.cif
+input_cifs\mp-1233932.cif,Move all surrounding atoms within 2.7725060664810126 of the center atom at index 2 by [-0.81481686 -2.90861077 -0.53744223] in the cif file.,mp-1233932_processed.cif
+input_cifs\mp-1233998.cif,Move all surrounding atoms within 3.5743148989690714 of the center atom at index 14 by [-0.32104921 -0.14773842  3.03609131] in the cif file.,mp-1233998_processed.cif
+input_cifs\mp-1234032.cif,Move all surrounding atoms within 3.887504300591206 of the center atom at index 7 by [-0.54647569 -1.54357916  1.5604619 ] in the cif file.,mp-1234032_processed.cif
+input_cifs\mp-1234239.cif,Move all surrounding atoms within 3.440269257956841 of the center atom at index 31 by [ 3.83244621  1.42506364 -3.19807301] in the cif file.,mp-1234239_processed.cif
+input_cifs\mp-12343.cif,Move all surrounding atoms within 2.399639277000018 of the center atom at index 0 by [ 1.20159359 -0.93405853 -1.49395092] in the cif file.,mp-12343_processed.cif
+input_cifs\mp-1234325.cif,Move all surrounding atoms within 2.5628718900208707 of the center atom at index 11 by [-2.05403194 -1.43031593  3.39674093] in the cif file.,mp-1234325_processed.cif
+input_cifs\mp-1234413.cif,Move all surrounding atoms within 3.2341502334312087 of the center atom at index 12 by [-0.74367942 -0.4212462  -1.78506136] in the cif file.,mp-1234413_processed.cif
+input_cifs\mp-1234620.cif,Move all surrounding atoms within 2.4126275047045205 of the center atom at index 3 by [-0.31091987  0.07867781  5.34183407] in the cif file.,mp-1234620_processed.cif
+input_cifs\mp-1234667.cif,Move all surrounding atoms within 1.601184445237207 of the center atom at index 9 by [ 0.47640893  3.58786897 -1.58844819] in the cif file.,mp-1234667_processed.cif
+input_cifs\mp-1234741.cif,Move all surrounding atoms within 1.7488011250972066 of the center atom at index 5 by [1.78365918 2.09278446 0.70656823] in the cif file.,mp-1234741_processed.cif
+input_cifs\mp-1235023.cif,Move all surrounding atoms within 2.760858618900983 of the center atom at index 13 by [-0.39799476  0.99133992 -2.04675546] in the cif file.,mp-1235023_processed.cif
+input_cifs\mp-1235295.cif,Move all surrounding atoms within 2.9021451763958233 of the center atom at index 0 by [ 0.40243863  0.41296625 -0.19362832] in the cif file.,mp-1235295_processed.cif
+input_cifs\mp-1235548.cif,Move all surrounding atoms within 2.672672241648536 of the center atom at index 6 by [ 2.25392904  2.69376243 -2.17046169] in the cif file.,mp-1235548_processed.cif
+input_cifs\mp-1235562.cif,Move all surrounding atoms within 2.379521760337352 of the center atom at index 3 by [3.05760174 0.6885417  0.37199898] in the cif file.,mp-1235562_processed.cif
+input_cifs\mp-1235571.cif,Move all surrounding atoms within 2.0439299811692324 of the center atom at index 12 by [-1.50784641  1.11590826 -1.24775558] in the cif file.,mp-1235571_processed.cif
+input_cifs\mp-1235672.cif,Move all surrounding atoms within 2.6188415901007205 of the center atom at index 12 by [-0.25854427  1.84622127 -0.70270106] in the cif file.,mp-1235672_processed.cif
+input_cifs\mp-1235780.cif,Move all surrounding atoms within 1.9319723985976371 of the center atom at index 9 by [-2.33957765 -1.2255317   2.4391368 ] in the cif file.,mp-1235780_processed.cif
+input_cifs\mp-1236433.cif,Move all surrounding atoms within 2.297834712431986 of the center atom at index 3 by [-2.80506443 -1.803137   -1.30480651] in the cif file.,mp-1236433_processed.cif
+input_cifs\mp-1236543.cif,Move all surrounding atoms within 3.6658487723563042 of the center atom at index 9 by [ 0.18382043  1.60205204 -2.40730487] in the cif file.,mp-1236543_processed.cif
+input_cifs\mp-1237278.cif,Move all surrounding atoms within 1.5376886758682657 of the center atom at index 10 by [-3.1859694  -2.91733167  0.54641227] in the cif file.,mp-1237278_processed.cif
+input_cifs\mp-1237483.cif,Move all surrounding atoms within 3.8692711657643413 of the center atom at index 13 by [ 1.29592613 -2.75856499  1.73039446] in the cif file.,mp-1237483_processed.cif
+input_cifs\mp-1238409.cif,Move all surrounding atoms within 3.1251281287771238 of the center atom at index 21 by [ 3.22063601  0.20979555 -3.19173581] in the cif file.,mp-1238409_processed.cif
+input_cifs\mp-1239078.cif,Move all surrounding atoms within 1.898014707243747 of the center atom at index 7 by [-1.21425535  0.1723924  -2.84127221] in the cif file.,mp-1239078_processed.cif
+input_cifs\mp-1239118.cif,Move all surrounding atoms within 3.2268950944023973 of the center atom at index 16 by [ 3.41731252  3.28266675 -0.9219198 ] in the cif file.,mp-1239118_processed.cif
+input_cifs\mp-1239141.cif,Move all surrounding atoms within 2.840706241463984 of the center atom at index 21 by [-0.14492696 -1.49740862 -4.00324393] in the cif file.,mp-1239141_processed.cif
+input_cifs\mp-1239223.cif,Move all surrounding atoms within 2.585702581796725 of the center atom at index 10 by [ 1.55593063 -0.71113112 -0.67491717] in the cif file.,mp-1239223_processed.cif
+input_cifs\mp-1245280.cif,Move all surrounding atoms within 2.2330158745770903 of the center atom at index 66 by [-0.04923474  1.49499198  0.18142062] in the cif file.,mp-1245280_processed.cif
+input_cifs\mp-1245339.cif,Move all surrounding atoms within 2.585290583652817 of the center atom at index 9 by [-0.72792947 -2.00951376  1.2280805 ] in the cif file.,mp-1245339_processed.cif
+input_cifs\mp-1245361.cif,Move all surrounding atoms within 3.17319034013556 of the center atom at index 66 by [ 0.33679245 -1.02859776  0.12278345] in the cif file.,mp-1245361_processed.cif
+input_cifs\mp-1245365.cif,Move all surrounding atoms within 1.872087274471846 of the center atom at index 5 by [ 2.82666416 -5.47306787 -2.07373047] in the cif file.,mp-1245365_processed.cif
+input_cifs\mp-1245626.cif,Move all surrounding atoms within 3.409238658104073 of the center atom at index 0 by [-0.18501183 -0.17701731  0.77598034] in the cif file.,mp-1245626_processed.cif
+input_cifs\mp-1245657.cif,Move all surrounding atoms within 3.4337060598451625 of the center atom at index 40 by [ 2.33013835  0.18860602 -2.70868034] in the cif file.,mp-1245657_processed.cif
+input_cifs\mp-1245740.cif,Move all surrounding atoms within 2.7389183984230607 of the center atom at index 49 by [-1.88179586 -1.2474009  -3.08270129] in the cif file.,mp-1245740_processed.cif
+input_cifs\mp-1246144.cif,Move all surrounding atoms within 1.647406557703701 of the center atom at index 12 by [1.61059345 0.8009033  1.00778521] in the cif file.,mp-1246144_processed.cif
+input_cifs\mp-1246228.cif,Move all surrounding atoms within 1.7539496423546028 of the center atom at index 9 by [-1.38404058  1.17380005 -3.65191225] in the cif file.,mp-1246228_processed.cif
+input_cifs\mp-1246371.cif,Move all surrounding atoms within 2.9702067177012434 of the center atom at index 38 by [-2.54346118 -0.83070344 -0.43463727] in the cif file.,mp-1246371_processed.cif
+input_cifs\mp-1246720.cif,Move all surrounding atoms within 2.576297956744412 of the center atom at index 7 by [-0.69087975 -3.12753479 -2.94203539] in the cif file.,mp-1246720_processed.cif
+input_cifs\mp-1246726.cif,Move all surrounding atoms within 3.4714098399869897 of the center atom at index 10 by [-0.5477835   1.33472462 -2.52972394] in the cif file.,mp-1246726_processed.cif
+input_cifs\mp-1246860.cif,Move all surrounding atoms within 3.9238611030100548 of the center atom at index 11 by [ 0.76577293 -1.52354695  2.16692186] in the cif file.,mp-1246860_processed.cif
+input_cifs\mp-1247094.cif,Move all surrounding atoms within 1.5733906280855787 of the center atom at index 3 by [ 1.90708186  2.83090055 -1.26427575] in the cif file.,mp-1247094_processed.cif
+input_cifs\mp-1247286.cif,Move all surrounding atoms within 1.9621159366204504 of the center atom at index 7 by [-0.49105691  1.41815284 -0.14804693] in the cif file.,mp-1247286_processed.cif
+input_cifs\mp-1247309.cif,Move all surrounding atoms within 2.477223134212557 of the center atom at index 8 by [ 1.77877848 -2.27121274 -3.39833171] in the cif file.,mp-1247309_processed.cif
+input_cifs\mp-1247354.cif,Move all surrounding atoms within 3.681390819172645 of the center atom at index 23 by [-1.61434987 -0.00505117  3.59907154] in the cif file.,mp-1247354_processed.cif
+input_cifs\mp-1247634.cif,Move all surrounding atoms within 3.437429850208358 of the center atom at index 28 by [ 1.43449517  2.2612445  -0.35659036] in the cif file.,mp-1247634_processed.cif
+input_cifs\mp-1247690.cif,Move all surrounding atoms within 3.7149228316492913 of the center atom at index 9 by [-0.57545301 -2.63840873  1.31016563] in the cif file.,mp-1247690_processed.cif
+input_cifs\mp-1250148.cif,Move all surrounding atoms within 3.6627680388887227 of the center atom at index 11 by [-0.27275344  0.79791157 -0.14261088] in the cif file.,mp-1250148_processed.cif
+input_cifs\mp-1250558.cif,Move all surrounding atoms within 1.8782686740424186 of the center atom at index 3 by [ 1.575601   -2.46716462 -1.39705679] in the cif file.,mp-1250558_processed.cif
+input_cifs\mp-1253019.cif,Move all surrounding atoms within 1.7201851660385867 of the center atom at index 2 by [-0.29114904  0.76142657  1.18935955] in the cif file.,mp-1253019_processed.cif
+input_cifs\mp-1262123.cif,Move all surrounding atoms within 3.12872937229446 of the center atom at index 1 by [-1.46734207 -0.88345554 -1.84221045] in the cif file.,mp-1262123_processed.cif
+input_cifs\mp-12645.cif,Move all surrounding atoms within 2.2989476566589158 of the center atom at index 1 by [ 1.90279232 -2.49573571  3.04642148] in the cif file.,mp-12645_processed.cif
+input_cifs\mp-1273464.cif,Move all surrounding atoms within 3.082853801306719 of the center atom at index 12 by [-0.34334182 -0.28361254  1.71839025] in the cif file.,mp-1273464_processed.cif
+input_cifs\mp-1274050.cif,Move all surrounding atoms within 2.8559995973631906 of the center atom at index 11 by [-1.56440546  1.68778425  1.90050739] in the cif file.,mp-1274050_processed.cif
+input_cifs\mp-1275879.cif,Move all surrounding atoms within 2.149241445953055 of the center atom at index 10 by [ 2.46268166 -2.9792249   0.21263595] in the cif file.,mp-1275879_processed.cif
+input_cifs\mp-1278738.cif,Move all surrounding atoms within 1.9691758158122694 of the center atom at index 7 by [ 3.19218573 -0.85469492 -0.29186779] in the cif file.,mp-1278738_processed.cif
+input_cifs\mp-1290926.cif,Move all surrounding atoms within 3.883211918051144 of the center atom at index 23 by [-0.7878864   0.48616914 -1.79553211] in the cif file.,mp-1290926_processed.cif
+input_cifs\mp-1290947.cif,Move all surrounding atoms within 2.032505225258991 of the center atom at index 4 by [-0.73071334 -1.08422928  0.57786373] in the cif file.,mp-1290947_processed.cif
+input_cifs\mp-1293037.cif,Move all surrounding atoms within 2.9376221617477816 of the center atom at index 3 by [2.81258599 1.06868524 4.05665868] in the cif file.,mp-1293037_processed.cif
+input_cifs\mp-1294897.cif,Move all surrounding atoms within 3.257707539710818 of the center atom at index 22 by [-1.53347705  1.40092476 -2.86248194] in the cif file.,mp-1294897_processed.cif
+input_cifs\mp-1297758.cif,Move all surrounding atoms within 2.6145461745487357 of the center atom at index 15 by [ 3.25550428  1.68790854 -1.21650667] in the cif file.,mp-1297758_processed.cif
+input_cifs\mp-1299593.cif,Move all surrounding atoms within 3.053919097271323 of the center atom at index 29 by [-0.10002578 -2.76123602 -0.59046887] in the cif file.,mp-1299593_processed.cif
+input_cifs\mp-1301981.cif,Move all surrounding atoms within 2.8925052822776567 of the center atom at index 11 by [ 0.22659704 -0.3270017  -4.5283965 ] in the cif file.,mp-1301981_processed.cif
+input_cifs\mp-1302395.cif,Move all surrounding atoms within 2.375820071834047 of the center atom at index 33 by [-1.95091591 -2.42730896  0.09171913] in the cif file.,mp-1302395_processed.cif
+input_cifs\mp-1307565.cif,Move all surrounding atoms within 3.2609152908793333 of the center atom at index 2 by [-1.61711038  4.04619126 -1.88605623] in the cif file.,mp-1307565_processed.cif
+input_cifs\mp-1310460.cif,Move all surrounding atoms within 2.4080696073670267 of the center atom at index 17 by [ 2.04654091  1.26166234 -0.65366573] in the cif file.,mp-1310460_processed.cif
+input_cifs\mp-1311133.cif,Move all surrounding atoms within 3.0021972959106424 of the center atom at index 3 by [ 1.49562713 -1.74838722  4.23113182] in the cif file.,mp-1311133_processed.cif
+input_cifs\mp-1323.cif,Move all surrounding atoms within 1.9274760136613611 of the center atom at index 8 by [ 1.18543413  2.10550427 -2.58289385] in the cif file.,mp-1323_processed.cif
+input_cifs\mp-1329989.cif,Move all surrounding atoms within 3.7687264154688385 of the center atom at index 12 by [-1.39644567  0.58600047 -4.86980494] in the cif file.,mp-1329989_processed.cif
+input_cifs\mp-1330925.cif,Move all surrounding atoms within 1.710638723110332 of the center atom at index 52 by [ 0.43309625 -0.75311157 -2.31437471] in the cif file.,mp-1330925_processed.cif
+input_cifs\mp-1337025.cif,Move all surrounding atoms within 3.0844868014002724 of the center atom at index 11 by [ 1.24717887 -0.34572245 -0.47992107] in the cif file.,mp-1337025_processed.cif
+input_cifs\mp-1337931.cif,Move all surrounding atoms within 3.4572269359254335 of the center atom at index 5 by [-0.71171186  0.14356483 -1.27120762] in the cif file.,mp-1337931_processed.cif
+input_cifs\mp-1344766.cif,Move all surrounding atoms within 2.350641932959012 of the center atom at index 16 by [-0.70914086 -2.87865173 -1.65960073] in the cif file.,mp-1344766_processed.cif
+input_cifs\mp-1347018.cif,Move all surrounding atoms within 2.4738728471683507 of the center atom at index 19 by [ 0.66738538  5.14209384 -1.99226845] in the cif file.,mp-1347018_processed.cif
+input_cifs\mp-1348043.cif,Move all surrounding atoms within 2.5938821151828853 of the center atom at index 11 by [1.52435748 1.36042897 0.15934682] in the cif file.,mp-1348043_processed.cif
+input_cifs\mp-1350284.cif,Move all surrounding atoms within 3.8260414935492126 of the center atom at index 25 by [-1.49046729  3.51626829 -0.54346051] in the cif file.,mp-1350284_processed.cif
+input_cifs\mp-1354141.cif,Move all surrounding atoms within 1.5221234578151852 of the center atom at index 34 by [ 0.31229272  2.89955876 -0.38038247] in the cif file.,mp-1354141_processed.cif
+input_cifs\mp-13560.cif,Move all surrounding atoms within 2.212008589155297 of the center atom at index 2 by [-1.17100304  3.23576136  3.62715382] in the cif file.,mp-13560_processed.cif
+input_cifs\mp-1368020.cif,Move all surrounding atoms within 3.1183086019602593 of the center atom at index 16 by [-3.32368269  0.88717984  1.32081758] in the cif file.,mp-1368020_processed.cif
+input_cifs\mp-1370295.cif,Move all surrounding atoms within 2.3621124479567426 of the center atom at index 14 by [ 3.18333653 -0.06804152  3.79433753] in the cif file.,mp-1370295_processed.cif
+input_cifs\mp-1373337.cif,Move all surrounding atoms within 2.467150222799953 of the center atom at index 27 by [1.62707108 1.77412577 1.52156197] in the cif file.,mp-1373337_processed.cif
+input_cifs\mp-1376405.cif,Move all surrounding atoms within 3.2913682386556284 of the center atom at index 27 by [ 0.89604349 -1.44097486  1.36086786] in the cif file.,mp-1376405_processed.cif
+input_cifs\mp-1377393.cif,Move all surrounding atoms within 3.765090466637098 of the center atom at index 20 by [-0.76525462 -0.64666771 -1.26856155] in the cif file.,mp-1377393_processed.cif
+input_cifs\mp-1377991.cif,Move all surrounding atoms within 3.540716261567888 of the center atom at index 3 by [ 1.77762117 -1.85175175  0.10757903] in the cif file.,mp-1377991_processed.cif
+input_cifs\mp-1385417.cif,Move all surrounding atoms within 2.275848344337307 of the center atom at index 7 by [0.724514   0.12908355 1.01416309] in the cif file.,mp-1385417_processed.cif
+input_cifs\mp-1388114.cif,Move all surrounding atoms within 2.845672156165504 of the center atom at index 7 by [-0.98920368  1.2534375   1.54054788] in the cif file.,mp-1388114_processed.cif
+input_cifs\mp-1388425.cif,Move all surrounding atoms within 1.8019022096276114 of the center atom at index 13 by [ 0.010008   -2.11855362 -1.67156649] in the cif file.,mp-1388425_processed.cif
+input_cifs\mp-1391777.cif,Move all surrounding atoms within 3.1370049965212994 of the center atom at index 2 by [-1.69420005 -0.56627883 -4.09056682] in the cif file.,mp-1391777_processed.cif
+input_cifs\mp-14005.cif,Move all surrounding atoms within 3.158780361225638 of the center atom at index 10 by [-2.37266097  2.85982506 -0.72689236] in the cif file.,mp-14005_processed.cif
+input_cifs\mp-1401385.cif,Move all surrounding atoms within 3.285852567889323 of the center atom at index 5 by [-1.2166861  -1.91383699  0.12775781] in the cif file.,mp-1401385_processed.cif
+input_cifs\mp-1405211.cif,Move all surrounding atoms within 3.2115398285681884 of the center atom at index 5 by [-3.2573419   3.38603509 -0.66774088] in the cif file.,mp-1405211_processed.cif
+input_cifs\mp-1412002.cif,Move all surrounding atoms within 2.578709243402277 of the center atom at index 12 by [-2.01235247  0.21638714  1.47272245] in the cif file.,mp-1412002_processed.cif
+input_cifs\mp-1419122.cif,Move all surrounding atoms within 3.8634168619593936 of the center atom at index 4 by [-0.30472435 -1.0853394  -0.13370066] in the cif file.,mp-1419122_processed.cif
+input_cifs\mp-1439.cif,Move all surrounding atoms within 2.210808777536612 of the center atom at index 5 by [ 0.40693015 -0.93339495  0.98993612] in the cif file.,mp-1439_processed.cif
+input_cifs\mp-14555.cif,Move all surrounding atoms within 3.3853296679307823 of the center atom at index 30 by [3.42827348 3.97255236 2.52499773] in the cif file.,mp-14555_processed.cif
+input_cifs\mp-14556.cif,Move all surrounding atoms within 1.8454037495240132 of the center atom at index 8 by [-1.01340578 -2.85749834 -0.10561249] in the cif file.,mp-14556_processed.cif
+input_cifs\mp-1516666.cif,Move all surrounding atoms within 3.4533675373342296 of the center atom at index 8 by [ 1.16583607  1.80271748 -2.16520117] in the cif file.,mp-1516666_processed.cif
+input_cifs\mp-1517169.cif,Move all surrounding atoms within 3.8664408618199184 of the center atom at index 3 by [-1.87556242 -1.18576144  0.25404843] in the cif file.,mp-1517169_processed.cif
+input_cifs\mp-1517627.cif,Move all surrounding atoms within 2.364956163545627 of the center atom at index 8 by [2.791037   2.35535701 2.44909671] in the cif file.,mp-1517627_processed.cif
+input_cifs\mp-1518007.cif,Move all surrounding atoms within 3.3284315125021777 of the center atom at index 20 by [-0.0354255   0.2949886  -1.84489864] in the cif file.,mp-1518007_processed.cif
+input_cifs\mp-1518014.cif,Move all surrounding atoms within 1.8077746778292827 of the center atom at index 3 by [-1.09718815 -1.22564328 -0.30458402] in the cif file.,mp-1518014_processed.cif
+input_cifs\mp-1518246.cif,Move all surrounding atoms within 1.8179104506845418 of the center atom at index 6 by [-0.69824909  1.20712059 -0.99912132] in the cif file.,mp-1518246_processed.cif
+input_cifs\mp-1518458.cif,Move all surrounding atoms within 2.235329614144942 of the center atom at index 0 by [ 1.0835482   1.75726667 -2.73654621] in the cif file.,mp-1518458_processed.cif
+input_cifs\mp-1518757.cif,Move all surrounding atoms within 2.1794806372773587 of the center atom at index 2 by [-2.94084004 -0.05238377 -1.19464255] in the cif file.,mp-1518757_processed.cif
+input_cifs\mp-1519002.cif,Move all surrounding atoms within 1.9498983108560228 of the center atom at index 8 by [ 4.77648742  1.42187958 -0.36190446] in the cif file.,mp-1519002_processed.cif
+input_cifs\mp-1519698.cif,Move all surrounding atoms within 3.789680688463425 of the center atom at index 15 by [-2.00802945  1.26893689  3.96808545] in the cif file.,mp-1519698_processed.cif
+input_cifs\mp-1519736.cif,Move all surrounding atoms within 3.6196487603977383 of the center atom at index 2 by [ 1.59828386 -0.55055057 -1.42329251] in the cif file.,mp-1519736_processed.cif
+input_cifs\mp-1519860.cif,Move all surrounding atoms within 2.0768497237216437 of the center atom at index 8 by [-0.22396626 -1.93678463 -0.48731012] in the cif file.,mp-1519860_processed.cif
+input_cifs\mp-1519983.cif,Move all surrounding atoms within 1.7906562326710918 of the center atom at index 5 by [-3.58852233  2.09631212 -0.10654822] in the cif file.,mp-1519983_processed.cif
+input_cifs\mp-1519998.cif,Move all surrounding atoms within 2.576838581165581 of the center atom at index 4 by [1.04250673 2.39203639 0.3774231 ] in the cif file.,mp-1519998_processed.cif
+input_cifs\mp-1520500.cif,Move all surrounding atoms within 2.0482603428684256 of the center atom at index 3 by [-0.99845989  1.15070156 -4.62036141] in the cif file.,mp-1520500_processed.cif
+input_cifs\mp-1521011.cif,Move all surrounding atoms within 3.720421475271264 of the center atom at index 4 by [-2.2855123  -2.52333778 -0.9216032 ] in the cif file.,mp-1521011_processed.cif
+input_cifs\mp-1521056.cif,Move all surrounding atoms within 2.553535703822825 of the center atom at index 2 by [0.5562227  0.20547016 0.66455071] in the cif file.,mp-1521056_processed.cif
+input_cifs\mp-1521082.cif,Move all surrounding atoms within 2.164462810835502 of the center atom at index 2 by [ 0.67574307  1.99822687 -2.78523629] in the cif file.,mp-1521082_processed.cif
+input_cifs\mp-1521221.cif,Move all surrounding atoms within 2.547932481077078 of the center atom at index 2 by [-1.36732999  0.81745311 -3.78735306] in the cif file.,mp-1521221_processed.cif
+input_cifs\mp-1521309.cif,Move all surrounding atoms within 1.8497308871012985 of the center atom at index 3 by [ 0.32772179  3.8904048  -2.10922405] in the cif file.,mp-1521309_processed.cif
+input_cifs\mp-1521702.cif,Move all surrounding atoms within 1.6895034009878513 of the center atom at index 7 by [ 4.56395983 -1.21579494  1.03483024] in the cif file.,mp-1521702_processed.cif
+input_cifs\mp-1522205.cif,Move all surrounding atoms within 3.2836471942766114 of the center atom at index 7 by [-2.21117441  1.3149176  -1.07112725] in the cif file.,mp-1522205_processed.cif
+input_cifs\mp-1522629.cif,Move all surrounding atoms within 2.061045854843973 of the center atom at index 12 by [0.26726157 1.97354041 2.68749219] in the cif file.,mp-1522629_processed.cif
+input_cifs\mp-1522792.cif,Move all surrounding atoms within 3.198154431826641 of the center atom at index 5 by [ 0.17194797 -0.98526615  1.56309331] in the cif file.,mp-1522792_processed.cif
+input_cifs\mp-1523004.cif,Move all surrounding atoms within 1.6925719504130883 of the center atom at index 4 by [ 0.96326312  3.99398769 -1.0661993 ] in the cif file.,mp-1523004_processed.cif
+input_cifs\mp-1523044.cif,Move all surrounding atoms within 3.1754833862239438 of the center atom at index 3 by [ 3.80210861 -0.52860144  1.52622549] in the cif file.,mp-1523044_processed.cif
+input_cifs\mp-1523067.cif,Move all surrounding atoms within 2.9389384735879283 of the center atom at index 7 by [ 0.87876479 -0.92960523 -1.40489418] in the cif file.,mp-1523067_processed.cif
+input_cifs\mp-1523239.cif,Move all surrounding atoms within 1.973682134361374 of the center atom at index 14 by [-0.24220333 -2.89384775 -0.04850106] in the cif file.,mp-1523239_processed.cif
+input_cifs\mp-15896.cif,Move all surrounding atoms within 2.7582061528497928 of the center atom at index 4 by [-0.53356967 -0.25608623 -1.84289021] in the cif file.,mp-15896_processed.cif
+input_cifs\mp-1643677.cif,Move all surrounding atoms within 3.6246039557070784 of the center atom at index 34 by [ 0.04111986 -1.81525214 -0.05492209] in the cif file.,mp-1643677_processed.cif
+input_cifs\mp-1645697.cif,Move all surrounding atoms within 2.1158226588296296 of the center atom at index 14 by [0.36096115 0.07269901 0.29831053] in the cif file.,mp-1645697_processed.cif
+input_cifs\mp-1661789.cif,Move all surrounding atoms within 3.4697229944182544 of the center atom at index 5 by [-0.67897642 -0.68153732 -4.58475178] in the cif file.,mp-1661789_processed.cif
+input_cifs\mp-1661936.cif,Move all surrounding atoms within 1.90580944956237 of the center atom at index 14 by [ 3.22311552 -1.40868583 -4.08363185] in the cif file.,mp-1661936_processed.cif
+input_cifs\mp-1662795.cif,Move all surrounding atoms within 2.334876372454846 of the center atom at index 2 by [3.48897898 1.05501831 3.05765698] in the cif file.,mp-1662795_processed.cif
+input_cifs\mp-1666930.cif,Move all surrounding atoms within 2.7893911685519948 of the center atom at index 1 by [-1.28497725  1.58728938  1.63401587] in the cif file.,mp-1666930_processed.cif
+input_cifs\mp-17024.cif,Move all surrounding atoms within 1.7767341703473654 of the center atom at index 5 by [-0.82818055  2.04197791 -0.26125531] in the cif file.,mp-17024_processed.cif
+input_cifs\mp-17282.cif,Move all surrounding atoms within 2.8752171340229733 of the center atom at index 14 by [ 2.34161603 -1.58287685  4.44596001] in the cif file.,mp-17282_processed.cif
+input_cifs\mp-17344.cif,Move all surrounding atoms within 2.897456642163398 of the center atom at index 4 by [-1.29646418  0.17347206  0.71591522] in the cif file.,mp-17344_processed.cif
+input_cifs\mp-17676.cif,Move all surrounding atoms within 3.5077598905712426 of the center atom at index 11 by [-0.04465518 -2.33053421  0.58875356] in the cif file.,mp-17676_processed.cif
+input_cifs\mp-17770.cif,Move all surrounding atoms within 3.4419466127114373 of the center atom at index 1 by [ 5.11942545 -1.8965617   2.2139824 ] in the cif file.,mp-17770_processed.cif
+input_cifs\mp-17838.cif,Move all surrounding atoms within 2.3121649661125874 of the center atom at index 5 by [-1.07118991 -0.49663818  0.98316579] in the cif file.,mp-17838_processed.cif
+input_cifs\mp-17861.cif,Move all surrounding atoms within 2.615789733785596 of the center atom at index 17 by [ 1.88454555 -1.32498918 -0.92469586] in the cif file.,mp-17861_processed.cif
+input_cifs\mp-18469.cif,Move all surrounding atoms within 2.4844982168544205 of the center atom at index 2 by [3.06163095 0.79185886 2.12026594] in the cif file.,mp-18469_processed.cif
+input_cifs\mp-18525.cif,Move all surrounding atoms within 3.4253376052146436 of the center atom at index 30 by [-1.4387221   0.88563843 -1.38732727] in the cif file.,mp-18525_processed.cif
+input_cifs\mp-18612.cif,Move all surrounding atoms within 2.577609405283653 of the center atom at index 6 by [0.85436839 3.60919471 1.22026943] in the cif file.,mp-18612_processed.cif
+input_cifs\mp-18701.cif,Move all surrounding atoms within 1.8091685482633624 of the center atom at index 11 by [ 2.3548196  -0.47613383  0.8183418 ] in the cif file.,mp-18701_processed.cif
+input_cifs\mp-18713.cif,Move all surrounding atoms within 2.2841099762061283 of the center atom at index 3 by [-0.51597239 -0.06076749  3.00120922] in the cif file.,mp-18713_processed.cif
+input_cifs\mp-18817.cif,Move all surrounding atoms within 2.3629332057503056 of the center atom at index 1 by [ 1.17488014 -0.0599881   1.38484228] in the cif file.,mp-18817_processed.cif
+input_cifs\mp-18833.cif,Move all surrounding atoms within 2.763640405486885 of the center atom at index 5 by [2.05073055 2.00944988 4.36426136] in the cif file.,mp-18833_processed.cif
+input_cifs\mp-18848.cif,Move all surrounding atoms within 2.2258132410833698 of the center atom at index 6 by [ 3.70480222 -2.23693433  1.89006   ] in the cif file.,mp-18848_processed.cif
+input_cifs\mp-18996.cif,Move all surrounding atoms within 2.95422582295055 of the center atom at index 9 by [-1.28319601  3.01603813  0.29673052] in the cif file.,mp-18996_processed.cif
+input_cifs\mp-19070.cif,Move all surrounding atoms within 2.957058400158995 of the center atom at index 10 by [ 0.74190142 -1.01918595  2.42602359] in the cif file.,mp-19070_processed.cif
+input_cifs\mp-19087.cif,Move all surrounding atoms within 2.923839585331425 of the center atom at index 11 by [-2.7042139  -1.44495459  3.28059938] in the cif file.,mp-19087_processed.cif
+input_cifs\mp-19123.cif,Move all surrounding atoms within 1.874860499356141 of the center atom at index 10 by [-1.78129972  0.24876359 -2.07338638] in the cif file.,mp-19123_processed.cif
+input_cifs\mp-19162.cif,Move all surrounding atoms within 3.1194393894105925 of the center atom at index 10 by [ 1.60966542  0.6384127  -1.29915453] in the cif file.,mp-19162_processed.cif
+input_cifs\mp-19426.cif,Move all surrounding atoms within 2.4732549228358245 of the center atom at index 5 by [ 3.69973797  0.15348756 -1.56218579] in the cif file.,mp-19426_processed.cif
+input_cifs\mp-19785.cif,Move all surrounding atoms within 1.6411460209904583 of the center atom at index 3 by [-0.86508418  1.98037674 -0.60446489] in the cif file.,mp-19785_processed.cif
+input_cifs\mp-1987603.cif,Move all surrounding atoms within 1.975449476389256 of the center atom at index 7 by [-3.79839857 -3.88465802  3.80755   ] in the cif file.,mp-1987603_processed.cif
+input_cifs\mp-19903.cif,Move all surrounding atoms within 1.5470495147512515 of the center atom at index 1 by [ 2.02286487 -2.70216614  3.73784987] in the cif file.,mp-19903_processed.cif
+input_cifs\mp-19931.cif,Move all surrounding atoms within 3.9253575234330573 of the center atom at index 15 by [0.48238742 2.6817894  3.0089087 ] in the cif file.,mp-19931_processed.cif
+input_cifs\mp-20276.cif,Move all surrounding atoms within 2.5843858834531503 of the center atom at index 15 by [ 2.60735419 -1.38714189  1.3627256 ] in the cif file.,mp-20276_processed.cif
+input_cifs\mp-2030372.cif,Move all surrounding atoms within 2.93602834159582 of the center atom at index 1 by [-0.91278945 -1.2663101  -0.90547788] in the cif file.,mp-2030372_processed.cif
+input_cifs\mp-20460.cif,Move all surrounding atoms within 3.263763922587689 of the center atom at index 13 by [0.04529575 0.1766563  2.10834845] in the cif file.,mp-20460_processed.cif
+input_cifs\mp-20499.cif,Move all surrounding atoms within 3.9187451287763695 of the center atom at index 12 by [1.47138302 2.87947398 4.35964052] in the cif file.,mp-20499_processed.cif
+input_cifs\mp-2053129.cif,Move all surrounding atoms within 3.221614543171338 of the center atom at index 0 by [ 3.18479525  0.88411931 -1.58030349] in the cif file.,mp-2053129_processed.cif
+input_cifs\mp-20633.cif,Move all surrounding atoms within 2.5132843776024774 of the center atom at index 10 by [-4.08447894  0.76265969 -0.0907191 ] in the cif file.,mp-20633_processed.cif
+input_cifs\mp-21208.cif,Move all surrounding atoms within 1.786261145055577 of the center atom at index 3 by [ 0.705351    1.43056656 -2.53108385] in the cif file.,mp-21208_processed.cif
+input_cifs\mp-21493.cif,Move all surrounding atoms within 3.309143824820238 of the center atom at index 0 by [ 2.88452564 -2.41614368 -0.67852788] in the cif file.,mp-21493_processed.cif
+input_cifs\mp-21658.cif,Move all surrounding atoms within 3.124649500560551 of the center atom at index 14 by [-0.69577134  0.99225484  3.153537  ] in the cif file.,mp-21658_processed.cif
+input_cifs\mp-21799.cif,Move all surrounding atoms within 3.32757422907504 of the center atom at index 21 by [ 1.30828863 -1.0288031   1.59784082] in the cif file.,mp-21799_processed.cif
+input_cifs\mp-22042.cif,Move all surrounding atoms within 3.8982841755268476 of the center atom at index 1 by [ 0.4836087  -2.89836456  0.23881249] in the cif file.,mp-22042_processed.cif
+input_cifs\mp-2206289.cif,Move all surrounding atoms within 1.582036733694676 of the center atom at index 43 by [-3.57673441 -2.32616397 -0.87365129] in the cif file.,mp-2206289_processed.cif
+input_cifs\mp-22076.cif,Move all surrounding atoms within 3.7931129498354275 of the center atom at index 20 by [1.51457651 2.40061002 1.6079285 ] in the cif file.,mp-22076_processed.cif
+input_cifs\mp-2215910.cif,Move all surrounding atoms within 3.5074472031411443 of the center atom at index 9 by [ 1.553636    0.71897997 -0.7606433 ] in the cif file.,mp-2215910_processed.cif
+input_cifs\mp-2217621.cif,Move all surrounding atoms within 3.806737441960316 of the center atom at index 6 by [-1.39610008  0.17331348  1.66965557] in the cif file.,mp-2217621_processed.cif
+input_cifs\mp-2217707.cif,Move all surrounding atoms within 2.8702526724876547 of the center atom at index 8 by [ 0.79814898 -1.52733098  1.31401793] in the cif file.,mp-2217707_processed.cif
+input_cifs\mp-2217878.cif,Move all surrounding atoms within 2.252428852629363 of the center atom at index 9 by [ 4.6545458   4.04835894 -0.66787317] in the cif file.,mp-2217878_processed.cif
+input_cifs\mp-2218067.cif,Move all surrounding atoms within 1.9079591190762817 of the center atom at index 3 by [ 1.30374255 -2.57419636  2.54376884] in the cif file.,mp-2218067_processed.cif
+input_cifs\mp-2218172.cif,Move all surrounding atoms within 1.824589568068061 of the center atom at index 3 by [-2.63311121  0.62507246  0.20723759] in the cif file.,mp-2218172_processed.cif
+input_cifs\mp-2218202.cif,Move all surrounding atoms within 2.2867895931753117 of the center atom at index 1 by [-3.56805577 -0.46892745 -0.99686269] in the cif file.,mp-2218202_processed.cif
+input_cifs\mp-2218885.cif,Move all surrounding atoms within 1.9163821760206226 of the center atom at index 9 by [-3.20430538 -0.15062023  1.74597997] in the cif file.,mp-2218885_processed.cif
+input_cifs\mp-2218969.cif,Move all surrounding atoms within 2.5224662338082524 of the center atom at index 1 by [ 0.70750878 -0.209445   -0.49529892] in the cif file.,mp-2218969_processed.cif
+input_cifs\mp-2219052.cif,Move all surrounding atoms within 1.8689723167330414 of the center atom at index 8 by [ 3.65486145 -2.05005212 -0.09503715] in the cif file.,mp-2219052_processed.cif
+input_cifs\mp-2219166.cif,Move all surrounding atoms within 2.536618175137451 of the center atom at index 4 by [ 1.17534136 -4.21830835  3.49428137] in the cif file.,mp-2219166_processed.cif
+input_cifs\mp-2219262.cif,Move all surrounding atoms within 1.6219114661284484 of the center atom at index 11 by [-0.9817275   1.40310725  1.56978991] in the cif file.,mp-2219262_processed.cif
+input_cifs\mp-2219466.cif,Move all surrounding atoms within 2.745294801618484 of the center atom at index 6 by [-0.07572332  3.35082806  1.5857715 ] in the cif file.,mp-2219466_processed.cif
+input_cifs\mp-2222780.cif,Move all surrounding atoms within 3.3272989111322513 of the center atom at index 1 by [-2.02128813 -2.80855571 -0.18965919] in the cif file.,mp-2222780_processed.cif
+input_cifs\mp-2223884.cif,Move all surrounding atoms within 3.768597190072554 of the center atom at index 5 by [0.24194794 1.94877145 0.11702119] in the cif file.,mp-2223884_processed.cif
+input_cifs\mp-2224443.cif,Move all surrounding atoms within 2.2410009242554323 of the center atom at index 9 by [-0.59018608 -1.04368852  0.34339704] in the cif file.,mp-2224443_processed.cif
+input_cifs\mp-2224447.cif,Move all surrounding atoms within 2.2081008322113926 of the center atom at index 8 by [-0.3215807  -1.16048477  0.58776183] in the cif file.,mp-2224447_processed.cif
+input_cifs\mp-22248.cif,Move all surrounding atoms within 3.902880107312536 of the center atom at index 5 by [1.3781507  0.48906109 0.01922443] in the cif file.,mp-22248_processed.cif
+input_cifs\mp-2224811.cif,Move all surrounding atoms within 2.656494105421001 of the center atom at index 7 by [ 3.32891649 -1.70870394 -3.33572081] in the cif file.,mp-2224811_processed.cif
+input_cifs\mp-2224860.cif,Move all surrounding atoms within 2.017019914480188 of the center atom at index 33 by [ 1.39612763 -1.08521383 -1.49567362] in the cif file.,mp-2224860_processed.cif
+input_cifs\mp-2225000.cif,Move all surrounding atoms within 1.7886444492904094 of the center atom at index 1 by [-0.35376276 -0.17387215  1.5168334 ] in the cif file.,mp-2225000_processed.cif
+input_cifs\mp-2228328.cif,Move all surrounding atoms within 2.0588378898544604 of the center atom at index 7 by [ 1.49034558  0.45937241 -0.06715277] in the cif file.,mp-2228328_processed.cif
+input_cifs\mp-2228374.cif,Move all surrounding atoms within 3.8456639915407447 of the center atom at index 7 by [0.92506713 1.41038792 2.22998779] in the cif file.,mp-2228374_processed.cif
+input_cifs\mp-2228437.cif,Move all surrounding atoms within 3.3636958140452027 of the center atom at index 5 by [-0.55830941  0.37699302 -2.11472408] in the cif file.,mp-2228437_processed.cif
+input_cifs\mp-2228500.cif,Move all surrounding atoms within 3.5585639592727123 of the center atom at index 13 by [-2.41197015 -4.15541167 -1.5296122 ] in the cif file.,mp-2228500_processed.cif
+input_cifs\mp-2228706.cif,Move all surrounding atoms within 3.44646294553409 of the center atom at index 6 by [3.50526617 4.49404714 0.81673471] in the cif file.,mp-2228706_processed.cif
+input_cifs\mp-2228915.cif,Move all surrounding atoms within 1.7247176869747238 of the center atom at index 15 by [-0.17371289 -2.19609256  3.97621326] in the cif file.,mp-2228915_processed.cif
+input_cifs\mp-2228929.cif,Move all surrounding atoms within 2.5708817735962946 of the center atom at index 16 by [ 0.31931371  0.25928391 -3.58158373] in the cif file.,mp-2228929_processed.cif
+input_cifs\mp-2229660.cif,Move all surrounding atoms within 1.9319087088424616 of the center atom at index 2 by [ 0.77723675 -1.29417224 -2.38461001] in the cif file.,mp-2229660_processed.cif
+input_cifs\mp-2230032.cif,Move all surrounding atoms within 2.9218027288950084 of the center atom at index 8 by [-1.78408009  3.39541635 -2.08743045] in the cif file.,mp-2230032_processed.cif
+input_cifs\mp-2230094.cif,Move all surrounding atoms within 3.702935861159229 of the center atom at index 10 by [ 2.56778349 -0.72649143 -1.88344787] in the cif file.,mp-2230094_processed.cif
+input_cifs\mp-2230252.cif,Move all surrounding atoms within 2.6481122823047993 of the center atom at index 5 by [ 0.45097692 -0.64818608  1.50533867] in the cif file.,mp-2230252_processed.cif
+input_cifs\mp-2230521.cif,Move all surrounding atoms within 3.5874576427865827 of the center atom at index 5 by [ 3.08898215 -0.76817152  2.36717878] in the cif file.,mp-2230521_processed.cif
+input_cifs\mp-2230812.cif,Move all surrounding atoms within 1.6344167241284941 of the center atom at index 9 by [-1.77915536  1.38318672 -1.22398846] in the cif file.,mp-2230812_processed.cif
+input_cifs\mp-2231004.cif,Move all surrounding atoms within 3.2460250341323196 of the center atom at index 10 by [-0.94352188 -1.22154269  0.26541349] in the cif file.,mp-2231004_processed.cif
+input_cifs\mp-2231286.cif,Move all surrounding atoms within 3.4790857653225244 of the center atom at index 3 by [ 1.86013495 -1.46141146  2.82212068] in the cif file.,mp-2231286_processed.cif
+input_cifs\mp-2232282.cif,Move all surrounding atoms within 3.9592942096689683 of the center atom at index 5 by [-1.84636494  3.4473195  -2.08516654] in the cif file.,mp-2232282_processed.cif
+input_cifs\mp-2239868.cif,Move all surrounding atoms within 1.5436393561244715 of the center atom at index 8 by [ 0.25709884 -2.17538815 -1.22222262] in the cif file.,mp-2239868_processed.cif
+input_cifs\mp-2240173.cif,Move all surrounding atoms within 3.569316342706683 of the center atom at index 0 by [ 0.49833845 -0.34578362  1.88635964] in the cif file.,mp-2240173_processed.cif
+input_cifs\mp-2241358.cif,Move all surrounding atoms within 3.27275143005615 of the center atom at index 7 by [-1.11036465 -2.307445    0.963437  ] in the cif file.,mp-2241358_processed.cif
+input_cifs\mp-2254.cif,Move all surrounding atoms within 3.503065975453247 of the center atom at index 20 by [-2.34782056 -3.79478024  1.63181943] in the cif file.,mp-2254_processed.cif
+input_cifs\mp-23418.cif,Move all surrounding atoms within 2.6734560133189067 of the center atom at index 9 by [ 0.29387676 -2.98015619 -1.25645801] in the cif file.,mp-23418_processed.cif
+input_cifs\mp-23498.cif,Move all surrounding atoms within 3.0835203513488705 of the center atom at index 12 by [2.30864966 2.69358218 2.5281767 ] in the cif file.,mp-23498_processed.cif
+input_cifs\mp-23586.cif,Move all surrounding atoms within 1.900630644750048 of the center atom at index 0 by [-2.87938976  0.64510435  0.66652632] in the cif file.,mp-23586_processed.cif
+input_cifs\mp-23979.cif,Move all surrounding atoms within 2.407166681885462 of the center atom at index 4 by [-0.65025966 -0.60463512  0.98342578] in the cif file.,mp-23979_processed.cif
+input_cifs\mp-24037.cif,Move all surrounding atoms within 3.693662934396435 of the center atom at index 35 by [-2.81911472  0.58310393  5.0421418 ] in the cif file.,mp-24037_processed.cif
+input_cifs\mp-24044.cif,Move all surrounding atoms within 1.7475673465236023 of the center atom at index 20 by [-2.61195839 -0.69613493  0.34084863] in the cif file.,mp-24044_processed.cif
+input_cifs\mp-24515.cif,Move all surrounding atoms within 2.0077729167961875 of the center atom at index 23 by [-0.88728041  5.02573156  0.92983197] in the cif file.,mp-24515_processed.cif
+input_cifs\mp-2480.cif,Move all surrounding atoms within 2.1449629099135334 of the center atom at index 7 by [-0.33918878 -0.6052197   1.44859575] in the cif file.,mp-2480_processed.cif
+input_cifs\mp-25405.cif,Move all surrounding atoms within 2.5445205845306935 of the center atom at index 3 by [-0.61347922  2.05055677  3.75355383] in the cif file.,mp-25405_processed.cif
+input_cifs\mp-25457.cif,Move all surrounding atoms within 3.9336167565062183 of the center atom at index 24 by [ 3.55778926  0.99367539 -0.95259327] in the cif file.,mp-25457_processed.cif
+input_cifs\mp-26179.cif,Move all surrounding atoms within 3.1136888235950724 of the center atom at index 9 by [-1.10325521 -1.13665328  2.54197699] in the cif file.,mp-26179_processed.cif
+input_cifs\mp-26270.cif,Move all surrounding atoms within 3.666833662786095 of the center atom at index 0 by [ 0.53065541 -2.20584297  0.10951388] in the cif file.,mp-26270_processed.cif
+input_cifs\mp-2646946.cif,Move all surrounding atoms within 3.5868974209645748 of the center atom at index 9 by [ 0.93780017 -0.34072704  0.52549963] in the cif file.,mp-2646946_processed.cif
+input_cifs\mp-26612.cif,Move all surrounding atoms within 3.469430756073099 of the center atom at index 32 by [ 0.10148926  2.39401553 -0.63675289] in the cif file.,mp-26612_processed.cif
+input_cifs\mp-2715259.cif,Move all surrounding atoms within 1.541242814909287 of the center atom at index 7 by [ 1.6923804  -2.35966595  0.70696823] in the cif file.,mp-2715259_processed.cif
+input_cifs\mp-2715379.cif,Move all surrounding atoms within 1.6221644844275993 of the center atom at index 22 by [ 0.42789252 -1.54540476  2.18468362] in the cif file.,mp-2715379_processed.cif
+input_cifs\mp-27286.cif,Move all surrounding atoms within 3.4877751733261797 of the center atom at index 4 by [ 1.59278322 -0.57396672  0.89298715] in the cif file.,mp-27286_processed.cif
+input_cifs\mp-27341.cif,Move all surrounding atoms within 3.1561056052029106 of the center atom at index 5 by [ 0.6321948   1.64373142 -2.63588882] in the cif file.,mp-27341_processed.cif
+input_cifs\mp-27383.cif,Move all surrounding atoms within 3.206883400531705 of the center atom at index 7 by [-0.13458834  0.98794098 -1.72505651] in the cif file.,mp-27383_processed.cif
+input_cifs\mp-2751271.cif,Move all surrounding atoms within 2.174548088137116 of the center atom at index 16 by [ 2.73126838 -4.20952437 -2.2789629 ] in the cif file.,mp-2751271_processed.cif
+input_cifs\mp-28393.cif,Move all surrounding atoms within 2.237017326694703 of the center atom at index 16 by [ 0.21786628 -3.28890601  0.06470495] in the cif file.,mp-28393_processed.cif
+input_cifs\mp-28394.cif,Move all surrounding atoms within 2.4701611922633484 of the center atom at index 1 by [-3.23688354 -2.9668592  -4.4287014 ] in the cif file.,mp-28394_processed.cif
+input_cifs\mp-28430.cif,Move all surrounding atoms within 2.213813052204049 of the center atom at index 6 by [-0.37343812 -1.62848654 -1.51173958] in the cif file.,mp-28430_processed.cif
+input_cifs\mp-28450.cif,Move all surrounding atoms within 2.4874789446490873 of the center atom at index 11 by [ 1.16624851 -1.43615088 -3.20170801] in the cif file.,mp-28450_processed.cif
+input_cifs\mp-28544.cif,Move all surrounding atoms within 1.6994877112716822 of the center atom at index 18 by [ 1.81907951 -1.21161674 -2.83342718] in the cif file.,mp-28544_processed.cif
+input_cifs\mp-28580.cif,Move all surrounding atoms within 3.0265178463130304 of the center atom at index 3 by [ 2.5182245  -0.57129989  0.66411207] in the cif file.,mp-28580_processed.cif
+input_cifs\mp-28824.cif,Move all surrounding atoms within 3.665722947329961 of the center atom at index 1 by [-0.38413311  2.25169205  1.16238764] in the cif file.,mp-28824_processed.cif
+input_cifs\mp-2901870.cif,Move all surrounding atoms within 1.7932393151443975 of the center atom at index 5 by [-0.17561033  0.2593062  -3.05640268] in the cif file.,mp-2901870_processed.cif
+input_cifs\mp-2911.cif,Move all surrounding atoms within 3.4196189453332844 of the center atom at index 24 by [-7.19182762 -1.39149537 -0.34581786] in the cif file.,mp-2911_processed.cif
+input_cifs\mp-29144.cif,Move all surrounding atoms within 2.3233368423831884 of the center atom at index 1 by [ 0.29013879 -0.93562208 -1.3098503 ] in the cif file.,mp-29144_processed.cif
+input_cifs\mp-29412.cif,Move all surrounding atoms within 1.5193357194780683 of the center atom at index 18 by [-4.50990495 -0.47286803  3.39638344] in the cif file.,mp-29412_processed.cif
+input_cifs\mp-29415.cif,Move all surrounding atoms within 3.3405041612350947 of the center atom at index 9 by [2.59591634 5.52840149 0.65235798] in the cif file.,mp-29415_processed.cif
+input_cifs\mp-29755.cif,Move all surrounding atoms within 3.712203433762462 of the center atom at index 5 by [ 2.36368421 -3.02916732 -2.29407371] in the cif file.,mp-29755_processed.cif
+input_cifs\mp-29770.cif,Move all surrounding atoms within 3.3856503472600337 of the center atom at index 8 by [ 1.7634103  -4.73865888 -2.46586895] in the cif file.,mp-29770_processed.cif
+input_cifs\mp-30305.cif,Move all surrounding atoms within 1.5127308602382923 of the center atom at index 0 by [-2.76192915 -0.98745194 -0.32254431] in the cif file.,mp-30305_processed.cif
+input_cifs\mp-30320.cif,Move all surrounding atoms within 2.141203410972545 of the center atom at index 5 by [ 0.33982382  1.08164322 -2.28991711] in the cif file.,mp-30320_processed.cif
+input_cifs\mp-30859.cif,Move all surrounding atoms within 3.1527290610904037 of the center atom at index 16 by [-1.98042387 -0.85787391  0.21998458] in the cif file.,mp-30859_processed.cif
+input_cifs\mp-30908.cif,Move all surrounding atoms within 2.0316590783261645 of the center atom at index 2 by [-0.90695901  0.85826616  0.48264762] in the cif file.,mp-30908_processed.cif
+input_cifs\mp-31251.cif,Move all surrounding atoms within 1.8507662038369173 of the center atom at index 11 by [ 1.81895549  2.77054467 -1.05863876] in the cif file.,mp-31251_processed.cif
+input_cifs\mp-31314.cif,Move all surrounding atoms within 1.7177877062167735 of the center atom at index 34 by [ 0.43610548  3.17536821 -1.62937696] in the cif file.,mp-31314_processed.cif
+input_cifs\mp-3138.cif,Move all surrounding atoms within 1.7406920309965066 of the center atom at index 7 by [-1.34591336 -0.16944666 -3.53764039] in the cif file.,mp-3138_processed.cif
+input_cifs\mp-31394.cif,Move all surrounding atoms within 2.7194418869263655 of the center atom at index 37 by [1.66338129 0.13485877 0.96874665] in the cif file.,mp-31394_processed.cif
+input_cifs\mp-3205.cif,Move all surrounding atoms within 1.5096978583283405 of the center atom at index 4 by [1.79813265 0.82960074 4.54210286] in the cif file.,mp-3205_processed.cif
+input_cifs\mp-3216726.cif,Move all surrounding atoms within 2.3151043624615957 of the center atom at index 4 by [ 0.30330101  0.76426703 -2.05951683] in the cif file.,mp-3216726_processed.cif
+input_cifs\mp-32528.cif,Move all surrounding atoms within 3.1908689582318246 of the center atom at index 28 by [ 1.54155117 -1.41396139 -0.90805428] in the cif file.,mp-32528_processed.cif
+input_cifs\mp-3316.cif,Move all surrounding atoms within 3.0972055858275134 of the center atom at index 8 by [-2.29470804 -1.76283552  0.77494215] in the cif file.,mp-3316_processed.cif
+input_cifs\mp-33325.cif,Move all surrounding atoms within 3.6723075478998624 of the center atom at index 11 by [-1.18822096  0.06714546  1.42034088] in the cif file.,mp-33325_processed.cif
+input_cifs\mp-34185.cif,Move all surrounding atoms within 2.6931412326899227 of the center atom at index 3 by [-1.19092073  0.11027653  2.90759163] in the cif file.,mp-34185_processed.cif
+input_cifs\mp-3538.cif,Move all surrounding atoms within 2.088945150220789 of the center atom at index 26 by [-0.69852617  2.61936387 -2.62348688] in the cif file.,mp-3538_processed.cif
+input_cifs\mp-36310.cif,Move all surrounding atoms within 3.0884528841929546 of the center atom at index 10 by [-0.85787926 -1.85982207 -2.77401715] in the cif file.,mp-36310_processed.cif
+input_cifs\mp-36484.cif,Move all surrounding atoms within 1.8136615765417383 of the center atom at index 0 by [-0.75134976  2.22104496 -2.52924462] in the cif file.,mp-36484_processed.cif
+input_cifs\mp-4419.cif,Move all surrounding atoms within 3.1988979312219223 of the center atom at index 3 by [-0.71184384  0.08762666 -2.0476294 ] in the cif file.,mp-4419_processed.cif
+input_cifs\mp-4421.cif,Move all surrounding atoms within 1.7663627641365238 of the center atom at index 0 by [-3.17874524 -0.51039213 -0.96505768] in the cif file.,mp-4421_processed.cif
+input_cifs\mp-504149.cif,Move all surrounding atoms within 2.6160802684377744 of the center atom at index 26 by [-1.69042736  0.04081116  3.48644083] in the cif file.,mp-504149_processed.cif
+input_cifs\mp-504509.cif,Move all surrounding atoms within 3.3929911622380216 of the center atom at index 29 by [-1.09741177  0.1705211   2.62437117] in the cif file.,mp-504509_processed.cif
+input_cifs\mp-505074.cif,Move all surrounding atoms within 2.655015341947687 of the center atom at index 20 by [-1.40524796  1.91982063  5.08088372] in the cif file.,mp-505074_processed.cif
+input_cifs\mp-505217.cif,Move all surrounding atoms within 1.7464736337855054 of the center atom at index 28 by [ 1.34061405 -3.43531612 -0.13630376] in the cif file.,mp-505217_processed.cif
+input_cifs\mp-505540.cif,Move all surrounding atoms within 2.1117018230600104 of the center atom at index 1 by [-0.15278915 -0.85927707  0.92278654] in the cif file.,mp-505540_processed.cif
+input_cifs\mp-505573.cif,Move all surrounding atoms within 3.384998829659672 of the center atom at index 10 by [ 0.52208055 -1.33344516 -2.15410471] in the cif file.,mp-505573_processed.cif
+input_cifs\mp-505766.cif,Move all surrounding atoms within 3.2062222003971472 of the center atom at index 4 by [-0.22824813  0.73952774  1.2978024 ] in the cif file.,mp-505766_processed.cif
+input_cifs\mp-510544.cif,Move all surrounding atoms within 3.872288892974656 of the center atom at index 15 by [-3.60816321 -3.41091348 -2.51976427] in the cif file.,mp-510544_processed.cif
+input_cifs\mp-510717.cif,Move all surrounding atoms within 3.05077927099497 of the center atom at index 18 by [-0.59309723  1.01497563  0.35833425] in the cif file.,mp-510717_processed.cif
+input_cifs\mp-5151.cif,Move all surrounding atoms within 3.4097677714027297 of the center atom at index 20 by [ 1.57198145 -2.56293495 -3.2834726 ] in the cif file.,mp-5151_processed.cif
+input_cifs\mp-530379.cif,Move all surrounding atoms within 2.368138151788762 of the center atom at index 46 by [ 3.54251224 -3.5014247   0.7396753 ] in the cif file.,mp-530379_processed.cif
+input_cifs\mp-530850.cif,Move all surrounding atoms within 3.9299007850195293 of the center atom at index 36 by [-1.91751379 -1.45393127 -1.1931105 ] in the cif file.,mp-530850_processed.cif
+input_cifs\mp-540740.cif,Move all surrounding atoms within 2.6422084318293404 of the center atom at index 44 by [-0.404566   -4.47524402 -0.20808733] in the cif file.,mp-540740_processed.cif
+input_cifs\mp-540798.cif,Move all surrounding atoms within 3.6145541451138365 of the center atom at index 29 by [ 1.69079749 -0.91813189  0.43365419] in the cif file.,mp-540798_processed.cif
+input_cifs\mp-540938.cif,Move all surrounding atoms within 3.846623288022302 of the center atom at index 6 by [ 1.2429795  -0.09428997 -1.5367471 ] in the cif file.,mp-540938_processed.cif
+input_cifs\mp-540977.cif,Move all surrounding atoms within 1.9794202790363389 of the center atom at index 2 by [-0.53052286 -1.46580104 -1.48103248] in the cif file.,mp-540977_processed.cif
+input_cifs\mp-541595.cif,Move all surrounding atoms within 1.908441013701274 of the center atom at index 12 by [-0.29203277  0.60990341 -0.058644  ] in the cif file.,mp-541595_processed.cif
+input_cifs\mp-541619.cif,Move all surrounding atoms within 3.3995626817886766 of the center atom at index 4 by [-3.21937551 -0.55762114 -3.25161233] in the cif file.,mp-541619_processed.cif
+input_cifs\mp-541894.cif,Move all surrounding atoms within 1.7479506413044341 of the center atom at index 1 by [ 1.4218302   0.57001418 -0.91446704] in the cif file.,mp-541894_processed.cif
+input_cifs\mp-541991.cif,Move all surrounding atoms within 2.611260550291563 of the center atom at index 8 by [-1.86047621  1.90105868 -0.59842255] in the cif file.,mp-541991_processed.cif
+input_cifs\mp-542024.cif,Move all surrounding atoms within 2.3287420702088824 of the center atom at index 7 by [ 1.95751094 -2.60694911 -1.62765882] in the cif file.,mp-542024_processed.cif
+input_cifs\mp-542151.cif,Move all surrounding atoms within 2.411395838283114 of the center atom at index 16 by [3.24813617 0.35019516 1.04185137] in the cif file.,mp-542151_processed.cif
+input_cifs\mp-542342.cif,Move all surrounding atoms within 3.4147381831464174 of the center atom at index 11 by [ 1.04699278  0.93517864 -3.46074077] in the cif file.,mp-542342_processed.cif
+input_cifs\mp-542435.cif,Move all surrounding atoms within 2.1263078446790566 of the center atom at index 42 by [ 5.25221141  2.98351457 -0.87044697] in the cif file.,mp-542435_processed.cif
+input_cifs\mp-542448.cif,Move all surrounding atoms within 3.824489229416828 of the center atom at index 6 by [0.14556043 0.33311763 1.53845355] in the cif file.,mp-542448_processed.cif
+input_cifs\mp-542812.cif,Move all surrounding atoms within 1.8594119406423235 of the center atom at index 10 by [-1.05885373  2.04473614  0.40823856] in the cif file.,mp-542812_processed.cif
+input_cifs\mp-543036.cif,Move all surrounding atoms within 2.2660948698885255 of the center atom at index 2 by [-1.88450399  1.38192222 -2.75645241] in the cif file.,mp-543036_processed.cif
+input_cifs\mp-543042.cif,Move all surrounding atoms within 2.155542275528986 of the center atom at index 38 by [0.7280009  1.31679387 3.1000014 ] in the cif file.,mp-543042_processed.cif
+input_cifs\mp-554174.cif,Move all surrounding atoms within 1.6208902951801583 of the center atom at index 43 by [-0.1166109  -0.88679472  0.11151906] in the cif file.,mp-554174_processed.cif
+input_cifs\mp-554264.cif,Move all surrounding atoms within 2.920421454994126 of the center atom at index 0 by [-4.62366588 -0.95504952 -1.61688528] in the cif file.,mp-554264_processed.cif
+input_cifs\mp-554383.cif,Move all surrounding atoms within 3.295608294525369 of the center atom at index 2 by [ 3.03069002 -0.3551604   1.66288264] in the cif file.,mp-554383_processed.cif
+input_cifs\mp-554799.cif,Move all surrounding atoms within 2.373334950607744 of the center atom at index 8 by [-1.12916184 -0.32924584  1.03450742] in the cif file.,mp-554799_processed.cif
+input_cifs\mp-554818.cif,Move all surrounding atoms within 3.200844325174847 of the center atom at index 17 by [-1.81269721  2.83945605  1.39985704] in the cif file.,mp-554818_processed.cif
+input_cifs\mp-555198.cif,Move all surrounding atoms within 1.7976564041472398 of the center atom at index 27 by [-2.73761514  2.59301386  1.4460283 ] in the cif file.,mp-555198_processed.cif
+input_cifs\mp-555534.cif,Move all surrounding atoms within 2.094094943537928 of the center atom at index 9 by [ 0.97051054 -0.56865416  0.87121779] in the cif file.,mp-555534_processed.cif
+input_cifs\mp-555790.cif,Move all surrounding atoms within 2.0252507841427567 of the center atom at index 8 by [-1.69139312 -0.16127087 -2.76566049] in the cif file.,mp-555790_processed.cif
+input_cifs\mp-556185.cif,Move all surrounding atoms within 3.1937697907837643 of the center atom at index 4 by [ 0.97828192  1.3930291  -0.93303933] in the cif file.,mp-556185_processed.cif
+input_cifs\mp-556236.cif,Move all surrounding atoms within 1.8433887744823778 of the center atom at index 43 by [-0.48577829  1.25470814 -1.05215353] in the cif file.,mp-556236_processed.cif
+input_cifs\mp-556319.cif,Move all surrounding atoms within 2.937551091389274 of the center atom at index 9 by [-0.78856196  0.93378625  1.82299258] in the cif file.,mp-556319_processed.cif
+input_cifs\mp-556404.cif,Move all surrounding atoms within 3.864979760472379 of the center atom at index 46 by [-1.82232742 -1.54347925 -5.88794264] in the cif file.,mp-556404_processed.cif
+input_cifs\mp-557059.cif,Move all surrounding atoms within 3.515108294997561 of the center atom at index 44 by [2.42787678 3.59338366 0.88168015] in the cif file.,mp-557059_processed.cif
+input_cifs\mp-557180.cif,Move all surrounding atoms within 3.937832012854939 of the center atom at index 1 by [ 2.1454143  -0.87849359  0.73862486] in the cif file.,mp-557180_processed.cif
+input_cifs\mp-557215.cif,Move all surrounding atoms within 3.8905081878395844 of the center atom at index 14 by [0.34484151 0.32137288 0.35756017] in the cif file.,mp-557215_processed.cif
+input_cifs\mp-557266.cif,Move all surrounding atoms within 1.9519145523036863 of the center atom at index 7 by [ 0.35897056 -3.4873189  -2.98495067] in the cif file.,mp-557266_processed.cif
+input_cifs\mp-557389.cif,Move all surrounding atoms within 3.3150796278123664 of the center atom at index 18 by [-2.92278059  4.34914624  2.94552799] in the cif file.,mp-557389_processed.cif
+input_cifs\mp-557574.cif,Move all surrounding atoms within 3.260572115887933 of the center atom at index 9 by [-0.28499734  2.4921974   1.30299292] in the cif file.,mp-557574_processed.cif
+input_cifs\mp-557589.cif,Move all surrounding atoms within 2.429071879478709 of the center atom at index 29 by [ 3.13283882 -1.63958244  0.49815024] in the cif file.,mp-557589_processed.cif
+input_cifs\mp-557752.cif,Move all surrounding atoms within 2.9795704591443233 of the center atom at index 10 by [-1.36657476 -1.82973462  3.50941947] in the cif file.,mp-557752_processed.cif
+input_cifs\mp-557824.cif,Move all surrounding atoms within 3.762029986431457 of the center atom at index 8 by [-1.58068598 -1.20531661 -0.18975574] in the cif file.,mp-557824_processed.cif
+input_cifs\mp-557864.cif,Move all surrounding atoms within 1.9996734162015133 of the center atom at index 12 by [ 1.65726338 -1.10883402  0.81993665] in the cif file.,mp-557864_processed.cif
+input_cifs\mp-557961.cif,Move all surrounding atoms within 3.0748536373494013 of the center atom at index 40 by [-4.49252812 -1.06498672  6.08056746] in the cif file.,mp-557961_processed.cif
+input_cifs\mp-558023.cif,Move all surrounding atoms within 2.3035874154618616 of the center atom at index 23 by [ 2.11351138 -0.22789104 -2.70895739] in the cif file.,mp-558023_processed.cif
+input_cifs\mp-558368.cif,Move all surrounding atoms within 2.5133716637945245 of the center atom at index 1 by [-0.1671855   1.79251316  0.8281952 ] in the cif file.,mp-558368_processed.cif
+input_cifs\mp-558382.cif,Move all surrounding atoms within 2.674339074420696 of the center atom at index 1 by [ 0.8241387  -2.3209885  -2.33323384] in the cif file.,mp-558382_processed.cif
+input_cifs\mp-559140.cif,Move all surrounding atoms within 1.719743940239534 of the center atom at index 9 by [ 1.17665394 -3.09809261  1.15641642] in the cif file.,mp-559140_processed.cif
+input_cifs\mp-559223.cif,Move all surrounding atoms within 1.7734031631248572 of the center atom at index 12 by [1.51425739 0.00914815 0.20764864] in the cif file.,mp-559223_processed.cif
+input_cifs\mp-559929.cif,Move all surrounding atoms within 3.184765480287601 of the center atom at index 15 by [ 0.77602176 -0.43039043  0.36855184] in the cif file.,mp-559929_processed.cif
+input_cifs\mp-560091.cif,Move all surrounding atoms within 1.677487511194694 of the center atom at index 10 by [ 0.45532497  0.17424684 -1.64933454] in the cif file.,mp-560091_processed.cif
+input_cifs\mp-560380.cif,Move all surrounding atoms within 3.0087908964090193 of the center atom at index 1 by [ 0.75361994  0.09032124 -1.77121307] in the cif file.,mp-560380_processed.cif
+input_cifs\mp-560535.cif,Move all surrounding atoms within 3.596869509866615 of the center atom at index 31 by [2.57591215 0.4829673  2.41257657] in the cif file.,mp-560535_processed.cif
+input_cifs\mp-560605.cif,Move all surrounding atoms within 1.5838983539629856 of the center atom at index 9 by [ 3.96181973 -3.93199695  1.76604734] in the cif file.,mp-560605_processed.cif
+input_cifs\mp-560751.cif,Move all surrounding atoms within 1.8610536773904858 of the center atom at index 57 by [ 0.20775757 -0.30056242  1.90467926] in the cif file.,mp-560751_processed.cif
+input_cifs\mp-560754.cif,Move all surrounding atoms within 2.022561456684598 of the center atom at index 22 by [-1.83038602  3.94262196  0.19391183] in the cif file.,mp-560754_processed.cif
+input_cifs\mp-561641.cif,Move all surrounding atoms within 2.660708371773414 of the center atom at index 10 by [-0.33964076 -1.88930395  2.32340274] in the cif file.,mp-561641_processed.cif
+input_cifs\mp-567492.cif,Move all surrounding atoms within 2.00634764722221 of the center atom at index 18 by [1.51295075 0.69253807 4.00652731] in the cif file.,mp-567492_processed.cif
+input_cifs\mp-567540.cif,Move all surrounding atoms within 2.61343547522271 of the center atom at index 5 by [-0.63161674  1.08104962 -0.96260356] in the cif file.,mp-567540_processed.cif
+input_cifs\mp-568306.cif,Move all surrounding atoms within 3.972521022854512 of the center atom at index 7 by [ 0.86770663 -0.31107195 -0.08996477] in the cif file.,mp-568306_processed.cif
+input_cifs\mp-568716.cif,Move all surrounding atoms within 2.986294042270785 of the center atom at index 2 by [-0.96327258 -0.59971612  2.02385264] in the cif file.,mp-568716_processed.cif
+input_cifs\mp-568757.cif,Move all surrounding atoms within 3.275328073234329 of the center atom at index 53 by [-0.74683788  1.298096   -2.04697446] in the cif file.,mp-568757_processed.cif
+input_cifs\mp-570044.cif,Move all surrounding atoms within 2.2073124486930245 of the center atom at index 8 by [ 1.11728954 -0.65033706  1.74680043] in the cif file.,mp-570044_processed.cif
+input_cifs\mp-571428.cif,Move all surrounding atoms within 3.995591484483973 of the center atom at index 16 by [ 2.37575301 -0.37330897 -0.25051958] in the cif file.,mp-571428_processed.cif
+input_cifs\mp-571566.cif,Move all surrounding atoms within 1.6043604861212575 of the center atom at index 11 by [-1.89048026 -1.96467528 -1.20517725] in the cif file.,mp-571566_processed.cif
+input_cifs\mp-5730.cif,Move all surrounding atoms within 2.748719175743201 of the center atom at index 41 by [ 1.13495217  2.21255103 -1.74482912] in the cif file.,mp-5730_processed.cif
+input_cifs\mp-574339.cif,Move all surrounding atoms within 3.9181466445224684 of the center atom at index 10 by [ 1.96044721 -4.52771509  1.31934222] in the cif file.,mp-574339_processed.cif
+input_cifs\mp-581471.cif,Move all surrounding atoms within 1.964980522389529 of the center atom at index 17 by [ 0.08444788 -1.30139026  1.90582054] in the cif file.,mp-581471_processed.cif
+input_cifs\mp-582081.cif,Move all surrounding atoms within 2.597958717541103 of the center atom at index 66 by [-0.42793241 -0.00283     1.65463771] in the cif file.,mp-582081_processed.cif
+input_cifs\mp-582587.cif,Move all surrounding atoms within 3.087432347201993 of the center atom at index 54 by [-0.53857636  0.83198232  1.13365846] in the cif file.,mp-582587_processed.cif
+input_cifs\mp-603694.cif,Move all surrounding atoms within 1.728606250379662 of the center atom at index 17 by [ 0.26726536 -2.32744933 -1.37818734] in the cif file.,mp-603694_processed.cif
+input_cifs\mp-607525.cif,Move all surrounding atoms within 2.8522316315709046 of the center atom at index 32 by [ 0.07713188  2.90618132 -2.21415931] in the cif file.,mp-607525_processed.cif
+input_cifs\mp-608206.cif,Move all surrounding atoms within 3.3714054978586354 of the center atom at index 8 by [ 2.1650683  -1.12822394 -2.70705027] in the cif file.,mp-608206_processed.cif
+input_cifs\mp-6112.cif,Move all surrounding atoms within 3.0304288318624106 of the center atom at index 27 by [ 0.95309915  1.99797318 -0.25055157] in the cif file.,mp-6112_processed.cif
+input_cifs\mp-613327.cif,Move all surrounding atoms within 3.356546981044513 of the center atom at index 0 by [ 2.52625525 -2.05858578  2.89598533] in the cif file.,mp-613327_processed.cif
+input_cifs\mp-616210.cif,Move all surrounding atoms within 3.6146304079647753 of the center atom at index 21 by [-1.50395177  1.1394018   2.69869771] in the cif file.,mp-616210_processed.cif
+input_cifs\mp-616407.cif,Move all surrounding atoms within 3.9048397359374243 of the center atom at index 1 by [-1.14912243  4.12023131  0.657866  ] in the cif file.,mp-616407_processed.cif
+input_cifs\mp-621964.cif,Move all surrounding atoms within 3.1589503120491402 of the center atom at index 10 by [ 0.56008523 -1.42682267  1.3545104 ] in the cif file.,mp-621964_processed.cif
+input_cifs\mp-6257.cif,Move all surrounding atoms within 3.373377279445445 of the center atom at index 3 by [ 1.89162235  1.67414231 -4.74795579] in the cif file.,mp-6257_processed.cif
+input_cifs\mp-625744.cif,Move all surrounding atoms within 2.888012661966157 of the center atom at index 19 by [-1.31582923 -1.97422813 -0.99276862] in the cif file.,mp-625744_processed.cif
+input_cifs\mp-626565.cif,Move all surrounding atoms within 2.8890952663967377 of the center atom at index 15 by [-2.23774477  2.82339533  0.3116868 ] in the cif file.,mp-626565_processed.cif
+input_cifs\mp-630976.cif,Move all surrounding atoms within 1.5599983756441291 of the center atom at index 4 by [-3.91780038  0.9131213  -1.51364777] in the cif file.,mp-630976_processed.cif
+input_cifs\mp-637599.cif,Move all surrounding atoms within 2.911058563328802 of the center atom at index 4 by [2.18628742 2.87511368 1.00892685] in the cif file.,mp-637599_processed.cif
+input_cifs\mp-639826.cif,Move all surrounding atoms within 2.7590789111578355 of the center atom at index 37 by [-1.09217129 -0.31986226  0.10492711] in the cif file.,mp-639826_processed.cif
+input_cifs\mp-642315.cif,Move all surrounding atoms within 2.5593699372559406 of the center atom at index 17 by [2.4590357  3.58129706 0.33047244] in the cif file.,mp-642315_processed.cif
+input_cifs\mp-644221.cif,Move all surrounding atoms within 2.557599818988475 of the center atom at index 14 by [-1.70862549 -2.51808678  1.52718661] in the cif file.,mp-644221_processed.cif
+input_cifs\mp-644529.cif,Move all surrounding atoms within 3.648433466180972 of the center atom at index 2 by [ 0.36054957 -0.3489493  -2.42924743] in the cif file.,mp-644529_processed.cif
+input_cifs\mp-644741.cif,Move all surrounding atoms within 3.377651547123997 of the center atom at index 18 by [2.90868876 2.11336591 0.76626934] in the cif file.,mp-644741_processed.cif
+input_cifs\mp-654225.cif,Move all surrounding atoms within 3.983496694630521 of the center atom at index 16 by [ 1.00633255  0.1594813  -0.54413738] in the cif file.,mp-654225_processed.cif
+input_cifs\mp-6653.cif,Move all surrounding atoms within 3.0348027215091893 of the center atom at index 6 by [-3.62795368 -4.15162438 -0.53339046] in the cif file.,mp-6653_processed.cif
+input_cifs\mp-667200.cif,Move all surrounding atoms within 3.3140435338621526 of the center atom at index 51 by [-0.17336316  0.45744033 -1.33576141] in the cif file.,mp-667200_processed.cif
+input_cifs\mp-669359.cif,Move all surrounding atoms within 3.5613754418089925 of the center atom at index 22 by [-0.85115575  2.99315994 -0.0360345 ] in the cif file.,mp-669359_processed.cif
+input_cifs\mp-669377.cif,Move all surrounding atoms within 2.7489494017291056 of the center atom at index 13 by [-2.73636539  1.59183509 -1.68920941] in the cif file.,mp-669377_processed.cif
+input_cifs\mp-672228.cif,Move all surrounding atoms within 2.1043791865899983 of the center atom at index 2 by [ 0.61229014 -2.02749732  1.40583917] in the cif file.,mp-672228_processed.cif
+input_cifs\mp-672972.cif,Move all surrounding atoms within 1.5495806420915272 of the center atom at index 8 by [-4.26327519  1.96803195 -2.81505821] in the cif file.,mp-672972_processed.cif
+input_cifs\mp-6745.cif,Move all surrounding atoms within 2.152618275306839 of the center atom at index 13 by [0.52928287 0.90837467 0.82811168] in the cif file.,mp-6745_processed.cif
+input_cifs\mp-675118.cif,Move all surrounding atoms within 3.1901683475587013 of the center atom at index 3 by [-3.68252897 -1.23743712  3.17334578] in the cif file.,mp-675118_processed.cif
+input_cifs\mp-675519.cif,Move all surrounding atoms within 3.916051294634025 of the center atom at index 21 by [ 2.5271337  -2.89428569  1.51693921] in the cif file.,mp-675519_processed.cif
+input_cifs\mp-675778.cif,Move all surrounding atoms within 2.422292907231949 of the center atom at index 9 by [0.98718703 0.34696636 1.51052169] in the cif file.,mp-675778_processed.cif
+input_cifs\mp-676.cif,Move all surrounding atoms within 2.7204066012947186 of the center atom at index 0 by [ 4.35591157 -3.05708028 -3.80479555] in the cif file.,mp-676_processed.cif
+input_cifs\mp-676275.cif,Move all surrounding atoms within 3.6030312506707953 of the center atom at index 11 by [-0.39410694  0.94346893 -0.55584533] in the cif file.,mp-676275_processed.cif
+input_cifs\mp-676816.cif,Move all surrounding atoms within 2.930513009029314 of the center atom at index 9 by [ 1.79044989 -1.15516707 -1.51376868] in the cif file.,mp-676816_processed.cif
+input_cifs\mp-676881.cif,Move all surrounding atoms within 2.399554434678299 of the center atom at index 18 by [3.52282688 1.00171526 1.35388081] in the cif file.,mp-676881_processed.cif
+input_cifs\mp-677725.cif,Move all surrounding atoms within 2.1170521565615914 of the center atom at index 24 by [ 3.07553511 -2.45699045  0.70758087] in the cif file.,mp-677725_processed.cif
+input_cifs\mp-6800.cif,Move all surrounding atoms within 2.2854530133367317 of the center atom at index 9 by [ 2.76153733 -1.70493959  0.7423385 ] in the cif file.,mp-6800_processed.cif
+input_cifs\mp-680260.cif,Move all surrounding atoms within 3.670114611939633 of the center atom at index 35 by [-0.6243802  -1.59808097 -1.67306904] in the cif file.,mp-680260_processed.cif
+input_cifs\mp-684589.cif,Move all surrounding atoms within 1.7833042960426748 of the center atom at index 15 by [ 1.04761088  1.58137022 -0.73410996] in the cif file.,mp-684589_processed.cif
+input_cifs\mp-684710.cif,Move all surrounding atoms within 2.610410462557807 of the center atom at index 4 by [-1.40160267  1.29332391 -0.32405829] in the cif file.,mp-684710_processed.cif
+input_cifs\mp-685224.cif,Move all surrounding atoms within 3.969389223203678 of the center atom at index 14 by [-3.38551155  1.7306836   2.68931168] in the cif file.,mp-685224_processed.cif
+input_cifs\mp-685418.cif,Move all surrounding atoms within 2.95011195925147 of the center atom at index 51 by [-2.3413911   0.35904097 -0.53475792] in the cif file.,mp-685418_processed.cif
+input_cifs\mp-690493.cif,Move all surrounding atoms within 2.5478590011041726 of the center atom at index 12 by [-4.03815638 -1.48925913  1.16348068] in the cif file.,mp-690493_processed.cif
+input_cifs\mp-690517.cif,Move all surrounding atoms within 3.9006013998070443 of the center atom at index 11 by [-3.52598219 -4.97180157 -2.46630526] in the cif file.,mp-690517_processed.cif
+input_cifs\mp-690674.cif,Move all surrounding atoms within 3.9146399417701945 of the center atom at index 7 by [-1.25894417  3.67972252  0.75147648] in the cif file.,mp-690674_processed.cif
+input_cifs\mp-694979.cif,Move all surrounding atoms within 3.6354058253149817 of the center atom at index 19 by [ 1.99409178 -0.62051875 -0.99812982] in the cif file.,mp-694979_processed.cif
+input_cifs\mp-695946.cif,Move all surrounding atoms within 3.1343623542857717 of the center atom at index 11 by [-2.66330145  2.10397501 -2.30235589] in the cif file.,mp-695946_processed.cif
+input_cifs\mp-696298.cif,Move all surrounding atoms within 2.7794051393369443 of the center atom at index 14 by [ 0.15471105 -0.18437343 -1.8472936 ] in the cif file.,mp-696298_processed.cif
+input_cifs\mp-696990.cif,Move all surrounding atoms within 1.668066090958692 of the center atom at index 47 by [ 0.71101581 -2.77985075  1.50689603] in the cif file.,mp-696990_processed.cif
+input_cifs\mp-697075.cif,Move all surrounding atoms within 1.6710510839090749 of the center atom at index 2 by [-3.96890961 -2.49187739 -1.5952354 ] in the cif file.,mp-697075_processed.cif
+input_cifs\mp-697458.cif,Move all surrounding atoms within 3.085857102896992 of the center atom at index 41 by [0.40495884 0.5168395  1.77385455] in the cif file.,mp-697458_processed.cif
+input_cifs\mp-697721.cif,Move all surrounding atoms within 2.3915551055220607 of the center atom at index 3 by [ 1.42162549 -1.13001328  2.50640867] in the cif file.,mp-697721_processed.cif
+input_cifs\mp-698312.cif,Move all surrounding atoms within 1.5280969100626107 of the center atom at index 25 by [ 0.57580898  0.53376649 -0.04190576] in the cif file.,mp-698312_processed.cif
+input_cifs\mp-7022.cif,Move all surrounding atoms within 1.988741976452938 of the center atom at index 0 by [-5.43154893  1.85277725 -0.34707003] in the cif file.,mp-7022_processed.cif
+input_cifs\mp-703291.cif,Move all surrounding atoms within 1.562686441307305 of the center atom at index 2 by [-1.69741456 -0.3310775   1.29970385] in the cif file.,mp-703291_processed.cif
+input_cifs\mp-704116.cif,Move all surrounding atoms within 1.5968958817455383 of the center atom at index 74 by [ 1.69660963 -1.24972888 -2.6747961 ] in the cif file.,mp-704116_processed.cif
+input_cifs\mp-704848.cif,Move all surrounding atoms within 1.8945235344617506 of the center atom at index 10 by [-1.52881102 -1.4917397   2.89684352] in the cif file.,mp-704848_processed.cif
+input_cifs\mp-705312.cif,Move all surrounding atoms within 2.146716779100962 of the center atom at index 68 by [ 1.99181827  2.02932102 -0.26410798] in the cif file.,mp-705312_processed.cif
+input_cifs\mp-706518.cif,Move all surrounding atoms within 1.6403199048003052 of the center atom at index 19 by [-1.17440657  0.52079821  3.52606115] in the cif file.,mp-706518_processed.cif
+input_cifs\mp-706524.cif,Move all surrounding atoms within 3.2311433718907083 of the center atom at index 7 by [-2.86969215 -1.89412127  0.15553636] in the cif file.,mp-706524_processed.cif
+input_cifs\mp-707406.cif,Move all surrounding atoms within 2.45302513810509 of the center atom at index 9 by [-0.30237236  2.33927602  3.40213786] in the cif file.,mp-707406_processed.cif
+input_cifs\mp-707744.cif,Move all surrounding atoms within 3.6566519269226676 of the center atom at index 41 by [-0.42809353  2.74852275 -3.43125153] in the cif file.,mp-707744_processed.cif
+input_cifs\mp-707840.cif,Move all surrounding atoms within 3.79531442584121 of the center atom at index 6 by [ 3.31818964 -2.26510179  2.86624238] in the cif file.,mp-707840_processed.cif
+input_cifs\mp-715457.cif,Move all surrounding atoms within 3.7695569232397226 of the center atom at index 19 by [-1.69232641 -3.05790803 -0.22865708] in the cif file.,mp-715457_processed.cif
+input_cifs\mp-715553.cif,Move all surrounding atoms within 1.7533899195087463 of the center atom at index 0 by [ 5.24998032 -0.43519393  0.87334973] in the cif file.,mp-715553_processed.cif
+input_cifs\mp-720104.cif,Move all surrounding atoms within 3.987782362504262 of the center atom at index 0 by [-0.69514867  0.37784392  0.93220037] in the cif file.,mp-720104_processed.cif
+input_cifs\mp-720572.cif,Move all surrounding atoms within 2.449937813794425 of the center atom at index 7 by [-0.72391954  0.39760371 -1.50407523] in the cif file.,mp-720572_processed.cif
+input_cifs\mp-722790.cif,Move all surrounding atoms within 3.3237209956759814 of the center atom at index 4 by [ 0.17738067  0.95377927 -0.18049204] in the cif file.,mp-722790_processed.cif
+input_cifs\mp-722980.cif,Move all surrounding atoms within 3.0176242113480867 of the center atom at index 5 by [ 5.78087313 -1.05906452  1.64735121] in the cif file.,mp-722980_processed.cif
+input_cifs\mp-726672.cif,Move all surrounding atoms within 3.273678021064266 of the center atom at index 31 by [ 4.15090917  0.29443709 -1.17768184] in the cif file.,mp-726672_processed.cif
+input_cifs\mp-7281.cif,Move all surrounding atoms within 2.6374972935422676 of the center atom at index 0 by [ 0.1057187  -2.54811357 -0.79167847] in the cif file.,mp-7281_processed.cif
+input_cifs\mp-728374.cif,Move all surrounding atoms within 1.563157945797351 of the center atom at index 12 by [-2.51586723  3.21380945  1.36711281] in the cif file.,mp-728374_processed.cif
+input_cifs\mp-731813.cif,Move all surrounding atoms within 3.7032468290473344 of the center atom at index 2 by [-2.24555671 -2.16538777 -0.95798845] in the cif file.,mp-731813_processed.cif
+input_cifs\mp-732021.cif,Move all surrounding atoms within 2.1655024073806297 of the center atom at index 12 by [-4.27790015 -4.42730428  3.18298941] in the cif file.,mp-732021_processed.cif
+input_cifs\mp-734013.cif,Move all surrounding atoms within 1.9644761365405654 of the center atom at index 6 by [-4.1643417  -2.1211576  -4.06661033] in the cif file.,mp-734013_processed.cif
+input_cifs\mp-738609.cif,Move all surrounding atoms within 3.3663182112223375 of the center atom at index 22 by [ 1.16777871 -3.47480235 -3.46147956] in the cif file.,mp-738609_processed.cif
+input_cifs\mp-752590.cif,Move all surrounding atoms within 3.828882378902936 of the center atom at index 1 by [ 0.31024579 -3.40807455 -0.10328636] in the cif file.,mp-752590_processed.cif
+input_cifs\mp-752623.cif,Move all surrounding atoms within 2.6096394680697896 of the center atom at index 30 by [ 3.539564   -3.26328439  0.20926702] in the cif file.,mp-752623_processed.cif
+input_cifs\mp-752859.cif,Move all surrounding atoms within 2.3092642790523916 of the center atom at index 3 by [ 1.87195834 -0.63024373 -0.42898689] in the cif file.,mp-752859_processed.cif
+input_cifs\mp-752896.cif,Move all surrounding atoms within 2.5784594748898275 of the center atom at index 5 by [-0.55852548 -2.58953544  2.22396153] in the cif file.,mp-752896_processed.cif
+input_cifs\mp-752915.cif,Move all surrounding atoms within 1.601921274068161 of the center atom at index 12 by [-1.69956244  3.44145088  0.33021296] in the cif file.,mp-752915_processed.cif
+input_cifs\mp-752916.cif,Move all surrounding atoms within 2.5952226982589535 of the center atom at index 13 by [ 0.72059534 -1.39750345  0.95239213] in the cif file.,mp-752916_processed.cif
+input_cifs\mp-752972.cif,Move all surrounding atoms within 3.491338957675315 of the center atom at index 8 by [-3.01649412 -2.69815356 -1.50253602] in the cif file.,mp-752972_processed.cif
+input_cifs\mp-753000.cif,Move all surrounding atoms within 3.2307393923778602 of the center atom at index 5 by [-0.22315021 -2.85203156 -1.27309775] in the cif file.,mp-753000_processed.cif
+input_cifs\mp-753018.cif,Move all surrounding atoms within 3.724317657695907 of the center atom at index 4 by [ 0.26527832 -2.6925993   3.48344527] in the cif file.,mp-753018_processed.cif
+input_cifs\mp-753047.cif,Move all surrounding atoms within 2.1858518390973902 of the center atom at index 5 by [-0.57108485  2.4473603  -0.01946255] in the cif file.,mp-753047_processed.cif
+input_cifs\mp-753220.cif,Move all surrounding atoms within 3.3979859430465598 of the center atom at index 9 by [ 4.25967746 -0.09582008  2.35399526] in the cif file.,mp-753220_processed.cif
+input_cifs\mp-753282.cif,Move all surrounding atoms within 3.340651543912913 of the center atom at index 15 by [ 3.30979278 -0.37303865 -4.22879554] in the cif file.,mp-753282_processed.cif
+input_cifs\mp-753309.cif,Move all surrounding atoms within 2.568913236076604 of the center atom at index 4 by [-2.31385089 -1.18066536 -1.28621328] in the cif file.,mp-753309_processed.cif
+input_cifs\mp-753322.cif,Move all surrounding atoms within 2.3355799308836884 of the center atom at index 12 by [ 2.50995766 -1.00840299 -0.26493342] in the cif file.,mp-753322_processed.cif
+input_cifs\mp-753612.cif,Move all surrounding atoms within 1.7827273972050046 of the center atom at index 4 by [-0.45305867  0.08651755 -0.18911168] in the cif file.,mp-753612_processed.cif
+input_cifs\mp-753724.cif,Move all surrounding atoms within 3.6266246735401073 of the center atom at index 18 by [-3.11584817 -1.34524817 -0.19550744] in the cif file.,mp-753724_processed.cif
+input_cifs\mp-753992.cif,Move all surrounding atoms within 3.5970285294133593 of the center atom at index 3 by [2.72632519 0.17934337 0.57770038] in the cif file.,mp-753992_processed.cif
+input_cifs\mp-754070.cif,Move all surrounding atoms within 2.3529033328060627 of the center atom at index 14 by [ 0.56321621 -1.28395936 -1.24375873] in the cif file.,mp-754070_processed.cif
+input_cifs\mp-754274.cif,Move all surrounding atoms within 2.8044543318456783 of the center atom at index 5 by [-0.79858858  3.34518717  3.6335055 ] in the cif file.,mp-754274_processed.cif
+input_cifs\mp-754345.cif,Move all surrounding atoms within 2.1510101399059893 of the center atom at index 1 by [-2.60398531 -0.95074486 -1.76649397] in the cif file.,mp-754345_processed.cif
+input_cifs\mp-754644.cif,Move all surrounding atoms within 2.684196112526543 of the center atom at index 5 by [ 2.58746884 -1.41842804 -1.16258053] in the cif file.,mp-754644_processed.cif
+input_cifs\mp-754745.cif,Move all surrounding atoms within 1.7853178606500455 of the center atom at index 2 by [-0.28867494 -2.22682171  2.78250796] in the cif file.,mp-754745_processed.cif
+input_cifs\mp-754794.cif,Move all surrounding atoms within 2.8071901970704256 of the center atom at index 2 by [ 1.17767481 -2.14458355 -2.02683597] in the cif file.,mp-754794_processed.cif
+input_cifs\mp-754886.cif,Move all surrounding atoms within 3.824736146873841 of the center atom at index 23 by [ 1.19451774 -0.71992068 -1.83339461] in the cif file.,mp-754886_processed.cif
+input_cifs\mp-755114.cif,Move all surrounding atoms within 1.7661842233105525 of the center atom at index 5 by [-6.65288696  4.41241952 -0.90901249] in the cif file.,mp-755114_processed.cif
+input_cifs\mp-755229.cif,Move all surrounding atoms within 1.708433632143956 of the center atom at index 5 by [-3.33197773 -2.73378581  0.91562447] in the cif file.,mp-755229_processed.cif
+input_cifs\mp-755317.cif,Move all surrounding atoms within 2.406795204598186 of the center atom at index 1 by [1.33041632 1.9779556  0.10646607] in the cif file.,mp-755317_processed.cif
+input_cifs\mp-755498.cif,Move all surrounding atoms within 2.9984765024930677 of the center atom at index 7 by [ 3.49675875 -1.46733257 -2.24285465] in the cif file.,mp-755498_processed.cif
+input_cifs\mp-755582.cif,Move all surrounding atoms within 3.5696683490849157 of the center atom at index 3 by [ 0.50242771  0.78265987 -0.09721171] in the cif file.,mp-755582_processed.cif
+input_cifs\mp-755926.cif,Move all surrounding atoms within 2.6228840659109185 of the center atom at index 7 by [-2.41287514  0.51870644 -0.06518761] in the cif file.,mp-755926_processed.cif
+input_cifs\mp-755997.cif,Move all surrounding atoms within 3.94749090687615 of the center atom at index 16 by [1.1859875  3.1006101  2.30892693] in the cif file.,mp-755997_processed.cif
+input_cifs\mp-756062.cif,Move all surrounding atoms within 3.143659020062028 of the center atom at index 5 by [0.47134721 1.21959441 2.25911865] in the cif file.,mp-756062_processed.cif
+input_cifs\mp-756382.cif,Move all surrounding atoms within 2.2031002814919414 of the center atom at index 16 by [ 3.738939   -1.9654933  -0.76391746] in the cif file.,mp-756382_processed.cif
+input_cifs\mp-756670.cif,Move all surrounding atoms within 2.1320653851713716 of the center atom at index 20 by [-0.50452371 -2.00845027  2.72966292] in the cif file.,mp-756670_processed.cif
+input_cifs\mp-756859.cif,Move all surrounding atoms within 2.974577267125775 of the center atom at index 9 by [ 0.49171064 -3.39356945  1.68886179] in the cif file.,mp-756859_processed.cif
+input_cifs\mp-756990.cif,Move all surrounding atoms within 2.989519555144575 of the center atom at index 15 by [ 0.3647279  -1.57735656 -2.63948576] in the cif file.,mp-756990_processed.cif
+input_cifs\mp-757189.cif,Move all surrounding atoms within 3.935942415911804 of the center atom at index 9 by [1.76106154 1.74042137 4.31892306] in the cif file.,mp-757189_processed.cif
+input_cifs\mp-757311.cif,Move all surrounding atoms within 3.7010114831174374 of the center atom at index 50 by [0.38359521 2.29090414 1.59889069] in the cif file.,mp-757311_processed.cif
+input_cifs\mp-757314.cif,Move all surrounding atoms within 1.6629479713641515 of the center atom at index 4 by [-1.95532867  0.95496471 -2.12617248] in the cif file.,mp-757314_processed.cif
+input_cifs\mp-757440.cif,Move all surrounding atoms within 3.5811733242136548 of the center atom at index 0 by [ 1.27174349 -0.09903298  2.7522094 ] in the cif file.,mp-757440_processed.cif
+input_cifs\mp-757579.cif,Move all surrounding atoms within 3.689496116272843 of the center atom at index 42 by [-1.71475461 -1.29867725  1.68311497] in the cif file.,mp-757579_processed.cif
+input_cifs\mp-757665.cif,Move all surrounding atoms within 2.8797094695718766 of the center atom at index 13 by [0.65798193 1.70203045 0.83119089] in the cif file.,mp-757665_processed.cif
+input_cifs\mp-757787.cif,Move all surrounding atoms within 2.154611139390725 of the center atom at index 6 by [-1.37860146 -0.98677267  0.13503791] in the cif file.,mp-757787_processed.cif
+input_cifs\mp-758534.cif,Move all surrounding atoms within 2.9705832529165463 of the center atom at index 30 by [-2.47973813  0.19161623 -3.52331497] in the cif file.,mp-758534_processed.cif
+input_cifs\mp-758565.cif,Move all surrounding atoms within 3.190102813556953 of the center atom at index 4 by [ 1.31540118 -0.56017292  0.40020012] in the cif file.,mp-758565_processed.cif
+input_cifs\mp-758722.cif,Move all surrounding atoms within 3.386693380718972 of the center atom at index 26 by [ 0.93910256  1.21319633 -0.01312589] in the cif file.,mp-758722_processed.cif
+input_cifs\mp-758858.cif,Move all surrounding atoms within 3.164260735984758 of the center atom at index 8 by [ 0.08389416 -1.25381526  1.45355165] in the cif file.,mp-758858_processed.cif
+input_cifs\mp-759080.cif,Move all surrounding atoms within 3.430582235538736 of the center atom at index 18 by [-0.12549658  0.09895114 -0.3169001 ] in the cif file.,mp-759080_processed.cif
+input_cifs\mp-759482.cif,Move all surrounding atoms within 2.043802663319705 of the center atom at index 10 by [0.14942405 1.47209569 3.52661595] in the cif file.,mp-759482_processed.cif
+input_cifs\mp-759507.cif,Move all surrounding atoms within 3.234870621454136 of the center atom at index 16 by [-3.37934828  0.67327334 -1.00181841] in the cif file.,mp-759507_processed.cif
+input_cifs\mp-759524.cif,Move all surrounding atoms within 3.9874094621529026 of the center atom at index 7 by [ 0.21834994 -0.85778798  0.12515069] in the cif file.,mp-759524_processed.cif
+input_cifs\mp-759607.cif,Move all surrounding atoms within 2.596681980171895 of the center atom at index 70 by [1.0880284  2.62150428 0.1944096 ] in the cif file.,mp-759607_processed.cif
+input_cifs\mp-759656.cif,Move all surrounding atoms within 3.893463162180965 of the center atom at index 23 by [-1.30596732 -0.1689733  -0.48854793] in the cif file.,mp-759656_processed.cif
+input_cifs\mp-759790.cif,Move all surrounding atoms within 2.008596466050715 of the center atom at index 8 by [-0.6076037   0.50876494 -0.51986254] in the cif file.,mp-759790_processed.cif
+input_cifs\mp-759809.cif,Move all surrounding atoms within 3.1746674181100696 of the center atom at index 0 by [3.15650727 2.47233823 2.00554601] in the cif file.,mp-759809_processed.cif
+input_cifs\mp-760193.cif,Move all surrounding atoms within 3.2475317184146397 of the center atom at index 28 by [1.02255344 2.83421204 3.1580228 ] in the cif file.,mp-760193_processed.cif
+input_cifs\mp-760300.cif,Move all surrounding atoms within 3.558143965070774 of the center atom at index 9 by [ 1.69051968  0.4202882  -2.13335161] in the cif file.,mp-760300_processed.cif
+input_cifs\mp-761082.cif,Move all surrounding atoms within 2.3250831735468562 of the center atom at index 19 by [ 0.99382831 -0.08174116  0.21848334] in the cif file.,mp-761082_processed.cif
+input_cifs\mp-761112.cif,Move all surrounding atoms within 3.7671832385578243 of the center atom at index 12 by [ 1.82816874  1.28856691 -2.76243068] in the cif file.,mp-761112_processed.cif
+input_cifs\mp-7614.cif,Move all surrounding atoms within 2.073557838415993 of the center atom at index 8 by [ 0.33569998  0.07697202 -0.83059111] in the cif file.,mp-7614_processed.cif
+input_cifs\mp-762304.cif,Move all surrounding atoms within 3.981219624179318 of the center atom at index 9 by [0.81997241 0.70559794 0.8365828 ] in the cif file.,mp-762304_processed.cif
+input_cifs\mp-7625.cif,Move all surrounding atoms within 2.919379387749502 of the center atom at index 10 by [-1.71713836  1.45621801 -0.60301737] in the cif file.,mp-7625_processed.cif
+input_cifs\mp-762521.cif,Move all surrounding atoms within 3.50758480951459 of the center atom at index 8 by [ 2.91015537 -0.6330827  -1.20510715] in the cif file.,mp-762521_processed.cif
+input_cifs\mp-763259.cif,Move all surrounding atoms within 2.3944172051505874 of the center atom at index 17 by [ 2.97764389  0.22949847 -0.16452959] in the cif file.,mp-763259_processed.cif
+input_cifs\mp-763484.cif,Move all surrounding atoms within 2.6761806028237296 of the center atom at index 7 by [-1.4299902  -1.84707414 -0.19594375] in the cif file.,mp-763484_processed.cif
+input_cifs\mp-763920.cif,Move all surrounding atoms within 1.5880795241560417 of the center atom at index 19 by [-0.79675479 -0.71462061 -1.84047684] in the cif file.,mp-763920_processed.cif
+input_cifs\mp-765709.cif,Move all surrounding atoms within 3.732428575693197 of the center atom at index 17 by [ 3.2953476  -1.10923533 -1.44351557] in the cif file.,mp-765709_processed.cif
+input_cifs\mp-766040.cif,Move all surrounding atoms within 3.753498993382779 of the center atom at index 9 by [-2.42606826  0.71362284  2.03597223] in the cif file.,mp-766040_processed.cif
+input_cifs\mp-766051.cif,Move all surrounding atoms within 3.6529599172293494 of the center atom at index 3 by [-2.90249863 -0.90791043 -1.54597367] in the cif file.,mp-766051_processed.cif
+input_cifs\mp-766137.cif,Move all surrounding atoms within 1.651655875612335 of the center atom at index 10 by [-0.52593337 -2.1652714  -0.94966088] in the cif file.,mp-766137_processed.cif
+input_cifs\mp-766408.cif,Move all surrounding atoms within 3.5092767531405022 of the center atom at index 13 by [ 1.74481562  1.537625   -0.41467301] in the cif file.,mp-766408_processed.cif
+input_cifs\mp-766447.cif,Move all surrounding atoms within 2.809662575454162 of the center atom at index 23 by [1.41480386 4.46567051 1.12287429] in the cif file.,mp-766447_processed.cif
+input_cifs\mp-766539.cif,Move all surrounding atoms within 2.320751445582654 of the center atom at index 15 by [-3.74405882 -5.23503447 -0.55998208] in the cif file.,mp-766539_processed.cif
+input_cifs\mp-768276.cif,Move all surrounding atoms within 1.9044478939457194 of the center atom at index 20 by [1.41603709 1.2528488  2.85919892] in the cif file.,mp-768276_processed.cif
+input_cifs\mp-768373.cif,Move all surrounding atoms within 2.3360749996870886 of the center atom at index 22 by [-1.3607322  -1.14223724  2.56801832] in the cif file.,mp-768373_processed.cif
+input_cifs\mp-768854.cif,Move all surrounding atoms within 2.0475439580672425 of the center atom at index 8 by [ 1.70934772  2.37071503 -0.84133036] in the cif file.,mp-768854_processed.cif
+input_cifs\mp-768859.cif,Move all surrounding atoms within 3.5667981237112594 of the center atom at index 11 by [-0.64917624 -3.02011508  3.06989477] in the cif file.,mp-768859_processed.cif
+input_cifs\mp-769049.cif,Move all surrounding atoms within 2.098466812947735 of the center atom at index 16 by [ 2.99170614  0.3311103  -0.90141201] in the cif file.,mp-769049_processed.cif
+input_cifs\mp-769346.cif,Move all surrounding atoms within 1.6385355032709004 of the center atom at index 28 by [ 1.6137325  0.7311952 -0.3992526] in the cif file.,mp-769346_processed.cif
+input_cifs\mp-769383.cif,Move all surrounding atoms within 1.800927077024101 of the center atom at index 11 by [ 1.5478655 -6.1390881  0.6777438] in the cif file.,mp-769383_processed.cif
+input_cifs\mp-770406.cif,Move all surrounding atoms within 2.687054896366917 of the center atom at index 14 by [-0.26410097  0.91012787 -1.9235336 ] in the cif file.,mp-770406_processed.cif
+input_cifs\mp-770508.cif,Move all surrounding atoms within 1.5634439423369453 of the center atom at index 16 by [-0.83875085  1.43200864  3.0482214 ] in the cif file.,mp-770508_processed.cif
+input_cifs\mp-770714.cif,Move all surrounding atoms within 3.102666312675267 of the center atom at index 1 by [1.5323744  1.95972087 1.57056624] in the cif file.,mp-770714_processed.cif
+input_cifs\mp-770847.cif,Move all surrounding atoms within 1.6162156193112382 of the center atom at index 27 by [-1.48903792  1.2161043  -0.57446233] in the cif file.,mp-770847_processed.cif
+input_cifs\mp-770865.cif,Move all surrounding atoms within 3.604047101574901 of the center atom at index 7 by [ 0.03994367 -1.30328722 -2.74718989] in the cif file.,mp-770865_processed.cif
+input_cifs\mp-770898.cif,Move all surrounding atoms within 1.8226814852458233 of the center atom at index 7 by [-3.95051068 -0.40557096  0.5669057 ] in the cif file.,mp-770898_processed.cif
+input_cifs\mp-770995.cif,Move all surrounding atoms within 2.7212289183238365 of the center atom at index 12 by [-5.12667697  3.11978482  0.76239863] in the cif file.,mp-770995_processed.cif
+input_cifs\mp-771674.cif,Move all surrounding atoms within 1.8631225828350007 of the center atom at index 30 by [ 2.9286571  -1.14986892 -2.23632718] in the cif file.,mp-771674_processed.cif
+input_cifs\mp-772172.cif,Move all surrounding atoms within 3.7636419784489017 of the center atom at index 4 by [-1.28655432  0.79477634 -0.59661822] in the cif file.,mp-772172_processed.cif
+input_cifs\mp-772550.cif,Move all surrounding atoms within 3.744242517888349 of the center atom at index 7 by [2.86125924 0.42842809 1.19491124] in the cif file.,mp-772550_processed.cif
+input_cifs\mp-772610.cif,Move all surrounding atoms within 2.1427010543168366 of the center atom at index 29 by [ 2.20806296 -1.21802669  0.83728518] in the cif file.,mp-772610_processed.cif
+input_cifs\mp-772749.cif,Move all surrounding atoms within 3.9240016926197674 of the center atom at index 38 by [ 0.08913977  0.77196857 -0.57998122] in the cif file.,mp-772749_processed.cif
+input_cifs\mp-772763.cif,Move all surrounding atoms within 2.3867405444058494 of the center atom at index 23 by [-1.47890113  1.16599665  2.58885555] in the cif file.,mp-772763_processed.cif
+input_cifs\mp-772999.cif,Move all surrounding atoms within 2.006264908182983 of the center atom at index 13 by [-5.8850204   1.32871705  3.54167157] in the cif file.,mp-772999_processed.cif
+input_cifs\mp-773070.cif,Move all surrounding atoms within 2.734529249840284 of the center atom at index 41 by [-1.35819104  1.31322119  2.63570316] in the cif file.,mp-773070_processed.cif
+input_cifs\mp-774146.cif,Move all surrounding atoms within 2.500731352292335 of the center atom at index 3 by [ 2.46824278 -1.47009722  0.75663669] in the cif file.,mp-774146_processed.cif
+input_cifs\mp-774370.cif,Move all surrounding atoms within 2.1935005567271384 of the center atom at index 28 by [2.94717491 0.14765993 1.98051208] in the cif file.,mp-774370_processed.cif
+input_cifs\mp-774459.cif,Move all surrounding atoms within 2.9754539888028453 of the center atom at index 47 by [ 2.41541216  0.7666835  -2.08438092] in the cif file.,mp-774459_processed.cif
+input_cifs\mp-774822.cif,Move all surrounding atoms within 3.0689213661793557 of the center atom at index 10 by [1.1464638  0.14799523 0.20082948] in the cif file.,mp-774822_processed.cif
+input_cifs\mp-774929.cif,Move all surrounding atoms within 3.7465824302287816 of the center atom at index 51 by [-2.44026015  0.04778689  2.24248248] in the cif file.,mp-774929_processed.cif
+input_cifs\mp-774940.cif,Move all surrounding atoms within 2.5643507541429544 of the center atom at index 24 by [ 2.09731851  0.23040499 -1.13261606] in the cif file.,mp-774940_processed.cif
+input_cifs\mp-775126.cif,Move all surrounding atoms within 3.311524846285894 of the center atom at index 28 by [ 0.82046708 -0.58160495 -1.51776374] in the cif file.,mp-775126_processed.cif
+input_cifs\mp-775216.cif,Move all surrounding atoms within 1.8877766169891448 of the center atom at index 6 by [-1.74981502 -2.42424646 -0.32514588] in the cif file.,mp-775216_processed.cif
+input_cifs\mp-775224.cif,Move all surrounding atoms within 2.9338564527146844 of the center atom at index 13 by [ 0.33002615  1.20643112 -2.56501381] in the cif file.,mp-775224_processed.cif
+input_cifs\mp-775268.cif,Move all surrounding atoms within 1.9514216398864865 of the center atom at index 21 by [1.26726094 0.86653746 1.86730606] in the cif file.,mp-775268_processed.cif
+input_cifs\mp-775340.cif,Move all surrounding atoms within 3.389601274203936 of the center atom at index 40 by [-2.15216112 -0.05721179 -2.45416315] in the cif file.,mp-775340_processed.cif
+input_cifs\mp-775989.cif,Move all surrounding atoms within 2.9805244575672862 of the center atom at index 15 by [ 4.34998652  0.18636654 -0.64056958] in the cif file.,mp-775989_processed.cif
+input_cifs\mp-776097.cif,Move all surrounding atoms within 3.2184105958092952 of the center atom at index 24 by [-0.10926522 -0.6421355   4.73450965] in the cif file.,mp-776097_processed.cif
+input_cifs\mp-776529.cif,Move all surrounding atoms within 2.2178410260438532 of the center atom at index 30 by [-0.9324802  -1.08859894 -0.57341274] in the cif file.,mp-776529_processed.cif
+input_cifs\mp-7767.cif,Move all surrounding atoms within 2.1296868248064653 of the center atom at index 8 by [-3.63555523  2.64034065  0.2230344 ] in the cif file.,mp-7767_processed.cif
+input_cifs\mp-776873.cif,Move all surrounding atoms within 3.4361107439773546 of the center atom at index 35 by [ 2.84425012 -2.88782716  1.0969334 ] in the cif file.,mp-776873_processed.cif
+input_cifs\mp-777288.cif,Move all surrounding atoms within 3.769379620775353 of the center atom at index 4 by [0.6408655  2.59393129 0.33376269] in the cif file.,mp-777288_processed.cif
+input_cifs\mp-777458.cif,Move all surrounding atoms within 1.5051571745450965 of the center atom at index 7 by [-2.10453482  0.05111995  1.94503385] in the cif file.,mp-777458_processed.cif
+input_cifs\mp-777764.cif,Move all surrounding atoms within 2.1187513557650552 of the center atom at index 41 by [ 2.01109044 -0.90779424 -0.23505574] in the cif file.,mp-777764_processed.cif
+input_cifs\mp-778141.cif,Move all surrounding atoms within 2.3044563215522103 of the center atom at index 22 by [0.20092544 0.59037805 3.11894597] in the cif file.,mp-778141_processed.cif
+input_cifs\mp-778158.cif,Move all surrounding atoms within 3.0455844398524463 of the center atom at index 5 by [-0.43679946  2.55036059 -2.11822674] in the cif file.,mp-778158_processed.cif
+input_cifs\mp-778252.cif,Move all surrounding atoms within 3.7505532679642433 of the center atom at index 55 by [ 1.97796628 -4.43477641 -2.2450213 ] in the cif file.,mp-778252_processed.cif
+input_cifs\mp-778260.cif,Move all surrounding atoms within 3.5931480361295836 of the center atom at index 32 by [-2.85043488 -1.63858039 -0.69915461] in the cif file.,mp-778260_processed.cif
+input_cifs\mp-779095.cif,Move all surrounding atoms within 3.814600577767278 of the center atom at index 4 by [-1.73996901  0.0730348   1.46162907] in the cif file.,mp-779095_processed.cif
+input_cifs\mp-779789.cif,Move all surrounding atoms within 3.0004704555296167 of the center atom at index 47 by [ 5.33624682 -3.44678103  1.05896629] in the cif file.,mp-779789_processed.cif
+input_cifs\mp-780121.cif,Move all surrounding atoms within 2.993778458360319 of the center atom at index 11 by [ 2.05451085  1.19946023 -1.87778891] in the cif file.,mp-780121_processed.cif
+input_cifs\mp-780175.cif,Move all surrounding atoms within 2.2776990147924066 of the center atom at index 1 by [-2.95491874  0.21263804 -3.42430473] in the cif file.,mp-780175_processed.cif
+input_cifs\mp-780392.cif,Move all surrounding atoms within 2.783642361611516 of the center atom at index 12 by [ 0.69792808 -0.35576721 -0.93106751] in the cif file.,mp-780392_processed.cif
+input_cifs\mp-780797.cif,Move all surrounding atoms within 3.1644420212571944 of the center atom at index 13 by [-1.16913507 -2.77874308  2.25566787] in the cif file.,mp-780797_processed.cif
+input_cifs\mp-782009.cif,Move all surrounding atoms within 3.503435681537283 of the center atom at index 29 by [-1.77827531 -3.46395454  0.48488801] in the cif file.,mp-782009_processed.cif
+input_cifs\mp-7926.cif,Move all surrounding atoms within 1.8792306621911978 of the center atom at index 4 by [ 0.31912572 -0.45435558 -0.70171397] in the cif file.,mp-7926_processed.cif
+input_cifs\mp-803628.cif,Move all surrounding atoms within 2.596577242244376 of the center atom at index 5 by [-3.37683875  6.03529564  2.39720469] in the cif file.,mp-803628_processed.cif
+input_cifs\mp-8058.cif,Move all surrounding atoms within 2.016220304589564 of the center atom at index 7 by [-2.91664536 -1.33474245 -0.58845374] in the cif file.,mp-8058_processed.cif
+input_cifs\mp-807001.cif,Move all surrounding atoms within 2.3783587857763626 of the center atom at index 23 by [3.74108225 0.40547679 2.42873029] in the cif file.,mp-807001_processed.cif
+input_cifs\mp-818638.cif,Move all surrounding atoms within 2.809882085457884 of the center atom at index 28 by [ 0.70994403 -2.06228178 -3.03295216] in the cif file.,mp-818638_processed.cif
+input_cifs\mp-850260.cif,Move all surrounding atoms within 2.5305699213389428 of the center atom at index 2 by [ 1.6854887   2.71243628 -1.23268289] in the cif file.,mp-850260_processed.cif
+input_cifs\mp-850784.cif,Move all surrounding atoms within 3.1098423006927836 of the center atom at index 33 by [-1.91329712  1.05584599  0.24113449] in the cif file.,mp-850784_processed.cif
+input_cifs\mp-850942.cif,Move all surrounding atoms within 2.113863275545664 of the center atom at index 13 by [-0.42343161  2.47532004  1.15556965] in the cif file.,mp-850942_processed.cif
+input_cifs\mp-861324.cif,Move all surrounding atoms within 2.858579380848943 of the center atom at index 21 by [-0.04021681 -2.79456601 -1.02912   ] in the cif file.,mp-861324_processed.cif
+input_cifs\mp-861689.cif,Move all surrounding atoms within 3.549449344368288 of the center atom at index 7 by [1.28137555 0.75622225 3.61446024] in the cif file.,mp-861689_processed.cif
+input_cifs\mp-863022.cif,Move all surrounding atoms within 3.2229948506495676 of the center atom at index 2 by [ 1.48757432  0.16264047 -0.68531286] in the cif file.,mp-863022_processed.cif
+input_cifs\mp-863365.cif,Move all surrounding atoms within 3.7564730843683516 of the center atom at index 27 by [-0.57600243  2.12605357  3.69998668] in the cif file.,mp-863365_processed.cif
+input_cifs\mp-863428.cif,Move all surrounding atoms within 2.935316495495828 of the center atom at index 38 by [0.05242027 1.57272199 0.62506992] in the cif file.,mp-863428_processed.cif
+input_cifs\mp-863754.cif,Move all surrounding atoms within 3.5768712178405755 of the center atom at index 13 by [-1.2913361  -2.40495651 -2.17370468] in the cif file.,mp-863754_processed.cif
+input_cifs\mp-865205.cif,Move all surrounding atoms within 3.1569457279911224 of the center atom at index 13 by [-1.27368653  1.63355386  0.12863649] in the cif file.,mp-865205_processed.cif
+input_cifs\mp-866298.cif,Move all surrounding atoms within 1.557665233469241 of the center atom at index 3 by [ 0.09182692 -2.92484266 -0.41462475] in the cif file.,mp-866298_processed.cif
+input_cifs\mp-866520.cif,Move all surrounding atoms within 2.5366852423766075 of the center atom at index 0 by [-2.26700916  1.45638324  0.50012778] in the cif file.,mp-866520_processed.cif
+input_cifs\mp-867606.cif,Move all surrounding atoms within 2.1588627344848033 of the center atom at index 8 by [-1.66367691  1.73399831  2.87604835] in the cif file.,mp-867606_processed.cif
+input_cifs\mp-881189.cif,Move all surrounding atoms within 3.0627402442611547 of the center atom at index 12 by [-0.14610469  2.08716297 -1.93809383] in the cif file.,mp-881189_processed.cif
+input_cifs\mp-9275.cif,Move all surrounding atoms within 2.0166030248668614 of the center atom at index 18 by [-1.61158523  0.00977382  0.90059663] in the cif file.,mp-9275_processed.cif
+input_cifs\mp-9324.cif,Move all surrounding atoms within 3.117622263438986 of the center atom at index 3 by [3.39297258 4.24048716 2.57986725] in the cif file.,mp-9324_processed.cif
+input_cifs\mp-935710.cif,Move all surrounding atoms within 2.6464930235501347 of the center atom at index 20 by [-0.99837114 -2.93818741  0.19409355] in the cif file.,mp-935710_processed.cif
+input_cifs\mp-9403.cif,Move all surrounding atoms within 2.541709532199576 of the center atom at index 64 by [ 1.86012219 -2.57129963 -3.13614837] in the cif file.,mp-9403_processed.cif
+input_cifs\mp-9417.cif,Move all surrounding atoms within 3.0086699463275566 of the center atom at index 12 by [ 0.12537355 -2.12509589 -0.13698374] in the cif file.,mp-9417_processed.cif
+input_cifs\mp-978989.cif,Move all surrounding atoms within 2.1209983296314676 of the center atom at index 18 by [ 3.5163905  -0.84903506  1.80040968] in the cif file.,mp-978989_processed.cif
+input_cifs\mp-979264.cif,Move all surrounding atoms within 3.762116702109585 of the center atom at index 6 by [-1.42839925  0.31484076 -1.81661636] in the cif file.,mp-979264_processed.cif
+input_cifs\mp-982385.cif,Move all surrounding atoms within 1.8522144537574161 of the center atom at index 7 by [ 0.79867717 -0.48120845  0.57515234] in the cif file.,mp-982385_processed.cif
+input_cifs\mp-985468.cif,Move all surrounding atoms within 3.9143072819037577 of the center atom at index 9 by [ 1.51315533 -1.86888181  0.25314948] in the cif file.,mp-985468_processed.cif
+input_cifs\mp-991772.cif,Move all surrounding atoms within 2.0010297973366282 of the center atom at index 16 by [-0.89653868  1.72024486  2.72743726] in the cif file.,mp-991772_processed.cif
+input_cifs\mp-997585.cif,Move all surrounding atoms within 2.498107367084252 of the center atom at index 8 by [1.38791432 1.93678223 2.11814058] in the cif file.,mp-997585_processed.cif
+input_cifs\mp-998746.cif,Move all surrounding atoms within 1.8585639325807528 of the center atom at index 16 by [-3.10127599 -0.57914925  3.13701678] in the cif file.,mp-998746_processed.cif

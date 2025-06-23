@@ -1,0 +1,19 @@
+deepseek_chat:
+  class: OpenAIModel
+  model_name: deepseek-chat 
+  api_key: ${DEEPSEEK_API_KEY} 
+  base_url: https://api.deepseek.com/v1
+
+deepseek_reasoner:
+  class: OpenAIModel 
+  model_name: deepseek-reasoner 
+  api_key: ${DEEPSEEK_API_KEY} 
+  base_url: https://api.deepseek.com/v1 
+
+
+
+# gpt_4o:
+#   class: OpenAIModel
+#   model_name: gpt-4o
+#   api_key: ${OPENAI_API_KEY}
+#   base_url: https://api.openai.com/v1 

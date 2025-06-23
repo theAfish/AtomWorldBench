@@ -20,6 +20,23 @@ def load_cif_file(cif_file):
         print(f"Error loading CIF file {cif_file}: {e}")
         return None
     
+def load_cif_file_from_string(cif_string):
+    """
+    Load a CIF file from a string and return the first structure.
+    If the string is not valid, return None.
+    """
+    try:
+        parser = CifParser.from_str(cif_string)
+        structures = parser.get_structures()
+        if structures:
+            return structures[0]
+        else:
+            print("No structures found in the CIF string.")
+            return None
+    except Exception as e:
+        print(f"Error loading CIF from string: {e}")
+        return None
+    
 
 def check_atom_counts(struct1, struct2):
     """
@@ -79,3 +96,19 @@ def get_rmsd_and_maxdiff(struct1, struct2):
     max_diff = np.max(np.linalg.norm(diff, axis=1))
 
     return rmsd, max_diff
+
+cif_pred = "D:/Codes/AtomWorld\src/tests\outputs\gemini_2.5_pro.cif"
+cif_std = "D:/Codes/AtomWorld\src/data\output_cifs/add_atom_action\mp-676_processed.cif"
+
+
+struct_pred = load_cif_file(cif_pred)
+struct_std = load_cif_file(cif_std)
+if struct_pred is None or struct_std is None:
+    print("Error loading structures. Exiting.")
+else:
+    if check_atom_counts(struct_pred, struct_std):
+        print("Atom counts match.")
+        rmsd, max_diff = get_rmsd_and_maxdiff(struct_pred, struct_std)
+        print(f"RMSD: {rmsd:.8f}, Max Diff: {max_diff:.8f}")
+    else:
+        print("Atom counts do NOT match.")

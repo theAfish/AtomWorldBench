@@ -30,14 +30,23 @@ class ActionInputGenerator:
         self.atoms = atoms
         self.dpos_scale = 2.0  # scale for random displacements
 
-    def random_index(self):
-        return random.randint(0, len(self.atoms) - 1)
-
-    def random_indices(self):
-        count = random.randint(1, len(self.atoms))
+    def random_indices(self, count=1):
+        if len(self.atoms) < count:
+            raise ValueError("Not enough atoms to select the required number of indices.")
         return random.sample(range(len(self.atoms)), count)
 
-    def random_radius(self, min_r=1.5, max_r=5.0):
+    def random_radius(self, min_r=1.5, max_r=4.0, index=None):
+        # If index is provided, ensure radius does not delete all atoms
+        if index is not None and len(self.atoms) > 1:
+            # Compute all distances from index to others (with PBC)
+            distances = self.atoms.get_distances(index, range(len(self.atoms)), mic=True)
+            max_dist = np.max(distances[distances > 0])  # exclude self
+            # Set max_r to be less than max_dist
+            max_r = min(max_r, max_dist * 0.99)
+            if max_r < min_r:
+                max_r = max_dist * 0.5  # fallback
+            if max_r < 0.1:
+                max_r = 0.1
         return random.uniform(min_r, max_r)
 
     def random_distance(self, min_d=0.1, max_d=3.0):
@@ -62,20 +71,56 @@ class ActionInputGenerator:
     
     def random_angle(self):
         # Generate a random angle in radians
-        return random.uniform(0, 2 * np.pi)
+        return random.uniform(np.pi/8, 2 * np.pi)
     
     def generate_inputs_for_action(self, action_cls):
         sig = inspect.signature(action_cls.__init__)
         kwargs = {}
+        used_indices = None
         for name, param in list(sig.parameters.items())[1:]:  # skip 'self'
             if name == 'atoms':
                 kwargs[name] = self.atoms
-            elif name == 'index' or name.startswith('index'):
-                kwargs[name] = self.random_index()
+            elif name in ('index1', 'index2'):
+                # Ensure index1 and index2 are different and (for SwapAtomsAction) different types
+                if used_indices is None:
+                    if action_cls.__name__ == "SwapAtomsAction":
+                        unique_types = set(atom.symbol for atom in self.atoms)
+                        if len(unique_types) < 2:
+                            raise ValueError("Not enough atom types to swap.")
+                        max_tries = 20
+                        for _ in range(max_tries):
+                            idx1, idx2 = self.random_indices(2)
+                            if self.atoms[idx1].symbol != self.atoms[idx2].symbol:
+                                used_indices = [idx1, idx2]
+                                break
+                        else:
+                            raise ValueError("Could not find two atoms of different types to swap.")
+                    else:
+                        used_indices = self.random_indices(2)
+                kwargs[name] = used_indices[0] if name == 'index1' else used_indices[1]
+            elif name == 'index':
+                if action_cls.__name__ == "DeleteBelowAtomAction":
+                    max_tries = 20
+                    for _ in range(max_tries):
+                        idx = self.random_indices(1)[0]
+                        z_threshold = self.atoms[idx].position[2]
+                        indices_below = [i for i, atom in enumerate(self.atoms) if atom.position[2] < z_threshold and i != idx]
+                        if indices_below:
+                            kwargs[name] = idx
+                            break
+                    else:
+                        raise ValueError("Could not find an atom with atoms below it to delete.")
+                else:
+                    kwargs[name] = self.random_indices(1)[0]
             elif name == 'indices':
-                kwargs[name] = self.random_indices()
+                # You can decide the count or randomize it
+                count = random.randint(1, len(self.atoms))
+                kwargs[name] = self.random_indices(count)
             elif name == 'radius':
-                kwargs[name] = self.random_radius()
+                if action_cls.__name__ == "DeleteAroundAtomAction" and 'index' in kwargs:
+                    kwargs[name] = self.random_radius(index=kwargs['index'])
+                else:
+                    kwargs[name] = self.random_radius()
             elif name == 'distance':
                 kwargs[name] = self.random_distance()
             elif name == 'symbol':
@@ -114,7 +159,7 @@ class DataGenerator:
             action_name = ''.join(['_' + c.lower() if c.isupper() else c for c in action_name]).lstrip('_')
             action_folder = os.path.join(self.output_dir, action_name)
             os.makedirs(action_folder, exist_ok=True)
-            csv_path = os.path.join(action_folder, f"{action_name}.csv")
+            csv_path = os.path.join(self.output_dir, f"{action_name}.csv")
             with open(csv_path, "w", newline='') as csvfile:
                 writer = csv.writer(csvfile)
                 writer.writerow(["input_cif", "action_prompt", "output_cif"])
@@ -130,15 +175,19 @@ class DataGenerator:
                         print(f"Action {action_name} failed on {cif_file}: {e}")
                         continue
                     output_cif = os.path.join(action_folder, f"{os.path.splitext(cif_file)[0]}_processed.cif")
-                    write(output_cif, processed_atoms)
+                    try:
+                        write(output_cif, processed_atoms)
+                    except Exception as e:
+                        print(f"Failed to write output CIF for {cif_file}: {e}")
+                        continue
                     prompt = str(action)
-                    writer.writerow([input_path, prompt, output_cif])
+                    writer.writerow([input_path, prompt, f"{os.path.splitext(cif_file)[0]}_processed.cif"])
 
 
 
 
 
 if __name__ == "__main__":
-    all_actions = single_atom_actions
+    all_actions = single_atom_actions + double_atom_actions + multiple_atom_actions
     data_gen = DataGenerator("input_cifs", "output_cifs")
     data_gen.generate_data(all_actions)

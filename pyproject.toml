@@ -10,4 +10,7 @@ authors = [{name = "Tau Lyu"}]
 dependencies = [
     "numpy",
     "ase",
+    "pymatgen",
+    "openai",
+    "h5py"
 ]
