@@ -12,8 +12,8 @@ deepseek_reasoner:
 
 
 
-# gpt_4o:
-#   class: OpenAIModel
-#   model_name: gpt-4o
-#   api_key: ${OPENAI_API_KEY}
-#   base_url: https://api.openai.com/v1 
+gpt_4o:
+  class: OpenAIModel
+  model_name: gpt-4o
+  api_key: ${OPENAI_API_KEY}
+  base_url: https://api.openai.com/v1 

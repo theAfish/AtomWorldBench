@@ -19,7 +19,23 @@ def load_cif_file(cif_file):
     except Exception as e:
         print(f"Error loading CIF file {cif_file}: {e}")
         return None
-    
+
+def load_cif_file_from_string(cif_string):
+    """
+    Load a CIF file from a string and return the first structure.
+    If the string is not valid, return None.
+    """
+    try:
+        parser = CifParser.from_str(cif_string)
+        structures = parser.get_structures()
+        if structures:
+            return structures[0]
+        else:
+            print("No structures found in the CIF string.")
+            return None
+    except Exception as e:
+        print(f"Error loading CIF from string: {e}")
+        return None
 
 def check_atom_counts(struct1, struct2):
     """

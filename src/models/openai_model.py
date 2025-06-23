@@ -20,12 +20,9 @@ class OpenAIModel(BaseModel):
                 "You can set it via the 'OPENAI_API_KEY' environment variable or pass it directly as an argument."
             )
 
-        # base_url for DeepSeek: "https://api.deepseek.com/v1"
         self.base_url = base_url if base_url else os.getenv("OPENAI_API_BASE_URL")
-        # Initialize OpenAI client with API key and base URL
         self.client = OpenAI(api_key=self.api_key, base_url=self.base_url)
 
-        # Default generation parameters, which can be overridden by config or kwargs
         self.default_generation_params = {
             "temperature": 1.0,
             # "max_tokens": 1024,
