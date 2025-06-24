@@ -10,7 +10,7 @@ def load_cif_file(cif_file):
     """
     try:
         parser = CifParser(cif_file)
-        structures = parser.get_structures()
+        structures = parser.parse_structures(primitive=True)
         if structures:
             return structures[0]
         else:
@@ -56,28 +56,16 @@ def check_atom_counts(struct1, struct2):
 def match_structures(struct1, struct2):
     """
     Match two structures using StructureMatcher.
-    Returns True if they match, False otherwise.
     """
-    matcher = StructureMatcher(primitive_cell=False)
+    matcher = StructureMatcher(primitive_cell=False, stol=0.5)
     if matcher.fit(struct1, struct2):
-        rmsd = matcher.get_rms_dist(struct1, struct2)[0]
-        mapping = matcher.get_mapping(struct1, struct2)
+        rmsd, max_dist = matcher.get_rms_dist(struct1, struct2)
+        return rmsd, max_dist
     else:
         print("Structures do NOT match within tolerances.")
         return -1, -1
-    
-    coords1 = struct1.cart_coords
-    coords2 = struct2.cart_coords
 
-    # Build ordered arrays based on mapping
-    coords2_matched = np.array([
-        coords2[mapping[i]] for i in range(len(coords1))
-    ])
-    # Compute RMSD without alignment
-    diff = coords1 - coords2_matched
-    rmsd = np.sqrt((diff**2).sum(axis=1).mean())
-    max_diff = np.max(np.linalg.norm(diff, axis=1))
-    return rmsd, max_diff
+    
 
 def get_rmsd_and_maxdiff(struct1, struct2):
     """
@@ -97,8 +85,8 @@ def get_rmsd_and_maxdiff(struct1, struct2):
 
     return rmsd, max_diff
 
-cif_pred = "D:/Codes/AtomWorld\src/tests\outputs/test.cif"
-cif_std = "D:/Codes/AtomWorld\src/tests\outputs/mp-1013842_processed.cif"
+cif_pred = "D:/Codes/AtomWorld/src/tests/outputs/0-bak.cif"
+cif_std = "D:/Codes/AtomWorld/src/tests/outputs/1-bak.cif"
 
 
 struct_pred = load_cif_file(cif_pred)

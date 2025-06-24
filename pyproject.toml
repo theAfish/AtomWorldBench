@@ -13,5 +13,7 @@ dependencies = [
     "pymatgen",
     "openai",
     "h5py",
-    "pandas"
+    "pandas",
+    "matplotlib",
+    "seaborn"
 ]

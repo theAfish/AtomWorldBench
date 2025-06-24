@@ -1,6 +1,7 @@
 import os
 from typing import Any, Dict, List, Optional, Union
 from openai import OpenAI
+import concurrent.futures
 
 from .base_model import BaseModel
 
@@ -57,10 +58,10 @@ class OpenAIModel(BaseModel):
         return self._call_api(messages, **kwargs)
 
     def generate_batch(self, prompts: List[str], **kwargs) -> List[str]:
-        """
-        Generate text for a batch of prompts.
-        """
-        results = []
-        for prompt in prompts:
-            results.append(self.generate(prompt, **kwargs))
+        results = [None] * len(prompts)
+        with concurrent.futures.ThreadPoolExecutor() as executor:
+            futures = {executor.submit(self.generate, prompt, **kwargs): idx for idx, prompt in enumerate(prompts)}
+            for future in concurrent.futures.as_completed(futures):
+                idx = futures[future]
+                results[idx] = future.result()
         return results

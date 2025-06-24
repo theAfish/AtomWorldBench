@@ -12,6 +12,7 @@ print(f"Using data directory: {DATA_DIR}")
 
 
 action_names = [
+    'add_atom_action',
     'change_atom_action',
     'delete_around_atom_action', 
     'delete_below_atom_action', 
@@ -54,8 +55,8 @@ def run_benchmark(model_id: str, action: str, config_name: str="models", results
     """
     config = load_config(config_name)[model_id]
 
-    api_key = os.getenv("DEEPSEEK_API_KEY") if "${DEEPSEEK_API_KEY}" in config.get("api_key", "") else config.get("api_key")
-    
+    api_key = os.path.expandvars(config.get("api_key", ""))
+
     # Initialize model
     model = OpenAIModel(
         model_name=config['model_name'],
@@ -79,7 +80,7 @@ def run_benchmark(model_id: str, action: str, config_name: str="models", results
     )
     
     # Run evaluation
-    evaluator.evaluate()
+    evaluator.evaluate(batch_size=20)
 
 
 if __name__ == "__main__":
@@ -89,7 +90,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--model_id", 
         type=str, 
-        default="deepseek_chat", 
+        default="deepseek_reasoner", 
         help="ID of the model to use (e.g., 'deepseek_chat', 'openai_gpt4')"
     )
     
