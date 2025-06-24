@@ -97,8 +97,8 @@ def get_rmsd_and_maxdiff(struct1, struct2):
 
     return rmsd, max_diff
 
-cif_pred = "D:/Codes/AtomWorld\src/tests\outputs\gemini_2.5_pro.cif"
-cif_std = "D:/Codes/AtomWorld\src/data\output_cifs/add_atom_action\mp-676_processed.cif"
+cif_pred = "D:/Codes/AtomWorld\src/tests\outputs/test.cif"
+cif_std = "D:/Codes/AtomWorld\src/tests\outputs/mp-1013842_processed.cif"
 
 
 struct_pred = load_cif_file(cif_pred)
@@ -108,7 +108,7 @@ if struct_pred is None or struct_std is None:
 else:
     if check_atom_counts(struct_pred, struct_std):
         print("Atom counts match.")
-        rmsd, max_diff = get_rmsd_and_maxdiff(struct_pred, struct_std)
+        rmsd, max_diff = match_structures(struct_pred, struct_std)
         print(f"RMSD: {rmsd:.8f}, Max Diff: {max_diff:.8f}")
     else:
         print("Atom counts do NOT match.")

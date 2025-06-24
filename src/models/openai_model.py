@@ -16,7 +16,7 @@ class OpenAIModel(BaseModel):
         self.api_key = api_key if api_key else os.getenv("OPENAI_API_KEY")
         if not self.api_key:
             raise ValueError(
-                "API key for OpenAI is required. "
+                "API key is required. "
                 "You can set it via the 'OPENAI_API_KEY' environment variable or pass it directly as an argument."
             )
 

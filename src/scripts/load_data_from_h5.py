@@ -18,10 +18,10 @@ def load_cifs_from_hdf5(hdf5_filepath):
                 cif_data[key] = cif_content
     return cif_data
 
-if __name__ == "__main__":
-    hdf5_file_path = 'add_atom_action.hdf5'
-    cif_data = load_cifs_from_hdf5(hdf5_file_path)
-    for filename, content in cif_data.items():
-        print(f"Filename: {filename}")
-        print(f"Content:\n{content[:100]}...")  # Print first 100 characters of each CIF content
-        print("-" * 40)
+# if __name__ == "__main__":
+#     hdf5_file_path = 'add_atom_action.hdf5'
+#     cif_data = load_cifs_from_hdf5(hdf5_file_path)
+#     for filename, content in cif_data.items():
+#         print(f"Filename: {filename}")
+#         print(f"Content:\n{content[:100]}...")  # Print first 100 characters of each CIF content
+#         print("-" * 40)

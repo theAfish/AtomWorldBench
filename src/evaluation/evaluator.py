@@ -5,6 +5,7 @@ from utils.dataloader import load_data
 from utils.extract_data import extract_from_string
 from prompts.cif_action_prompt import cif_action_prompt
 from evaluation.metrics import load_cif_file_from_string, check_atom_counts, match_structures
+from tqdm import tqdm
 
 class Evaluator:
     def __init__(
@@ -31,16 +32,23 @@ class Evaluator:
         results = []
         num_unreadable_out = 0
         num_invalid_cif = 0
-        for _, row in self.data.iterrows():
+        for i, row in tqdm(self.data.iterrows(), total=len(self.data), desc="Evaluating"):
+        # for i, row in self.data.iterrows():
             input_cif = row['input_cif']
             action_prompt = row['action_prompt']
             output_cif = row['output_cif']
 
+            prompt = cif_action_prompt(
+                input_cif=input_cif,
+                action_prompt=action_prompt,
+                output_format="cif"
+            )
+
             # Generate response from the model
-            generated_output = self.model.generate(action_prompt, input_cif=input_cif)
+            generated_output = self.model.generate(prompt)
             generated_output = extract_from_string(generated_output, format="cif")
             if generated_output is None:
-                print(f"Invalid generated output for input: {input_cif}")
+                print(f"Invalid generated output for index {i}")
                 num_unreadable_out += 1
                 continue
 
@@ -50,20 +58,20 @@ class Evaluator:
             generated_structure = load_cif_file_from_string(generated_output)
 
             if generated_structure is None:
-                print(f"Invalid generated structure for input: {input_cif}")
+                print(f"Invalid generated structure for index {i}")
                 num_invalid_cif += 1
                 continue
 
             # Check atom counts and structure match
             atom_counts_match = check_atom_counts(output_structure, generated_structure)
             if not atom_counts_match:
-                print(f"Atom counts do not match for input: {input_cif}")
+                print(f"Atom counts do not match for index {i}")
                 num_invalid_cif += 1
                 continue
             
             rmsd, max_diff = match_structures(output_structure, generated_structure)
             if rmsd == -1:
-                print(f"Structures do not match for input: {input_cif}")
+                print(f"Structures do not match for index {i}")
                 num_invalid_cif += 1
                 continue
 
@@ -75,7 +83,10 @@ class Evaluator:
                 "rmsd": rmsd,
                 "max_diff": max_diff,
             })
-            print(f"Processed input: {input_cif}, RMSD: {rmsd}, Max Diff: {max_diff}")
+            print(f"RMSD: {rmsd}, Max Diff: {max_diff}")
+            # for debug 
+            if i > 10:
+                break
 
         # Print summary of evaluation
         print(f"Evaluation completed. Total inputs: {len(self.data)}, ")
