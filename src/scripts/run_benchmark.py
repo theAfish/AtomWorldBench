@@ -80,7 +80,7 @@ def run_benchmark(model_id: str, action: str, config_name: str="models", results
     )
     
     # Run evaluation
-    evaluator.evaluate(batch_size=20)
+    evaluator.evaluate(batch_size=50)
 
 
 if __name__ == "__main__":
@@ -93,10 +93,16 @@ if __name__ == "__main__":
         default="deepseek_reasoner", 
         help="ID of the model to use (e.g., 'deepseek_chat', 'openai_gpt4')"
     )
+    parser.add_argument(
+        "--action", 
+        type=str, 
+        default=action_names[4], 
+        help=f"Name of the action for test. Default: {action_names[4]}"
+    )
     
     args = parser.parse_args()
     
     try:
-        run_benchmark(args.model_id, action=action_names[0], config_name="models")
+        run_benchmark(args.model_id, action=args.action, config_name="models")
     except Exception as e:
         print(f"Error running benchmark: {e}")
