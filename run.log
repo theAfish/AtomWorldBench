@@ -3404,3 +3404,843 @@ Occupancy 2.0 exceeded tolerance.
   return self.parse_structures(*args, **kwargs)
 
 2025-06-25 13:58:53,320 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-06-25 15:07:32,957 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:09:36,917 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:09:36,917 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:09:36,924 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:09:36,925 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:09:36,928 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:09:36,928 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:09:36,930 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:09:36,931 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:09:36,931 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:09:36,931 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:09:36,932 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:09:36,932 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:09:36,933 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:09:36,934 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:09:36,937 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:09:36,942 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:09:36,942 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:09:36,945 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:09:36,945 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:09:36,956 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:09:36,956 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:09:36,958 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:09:36,959 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:09:36,960 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:09:36,962 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:09:36,963 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:09:36,965 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:09:36,965 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:09:36,967 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:09:36,969 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:09:36,972 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:09:36,984 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:10:18,461 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:10:20,120 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:10:21,438 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:10:22,297 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:10:22,342 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:10:22,447 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:10:22,818 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:10:23,113 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:10:23,242 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:10:23,299 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:10:23,305 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:10:23,527 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:10:23,563 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:10:23,620 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:10:23,711 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:10:24,095 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:10:25,723 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:10:26,180 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:13:20,034 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:13:20,035 - INFO - Structures do not match for index 2
+2025-06-25 15:13:20,047 - INFO - Atom counts do not match for index 3
+2025-06-25 15:13:20,065 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Missing elements Cl from CIF-reported composition
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 15:13:20,078 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:13:20,078 - INFO - Structures do not match for index 4
+2025-06-25 15:13:20,164 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:13:20,165 - INFO - Structures do not match for index 5
+2025-06-25 15:13:20,188 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:13:20,188 - INFO - Structures do not match for index 6
+2025-06-25 15:13:20,194 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\periodic_table.py:252: UserWarning: No Pauling electronegativity for Lv. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  if not hasattr(other, "X") or not hasattr(other, "symbol"):
+
+2025-06-25 15:13:20,194 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\periodic_table.py:255: UserWarning: No Pauling electronegativity for Lv. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  x2 = float("inf") if other.X != other.X else other.X
+
+2025-06-25 15:13:20,194 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\composition.py:328: UserWarning: No Pauling electronegativity for Lv. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  return sum((el.X * abs(amt) for el, amt in self.items())) / self.num_atoms
+
+2025-06-25 15:13:20,199 - INFO - Atom counts do not match for index 7
+2025-06-25 15:13:20,209 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Incorrect stoichiometry:
+  CIF={'Li': 2.0, 'Mg': 12.0, 'V': 2.0, 'Fr': 2.0}
+  PMG={'Fr': 1.0, 'Li': 2.0, 'Mg': 12.0, 'V': 2.0}
+  ratios={'Fr': 0.5, 'V': 1.0, 'Li': 1.0, 'Mg': 1.0}
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 15:13:20,228 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Incorrect stoichiometry:
+  CIF={'Mg': 12.0, 'Cd': 2.0, 'Fe': 2.0, 'I': 2.0}
+  PMG={'Mg': 12.0, 'Cd': 2.0, 'Fe': 2.0, 'I': 1.0}
+  ratios={'I': 0.5, 'Fe': 1.0, 'Cd': 1.0, 'Mg': 1.0}
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 15:13:20,279 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:13:20,279 - INFO - Structures do not match for index 10
+2025-06-25 15:13:20,282 - WARNING - D:\Codes\AtomWorld\src\evaluation\metrics.py:30: UserWarning: Issues encountered while parsing CIF: 4 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  structures = parser.parse_structures(primitive=True)
+
+2025-06-25 15:13:20,299 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:13:20,299 - INFO - Structures do not match for index 11
+2025-06-25 15:13:20,344 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\periodic_table.py:252: UserWarning: No Pauling electronegativity for Ne. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  if not hasattr(other, "X") or not hasattr(other, "symbol"):
+
+2025-06-25 15:13:20,344 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\periodic_table.py:255: UserWarning: No Pauling electronegativity for Ne. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  x2 = float("inf") if other.X != other.X else other.X
+
+2025-06-25 15:13:20,344 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\composition.py:328: UserWarning: No Pauling electronegativity for Ne. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  return sum((el.X * abs(amt) for el, amt in self.items())) / self.num_atoms
+
+2025-06-25 15:13:20,348 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\periodic_table.py:254: UserWarning: No Pauling electronegativity for Ne. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  x1 = float("inf") if self.X != self.X else self.X
+
+2025-06-25 15:13:20,431 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Some occupancies ([2.0]) sum to > 1! If they are within the occupancy_tolerance, they will be rescaled. The current occupancy_tolerance is set to: 1.0
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 15:13:20,431 - WARNING - D:\Codes\AtomWorld\src\evaluation\metrics.py:30: UserWarning: No structure parsed for section 1 in CIF.
+Occupancy 2.0 exceeded tolerance.
+  structures = parser.parse_structures(primitive=True)
+
+2025-06-25 15:13:20,431 - WARNING - D:\Codes\AtomWorld\src\evaluation\metrics.py:30: UserWarning: Issues encountered while parsing CIF: Some occupancies ([2.0]) sum to > 1! If they are within the occupancy_tolerance, they will be rescaled. The current occupancy_tolerance is set to: 1.0
+No structure parsed for section 1 in CIF.
+Occupancy 2.0 exceeded tolerance.
+  structures = parser.parse_structures(primitive=True)
+
+2025-06-25 15:13:20,432 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-06-25 15:13:20,432 - INFO - Invalid generated structure for index 15
+2025-06-25 15:13:20,434 - WARNING - D:\Codes\AtomWorld\src\evaluation\metrics.py:30: UserWarning: Issues encountered while parsing CIF: 24 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  structures = parser.parse_structures(primitive=True)
+
+2025-06-25 15:13:20,437 - WARNING - D:\Codes\AtomWorld\src\evaluation\metrics.py:30: UserWarning: Issues encountered while parsing CIF: 26 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  structures = parser.parse_structures(primitive=True)
+
+2025-06-25 15:13:20,467 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:13:20,468 - INFO - Structures do not match for index 16
+2025-06-25 15:13:20,472 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\periodic_table.py:254: UserWarning: No Pauling electronegativity for Nh. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  x1 = float("inf") if self.X != self.X else self.X
+
+2025-06-25 15:13:20,472 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\composition.py:328: UserWarning: No Pauling electronegativity for Nh. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  return sum((el.X * abs(amt) for el, amt in self.items())) / self.num_atoms
+
+2025-06-25 15:13:20,503 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:13:20,511 - INFO - Structures do not match for index 17
+2025-06-25 15:13:20,534 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:13:20,534 - INFO - Structures do not match for index 18
+2025-06-25 15:13:20,678 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:13:20,678 - INFO - Structures do not match for index 23
+2025-06-25 15:13:20,686 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Missing elements Ba from CIF-reported composition
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 15:13:20,687 - INFO - Atom counts do not match for index 24
+2025-06-25 15:13:20,731 - WARNING - D:\Codes\AtomWorld\src\evaluation\metrics.py:30: UserWarning: Issues encountered while parsing CIF: 12 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  structures = parser.parse_structures(primitive=True)
+
+2025-06-25 15:13:20,733 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\periodic_table.py:252: UserWarning: No Pauling electronegativity for He. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  if not hasattr(other, "X") or not hasattr(other, "symbol"):
+
+2025-06-25 15:13:20,733 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\periodic_table.py:255: UserWarning: No Pauling electronegativity for He. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  x2 = float("inf") if other.X != other.X else other.X
+
+2025-06-25 15:13:20,733 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\composition.py:328: UserWarning: No Pauling electronegativity for He. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  return sum((el.X * abs(amt) for el, amt in self.items())) / self.num_atoms
+
+2025-06-25 15:13:20,889 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Missing elements Ru from CIF-reported composition
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 15:13:20,936 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-06-25 15:13:20,936 - INFO - Invalid generated structure for index 32
+2025-06-25 15:13:21,200 - WARNING - D:\Codes\AtomWorld\src\evaluation\metrics.py:30: UserWarning: Issues encountered while parsing CIF: 1 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  structures = parser.parse_structures(primitive=True)
+
+2025-06-25 15:13:21,249 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:13:21,249 - INFO - Structures do not match for index 36
+2025-06-25 15:13:21,482 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:13:21,482 - INFO - Structures do not match for index 38
+2025-06-25 15:13:21,701 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:13:21,701 - INFO - Structures do not match for index 40
+2025-06-25 15:13:21,728 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:13:21,728 - INFO - Structures do not match for index 41
+2025-06-25 15:13:21,848 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:13:21,848 - INFO - Structures do not match for index 44
+2025-06-25 15:13:21,905 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:13:21,905 - INFO - Structures do not match for index 46
+2025-06-25 15:13:21,992 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Some occupancies ([9.0]) sum to > 1! If they are within the occupancy_tolerance, they will be rescaled. The current occupancy_tolerance is set to: 1.0
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 15:13:21,994 - WARNING - D:\Codes\AtomWorld\src\evaluation\metrics.py:30: UserWarning: No structure parsed for section 1 in CIF.
+Occupancy 9.0 exceeded tolerance.
+  structures = parser.parse_structures(primitive=True)
+
+2025-06-25 15:13:21,994 - WARNING - D:\Codes\AtomWorld\src\evaluation\metrics.py:30: UserWarning: Issues encountered while parsing CIF: Some occupancies ([9.0]) sum to > 1! If they are within the occupancy_tolerance, they will be rescaled. The current occupancy_tolerance is set to: 1.0
+No structure parsed for section 1 in CIF.
+Occupancy 9.0 exceeded tolerance.
+  structures = parser.parse_structures(primitive=True)
+
+2025-06-25 15:13:21,994 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-06-25 15:13:21,994 - INFO - Invalid generated structure for index 48
+2025-06-25 15:13:22,003 - WARNING - D:\Codes\AtomWorld\src\evaluation\metrics.py:30: UserWarning: No structure parsed for section 1 in CIF.
+cannot reshape array of size 1 into shape (3,3)
+  structures = parser.parse_structures(primitive=True)
+
+2025-06-25 15:13:22,003 - WARNING - D:\Codes\AtomWorld\src\evaluation\metrics.py:30: UserWarning: Issues encountered while parsing CIF: No structure parsed for section 1 in CIF.
+cannot reshape array of size 1 into shape (3,3)
+  structures = parser.parse_structures(primitive=True)
+
+2025-06-25 15:13:22,004 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-06-25 15:13:22,004 - INFO - Invalid generated structure for index 49
+2025-06-25 15:13:22,065 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:13:22,195 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:13:22,199 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:13:22,200 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:13:22,203 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:13:22,205 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:13:22,206 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:13:22,207 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:13:22,208 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:13:22,209 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:13:22,213 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:13:22,213 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:13:22,214 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:13:22,215 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:13:22,217 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:13:22,218 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:13:22,218 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:13:22,220 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:13:22,220 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:13:22,221 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:13:22,225 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:13:22,227 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:13:22,227 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:13:22,229 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:13:22,233 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:13:22,234 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:13:22,236 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:13:22,237 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:13:22,258 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:13:22,465 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:13:22,470 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:13:22,471 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:13:59,341 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:14:02,171 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:14:07,443 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:14:07,854 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:14:10,230 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:14:10,603 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:14:11,120 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:14:11,294 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:14:11,413 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:14:14,757 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:14:16,198 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:14:16,901 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:14:17,866 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:14:18,192 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:14:18,370 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:14:18,452 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:14:22,470 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:14:25,721 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:16:29,948 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:16:29,948 - INFO - Structures do not match for index 50
+2025-06-25 15:16:30,227 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:16:30,228 - INFO - Structures do not match for index 51
+2025-06-25 15:16:30,435 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Incorrect stoichiometry:
+  CIF={'Mg': 2.0, 'Ti': 2.0, 'Bi': 2.0, 'P': 6.0, 'O': 24.0, 'Pr': 2.0}
+  PMG={'Pr': 1.0, 'Mg': 2.0, 'Ti': 2.0, 'Bi': 2.0, 'P': 6.0, 'O': 24.0}
+  ratios={'Pr': 0.5, 'Ti': 1.0, 'Bi': 1.0, 'Mg': 1.0, 'O': 1.0, 'P': 1.0}
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 15:16:30,447 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:16:30,447 - INFO - Structures do not match for index 53
+2025-06-25 15:16:30,871 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Incorrect stoichiometry:
+  CIF={'Y': 4.0, 'Cu': 13.0, 'Si': 2.0, 'Sb': 2.0, 'As': 1.0, 'O': 28.0}
+  PMG={'Y': 4.0, 'Cu': 13.0, 'Si': 2.0, 'Sb': 2.0, 'As': 1.0, 'O': 27.0}
+  ratios={'Cu': 1.0, 'Y': 1.0, 'Si': 1.0, 'Sb': 1.0, 'As': 1.0, 'O': 0.9642857142857143}
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 15:16:30,872 - INFO - Atom counts do not match for index 55
+2025-06-25 15:16:31,007 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:16:31,008 - INFO - Structures do not match for index 56
+2025-06-25 15:16:31,094 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:16:31,094 - INFO - Structures do not match for index 57
+2025-06-25 15:16:31,541 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:16:31,541 - INFO - Structures do not match for index 60
+2025-06-25 15:16:31,652 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Missing elements Co from CIF-reported composition
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 15:16:32,086 - WARNING - D:\Codes\AtomWorld\src\evaluation\metrics.py:30: UserWarning: Issues encountered while parsing CIF: 8 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  structures = parser.parse_structures(primitive=True)
+
+2025-06-25 15:16:32,101 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\periodic_table.py:252: UserWarning: No Pauling electronegativity for Hs. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  if not hasattr(other, "X") or not hasattr(other, "symbol"):
+
+2025-06-25 15:16:32,102 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\periodic_table.py:255: UserWarning: No Pauling electronegativity for Hs. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  x2 = float("inf") if other.X != other.X else other.X
+
+2025-06-25 15:16:32,107 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\composition.py:328: UserWarning: No Pauling electronegativity for Hs. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  return sum((el.X * abs(amt) for el, amt in self.items())) / self.num_atoms
+
+2025-06-25 15:16:32,151 - INFO - Atom counts do not match for index 64
+2025-06-25 15:16:32,506 - WARNING - D:\Codes\AtomWorld\src\evaluation\metrics.py:30: UserWarning: Issues encountered while parsing CIF: 16 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  structures = parser.parse_structures(primitive=True)
+
+2025-06-25 15:16:32,563 - WARNING - D:\Codes\AtomWorld\src\evaluation\metrics.py:30: UserWarning: Issues encountered while parsing CIF: 16 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+Some occupancies ([2.0]) sum to > 1! If they are within the occupancy_tolerance, they will be rescaled. The current occupancy_tolerance is set to: 1.0
+No structure parsed for section 1 in CIF.
+Occupancy 2.0 exceeded tolerance.
+  structures = parser.parse_structures(primitive=True)
+
+2025-06-25 15:16:32,563 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-06-25 15:16:32,563 - INFO - Invalid generated structure for index 67
+2025-06-25 15:16:32,892 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:16:32,893 - INFO - Structures do not match for index 69
+2025-06-25 15:16:32,997 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Incorrect stoichiometry:
+  CIF={'Mg': 6.0, 'Si': 8.0, 'Ho': 2.0}
+  PMG={'Ho': 1.0, 'Mg': 6.0, 'Si': 8.0}
+  ratios={'Ho': 0.5, 'Si': 1.0, 'Mg': 1.0}
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 15:16:33,004 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:16:33,004 - INFO - Structures do not match for index 72
+2025-06-25 15:16:33,046 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Missing elements H from PMG structure composition
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 15:16:33,047 - INFO - Atom counts do not match for index 73
+2025-06-25 15:16:33,085 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-06-25 15:16:33,085 - INFO - Invalid generated structure for index 74
+2025-06-25 15:16:33,361 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:16:33,361 - INFO - Structures do not match for index 77
+2025-06-25 15:16:34,096 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Incorrect stoichiometry:
+  CIF={'Nb': 4.0, 'Cr': 8.0, 'Be': 4.0}
+  PMG={'Be': 1.0, 'Nb': 4.0, 'Cr': 8.0}
+  ratios={'Cr': 1.0, 'Be': 0.25, 'Nb': 1.0}
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 15:16:34,360 - INFO - Atom counts do not match for index 86
+2025-06-25 15:16:34,451 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:16:34,451 - INFO - Structures do not match for index 87
+2025-06-25 15:16:34,590 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:16:34,590 - INFO - Structures do not match for index 88
+2025-06-25 15:16:34,679 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:16:34,679 - INFO - Structures do not match for index 89
+2025-06-25 15:16:34,714 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\periodic_table.py:254: UserWarning: No Pauling electronegativity for Db. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  x1 = float("inf") if self.X != self.X else self.X
+
+2025-06-25 15:16:34,718 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\composition.py:328: UserWarning: No Pauling electronegativity for Db. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  return sum((el.X * abs(amt) for el, amt in self.items())) / self.num_atoms
+
+2025-06-25 15:16:34,780 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:16:34,780 - INFO - Structures do not match for index 90
+2025-06-25 15:16:34,907 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:16:34,907 - INFO - Structures do not match for index 91
+2025-06-25 15:16:35,054 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:16:35,055 - INFO - Structures do not match for index 92
+2025-06-25 15:16:35,199 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:16:35,199 - INFO - Structures do not match for index 93
+2025-06-25 15:16:35,253 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:16:35,254 - INFO - Structures do not match for index 94
+2025-06-25 15:16:35,376 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:16:35,377 - INFO - Structures do not match for index 95
+2025-06-25 15:16:36,412 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:16:36,412 - INFO - Structures do not match for index 97
+2025-06-25 15:16:36,699 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:16:36,699 - INFO - Structures do not match for index 98
+2025-06-25 15:16:36,780 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:16:36,780 - INFO - Structures do not match for index 99
+2025-06-25 15:16:36,996 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:16:37,013 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:16:37,016 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:16:37,017 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:16:37,021 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:16:37,021 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:16:37,024 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:16:37,028 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:16:37,032 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:16:37,035 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:16:37,038 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:16:37,041 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:16:37,050 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:16:37,061 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:16:37,063 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:16:37,065 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:16:37,067 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:16:37,067 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:16:37,070 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:16:37,072 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:16:37,075 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:16:37,095 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:16:37,097 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:16:37,099 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:16:37,103 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:16:37,108 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:16:37,109 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:16:37,110 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:16:37,112 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:16:37,335 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:16:37,344 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:16:37,345 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:17:14,669 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:17:15,911 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:17:16,809 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:17:17,349 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:17:19,918 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:17:20,572 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:17:21,788 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:17:23,175 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:17:24,081 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:17:24,395 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:17:24,686 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:17:28,107 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:17:28,382 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:17:29,002 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:17:32,501 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:17:33,328 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:17:33,816 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:17:35,462 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:18:56,370 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\periodic_table.py:252: UserWarning: No Pauling electronegativity for Cn. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  if not hasattr(other, "X") or not hasattr(other, "symbol"):
+
+2025-06-25 15:18:56,371 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\periodic_table.py:255: UserWarning: No Pauling electronegativity for Cn. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  x2 = float("inf") if other.X != other.X else other.X
+
+2025-06-25 15:18:56,371 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\composition.py:328: UserWarning: No Pauling electronegativity for Cn. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  return sum((el.X * abs(amt) for el, amt in self.items())) / self.num_atoms
+
+2025-06-25 15:18:56,945 - INFO - Atom counts do not match for index 104
+2025-06-25 15:18:57,116 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:18:57,117 - INFO - Structures do not match for index 106
+2025-06-25 15:18:57,168 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:18:57,168 - INFO - Structures do not match for index 107
+2025-06-25 15:18:57,280 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:18:57,280 - INFO - Structures do not match for index 109
+2025-06-25 15:18:57,402 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:18:57,402 - INFO - Structures do not match for index 111
+2025-06-25 15:18:57,440 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:18:57,440 - INFO - Structures do not match for index 112
+2025-06-25 15:18:57,495 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:18:57,495 - INFO - Structures do not match for index 113
+2025-06-25 15:18:57,519 - INFO - Atom counts do not match for index 114
+2025-06-25 15:18:57,917 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:18:57,917 - INFO - Structures do not match for index 117
+2025-06-25 15:18:57,994 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:18:57,994 - INFO - Structures do not match for index 118
+2025-06-25 15:18:58,134 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:18:58,135 - INFO - Structures do not match for index 119
+2025-06-25 15:18:58,336 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\periodic_table.py:252: UserWarning: No Pauling electronegativity for Nh. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  if not hasattr(other, "X") or not hasattr(other, "symbol"):
+
+2025-06-25 15:18:58,336 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\periodic_table.py:255: UserWarning: No Pauling electronegativity for Nh. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  x2 = float("inf") if other.X != other.X else other.X
+
+2025-06-25 15:18:59,164 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Missing elements At from CIF-reported composition
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 15:18:59,372 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Incorrect stoichiometry:
+  CIF={'Ba': 2.0, 'Cu': 18.0, 'Si': 8.0, 'Nb': 2.0}
+  PMG={'Ba': 2.0, 'Nb': 1.0, 'Cu': 18.0, 'Si': 8.0}
+  ratios={'Nb': 0.5, 'Ba': 1.0, 'Si': 1.0, 'Cu': 1.0}
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 15:18:59,904 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:18:59,904 - INFO - Structures do not match for index 129
+2025-06-25 15:19:00,061 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Missing elements Zr from CIF-reported composition
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 15:19:00,074 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:19:00,075 - INFO - Structures do not match for index 131
+2025-06-25 15:19:00,246 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:19:00,246 - INFO - Structures do not match for index 134
+2025-06-25 15:19:00,337 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:19:00,338 - INFO - Structures do not match for index 135
+2025-06-25 15:19:00,358 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\periodic_table.py:252: UserWarning: No Pauling electronegativity for Fl. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  if not hasattr(other, "X") or not hasattr(other, "symbol"):
+
+2025-06-25 15:19:00,359 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\periodic_table.py:255: UserWarning: No Pauling electronegativity for Fl. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  x2 = float("inf") if other.X != other.X else other.X
+
+2025-06-25 15:19:00,361 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\composition.py:328: UserWarning: No Pauling electronegativity for Fl. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  return sum((el.X * abs(amt) for el, amt in self.items())) / self.num_atoms
+
+2025-06-25 15:19:00,467 - INFO - Atom counts do not match for index 137
+2025-06-25 15:19:00,565 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Incorrect stoichiometry:
+  CIF={'Li': 8.0, 'Mn': 6.0, 'O': 14.0, 'Ho': 2.0}
+  PMG={'Li': 8.0, 'Ho': 1.0, 'Mn': 6.0, 'O': 14.0}
+  ratios={'O': 1.0, 'Ho': 0.5, 'Li': 1.0, 'Mn': 1.0}
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 15:19:00,847 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:19:00,847 - INFO - Structures do not match for index 141
+2025-06-25 15:19:00,908 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:19:00,908 - INFO - Structures do not match for index 142
+2025-06-25 15:19:01,106 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:19:01,106 - INFO - Structures do not match for index 144
+2025-06-25 15:19:01,216 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:19:01,216 - INFO - Structures do not match for index 145
+2025-06-25 15:19:01,336 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:19:01,337 - INFO - Structures do not match for index 146
+2025-06-25 15:19:01,611 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Incorrect stoichiometry:
+  CIF={'Li': 9.0, 'Mn': 2.0, 'Co': 5.0, 'O': 16.0, 'Cd': 1.0}
+  PMG={'Li': 9.0, 'Mn': 2.0, 'Cd': 1.0, 'Co': 5.0, 'O': 15.0}
+  ratios={'Co': 1.0, 'Li': 1.0, 'Mn': 1.0, 'O': 0.9375, 'Cd': 1.0}
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 15:19:01,611 - INFO - Atom counts do not match for index 148
+2025-06-25 15:19:01,663 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:19:01,663 - INFO - Structures do not match for index 149
+2025-06-25 15:19:01,840 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:01,842 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:01,847 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:01,849 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:01,849 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:01,850 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:01,851 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:01,853 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:01,854 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:01,855 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:01,868 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:01,868 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:01,869 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:01,870 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:01,873 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:01,874 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:01,875 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:01,877 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:01,894 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:01,904 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:01,906 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:01,908 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:01,910 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:01,910 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:01,912 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:01,912 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:01,913 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:01,915 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:01,916 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:01,917 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:01,919 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:01,925 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:42,611 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:49,852 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:50,875 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:51,919 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:58,919 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:59,050 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:59,160 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:59,240 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:19:59,544 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:20:05,305 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:20:05,464 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:20:07,233 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:20:07,784 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:20:08,607 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:20:08,827 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:20:11,718 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:20:11,942 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:20:15,057 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:21:56,392 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:21:56,392 - INFO - Structures do not match for index 150
+2025-06-25 15:21:56,568 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-06-25 15:21:56,568 - INFO - Invalid generated structure for index 152
+2025-06-25 15:21:56,657 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-06-25 15:21:56,657 - INFO - Invalid generated structure for index 153
+2025-06-25 15:21:56,880 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:21:56,880 - INFO - Structures do not match for index 154
+2025-06-25 15:21:57,836 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:21:57,837 - INFO - Structures do not match for index 158
+2025-06-25 15:21:57,951 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:21:57,952 - INFO - Structures do not match for index 159
+2025-06-25 15:21:58,146 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-06-25 15:21:58,146 - INFO - Invalid generated structure for index 160
+2025-06-25 15:21:58,337 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Incorrect stoichiometry:
+  CIF={'Li': 12.0, 'Mn': 4.0, 'V': 4.0, 'P': 12.0, 'O': 48.0, 'Rn': 1.0}
+  PMG={'Li': 11.0, 'Mn': 4.0, 'V': 4.0, 'P': 12.0, 'Rn': 1.0, 'O': 48.0}
+  ratios={'Li': 0.9166666666666666, 'Mn': 1.0, 'Rn': 1.0, 'V': 1.0, 'O': 1.0, 'P': 1.0}
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 15:21:58,338 - INFO - Atom counts do not match for index 161
+2025-06-25 15:21:58,882 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:21:58,882 - INFO - Structures do not match for index 164
+2025-06-25 15:21:58,947 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-06-25 15:21:58,947 - INFO - Invalid generated structure for index 165
+2025-06-25 15:21:59,012 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\periodic_table.py:252: UserWarning: No Pauling electronegativity for Og. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  if not hasattr(other, "X") or not hasattr(other, "symbol"):
+
+2025-06-25 15:21:59,012 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\periodic_table.py:255: UserWarning: No Pauling electronegativity for Og. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  x2 = float("inf") if other.X != other.X else other.X
+
+2025-06-25 15:21:59,022 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\composition.py:328: UserWarning: No Pauling electronegativity for Og. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  return sum((el.X * abs(amt) for el, amt in self.items())) / self.num_atoms
+
+2025-06-25 15:22:00,141 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:22:00,141 - INFO - Structures do not match for index 167
+2025-06-25 15:22:00,251 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:22:00,251 - INFO - Structures do not match for index 168
+2025-06-25 15:22:00,297 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Incorrect stoichiometry:
+  CIF={'Ni': 2.0, 'C': 8.0, 'Br': 6.0, 'N': 2.0}
+  PMG={'Ni': 2.0, 'C': 9.0, 'Br': 6.0, 'N': 2.0}
+  ratios={'C': 1.125, 'Br': 1.0, 'Ni': 1.0, 'N': 1.0}
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 15:22:00,465 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:22:00,465 - INFO - Structures do not match for index 170
+2025-06-25 15:22:00,504 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Missing elements Mn from CIF-reported composition
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 15:22:00,668 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Incorrect stoichiometry:
+  CIF={'Li': 16.0, 'P': 16.0, 'O': 68.0, 'Cm': 4.0}
+  PMG={'Li': 16.0, 'Cm': 1.0, 'P': 16.0, 'O': 68.0}
+  ratios={'P': 1.0, 'Cm': 0.25, 'Li': 1.0, 'O': 1.0}
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 15:22:00,719 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:22:00,719 - INFO - Structures do not match for index 172
+2025-06-25 15:22:00,819 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:22:00,820 - INFO - Structures do not match for index 173
+2025-06-25 15:22:00,900 - INFO - Atom counts do not match for index 174
+2025-06-25 15:22:01,196 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Incorrect stoichiometry:
+  CIF={'H': 36.0, 'Se': 6.0, 'N': 8.0, 'O': 24.0, 'Si': 2.0}
+  PMG={'Si': 1.0, 'H': 36.0, 'Se': 6.0, 'N': 8.0, 'O': 24.0}
+  ratios={'H': 1.0, 'N': 1.0, 'Se': 1.0, 'Si': 0.5, 'O': 1.0}
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 15:22:01,209 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:22:01,209 - INFO - Structures do not match for index 176
+2025-06-25 15:22:01,303 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:22:01,303 - INFO - Structures do not match for index 177
+2025-06-25 15:22:01,321 - INFO - Atom counts do not match for index 178
+2025-06-25 15:22:01,335 - WARNING - D:\Codes\AtomWorld\src\evaluation\metrics.py:30: UserWarning: Issues encountered while parsing CIF: 18 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  structures = parser.parse_structures(primitive=True)
+
+2025-06-25 15:22:01,340 - WARNING - D:\Codes\AtomWorld\src\evaluation\metrics.py:30: UserWarning: Issues encountered while parsing CIF: 19 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  structures = parser.parse_structures(primitive=True)
+
+2025-06-25 15:22:01,437 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:22:01,438 - INFO - Structures do not match for index 180
+2025-06-25 15:22:01,666 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:22:01,666 - INFO - Structures do not match for index 181
+2025-06-25 15:22:02,214 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:22:02,214 - INFO - Structures do not match for index 184
+2025-06-25 15:22:02,272 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Incorrect stoichiometry:
+  CIF={'C': 4.0, 'N': 4.0, 'O': 10.0, 'Sc': 2.0}
+  PMG={'Sc': 1.0, 'C': 4.0, 'N': 4.0, 'O': 10.0}
+  ratios={'C': 1.0, 'Sc': 0.5, 'N': 1.0, 'O': 1.0}
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 15:22:02,368 - WARNING - D:\Codes\AtomWorld\src\evaluation\metrics.py:30: UserWarning: Issues encountered while parsing CIF: 20 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  structures = parser.parse_structures(primitive=True)
+
+2025-06-25 15:22:02,387 - WARNING - D:\Codes\AtomWorld\src\evaluation\metrics.py:30: UserWarning: Issues encountered while parsing CIF: 22 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  structures = parser.parse_structures(primitive=True)
+
+2025-06-25 15:22:02,623 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:22:02,624 - INFO - Structures do not match for index 187
+2025-06-25 15:22:02,649 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\periodic_table.py:254: UserWarning: No Pauling electronegativity for Mt. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  x1 = float("inf") if self.X != self.X else self.X
+
+2025-06-25 15:22:02,654 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\composition.py:328: UserWarning: No Pauling electronegativity for Mt. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  return sum((el.X * abs(amt) for el, amt in self.items())) / self.num_atoms
+
+2025-06-25 15:22:02,724 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:22:02,725 - INFO - Structures do not match for index 188
+2025-06-25 15:22:02,782 - INFO - Atom counts do not match for index 189
+2025-06-25 15:22:02,865 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:22:02,865 - INFO - Structures do not match for index 190
+2025-06-25 15:22:03,091 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:22:03,092 - INFO - Structures do not match for index 192
+2025-06-25 15:22:03,223 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:22:03,223 - INFO - Structures do not match for index 193
+2025-06-25 15:22:03,557 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:22:03,557 - INFO - Structures do not match for index 195
+2025-06-25 15:22:03,661 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:22:03,661 - INFO - Structures do not match for index 196
+2025-06-25 15:22:03,748 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:22:03,748 - INFO - Structures do not match for index 197
+2025-06-25 15:22:03,789 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\periodic_table.py:252: UserWarning: No Pauling electronegativity for Rf. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  if not hasattr(other, "X") or not hasattr(other, "symbol"):
+
+2025-06-25 15:22:03,790 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\periodic_table.py:255: UserWarning: No Pauling electronegativity for Rf. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  x2 = float("inf") if other.X != other.X else other.X
+
+2025-06-25 15:22:03,795 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\composition.py:328: UserWarning: No Pauling electronegativity for Rf. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  return sum((el.X * abs(amt) for el, amt in self.items())) / self.num_atoms
+
+2025-06-25 15:22:03,941 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:22:03,941 - INFO - Structures do not match for index 198
+2025-06-25 15:22:03,966 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\periodic_table.py:252: UserWarning: No Pauling electronegativity for Sg. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  if not hasattr(other, "X") or not hasattr(other, "symbol"):
+
+2025-06-25 15:22:03,966 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\periodic_table.py:255: UserWarning: No Pauling electronegativity for Sg. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  x2 = float("inf") if other.X != other.X else other.X
+
+2025-06-25 15:22:03,971 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\composition.py:328: UserWarning: No Pauling electronegativity for Sg. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  return sum((el.X * abs(amt) for el, amt in self.items())) / self.num_atoms
+
+2025-06-25 15:22:04,004 - INFO - Atom counts do not match for index 199
+2025-06-25 15:22:04,204 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:22:04,212 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:22:04,213 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:22:04,214 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:22:04,234 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:22:04,235 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:22:04,240 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:22:04,244 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:22:04,245 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:22:04,251 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:22:04,258 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:22:04,264 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:22:04,269 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:22:04,283 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:22:04,283 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:22:04,285 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:22:04,286 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:22:04,288 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:22:04,288 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:22:04,307 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:22:04,309 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:22:04,310 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:22:04,313 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:22:04,315 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:22:04,316 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:22:04,318 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:22:04,318 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:22:04,320 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:22:04,322 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:22:04,323 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:22:04,327 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:22:04,355 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:22:54,338 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:22:59,354 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:23:00,011 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:23:00,191 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:23:01,016 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:23:01,907 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:23:01,988 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:23:02,801 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:23:03,494 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:23:03,819 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:23:04,019 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:23:04,670 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:23:05,763 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:23:06,084 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:23:07,143 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:23:10,353 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:23:10,397 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:23:14,573 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 15:25:45,636 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:25:45,637 - INFO - Structures do not match for index 200
+2025-06-25 15:25:45,972 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:25:45,972 - INFO - Structures do not match for index 202
+2025-06-25 15:25:46,044 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-06-25 15:25:46,046 - INFO - Invalid generated structure for index 203
+2025-06-25 15:25:46,141 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:25:46,142 - INFO - Structures do not match for index 204
+2025-06-25 15:25:46,420 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Missing elements Cr from CIF-reported composition
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 15:25:46,463 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:25:46,463 - INFO - Structures do not match for index 206
+2025-06-25 15:25:46,641 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:25:46,641 - INFO - Structures do not match for index 207
+2025-06-25 15:25:46,738 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:25:46,738 - INFO - Structures do not match for index 208
+2025-06-25 15:25:46,895 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:25:46,896 - INFO - Structures do not match for index 209
+2025-06-25 15:25:47,407 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:25:47,407 - INFO - Structures do not match for index 212
+2025-06-25 15:25:47,517 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Incorrect stoichiometry:
+  CIF={'Hf': 20.0, 'Si': 2.0, 'Mo': 6.0, 'Db': 1.0}
+  PMG={'Db': 1.0, 'Hf': 20.0, 'Si': 2.0, 'Mo': 5.0}
+  ratios={'Db': 1.0, 'Hf': 1.0, 'Mo': 0.8333333333333334, 'Si': 1.0}
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 15:25:47,518 - INFO - Atom counts do not match for index 214
+2025-06-25 15:25:47,607 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Missing elements Au from CIF-reported composition
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 15:25:47,843 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:25:47,843 - INFO - Structures do not match for index 215
+2025-06-25 15:25:48,226 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\periodic_table.py:254: UserWarning: No Pauling electronegativity for Ts. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  x1 = float("inf") if self.X != self.X else self.X
+
+2025-06-25 15:25:48,235 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\composition.py:328: UserWarning: No Pauling electronegativity for Ts. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  return sum((el.X * abs(amt) for el, amt in self.items())) / self.num_atoms
+
+2025-06-25 15:25:48,588 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:25:48,588 - INFO - Structures do not match for index 217
+2025-06-25 15:25:48,763 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-06-25 15:25:48,763 - INFO - Invalid generated structure for index 218
+2025-06-25 15:25:48,883 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:25:48,883 - INFO - Structures do not match for index 219
+2025-06-25 15:25:49,003 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Incorrect stoichiometry:
+  CIF={'H': 32.0, 'C': 20.0, 'Br': 4.0}
+  PMG={'H': 32.0, 'C': 20.0, 'Br': 1.0}
+  ratios={'C': 1.0, 'Br': 0.25, 'H': 1.0}
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 15:25:50,047 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Incorrect stoichiometry:
+  CIF={'H': 24.0, 'C': 12.0, 'S': 4.0, 'N': 8.0, 'O': 8.0, 'Lu': 4.0}
+  PMG={'Lu': 1.0, 'H': 24.0, 'C': 12.0, 'S': 4.0, 'N': 8.0, 'O': 8.0}
+  ratios={'Lu': 0.25, 'S': 1.0, 'H': 1.0, 'N': 1.0, 'O': 1.0, 'C': 1.0}
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 15:25:50,878 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:25:50,878 - INFO - Structures do not match for index 222
+2025-06-25 15:25:51,045 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:25:51,045 - INFO - Structures do not match for index 223
+2025-06-25 15:25:51,209 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:25:51,210 - INFO - Structures do not match for index 224
+2025-06-25 15:25:51,566 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:25:51,566 - INFO - Structures do not match for index 226
+2025-06-25 15:25:51,608 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Incorrect stoichiometry:
+  CIF={'Sr': 2.0, 'U': 2.0, 'P': 4.0, 'H': 4.0, 'O': 20.0, 'Tb': 2.0}
+  PMG={'Sr': 2.0, 'Tb': 2.0, 'U': 2.0, 'P': 4.0, 'H': 4.0, 'O': 19.0}
+  ratios={'Tb': 1.0, 'U': 1.0, 'H': 1.0, 'O': 0.95, 'P': 1.0, 'Sr': 1.0}
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 15:25:51,608 - INFO - Atom counts do not match for index 227
+2025-06-25 15:25:52,400 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:25:52,400 - INFO - Structures do not match for index 229
+2025-06-25 15:25:53,360 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:25:53,361 - INFO - Structures do not match for index 231
+2025-06-25 15:25:53,844 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:25:53,844 - INFO - Structures do not match for index 232
+2025-06-25 15:25:55,437 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:25:55,437 - INFO - Structures do not match for index 237
+2025-06-25 15:25:55,970 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Some occupancies ([2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0]) sum to > 1! If they are within the occupancy_tolerance, they will be rescaled. The current occupancy_tolerance is set to: 1.0
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 15:25:55,983 - WARNING - D:\Codes\AtomWorld\src\evaluation\metrics.py:30: UserWarning: Issues encountered while parsing CIF: Some occupancies ([2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0]) sum to > 1! If they are within the occupancy_tolerance, they will be rescaled. The current occupancy_tolerance is set to: 1.0
+No structure parsed for section 1 in CIF.
+Occupancy 2.0 exceeded tolerance.
+  structures = parser.parse_structures(primitive=True)
+
+2025-06-25 15:25:55,983 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-06-25 15:25:55,983 - INFO - Invalid generated structure for index 239
+2025-06-25 15:25:56,137 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Incorrect stoichiometry:
+  CIF={'Mg': 4.0, 'H': 32.0, 'C': 12.0, 'N': 8.0, 'O': 24.0, 'Kr': 4.0}
+  PMG={'Mg': 4.0, 'H': 32.0, 'C': 12.0, 'Kr': 1.0, 'N': 8.0, 'O': 24.0}
+  ratios={'Kr': 0.25, 'H': 1.0, 'Mg': 1.0, 'N': 1.0, 'O': 1.0, 'C': 1.0}
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 15:25:56,517 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:25:56,517 - INFO - Structures do not match for index 240
+2025-06-25 15:25:56,666 - INFO - Atom counts do not match for index 241
+2025-06-25 15:25:56,847 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:25:56,847 - INFO - Structures do not match for index 242
+2025-06-25 15:25:59,621 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:25:59,622 - INFO - Structures do not match for index 246
+2025-06-25 15:25:59,924 - INFO - Structures do NOT match within tolerances.
+2025-06-25 15:25:59,925 - INFO - Structures do not match for index 247
+2025-06-25 15:26:00,300 - INFO - Atom counts do not match for index 249

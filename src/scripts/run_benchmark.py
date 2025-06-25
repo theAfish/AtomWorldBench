@@ -80,7 +80,7 @@ def run_benchmark(model_id: str, action: str, config_name: str="models", results
     )
     
     # Run evaluation
-    evaluator.evaluate(batch_size=1)
+    evaluator.evaluate(batch_size=50)
 
 
 if __name__ == "__main__":

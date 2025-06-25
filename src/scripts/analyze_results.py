@@ -5,8 +5,8 @@ import os
 
 # ========== Setup ==========
 results_folder = "results"
-model_name = "deepseek_reasoner"
-action_name = "add_atom_action"
+model_name = "deepseek_chat"
+action_name = "insert_between_atoms_action"
 folder = f"{results_folder}/{model_name}/{action_name}"
 results_file = os.path.join(folder, f"{action_name}_evaluation_results.csv")
 wrongs_file = os.path.join(folder, f"{action_name}_evaluation_wrongs.csv")
@@ -66,3 +66,14 @@ plt.show()
 
 # sns.stripplot(x=df_results['max_diff'], color='black', jitter=True, size=2)
 # plt.show()
+
+# save some example cif 
+index2save = 0
+gen_cif = df_results["generated_cif"][index2save]
+target_cif = df_results["target_cif"][index2save]
+
+with open(f"{results_folder}/example_generated.cif", "w") as f:
+    f.write(gen_cif)
+
+with open(f"{results_folder}/example_target.cif", "w") as f:
+    f.write(target_cif)
