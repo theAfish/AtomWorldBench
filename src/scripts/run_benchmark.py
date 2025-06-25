@@ -101,10 +101,8 @@ if __name__ == "__main__":
     )
     
     args = parser.parse_args()
-
-    run_benchmark(args.model, action=args.action, config_name="models")
     
-    # try:
-    #     run_benchmark(args.model, action=args.action, config_name="models")
-    # except Exception as e:
-    #     print(f"Error running benchmark: {e}")
+    try:
+        run_benchmark(args.model, action=args.action, config_name="models")
+    except Exception as e:
+        print(f"Error running benchmark: {e}")
