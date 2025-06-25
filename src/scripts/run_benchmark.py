@@ -90,7 +90,7 @@ def run_benchmark(
     )
     
     # Run evaluation
-    evaluator.evaluate(batch_size=50, num_batch=5)
+    evaluator.evaluate(batch_size=batch_size, num_batch=num_batch)
 
 
 if __name__ == "__main__":
