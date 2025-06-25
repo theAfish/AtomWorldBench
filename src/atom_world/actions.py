@@ -106,20 +106,22 @@ class InsertBetweenAtomsAction(BaseAction):
         self.index2 = index2
         self.symbol = symbol
         self.distance_ratio = distance_ratio
+        self.distance = 0
 
     def execute(self):
         if (0 <= self.index1 < len(self.atoms)) and (0 <= self.index2 < len(self.atoms)):
             relative_position = self.atoms[self.index2].position - self.atoms[self.index1].position
+            self.distance = np.linalg.norm(relative_position) * self.distance_ratio
             position = self.atoms[self.index1].position + relative_position * self.distance_ratio
             new_atom = Atoms(symbols=self.symbol, positions=[position])
-            self.atoms = self.atoms[:self.index1 + 1] + new_atom + self.atoms[self.index2:]
+            self.atoms += new_atom
             self.atoms.set_pbc(self.atoms.get_pbc())  # Ensure periodic boundary
             return self.atoms
         else:
             raise IndexError("Index out of bounds for inserting atom between two atoms.")
 
     def __str__(self):
-        return f"Insert {self.symbol} between atoms at indices {self.index1} and {self.index2} that are {self.distance_ratio:.2f} of the way from {self.index1} to {self.index2} in the cif file."
+        return f"Insert {self.symbol} between atoms at indices {self.index1} and {self.index2} that are {self.distance:.2f} Å from {self.index1} in the cif file."
     
 class MoveTowardsAtomAction(BaseAction):
     def __init__(self, atoms: Atoms, index1: int, index2: int, distance: float):

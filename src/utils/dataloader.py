@@ -49,7 +49,7 @@ def load_data(data_folder, action_name=None):
 
 
 if __name__ == "__main__":
-    data_folder = "../data"  # Adjust this to your actual data folder
-    action_name = 'add_atom_action'  # Specify an action name if needed, e.g., 'add_atom_action'
+    data_folder = "." 
+    action_name = 'add_atom_action' 
     df = load_data(data_folder, action_name)
-    print(df.head()['action_prompt'])  # Display the first few rows of the loaded data
+    print(df.head()['action_prompt'])

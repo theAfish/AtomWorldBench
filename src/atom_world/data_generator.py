@@ -10,6 +10,7 @@ from ase.data import chemical_symbols
 import random
 import inspect
 import csv
+import traceback
 
 # classification of actions
 single_atom_actions = [
@@ -130,7 +131,7 @@ class ActionInputGenerator:
             elif name == 'd_pos':
                 kwargs[name] = self.random_dpos()
             elif name == 'distance_ratio':
-                kwargs[name] = self.random_distance()
+                kwargs[name] = self.random_distance(max_d=0.9)
             elif name == 'include_self':
                 kwargs[name] = random.choice([True, False])
             elif name == 'axis':
@@ -160,7 +161,7 @@ class DataGenerator:
             action_folder = os.path.join(self.output_dir, action_name)
             os.makedirs(action_folder, exist_ok=True)
             csv_path = os.path.join(self.output_dir, f"{action_name}.csv")
-            with open(csv_path, "w", newline='') as csvfile:
+            with open(csv_path, "w", newline='', encoding="utf-8") as csvfile:
                 writer = csv.writer(csvfile)
                 writer.writerow(["input_cif", "action_prompt", "output_cif"])
                 for cif_file in cif_files:
@@ -173,21 +174,23 @@ class DataGenerator:
                         processed_atoms = action.execute()
                     except Exception as e:
                         print(f"Action {action_name} failed on {cif_file}: {e}")
+                        traceback.print_exc()
                         continue
-                    output_cif = os.path.join(action_folder, f"{os.path.splitext(cif_file)[0]}_processed.cif")
+                    name = os.path.splitext(cif_file)[0]
+                    output_cif = os.path.join(action_folder, f"{name}_processed.cif")
                     try:
                         write(output_cif, processed_atoms)
                     except Exception as e:
                         print(f"Failed to write output CIF for {cif_file}: {e}")
                         continue
                     prompt = str(action)
-                    writer.writerow([input_path, prompt, f"{os.path.splitext(cif_file)[0]}_processed.cif"])
+                    writer.writerow(["{name}.cif", prompt, f"{name}_processed.cif"])
 
 
 
 
 
 if __name__ == "__main__":
-    all_actions = single_atom_actions + double_atom_actions + multiple_atom_actions
+    all_actions = [InsertBetweenAtomsAction]
     data_gen = DataGenerator("input_cifs", "output_cifs")
     data_gen.generate_data(all_actions)

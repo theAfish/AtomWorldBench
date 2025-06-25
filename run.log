@@ -3196,3 +3196,211 @@ The only difference is that primitive defaults to False in the new parse_structu
 
 2025-06-24 20:29:28,303 - INFO - Structures do NOT match within tolerances.
 2025-06-24 20:29:28,303 - INFO - Structures do not match for index 210
+2025-06-25 11:37:09,624 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:09,624 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:09,626 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:09,628 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:09,632 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:09,633 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:09,635 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:09,643 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:09,650 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:09,655 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:09,656 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:09,657 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:09,661 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:09,662 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:09,663 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:09,664 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:09,667 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:09,669 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:09,670 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:09,671 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:09,671 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:09,673 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:09,674 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:09,675 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:09,676 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:09,677 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:09,678 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:09,759 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:09,766 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:09,769 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:09,770 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:09,772 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:44,367 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:47,072 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:50,064 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:52,571 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:54,648 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:54,817 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:55,406 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:55,528 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:56,027 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:56,958 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:58,025 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:37:58,309 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:38:00,969 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:38:02,620 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:38:02,946 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:38:03,358 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:38:03,846 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:38:04,015 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:39:49,492 - WARNING - D:\Codes\AtomWorld\src\evaluation\metrics.py:30: FutureWarning: get_structures is deprecated; use parse_structures in pymatgen.io.cif instead.
+The only difference is that primitive defaults to False in the new parse_structures method.So parse_structures(primitive=True) is equivalent to the old behavior of get_structures().
+  structures = parser.get_structures()
+
+2025-06-25 11:39:49,702 - INFO - Atom counts do not match for index 0
+2025-06-25 11:39:49,750 - INFO - Atom counts do not match for index 1
+2025-06-25 11:39:49,783 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Some occupancies ([2.0, 2.0, 2.0, 2.0]) sum to > 1! If they are within the occupancy_tolerance, they will be rescaled. The current occupancy_tolerance is set to: 1.0
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 11:39:49,788 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1348: UserWarning: No structure parsed for section 1 in CIF.
+Occupancy 2.0 exceeded tolerance.
+  return self.parse_structures(*args, **kwargs)
+
+2025-06-25 11:39:49,788 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1348: UserWarning: Issues encountered while parsing CIF: Some occupancies ([2.0, 2.0, 2.0, 2.0]) sum to > 1! If they are within the occupancy_tolerance, they will be rescaled. The current occupancy_tolerance is set to: 1.0
+No structure parsed for section 1 in CIF.
+Occupancy 2.0 exceeded tolerance.
+  return self.parse_structures(*args, **kwargs)
+
+2025-06-25 11:39:49,788 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-06-25 12:56:23,670 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 12:58:15,394 - WARNING - D:\Codes\AtomWorld\src\evaluation\metrics.py:30: FutureWarning: get_structures is deprecated; use parse_structures in pymatgen.io.cif instead.
+The only difference is that primitive defaults to False in the new parse_structures method.So parse_structures(primitive=True) is equivalent to the old behavior of get_structures().
+  structures = parser.get_structures()
+
+2025-06-25 12:58:15,498 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Missing elements Os from CIF-reported composition
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 12:58:15,499 - INFO - Atom counts do not match for index 0
+2025-06-25 12:58:15,649 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 12:59:04,219 - INFO - Atom counts do not match for index 1
+2025-06-25 12:59:04,287 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 12:59:51,886 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Some occupancies ([2.0, 2.0, 2.0, 2.0]) sum to > 1! If they are within the occupancy_tolerance, they will be rescaled. The current occupancy_tolerance is set to: 1.0
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 12:59:51,890 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1348: UserWarning: No structure parsed for section 1 in CIF.
+Occupancy 2.0 exceeded tolerance.
+  return self.parse_structures(*args, **kwargs)
+
+2025-06-25 12:59:51,890 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1348: UserWarning: Issues encountered while parsing CIF: Some occupancies ([2.0, 2.0, 2.0, 2.0]) sum to > 1! If they are within the occupancy_tolerance, they will be rescaled. The current occupancy_tolerance is set to: 1.0
+No structure parsed for section 1 in CIF.
+Occupancy 2.0 exceeded tolerance.
+  return self.parse_structures(*args, **kwargs)
+
+2025-06-25 12:59:51,891 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-06-25 13:09:25,188 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:11:18,316 - WARNING - D:\Codes\AtomWorld\src\evaluation\metrics.py:30: FutureWarning: get_structures is deprecated; use parse_structures in pymatgen.io.cif instead.
+The only difference is that primitive defaults to False in the new parse_structures method.So parse_structures(primitive=True) is equivalent to the old behavior of get_structures().
+  structures = parser.get_structures()
+
+2025-06-25 13:11:18,359 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Missing elements Os from CIF-reported composition
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 13:11:18,359 - INFO - Atom counts do not match for index 0
+2025-06-25 13:11:18,416 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:12:01,786 - INFO - Atom counts do not match for index 1
+2025-06-25 13:12:01,840 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:13:09,294 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Some occupancies ([2.0, 2.0, 2.0, 2.0]) sum to > 1! If they are within the occupancy_tolerance, they will be rescaled. The current occupancy_tolerance is set to: 1.0
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 13:13:09,294 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1348: UserWarning: No structure parsed for section 1 in CIF.
+Occupancy 2.0 exceeded tolerance.
+  return self.parse_structures(*args, **kwargs)
+
+2025-06-25 13:13:09,294 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1348: UserWarning: Issues encountered while parsing CIF: Some occupancies ([2.0, 2.0, 2.0, 2.0]) sum to > 1! If they are within the occupancy_tolerance, they will be rescaled. The current occupancy_tolerance is set to: 1.0
+No structure parsed for section 1 in CIF.
+Occupancy 2.0 exceeded tolerance.
+  return self.parse_structures(*args, **kwargs)
+
+2025-06-25 13:13:09,294 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-06-25 13:27:28,026 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:29:21,220 - WARNING - D:\Codes\AtomWorld\src\evaluation\metrics.py:30: FutureWarning: get_structures is deprecated; use parse_structures in pymatgen.io.cif instead.
+The only difference is that primitive defaults to False in the new parse_structures method.So parse_structures(primitive=True) is equivalent to the old behavior of get_structures().
+  structures = parser.get_structures()
+
+2025-06-25 13:29:21,391 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Missing elements Os from CIF-reported composition
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 13:29:21,394 - INFO - Atom counts do not match for index 0
+2025-06-25 13:29:21,451 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:30:10,865 - INFO - Atom counts do not match for index 1
+2025-06-25 13:30:10,921 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:31:00,875 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Some occupancies ([2.0, 2.0, 2.0, 2.0]) sum to > 1! If they are within the occupancy_tolerance, they will be rescaled. The current occupancy_tolerance is set to: 1.0
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 13:31:00,876 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1348: UserWarning: No structure parsed for section 1 in CIF.
+Occupancy 2.0 exceeded tolerance.
+  return self.parse_structures(*args, **kwargs)
+
+2025-06-25 13:31:00,877 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1348: UserWarning: Issues encountered while parsing CIF: Some occupancies ([2.0, 2.0, 2.0, 2.0]) sum to > 1! If they are within the occupancy_tolerance, they will be rescaled. The current occupancy_tolerance is set to: 1.0
+No structure parsed for section 1 in CIF.
+Occupancy 2.0 exceeded tolerance.
+  return self.parse_structures(*args, **kwargs)
+
+2025-06-25 13:31:00,877 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-06-25 13:31:00,879 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Some occupancies ([2.0]) sum to > 1! If they are within the occupancy_tolerance, they will be rescaled. The current occupancy_tolerance is set to: 1.0
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 13:31:00,881 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1348: UserWarning: Issues encountered while parsing CIF: Some occupancies ([2.0]) sum to > 1! If they are within the occupancy_tolerance, they will be rescaled. The current occupancy_tolerance is set to: 1.0
+No structure parsed for section 1 in CIF.
+Occupancy 2.0 exceeded tolerance.
+  return self.parse_structures(*args, **kwargs)
+
+2025-06-25 13:31:00,881 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-06-25 13:31:00,881 - INFO - Invalid generated structure for index 2
+2025-06-25 13:31:00,933 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:31:48,311 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Some occupancies ([2.0, 2.0, 2.0, 2.0, 2.0, 2.0]) sum to > 1! If they are within the occupancy_tolerance, they will be rescaled. The current occupancy_tolerance is set to: 1.0
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 13:31:48,312 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1348: UserWarning: Issues encountered while parsing CIF: Some occupancies ([2.0, 2.0, 2.0, 2.0, 2.0, 2.0]) sum to > 1! If they are within the occupancy_tolerance, they will be rescaled. The current occupancy_tolerance is set to: 1.0
+No structure parsed for section 1 in CIF.
+Occupancy 2.0 exceeded tolerance.
+  return self.parse_structures(*args, **kwargs)
+
+2025-06-25 13:31:48,312 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-06-25 13:36:09,108 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:38:03,302 - WARNING - D:\Codes\AtomWorld\src\evaluation\metrics.py:30: FutureWarning: get_structures is deprecated; use parse_structures in pymatgen.io.cif instead.
+The only difference is that primitive defaults to False in the new parse_structures method.So parse_structures(primitive=True) is equivalent to the old behavior of get_structures().
+  structures = parser.get_structures()
+
+2025-06-25 13:38:03,339 - INFO - Atom counts do not match for index 0
+2025-06-25 13:38:03,405 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:39:00,844 - INFO - Atom counts do not match for index 1
+2025-06-25 13:39:00,958 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:39:56,381 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Some occupancies ([2.0, 2.0, 2.0, 2.0]) sum to > 1! If they are within the occupancy_tolerance, they will be rescaled. The current occupancy_tolerance is set to: 1.0
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 13:39:56,381 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1348: UserWarning: No structure parsed for section 1 in CIF.
+Occupancy 2.0 exceeded tolerance.
+  return self.parse_structures(*args, **kwargs)
+
+2025-06-25 13:39:56,382 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1348: UserWarning: Issues encountered while parsing CIF: Some occupancies ([2.0, 2.0, 2.0, 2.0]) sum to > 1! If they are within the occupancy_tolerance, they will be rescaled. The current occupancy_tolerance is set to: 1.0
+No structure parsed for section 1 in CIF.
+Occupancy 2.0 exceeded tolerance.
+  return self.parse_structures(*args, **kwargs)
+
+2025-06-25 13:39:56,382 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-06-25 13:53:50,599 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:55:29,736 - WARNING - D:\Codes\AtomWorld\src\evaluation\metrics.py:30: FutureWarning: get_structures is deprecated; use parse_structures in pymatgen.io.cif instead.
+The only difference is that primitive defaults to False in the new parse_structures method.So parse_structures(primitive=True) is equivalent to the old behavior of get_structures().
+  structures = parser.get_structures()
+
+2025-06-25 13:55:29,920 - INFO - Atom counts do not match for index 0
+2025-06-25 13:55:29,982 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:57:01,129 - INFO - Atom counts do not match for index 1
+2025-06-25 13:57:01,189 - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:58:53,319 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Some occupancies ([2.0, 2.0, 2.0, 2.0]) sum to > 1! If they are within the occupancy_tolerance, they will be rescaled. The current occupancy_tolerance is set to: 1.0
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-06-25 13:58:53,320 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1348: UserWarning: No structure parsed for section 1 in CIF.
+Occupancy 2.0 exceeded tolerance.
+  return self.parse_structures(*args, **kwargs)
+
+2025-06-25 13:58:53,320 - WARNING - D:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1348: UserWarning: Issues encountered while parsing CIF: Some occupancies ([2.0, 2.0, 2.0, 2.0]) sum to > 1! If they are within the occupancy_tolerance, they will be rescaled. The current occupancy_tolerance is set to: 1.0
+No structure parsed for section 1 in CIF.
+Occupancy 2.0 exceeded tolerance.
+  return self.parse_structures(*args, **kwargs)
+
+2025-06-25 13:58:53,320 - INFO - Error loading CIF from string: Invalid CIF file with no structures!

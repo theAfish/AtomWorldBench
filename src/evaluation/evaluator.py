@@ -45,7 +45,7 @@ class Evaluator:
 
         prompts = []
         rows = []
-        for i, row in tqdm(self.data.iterrows(), total=len(self.data), desc="Preparing prompts"):
+        for i, row in tqdm(self.data.iterrows(), total=len(self.data), desc="LLM Calling"):
             input_cif = row['input_cif']
             action_prompt = row['action_prompt']
             output_cif = row['output_cif']
