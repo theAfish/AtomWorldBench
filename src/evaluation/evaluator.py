@@ -34,7 +34,7 @@ class Evaluator:
         self.results_folder = results_folder
         os.makedirs(self.results_folder, exist_ok=True)
 
-    def evaluate(self, batch_size: int = 8):
+    def evaluate(self, batch_size: int = 8, num_batch: int = -1):
         """
         Evaluate the model on the provided data in batches.
         """
@@ -45,6 +45,7 @@ class Evaluator:
 
         prompts = []
         rows = []
+        batch_count = 0
         for i, row in tqdm(self.data.iterrows(), total=len(self.data), desc="LLM Calling"):
             input_cif = row['input_cif']
             action_prompt = row['action_prompt']
@@ -127,9 +128,10 @@ class Evaluator:
 
                 prompts = []
                 rows = []
+                batch_count += 1
 
-                # # for debug
-                if i > 200:
+                # Stop if num_batch is reached
+                if num_batch > 0 and batch_count >= num_batch:
                     break
 
         # Print summary of evaluation

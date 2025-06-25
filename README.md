@@ -14,10 +14,11 @@ pip install .
 # Run the benchmark
 
 ```
-python ./src/scripts/run_benchmark.py --model [model_name] --action [action_name]
+python ./src/scripts/run_benchmark.py -m [model_name] -a [action_name] -b [batch_size] -n [num_batch]
 ```
 
-`model_name` is the model you want to test. For example, deepseek_reasoner.
+`model_name` is the model you want to test. For example, `deepseek_reasoner`
+
 `action_name` is the action to test. Current avaliable actions:
 
 - add_atom_action
@@ -32,6 +33,10 @@ python ./src/scripts/run_benchmark.py --model [model_name] --action [action_name
 - remove_atom_action
 - rotate_around_atom_action
 - swap_atoms_action
+
+`batch_size` is the number of parallel LLM calls. Default 50
+
+`num_batch` is the number of batches for test.
 
 # Analyze the results
 

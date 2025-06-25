@@ -46,7 +46,14 @@ def load_config(config_name: str) -> dict:
     
     return config
 
-def run_benchmark(model_id: str, action: str, config_name: str="models", results_folder: str=None):
+def run_benchmark(
+        model_id: str, 
+        action: str, 
+        batch_size: int,
+        num_batch: int,
+        config_name: str="models", 
+        results_folder: str=None
+    ):
     """
     Run the benchmark using the specified configuration.
     
@@ -83,7 +90,7 @@ def run_benchmark(model_id: str, action: str, config_name: str="models", results
     )
     
     # Run evaluation
-    evaluator.evaluate(batch_size=50)
+    evaluator.evaluate(batch_size=50, num_batch=5)
 
 
 if __name__ == "__main__":
@@ -91,21 +98,43 @@ if __name__ == "__main__":
     
     parser = argparse.ArgumentParser(description="Run benchmark with specified configuration.")
     parser.add_argument(
+        "-m",
         "--model", 
         type=str, 
         default="deepseek_reasoner", 
         help="ID of the model to use (e.g., 'deepseek_chat', 'openai_gpt4')"
     )
     parser.add_argument(
+        "-a",
         "--action", 
         type=str, 
         default=action_names[4], 
         help=f"Name of the action for test. Default: {action_names[4]}"
     )
+    parser.add_argument(
+        "-b",
+        "--batch_size", 
+        type=int, 
+        default=50, 
+        help=f"Batch size for the run. Default: 50"
+    )
+    parser.add_argument(
+        "-n",
+        "--num_batch", 
+        type=int, 
+        default=-1, 
+        help=f"Number of batches to use. Default: -1 for all data"
+    )
     
     args = parser.parse_args()
     
     try:
-        run_benchmark(args.model, action=args.action, config_name="models")
+        run_benchmark(
+            args.model, 
+            action=args.action, 
+            batch_size=args.batch_size, 
+            num_batch=args.num_batch, 
+            config_name="models"
+        )
     except Exception as e:
         print(f"Error running benchmark: {e}")
