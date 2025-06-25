@@ -65,6 +65,9 @@ def run_benchmark(model_id: str, action: str, config_name: str="models", results
         temperature=config.get('temperature', 1)
     )
 
+    if action not in action_names:
+        raise ValueError(f"Invalid action '{action}'. Must be one of: {action_names}")
+
     # automatically set results folder if not provided
     if results_folder is None:
         results_folder = f"results/{model_id}/{action}"
