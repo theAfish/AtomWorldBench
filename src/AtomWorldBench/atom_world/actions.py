@@ -4,20 +4,6 @@ import numpy as np
 from ase import Atoms
 from ase.data import chemical_symbols
 
-class BaseAction:
-    def __init__(self, atoms: Atoms):
-        self.atoms = atoms
-
-    def change_atoms(self, atoms: Atoms):
-        """Change the atoms object for this action."""
-        self.atoms = atoms
-
-    def execute(self):
-        raise NotImplementedError("This method should be overridden by subclasses.")
-
-    def __str__(self):
-        return f"{self.__class__.__name__} action on {len(self.atoms)} atoms."
-
 # Single atom actions
 class AddAtomAction(BaseAction):
     def __init__(self, atoms: Atoms, symbol: str, position: np.ndarray):
