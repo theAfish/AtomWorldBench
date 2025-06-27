@@ -6,7 +6,7 @@ import os
 # ========== Setup ==========
 results_folder = "results"
 model_name = "deepseek_chat"
-action_name = "insert_between_atoms_action"
+action_name = "delete_below_atom_action"
 folder = f"{results_folder}/{model_name}/{action_name}"
 results_file = os.path.join(folder, f"{action_name}_evaluation_results.csv")
 wrongs_file = os.path.join(folder, f"{action_name}_evaluation_wrongs.csv")
@@ -68,12 +68,16 @@ plt.show()
 # plt.show()
 
 # save some example cif 
-index2save = 0
+index2save = 2
+init_cif = df_results["input_cif"][index2save]
 gen_cif = df_results["generated_cif"][index2save]
 target_cif = df_results["target_cif"][index2save]
 
-with open(f"{results_folder}/example_generated.cif", "w") as f:
+with open(f"{results_folder}/example_2.cif", "w") as f:
     f.write(gen_cif)
 
-with open(f"{results_folder}/example_target.cif", "w") as f:
+with open(f"{results_folder}/example_1.cif", "w") as f:
     f.write(target_cif)
+
+with open(f"{results_folder}/example_0.cif", "w") as f:
+    f.write(init_cif)

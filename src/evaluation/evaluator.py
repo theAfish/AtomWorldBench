@@ -51,6 +51,10 @@ class Evaluator:
             action_prompt = row['action_prompt']
             output_cif = row['output_cif']
 
+            # check if the input_cif is empty
+            if input_cif is None:
+                raise ValueError(f"input_cif is None at row {i}")
+
             prompt = cif_action_prompt(
                 input_cif=input_cif,
                 action_prompt=action_prompt,

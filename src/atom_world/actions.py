@@ -232,7 +232,7 @@ class RotateAroundAtomAction(BaseAction):
         super().__init__(atoms)
         self.index = index
         self.radius = radius
-        if not (0 <= angle < 2 * np.pi):
+        if not (0 <= angle < 360):
             raise ValueError("Angle must be in the range [0, 2π).")
         if np.linalg.norm(axis) == 0:
             raise ValueError("Axis of rotation cannot be a zero vector.")
@@ -250,7 +250,7 @@ class RotateAroundAtomAction(BaseAction):
             # Extract the atoms to rotate
             sub_atoms = self.atoms[indices_to_rotate]
             # Rotate in-place around the axis and center
-            sub_atoms.rotate(self.angle * 180 / np.pi, self.axis, center=center_position)
+            sub_atoms.rotate(self.angle, self.axis, center=center_position)
             # Update positions in the main atoms object
             for idx, sub_atom in zip(indices_to_rotate, sub_atoms):
                 self.atoms[idx].position = sub_atom.position
@@ -259,4 +259,4 @@ class RotateAroundAtomAction(BaseAction):
             raise IndexError("Index out of bounds for rotating around an atom.")
 
     def __str__(self):
-        return f"Rotate  all surrounding atoms within {self.radius} of the center atom at index {self.index} by {self.angle} radians around the axis {self.axis} in the cif file."
+        return f"Rotate all surrounding atoms within {self.radius} of the center atom at index {self.index} by {self.angle} degree around the axis {self.axis} in the cif file. The rotation should following the right-hand rule."
