@@ -31,17 +31,17 @@ class BaseAction(ABC):
         self._prompt = None  # Reset prompt when structure changes.
 
     @property
-    def prompt(self):
+    def prompt(self) -> str:
         if self._prompt is None:
             self._prompt = self._get_prompt()
         return self._prompt
 
     @abstractmethod
-    def _get_prompt(self):
+    def _get_prompt(self) -> str:
         """Generate a prompt describing the action performed on the structure."""
         raise NotImplementedError
 
     @abstractmethod
-    def execute(self):
+    def execute(self) -> Structure:
         """Execute the action on the structure to generate the ground truth structure."""
         raise NotImplementedError
