@@ -4,8 +4,11 @@ node_modules/
 .pytest_cache/
 *.egg-info/
 __pycache__/
+build/
 
 raw_data/
 tests/
+results/
+local.models.yaml
 
 run.log
