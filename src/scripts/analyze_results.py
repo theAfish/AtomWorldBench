@@ -5,8 +5,8 @@ import os
 
 # ========== Setup ==========
 results_folder = "results"
-model_name = "deepseek_chat"
-action_name = "delete_below_atom_action"
+model_name = "azure_openai"
+action_name = "insert_between_atoms_action"
 folder = f"{results_folder}/{model_name}/{action_name}"
 results_file = os.path.join(folder, f"{action_name}_evaluation_results.csv")
 wrongs_file = os.path.join(folder, f"{action_name}_evaluation_wrongs.csv")
@@ -52,7 +52,7 @@ plt.text(
 )
 
 plt.tight_layout()
-plt.savefig(f"{results_folder}/{model_name}-{action_name}-max_dist.png", dpi=300, bbox_inches='tight')
+plt.savefig(f"{results_folder}/{model_name}/{model_name}-{action_name}-max_dist.png", dpi=300, bbox_inches='tight')
 plt.show()
 
 # ========== Boxplot ==========
@@ -73,11 +73,11 @@ init_cif = df_results["input_cif"][index2save]
 gen_cif = df_results["generated_cif"][index2save]
 target_cif = df_results["target_cif"][index2save]
 
-with open(f"{results_folder}/example_2.cif", "w") as f:
+with open(f"{results_folder}/{model_name}/example_2.cif", "w") as f:
     f.write(gen_cif)
 
-with open(f"{results_folder}/example_1.cif", "w") as f:
+with open(f"{results_folder}/{model_name}/example_1.cif", "w") as f:
     f.write(target_cif)
 
-with open(f"{results_folder}/example_0.cif", "w") as f:
+with open(f"{results_folder}/{model_name}/example_0.cif", "w") as f:
     f.write(init_cif)
