@@ -3,21 +3,6 @@
 import numpy as np
 from ase import Atoms
 from ase.data import chemical_symbols
-
-# Single atom actions
-class AddAtomAction(BaseAction):
-    def __init__(self, atoms: Atoms, symbol: str, position: np.ndarray):
-        super().__init__(atoms)
-        self.symbol = symbol
-        self.position = position
-
-    def execute(self):
-        new_atom = Atoms(symbols=self.symbol, positions=[self.position])
-        self.atoms += new_atom
-        return self.atoms
-
-    def __str__(self):
-        return f"Add one {self.symbol} at {self.position} to the cif file."
     
 class RemoveAtomAction(BaseAction):
     def __init__(self, atoms: Atoms, index: int):
