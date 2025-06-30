@@ -6,8 +6,10 @@ Testing LLMs' ability on operating 3D atomic structures.
 ## Installation
 
 ```
-pip install .
+pip install -e .
 ```
+
+The `-e` stands for "editable", meaning the package is linked to your local project directory. Changes made to the source code in your local directory take effect immediately without needing to reinstall the package.
 
 ## Usage
 
