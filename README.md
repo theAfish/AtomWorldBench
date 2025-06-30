@@ -11,6 +11,8 @@ pip install .
 
 ## Usage
 
+If you want to run the benchmark for your own model, please add your model in `src/models/` folder and corresponding parameters in `config/models.yaml`.
+
 # Run the benchmark
 
 ```

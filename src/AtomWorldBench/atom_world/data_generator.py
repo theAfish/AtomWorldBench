@@ -36,14 +36,15 @@ class ActionInputGenerator:
             raise ValueError("Not enough atoms to select the required number of indices.")
         return random.sample(range(len(self.atoms)), count)
 
-    def random_radius(self, min_r=1.5, max_r=4.0, index=None):
+    def random_radius(self, min_r=1.0, max_r=4.0, index=None):
         # If index is provided, ensure radius does not delete all atoms
         if index is not None and len(self.atoms) > 1:
             # Compute all distances from index to others (with PBC)
             distances = self.atoms.get_distances(index, range(len(self.atoms)), mic=True)
             max_dist = np.max(distances[distances > 0])  # exclude self
-            # Set max_r to be less than max_dist
+            min_dist = np.min(distances[distances > 0])
             max_r = min(max_r, max_dist * 0.99)
+            min_r = max(min_r, min_dist * 1.01)
             if max_r < min_r:
                 max_r = max_dist * 0.5  # fallback
             if max_r < 0.1:
@@ -66,13 +67,12 @@ class ActionInputGenerator:
         return np.random.randn(3) * self.dpos_scale
     
     def random_axis(self):
-        # choose from [1,0,0], [0,1,0], [0,0,1] only
-        axes = np.array([[1, 0, 0], [0, 1, 0], [0, 0, 1]])
+        axes = np.array([[1, 0, 0], [0, 1, 0], [0, 0, 1],[-1, 0, 0], [0, -1, 0], [0, 0, -1]])
         return axes[random.randint(0, len(axes) - 1)]
     
     def random_angle(self):
         # Generate a random angle in radians
-        return random.uniform(np.pi/8, 2 * np.pi)
+        return random.uniform(45, 315)
     
     def generate_inputs_for_action(self, action_cls):
         sig = inspect.signature(action_cls.__init__)
@@ -118,7 +118,7 @@ class ActionInputGenerator:
                 count = random.randint(1, len(self.atoms))
                 kwargs[name] = self.random_indices(count)
             elif name == 'radius':
-                if action_cls.__name__ == "DeleteAroundAtomAction" and 'index' in kwargs:
+                if 'index' in kwargs:
                     kwargs[name] = self.random_radius(index=kwargs['index'])
                 else:
                     kwargs[name] = self.random_radius()
@@ -184,13 +184,13 @@ class DataGenerator:
                         print(f"Failed to write output CIF for {cif_file}: {e}")
                         continue
                     prompt = str(action)
-                    writer.writerow(["{name}.cif", prompt, f"{name}_processed.cif"])
+                    writer.writerow([f"{name}.cif", prompt, f"{name}_processed.cif"])
 
 
 
 
 
 if __name__ == "__main__":
-    all_actions = [InsertBetweenAtomsAction]
+    all_actions = [RotateAroundAtomAction]
     data_gen = DataGenerator("input_cifs", "output_cifs")
     data_gen.generate_data(all_actions)
