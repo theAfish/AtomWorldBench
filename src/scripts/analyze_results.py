@@ -5,7 +5,7 @@ import os
 
 # ========== Setup ==========
 results_folder = "results"
-model_name = "azure_openai"
+model_name = "llama3_70b"
 action_name = "insert_between_atoms_action"
 folder = f"{results_folder}/{model_name}/{action_name}"
 results_file = os.path.join(folder, f"{action_name}_evaluation_results.csv")
