@@ -1,8 +1,4 @@
-"""Actions that operate on a single center.
-
-Typically, these actions involve a single atom replacement, addition, removal, or
-operation of other atoms with respect to the center atom.
-"""
+"""Actions to add atoms."""
 from typing import List
 
 from .base import BaseAction
