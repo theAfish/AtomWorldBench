@@ -10,10 +10,16 @@ deepseek_reasoner:
   api_key: ${DEEPSEEK_API_KEY} 
   base_url: https://api.deepseek.com/v1 
 
-
-
 gpt_4o:
   class: OpenAIModel
   model_name: gpt-4o
   api_key: ${OPENAI_API_KEY}
   base_url: https://api.openai.com/v1 
+
+azure_openai_example:
+  class: AzureOpenAIModel
+  model_name: ${AZURE_OPENAI_MODEL}
+  api_key: ${OPENAI_API_KEY}
+  api_version: ${AZURE_OPENAI_API_VERSION}
+  azure_endpoint: ${AZURE_ENDPOINT}
+  

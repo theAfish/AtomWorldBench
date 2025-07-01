@@ -3,6 +3,7 @@ import yaml
 from pathlib import Path
 from evaluation.evaluator import Evaluator
 from models.openai_model import OpenAIModel
+from models.azure_openai_model import AzureOpenAIModel
 
 CONFIG_DIR = Path(__file__).parent.parent / "config"
 DATA_DIR = Path(__file__).parent.parent / "data"
@@ -60,17 +61,34 @@ def run_benchmark(
     Args:
         config_name (str): Name of the configuration file (without .yaml extension).
     """
+    
     config = load_config(config_name)[model_id]
-
-    api_key = os.path.expandvars(config.get("api_key", ""))
-
+    
     # Initialize model
-    model = OpenAIModel(
-        model_name=config['model_name'],
-        api_key=api_key,
-        base_url=config.get('base_url'),
-        temperature=config.get('temperature', 1)
-    )
+    model_class = config.get("class")
+    if model_class == "OpenAIModel":
+        api_key = os.path.expandvars(config.get("api_key", ""))
+        model = OpenAIModel(
+            model_name=config['model_name'],
+            api_key=api_key,
+            base_url=config.get('base_url'),
+            temperature=config.get('temperature', 1)
+        )
+    elif model_class == "AzureOpenAIModel":
+        model_name = os.path.expandvars(config.get("model_name", ""))
+        api_key = os.path.expandvars(config.get("api_key", ""))
+        api_version = os.path.expandvars(config.get("api_version", ""))
+        azure_endpoint = os.path.expandvars(config.get("azure_endpoint", ""))
+    
+        model = AzureOpenAIModel(
+            model_name=model_name,
+            api_key=api_key,
+            api_version=api_version,
+            azure_endpoint=azure_endpoint,
+            temperature=config.get('temperature', 1)
+        )
+    else:
+        raise ValueError(f"Unimplemented model_class '{model_class}'.")
 
     if action not in action_names:
         raise ValueError(f"Invalid action '{action}'. Must be one of: {action_names}")
@@ -105,6 +123,13 @@ if __name__ == "__main__":
         help="ID of the model to use (e.g., 'deepseek_chat', 'openai_gpt4')"
     )
     parser.add_argument(
+        "-c",
+        "--config", 
+        type=str, 
+        default="models", 
+        help=f"Name of config file (located under src/config)"
+    )
+    parser.add_argument(
         "-a",
         "--action", 
         type=str, 
@@ -134,7 +159,7 @@ if __name__ == "__main__":
             action=args.action, 
             batch_size=args.batch_size, 
             num_batch=args.num_batch, 
-            config_name="models"
+            config_name=args.config
         )
     except Exception as e:
         print(f"Error running benchmark: {e}")
