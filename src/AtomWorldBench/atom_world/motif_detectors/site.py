@@ -30,8 +30,9 @@ class SiteDetector(BaseDetector):
         neighbors = structure.get_sites_in_sphere(cart_coords, radius)
         return [
             SiteMotif.from_fractional_coordinates(
-                site.specie,
-                site.frac_coords,
+                specie=site.specie,
+                frac_coords=site.frac_coords,
+                lattice=structure.lattice,
                 index=site.index
             )
             for site in neighbors

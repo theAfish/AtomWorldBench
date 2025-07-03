@@ -1,12 +1,12 @@
 """Define base structure motifs in the atom world."""
-from typing import List, Tuple, Set, Optional, TypeAlias, Sequence
+from typing import List, Optional, TypeAlias, Dict, Tuple
 import numpy as np
 from numpy.typing import ArrayLike
 
 from abc import ABC, abstractmethod
 
 from pymatgen.util.typing import SpeciesLike
-from pymatgen.core import Lattice
+from pymatgen.core import Lattice, get_el_sp
 
 
 LatticeLike: TypeAlias = Lattice | ArrayLike | float
@@ -21,8 +21,6 @@ class BaseMotif(ABC):
     """
     # List of allowed actions that can be performed on this motif.
     allowed_actions = []
-    # List of allowed detectors that can be used to find this motif in structures.
-    allowed_detectors = []
     def __init__(
             self,
             name: str,
@@ -49,7 +47,57 @@ class BaseMotif(ABC):
         self.frac_coords = frac_coords
         self.lattice = lattice
         self.indices = indices
-        self.center = np.mean(self.frac_coords, axis=0)
+
+    @classmethod
+    def from_fractional_coordinates(
+            cls,
+            species: List[SpeciesLike],
+            frac_coords: ArrayLike,
+            lattice: LatticeLike,
+            indices: List[int] = None,
+    ):
+        """Create a BaseMotif from fractional coordinates.
+
+        Args:
+            species (List[SpeciesLike]): List of species for the atoms in the cluster.
+            frac_coords (ArrayLike): Fractional coordinates of the atoms in the cluster.
+            lattice (LatticeLike): The lattice of the structure to which this motif belongs.
+            indices (List[int], optional): Indices of the atoms in the structure that correspond to this motif.
+                If not yet added, these indices can be empty or None and will be set by the AddAction.
+
+        Returns:
+            ClusterMotif: An instance of ClusterMotif with the specified coordinates.
+        """
+        return cls(
+            name="",
+            species=[get_el_sp(sp) for sp in species],
+            frac_coords=frac_coords,
+            lattice=lattice,
+            indices=indices,
+        )
+
+    @classmethod
+    def from_structure_indices(
+            cls,
+            structure,
+            indices: List[int],
+    ):
+        """Create a BaseMotif from a structure and indices.
+
+        Args:
+            structure (Structure): The structure containing the atoms.
+            indices (List[int]): Indices of the atoms in the structure that correspond to this motif.
+
+        Returns:
+            ClusterMotif: An instance of ClusterMotif with the specified indices.
+        """
+        return cls(
+            name="",
+            species=[structure[index].specie for index in indices],
+            frac_coords=[structure[index].frac_coords for index in indices],
+            lattice=structure.lattice,
+            indices=indices,
+        )
 
     @property
     def species(self) -> List[SpeciesLike]:
@@ -83,6 +131,9 @@ class BaseMotif(ABC):
         if len(frac_coords) != len(self.species):
             raise ValueError("The number of fractional coordinates must match the number of species.")
         self._frac_coords = np.array(frac_coords)
+        self._cart_coords = None  # Reset Cartesian coordinates when fractional coordinates change.
+        self._radius = None  # Reset radius when fractional coordinates change.
+        self._edge_lengths = None  # Reset edge lengths when fractional coordinates change.
 
     @property
     def lattice(self) -> ArrayLike:
@@ -113,7 +164,63 @@ class BaseMotif(ABC):
                 "Fractional coordinates and lattice must be set"
                 " before getting Cartesian coordinates."
             )
-        return self.lattice.get_cartesian_coords(self.frac_coords)
+        # Compute and cache Cartesian coordinates if not already done.
+        if self._cart_coords is None:
+            self._cart_coords = self.lattice.get_cartesian_coords(self.frac_coords)
+        return self._cart_coords
+
+    @property
+    def cart_centroid(self) -> ArrayLike:
+        """Get the centroid of the motif in Cartesian coordinates."""
+        return np.mean(self.cart_coords, axis=0)
+
+    @property
+    def frac_centroid(self) -> ArrayLike:
+        """Get the centroid of the motif in Cartesian coordinates."""
+        return self.lattice.get_fractional_coords(self.cart_centroid)
+
+    @property
+    def radius(self) -> float:
+        """Calculate the radius of the motif based on its fractional coordinates.
+
+        Radius is defined as the maximum distance from the centroid to any atom in the motif.
+        """
+        if self.frac_coords is None:
+            raise ValueError("Fractional coordinates must be set before calculating radius.")
+        if len(self.frac_coords) == 1:
+            self._radius = 0.0  # Single atom motif has radius 0
+        # Calculate the maximum distance from the centroid to any atom in the motif.
+        if self._radius is not None:
+            return self._radius
+        distances = np.linalg.norm(self.cart_coords - self.cart_centroid, axis=1)
+        self._radius = np.max(distances)
+        return self._radius
+
+    @property
+    def edge_lengths(self) -> Dict[Tuple[int, int], float]:
+        """Calculate the edge length of the motif based on its fractional coordinates.
+
+        Returns:
+            Dict[Tuple[int, int], float]: A dictionary where keys are tuples of atom indices
+            and values are the distances between those atoms.
+        """
+        if self.frac_coords is None:
+            raise ValueError(
+                "Fractional coordinates and lattice must be set before calculating"
+                " edge lengths."
+            )
+        if self._edge_lengths is not None:
+            return self._edge_lengths
+        # Compute and cache edge lengths if not already done.
+        edge_lengths = {}
+        for i in range(len(self.cart_coords)):
+            for j in range(i + 1, len(self.cart_coords)):
+                dist = np.linalg.norm(
+                    self.cart_coords[i] - self.cart_coords[j]
+                )
+                edge_lengths[(i, j)] = dist
+        self._edge_lengths = edge_lengths
+        return self._edge_lengths
 
     @property
     def indices(self) -> List[int]:
@@ -121,11 +228,11 @@ class BaseMotif(ABC):
         return self._indices
 
     @indices.setter
-    def indices(self, indices: Sequence[int]):
+    def indices(self, indices: List[int]):
         """Set the indices of the atoms in the structure that correspond to this motif."""
         if self.species is None or self.frac_coords is None:
             raise ValueError("Species and fractional coordinates must be set before setting indices.")
-        if isinstance(indices, (List, Tuple, Set)) and all(isinstance(i, int) for i in indices):
+        if isinstance(indices, (list, tuple, set)) and all(isinstance(i, int) for i in indices):
             self._indices = list(indices)
         else:
             raise TypeError("Indices must be a list of integers.")
@@ -134,3 +241,7 @@ class BaseMotif(ABC):
     def describe(self) -> str:
         """Return a description of the motif."""
         pass
+
+    def __len__(self):
+        """Return the number of atoms in the motif."""
+        return len(self.species)
