@@ -1,11 +1,12 @@
 from typing import List, Optional
 
+import numpy as np
 from numpy.typing import ArrayLike
 from pymatgen.util.typing import SpeciesLike
-from pymatgen.core import get_el_sp, Structure, Element
+from pymatgen.core import Structure, Element
 
 from .base import BaseMotif, LatticeLike
-from ...utils.format_utils import format_arraylike
+from ..motif_description_styles import description_style_factory
 
 class SiteMotif(BaseMotif):
     """A motif that represents a point in space, defined by its coordinates.
@@ -19,56 +20,47 @@ class SiteMotif(BaseMotif):
         "TranslateAction",
         "ChangeAction"
     ]
+    allowed_description_styles = [
+        "CoordDescriptionStyle",
+        "IndexDescriptionStyle",
+    ]
 
     def __init__(
             self,
-            name: str,
-            species: List[SpeciesLike],
+            species: SpeciesLike | List[SpeciesLike],
             frac_coords: ArrayLike,
             lattice: LatticeLike,
-            indices: Optional[List[int]] = None,
+            indices: Optional[int | List[int]] = None,
+            name: Optional[str] = None
     ):
-        """Initialize the SiteMotif with a unique identifier."""
+        """Initialize the SiteMotif with a unique identifier.
+
+        Args:
+            species (SpeciesLike | List[SpeciesLike]): the specie that make up the motif.
+            frac_coords (ArrayLike): Fractional coordinates of the motif.
+            lattice (LatticeLike): Lattice of the structure.
+            indices (Optional[int | List[int]]): Indices of the site in the structure.
+            name (Optional[str]): Name of the motif, defaults to None.
+              If provided, it will always overwrite automatically generated names
+              based on species and coordinates.
+        """
+        # Unify format.
+        if not isinstance(species, (list, tuple, set)):
+            species = [species]
+        frac_coords = np.asarray(frac_coords)
+        if frac_coords.ndim == 1:
+            frac_coords = frac_coords.reshape(1, -1)
         if len(species) != 1 or len(frac_coords) != 1 or len(indices) != 1:
             raise ValueError(
                 "SiteMotif must be initialized with exactly one species,"
                 " one fractional coordinate, and one index."
             )
         super().__init__(
-            name=name,
             species=species,
             frac_coords=frac_coords,
             lattice=lattice,
             indices=indices,
-        )
-
-    @classmethod
-    def from_fractional_coordinates(
-            cls,
-            specie: SpeciesLike,
-            frac_coords: ArrayLike,
-            lattice: LatticeLike,
-            index: int = None,
-    ):
-        """Create a AtomMotif from fractional coordinates.
-
-        Args:
-            specie (SpeciesLike): The species of the atom.
-            frac_coords (ArrayLike): Fractional coordinates of the motif.
-            lattice (LatticeLike): The lattice of the structure to which this motif belongs.
-            index (int, optional): Index of the atom in the structure that correspond to this motif.
-             If not yet added, these indices can be empty or None and will be set by the AddAction.
-
-        Returns:
-            SiteMotif: An instance of AtomMotif with the specified coordinates.
-        """
-        specie = get_el_sp(specie)
-        return cls(
-            name=str(specie),
-            species=[specie],
-            frac_coords=[frac_coords],
-            lattice=lattice,
-            indices=[index] if index is not None else None,
+            name=name,
         )
 
     @classmethod
@@ -76,6 +68,7 @@ class SiteMotif(BaseMotif):
             cls,
             structure,
             indices: List[int],
+            name: Optional[str] = None,
     ):
         raise NotImplementedError(
             "SiteMotif does not support from_structure_indices method. Use from_structure_index instead."
@@ -100,41 +93,32 @@ class SiteMotif(BaseMotif):
             indices=[index],
         )
 
+    def _get_default_name(self) -> str:
+        """Generate a default name for the motif based on its species and coordinates."""
+        if isinstance(self.species[0], Element):
+            return f"an atom {self.species[0].symbol}"
+        else:
+            return f"a species {str(self.species[0])}"
+
     def describe(
             self,
-            style: str = "coordinates",
+            style: str = "coord",
             coord_style: str ="fractional",
-            precision: int =4
+            precision: int = 4,
     ) -> str:
         """Return a description of the motif.
         
         Args:
-            style (str): The style of description. Can be "coordinates", or "index".
-                Defaults to "coordinates".
+            style (str): The style of description. Can be "coordi", or "index".
+                Defaults to "coord".
             coord_style (str): The coordinate style to use for the description.
              Can be "fractional" or "cartesian". Defaults to "fractional".
             precision (int): Number of decimal places for coordinates. Defaults to 4.
         Returns:
             str: A string description of the motif to be concatenated to the prompt.
         """
-        if isinstance(self.species[0], Element):
-            prefix = "an atom"
-        else:
-            prefix = "a species"
-        if style == "coordinates":
-            if coord_style=="fractional":
-                coord_word = "fractional coordinates:"
-                coord = self.frac_coords[0]
-            elif coord_style == "cartesian":
-                coord_word = "cartesian coordinates (unit in Angstroms):"
-                coord = self.cart_coords[0]
-            else:
-                raise ValueError(f"Unknown coordinate style: {style}.")
-            coords_str =  format_arraylike(coord, precision=precision)
-            return f"{prefix} with {coord_word} {coords_str}"
-        elif style == "index":
-            if self.indices is None or len(self.indices) == 0:
-                raise ValueError("Indices are not set for this motif.")
-            return f"{prefix} with site index {self.indices[0]}"
-        else:
-            raise ValueError(f"Unknown representation style: {style}.")
+        description_style = description_style_factory(
+            style,
+            flavor=coord_style,
+            precision=precision
+        )

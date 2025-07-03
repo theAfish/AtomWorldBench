@@ -1,5 +1,7 @@
 from abc import ABC, abstractmethod
 
+from ..motifs.base import BaseMotif
+
 
 class BaseDescriptionStyle(ABC):
     """Base class for description styles in AtomWorldBench.
@@ -8,20 +10,8 @@ class BaseDescriptionStyle(ABC):
     This class provides an interface for defining and applying description styles
     to motifs.
     """
-    def __init__(self, flavor: str):
-        """Initialize the description style with a specific flavor.
-
-        Args:
-            flavor (str): The flavor of the description style, e.g., "fractional", "cartesian".
-        """
-        self.flavor = flavor
 
     @abstractmethod
-    def describe(self, motif):
+    def describe(self, motif: BaseMotif) -> str:
         """Generate a description for the given motif."""
-        pass
-
-    @abstractmethod
-    def format_description(self, description):
-        """Format the generated description into a string."""
         pass

@@ -4,4 +4,4 @@ __all__ = [
     "SiteMotif"
 ]
 
-# TODO: bond, cluster, polyhedra, etc.
+# TODO: bond, polyhedra, etc.

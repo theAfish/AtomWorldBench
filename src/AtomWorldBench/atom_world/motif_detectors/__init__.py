@@ -1,20 +1,22 @@
-from ...utils.class_utils import derived_class_factory
+from ...utils.class_utils import derived_class_factory, class_name_from_str
 
 from .base import BaseDetector
 
 def detector_factory(
-        detector_type: str,
+        detector_name: str,
         *args,
         **kwargs
-) -> BaseDetector:
+):
     """
     Factory function to create a detector instance based on the provided name.
 
     Args:
-        detector_type (str): The type of detector to create.
+        detector_name (str): The type of detector to create.
+            Must be the first part of the class name, e.g., "site" for SiteDetector.
         *args: Positional arguments to pass to the detector's constructor.
         **kwargs: Keyword arguments to pass to the detector's constructor.
     Returns:
         BaseDetector: An instance of the specified detector type.
     """
-    return derived_class_factory(detector_type, BaseDetector, *args, **kwargs)
+    class_name = class_name_from_str(detector_name + "-detector")
+    return derived_class_factory(class_name, BaseDetector, *args, **kwargs)

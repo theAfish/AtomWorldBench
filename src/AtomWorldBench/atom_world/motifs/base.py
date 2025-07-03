@@ -21,26 +21,30 @@ class BaseMotif(ABC):
     """
     # List of allowed actions that can be performed on this motif.
     allowed_actions = []
+    # List of allowed description styles for this motif.
+    allowed_description_styles = []
+
     def __init__(
             self,
-            name: str,
             species: List[SpeciesLike],
             frac_coords: ArrayLike,
             lattice: LatticeLike,
             indices: Optional[List[int]] = None,
+            name: Optional[str] = None,
     ):
         """Initialize the motif with a unique identifier.
 
-        Typically, will not be used directly, but rather through subclass class methods
-         that implement specific motifs.
         Args:
-            name (str): The name of the motif. For example, "(PO4)3-"
             species (List[SpeciesLike]): List of species that make up the motif.
             frac_coords (ArrayLike): Fractional coordinates of the motif atoms.
             lattice (LatticeLike): Lattice vectors of the structure to which this motif
              belongs. Must be a 2D array with shape (3, 3).
             indices (Optional[List[int]]):
              Indices of the atoms in the structure that correspond to this motif.
+            name (Optional[str]): Optional name for the motif. Defaults to None.
+             If provided, it will always overwrite automatically generated names
+              based on species and coordinates. For example, if name = "a water molecule",
+              then it won't be overwritten by the default name "a cluster of atoms/species H, O"
         """
         self.name = name
         self.species = species
@@ -49,50 +53,27 @@ class BaseMotif(ABC):
         self.indices = indices
 
     @classmethod
-    def from_fractional_coordinates(
-            cls,
-            species: List[SpeciesLike],
-            frac_coords: ArrayLike,
-            lattice: LatticeLike,
-            indices: List[int] = None,
-    ):
-        """Create a BaseMotif from fractional coordinates.
-
-        Args:
-            species (List[SpeciesLike]): List of species for the atoms in the cluster.
-            frac_coords (ArrayLike): Fractional coordinates of the atoms in the cluster.
-            lattice (LatticeLike): The lattice of the structure to which this motif belongs.
-            indices (List[int], optional): Indices of the atoms in the structure that correspond to this motif.
-                If not yet added, these indices can be empty or None and will be set by the AddAction.
-
-        Returns:
-            ClusterMotif: An instance of ClusterMotif with the specified coordinates.
-        """
-        return cls(
-            name="",
-            species=[get_el_sp(sp) for sp in species],
-            frac_coords=frac_coords,
-            lattice=lattice,
-            indices=indices,
-        )
-
-    @classmethod
     def from_structure_indices(
             cls,
             structure,
             indices: List[int],
+            name: Optional[str] = None,
     ):
         """Create a BaseMotif from a structure and indices.
 
         Args:
             structure (Structure): The structure containing the atoms.
             indices (List[int]): Indices of the atoms in the structure that correspond to this motif.
+            name (str): Optional name for the motif. Defaults to None.
+              If provided, it will always overwrite automatically generated names
+              based on species and coordinates. For example, if name = "a water molecule",
+              then it won't be overwritten by the default name "a cluster of atoms/species H, O".
 
         Returns:
             ClusterMotif: An instance of ClusterMotif with the specified indices.
         """
         return cls(
-            name="",
+            name=name,
             species=[structure[index].specie for index in indices],
             frac_coords=[structure[index].frac_coords for index in indices],
             lattice=structure.lattice,
@@ -236,6 +217,31 @@ class BaseMotif(ABC):
             self._indices = list(indices)
         else:
             raise TypeError("Indices must be a list of integers.")
+
+    @property
+    def name(self) -> str:
+        """Get the name of the motif.
+
+        Can be set to a custom name at initialization, but if not provided,
+         will automatically generate a name based on motif type and species.
+        For example, if name = "a water molecule", then it won't be overwritten
+         by the automatically generated name "a cluster of atoms/species H, O".
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name: Optional[str]):
+        """Set the name of the motif."""
+        if name is None:
+            # Automatically generate a name based on species and coordinates.
+            self._name = self._get_default_name()
+        else:
+            self._name = name
+
+    @abstractmethod
+    def _get_default_name(self) -> str:
+        """Generate a default name based on motif type, species and coordinates."""
+        pass
 
     @abstractmethod
     def describe(self) -> str:

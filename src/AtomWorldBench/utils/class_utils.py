@@ -55,7 +55,19 @@ def derived_class_factory(
     """
     try:
         derived_class = get_subclasses(base_class)[class_name]
-        instance = derived_class(*args, **kwargs)
+
+        from inspect import signature
+        # Filter kwargs to only include those that are valid for the specific constructor.
+        constructor_params = signature(derived_class.__init__).parameters
+        valid_kwargs = {
+            k: v for k, v in kwargs.items()
+            if k in constructor_params and k != "self"
+        }
+
+        try:
+            instance = derived_class(*args, **valid_kwargs)
+        except TypeError as e:
+            raise TypeError(f"Failed to instantiate {class_name}: {e}") from e
     except KeyError as key_error:
         raise NotImplementedError(f"{class_name} is not implemented.") from key_error
     return instance

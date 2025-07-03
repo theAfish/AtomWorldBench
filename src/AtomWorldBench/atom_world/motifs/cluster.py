@@ -1,11 +1,7 @@
 """Motif comprising multiple atoms."""
 
-from typing import List
-from numpy.typing import ArrayLike
-from pymatgen.util.typing import SpeciesLike
-
-from .base import BaseMotif, LatticeLike
-from ...utils.format_utils import format_arraylike
+from .base import BaseMotif
+from src.AtomWorldBench.atom_world.motif_description_styles.utils import format_arraylike
 
 
 class ClusterMotif(BaseMotif):
@@ -24,6 +20,10 @@ class ClusterMotif(BaseMotif):
         "ResizeAction",
         "EdgeAction"
     ]
+
+    def _get_default_name(self) -> str:
+        """Generate a default name for the cluster motif based on species and coordinates."""
+        return f"a cluster of atoms/species {', '.join(map(str, self.species))}"
 
     def describe(
             self,
