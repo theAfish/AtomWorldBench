@@ -14,15 +14,15 @@ class SiteMotif(BaseMotif):
     Can be either an atom or an ionic species in a crystal structure.
     """
     allowed_actions = [
-        "AddAction",
-        "RemoveAction",
-        "ReplaceAction",
-        "TranslateAction",
-        "ChangeAction"
+        "AddMotifAction",
+        "RemoveMotifAction",
+        "ReplaceMotifAction",
+        "TranslateMotifAction",
+        "ChangeMotifAction"
     ]
     allowed_description_styles = [
-        "CoordDescriptionStyle",
-        "IndexDescriptionStyle",
+        "coord",
+        "index",
     ]
 
     def __init__(
@@ -99,26 +99,3 @@ class SiteMotif(BaseMotif):
             return f"an atom {self.species[0].symbol}"
         else:
             return f"a species {str(self.species[0])}"
-
-    def describe(
-            self,
-            style: str = "coord",
-            coord_style: str ="fractional",
-            precision: int = 4,
-    ) -> str:
-        """Return a description of the motif.
-        
-        Args:
-            style (str): The style of description. Can be "coordi", or "index".
-                Defaults to "coord".
-            coord_style (str): The coordinate style to use for the description.
-             Can be "fractional" or "cartesian". Defaults to "fractional".
-            precision (int): Number of decimal places for coordinates. Defaults to 4.
-        Returns:
-            str: A string description of the motif to be concatenated to the prompt.
-        """
-        description_style = description_style_factory(
-            style,
-            flavor=coord_style,
-            precision=precision
-        )

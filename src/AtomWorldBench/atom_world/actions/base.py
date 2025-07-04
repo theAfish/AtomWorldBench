@@ -3,6 +3,9 @@ from abc import ABC, abstractmethod
 
 from pymatgen.core import Structure
 
+# Create two more abstract subclasses of BaseAction: relative (operation of other sites with respect to a reference motif)
+# and motif-action (action that operates on a motif, e.g., adding, removing, or replacing a motif).
+
 class BaseAction(ABC):
     """Base class for actions that can be performed on crystal structures.
 

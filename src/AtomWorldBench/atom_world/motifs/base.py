@@ -6,7 +6,9 @@ from numpy.typing import ArrayLike
 from abc import ABC, abstractmethod
 
 from pymatgen.util.typing import SpeciesLike
-from pymatgen.core import Lattice, get_el_sp
+from pymatgen.core import Lattice
+
+from ..motif_description_styles import description_style_factory
 
 
 LatticeLike: TypeAlias = Lattice | ArrayLike | float
@@ -243,10 +245,31 @@ class BaseMotif(ABC):
         """Generate a default name based on motif type, species and coordinates."""
         pass
 
-    @abstractmethod
-    def describe(self) -> str:
-        """Return a description of the motif."""
-        pass
+    def describe(
+            self,
+            style: str = "coord",
+            **kwargs
+    ) -> str:
+        """Return a string description of the cluster motif.
+
+        Args:
+            style (str): The style of description. Default is "coord".
+            **kwargs: Additional keyword arguments for the description style.
+                For example, `coord_style` and `precision` for coordinate descriptions.
+                For other styles, refer to the specific description style documentation.
+        Returns:
+            str: A string description of the cluster motif.
+        """
+        style = style.lower()
+        if style not in self.allowed_description_styles:
+            raise ValueError(
+                f"Description style '{style}' is not allowed for this motif. "
+                f"Allowed styles: {self.allowed_description_styles}."
+            )
+        description_style = description_style_factory(
+            style, **kwargs
+        )
+        return description_style.describe(self)
 
     def __len__(self):
         """Return the number of atoms in the motif."""
