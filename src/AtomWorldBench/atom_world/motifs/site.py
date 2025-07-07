@@ -6,7 +6,7 @@ from pymatgen.util.typing import SpeciesLike
 from pymatgen.core import Structure, Element
 
 from .base import BaseMotif, LatticeLike
-from ..motif_description_styles import description_style_factory
+
 
 class SiteMotif(BaseMotif):
     """A motif that represents a point in space, defined by its coordinates.
@@ -18,7 +18,8 @@ class SiteMotif(BaseMotif):
         "RemoveMotifAction",
         "ReplaceMotifAction",
         "TranslateMotifAction",
-        "ChangeMotifAction"
+        "RotateMotifAction",
+        "E3MotifAction",  # E3 operation relative to other motifs or some coordinates.
     ]
     allowed_description_styles = [
         "coord",

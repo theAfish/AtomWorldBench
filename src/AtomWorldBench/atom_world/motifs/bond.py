@@ -9,8 +9,7 @@ class BondMotif(ClusterMotif):
     It can be used to represent bonds in a structure.
     """
     allowed_actions = [
-        "ResizeMotifAction",
-        "EdgeAction"
+        "ResizeMotifAction", # Resize the bond motif's length wrt centroid or a node in cluster.
     ]
     allowed_description_styles = [
         "index",

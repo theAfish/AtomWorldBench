@@ -17,7 +17,6 @@ class BaseDetector(ABC):
             self,
             structure: Structure,
             frac_coords: ArrayLike,
-            radius: float = 3.0,
     ):
         """Detect motifs in the given structure.
 
@@ -26,7 +25,6 @@ class BaseDetector(ABC):
             structure(Structure): The structure to analyze.
             frac_coords(ArrayLike): Fractional coordinates for the motif detection center.
              Must be a one-dimensional array of shape (3,).
-            radius(float): The radius around the fractional coordinates to consider for detection.
 
         Returns:
             List of detected motifs.
@@ -37,7 +35,6 @@ class BaseDetector(ABC):
             self,
             structure: Structure,
             indices: List[int],
-            radius: float | List[float] = 3.0,
     ):
         """Detect motifs in the given structure based on indices.
 
@@ -47,21 +44,14 @@ class BaseDetector(ABC):
             structure(Structure): The structure to analyze.
             indices(List[int]): List of atomic site indices in structure to consider
              for detecting around.
-            radius(float | List[float]): The radius around the atomic sites to consider
-             for detection. If specified as a single float, it applies to all indices.
-             If specified as a list, it should match the length of indices.
 
         Returns:
             List of detected motifs.
         """
-        if isinstance(radius, float):
-            radius = [radius] * len(indices)
-        if len(radius) != len(indices):
-            raise ValueError("Length of radius must match length of indices.")
         motifs = []
-        for index, r in zip(indices, radius):
+        for index in indices:
             frac_coords = structure[index].frac_coords
-            motifs.extend(self.detect_around_frac_coords(structure, frac_coords, r))
+            motifs.extend(self.detect_around_frac_coords(structure, frac_coords))
         return motifs
 
     @abstractmethod

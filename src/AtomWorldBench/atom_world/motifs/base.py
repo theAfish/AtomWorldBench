@@ -13,6 +13,7 @@ from ..motif_description_styles import description_style_factory
 
 LatticeLike: TypeAlias = Lattice | ArrayLike | float
 
+# TODO: the current implementation disregards periodicity of the lattice. Need to handle this!
 
 class BaseMotif(ABC):
     """Base class for motifs in the atom world.
