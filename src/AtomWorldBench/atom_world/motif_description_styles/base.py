@@ -10,6 +10,8 @@ class BaseDescriptionStyle(ABC):
     This class provides an interface for defining and applying description styles
     to motifs.
     """
+    # Some description styles need to append an introduction to the prompt.
+    introduction = ""
 
     @abstractmethod
     def describe(self, motif: BaseMotif) -> str:

@@ -1,5 +1,9 @@
+import numpy as np
+
 from .base import BaseDescriptionStyle
 from ..motifs.base import BaseMotif
+
+from .utils import format_arraylike
 
 
 class IndexDescriptionStyle(BaseDescriptionStyle):
@@ -7,6 +11,11 @@ class IndexDescriptionStyle(BaseDescriptionStyle):
 
     This style describes a motif using its site indices in the structure.
     """
+    introduction = (
+        "cell offsets: triplets of integers indicating how many unit cells"
+        " the atom is displaced along the lattice vectors from the central"
+        " reference cell."
+    )
 
     def describe(self, motif: BaseMotif) -> str:
         """Generate a description for the given motif.
@@ -19,4 +28,10 @@ class IndexDescriptionStyle(BaseDescriptionStyle):
         """
         if motif.indices is None:
             raise ValueError("Indices are not set for this motif.")
-        return f"{motif.name} with site indices: {', '.join(map(str, motif.indices))}"
+        # All sites in motif is in the central reference cell.
+        if np.all(motif.cell_offsets == 0):
+            return (f"{motif.name} with site indices: {', '.join(map(str, motif.indices))}"
+                    f" in the central reference cell.")
+
+        return (f"{motif.name} with site indices: {', '.join(map(str, motif.indices))}"
+                f" and cell offsets: {format_arraylike(motif.cell_offsets, precision=0)}.")

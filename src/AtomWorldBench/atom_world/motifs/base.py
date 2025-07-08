@@ -13,7 +13,6 @@ from ..motif_description_styles import description_style_factory
 
 LatticeLike: TypeAlias = Lattice | ArrayLike | float
 
-# TODO: the current implementation disregards periodicity of the lattice. Need to handle this!
 
 class BaseMotif(ABC):
     """Base class for motifs in the atom world.
@@ -118,6 +117,21 @@ class BaseMotif(ABC):
         self._cart_coords = None  # Reset Cartesian coordinates when fractional coordinates change.
         self._radius = None  # Reset radius when fractional coordinates change.
         self._edge_lengths = None  # Reset edge lengths when fractional coordinates change.
+
+    @property
+    def cell_offsets(self) -> ArrayLike:
+        """Get the cell offset for each atom in the cluster.
+
+        cell offsets are the integer part of the fractional coordinates in the form of
+         triplets (i, j, k).
+        Returns:
+            np.ndarray: A 2D array of shape (n, 3) representing the box positions.
+        """
+        if self.frac_coords is None:
+            raise ValueError(
+                "Fractional coordinates must be set before getting box positions."
+            )
+        return np.floor(self.frac_coords).astype(int)
 
     @property
     def lattice(self) -> ArrayLike:
