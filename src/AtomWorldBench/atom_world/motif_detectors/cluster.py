@@ -1,8 +1,8 @@
-from typing import List, Optional
+from typing import List, Optional, Tuple
 
 import numpy as np
 from numpy.typing import ArrayLike
-from pymatgen.core import Structure
+from pymatgen.core import Structure, PeriodicNeighbor
 from pymatgen.util.typing import SpeciesLike
 
 from .base import BaseDetector
@@ -11,24 +11,22 @@ from ..motifs.cluster import ClusterMotif
 
 def grow_cluster(
         structure: Structure,
-        root_cluster: List[int],
-        available_site_ids: List[int],
+        root_cluster: ClusterMotif,
+        available_neighbors: List[PeriodicNeighbor],
         max_cluster_radius: float,
-) -> List[List[int]]:
+) -> List[ClusterMotif]:
     """Grow a cluster by adding available sites to the root cluster.
 
     Args:
-        structure (Structure): The structure containing the sites.
-        root_cluster (List[int]): The initial cluster to grow from, containing indices of sites.
-        available_site_ids (List[int]): Indices of available sites to consider for growth.
+        structure (Structure): The structure containing the atoms.
+        root_cluster (ClusterMotif): The initial cluster to grow from.
+        available_neighbors (List[PeriodicNeighbor]): Sites that can be added to the cluster.
         max_cluster_radius (float): Maximum allowed radius for the cluster.
-
     Returns:
-        List[List[int]]: A list containing the indices of the sites in the grown clusters.
+        List[List[PeriodicNeighbor]]: The grown clusters with added sites.
     """
-    for ii in available_site_ids:
-        site = structure[ii]
-        attempted
+    grown_clusters = [root_cluster + [nn] for nn in available_neighbors]
+    return grown_clusters
 
 
 class ClusterDetector(BaseDetector):
@@ -102,6 +100,6 @@ class ClusterDetector(BaseDetector):
 
         if self.must_include_center:
             center = neighbors[np.argmin(site.nn_distance for site in neighbors)]
-            indices_in_clusters = [[center.index]]
+            indices_in_clusters = [[get_quad_index(center)]]
         else:
-            indices_in_clusters = [[site.index for site in neighbors]]
+            indices_in_clusters = [[get_quad_index(n) for n in neighbors]]
