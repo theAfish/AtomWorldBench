@@ -121,7 +121,7 @@ class InsertBetweenAtomsAction(BaseAction):
             raise IndexError("Index out of bounds for inserting atom between two atoms.")
 
     def __str__(self):
-        return f"Insert {self.symbol} between atoms at indices {self.index1} and {self.index2} that are {self.distance:.2f} Å from {self.index1} in the cif file."
+        return f"Insert {self.symbol} between atoms at indices {self.index1} and {self.index2} that is {self.distance:.2f} Å from {self.index1} in the cif file."
     
 class MoveTowardsAtomAction(BaseAction):
     def __init__(self, atoms: Atoms, index1: int, index2: int, distance: float):
