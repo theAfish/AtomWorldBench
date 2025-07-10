@@ -1,25 +1,28 @@
-"""Define base structure motifs in the atom world."""
-from typing import List, Optional, TypeAlias, Dict, Tuple
+"""Define base structure motifs in the atom world.
+
+Motifs are inherited from ase.Atoms.
+"""
+from typing import List, Optional, Dict, Tuple
+from abc import ABC, abstractmethod
+from functools import cached_property
+
 import numpy as np
 from numpy.typing import ArrayLike
+from ase import Atoms
 
-from abc import ABC, abstractmethod
-
-from pymatgen.util.typing import SpeciesLike
-from pymatgen.core import Lattice
-
+from .utils import get_species_string
 from ..motif_description_styles import description_style_factory
 
 
-LatticeLike: TypeAlias = Lattice | ArrayLike | float
-
-
-class BaseMotif(ABC):
+class BaseMotif(ABC, Atoms):
     """Base class for motifs in the atom world.
 
     A motif is defined as a specific collection of atoms that can be
     recognized and manipulated within a structure. This class provides an interface
     for defining and applying motifs to structures.
+
+    Notice: all fractional coordinates must be unwrapped, i.e., not confined to
+     the range [0, 1).
     """
     # List of allowed actions that can be performed on this motif.
     allowed_actions = []
@@ -28,95 +31,41 @@ class BaseMotif(ABC):
 
     def __init__(
             self,
-            species: List[SpeciesLike],
-            frac_coords: ArrayLike,
-            lattice: LatticeLike,
-            indices: Optional[List[int]] = None,
+            *args,
             name: Optional[str] = None,
+            indices: Optional[List[int]] = None,
+            **kwargs
     ):
-        """Initialize the motif with a unique identifier.
+        """A Motif is an ASE Atoms comprising a subset of atoms in original ase.Atoms.
 
         Args:
-            species (List[SpeciesLike]): List of species that make up the motif.
-            frac_coords (ArrayLike): Fractional coordinates of the motif atoms.
-            lattice (LatticeLike): Lattice vectors of the structure to which this motif
-             belongs. Must be a 2D array with shape (3, 3).
-            indices (Optional[List[int]]):
-             Indices of the atoms in the structure that correspond to this motif.
-            name (Optional[str]): Optional name for the motif. Defaults to None.
-             If provided, it will always overwrite automatically generated names
-              based on species and coordinates. For example, if name = "a water molecule",
-              then it won't be overwritten by the default name "a cluster of atoms/species H, O"
+            *args, **kwargs: See `ase.Atoms.__init__`_.
+             .. _ase.Atoms.__init__: https://wiki.fysik.dtu.dk/ase/ase/atoms.html
+            name (str, optional): Human-readable motif name. Optional.
+             If None, will generate a default name.
+            indices (list of int, optional): Original indices from structure.
+                Indices should always be provided, if the motif belongs to a specific structure.
         """
+        super().__init__(*args, **kwargs)
         self.name = name
-        self.species = species
-        self.frac_coords = frac_coords
-        self.lattice = lattice
         self.indices = indices
 
-    @classmethod
-    def from_structure_indices(
-            cls,
-            structure,
-            indices: List[int],
-            name: Optional[str] = None,
-    ):
-        """Create a BaseMotif from a structure and indices.
-
-        Args:
-            structure (Structure): The structure containing the atoms.
-            indices (List[int]): Indices of the atoms in the structure that correspond to this motif.
-            name (str): Optional name for the motif. Defaults to None.
-              If provided, it will always overwrite automatically generated names
-              based on species and coordinates. For example, if name = "a water molecule",
-              then it won't be overwritten by the default name "a cluster of atoms/species H, O".
-
-        Returns:
-            ClusterMotif: An instance of ClusterMotif with the specified indices.
-        """
-        return cls(
-            name=name,
-            species=[structure[index].specie for index in indices],
-            frac_coords=[structure[index].frac_coords for index in indices],
-            lattice=structure.lattice,
-            indices=indices,
-        )
-
     @property
-    def species(self) -> List[SpeciesLike]:
+    def species_strings(self) -> List[str]:
         """Get the species of the motif."""
-        return self._species
-
-    @species.setter
-    def species(self, species: List[SpeciesLike]):
-        """Set the species of the motif."""
-        if not isinstance(species, list) or not all(isinstance(sp, SpeciesLike) for sp in species):
-            raise TypeError("Species must be a list of SpeciesLike objects.")
-        self._species = species
-        self._frac_coords = None  # Reset fractional coordinates when species change
-        self._indices = None
+        return [
+            get_species_string(el, c)
+            for el, c in
+            zip(
+                self.get_chemical_symbols(),
+                self.get_initial_charges()
+            )
+        ]
 
     @property
-    def frac_coords(self) -> ArrayLike:
-        """Get the fractional coordinates of the motif."""
-        if self._frac_coords is None:
-            raise ValueError("Fractional coordinates have not been set.")
-        return self._frac_coords
-
-    @frac_coords.setter
-    def frac_coords(self, frac_coords: ArrayLike):
-        """Set the fractional coordinates of the motif."""
-        frac_coords = np.asarray(frac_coords)
-        if frac_coords.ndim != 2 or frac_coords.shape[1] != 3:
-            raise ValueError("Fractional coordinates must be a 2D array with shape (n, 3).")
-        if self.species is None:
-            raise ValueError("Species must be set before setting fractional coordinates.")
-        if len(frac_coords) != len(self.species):
-            raise ValueError("The number of fractional coordinates must match the number of species.")
-        self._frac_coords = np.array(frac_coords)
-        self._cart_coords = None  # Reset Cartesian coordinates when fractional coordinates change.
-        self._radius = None  # Reset radius when fractional coordinates change.
-        self._edge_lengths = None  # Reset edge lengths when fractional coordinates change.
+    def frac_coords(self):
+        """Get the unwrapped fractional coordinates of the motif."""
+        return self.get_scaled_positions(wrap=False)
 
     @property
     def cell_offsets(self) -> ArrayLike:
@@ -127,55 +76,24 @@ class BaseMotif(ABC):
         Returns:
             np.ndarray: A 2D array of shape (n, 3) representing the box positions.
         """
-        if self.frac_coords is None:
-            raise ValueError(
-                "Fractional coordinates must be set before getting box positions."
-            )
         return np.floor(self.frac_coords).astype(int)
 
     @property
-    def lattice(self) -> ArrayLike:
-        """Get the lattice vectors of the structure to which this motif belongs."""
-        return self._lattice
+    def cart_coords(self) -> ArrayLike:
+        """Get the unwrapped Cartesian coordinates of the motif."""
+        return self.get_positions(wrap=False)
 
-    @lattice.setter
-    def lattice(self, lattice: LatticeLike):
-        """Set the lattice vectors of the structure to which this motif belongs.
+    def get_centroid(self, fractional=False) -> ArrayLike:
+        """Get the centroid of the motif.
 
         Args:
-            lattice (LatticeLike): Lattice vectors of the structure.
-             Can be a 2D array with shape (3, 3), a 1D array with shape (3,),
-               a Lattice object, or a single float value representing a cubic lattice.
+            fractional (bool): If True, return the centroid in fractional coordinates.
+                If False, return in Cartesian coordinates. Default is False.
         """
-        if not isinstance(lattice, Lattice):
-            if isinstance(lattice, float):
-                lattice = Lattice.cubic(lattice)
-            else:
-                lattice = Lattice(lattice)
-        self._lattice = lattice
-
-    @property
-    def cart_coords(self) -> ArrayLike:
-        """Get the Cartesian coordinates of the motif."""
-        if self._frac_coords is None or self._lattice is None:
-            raise ValueError(
-                "Fractional coordinates and lattice must be set"
-                " before getting Cartesian coordinates."
-            )
-        # Compute and cache Cartesian coordinates if not already done.
-        if self._cart_coords is None:
-            self._cart_coords = self.lattice.get_cartesian_coords(self.frac_coords)
-        return self._cart_coords
-
-    @property
-    def cart_centroid(self) -> ArrayLike:
-        """Get the centroid of the motif in Cartesian coordinates."""
-        return np.mean(self.cart_coords, axis=0)
-
-    @property
-    def frac_centroid(self) -> ArrayLike:
-        """Get the centroid of the motif in Cartesian coordinates."""
-        return self.lattice.get_fractional_coords(self.cart_centroid)
+        if fractional:
+            return np.mean(self.frac_coords, axis=0)
+        else:
+            return np.mean(self.cart_coords, axis=0)
 
     @property
     def radius(self) -> float:
@@ -183,18 +101,16 @@ class BaseMotif(ABC):
 
         Radius is defined as the maximum distance from the centroid to any atom in the motif.
         """
-        if self.frac_coords is None:
-            raise ValueError("Fractional coordinates must be set before calculating radius.")
-        if len(self.frac_coords) == 1:
-            self._radius = 0.0  # Single atom motif has radius 0
+        if len(self) == 1:
+            return 0.0  # Single atom motif has radius 0
         # Calculate the maximum distance from the centroid to any atom in the motif.
-        if self._radius is not None:
-            return self._radius
-        distances = np.linalg.norm(self.cart_coords - self.cart_centroid, axis=1)
-        self._radius = np.max(distances)
-        return self._radius
+        distances = np.linalg.norm(
+            self.cart_coords - self.get_centroid(fractional=False),
+            axis=1
+        )
+        return np.max(distances)
 
-    @property
+    @cached_property
     def edge_lengths(self) -> Dict[Tuple[int, int], float]:
         """Calculate the edge length of the motif based on its fractional coordinates.
 
@@ -202,14 +118,6 @@ class BaseMotif(ABC):
             Dict[Tuple[int, int], float]: A dictionary where keys are tuples of atom indices
             and values are the distances between those atoms.
         """
-        if self.frac_coords is None:
-            raise ValueError(
-                "Fractional coordinates and lattice must be set before calculating"
-                " edge lengths."
-            )
-        if self._edge_lengths is not None:
-            return self._edge_lengths
-        # Compute and cache edge lengths if not already done.
         edge_lengths = {}
         for i in range(len(self.cart_coords)):
             for j in range(i + 1, len(self.cart_coords)):
@@ -217,8 +125,7 @@ class BaseMotif(ABC):
                     self.cart_coords[i] - self.cart_coords[j]
                 )
                 edge_lengths[(i, j)] = dist
-        self._edge_lengths = edge_lengths
-        return self._edge_lengths
+        return edge_lengths
 
     @property
     def indices(self) -> List[int]:
@@ -228,32 +135,24 @@ class BaseMotif(ABC):
     @indices.setter
     def indices(self, indices: List[int]):
         """Set the indices of the atoms in the structure that correspond to this motif."""
-        if self.species is None or self.frac_coords is None:
-            raise ValueError("Species and fractional coordinates must be set before setting indices.")
         if isinstance(indices, (list, tuple, set)) and all(isinstance(i, int) for i in indices):
             self._indices = list(indices)
         else:
             raise TypeError("Indices must be a list of integers.")
 
     @property
-    def name(self) -> str:
-        """Get the name of the motif.
-
-        Can be set to a custom name at initialization, but if not provided,
-         will automatically generate a name based on motif type and species.
-        For example, if name = "a water molecule", then it won't be overwritten
-         by the automatically generated name "a cluster of atoms/species H, O".
-        """
+    def name(self):
+        """Set the name of the motif."""
         return self._name
 
     @name.setter
-    def name(self, name: Optional[str]):
-        """Set the name of the motif."""
-        if name is None:
-            # Automatically generate a name based on species and coordinates.
-            self._name = self._get_default_name()
-        else:
-            self._name = name
+    def name(self, name: Optional[str] = None):
+        """Set the name of the motif.
+
+        Args:
+            name (str, optional): The name of the motif. If None, a default name will be generated.
+        """
+        self._name = name if name is not None else self._get_default_name()
 
     @abstractmethod
     def _get_default_name(self) -> str:
@@ -286,6 +185,30 @@ class BaseMotif(ABC):
         )
         return description_style.describe(self)
 
-    def __len__(self):
-        """Return the number of atoms in the motif."""
-        return len(self.species)
+    @classmethod
+    def from_atoms(
+            cls,
+            atoms: Atoms,
+            name: Optional[str] = None,
+            indices: Optional[List[int]] = None,
+    ):
+        """Create a BaseMotif from an ASE Atoms object.
+
+        Args:
+            atoms (Atoms): The ASE Atoms object to create the motif from.
+            name (Optional[str]): Name of the motif. If None, a default name will be generated.
+            indices (Optional[List[int]]): Indices of the atoms in the structure that correspond to this motif.
+                Indices should always be provided, if the motif belongs to a specific structure.
+
+        Returns:
+            BaseMotif: An instance of BaseMotif with the specified atoms and indices.
+        """
+        return cls(
+            symbols=atoms.get_chemical_symbols(),
+            positions=atoms.get_positions(wrap=False),
+            cell=atoms.get_cell(complete=True),
+            pbc=atoms.get_cell(complete=True),
+            charges=atoms.get_initial_charges(),
+            name=name,
+            indices=indices
+        )

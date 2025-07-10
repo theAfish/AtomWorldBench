@@ -17,4 +17,7 @@ class BondMotif(ClusterMotif):
 
     def _get_default_name(self) -> str:
         """Generate a default name for the bond motif based on species and coordinates."""
-        return f"a bond between {self.species[0]} and {self.species[1]}"
+        return (
+            f"a bond between {self.species_strings[0]}"
+            f" and {self.species_strings[1]}"
+        )

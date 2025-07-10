@@ -2,8 +2,6 @@
 
 from .base import BaseMotif
 
-from pymatgen.core import PeriodicNeighbor, PeriodicSite
-
 
 class ClusterMotif(BaseMotif):
     """Motif representing a cluster of atoms.
@@ -41,14 +39,4 @@ class ClusterMotif(BaseMotif):
         else:
             prefix = f"{len(self)}-sites cluster"
 
-        return f"a {prefix} of atoms/species {', '.join(map(str, self.species))}"
-
-    def append_site(
-            self,
-            site,
-            site_index=None
-    ):
-        """Append a site to the cluster motif."""
-        if self.species is None or self.frac_coords is None:
-            raise ValueError("Cannot append site to an empty ClusterMotif.")
-        self._species.append(site.specie)
+        return f"a {prefix} of atoms/species {', '.join(map(str, self.species_strings))}"
