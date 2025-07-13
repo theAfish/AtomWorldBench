@@ -3,6 +3,35 @@
 import numpy as np
 from ase import Atoms
 from ase.data import chemical_symbols
+
+class BaseAction:
+    def __init__(self, atoms: Atoms):
+        self.atoms = atoms
+
+    def change_atoms(self, atoms: Atoms):
+        """Change the atoms object for this action."""
+        self.atoms = atoms
+
+    def execute(self):
+        raise NotImplementedError("This method should be overridden by subclasses.")
+
+    def __str__(self):
+        return f"{self.__class__.__name__} action on {len(self.atoms)} atoms."
+
+# Single atom actions
+class AddAtomAction(BaseAction):
+    def __init__(self, atoms: Atoms, symbol: str, position: np.ndarray):
+        super().__init__(atoms)
+        self.symbol = symbol
+        self.position = position
+
+    def execute(self):
+        new_atom = Atoms(symbols=self.symbol, positions=[self.position])
+        self.atoms += new_atom
+        return self.atoms
+
+    def __str__(self):
+        return f"Add one {self.symbol} atom at the Cartesian coordinate {self.position} to the cif file."
     
 class RemoveAtomAction(BaseAction):
     def __init__(self, atoms: Atoms, index: int):
@@ -33,7 +62,7 @@ class MoveAtomAction(BaseAction):
             raise IndexError("Index out of bounds for atom movement.")
         
     def __str__(self):
-        return f"Move the atom at index {self.index} by {self.d_pos} in the cif file."
+        return f"Move the atom at index {self.index} by {self.d_pos} angstrom in the cif file."
     
 class ChangeAtomAction(BaseAction):
     def __init__(self, atoms: Atoms, index: int, symbol: str):
@@ -92,7 +121,7 @@ class InsertBetweenAtomsAction(BaseAction):
             raise IndexError("Index out of bounds for inserting atom between two atoms.")
 
     def __str__(self):
-        return f"Insert {self.symbol} between atoms at indices {self.index1} and {self.index2} that are {self.distance:.2f} Å from {self.index1} in the cif file."
+        return f"Insert a {self.symbol} atom in the line between atoms at indices {self.index1} and {self.index2}, and the inserted atom must be {self.distance:.2f} angstrom from atom at {self.index1} in the cif file."
     
 class MoveTowardsAtomAction(BaseAction):
     def __init__(self, atoms: Atoms, index1: int, index2: int, distance: float):
@@ -115,7 +144,7 @@ class MoveTowardsAtomAction(BaseAction):
             raise IndexError("Index out of bounds for moving towards another atom.")
 
     def __str__(self):
-        return f"Move atom at index {self.index1} towards atom at index {self.index2} by {self.distance} in the cif file."
+        return f"Move the atom at index {self.index1} towards the atom at index {self.index2} by {self.distance} angstrom in the cif file."
     
 # Multiple atom actions
 class DeleteBelowAtomAction(BaseAction):
@@ -136,7 +165,7 @@ class DeleteBelowAtomAction(BaseAction):
             raise ValueError("No atoms below the specified atom to delete.")
         
     def __str__(self):
-        return f"Delete all atoms below the atom at index {self.index} in the cif file." + (" Including itself." if self.include_self else " Excluding itself.")
+        return f"Delete all atoms whose coordinate is below the atom at index {self.index} in the cif file." + (" Including itself." if self.include_self else " Excluding itself.")
     
 class DeleteAroundAtomAction(BaseAction):
     def __init__(self, atoms: Atoms, index: int, radius: float):
@@ -157,7 +186,7 @@ class DeleteAroundAtomAction(BaseAction):
             raise IndexError("Index out of bounds for deleting around an atom.")
 
     def __str__(self):
-        return f"Delete all atoms within {self.radius} of the atom at index {self.index} in the cif file."
+        return f"Delete all atoms within {self.radius} angstrom around the atom at index {self.index} in the cif file."
 
 class MoveSelectedAtomsAction(BaseAction):
     def __init__(self, atoms: Atoms, indices: list[int], d_pos: np.ndarray):
@@ -174,7 +203,7 @@ class MoveSelectedAtomsAction(BaseAction):
         return self.atoms
     
     def __str__(self):
-        return f"Move atoms at indices {self.indices} by {self.d_pos} in the cif file."
+        return f"Move atoms at indices {self.indices} by {self.d_pos} angstrom in the cif file."
     
 class MoveAroundAtomAction(BaseAction):
     def __init__(self, atoms: Atoms, index: int, radius: float, d_pos: np.ndarray):
@@ -196,7 +225,7 @@ class MoveAroundAtomAction(BaseAction):
             raise IndexError("Index out of bounds for moving around an atom.")
 
     def __str__(self):
-        return f"Move all surrounding atoms within {self.radius} of the center atom at index {self.index} by {self.d_pos} in the cif file."
+        return f"Move all surrounding atoms within {self.radius} angstrom around the center atom at index {self.index} by {self.d_pos} angstrom in the cif file."
     
 class RotateAroundAtomAction(BaseAction):
     def __init__(self, atoms: Atoms, index: int, radius: float, angle: float, axis: np.ndarray):
@@ -230,4 +259,4 @@ class RotateAroundAtomAction(BaseAction):
             raise IndexError("Index out of bounds for rotating around an atom.")
 
     def __str__(self):
-        return f"Rotate all surrounding atoms within {self.radius} of the center atom at index {self.index} by {self.angle} degree around the axis {self.axis} in the cif file. The rotation should following the right-hand rule."
+        return f"Rotate all surrounding atoms within {self.radius} angstrom of the center atom at index {self.index} by {self.angle} degree around the axis {self.axis} in the cif file. The rotation should following the right-hand rule."

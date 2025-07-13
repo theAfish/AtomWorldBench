@@ -4,6 +4,7 @@ from pathlib import Path
 from evaluation.evaluator import Evaluator
 from models.openai_model import OpenAIModel
 from models.azure_openai_model import AzureOpenAIModel
+from models.huggingface_model import HuggingFaceModel
 
 CONFIG_DIR = Path(__file__).parent.parent / "config"
 DATA_DIR = Path(__file__).parent.parent / "data"
@@ -86,6 +87,18 @@ def run_benchmark(
             api_version=api_version,
             azure_endpoint=azure_endpoint,
             temperature=config.get('temperature', 1)
+        )
+    elif model_class == "HuggingFaceModel":
+        model_name = config.get("model_name", None)
+        device = config.get("device", "cpu")
+        use_pipeline = config.get("use_pipeline", True)
+        generation_params = {k: v for k, v in config.items() if k not in ["class", "model_name", "device", "use_pipeline"]}
+        
+        model = HuggingFaceModel(
+            model_name=model_name,
+            device=device,
+            use_pipeline=use_pipeline,
+            **generation_params
         )
     else:
         raise ValueError(f"Unimplemented model_class '{model_class}'.")
