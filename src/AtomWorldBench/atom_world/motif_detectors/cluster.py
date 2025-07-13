@@ -2,8 +2,6 @@ from typing import List, Optional, Tuple
 
 import numpy as np
 from numpy.typing import ArrayLike
-from pymatgen.core import Structure, PeriodicNeighbor
-from pymatgen.util.typing import SpeciesLike
 
 from .base import BaseDetector
 from ..motifs.cluster import ClusterMotif

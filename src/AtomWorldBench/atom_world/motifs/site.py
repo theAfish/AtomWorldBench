@@ -1,10 +1,5 @@
 from typing import List, Optional
 
-import numpy as np
-from numpy.typing import ArrayLike
-from pymatgen.util.typing import SpeciesLike
-from pymatgen.core import Structure, Element
-
 from .base import BaseMotif
 
 
