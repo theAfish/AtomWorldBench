@@ -1,30 +1,40 @@
-from typing import List, Optional, Tuple
+from typing import List, Optional, Dict, Tuple
+from copy import deepcopy
 
-import numpy as np
+from ase import Atoms
 from numpy.typing import ArrayLike
 
 from .base import BaseDetector
+from .site import SiteDetector
+from ..motifs.site import SiteMotif
 from ..motifs.cluster import ClusterMotif
 
 
 def grow_cluster(
-        structure: Structure,
-        root_cluster: ClusterMotif,
-        available_neighbors: List[PeriodicNeighbor],
+        cluster: ClusterMotif,
+        available_neighbors: List[SiteMotif],
         max_cluster_radius: float,
-) -> List[ClusterMotif]:
+) -> Tuple[List[ClusterMotif], List[List[SiteMotif]]]:
     """Grow a cluster by adding available sites to the root cluster.
 
     Args:
-        structure (Structure): The structure containing the atoms.
-        root_cluster (ClusterMotif): The initial cluster to grow from.
-        available_neighbors (List[PeriodicNeighbor]): Sites that can be added to the cluster.
+        cluster (ClusterMotif): The current cluster to grow.
+        available_neighbors (List[SiteMotif]):
+         List of available neighboring sites to consider for growth.
         max_cluster_radius (float): Maximum allowed radius for the cluster.
     Returns:
-        List[List[PeriodicNeighbor]]: The grown clusters with added sites.
+        List[ClusterMotif]: A list of clusters that have been grown from the root cluster.
     """
-    grown_clusters = [root_cluster + [nn] for nn in available_neighbors]
-    return grown_clusters
+    clusters = []
+    remaining_neighbors = []
+    for nid, site in enumerate(available_neighbors):
+        new_cluster = cluster.copy()
+        new_cluster += site
+        if new_cluster.radius <= max_cluster_radius:
+            # Name reset to default by ClusterMotif.__iadd__. Need to reassign if needed.
+            clusters.append(new_cluster)
+            remaining_neighbors.append(available_neighbors[: nid] + available_neighbors[nid + 1:])
+    return clusters, remaining_neighbors
 
 
 class ClusterDetector(BaseDetector):
@@ -35,11 +45,11 @@ class ClusterDetector(BaseDetector):
     """
     def __init__(
             self,
-            radius: float = 3.0,
+            cutoff: float | Dict = 3.0,
             max_cluster_size: int = 2,
             max_cluster_radius: Optional[float] = None,
             must_include_center: bool = True,
-            species_to_include: Optional[List[SpeciesLike]] = None,
+            symbols: Optional[List[str]] = None,
     ):
         """Initialize the ClusterDetector with a default radius.
 
@@ -50,29 +60,34 @@ class ClusterDetector(BaseDetector):
          4, If `species_to_include` is specified, the cluster must contain only the specified species.
 
         Args:
-            radius (float): The default radius for detecting clusters around fractional coordinates.
-             Default is 3.0 Angstroms.
+            cutoff (float | Dict):
+             The default radius for detecting clusters around fractional coordinates.
+             If a float, it is used as the cutoff distance for all atoms.
+             If a dict, it should map species to their respective cutoff distances.
+              (same as in ASE's neighbor_list).
+             Default is 3.0.
             max_cluster_size (int):
              Maximum number of atoms in each detected cluster. Default is 2 (doublet).
             max_cluster_radius (Optional[float]):
              Maximum allowed cluster radius for detection.
              Clusters larger than this radius will not be detected.
-             Default is None, will be set to `radius` if not provided.
+             Default is None, will be set to the max value in `cutoff` if not provided.
             must_include_center (bool):
              If True, the center atom must be included in the detected cluster. Default is True.
-            species_to_include (Optional[List[SpeciesLike]]):
-             List of species that must be included in the detected clusters. If None,
-             all species are considered. Default is None.
+            symbols (Optional[List[str]]):
+            List of species to include in the detected clusters.
+             If None, all species are included. Default is None.
         """
-        self.radius = radius
+        self.cutoff = cutoff
         self.max_cluster_size = max_cluster_size
-        self.max_cluster_radius = max_cluster_radius if max_cluster_radius is not None else radius
+        max_cutoff = cutoff if isinstance(cutoff, (float, int)) else max(cutoff.values())
+        self.max_cluster_radius = max_cluster_radius if max_cluster_radius is not None else max_cutoff
         self.must_include_center = must_include_center
-        self.species_to_include = species_to_include
+        self.symbols = symbols
 
     def detect_around_frac_coords(
             self,
-            structure: Structure,
+            atoms: Atoms,
             frac_coords: ArrayLike,
     ) -> List[ClusterMotif]:
         """Detect clusters in the given structure around fractional coordinates.
@@ -81,23 +96,46 @@ class ClusterDetector(BaseDetector):
         then groups them into clusters based on their proximity.
 
         Args:
-            structure (Structure): The structure to analyze.
+            atoms (Atoms): The structure to analyze, represented as an ASE Atoms object.
+                The structure should contain the atoms to be analyzed.
             frac_coords (ArrayLike): Fractional coordinates for the cluster detection center.
                 Must be a one-dimensional array of shape (3,).
 
         Returns:
             List of detected clusters.
         """
-        # Convert fractional coordinates to Cartesian coordinates
-        cart_coords = structure.lattice.get_cartesian_coords(frac_coords)
-        neighbors = structure.get_sites_in_sphere(cart_coords, self.radius)
+        site_motifs = SiteDetector(
+            cutoff=self.cutoff,
+            symbols=self.symbols
+        ).detect_around_frac_coords(
+            atoms,
+            frac_coords
+        )
 
-        # Filter neighbors based on species.
-        if self.species_to_include is not None:
-            neighbors = [site for site in neighbors if site.specie in self.species_to_include]
+        empty_cluster = ClusterMotif(
+            symbols=[],
+            positions=[],
+            cell=atoms.cell,
+        )
+        current_clusters = [empty_cluster]
+        current_available_neighbors = [deepcopy(site_motifs)]
+        saved_clusters = {0: [empty_cluster]}
+        while len(current_clusters[0]) < self.max_cluster_size and len(current_available_neighbors[0]) > 0:
+            new_clusters = []
+            new_available_neighbors = []
+            for cluster, neighbors in zip(current_clusters, current_available_neighbors):
+                clusters, remaining_neighbors = grow_cluster(
+                    cluster,
+                    neighbors,
+                    self.max_cluster_radius
+                )
+                new_clusters.extend(clusters)
+                new_available_neighbors.extend(remaining_neighbors)
+            saved_clusters[len(new_clusters[0])] = new_clusters
+            current_clusters = new_clusters
+            current_available_neighbors = new_available_neighbors
 
-        if self.must_include_center:
-            center = neighbors[np.argmin(site.nn_distance for site in neighbors)]
-            indices_in_clusters = [[get_quad_index(center)]]
-        else:
-            indices_in_clusters = [[get_quad_index(n) for n in neighbors]]
+        # Drop empty cluster.
+        _ = saved_clusters.pop(0, None)
+        return [cluster for clusters in saved_clusters.values() for cluster in clusters]
+

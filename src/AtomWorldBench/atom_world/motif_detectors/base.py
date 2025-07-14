@@ -50,11 +50,11 @@ class BaseDetector(ABC):
         """
         motifs = []
         for index in indices:
-            frac_coords = atoms.get_scaled_positions()[index]
+            frac_coords = atoms.get_scaled_positions(wrap=False)[index]
             motifs.extend(self.detect_around_frac_coords(atoms, frac_coords))
         return motifs
 
-    @abstractmethod
+
     def detect_all(
             self,
             atoms: Atoms,
@@ -69,4 +69,7 @@ class BaseDetector(ABC):
         Returns:
             List of detected motifs.
         """
-        pass
+        return self.detect_around_site_indices(
+            atoms,
+            list(range(len(atoms)))
+        )

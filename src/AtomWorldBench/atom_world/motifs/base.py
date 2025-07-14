@@ -128,22 +128,22 @@ class BaseMotif(ABC, Atoms):
         return edge_lengths
 
     @property
-    def indices(self) -> List[int]:
+    def indices(self) -> ArrayLike:
         """Get the indices of the atoms in the structure that correspond to this motif."""
-        return self._indices
+        if self.arrays.get("site_indices") is None:
+            return None
+        return self.get_array("site_indices")
 
     @indices.setter
-    def indices(self, indices: List[int]):
+    def indices(self, indices: Optional[ArrayLike] = None):
         """Set the indices of the atoms in the structure that correspond to this motif."""
-        if isinstance(indices, (list, tuple, set)) and all(isinstance(i, int) for i in indices):
-            self._indices = list(indices)
-        else:
-            raise TypeError("Indices must be a list of integers.")
+        # If None, clear the existing indices. Already implemented in ASE.
+        self.set_array("site_indices", indices, dtype=int)
 
     @property
     def name(self):
         """Set the name of the motif."""
-        return self._name
+        return self.info["motif_name"]
 
     @name.setter
     def name(self, name: Optional[str] = None):
@@ -152,7 +152,7 @@ class BaseMotif(ABC, Atoms):
         Args:
             name (str, optional): The name of the motif. If None, a default name will be generated.
         """
-        self._name = name if name is not None else self._get_default_name()
+        self.info["motif_name"] = name if name is not None else self._get_default_name()
 
     @abstractmethod
     def _get_default_name(self) -> str:
@@ -212,3 +212,29 @@ class BaseMotif(ABC, Atoms):
             name=name,
             indices=indices
         )
+
+    def extend(self, other):
+        """Extend the motif with another motif or ASE Atoms object.
+
+        Args:
+            other (BaseMotif or Atoms): The motif or ASE Atoms object to extend this motif with.
+        Returns:
+            BaseMotif: A new instance of BaseMotif that combines this motif and the other.
+        """
+        if (self.indices is None and other.indices is not None) or \
+           (self.indices is not None and other.indices is None):
+            raise ValueError("Both motifs must have indices set or not set to extend them.")
+        super().extend(other)
+        self.name = None  # Reset name to default to avoid conflicts with the original motif name.
+
+    def __getitem__(self, i):
+        """Return a subset of the motif."""
+        atoms = super().__getitem__(i)
+        atoms.name = None  # Reset name to default to avoid conflicts with the original motif name.'
+        return atoms
+
+    def __imul__(self, m):
+        """Repeat the motif by a given factor."""
+        _ = super().__imul__(m)
+        self.name = None # Reset name to default to avoid conflicts with the original motif name.
+        return self
