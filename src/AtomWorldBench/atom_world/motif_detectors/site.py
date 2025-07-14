@@ -7,7 +7,7 @@ from ase import Atoms
 from ase.neighborlist import neighbor_list
 
 from .base import BaseDetector
-from ..motifs import SiteMotif
+from ..motifs.site import SiteMotif
 
 
 class SiteDetector(BaseDetector):
