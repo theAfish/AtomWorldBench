@@ -23,6 +23,13 @@ class ClusterMotif(BaseMotif):
         "coord",
         "index",
     ]
+    allowed_relative_styles = {
+        "centroid_distance": None,
+        "position_in_line": (
+            lambda motif: len(motif) == 2,
+            "only for pairs!"
+        ),
+    }
 
     def _get_default_name(self) -> str:
         """Generate a default name for the cluster motif based on species and coordinates."""

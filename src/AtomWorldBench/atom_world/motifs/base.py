@@ -28,12 +28,16 @@ class BaseMotif(ABC, Atoms):
     allowed_actions = []
     # List of allowed description styles for this motif.
     allowed_description_styles = []
+    # Dict of styles that this motif can be used as a reference to the action on other motifs.
+    # Keys are allowed styles, values are condition checking functions.
+    allowed_relative_styles = dict()
 
     def __init__(
             self,
             *args,
             name: Optional[str] = None,
             indices: Optional[List[int]] = None,
+            to_add: bool = False,
             **kwargs
     ):
         """A Motif is an ASE Atoms comprising a subset of atoms in original ase.Atoms.
@@ -45,10 +49,13 @@ class BaseMotif(ABC, Atoms):
              If None, will generate a default name.
             indices (list of int, optional): Original indices from structure.
                 Indices should always be provided, if the motif belongs to a specific structure.
+            to_add (bool): If True, the motif is being added to a structure.
+               This affects prompt description style.
         """
         super().__init__(*args, **kwargs)
         self.name = name
         self.indices = indices
+        self.to_add = to_add
 
     @property
     def species_strings(self) -> List[str]:
@@ -174,6 +181,8 @@ class BaseMotif(ABC, Atoms):
         Returns:
             str: A string description of the cluster motif.
         """
+        if self.to_add:
+            return self.name  # For add action, do not provide coordinates or indices in prompt.
         style = style.lower()
         if style not in self.allowed_description_styles:
             raise ValueError(
@@ -213,6 +222,20 @@ class BaseMotif(ABC, Atoms):
             indices=indices
         )
 
+    def get_atoms(self) -> Atoms:
+        """Get the ASE Atoms object corresponding to this motif.
+
+        Returns:
+            Atoms: An ASE Atoms object with the same properties as this motif.
+        """
+        return Atoms(
+            symbols=self.get_chemical_symbols(),
+            positions=self.cart_coords,
+            cell=self.cell.array,
+            pbc=self.pbc,
+            charges=self.get_initial_charges(),
+        )
+
     def extend(self, other):
         """Extend the motif with another motif or ASE Atoms object.
 
@@ -223,15 +246,19 @@ class BaseMotif(ABC, Atoms):
         """
         if (self.indices is None and other.indices is not None) or \
            (self.indices is not None and other.indices is None):
-            raise ValueError("Both motifs must have indices set or not set to extend them.")
+            raise ValueError("Both motifs must have indices set or neither.")
         super().extend(other)
         self.name = None  # Reset name to default to avoid conflicts with the original motif name.
 
     def __getitem__(self, i):
         """Return a subset of the motif."""
         atoms = super().__getitem__(i)
-        atoms.name = None  # Reset name to default to avoid conflicts with the original motif name.'
-        return atoms
+        indices = self.indices[i] if self.indices is not None else None
+        return self.__class__.from_atoms(
+            atoms,
+            name=None, # Reset name to default to avoid conflicts with the original motif name.
+            indices=indices
+        )
 
     def __imul__(self, m):
         """Repeat the motif by a given factor."""

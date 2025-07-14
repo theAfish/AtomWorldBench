@@ -14,6 +14,10 @@ class BondMotif(ClusterMotif):
     allowed_description_styles = [
         "index",
     ]
+    allowed_relative_styles = {
+        "rotation_axis": None,  # No need to check for conditions.
+        "position_in_line": None,
+    }
 
     def _get_default_name(self) -> str:
         """Generate a default name for the bond motif based on species and coordinates."""

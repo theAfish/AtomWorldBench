@@ -20,6 +20,9 @@ class SiteMotif(BaseMotif):
         "coord",
         "index",
     ]
+    allowed_relative_styles = [
+        "centroid_distance",
+    ]
 
     def __init__(
             self,

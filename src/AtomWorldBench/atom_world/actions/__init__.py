@@ -1,25 +1,18 @@
 from .base import BaseAction
-from ...utils.class_utils import derived_class_factory
-
-from pymatgen.core import Structure
+from ...utils.class_utils import class_name_from_str, derived_class_factory
 
 def action_factory(
         action_type: str,
-        structure: Structure,
-        **kwargs) -> BaseAction:
-    """Factory function to create an action instance based on the action type.
-
+        *args,
+        **kwargs):
+    """Factory function to create an action instance based on the given type.
     Args:
         action_type (str): The type of action to create.
-        structure (pymatgen.core.structure.Structure): The structure to be modified by the action.
-        kwargs: Additional keyword arguments to pass to the action constructor.
-
+            Must be the first part of the class name, e.g., "move" for MoveAction.
+        *args: Positional arguments to pass to the action's constructor.
+        **kwargs: Keyword arguments to pass to the action's constructor.
     Returns:
-        BaseAction: An instance of a subclass of BaseAction corresponding to the action type.
+        BaseAction: An instance of the requested action type.
     """
-    return derived_class_factory(
-        class_name=action_type,
-        base_class=BaseAction,
-        structure=structure,
-        **kwargs
-    )
+    class_name = class_name_from_str(action_type + "-action")
+    return derived_class_factory(class_name, BaseAction, *args, **kwargs)

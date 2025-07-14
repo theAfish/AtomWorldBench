@@ -3,7 +3,7 @@ import numpy as np
 from .base import BaseDescriptionStyle
 from ..motifs.base import BaseMotif
 
-from .utils import format_arraylike
+from src.AtomWorldBench.utils.description_utils import format_arraylike
 
 
 class IndexDescriptionStyle(BaseDescriptionStyle):

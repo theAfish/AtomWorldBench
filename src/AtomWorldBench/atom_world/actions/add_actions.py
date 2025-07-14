@@ -1,133 +1,227 @@
-"""Actions to add atoms."""
-from typing import List
-
-from .base import BaseAction
+"""Implementation of actions that add a motif to a structure."""
+from typing import Optional, Tuple
+from numbers import Number
 
 import numpy as np
+from ase import Atoms
 from numpy.typing import ArrayLike
-from pymatgen.core import Structure, get_el_sp
-from pymatgen.util.typing import SpeciesLike
+
+from .base import BaseAction
+from ..motifs.base import BaseMotif
+from ...utils.description_utils import format_arraylike
 
 
-class AddMultiAtomsAction(BaseAction):
-    """Action to add an atom at a random position around the center atom."""
+class AddMotifAction(BaseAction):
+    """Action to add a motif to a structure.
 
+    This action defines how to add a motif to a given structure, including the
+    description of the action and the execution logic.
+    """
+    allowed_relative_styles = [
+        "centroid_distance",
+        "position_in_line"
+    ]
     def __init__(
             self,
-            structure: Structure,
-            added_species: List[int | SpeciesLike] | SpeciesLike | int,
-            added_positions: ArrayLike,
-            cartesian_mode: bool = False,
-            atomic_number_mode: bool = False,
+            at_position: Optional[ArrayLike] = None,
+            relative_to_position: Optional[ArrayLike] = None,
+            position_fractional: Optional[bool] = True,
+            relative_style: Optional[str] = None,
+            relative_to_motif: Optional[BaseMotif] = None,
+            relative_shift: Optional[ArrayLike | float] = None,
+            relative_atom_index: Optional[int] = 0,
     ):
-        """Initialize the action with a structure and symbols to add.
+        """Initialize the AddMotifAction with optional parameters.
 
         Args:
-            structure (pymatgen.core.structure.Structure): The structure to be modified.
-            added_species (List[int | SpeciesLike] | SpeciesLike | int): List of chemical symbols
-             or atomic numbers (or a single symbol or atomic number) for the atoms to be added.
-             Must be valid chemical elements, species or dummy symbols.
-            added_positions (ArrayLike): Array of positions (or a single position) where
-             the atoms will be added. Cartesian or fractional coordinates can be used.
-            cartesian_mode (bool): If True, positions are interpreted as Cartesian coordinates.
-            atomic_number_mode (bool): If True, added species are interpreted as atomic numbers.
+            at_position (ArrayLike, optional): The position where the motif is added.
+                If provided, it overrides all relative parameters.
+            relative_to_position (ArrayLike, optional): The position to which the motif
+                is added relative to. Only one of `relative_to_position` or
+                `relative_to_motif` can be provided.
+            position_fractional (bool, optional): Whether all positions are fractional.
+                Default is True.
+            relative_style (str, optional): The style to determine relative action.
+                If not provided, default to `centroid_distance`.
+            relative_to_motif (BaseMotif, optional): A motif that the action is taken
+                relative to. Only one of `relative_to_position` or `relative_to_motif`
+                can be provided.
+            relative_shift (ArrayLike or float, optional):
+                 A vector or float distance defining the relative position.
+            relative_atom_index (int, optional):
+                 The index of the atom in the relative motif to insert atom at `relative_shift`
+                 distance, if relative_style is `position_in_line`.
+                 Default to 0, i.e., the first atom in the pair motif.
         """
-        super().__init__(structure=structure)
-        # Jump to the setters to ensure species and positions are set correctly.
-        self.added_species = added_species
-        self.added_positions = added_positions
-        self.cartesian_mode = cartesian_mode
-        self.atomic_number_mode = atomic_number_mode
+        super().__init__(relative_to_motif, relative_style)
+        self.position_fractional = position_fractional
 
-    @property
-    def added_species(self) -> List[int | SpeciesLike]:
-        """Get the species of atoms to be added."""
-        return self._added_species
+        if at_position is not None: # Override all relative parameters.
+            at_position = np.array(at_position)
+            if at_position.shape != (3,):
+                raise ValueError(
+                    "at_position must be a 3D vector, got shape: "
+                    f"{at_position.shape}"
+                )
+            self.at_position = at_position
+            self.relative_to_position = None
+            self.relative_shift = None
+            self.relative_atom_index = None
+            self.relative_style = None
+            self.relative_to_motif = None
 
-    @property
-    def added_positions(self) -> ArrayLike:
-        """Get the positions where the atoms will be added."""
-        if self._added_positions is None:
-            raise ValueError("Positions have not been set.")
-        return self._added_positions
-
-    @property
-    def added_atomic_numbers(self) -> List[int]:
-        """Get the atomic numbers of the species to be added."""
-        return [sp.Z for sp in self.added_species]
-
-    @added_species.setter
-    def added_species(self, species: List[int | SpeciesLike] | SpeciesLike | int):
-        """Set the species of atoms to be added."""
-        if isinstance(species, SpeciesLike) or isinstance(species, int):
-            species = [species]
-        self._added_species = [get_el_sp(sp) for sp in species]
-        self._added_positions = None  # Reset positions when species change.
-
-    @added_positions.setter
-    def added_positions(self, positions: ArrayLike):
-        """Set the positions where the atoms will be added."""
-        positions = np.array(positions)
-        if positions.ndim > 2:
-            raise ValueError("Positions must be a 1D or 2D array-like.")
-        if positions.ndim == 1:
-            positions = positions.reshape(1, -1)
-        if positions.shape[1] != 3:
-            raise ValueError("Positions must have shape (n, 3) for 3D coordinates.")
-        if len(positions) != len(self._added_species):
-            raise ValueError("The number of species must match the number of positions.")
-        self._added_positions = positions
-
-    def _get_prompt(self) -> str:
-        """Generate a prompt describing the action of adding atoms."""
-        species_str = ', '.join([str(specie) for specie in self.added_species])
-        # Keep positions to 4 decimal places to control context length.
-        positions_str = ', '.join(
-            [f"({pos[0]:.4f}, {pos[1]:.4f}, {pos[2]:.4f})" for pos in self.added_positions]
-        )
-        cartesian_word = "cartesian" if self.cartesian_mode else "fractional"
-        species_word = "atomic numbers" if self.atomic_number_mode else "species"
-        return (
-            f"Add {len(self.added_species)} atom(s)"
-            f" with {species_word} [{species_str}] at {cartesian_word}"
-            f" positions [{positions_str}] to the structure."
-        )
-
-    def execute(self) -> Structure:
-        """Execute the action to add atoms to the structure."""
-        lattice = self.structure.lattice
-        if self.cartesian_mode:
-            added_frac_coords  = lattice.get_fractional_coords(self.added_positions)
         else:
-            added_frac_coords = np.array(self.added_positions)
-        frac_coords = np.concatenate(self.structure.frac_coords, added_frac_coords)
-        species = self.structure.species + self.added_species
-        return Structure(lattice, species, frac_coords, coords_are_cartesian=False)
+            self.at_position = None
+            if relative_shift is None:
+                raise ValueError(
+                    "relative_shift must be provided when using relative insertion."
+                )
+            if self.relative_style == "position_in_line":
+                if not isinstance(relative_shift, Number):
+                    raise ValueError(
+                        "relative_shift must be a float when relative_style is 'position_in_line'."
+                    )
+                self.relative_shift = float(relative_shift)
+                if not relative_atom_index in [0, 1]:
+                    raise ValueError(
+                        "relative_atom_index must be 0 or 1 when relative_style is 'position_in_line'."
+                    )
+                self.relative_atom_index = relative_atom_index
+                if self.relative_to_motif is None:
+                    raise ValueError(
+                        "relative_to_motif must be provided when relative_style is 'position_in_line'."
+                    )
+                self.relative_to_motif = relative_to_motif
+                self.relative_to_position = None
+            else:
+                self.relative_shift = np.array(relative_shift)
+                self.relative_atom_index = None
+                if relative_to_position is not None and relative_to_motif is not None:
+                    raise ValueError(
+                        "Only one of relative_to_position or relative_to_motif can be provided."
+                    )
+                if relative_to_position is None and relative_to_motif is None:
+                    raise ValueError(
+                        "Either relative_to_position or relative_to_motif must be provided."
+                    )
+                if relative_to_position is not None:
+                    relative_to_position = np.array(relative_to_position)
+                    if relative_to_position.shape != (3,):
+                        raise ValueError(
+                            "relative_to_position must be a 3D vector, got shape: "
+                            f"{relative_to_position.shape}"
+                        )
+                self.relative_to_position = relative_to_position
+                self.relative_to_motif = relative_to_motif
 
-class AddAtomAction(AddMultiAtomsAction):
-    """Action to add a single atom at a random position around the center atom."""
+    def _check_compatibility(self, atoms: Atoms, motif: BaseMotif) -> Tuple[bool, str]:
+        """Check if the action is compatible with the given Atoms and motif."""
+        if self.relative_style == "position_in_line":
+            max_d = self.relative_to_motif.radius * 2  # Bond length.
+            if self.relative_shift > max_d:
+                return False, (
+                    f"relative_shift {self.relative_shift} is larger than "
+                    f"the distance {max_d} of atoms in the pair motif."
+                )
+        return True, ""
 
-    def __init__(
+    def _compute_insert_cart_position(self, atoms: Atoms):
+        """Get inserted cartesian position based on style."""
+        # Directly given.
+        if self.at_position is not None:
+            if self.position_fractional:
+                return self.at_position @ atoms.cell
+            return self.at_position
+        # Compute relative to position.
+        elif self.relative_to_position is not None:
+            pos = np.array(self.relative_to_position) + self.relative_shift
+            if self.position_fractional:
+                return pos @ atoms.cell
+            return pos
+        # Compute relative to motif.
+        elif self.relative_to_motif is not None:
+            # Insert in line motif.
+            if self.relative_style == "position_in_line":
+                # Get the position of the atom in the relative motif.
+                centroid = self.relative_to_motif.get_positions(wrap=False)[self.relative_atom_index]
+                ref_position = self.relative_to_motif.get_positions(wrap=False)[1 - self.relative_atom_index]
+                bond_norm_vec = (ref_position - centroid) / np.linalg.norm(ref_position - centroid)
+                relative_shift = self.relative_shift * bond_norm_vec
+            # Insert at distance to relative motif centroid.
+            else:
+                centroid = self.relative_to_motif.get_centroid(
+                    fractional=False
+                )
+                if self.position_fractional:
+                    relative_shift = self.relative_shift @ atoms.cell
+                else:
+                    relative_shift = self.relative_shift
+            return centroid + relative_shift
+        else:
+            raise ValueError("No valid position provided for motif addition.")
+
+
+    def _execute(self, atoms: Atoms, operated_motif: BaseMotif) -> Atoms:
+        """Execute the action on the structure to generate the ground truth structure."""
+        insert_position = self._compute_insert_cart_position(atoms)
+        displacement = insert_position - operated_motif.get_centroid(fractional=False)
+        operated_motif.translate(displacement)
+        new_atoms = atoms.copy()
+        new_atoms += operated_motif.get_atoms()
+        return new_atoms
+
+    def describe(
             self,
-            structure: Structure,
-            added_species: int | SpeciesLike,
-            added_position: ArrayLike,
-            cartesian_mode: bool = False,
-            atomic_number_mode: bool = False,
-    ):
-        """Initialize the action with a structure and chemical symbol of atom to add.
+            motif: BaseMotif,
+            precision: int = 4,
+            motif_kwargs: Optional[dict] = None,
+            relative_motif_kwargs: Optional[dict] = None,
+    ) -> str:
+        """Describe the action for LLM prompting.
 
         Args:
-            structure (pymatgen.core.structure.Structure): The structure to be modified.
-            added_species (int | SpeciesLike): Chemical symbol or atomic number of the atom to be added.
-            added_position (ArrayLike): Position where the atom will be added.
-            cartesian_mode (bool): If True, position is interpreted as Cartesian coordinates.
-            atomic_number_mode (bool): If True, added species is interpreted as an atomic number.
+            motif (BaseMotif): The motif being added.
+            precision (int): The precision for formatting numerical values in the description.
+                Will overwrite motif and relative motif description precision settings.
+            motif_kwargs (dict, optional): Additional keyword arguments for the motif description.
+            relative_motif_kwargs (dict, optional): Additional keyword arguments for the relative motif description.
+        Returns:
+            str: A description of the action.
         """
-        super().__init__(
-            structure=structure,
-            added_species=[added_species],
-            added_positions=[added_position],
-            cartesian_mode=cartesian_mode,
-            atomic_number_mode=atomic_number_mode
-        )
+        motif_kwargs = motif_kwargs or {}
+        relative_motif_kwargs = relative_motif_kwargs or {}
+
+        motif_kwargs.update({"precision": precision})
+        relative_motif_kwargs.update({"precision": precision})
+
+        if self.position_fractional:
+            coord_word = "fractional coordinates"
+        else:
+            coord_word = "cartesian coordinates"
+        if self.at_position is not None:
+            return (f"add [{motif.describe(**motif_kwargs)}], with its center located at {coord_word}"
+                    f" {format_arraylike(self.at_position, precision=precision)}")
+        elif self.relative_to_position is not None:
+            return (
+                f"add [{motif.describe(**motif_kwargs)}], with its center shifted in {coord_word} by"
+                f" [{format_arraylike(self.relative_shift, precision=precision)}] relative to a"
+                f" reference point at {coord_word}"
+                f" {format_arraylike(self.relative_to_position, precision=precision)}"
+            )
+        elif self.relative_to_motif is not None:
+            if self.relative_style == "position_in_line":
+                relative_motif_kwargs.update({"style": "index"})
+                return (
+                    f"add [{motif.describe(**motif_kwargs)}], with its center located on the line between"
+                    f" by [{self.relative_to_motif.describe(**relative_motif_kwargs)}], at"
+                    f" {self.relative_shift:.{precision}f} angstroms away from the atom indexed"
+                    f" {self.relative_to_motif.indices[self.relative_atom_index]}"
+                )
+            else:
+                return (
+                    f"add [{motif.describe(**motif_kwargs)}], with its center shifted in {coord_word} by"
+                    f" {format_arraylike(self.relative_shift, precision=precision)} relative to the"
+                    f" centroid of [{self.relative_to_motif.describe(**relative_motif_kwargs)}]"
+                )
+        else:
+            raise ValueError("No valid position provided for motif addition.")
