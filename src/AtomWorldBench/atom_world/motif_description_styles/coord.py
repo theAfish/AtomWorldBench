@@ -12,6 +12,8 @@ class CoordDescriptionStyle(BaseDescriptionStyle):
     or Cartesian format.
     """
 
+    introduction = "" # No specific introduction for this style.
+
     def __init__(self, flavor: str = "fractional", precision: int = 4):
         """Initialize the description style with a specific flavor.
 

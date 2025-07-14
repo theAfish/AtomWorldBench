@@ -238,3 +238,41 @@ class BaseMotif(ABC, Atoms):
         _ = super().__imul__(m)
         self.name = None # Reset name to default to avoid conflicts with the original motif name.
         return self
+
+    def __eq__(self, other):
+        """Check for identity of two atoms objects.
+
+        Identity means: same positions, atomic numbers, unit cell and
+        periodic boundary conditions."""
+        # Must be the same class to compare.
+        if not isinstance(other, self.__class__):
+            return False
+        a = self.arrays
+        b = other.arrays
+        sorted_args_a = np.argsort(a['numbers'])
+        sorted_args_b = np.argsort(b['numbers'])
+        atol = 1e-6
+        return (
+                len(self) == len(other) and
+                np.allclose(
+                    a['positions'][sorted_args_a],
+                    b['positions'][sorted_args_b],
+                    atol=atol
+                ) and
+                np.allclose(
+                    a['numbers'][sorted_args_a],
+                    b['numbers'][sorted_args_b],
+                    atol=atol
+                ) and
+                np.allclose(
+                    a['initial_charges'][sorted_args_a],
+                    b['initial_charges'][sorted_args_b],
+                    atol=atol
+                ) and
+                np.allclose(
+                    self.cell.complete().array,
+                    other.cell.complete().array,
+                    atol=atol
+                ) and
+                np.array_equal(self.pbc, other.pbc)
+        )

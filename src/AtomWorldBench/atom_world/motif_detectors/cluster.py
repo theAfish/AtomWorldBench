@@ -3,6 +3,7 @@ from copy import deepcopy
 
 from ase import Atoms
 from numpy.typing import ArrayLike
+import numpy as np
 
 from .base import BaseDetector
 from .site import SiteDetector
@@ -35,6 +36,35 @@ def grow_cluster(
             clusters.append(new_cluster)
             remaining_neighbors.append(available_neighbors[: nid] + available_neighbors[nid + 1:])
     return clusters, remaining_neighbors
+
+
+def deduplicate_clusters(
+        clusters: List[ClusterMotif],
+        remaining_neighbors: List[List[SiteMotif]],
+        existing_clusters: List[ClusterMotif],
+) -> Tuple[List[ClusterMotif], List[List[SiteMotif]]]:
+    """Remove duplicate clusters from the list of clusters.
+
+    Args:
+        clusters (List[ClusterMotif]): List of clusters to check for duplicates.
+        remaining_neighbors (List[List[SiteMotif]]): List of remaining neighbors corresponding to each cluster.
+        existing_clusters (List[ClusterMotif]): List of already existing clusters to compare against.
+    Returns:
+        Tuple[List[ClusterMotif], List[List[SiteMotif]]]:
+         A tuple containing the filtered list of clusters and their corresponding remaining neighbors.
+    """
+    unique_clusters = []
+    unique_remaining_neighbors = []
+    for cluster, neighbors in zip(clusters, remaining_neighbors):
+        is_unique = True
+        for existing_cluster in existing_clusters:
+            if cluster == existing_cluster:
+                is_unique = False
+                break
+        if is_unique:
+            unique_clusters.append(cluster)
+            unique_remaining_neighbors.append(neighbors)
+    return unique_clusters, unique_remaining_neighbors
 
 
 class ClusterDetector(BaseDetector):
@@ -112,14 +142,32 @@ class ClusterDetector(BaseDetector):
             frac_coords
         )
 
-        empty_cluster = ClusterMotif(
-            symbols=[],
-            positions=[],
-            cell=atoms.cell,
-        )
-        current_clusters = [empty_cluster]
-        current_available_neighbors = [deepcopy(site_motifs)]
-        saved_clusters = {0: [empty_cluster]}
+        if not self.must_include_center:
+            empty_cluster = ClusterMotif(
+                symbols=[],
+                positions=[],
+                cell=atoms.cell,
+            )
+            current_clusters = [empty_cluster]
+            current_available_neighbors = [deepcopy(site_motifs)]
+            saved_clusters = {0: [empty_cluster]}
+        else:
+            dists = [np.linalg.norm(site.cart_coords - frac_coords @ atoms.cell) for site in site_motifs]
+            imin = np.argmin(dists)
+            center_site = site_motifs[imin]
+            init_cluster = ClusterMotif(
+                symbols=center_site.get_chemical_symbols(),
+                positions=center_site.get_positions(wrap=False),
+                cell=center_site.get_cell(complete=True),
+                pbc=center_site.get_cell(complete=True),
+                charges=center_site.get_initial_charges(),
+                name=center_site.name,
+                indices=center_site.indices
+            )
+            current_clusters = [init_cluster]
+            current_available_neighbors = [site_motifs[:imin] + site_motifs[imin + 1:]]
+            saved_clusters = {len(init_cluster): [init_cluster]}
+
         while len(current_clusters[0]) < self.max_cluster_size and len(current_available_neighbors[0]) > 0:
             new_clusters = []
             new_available_neighbors = []
@@ -129,6 +177,11 @@ class ClusterDetector(BaseDetector):
                     neighbors,
                     self.max_cluster_radius
                 )
+                clusters, remaining_neighbors = deduplicate_clusters(
+                    clusters,
+                    remaining_neighbors,
+                    new_clusters,
+                )
                 new_clusters.extend(clusters)
                 new_available_neighbors.extend(remaining_neighbors)
             saved_clusters[len(new_clusters[0])] = new_clusters
@@ -136,6 +189,6 @@ class ClusterDetector(BaseDetector):
             current_available_neighbors = new_available_neighbors
 
         # Drop empty cluster.
-        _ = saved_clusters.pop(0, None)
+        if 0 in saved_clusters:
+            _ = saved_clusters.pop(0, None)
         return [cluster for clusters in saved_clusters.values() for cluster in clusters]
-
