@@ -13,12 +13,11 @@ from ..motifs.site import SiteMotif
 class SiteDetector(BaseDetector):
     """Class for detecting atoms."""
 
-    def __init__(self, cutoff: float | Dict = 3.0, symbols: List[str] = None):
+    def __init__(self, cutoff: float, symbols: List[str] = None):
         """Initialize the SiteDetector with a default radius.
 
         Args:
-            cutoff (float | Dict): The default radius for detecting atoms around fractional coordinates.
-             See `ase.neighbor_list` for details.
+            cutoff (float): The default radius for detecting atoms around fractional coordinates.
             symbols (List[str]): If provided, only atoms with these symbols will be detected.
              Default is None, which means no filtering.
         """
@@ -54,6 +53,7 @@ class SiteDetector(BaseDetector):
         dummy_index = len(atoms_modified) - 1
 
         # Get the indices of atoms within the cutoff distance from the given fractional coordinates
+        # No need to use NeighborList class, as it also checks for the whole structure.
         indices_i, indices_j, offsets = neighbor_list(
             "ijS",
             atoms_modified,
@@ -74,18 +74,19 @@ class SiteDetector(BaseDetector):
         symbols_valid = symbols[indices_j_valid]
         charges_valid = atoms_modified.get_initial_charges()[indices_j_valid]
 
-        return [
-            SiteMotif(
+        deduplicated_motifs = []
+        for ii in range(len(symbols_valid)):
+            motif = SiteMotif(
                 symbols=[symbols_valid[ii]],
                 positions=[positions_valid[ii]],
-                cell=atoms.cell,
-                pbc=atoms.pbc,
+                cell=atoms_modified.cell,
+                pbc=atoms_modified.pbc,
                 charges=charges_valid[ii],
                 name=None,  # Default name will be generated in the SiteMotif class.
-                indices=indices_j_valid[ii],
-            ) for ii in range(len(symbols_valid))
-        ]
-
+                indices=[indices_j_valid[ii]],
+            )
+            deduplicated_motifs.append(motif)
+        return deduplicated_motifs
 
     def detect_all(
             self,
@@ -93,6 +94,7 @@ class SiteDetector(BaseDetector):
     ) -> List[SiteMotif]:
         """Detect all atoms in the given structure.
 
+        Here, we return all site motifs with wrapped coordinates.
         Notice: all site motifs detected by this method will be set to the default name.
         Args:
             atoms (Atoms): The structure to analyze, represented as an ASE Atoms object.
@@ -100,7 +102,9 @@ class SiteDetector(BaseDetector):
         Returns:
             List of detected site motifs.
         """
+        atoms_cp = atoms.copy()
+        atoms_cp.wrap()
         return [
-            SiteMotif.from_atoms(atoms[[i]])
-            for i in range(len(atoms))
+            SiteMotif.from_atoms(atoms_cp[[i]], indices=[i])
+            for i in range(len(atoms_cp))
         ]

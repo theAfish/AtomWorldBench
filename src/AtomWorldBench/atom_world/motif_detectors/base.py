@@ -63,6 +63,8 @@ class BaseDetector(ABC):
 
         This method should be implemented by every subclass to analyze the structure.
         Separated from detect_around_frac_coords to allow more efficient detection strategies.
+        Developers are encouraged to override this method with more efficient implementations
+         if they can.
         Args:
             atoms(Atoms): The structure to analyze, represented as an ASE Atoms object.
 

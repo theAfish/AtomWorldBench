@@ -5,13 +5,17 @@ Motifs are inherited from ase.Atoms.
 from typing import List, Optional, Dict, Tuple
 from abc import ABC, abstractmethod
 from functools import cached_property
+from collections import Counter
 
 import numpy as np
 from numpy.typing import ArrayLike
 from ase import Atoms
 
-from .utils import get_species_string
 from ..motif_description_styles import description_style_factory
+from ...utils.description_utils import get_species_string
+from ...utils.coord_utils import check_integer_translation
+
+from ...globals import ALLOW_TRANSLATION_EQUIVALENCE
 
 
 class BaseMotif(ABC, Atoms):
@@ -38,6 +42,7 @@ class BaseMotif(ABC, Atoms):
             name: Optional[str] = None,
             indices: Optional[List[int]] = None,
             to_add: bool = False,
+            allow_translation_equivalence: bool = None,
             **kwargs
     ):
         """A Motif is an ASE Atoms comprising a subset of atoms in original ase.Atoms.
@@ -51,11 +56,18 @@ class BaseMotif(ABC, Atoms):
                 Indices should always be provided, if the motif belongs to a specific structure.
             to_add (bool): If True, the motif is being added to a structure.
                This affects prompt description style.
+            allow_translation_equivalence (bool):
+                If True, the motif can be considered equivalent to another motif
+                if they are related by an integer translation.
+                Default is not given, then will use the global setting ALLOW_TRANSLATION_EQUIVALENCE.
         """
         super().__init__(*args, **kwargs)
         self.name = name
         self.indices = indices
         self.to_add = to_add
+        if allow_translation_equivalence is None:
+            allow_translation_equivalence = ALLOW_TRANSLATION_EQUIVALENCE
+        self.allow_translation_equivalence = allow_translation_equivalence
 
     @property
     def species_strings(self) -> List[str]:
@@ -68,6 +80,26 @@ class BaseMotif(ABC, Atoms):
                 self.get_initial_charges()
             )
         ]
+
+    @property
+    def species_groups(self):
+        """Group motif site indices by species.
+
+        Returns:
+            dict: A dictionary where keys are species strings and
+             values are lists of indices
+        """
+        species_groups = {}
+        for idx, species in enumerate(self.species_strings):
+            if species not in species_groups:
+                species_groups[species] = []
+            species_groups[species].append(idx)
+        return {k: np.array(v, dtype=int) for k, v in species_groups.items()}
+
+    @property
+    def composition(self):
+        """Get the composition of the motif."""
+        return Counter(self.species_strings)
 
     @property
     def frac_coords(self):
@@ -274,32 +306,45 @@ class BaseMotif(ABC, Atoms):
         # Must be the same class to compare.
         if not isinstance(other, self.__class__):
             return False
-        a = self.arrays
-        b = other.arrays
-        sorted_args_a = np.argsort(a['numbers'])
-        sorted_args_b = np.argsort(b['numbers'])
-        atol = 1e-6
-        return (
-                len(self) == len(other) and
-                np.allclose(
-                    a['positions'][sorted_args_a],
-                    b['positions'][sorted_args_b],
-                    atol=atol
-                ) and
-                np.allclose(
-                    a['numbers'][sorted_args_a],
-                    b['numbers'][sorted_args_b],
-                    atol=atol
-                ) and
-                np.allclose(
-                    a['initial_charges'][sorted_args_a],
-                    b['initial_charges'][sorted_args_b],
-                    atol=atol
-                ) and
+        if len(self) != len(other):
+            return False
+        if not (
                 np.allclose(
                     self.cell.complete().array,
                     other.cell.complete().array,
-                    atol=atol
+                    atol=1e-6
                 ) and
                 np.array_equal(self.pbc, other.pbc)
+        ):
+            return False
+        if self.composition != other.composition:
+            return False
+
+        sorted_indices1 = []
+        sorted_indices2 = []
+        prev_taus = None
+        for sp in self.species_groups:
+            group1 = self.species_groups[sp]
+            group2 = other.species_groups[sp]
+            frac1 = self.frac_coords[group1]
+            frac2 = other.frac_coords[group2]
+            # Allow permutation within species groups, but check for integer translation.
+            sorted_args1, sorted_args2, taus = check_integer_translation(frac1, frac2, atol=1e-6)
+            if taus is None:
+                return False
+            if prev_taus is None:
+                prev_taus = taus
+            else:
+                if not np.array_equal(prev_taus, taus):
+                    return False
+            if not self.allow_translation_equivalence:
+                if not np.all(taus == 0):
+                    return False
+            sorted_indices1.extend(group1[sorted_args1])
+            sorted_indices2.extend(group2[sorted_args2])
+
+        return np.allclose(
+            self.arrays['initial_charges'][sorted_indices1],
+            other.arrays['initial_charges'][sorted_indices2],
+            atol=1e-6
         )
