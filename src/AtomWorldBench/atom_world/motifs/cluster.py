@@ -1,6 +1,8 @@
 """Motif comprising multiple atoms."""
+from typing import List
 
 from .base import BaseMotif
+from .site import SiteMotif
 
 
 class ClusterMotif(BaseMotif):
@@ -47,3 +49,13 @@ class ClusterMotif(BaseMotif):
             prefix = f"{len(self)}-sites cluster"
 
         return f"a {prefix} of atoms/species {', '.join(map(str, self.species_strings))}"
+
+    @property
+    def site_motifs(self) -> List[SiteMotif]:
+        """Return a list of SiteMotif objects representing the sites in the cluster."""
+        return [
+            SiteMotif.from_atoms(
+                self[[i]], indices=[int(self.indices[i])]
+            )
+            for i in range(len(self))
+        ]

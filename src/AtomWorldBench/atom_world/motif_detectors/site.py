@@ -1,5 +1,5 @@
 """Detector classes to find atoms."""
-from typing import List, Dict
+from typing import List, Optional
 
 import numpy as np
 from numpy.typing import ArrayLike
@@ -7,22 +7,36 @@ from ase import Atoms
 from ase.neighborlist import neighbor_list
 
 from .base import BaseDetector
+from ..motifs import BaseMotif
 from ..motifs.site import SiteMotif
 
 
 class SiteDetector(BaseDetector):
     """Class for detecting atoms."""
 
-    def __init__(self, cutoff: float, symbols: List[str] = None):
+    def __init__(
+            self,
+            cutoff: float,
+            symbols: List[str] = None,
+            wrap: bool = True,
+            seed: Optional[int] = None
+    ):
         """Initialize the SiteDetector with a default radius.
 
         Args:
             cutoff (float): The default radius for detecting atoms around fractional coordinates.
             symbols (List[str]): If provided, only atoms with these symbols will be detected.
              Default is None, which means no filtering.
+            wrap (bool): If True, the coordinates of the atoms will be wrapped to the unit cell.
+             Does not apply to the `detect_around_frac_coords` method.
+            seed (Optional[int]):
+             Random seed for reproducibility of the `detect_one` method.
+             Default is None, will generate with a random seed.
         """
+        super().__init__(seed=seed)
         self.cutoff = cutoff
         self.symbols = symbols
+        self.wrap = wrap
 
     def detect_around_frac_coords(
             self,
@@ -100,11 +114,38 @@ class SiteDetector(BaseDetector):
             atoms (Atoms): The structure to analyze, represented as an ASE Atoms object.
 
         Returns:
-            List of detected site motifs.
+            List of detected site motifs. Whether the coordinates are wrapped or not
+            depends on the `wrap` parameter at initialization.
         """
-        atoms_cp = atoms.copy()
-        atoms_cp.wrap()
+        if self.wrap:
+            atoms_cp = atoms.copy()
+            atoms_cp.wrap()
+        else:
+            atoms_cp = atoms
         return [
             SiteMotif.from_atoms(atoms_cp[[i]], indices=[i])
             for i in range(len(atoms_cp))
         ]
+
+    def detect_one(
+            self,
+            atoms: Atoms,
+            **kwargs
+    ) -> BaseMotif:
+        """Detect a single atom in the given structure.
+
+        This method detects a single atom at random in the structure.
+        Args:
+            atoms (Atoms): The structure to analyze, represented as an ASE Atoms object.
+
+        Returns:
+            Detected site motif. Whether the coordinates are wrapped or not
+            depends on the `wrap` parameter at initialization.
+        """
+        if self.wrap:
+            atoms_cp = atoms.copy()
+            atoms_cp.wrap()
+        else:
+            atoms_cp = atoms
+        rand_idx = int(self.rng.integers(len(atoms_cp)))
+        return SiteMotif.from_atoms(atoms_cp[[rand_idx]], indices=[rand_idx])

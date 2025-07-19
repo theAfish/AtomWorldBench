@@ -1,10 +1,11 @@
 """Bond motif detector."""
-from typing import List
+from typing import List, Optional
 
 from ase import Atoms
 from numpy.typing import ArrayLike
 
 from .cluster import ClusterDetector
+from ..motifs import BaseMotif
 
 from ..motifs.bond import BondMotif
 
@@ -47,16 +48,24 @@ class BondDetector(ClusterDetector):
         Returns:
             List of detected bond motifs within the specified radius.
         """
-        cluster_motifs = super().detect_around_frac_coords(atoms, frac_coords)
         return [
-            BondMotif(
-                symbols=motif.get_chemical_symbols(),
-                positions=motif.get_positions(wrap=False),
-                cell=motif.get_cell(complete=True),
-                pbc=motif.get_cell(complete=True),
-                charges=motif.get_initial_charges(),
-                name=None, # Bonds do not have a specific name.
-                indices=motif.indices
-            )
-            for motif in cluster_motifs
+            BondMotif.from_cluster_motif(motif)
+            for motif in super().detect_around_frac_coords(atoms, frac_coords)
         ]
+
+    def detect_one(
+            self,
+            atoms: Atoms,
+            n_attempts: Optional[int] = 10,
+    ) -> BondMotif | None:
+        """Detect a single bond motif in the given structure.
+
+        Args:
+            atoms (Atoms): The structure to analyze, represented as an ASE Atoms object.
+            n_attempts (Optional[int]): Number of attempts to find a bond motif. Default is 10.
+
+        Returns:
+            A BondMotif object if a bond is detected, otherwise None.
+        """
+        motif = super().detect_one(atoms, size=2, n_attempts=n_attempts)
+        return BondMotif.from_cluster_motif(motif) if motif is not None else None

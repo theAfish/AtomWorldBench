@@ -24,32 +24,10 @@ class SiteMotif(BaseMotif):
         "centroid_distance",
     ]
 
-    def __init__(
-            self,
-            *args,
-            name: Optional[str] = None,
-            indices: Optional[List[int]] = None,
-            **kwargs
-    ):
-        """A Motif is an ASE Atoms comprising a subset of atoms in original ase.Atoms.
-
-        Args:
-            *args, **kwargs: See `ase.Atoms.__init__`_.
-             .. _ase.Atoms.__init__: https://wiki.fysik.dtu.dk/ase/ase/atoms.html
-            name (str, optional): Human-readable motif name. Optional.
-             If None, will generate a default name.
-            indices (list of int, optional): Original indices from structure.
-                Indices should always be provided, if the motif belongs to a specific structure.
-        """
-        if len(indices) is not None and len(indices) > 1:
-            raise ValueError(
-                "SiteMotif can only be initialized with a single index."
-            )
-        super().__init__(*args, name=name, indices=indices, **kwargs)
+    def __post_init__(self):
+        """Post-initialization to check whether motif size is 1."""
         if len(self) != 1:
-            raise ValueError(
-                "SiteMotif must be initialized with exactly one site!"
-            )
+            raise ValueError(f"SiteMotif must contain exactly one site, but got {len(self)} sites.")
 
     def _get_default_name(self) -> str:
         """Generate a default name for the motif based on its species and coordinates."""

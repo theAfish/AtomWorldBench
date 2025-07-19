@@ -68,6 +68,14 @@ class BaseMotif(ABC, Atoms):
         if allow_translation_equivalence is None:
             allow_translation_equivalence = ALLOW_TRANSLATION_EQUIVALENCE
         self.allow_translation_equivalence = allow_translation_equivalence
+        self.__post_init__()
+
+    def __post_init__(self):
+        """Post-initialization to set the motif mets criterion of its type.
+
+        This method can be overridden by subclasses to perform additional initialization.
+        """
+        pass
 
     @property
     def species_strings(self) -> List[str]:
@@ -167,11 +175,11 @@ class BaseMotif(ABC, Atoms):
         return edge_lengths
 
     @property
-    def indices(self) -> ArrayLike:
+    def indices(self) -> List | None:
         """Get the indices of the atoms in the structure that correspond to this motif."""
         if self.arrays.get("site_indices") is None:
             return None
-        return self.get_array("site_indices")
+        return self.get_array("site_indices").tolist()
 
     @indices.setter
     def indices(self, indices: Optional[ArrayLike] = None):
@@ -273,8 +281,6 @@ class BaseMotif(ABC, Atoms):
 
         Args:
             other (BaseMotif or Atoms): The motif or ASE Atoms object to extend this motif with.
-        Returns:
-            BaseMotif: A new instance of BaseMotif that combines this motif and the other.
         """
         if (self.indices is None and other.indices is not None) or \
            (self.indices is not None and other.indices is None):

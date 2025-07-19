@@ -7,6 +7,7 @@ import numpy as np
 
 from .base import BaseDetector
 from .site import SiteDetector
+from ..motifs import BaseMotif
 from ..motifs.site import SiteMotif
 from ..motifs.cluster import ClusterMotif
 
@@ -67,6 +68,23 @@ def deduplicate_clusters(
     return unique_clusters, unique_remaining_neighbors
 
 
+def deduplicate_same_list_clusters(
+        clusters: List[ClusterMotif],
+) -> List[ClusterMotif]:
+    """Remove duplicate clusters from the list of clusters.
+
+    Args:
+        clusters (List[ClusterMotif]): List of clusters to check for duplicates.
+    Returns:
+        List[ClusterMotif]: A list of unique clusters.
+    """
+    unique_clusters = []
+    for cluster in clusters:
+        if cluster not in unique_clusters:
+            unique_clusters.append(cluster)
+    return unique_clusters
+
+
 class ClusterDetector(BaseDetector):
     """Detects clusters of atoms in a structure.
 
@@ -80,6 +98,7 @@ class ClusterDetector(BaseDetector):
             max_cluster_radius: Optional[float] = None,
             must_include_center: bool = True,
             symbols: Optional[List[str]] = None,
+            seed: Optional[int] = None,
     ):
         """Initialize the ClusterDetector with a default radius.
 
@@ -104,10 +123,13 @@ class ClusterDetector(BaseDetector):
              Default is None, will be set to the max value in `cutoff` if not provided.
             must_include_center (bool):
              If True, the center atom must be included in the detected cluster. Default is True.
-            symbols (Optional[List[str]]):
-            List of species to include in the detected clusters.
+            symbols (Optional[List[str]]): List of species to include in the detected clusters.
              If None, all species are included. Default is None.
+            seed (Optional[int]):
+             Random seed for reproducibility of the `detect_one` method.
+             Default is None, will generate with a random seed.
         """
+        super().__init__(seed=seed)
         self.cutoff = cutoff
         self.max_cluster_size = max_cluster_size
         max_cutoff = cutoff if isinstance(cutoff, (float, int)) else max(cutoff.values())
@@ -132,7 +154,8 @@ class ClusterDetector(BaseDetector):
                 Must be a one-dimensional array of shape (3,).
 
         Returns:
-            List of detected clusters.
+            List of all detected clusters with in the specified radius and size at least 2, less than
+             or equal to `max_cluster_size`.
         """
         site_motifs = SiteDetector(
             cutoff=self.cutoff,
@@ -188,7 +211,99 @@ class ClusterDetector(BaseDetector):
             current_clusters = new_clusters
             current_available_neighbors = new_available_neighbors
 
-        # Drop empty cluster.
+        # Drop the empty cluster and point clusters.
         if 0 in saved_clusters:
             _ = saved_clusters.pop(0, None)
+        if 1 in saved_clusters:
+            _ = saved_clusters.pop(1, None)
         return [cluster for clusters in saved_clusters.values() for cluster in clusters]
+
+    def detect_all(
+            self,
+            atoms: Atoms,
+    ) -> List[ClusterMotif]:
+        """Detect all clusters in the given structure.
+
+        This method is used to detect all clusters in the structure.
+        It uses the `detect_around_frac_coords` method to find clusters around each atom.
+        Then deduplicates the clusters to ensure unique motifs.
+
+        Args:
+            atoms (Atoms): The structure to analyze, represented as an ASE Atoms object.
+
+        Returns:
+            List of all detected cluster motifs in the structure.
+        """
+        return deduplicate_same_list_clusters(
+            super().detect_all(atoms)
+        )
+
+    def detect_one(
+            self,
+            atoms: Atoms,
+            size: Optional[int] = None,
+            n_attempts: Optional[int] = 10,
+    ) -> BaseMotif | None:
+        """Detect a single cluster in the given structure.
+
+        This method is used to detect a random single cluster in the structure.
+        It uses the `detect_around_frac_coords` method to find clusters around the center atom.
+
+        Args:
+            atoms (Atoms): The structure to analyze, represented as an ASE Atoms object.
+            size (Optional[int]): The size of the cluster to detect.
+            If None, choose a size between 2 and `max_cluster_size`. Default is None.
+            n_attempts (Optional[int]): The number of attempts to find a valid cluster.
+              Default is 10, which means it will try to find a valid cluster up to 10 times.
+
+        Returns:
+            A single detected cluster motif.
+        """
+        if size is None:
+            size = int(self.rng.integers(2, self.max_cluster_size + 1))
+
+        def _filter_neighbors(
+                existing_cluster,
+                neighbor_site_motifs,
+        ):
+            # Filter out neighbors that are already in the existing cluster, or
+            # exceeds the maximum cluster radius when added to the existing cluster.
+            return [
+                site for site in neighbor_site_motifs
+                if (
+                        site not in existing_cluster.site_motifs and
+                        (existing_cluster + site).radius <= self.max_cluster_radius
+                )
+            ]
+
+        def _detect_attempt(atoms):
+            # Perform a single detection attempt.
+            rand_idx = int(self.rng.integers(len(atoms)))
+            rand_indices = [rand_idx]
+            cluster = ClusterMotif.from_atoms(atoms[[rand_idx]], indices=[rand_idx])
+            for _ in range(size - 1):
+                # Randomly select a site to grow the cluster around.
+                neighbor_site_motifs = SiteDetector(
+                    cutoff=self.cutoff,
+                    symbols=self.symbols
+                ).detect_around_site_indices(atoms, [rand_indices[-1]])
+                deduplicated_site_motifs = _filter_neighbors(cluster, neighbor_site_motifs)
+                if len(deduplicated_site_motifs) == 0:
+                    return None  # Failed to grow the cluster.
+                deduplicated_site_indices = [
+                    int(site.indices[0]) for site in deduplicated_site_motifs
+                ]
+                rand_nn_idx = int(self.rng.integers(len(deduplicated_site_indices)))
+                cluster += deduplicated_site_motifs[rand_nn_idx]
+                rand_indices += [deduplicated_site_indices[rand_nn_idx]]
+            return cluster
+
+        for _ in range(n_attempts):
+            cluster = _detect_attempt(atoms)
+            if cluster is not None and len(cluster) == size:
+                return cluster
+
+        print(f"Warning: Failed to detect a cluster of size {size} in {n_attempts} attempts."
+              f" Please check the structure and cutoff parameters.")
+
+        return None
