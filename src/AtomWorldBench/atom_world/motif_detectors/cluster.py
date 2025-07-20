@@ -238,6 +238,16 @@ class ClusterDetector(BaseDetector):
             super().detect_all(atoms)
         )
 
+    def _get_symbol_valid_indices(self, atoms: Atoms) -> List[int]:
+        """Get indices of atoms that match the specified symbols."""
+        if self.symbols is None:
+            return list(range(len(atoms)))
+        else:
+            return [
+                i for i, symbol in enumerate(atoms.get_chemical_symbols())
+                if symbol in self.symbols
+            ]
+
     def detect_one(
             self,
             atoms: Atoms,
@@ -276,17 +286,18 @@ class ClusterDetector(BaseDetector):
                 )
             ]
 
-        def _detect_attempt(atoms):
+        def _detect_attempt(a):
             # Perform a single detection attempt.
-            rand_idx = int(self.rng.integers(len(atoms)))
+            valid_indices = self._get_symbol_valid_indices(a)
+            rand_idx = self.rng.choice(valid_indices)
             rand_indices = [rand_idx]
-            cluster = ClusterMotif.from_atoms(atoms[[rand_idx]], indices=[rand_idx])
+            c = ClusterMotif.from_atoms(a[[rand_idx]], indices=[rand_idx])
             for _ in range(size - 1):
                 # Randomly select a site to grow the cluster around.
                 neighbor_site_motifs = SiteDetector(
                     cutoff=self.cutoff,
                     symbols=self.symbols
-                ).detect_around_site_indices(atoms, [rand_indices[-1]])
+                ).detect_around_site_indices(a, [rand_indices[-1]])
                 deduplicated_site_motifs = _filter_neighbors(cluster, neighbor_site_motifs)
                 if len(deduplicated_site_motifs) == 0:
                     return None  # Failed to grow the cluster.
@@ -294,9 +305,9 @@ class ClusterDetector(BaseDetector):
                     int(site.indices[0]) for site in deduplicated_site_motifs
                 ]
                 rand_nn_idx = int(self.rng.integers(len(deduplicated_site_indices)))
-                cluster += deduplicated_site_motifs[rand_nn_idx]
+                c += deduplicated_site_motifs[rand_nn_idx]
                 rand_indices += [deduplicated_site_indices[rand_nn_idx]]
-            return cluster
+            return c
 
         for _ in range(n_attempts):
             cluster = _detect_attempt(atoms)
