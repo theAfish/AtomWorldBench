@@ -39,7 +39,8 @@ class AddMotifAction(BaseAction):
             relative_to_position (ArrayLike, optional): The position to which the motif
                 is added relative to. Only one of `relative_to_position` or
                 `relative_to_motif` can be provided.
-            position_fractional (bool, optional): Whether all positions are fractional.
+            position_fractional (bool, optional): Whether all positions provided in arguments
+                are fractional. This will also affect the description style of the action.
                 Default is True.
             relative_style (str, optional): The style to determine relative action.
                 If not provided, default to `centroid_distance`.
@@ -185,14 +186,16 @@ class AddMotifAction(BaseAction):
                 Will overwrite motif and relative motif description precision settings.
             motif_kwargs (dict, optional): Additional keyword arguments for the motif description.
             relative_motif_kwargs (dict, optional): Additional keyword arguments for the relative motif description.
+                 Note that motif and relative motif description styles are not affected by the action's
+                `position_fractional` attribute.
         Returns:
             str: A description of the action.
         """
         motif_kwargs = motif_kwargs or {}
         relative_motif_kwargs = relative_motif_kwargs or {}
 
-        motif_kwargs.update({"precision": precision})
-        relative_motif_kwargs.update({"precision": precision})
+        motif_kwargs.update({"precision": precision, "is_addition": True})
+        relative_motif_kwargs.update({"precision": precision, "is_addition": False})
 
         if self.position_fractional:
             coord_word = "fractional coordinates"

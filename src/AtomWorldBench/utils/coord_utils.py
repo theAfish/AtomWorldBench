@@ -1,4 +1,4 @@
-from typing import Tuple
+from typing import Tuple, List
 
 import numpy as np
 from numpy.typing import ArrayLike
@@ -44,3 +44,30 @@ def check_integer_translation(
     ):
         return idx1, idx2, taus[0]
     return None
+
+
+def find_coordinate_subset_indices(subset, fullset, wrap=True, atol=1e-8) -> List[int] | None:
+    """Find indices of a subset of fractional coordinates in a full set.
+
+    Args:
+        subset (ArrayLike): The subset of fractional coordinates to find.
+        fullset (ArrayLike): The full set of fractional coordinates.
+        wrap (bool): Whether to wrap the coordinates before comparison.
+            Default is True.
+        atol (float): Absolute tolerance for floating point comparison. Default is 1e-8.
+    Returns:
+        List[int] | None: Indices of the subset in the full set if found, otherwise None.
+    """
+    indices = []
+    subset = np.array(subset, dtype=float)
+    fullset = np.array(fullset, dtype=float)
+    if wrap:
+        subset = np.mod(subset, 1.0)
+        fullset = np.mod(fullset, 1.0)
+
+    for a in subset:
+        matches = np.where(np.all(np.isclose(fullset, a, atol=atol), axis=1))[0]
+        if len(matches) == 0:
+            return None
+        indices.append(matches[0])  # 取第一个匹配
+    return indices

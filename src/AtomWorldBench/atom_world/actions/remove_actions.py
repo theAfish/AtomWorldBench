@@ -1,37 +1,71 @@
 """Actions to remove atoms."""
-from numpy.typing import ArrayLike
-from pymatgen.core import Structure
+from typing import Tuple, Optional
+
+import numpy as np
+from ase import Atoms
 
 from .base import BaseAction
+from ..motifs import BaseMotif
 
 
-class RemoveMultiAtomsAction(BaseAction):
-    """Action to remove multiple atoms from a structure."""
+class RemoveMotifAction(BaseAction):
+    """Action to remove a motif from the structure.
 
-    def __init__(self, structure: Structure, indices: ArrayLike[int]):
-        """Initialize the action with a structure and indices of atoms to remove.
+    This action removes motifs from the structure based on their fractional coordinates.
+    """
+
+    def __init__(self):
+        """Initialize the RemoveMotifAction with fractional coordinates and cutoff."""
+        # Does not take relative motif or style, as it operates independently.
+        super().__init__(relative_to_motif=None, relative_style=None)
+
+    def _check_compatibility(self, atoms: Atoms, motif: BaseMotif) -> Tuple[bool, str]:
+        """Check if the motif can be removed from the structure.
+
+        Will override the motif's original indices attribute, if the motif is found in the structure.
+        Args:
+            atoms (Atoms): The structure from which the motif is to be removed.
+            motif (BaseMotif): The motif to be removed.
+
+        Returns:
+            Tuple[bool, str]: A tuple indicating compatibility and a message.
+        """
+        # Check if the motif is in the structure.
+        indices = motif.find_indices_in_atoms(atoms, modify_indices_in_place=True)
+        if indices is not None:
+            return True, "Motif found and ready to be removed."
+        return False, "Motif not found in the structure."
+
+    def _execute(self, atoms: Atoms, motif: BaseMotif) -> Atoms:
+        """Execute the action to remove the motif from the structure.
 
         Args:
-            structure (pymatgen.core.structure.Structure): The structure to be modified.
-            indices (ArrayLike[int]): List of indices of atoms to be removed.
+            atoms (Atoms): The structure from which the motif is to be removed.
+            motif (BaseMotif): The motif to be removed.
+
+        Returns:
+            Atoms: The modified structure with the motif removed.
         """
-        super().__init__(structure=structure)
-        self.indices = indices
+        # Remove the motif by its indices.
+        indices = motif.find_indices_in_atoms(atoms, modify_indices_in_place=False)
+        remaining_indices = np.setdiff1d(np.arange(len(atoms), dtype=int), indices, assume_unique=True).tolist()
+        return atoms[remaining_indices]
 
-    @property
-    def indices(self) -> ArrayLike[int]:
-        """Get the indices of atoms to be removed."""
-        return self._indices
+    def describe(
+            self,
+            motif: BaseMotif,
+            motif_kwargs: Optional[dict] = None,
+            **kwargs
+    ) -> str:
+        """Describe the action to remove a motif.
 
-    @indices.setter
-    def indices(self, indices: ArrayLike[int]):
-        """Set the indices of atoms to be removed."""
-        if len(indices) > len(self.structure):
-            raise ValueError("Indices cannot exceed the number of atoms in the structure.")
-        self._indices = indices
+        Args:
+            motif (BaseMotif): The motif to be removed.
+            motif_kwargs (Optional[dict]): Additional keyword arguments for the motif.describe method.
+                Not used, just to match the interface.
+            **kwargs: Additional keyword arguments. Not used, just to match the interface.
 
-    def execute(self) -> Structure:
-        """Execute the action and return the modified structure."""
-        new_structure = self.structure.copy()
-        new_structure.remove_sites(self.indices)
-        return new_structure
+        Returns:
+            str: A description of the action.
+        """
+        return f"Remove [{motif.describe(**motif_kwargs)}] from the structure."

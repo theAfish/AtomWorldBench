@@ -76,7 +76,10 @@ class BaseAction(ABC):
 
     @abstractmethod
     def _execute(self, atoms: Atoms, operated_motif: BaseMotif) -> Atoms:
-        """Execute the action on the structure to generate the ground truth structure."""
+        """Execute the action on the structure to generate the ground truth structure.
+
+        Must be overridden by subclasses to implement specific actions.
+        """
         pass
 
     @classmethod
@@ -125,6 +128,7 @@ class BaseAction(ABC):
     def _check_compatibility(self, atoms: Atoms, motif: BaseMotif) -> Tuple[bool, str]:
         """Check if the action is compatible with the given Atoms object.
 
+        Must be overridden by subclasses to implement specific compatibility checks.
         Args:
             atoms(Atoms): An instance of Atoms to check compatibility with.
             motif(BaseMotif): An instance of BaseMotif to check compatibility with.

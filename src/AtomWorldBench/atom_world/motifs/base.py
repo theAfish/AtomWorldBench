@@ -13,7 +13,7 @@ from ase import Atoms
 
 from ..motif_description_styles import description_style_factory
 from ...utils.description_utils import get_species_string
-from ...utils.coord_utils import check_integer_translation
+from ...utils.coord_utils import check_integer_translation, find_coordinate_subset_indices
 
 from ...globals import ALLOW_TRANSLATION_EQUIVALENCE
 
@@ -41,7 +41,6 @@ class BaseMotif(ABC, Atoms):
             *args,
             name: Optional[str] = None,
             indices: Optional[List[int]] = None,
-            to_add: bool = False,
             allow_translation_equivalence: bool = None,
             **kwargs
     ):
@@ -54,8 +53,6 @@ class BaseMotif(ABC, Atoms):
              If None, will generate a default name.
             indices (list of int, optional): Original indices from structure.
                 Indices should always be provided, if the motif belongs to a specific structure.
-            to_add (bool): If True, the motif is being added to a structure.
-               This affects prompt description style.
             allow_translation_equivalence (bool):
                 If True, the motif can be considered equivalent to another motif
                 if they are related by an integer translation.
@@ -64,7 +61,6 @@ class BaseMotif(ABC, Atoms):
         super().__init__(*args, **kwargs)
         self.name = name
         self.indices = indices
-        self.to_add = to_add
         if allow_translation_equivalence is None:
             allow_translation_equivalence = ALLOW_TRANSLATION_EQUIVALENCE
         self.allow_translation_equivalence = allow_translation_equivalence
@@ -209,20 +205,27 @@ class BaseMotif(ABC, Atoms):
     def describe(
             self,
             style: str = "coord",
+            is_addition: bool = False,
             **kwargs
     ) -> str:
         """Return a string description of the cluster motif.
 
         Args:
             style (str): The style of description. Default is "coord".
+            is_addition (bool): If True, the description is for an addition action.
+                This affects how the description is formatted. Default is False.
             **kwargs: Additional keyword arguments for the description style.
                 For example, `coord_style` and `precision` for coordinate descriptions.
                 For other styles, refer to the specific description style documentation.
         Returns:
             str: A string description of the cluster motif.
         """
-        if self.to_add:
-            return self.name  # For add action, do not provide coordinates or indices in prompt.
+        if self.indices is None and style == "index":
+            print("Warning: No indices set for the motif. Must use coordinates to describe.")
+            style = "index"
+        # For single atom motifs, return the name directly for addition actions.
+        if len(self) == 1 and is_addition:
+            return self.name
         style = style.lower()
         if style not in self.allowed_description_styles:
             raise ValueError(
@@ -261,6 +264,44 @@ class BaseMotif(ABC, Atoms):
             name=name,
             indices=indices
         )
+
+    def find_indices_in_atoms(
+            self,
+            atoms: Atoms,
+            modify_indices_in_place: bool = False,
+    ) -> List[int] | None:
+        """Find the indices of this motif in the given ASE Atoms object.
+
+        Args:
+            atoms (Atoms): The ASE Atoms object to search in.
+            modify_indices_in_place (bool):
+             If True, modify the indices of this motif in place, according to indices in atoms.
+
+        Returns:
+            List[int] | None: A list of indices where this motif is found in the atoms,
+             or None if not found.
+        """
+        if self.indices is not None:
+            return self.indices
+        indices = find_coordinate_subset_indices(
+            self.frac_coords, atoms.get_scaled_positions(), wrap=True
+        )
+        if indices is not None:
+            symbols = [
+                get_species_string(el, c)
+                for el, c in zip(
+                    atoms[indices].get_chemical_symbols(),
+                    atoms[indices].get_initial_charges()
+                )
+            ]
+            self_symbols = self.species_strings
+            if symbols == self_symbols:
+                if modify_indices_in_place:
+                    self.indices = indices
+                else:
+                    indices = indices
+                return indices
+        return None
 
     def get_atoms(self) -> Atoms:
         """Get the ASE Atoms object corresponding to this motif.
@@ -343,14 +384,20 @@ class BaseMotif(ABC, Atoms):
             else:
                 if not np.array_equal(prev_taus, taus):
                     return False
-            if not self.allow_translation_equivalence:
+            if not (self.allow_translation_equivalence and other.allow_translation_equivalence):
                 if not np.all(taus == 0):
                     return False
             sorted_indices1.extend(group1[sorted_args1])
             sorted_indices2.extend(group2[sorted_args2])
 
-        return np.allclose(
-            self.arrays['initial_charges'][sorted_indices1],
-            other.arrays['initial_charges'][sorted_indices2],
-            atol=1e-6
+        return (
+                np.allclose(
+                    self.arrays['initial_charges'][sorted_indices1],
+                    other.arrays['initial_charges'][sorted_indices2],
+                    atol=1e-6
+                ) and
+                np.array_equal(
+                    np.array(self.indices, dtype=int)[sorted_indices1],
+                    np.array(other.indices, dtype=int)[sorted_indices2],
+                )
         )
