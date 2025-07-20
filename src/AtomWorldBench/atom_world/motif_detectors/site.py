@@ -102,6 +102,16 @@ class SiteDetector(BaseDetector):
             deduplicated_motifs.append(motif)
         return deduplicated_motifs
 
+    def _get_symbol_valid_indices(self, atoms: Atoms) -> List[int]:
+        """Get indices of atoms that match the specified symbols."""
+        if self.symbols is None:
+            return list(range(len(atoms)))
+        else:
+            return [
+                i for i, symbol in enumerate(atoms.get_chemical_symbols())
+                if symbol in self.symbols
+            ]
+
     def detect_all(
             self,
             atoms: Atoms,
@@ -122,9 +132,10 @@ class SiteDetector(BaseDetector):
             atoms_cp.wrap()
         else:
             atoms_cp = atoms
+        valid_indices = self._get_symbol_valid_indices(atoms_cp)
         return [
             SiteMotif.from_atoms(atoms_cp[[i]], indices=[i])
-            for i in range(len(atoms_cp))
+            for i in valid_indices
         ]
 
     def detect_one(
@@ -147,5 +158,6 @@ class SiteDetector(BaseDetector):
             atoms_cp.wrap()
         else:
             atoms_cp = atoms
-        rand_idx = int(self.rng.integers(len(atoms_cp)))
+        valid_indices = self._get_symbol_valid_indices(atoms_cp)
+        rand_idx = self.rng.choice(valid_indices)
         return SiteMotif.from_atoms(atoms_cp[[rand_idx]], indices=[rand_idx])
