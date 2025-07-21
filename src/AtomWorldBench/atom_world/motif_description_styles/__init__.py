@@ -20,4 +20,9 @@ def description_style_factory(
         BaseDescriptionStyle: An instance of the requested description style.
     """
     class_name = class_name_from_str(style_name + "-description-style")
+    if kwargs.get("is_addition", False) and style_name == "index":
+        raise ValueError(
+            "Motif description style 'index' is not supported for addition type actions. "
+            "Use 'coord' or other supported styles instead."
+        )
     return derived_class_factory(class_name, BaseDescriptionStyle, *args, **kwargs)

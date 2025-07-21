@@ -4,6 +4,8 @@ from typing import Optional
 
 from numpy.typing import ArrayLike
 
+from ..globals import DEFAULT_FLOAT_TO_STRING_PRECISION
+
 
 def get_species_string(
         element_symbol: str, charge: Optional[int] = None,
@@ -32,13 +34,16 @@ def get_species_string(
     return element_symbol
 
 
-def format_arraylike(obj: ArrayLike, precision: int = 4):
+def describe_arraylike(
+        obj: ArrayLike,
+        precision: int = DEFAULT_FLOAT_TO_STRING_PRECISION
+):
     """Recursively format any array-like object into a string with adjustable float precision.
 
     Args:
         obj(ArrayLike): array-like structure (list, tuple, np.ndarray, nested or flat)
-        precision(int): number of decimal places to format floats. Default is 4.
-         If precision is 0, integers will be returned as integers.
+        precision(int): number of decimal places to format floats. Default is set in `globals.py`.
+            If precision is 0, integers will be returned as integers.
 
     Returns:
         str: formatted string of the array-like object.
@@ -51,7 +56,7 @@ def format_arraylike(obj: ArrayLike, precision: int = 4):
     elif isinstance(obj, str):
         return repr(obj)
     elif isinstance(obj, Iterable):
-        inner = ", ".join(format_arraylike(item, precision) for item in obj)
+        inner = ", ".join(describe_arraylike(item, precision) for item in obj)
         return f"({inner})"
     else:
         raise TypeError(f"Unsupported element type: {type(obj)}")

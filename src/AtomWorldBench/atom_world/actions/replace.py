@@ -40,7 +40,9 @@ class ReplaceMotifAction(BaseAction):
     ) -> Atoms:
         """Execute the action to replace the motif in the structure.
 
-        In this action, self.relative_to_motif is the motif to be replaced in the structure.
+        Removes the motif defined by `self.relative_to_motif` from the structure, and
+        append `motif` to the remaining atoms. The order of the remaining atoms is preserved.
+
         Args:
             atoms (Atoms): The structure to operate on.
             motif (BaseMotif): The motif to put in the structure.
@@ -86,6 +88,6 @@ class ReplaceMotifAction(BaseAction):
         relative_motif_kwargs.update({"is_addition": False})
 
         return (
-            f"Replace {self.relative_to_motif.describe(**relative_motif_kwargs)}"
-            f" with {motif.describe(**motif_kwargs)}."
+            f"Replace [{self.relative_to_motif.describe(**relative_motif_kwargs)}]"
+            f" with [{motif.describe(**motif_kwargs)}]."
         )

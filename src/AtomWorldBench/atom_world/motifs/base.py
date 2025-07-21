@@ -133,10 +133,11 @@ class BaseMotif(ABC, Atoms):
             fractional (bool): If True, return the centroid in fractional coordinates.
                 If False, return in Cartesian coordinates. Default is False.
         """
+        cart_centroid = np.mean(self.cart_coords, axis=0)
         if fractional:
-            return np.mean(self.frac_coords, axis=0)
+            return cart_centroid @ np.linalg.inv(self.cell.complete)
         else:
-            return np.mean(self.cart_coords, axis=0)
+            return cart_centroid
 
     @property
     def radius(self) -> float:
@@ -223,15 +224,16 @@ class BaseMotif(ABC, Atoms):
         if self.indices is None and style == "index":
             print("Warning: No indices set for the motif. Must use coordinates to describe.")
             style = "index"
-        # For single atom motifs, return the name directly for addition actions.
-        if len(self) == 1 and is_addition:
-            return self.name
+
         style = style.lower()
         if style not in self.allowed_description_styles:
             raise ValueError(
                 f"Description style '{style}' is not allowed for this motif. "
                 f"Allowed styles: {self.allowed_description_styles}."
             )
+
+        # For single atom motifs, return the name directly for addition actions.
+        kwargs.update({"is_addition": is_addition})
         description_style = description_style_factory(
             style, **kwargs
         )

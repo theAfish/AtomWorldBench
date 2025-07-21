@@ -3,7 +3,8 @@
 from .base import BaseDescriptionStyle
 
 from ..motifs.base import BaseMotif
-from src.AtomWorldBench.utils.description_utils import format_arraylike
+from ...utils.description_utils import describe_arraylike
+from ...globals import DEFAULT_FLOAT_TO_STRING_PRECISION
 
 class CoordDescriptionStyle(BaseDescriptionStyle):
     """Description style for motifs in atomic coordinates.
@@ -17,18 +18,26 @@ class CoordDescriptionStyle(BaseDescriptionStyle):
     def __init__(
             self,
             flavor: str = "fractional",
-            precision: int = 4,
-            center: bool = False,
+            precision: int = DEFAULT_FLOAT_TO_STRING_PRECISION,
+            center: bool = True,
+            is_addition: bool = False
     ):
         """Initialize the description style with a specific flavor.
 
         Args:
             flavor (str): The flavor of the description style, e.g., "fractional", "cartesian".
             precision (int): The number of decimal places to format the coordinates.
+                Default is set in `globals.py`, typically 4.
             center (bool): Whether to center the motif cartesian positions around the centroid,
-             and describe the coordinates relative to the centroid.
+                and describe the coordinates relative to the motif centroid.
+                Default is True.
+            is_addition (bool): whether this style is used for describing an add motif action.
+                Controls generated description. For example, add motif action typically does
+                not require to describe the motif's centroid coordinates or its indices in
+                structure, as the action is about adding a motif to the structure.
+                Default is False.
         """
-
+        super().__init__(is_addition=is_addition)
         self.flavor = flavor
         self.precision = precision
         self.center = center
@@ -42,6 +51,9 @@ class CoordDescriptionStyle(BaseDescriptionStyle):
         Returns:
             str: A string description of the motif's coordinates.
         """
+        if self.is_addition and len(motif) == 1:
+            return motif.name
+
         if not self.center:
             if self.flavor == "fractional":
                 coords = motif.frac_coords
@@ -51,7 +63,7 @@ class CoordDescriptionStyle(BaseDescriptionStyle):
                 coord_word = "cartesian coordinates (unit in Angstroms)"
             else:
                 raise ValueError(f"Unknown coordinate flavor: {self.flavor}.")
-            coords_str = format_arraylike(coords, precision=self.precision)
+            coords_str = describe_arraylike(coords, precision=self.precision)
 
             return f"{motif.name} with {coord_word} {coords_str}"
         else:
@@ -65,8 +77,11 @@ class CoordDescriptionStyle(BaseDescriptionStyle):
                 coord_word = "cartesian coordinates"
             else:
                 raise ValueError(f"Unknown coordinate flavor: {self.flavor}.")
-            centroid_str = format_arraylike(centroid, precision=self.precision)
-            coords_str = format_arraylike(coords, precision=self.precision)
+            centroid_str = describe_arraylike(centroid, precision=self.precision)
+            coords_str = describe_arraylike(coords, precision=self.precision)
 
+            if self.is_addition:
+                return (f"{motif.name} with {coord_word} {coords_str}"
+                        f" relative to its centroid")
             return (f"{motif.name} with {coord_word} {coords_str}"
                     f" relative to a centroid {coord_word} {centroid_str}")

@@ -106,7 +106,7 @@ class BaseAction(ABC):
         if not self.__class__.class_compatibility(motif):
             return False, "motif does not allow this action"
         if self.relative_to_motif is not None:
-            # Check if the motif is in the structure.
+            # Check if the relative motif is in the structure.
             indices = self.relative_to_motif.find_indices_in_atoms(
                 atoms,
                 modify_indices_in_place=True

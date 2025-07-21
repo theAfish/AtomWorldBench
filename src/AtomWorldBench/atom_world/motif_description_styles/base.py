@@ -13,6 +13,18 @@ class BaseDescriptionStyle(ABC):
     # Some description styles need to append an introduction to the prompt.
     introduction = ""
 
+    def __init__(self, is_addition: bool = False):
+        """Initialize the description style.
+
+        Args:
+            is_addition (bool): whether this style is used for describing an add motif action.
+                Controls generated description. For example, add motif action typically does
+                not require to describe the motif's centroid coordinates or its indices in
+                structure, as the action is about adding a motif to the structure.
+                Default is False.
+        """
+        self.is_addition = is_addition
+
     @abstractmethod
     def describe(self, motif: BaseMotif) -> str:
         """Generate a description for the given motif."""

@@ -175,7 +175,10 @@ class ClusterDetector(BaseDetector):
             current_available_neighbors = [deepcopy(site_motifs)]
             saved_clusters = {0: [empty_cluster]}
         else:
-            dists = [np.linalg.norm(site.cart_coords - frac_coords @ atoms.cell) for site in site_motifs]
+            dists = [
+                np.linalg.norm(site.cart_coords - frac_coords @ atoms.cell.complete())
+                for site in site_motifs
+            ]
             imin = np.argmin(dists)
             center_site = site_motifs[imin]
             init_cluster = ClusterMotif(
@@ -253,7 +256,7 @@ class ClusterDetector(BaseDetector):
             atoms: Atoms,
             size: Optional[int] = None,
             n_attempts: Optional[int] = 10,
-    ) -> BaseMotif | None:
+    ) -> ClusterMotif | None:
         """Detect a single cluster in the given structure.
 
         This method is used to detect a random single cluster in the structure.
@@ -267,7 +270,7 @@ class ClusterDetector(BaseDetector):
               Default is 10, which means it will try to find a valid cluster up to 10 times.
 
         Returns:
-            A single detected cluster motif.
+            A single detected cluster motif, or None if no valid cluster is found.
         """
         if size is None:
             size = int(self.rng.integers(2, self.max_cluster_size + 1))

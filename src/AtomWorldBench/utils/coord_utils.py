@@ -1,8 +1,40 @@
-from typing import Tuple, List
+from typing import Tuple, List, Optional
 
 import numpy as np
 from numpy.typing import ArrayLike
 
+
+def check_coordinates_shape(
+        coord: ArrayLike,
+        name: Optional[str] = None,
+        expected_1d: bool = True,
+) -> np.ndarray:
+    """Check if the shape of the fractional coordinates matches the expected shape.
+
+    Returns np.ndarray if the shape matches, otherwise throws an error.
+    Args:
+        coord (ArrayLike): The fractional coordinates to check.
+        name (Optional[str]): Optional name for the coordinates, used in error messages.
+        expected_1d (bool): If True, expects a 1D array. If False, expects a 2D array.
+            Default is True.
+    Returns:
+        bool: True if the shape matches, False otherwise.
+    """
+    coord = np.asarray(coord, dtype=float)
+    name = name or "coordinates"
+    if expected_1d:
+        if coord.ndim != 1 or coord.shape[0] != 3:
+            raise ValueError(
+                f"{name} expected 1D array of shape (3,),"
+                f" got shape {coord.shape}"
+            )
+    else:
+        if coord.ndim != 2 or coord.shape[1] != 3:
+            raise ValueError(
+                f"{name} expected 2D array with second dimension of size 3,"
+                f" got shape {coord.shape}"
+            )
+    return coord
 
 def check_integer_translation(
         frac1: ArrayLike,

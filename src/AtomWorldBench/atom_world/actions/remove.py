@@ -40,6 +40,8 @@ class RemoveMotifAction(BaseAction):
     def _execute(self, atoms: Atoms, motif: BaseMotif) -> Atoms:
         """Execute the action to remove the motif from the structure.
 
+        Removes the motif from the structure by its indices, does not change the
+        order of remaining atoms in structure.
         Args:
             atoms (Atoms): The structure from which the motif is to be removed.
             motif (BaseMotif): The motif to be removed.

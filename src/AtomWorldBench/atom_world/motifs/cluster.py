@@ -30,6 +30,10 @@ class ClusterMotif(BaseMotif):
             lambda motif: len(motif) == 2,
             "only for pairs!"
         ),
+        "rotation_axis": (
+            lambda motif: len(motif) == 2,
+            "only for pairs!"
+        ),
     }
 
     def _get_default_name(self) -> str:

@@ -20,9 +20,9 @@ class SiteMotif(BaseMotif):
         "coord",
         "index",
     ]
-    allowed_relative_styles = [
-        "centroid_distance",
-    ]
+    allowed_relative_styles = {
+        "centroid_distance": None,  # No need to check for conditions.
+    }
 
     def __post_init__(self):
         """Post-initialization to check whether motif size is 1."""

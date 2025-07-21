@@ -83,7 +83,7 @@ class SiteDetector(BaseDetector):
         offsets_valid = offsets[indices_valid, :]
         positions_valid = (
                 atoms_modified.get_positions(wrap=False)[indices_j_valid] +
-                offsets_valid @ atoms_modified.cell
+                offsets_valid @ atoms_modified.cell.complete()
         )
         symbols_valid = symbols[indices_j_valid]
         charges_valid = atoms_modified.get_initial_charges()[indices_j_valid]
@@ -142,7 +142,7 @@ class SiteDetector(BaseDetector):
             self,
             atoms: Atoms,
             **kwargs
-    ) -> BaseMotif:
+    ) -> SiteMotif:
         """Detect a single atom in the given structure.
 
         This method detects a single atom at random in the structure.

@@ -3,13 +3,14 @@ import numpy as np
 from .base import BaseDescriptionStyle
 from ..motifs.base import BaseMotif
 
-from src.AtomWorldBench.utils.description_utils import format_arraylike
+from src.AtomWorldBench.utils.description_utils import describe_arraylike
 
 
 class IndexDescriptionStyle(BaseDescriptionStyle):
     """Description style for motifs using site indices.
 
     This style describes a motif using its site indices in the structure.
+    Does not support add motif actions!
     """
     introduction = (
         "Cell offsets: triplets of integers indicating how many unit"
@@ -37,4 +38,4 @@ class IndexDescriptionStyle(BaseDescriptionStyle):
                     f" in the central reference cell.")
 
         return (f"{motif.name} with site indices: {', '.join(map(str, motif.indices))}"
-                f" and cell offsets: {format_arraylike(motif.cell_offsets, precision=0)}.")
+                f" and cell offsets: {describe_arraylike(motif.cell_offsets, precision=0)}.")

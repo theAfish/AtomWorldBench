@@ -8,7 +8,10 @@ from numpy.typing import ArrayLike
 
 from .base import BaseAction
 from ..motifs.base import BaseMotif
-from ...utils.description_utils import format_arraylike
+from ...utils.description_utils import describe_arraylike
+from ...utils.coord_utils import check_coordinates_shape
+
+from ...globals import DEFAULT_FLOAT_TO_STRING_PRECISION
 
 
 class AddMotifAction(BaseAction):
@@ -58,13 +61,11 @@ class AddMotifAction(BaseAction):
         self.position_fractional = position_fractional
 
         if at_position is not None: # Override all relative parameters.
-            at_position = np.array(at_position)
-            if at_position.shape != (3,):
-                raise ValueError(
-                    "at_position must be a 3D vector, got shape: "
-                    f"{at_position.shape}"
-                )
-            self.at_position = at_position
+            self.at_position = check_coordinates_shape(
+                at_position,
+                name="at_position",
+                expected_1d=True
+            )
             self.relative_to_position = None
             self.relative_shift = None
             self.relative_atom_index = None
@@ -106,14 +107,13 @@ class AddMotifAction(BaseAction):
                         "Either relative_to_position or relative_to_motif must be provided."
                     )
                 if relative_to_position is not None:
-                    relative_to_position = np.array(relative_to_position)
-                    if relative_to_position.shape != (3,):
-                        raise ValueError(
-                            "relative_to_position must be a 3D vector, got shape: "
-                            f"{relative_to_position.shape}"
-                        )
-                self.relative_to_position = relative_to_position
-                self.relative_to_motif = relative_to_motif
+                    self.relative_to_position = check_coordinates_shape(
+                        relative_to_position,
+                        name="relative_to_position",
+                        expected_1d=True
+                    )
+                else:
+                    self.relative_to_position = None
 
     def _check_compatibility(self, atoms: Atoms, motif: BaseMotif) -> Tuple[bool, str]:
         """Check if the action is compatible with the given Atoms and motif."""
@@ -131,13 +131,13 @@ class AddMotifAction(BaseAction):
         # Directly given.
         if self.at_position is not None:
             if self.position_fractional:
-                return self.at_position @ atoms.cell
+                return self.at_position @ atoms.cell.complete()
             return self.at_position
         # Compute relative to position.
         elif self.relative_to_position is not None:
             pos = np.array(self.relative_to_position) + self.relative_shift
             if self.position_fractional:
-                return pos @ atoms.cell
+                return pos @ atoms.cell.complete()
             return pos
         # Compute relative to motif.
         elif self.relative_to_motif is not None:
@@ -154,7 +154,7 @@ class AddMotifAction(BaseAction):
                     fractional=False
                 )
                 if self.position_fractional:
-                    relative_shift = self.relative_shift @ atoms.cell
+                    relative_shift = self.relative_shift @ atoms.cell.complete()
                 else:
                     relative_shift = self.relative_shift
             return centroid + relative_shift
@@ -163,7 +163,15 @@ class AddMotifAction(BaseAction):
 
 
     def _execute(self, atoms: Atoms, operated_motif: BaseMotif) -> Atoms:
-        """Execute the action on the structure to generate the ground truth structure."""
+        """Execute the action on the structure to generate the ground truth structure.
+
+        Added motif will always be appended to the end of the structure.
+        Args:
+            atoms (Atoms): The structure to operate on.
+            operated_motif (BaseMotif): The motif to be added to the structure.
+        Returns:
+            Atoms: The modified structure with the motif added.
+        """
         insert_position = self._compute_insert_cart_position(atoms)
         displacement = insert_position - operated_motif.get_centroid(fractional=False)
         operated_motif.translate(displacement)
@@ -174,7 +182,7 @@ class AddMotifAction(BaseAction):
     def describe(
             self,
             motif: BaseMotif,
-            precision: int = 4,
+            precision: int = DEFAULT_FLOAT_TO_STRING_PRECISION,
             motif_kwargs: Optional[dict] = None,
             relative_motif_kwargs: Optional[dict] = None,
     ) -> str:
@@ -182,8 +190,9 @@ class AddMotifAction(BaseAction):
 
         Args:
             motif (BaseMotif): The motif being added.
-            precision (int): The precision for formatting numerical values in the description.
+            precision (int): The precision for formatting numerical values in the description in decimals.
                 Will overwrite motif and relative motif description precision settings.
+                Default is set in `globals.py`, typically 4.
             motif_kwargs (dict, optional): Additional keyword arguments for the motif description.
             relative_motif_kwargs (dict, optional): Additional keyword arguments for the relative motif description.
                  Note that motif and relative motif description styles are not affected by the action's
@@ -202,28 +211,28 @@ class AddMotifAction(BaseAction):
         else:
             coord_word = "cartesian coordinates"
         if self.at_position is not None:
-            return (f"add [{motif.describe(**motif_kwargs)}], with its center located at {coord_word}"
-                    f" {format_arraylike(self.at_position, precision=precision)}")
+            return (f"add [{motif.describe(**motif_kwargs)}], with its centroid located at {coord_word}"
+                    f" {describe_arraylike(self.at_position, precision=precision)}")
         elif self.relative_to_position is not None:
             return (
-                f"add [{motif.describe(**motif_kwargs)}], with its center shifted in {coord_word} by"
-                f" [{format_arraylike(self.relative_shift, precision=precision)}] relative to a"
+                f"add [{motif.describe(**motif_kwargs)}], with its centroid shifted in {coord_word} by"
+                f" {describe_arraylike(self.relative_shift, precision=precision)} relative to a"
                 f" reference point at {coord_word}"
-                f" {format_arraylike(self.relative_to_position, precision=precision)}"
+                f" {describe_arraylike(self.relative_to_position, precision=precision)}"
             )
         elif self.relative_to_motif is not None:
             if self.relative_style == "position_in_line":
                 relative_motif_kwargs.update({"style": "index"})
                 return (
-                    f"add [{motif.describe(**motif_kwargs)}], with its center located on the line between"
+                    f"add [{motif.describe(**motif_kwargs)}], with its centroid located on the line formed"
                     f" by [{self.relative_to_motif.describe(**relative_motif_kwargs)}], at"
                     f" {self.relative_shift:.{precision}f} angstroms away from the atom indexed"
                     f" {self.relative_to_motif.indices[self.relative_atom_index]}"
                 )
             else:
                 return (
-                    f"add [{motif.describe(**motif_kwargs)}], with its center shifted in {coord_word} by"
-                    f" {format_arraylike(self.relative_shift, precision=precision)} relative to the"
+                    f"add [{motif.describe(**motif_kwargs)}], with its centroid shifted in {coord_word} by"
+                    f" {describe_arraylike(self.relative_shift, precision=precision)} relative to the"
                     f" centroid of [{self.relative_to_motif.describe(**relative_motif_kwargs)}]"
                 )
         else:

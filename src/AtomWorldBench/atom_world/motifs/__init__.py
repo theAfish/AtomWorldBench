@@ -4,6 +4,8 @@ from .base import BaseMotif
 
 
 # TODO: polyhedra, etc.
+# TODO: implement a region motif that can be used to include all sites in a region in space.
+#  This will enable actions such as "move all atoms in a region towards or away from a point",
 def motif_factory(
         motif_name: str,
         *args,
