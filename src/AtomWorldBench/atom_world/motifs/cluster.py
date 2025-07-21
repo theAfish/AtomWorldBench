@@ -19,7 +19,6 @@ class ClusterMotif(BaseMotif):
         "RotateMotifAction",
         "E3MotifAction",  # E3 operation relative to other motifs or some coordinates.
         "ResizeMotifAction",  # Resize the cluster motif's radius wrt centroid or a node in cluster.
-        "EdgeResizeMotifAction",  # Resize selected edges of the cluster motif.
     ]
     allowed_description_styles = [
         "coord",

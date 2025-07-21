@@ -269,20 +269,31 @@ class BaseMotif(ABC, Atoms):
             self,
             atoms: Atoms,
             modify_indices_in_place: bool = False,
-    ) -> List[int] | None:
+    ) -> List[int] | Tuple[None, str]:
         """Find the indices of this motif in the given ASE Atoms object.
 
+        Check with wrapped fractional coordinates of the motif.
         Args:
             atoms (Atoms): The ASE Atoms object to search in.
             modify_indices_in_place (bool):
-             If True, modify the indices of this motif in place, according to indices in atoms.
+                If True, modify the indices of this motif in place, according to indices in atoms.
+                Will always overwrite the indices of this motif with newly found indices.
 
         Returns:
-            List[int] | None: A list of indices where this motif is found in the atoms,
-             or None if not found.
+            List[int] | Tuple[None|str]:
+            A list of indices where this motif is found in the atoms,
+            or None followed by a message if not found.
         """
-        if self.indices is not None:
-            return self.indices
+        # Check if the motif's periodic boundary conditions and cell match the atoms.
+        if (
+                not np.array_equal(self.pbc, atoms.pbc) or
+                not np.allclose(
+                    self.get_cell(complete=True).array,
+                    atoms.get_cell(complete=True).array,
+                    atol=1e-6
+                )
+        ):
+            return None, "Motif's cell or pbc does not match the atoms."
         indices = find_coordinate_subset_indices(
             self.frac_coords, atoms.get_scaled_positions(), wrap=True
         )
@@ -301,7 +312,9 @@ class BaseMotif(ABC, Atoms):
                 else:
                     indices = indices
                 return indices
-        return None
+            else:
+                return None, "Motif's species do not match the atoms' species."
+        return None, "Motif's fractional coordinates not found in the atoms."
 
     def get_atoms(self) -> Atoms:
         """Get the ASE Atoms object corresponding to this motif.

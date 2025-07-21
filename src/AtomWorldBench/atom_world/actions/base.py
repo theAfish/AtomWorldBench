@@ -106,14 +106,14 @@ class BaseAction(ABC):
         if not self.__class__.class_compatibility(motif):
             return False, "motif does not allow this action"
         if self.relative_to_motif is not None:
-            if not np.allclose(
-                atoms.cell.complete().array,
-                self.relative_to_motif.cell.complete().array,
-                atol=1e-6
-            ) or not np.all(
-                atoms.pbc == self.relative_to_motif.pbc
-            ):
-                return False, "The relative motif's cell/pbc does not match the atoms cell/pbc."
+            # Check if the motif is in the structure.
+            indices = self.relative_to_motif.find_indices_in_atoms(
+                atoms,
+                modify_indices_in_place=True
+            )
+            if indices is not None:
+                return True, ""
+            return False, "relative_to_motif not found in the structure."
         if not np.allclose(
                 atoms.cell.complete().array,
                 motif.cell.complete().array,

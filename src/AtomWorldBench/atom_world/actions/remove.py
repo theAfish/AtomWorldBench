@@ -13,6 +13,7 @@ class RemoveMotifAction(BaseAction):
 
     This action removes motifs from the structure based on their fractional coordinates.
     """
+    allowed_relative_styles = []
 
     def __init__(self):
         """Initialize the RemoveMotifAction with fractional coordinates and cutoff."""
@@ -33,7 +34,7 @@ class RemoveMotifAction(BaseAction):
         # Check if the motif is in the structure.
         indices = motif.find_indices_in_atoms(atoms, modify_indices_in_place=True)
         if indices is not None:
-            return True, "Motif found and ready to be removed."
+            return True, ""
         return False, "Motif not found in the structure."
 
     def _execute(self, atoms: Atoms, motif: BaseMotif) -> Atoms:
