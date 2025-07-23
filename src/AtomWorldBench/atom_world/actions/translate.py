@@ -15,32 +15,71 @@ from ...globals import DEFAULT_FLOAT_TO_STRING_PRECISION
 
 
 class TranslateMotifAction(BaseAction):
-    """Action to translate a motif in the structure.
-
-    This action translates a motif in the structure.
-    """
+    """Action to translate a motif in the structure."""
     allowed_relative_styles = [
         "centroid_distance",  # Translate relative to the centroid of the relative motif.
     ]
+    kwargs_and_formating_functions = {
+        "to_position":
+            lambda x: check_coordinates_shape(
+                x, "to_position", expected_1d=True, allow_none=True
+            ),
+        "relative_to_position":
+            lambda x: check_coordinates_shape(
+                x, "relative_to_position", expected_1d=True, allow_none=True
+            ),
+        "translation_vector":
+            lambda x: check_coordinates_shape(
+                x, "translation_vector", expected_1d=True, allow_none=True
+            ),
+    }
+    mode_definitions = {
+        "_excluded": ["position_fractional"],
+        "absolute": {"to_position": None},
+        "relative_to_position": {
+            "relative_to_position": None, "translation_vector": None
+        },
+        "relative_to_motif": {
+            "relative_to_motif": None, "translation_vector": None,
+            "relative_style": None
+        },
+        "relative_to_self": {
+            "self_relative": None, "translation_vector": None
+        }
+    }
 
     def __init__(
             self,
             to_position: Optional[ArrayLike] = None,
             relative_to_position: Optional[ArrayLike] = None,
             translation_vector: Optional[ArrayLike] = None,
-            position_fractional: Optional[bool] = True,
+            position_fractional: bool = True,
             relative_style: str = None,
             relative_to_motif: Optional[BaseMotif] = None,
             self_relative: bool = False,
     ):
         """Initialize the TranslateMotifAction with a relative motif and style.
 
+        Currently, allows 4 modes of operation:
+            1, "absolute": translation directly to a specified position. In this mode,
+                the `to_position` parameter is required. No other parameters are allowed
+                except `position_fractional`.
+            2, "relative_to_position": translation to a position relative to a specified
+                position. In this mode, `relative_to_position` and `translation_vector`
+                are required. No other parameters are allowed except `position_fractional`.
+            3, "relative_to_motif": translation to a position relative to a specified motif.
+                In this mode, `relative_to_motif`, `translation_vector` and `relative_style`
+                are required. No other parameters are allowed except `position_fractional`.
+            4, "relative_to_self": direct translation of the provided motif to the
+                `execute` method by a translation vector. No need for relative reference
+                position or motif. In this mode, `self_relative` and `translation_vector`
+                are required. No other parameters are allowed except `position_fractional`.
+
         Args:
             to_position (ArrayLike, optional): The position to translate the motif to.
-                If provided, will override all relative translation arguments.
+                Turns on the absolute mode of the action.
             relative_to_position (ArrayLike, optional): The position to translate
-                the motif relative to. Only one of `relative_to_position` or
-                `relative_to_motif` can be provided.
+                the motif relative to.
             translation_vector (ArrayLike, optional): The vector by which to translate
                 the motif with respect to the `relative_to_position` or relative motif.
             position_fractional (bool, optional): If True, the positions are in fractional
@@ -49,58 +88,31 @@ class TranslateMotifAction(BaseAction):
                 Default is True.
             relative_to_motif (BaseMotif, optional): A motif that the action is taken
                 relative to. This can be used to define the context of the action.
-                Only one of `relative_to_position` or `relative_to_motif` can be provided.
             relative_style (str, optional): The style to determine relative action.
                 For example, an action can be relative to a motif's centroid in distance.
                 See `allowed_relative_styles` for the list of allowed styles. If None,
                 will use the first style in `allowed_relative_styles`.
-            self_relative (bool, optional): If True, the action is relative to the motif itself.
-                If you wish to translate a motif relative to itself, set this to True and provide
-                no `relative_to_position` nor `relative_to_motif`.
-                Expected to be frequently used by the LLMs.
+            self_relative (bool, optional): If True, the action is relative to the motif itself
+                as passed into `execute`.
         """
-        super().__init__(relative_to_motif=relative_to_motif, relative_style=relative_style)
-        self.position_fractional = position_fractional
+        # Static declaration for IDE linting.
+        self.to_position = None
+        self.relative_to_position = None
+        self.translation_vector = None
+        self.position_fractional = None
+        self.relative_style = None
+        self.relative_to_motif = None
+        self.self_relative = None
 
-        if to_position is not None:
-            self.to_position = check_coordinates_shape(
-                to_position, name="to_position", expected_1d=True
-            )
-            self.relative_to_position = None
-            self.translation_vector = None
-            self.relative_to_motif = None
-            self.relative_style = None
-        else:
-            self.to_position = None
-            if translation_vector is None:
-                raise ValueError(
-                    "translation_vector must be provided when using relative translation."
-                )
-            self.translation_vector = check_coordinates_shape(
-                translation_vector, name="translation_vector", expected_1d=True
-            )
-            if self_relative:
-                self.self_relative = True
-                self.relative_to_motif = None
-                self.relative_to_position = None
-            else:
-                if relative_to_position is not None and relative_to_motif is not None:
-                    raise ValueError(
-                        "Only one of relative_to_position or relative_to_motif can be provided."
-                    )
-                if relative_to_position is None and relative_to_motif is None:
-                    raise ValueError(
-                        "Either relative_to_position or relative_to_motif must be provided."
-                    )
-
-                if relative_to_position is not None:
-                    self.relative_to_position = check_coordinates_shape(
-                        relative_to_position,
-                        name="relative_to_position",
-                        expected_1d=True
-                    )
-                else:
-                    self.relative_to_position = None
+        super().__init__(
+            to_position=to_position,
+            relative_to_position=relative_to_position,
+            translation_vector=translation_vector,
+            position_fractional=position_fractional,
+            relative_style=relative_style,
+            relative_to_motif=relative_to_motif,
+            self_relative=self_relative,
+        )
 
     def _check_compatibility(self, atoms: Atoms, motif: BaseMotif) -> Tuple[bool, str]:
         """Check if the motif can be translated in the structure."""
@@ -114,27 +126,27 @@ class TranslateMotifAction(BaseAction):
         self, motif: BaseMotif
     ) -> ArrayLike:
         """Get the translation vector based on the action parameters."""
-        if self.to_position is not None:
+        if self.mode_flag == "absolute":
             return self.to_position - motif.get_centroid(fractional=self.position_fractional)
 
-        if self.relative_to_motif is not None:
+        if self.mode_flag == "relative_to_motif":
             return (
                     self.relative_to_motif.get_centroid(fractional=self.position_fractional)
                     + self.translation_vector
                     - motif.get_centroid(fractional=self.position_fractional)
             )
 
-        if self.relative_to_position is not None:
+        if self.mode_flag == "relative_to_position":
             return (
                     self.relative_to_position
                     + self.translation_vector
                     - motif.get_centroid(fractional=self.position_fractional)
             )
 
-        if self.self_relative:
+        if self.mode_flag == "relative_to_self":
             return self.translation_vector
 
-        raise ValueError("No valid translation vector could be determined.")
+        raise NotImplementedError(f"Invalid mode_flag: {self.mode_flag}")
 
     def _execute(self, atoms: Atoms, motif: BaseMotif) -> Atoms:
         """Execute the action to translate the motif in the structure.
@@ -199,27 +211,31 @@ class TranslateMotifAction(BaseAction):
         else:
             coord_word = "cartesian coordinates"
 
-        if self.to_position is not None:
+        if self.mode_flag == "absolute":
             return (f"translate [{motif.describe(**motif_kwargs)}]"
                     f" so as to relocate its centroid at {coord_word}"
-                    f" {describe_arraylike(self.to_position, precision=precision)}")
-        elif self.relative_to_position is not None:
+                    f" {describe_arraylike(self.to_position, precision=precision)}."
+                    f" Modify coordinates only, do not change the order of atoms in structure.")
+        if self.mode_flag == "relative_to_position":
             return (
                 f"translate [{motif.describe(**motif_kwargs)}] so as to relocate its centroid"
                 f" at {coord_word} {describe_arraylike(self.translation_vector, precision=precision)}"
                 f" relative to a reference point at {coord_word}"
-                f" {describe_arraylike(self.relative_to_position, precision=precision)}"
+                f" {describe_arraylike(self.relative_to_position, precision=precision)}."
+                f" Modify coordinates only, do not change the order of atoms in structure."
             )
-        elif self.relative_to_motif is not None:
+        if self.mode_flag == "relative_to_motif":
             return (
                 f"translate [{motif.describe(**motif_kwargs)}] so as to relocate its centroid"
                 f" at {coord_word} {describe_arraylike(self.translation_vector, precision=precision)}"
-                f" relative to the centroid of [{self.relative_to_motif.describe(**relative_motif_kwargs)}]"
+                f" relative to the centroid of [{self.relative_to_motif.describe(**relative_motif_kwargs)}]."
+                f" Modify coordinates only, do not change the order of atoms in structure."
             )
-        elif self.self_relative:
+        if self.mode_flag == "relative_to_self":
             return (
                 f"translate [{motif.describe(**motif_kwargs)}] in {coord_word} by"
-                f" {describe_arraylike(self.translation_vector, precision=precision)}"
+                f" {describe_arraylike(self.translation_vector, precision=precision)}."
+                f" Modify coordinates only, do not change the order of atoms in structure."
             )
         else:
-            raise ValueError("No valid position provided for motif translation.")
+            raise NotImplementedError(f"Invalid mode_flag: {self.mode_flag}")

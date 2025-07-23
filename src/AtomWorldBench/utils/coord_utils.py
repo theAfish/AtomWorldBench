@@ -8,7 +8,8 @@ def check_coordinates_shape(
         coord: ArrayLike,
         name: Optional[str] = None,
         expected_1d: bool = True,
-) -> np.ndarray:
+        allow_none: bool = True,
+) -> np.ndarray | None:
     """Check if the shape of the fractional coordinates matches the expected shape.
 
     Returns np.ndarray if the shape matches, otherwise throws an error.
@@ -17,9 +18,16 @@ def check_coordinates_shape(
         name (Optional[str]): Optional name for the coordinates, used in error messages.
         expected_1d (bool): If True, expects a 1D array. If False, expects a 2D array.
             Default is True.
+        allow_none (bool): If True, allows None as a valid input. Default is True.
     Returns:
-        bool: True if the shape matches, False otherwise.
+        np.ndarray | None: The input coordinates as a numpy array if the shape is valid and
+            is not None, or None if allow_none is True and coord is None, otherwise raises
+            an error.
     """
+    if coord is None:
+        if allow_none:
+            return None
+        raise ValueError(f"{name} cannot be None.")
     coord = np.asarray(coord, dtype=float)
     name = name or "coordinates"
     if expected_1d:

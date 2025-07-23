@@ -14,18 +14,24 @@ class ReplaceMotifAction(BaseAction):
     This action replaces motifs in the structure based on their fractional coordinates.
     """
     allowed_relative_styles = []
+    mode_definitions = {
+        "default": {"replaced_motif": None},
+    }
 
     def __init__(
             self,
-            relative_to_motif: BaseMotif,
+            replaced_motif: BaseMotif,
     ):
         """Initialize the ReplaceMotifAction with fractional coordinates and cutoff.
 
         Args:
-            relative_to_motif (BaseMotif):
+            removed_motif (BaseMotif):
                 A motif that the action will replace in the structure.
+                Must be in the structure (will check at `execute` call).
         """
-        super().__init__(relative_to_motif=relative_to_motif, relative_style=None)
+        # Static declaration for IDE linting.
+        self.replaced_motif = replaced_motif
+        super().__init__(removed_motif=replaced_motif)
 
     def _check_compatibility(self, atoms, motif):
         """Check if the motif can be replaced in the structure."""
@@ -49,7 +55,7 @@ class ReplaceMotifAction(BaseAction):
         Returns:
             Atoms: The modified structure with the motif replaced.
         """
-        remove_indices = self.relative_to_motif.find_indices_in_atoms(
+        remove_indices = self.replaced_motif.find_indices_in_atoms(
             atoms,
             modify_indices_in_place=False
         )
@@ -88,6 +94,9 @@ class ReplaceMotifAction(BaseAction):
         relative_motif_kwargs.update({"is_addition": False})
 
         return (
-            f"Replace [{self.relative_to_motif.describe(**relative_motif_kwargs)}]"
+            f"Replace [{self.replaced_motif.describe(**relative_motif_kwargs)}]"
             f" with [{motif.describe(**motif_kwargs)}]."
+            f" Do not change the order of other atoms not to be replaced,"
+            f" and the newly added atoms should be appended to the end of"
+            f" the structure."
         )

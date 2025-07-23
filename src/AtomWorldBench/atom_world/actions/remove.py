@@ -14,11 +14,18 @@ class RemoveMotifAction(BaseAction):
     This action removes motifs from the structure based on their fractional coordinates.
     """
     allowed_relative_styles = []
+    # Only absolute allowed (specify the motif to remove directly). No parameters needed
+    # for init.
+    mode_definitions = {"default": {}}
 
     def __init__(self):
-        """Initialize the RemoveMotifAction with fractional coordinates and cutoff."""
-        # Does not take relative motif or style, as it operates independently.
-        super().__init__(relative_to_motif=None, relative_style=None)
+        """Initialize the RemoveMotifAction with fractional coordinates and cutoff.
+
+        Does not take relative motif or style, as it operates independently.
+        Specify the motif to remove directly in the `execute` method.
+        No need for additional parameters in the constructor.
+        """
+        super().__init__()
 
     def _check_compatibility(self, atoms: Atoms, motif: BaseMotif) -> Tuple[bool, str]:
         """Check if the motif can be removed from the structure.
@@ -71,4 +78,5 @@ class RemoveMotifAction(BaseAction):
         Returns:
             str: A description of the action.
         """
-        return f"Remove [{motif.describe(**motif_kwargs)}] from the structure."
+        return (f"Remove [{motif.describe(**motif_kwargs)}] from the structure."
+                f" Do not change the order of remaining atoms in structure.")
