@@ -17,6 +17,7 @@ class BondMotif(ClusterMotif):
     allowed_relative_styles = {
         "rotation_axis": None,  # No need to check for conditions.
         "position_in_line": None,
+        "centroid_distance": None,
     }
     def __post_init__(self):
         """Post-initialization to check whether motif size is 1."""

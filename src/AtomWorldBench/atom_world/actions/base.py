@@ -110,11 +110,11 @@ class BaseAction(ABC):
                     mode_checking_results[mode_flag].append(
                         f"{param_name} required but not provided."
                     )
-            for param_name in kwargs:
+            for param_name, param in kwargs.items():
                 if param_name in excluded_params:
                     # Skip the excluded parameters.
                     continue
-                if param_name not in mode_definition:
+                if param_name not in mode_definition and param is not None:
                     mode_checking_results[mode_flag].append(
                         f"{param_name} provided but not allowed in the mode."
                     )
@@ -151,6 +151,8 @@ class BaseAction(ABC):
                 getattr(self, "relative_to_motif") is not None
                 and getattr(self, "relative_style", None) is None
         ):
+            print("Warning: relative_to_motif provided, but relative_style is not set."
+                  " Setting relative_style to the first allowed style if any.")
             if self.allowed_relative_styles and len(self.allowed_relative_styles) > 0:
                 self.relative_style = self.allowed_relative_styles[0]
             else:
@@ -163,9 +165,9 @@ class BaseAction(ABC):
         By default, it only checks the compatibility of relative motif and relative
         type.
         """
-        self._check_relative_motif_compatibility()
+        self._check_relative_style_init_compatibility()
 
-    def _check_relative_motif_compatibility(self):
+    def _check_relative_style_init_compatibility(self):
         """Check if the relative style is compatible with the given relative motif and action."""
         relative_style = getattr(self, 'relative_style', None)
         relative_to_motif = getattr(self, 'relative_to_motif', None)

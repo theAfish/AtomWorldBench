@@ -44,7 +44,11 @@ class TranslateMotifAction(BaseAction):
             "relative_style": None
         },
         "relative_to_self": {
-            "self_relative": None, "translation_vector": None
+            "self_relative": (
+                lambda x: x is True,
+                "self_relative must be True for relative_to_self translation mode."
+            ),
+            "translation_vector": None
         }
     }
 
@@ -56,7 +60,7 @@ class TranslateMotifAction(BaseAction):
             position_fractional: bool = True,
             relative_style: str = None,
             relative_to_motif: Optional[BaseMotif] = None,
-            self_relative: bool = False,
+            self_relative: Optional[bool] = None,
     ):
         """Initialize the TranslateMotifAction with a relative motif and style.
 
@@ -146,7 +150,7 @@ class TranslateMotifAction(BaseAction):
         if self.mode_flag == "relative_to_self":
             return self.translation_vector
 
-        raise NotImplementedError(f"Invalid mode_flag: {self.mode_flag}")
+        raise NotImplementedError(f"Invalid mode_flag: {self.mode_flag}.")
 
     def _execute(self, atoms: Atoms, motif: BaseMotif) -> Atoms:
         """Execute the action to translate the motif in the structure.
@@ -211,31 +215,36 @@ class TranslateMotifAction(BaseAction):
         else:
             coord_word = "cartesian coordinates"
 
+        # A common instruction to prevent shuffling indices.
+        common_instruction = "modify coordinates only, do not change the order of atoms in structure."
+
         if self.mode_flag == "absolute":
-            return (f"translate [{motif.describe(**motif_kwargs)}]"
+            return (
+                    f"translate [{motif.describe(**motif_kwargs)}]"
                     f" so as to relocate its centroid at {coord_word}"
                     f" {describe_arraylike(self.to_position, precision=precision)}."
-                    f" Modify coordinates only, do not change the order of atoms in structure.")
+                    + " " + common_instruction
+            )
         if self.mode_flag == "relative_to_position":
             return (
                 f"translate [{motif.describe(**motif_kwargs)}] so as to relocate its centroid"
                 f" at {coord_word} {describe_arraylike(self.translation_vector, precision=precision)}"
                 f" relative to a reference point at {coord_word}"
                 f" {describe_arraylike(self.relative_to_position, precision=precision)}."
-                f" Modify coordinates only, do not change the order of atoms in structure."
+                + " " + common_instruction
             )
         if self.mode_flag == "relative_to_motif":
             return (
                 f"translate [{motif.describe(**motif_kwargs)}] so as to relocate its centroid"
                 f" at {coord_word} {describe_arraylike(self.translation_vector, precision=precision)}"
                 f" relative to the centroid of [{self.relative_to_motif.describe(**relative_motif_kwargs)}]."
-                f" Modify coordinates only, do not change the order of atoms in structure."
+                + " " + common_instruction
             )
         if self.mode_flag == "relative_to_self":
             return (
                 f"translate [{motif.describe(**motif_kwargs)}] in {coord_word} by"
                 f" {describe_arraylike(self.translation_vector, precision=precision)}."
-                f" Modify coordinates only, do not change the order of atoms in structure."
+                + " " + common_instruction
             )
         else:
             raise NotImplementedError(f"Invalid mode_flag: {self.mode_flag}")

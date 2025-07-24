@@ -106,12 +106,12 @@ class BaseMotif(ABC, Atoms):
         return Counter(self.species_strings)
 
     @property
-    def frac_coords(self):
+    def frac_coords(self) -> np.ndarray:
         """Get the unwrapped fractional coordinates of the motif."""
         return self.get_scaled_positions(wrap=False)
 
     @property
-    def cell_offsets(self) -> ArrayLike:
+    def cell_offsets(self) -> np.ndarray:
         """Get the cell offset for each atom in the cluster.
 
         cell offsets are the integer part of the fractional coordinates in the form of
@@ -122,11 +122,11 @@ class BaseMotif(ABC, Atoms):
         return np.floor(self.frac_coords).astype(int)
 
     @property
-    def cart_coords(self) -> ArrayLike:
+    def cart_coords(self) -> np.ndarray:
         """Get the unwrapped Cartesian coordinates of the motif."""
         return self.get_positions(wrap=False)
 
-    def get_centroid(self, fractional=False) -> ArrayLike:
+    def get_centroid(self, fractional=False) -> np.ndarray:
         """Get the centroid of the motif.
 
         Args:
@@ -185,7 +185,7 @@ class BaseMotif(ABC, Atoms):
         self.set_array("site_indices", indices, dtype=int)
 
     @property
-    def name(self):
+    def name(self) -> str:
         """Set the name of the motif."""
         return self.info["motif_name"]
 

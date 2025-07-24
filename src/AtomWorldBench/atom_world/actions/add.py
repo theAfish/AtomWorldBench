@@ -50,7 +50,7 @@ class AddMotifAction(BaseAction):
         "relative_to_position": {
             "relative_to_position": None, "relative_shift": None
         },
-        "relative_to_common_motif": {
+        "relative_to_regular_motif": {
             "relative_to_motif": None, "relative_shift": None,
             "relative_style": None,
         },
@@ -69,7 +69,8 @@ class AddMotifAction(BaseAction):
             ),
             "relative_atom_index": (
                 lambda i: i in [0, 1],
-                "Relative atom index must be 0 or 1 for relative_to_pair_motif mode."
+                "Relative atom index must be provided as 0 or 1 for"
+                " relative_to_pair_motif mode."
             ),
         }
     }
@@ -81,7 +82,7 @@ class AddMotifAction(BaseAction):
             relative_style: Optional[str] = None,
             relative_to_motif: Optional[BaseMotif] = None,
             relative_shift: Optional[ArrayLike | float] = None,
-            relative_atom_index: Optional[int] = 0,
+            relative_atom_index: Optional[int] = None,
     ):
         """Initialize the AddMotifAction with optional parameters.
 
@@ -92,10 +93,11 @@ class AddMotifAction(BaseAction):
             2, `relative_to_position`: Add the motif relative to a specified position.
                 In this mode, provide `relative_to_position` and `relative_shift`.
                 No other parameters should be given except position_fractional.
-            3, `relative_to_common_motif`: Add the motif relative to a specified motif's
+            3, `relative_to_regular_motif`: Add the motif relative to a specified motif's
                 centroid. In this mode, provide `relative_to_motif`, `relative_shift`,
                 and `relative_style`. No other parameters should be given except
-                position_fractional.
+                position_fractional. Relative motif can be any motif that supports centroid
+                relative style.
             4, `relative_to_pair_motif`: Add the motif on a pair motif's line. In this
                 mode, provide `relative_to_motif`, `relative_shift`, `relative_style`,
                 and `relative_atom_index`. No other parameters should be given except
@@ -105,9 +107,10 @@ class AddMotifAction(BaseAction):
                 If provided, it overrides all relative parameters.
             relative_to_position (ArrayLike, optional): The position to which the motif
                 is added relative to.
-            position_fractional (bool, optional): Whether all positions provided in arguments
-                are fractional. This will also affect the description style of the action.
-                Default is True.
+            position_fractional (bool, optional):
+                Whether all positions provided in arguments are fractional. If False,
+                will be cartesian.
+                This will also affect the description style of the action. Default is True.
             relative_style (str, optional): The style to determine relative action.
             relative_to_motif (BaseMotif, optional): A motif that the action is taken
                 relative to.
@@ -115,8 +118,8 @@ class AddMotifAction(BaseAction):
                  A vector or float distance defining the relative position.
             relative_atom_index (int, optional):
                  The index of the atom in the relative motif to insert atom at `relative_shift`
-                 distance, if relative_style is `position_in_line`.
-                 Default to 0, i.e., the first atom in the pair motif.
+                 distance, if relative_style is `position_in_line`. Must be provided if working
+                 in `position_in_line` mode.
         """
         # Static declaration for IDE linting.
         self.at_position = None
@@ -169,7 +172,7 @@ class AddMotifAction(BaseAction):
                 bond_norm_vec = (ref_position - centroid) / np.linalg.norm(ref_position - centroid)
                 relative_shift = self.relative_shift * bond_norm_vec
         # Insert at distance to relative motif centroid.
-        elif self.mode_flag == "relative_to_common_motif":
+        elif self.mode_flag == "relative_to_regular_motif":
             centroid = self.relative_to_motif.get_centroid(
                 fractional=False
             )
@@ -194,7 +197,6 @@ class AddMotifAction(BaseAction):
         insert_position = self._compute_insert_cart_position(atoms)
         displacement = insert_position - operated_motif.get_centroid(fractional=False)
         operated_motif.translate(displacement)
-        new_atoms = atoms.copy()
         new_atoms = atoms.copy()
         new_atoms += operated_motif.get_atoms()
         return new_atoms
@@ -231,19 +233,25 @@ class AddMotifAction(BaseAction):
             coord_word = "fractional coordinates"
         else:
             coord_word = "cartesian coordinates"
+
+        # Common instruction to guarantee order of addition.
+        common_instruction = "newly added motif should be appended to the end of the structure."
+
         if self.mode_flag == "absolute":
-            return (f"add [{motif.describe(**motif_kwargs)}] to the structure,"
+            return (
+                    f"add [{motif.describe(**motif_kwargs)}] to the structure,"
                     f" with its centroid located at {coord_word}"
-                    f" {describe_arraylike(self.at_position, precision=precision)},"
-                    f" newly added motif should be appended to the end of the structure.")
+                    f" {describe_arraylike(self.at_position, precision=precision)}."
+                    + " " + common_instruction
+            )
         if self.mode_flag == "relative_to_position":
             return (
                 f"add [{motif.describe(**motif_kwargs)}] to the structure,"
                 f" with its centroid shifted in {coord_word} by"
                 f" {describe_arraylike(self.relative_shift, precision=precision)} relative to a"
                 f" reference point at {coord_word}"
-                f" {describe_arraylike(self.relative_to_position, precision=precision)},"
-                f" newly added motif should be appended to the end of the structure."
+                f" {describe_arraylike(self.relative_to_position, precision=precision)}."
+                + " " + common_instruction
             )
         if self.mode_flag == "relative_to_pair_motif":
             relative_motif_kwargs.update({"style": "index"})
@@ -252,16 +260,16 @@ class AddMotifAction(BaseAction):
                 f" with its centroid located on the line formed"
                 f" by [{self.relative_to_motif.describe(**relative_motif_kwargs)}], at"
                 f" {self.relative_shift:.{precision}f} angstroms away from the atom indexed"
-                f" {self.relative_to_motif.indices[self.relative_atom_index]},"
-                f" newly added motif should be appended to the end of the structure."
+                f" {self.relative_to_motif.indices[self.relative_atom_index]}."
+                + " " + common_instruction
             )
-        if self.mode_flag == "relative_to_common_motif":
+        if self.mode_flag == "relative_to_regular_motif":
             return (
                 f"add [{motif.describe(**motif_kwargs)}] to the structure,"
                 f" with its centroid shifted in {coord_word} by"
                 f" {describe_arraylike(self.relative_shift, precision=precision)} relative to the"
-                f" centroid of [{self.relative_to_motif.describe(**relative_motif_kwargs)}],"
-                f" newly added motif should be appended to the end of the structure."
+                f" centroid of [{self.relative_to_motif.describe(**relative_motif_kwargs)}]."
+                + " " + common_instruction
             )
         else:
             raise NotImplementedError(f"Invalid mode_flag: {self.mode_flag}")
