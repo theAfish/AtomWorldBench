@@ -29,10 +29,6 @@ class AddMotifAction(BaseAction):
     This action defines how to add a motif to a given structure, including the
     description of the action and the execution logic.
     """
-    allowed_relative_styles = [
-        "centroid_distance",
-        "position_in_line"
-    ]
     kwargs_and_formating_functions = {
         "at_position":
             lambda x: check_coordinates_shape(
@@ -52,7 +48,10 @@ class AddMotifAction(BaseAction):
         },
         "relative_to_regular_motif": {
             "relative_to_motif": None, "relative_shift": None,
-            "relative_style": None,
+            "relative_style": (
+                lambda s: s  == "centroid_distance",
+                "Relative style must be centroid_distance for relative_to_regular_motif mode."
+            ),
         },
         "relative_to_pair_motif": {
             "relative_to_motif": (
@@ -95,13 +94,14 @@ class AddMotifAction(BaseAction):
                 No other parameters should be given except position_fractional.
             3, `relative_to_regular_motif`: Add the motif relative to a specified motif's
                 centroid. In this mode, provide `relative_to_motif`, `relative_shift`,
-                and `relative_style`. No other parameters should be given except
+                and `relative_style`=="centroid_distance".
+                No other parameters should be given except
                 position_fractional. Relative motif can be any motif that supports centroid
                 relative style.
             4, `relative_to_pair_motif`: Add the motif on a pair motif's line. In this
-                mode, provide `relative_to_motif`, `relative_shift`, `relative_style`,
-                and `relative_atom_index`. No other parameters should be given except
-                position_fractional.
+                mode, provide `relative_to_motif`, `relative_shift`,
+                `relative_style` == "position_in_line", and `relative_atom_index`.
+                No other parameters should be given except position_fractional.
         Args:
             at_position (ArrayLike, optional): The position where the motif is added.
                 If provided, it overrides all relative parameters.
@@ -147,7 +147,7 @@ class AddMotifAction(BaseAction):
             if self.relative_shift > max_d:
                 return False, (
                     f"relative_shift {self.relative_shift} is larger than "
-                    f"the distance {max_d} of atoms in the pair motif."
+                    f"the distance {max_d} of atoms in the reference pair motif."
                 )
         return True, ""
 
@@ -257,8 +257,8 @@ class AddMotifAction(BaseAction):
             relative_motif_kwargs.update({"style": "index"})
             return (
                 f"add [{motif.describe(**motif_kwargs)}] to the structure,"
-                f" with its centroid located on the line formed"
-                f" by [{self.relative_to_motif.describe(**relative_motif_kwargs)}], at"
+                f" with its centroid located on the line between"
+                f" atoms in [{self.relative_to_motif.describe(**relative_motif_kwargs)}], at"
                 f" {self.relative_shift:.{precision}f} angstroms away from the atom indexed"
                 f" {self.relative_to_motif.indices[self.relative_atom_index]}."
                 + " " + common_instruction

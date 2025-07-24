@@ -13,7 +13,6 @@ class ReplaceMotifAction(BaseAction):
 
     This action replaces motifs in the structure based on their fractional coordinates.
     """
-    allowed_relative_styles = []
     mode_definitions = {
         "default": {"replaced_motif": None},
     }
@@ -25,19 +24,24 @@ class ReplaceMotifAction(BaseAction):
         """Initialize the ReplaceMotifAction with fractional coordinates and cutoff.
 
         Args:
-            removed_motif (BaseMotif):
+            replaced_motif (BaseMotif):
                 A motif that the action will replace in the structure.
                 Must be in the structure (will check at `execute` call).
         """
         # Static declaration for IDE linting.
         self.replaced_motif = replaced_motif
-        super().__init__(removed_motif=replaced_motif)
+        super().__init__(replaced_motif=replaced_motif)
 
     def _check_compatibility(self, atoms, motif):
         """Check if the motif can be replaced in the structure."""
-        # Type, style and inclusion checks already done in the base class.
-        # No additional checks needed for this action.
-        pass
+        # Check whether replaced_motif is in the structure.
+        # As attribute name changes, this is no longer checked by
+        # BaseAction.check_compatibility by default.
+        indices, message = self.replaced_motif.find_indices_in_atoms(
+            atoms,
+            modify_indices_in_place=True
+        )
+        return indices is not None, f"replaced motif not found in structure: {message}"
 
     def _execute(
             self,
@@ -55,7 +59,7 @@ class ReplaceMotifAction(BaseAction):
         Returns:
             Atoms: The modified structure with the motif replaced.
         """
-        remove_indices = self.replaced_motif.find_indices_in_atoms(
+        remove_indices, _ = self.replaced_motif.find_indices_in_atoms(
             atoms,
             modify_indices_in_place=False
         )

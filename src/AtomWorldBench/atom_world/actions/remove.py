@@ -13,7 +13,6 @@ class RemoveMotifAction(BaseAction):
 
     This action removes motifs from the structure based on their fractional coordinates.
     """
-    allowed_relative_styles = []
     # Only absolute allowed (specify the motif to remove directly). No parameters needed
     # for init.
     mode_definitions = {"default": {}}
@@ -39,10 +38,8 @@ class RemoveMotifAction(BaseAction):
             Tuple[bool, str]: A tuple indicating compatibility and a message.
         """
         # Check if the motif is in the structure.
-        indices = motif.find_indices_in_atoms(atoms, modify_indices_in_place=True)
-        if indices is not None:
-            return True, ""
-        return False, "Motif not found in the structure."
+        indices, message = motif.find_indices_in_atoms(atoms, modify_indices_in_place=True)
+        return indices is not None, f"operated motif not found in structure: {message}"
 
     def _execute(self, atoms: Atoms, motif: BaseMotif) -> Atoms:
         """Execute the action to remove the motif from the structure.
@@ -57,7 +54,7 @@ class RemoveMotifAction(BaseAction):
             Atoms: The modified structure with the motif removed.
         """
         # Remove the motif by its indices.
-        indices = motif.find_indices_in_atoms(atoms, modify_indices_in_place=False)
+        indices, _ = motif.find_indices_in_atoms(atoms, modify_indices_in_place=False)
         remaining_indices = np.setdiff1d(np.arange(len(atoms), dtype=int), indices, assume_unique=True).tolist()
         return atoms[remaining_indices]
 

@@ -9,6 +9,20 @@ import numpy as np
 from ..motifs.base import BaseMotif
 
 
+def _check_relative_style_compatibility(
+        relative_style: str,
+        relative_to_motif: BaseMotif,
+):
+    """Check if the relative style is compatible with the given relative motif.
+
+    Compatibility with the action should be implemented in mode_definitions.
+    """
+    if relative_to_motif is not None:
+        check_result, message = relative_to_motif.check_relative_style(relative_style)
+        if not check_result:
+            raise ValueError(message)
+
+
 class BaseAction(ABC):
     """Base class for actions that can be performed on crystal structures.
 
@@ -17,18 +31,17 @@ class BaseAction(ABC):
     prompt to large language models (LLMs) describing operations done to the structure.
 
     If you implement a new action, you can simply edit:
-        1, `allowed_relative_styles` class attribute;
-        2, `kwargs_and_formating_functions` class attribute, to specify how to check and
+        1, `kwargs_and_formating_functions` class attribute, to specify how to check and
             format keyword arguments of __init__;
             This is a dictionary where keys are the names of the keyword arguments,
             and values are functions that take the value of the keyword argument to check.
-        3, Call super().__init__ from your __init__ method to ensure proper checking
+        2, Call super().__init__ from your __init__ method to ensure proper checking
             and formatting of your keyword arguments.
             As all attributes will be dynamically assigned in `_set_and_format_kwargs` and
             will not be explicitly defined in the __init__ method, you should
             also remember to pre-assign None to every attribute used in your own codes,
             in order to declare all attributes for passing IDE static check.
-        4, Override the `mode_definitions` class attribute to define the modes of the action.
+        3, Override the `mode_definitions` class attribute to define the modes of the action.
             It is a dictionary where keys are mode flags and values are dictionaries
             with the allowed input parameter names in the mode as keys and the conditions they must
             satisfy in the mode as values. A condition is a tuple containing one checking function
@@ -41,14 +54,12 @@ class BaseAction(ABC):
             definition are provided, will fail to detect the corresponding mode.
             Read the `_check_mode` method for more details on how it works, and AddMotifAction's
             `mode_definitions` for an example of how to define modes.
-        5, Inherit or override `_post_init_checks` method to implement any additional checks.
-        6, Override the `_check_compatibility` method to implement the compatibility
+        4, Inherit or override `__post_init__` method to implement any additional checks.
+        5, Override the `_check_compatibility` method to implement the compatibility
             check to the operated motif.
-        7, Override the `_execute` method to implement the action logic.
-        8, Implement the `describe` method to generate a description of the action.
+        6, Override the `_execute` method to implement the action logic.
+        7, Implement the `describe` method to generate a description of the action.
     """
-    # The styles allowed to use the relative motif as action reference.
-    allowed_relative_styles = []
     # A dictionary of functions to format kwargs for the action.
     # If a specific key is not found here, the value will be put directly into attribute.
     # Used by _set_and_format_kwargs method.
@@ -65,12 +76,14 @@ class BaseAction(ABC):
 
         Check specific subclass for definition of parameters.
         """
+        # Pre initialization checks.
+        self.__pre_init__(kwargs)
         # Check the mode if an action supports multiple modes.
         self._mode_flag = self._check_mode(kwargs)  # Protected from resetting.
         # Validate and format the kwargs using the defined formatting functions.
         self._set_and_format_kwargs(kwargs)
-        # Check if the relative motif and style are compatible.
-        self._post_init_checks()
+        # Post init modifications.
+        self.__post_init__()
 
     @property
     def mode_flag(self) -> str:
@@ -108,7 +121,7 @@ class BaseAction(ABC):
                             )
                 else:
                     mode_checking_results[mode_flag].append(
-                        f"{param_name} required but not provided."
+                        f"{param_name} required but not provided or only given None."
                     )
             for param_name, param in kwargs.items():
                 if param_name in excluded_params:
@@ -130,11 +143,7 @@ class BaseAction(ABC):
         return detected_mode_flags[0]
 
     def _set_and_format_kwargs(self, kwargs):
-        """Set and format the kwargs using the defined formatting functions.
-
-        The relative_style attribute is always set to the first in
-        allowed_relative_styles if None or not provided.
-        """
+        """Set and format the kwargs using the defined formatting functions."""
         for key, value in kwargs.items():
             func = self.kwargs_and_formating_functions.get(key, None)
             if func is not None:
@@ -147,49 +156,36 @@ class BaseAction(ABC):
                     setattr(self, key, func(value))
             else:
                 setattr(self, key, value)
-        if (
-                getattr(self, "relative_to_motif") is not None
-                and getattr(self, "relative_style", None) is None
-        ):
-            print("Warning: relative_to_motif provided, but relative_style is not set."
-                  " Setting relative_style to the first allowed style if any.")
-            if self.allowed_relative_styles and len(self.allowed_relative_styles) > 0:
-                self.relative_style = self.allowed_relative_styles[0]
-            else:
-                self.relative_style = None
+        # No longer sets default relative_style, user need to explicitly specify
+        # it whenever used in operation modes.
 
-    def _post_init_checks(self):
+    def __pre_init__(self, kwargs):
+        """Pre-initialization checks for the action.
+
+        Can be overridden by subclasses to implement specific checks if necessary.
+        By default, only checks for compatibility of relative_style.
+        """
+        if not self.mode_definitions:
+            raise ValueError(
+                f"Action {self.__class__.__name__} must define mode_definitions class attribute."
+            )
+        if not isinstance(self.mode_definitions, dict):
+            raise TypeError(
+                f"Action {self.__class__.__name__} mode_definitions must be a dictionary."
+            )
+        _check_relative_style_compatibility(
+            kwargs.get("relative_style", None),
+            kwargs.get("relative_to_motif", None),
+        )
+
+    def __post_init__(self):
         """Check if the inputs are compatible with the action.
 
         Can be overridden by subclasses to implement specific checks if necessary.
-        By default, it only checks the compatibility of relative motif and relative
-        type.
         """
-        self._check_relative_style_init_compatibility()
-
-    def _check_relative_style_init_compatibility(self):
-        """Check if the relative style is compatible with the given relative motif and action."""
-        relative_style = getattr(self, 'relative_style', None)
-        relative_to_motif = getattr(self, 'relative_to_motif', None)
-        if relative_style is not None and relative_style not in self.allowed_relative_styles:
-            raise ValueError(
-                f"Relative style {relative_style} is not allowed. "
-                f"Allowed styles are: {self.allowed_relative_styles}"
-            )
-        if relative_to_motif is not None:
-            if relative_style not in relative_to_motif.allowed_relative_styles:
-                raise ValueError(
-                    f"Relative style {relative_style} is not allowed for the "
-                    f"motif {relative_to_motif.__class__.__name__}. "
-                    f"Allowed styles are: {relative_to_motif.allowed_relative_styles}"
-                )
-            elif relative_to_motif.allowed_relative_styles[relative_style] is not None:
-                condition, failure_message = relative_to_motif.allowed_relative_styles[relative_style]
-                if not condition(relative_to_motif):
-                    raise ValueError(
-                        f"Relative style {relative_style} is not compatible with the "
-                        f"motif {relative_to_motif.__class__.__name__}. Reason: {failure_message}."
-                    )
+        # Relative style compatibility check moved to _check_mode.
+        # Implement other check here.
+        pass
 
     def execute(self, atoms: Atoms, operated_motif: BaseMotif) -> Atoms:
         """Execute the action on the structure to generate the ground truth structure."""
@@ -198,7 +194,7 @@ class BaseAction(ABC):
             return self._execute(atoms, operated_motif)
         raise ValueError(
             f"Action {self.__class__.__name__} cannot be performed with the given"
-            f" Atoms and motif. Reason: {message}."
+            f" Atoms and motif. Reason: [{message}]."
         )
 
     @abstractmethod
@@ -232,15 +228,15 @@ class BaseAction(ABC):
         """
         if not self.__class__.class_compatibility(motif):
             return False, "motif does not allow this action"
-        if getattr(self, "relative_to_motif", None) is not None:
+        relative_to_motif = getattr(self, "relative_to_motif", None)
+        if relative_to_motif is not None:
             # Check if the relative motif is in the structure.
-            indices = getattr(self, "relative_to_motif", None).find_indices_in_atoms(
+            indices, message = relative_to_motif.find_indices_in_atoms(
                 atoms,
                 modify_indices_in_place=True
             )
-            if indices is not None:
-                return True, ""
-            return False, "relative_to_motif not found in the structure."
+            if indices is None:
+                return False, f"reference motif not found in structure: {message}"
         if not np.allclose(
                 atoms.cell.complete().array,
                 motif.cell.complete().array,
@@ -248,7 +244,7 @@ class BaseAction(ABC):
         ) or not np.all(
             atoms.pbc == motif.pbc
         ):
-            return False, "The operated motif's cell/pbc does not match the atoms cell/pbc."
+            return False, "the operated motif's cell/pbc does not match the atoms cell/pbc."
         return self._check_compatibility(atoms, motif)
 
     @abstractmethod

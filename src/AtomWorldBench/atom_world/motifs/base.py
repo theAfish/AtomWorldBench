@@ -32,9 +32,9 @@ class BaseMotif(ABC, Atoms):
     allowed_actions = []
     # List of allowed description styles for this motif.
     allowed_description_styles = []
-    # Dict of styles that this motif can be used as a reference to the action on other motifs.
+    # Dict of styles stating how this motif can be used as a reference to the action on other motifs.
     # Keys are allowed styles, values are condition checking functions.
-    allowed_relative_styles = dict()
+    allowed_relative_styles = {}
 
     def __init__(
             self,
@@ -203,6 +203,28 @@ class BaseMotif(ABC, Atoms):
         """Generate a default name based on motif type, species and coordinates."""
         pass
 
+    def check_relative_style(self, style: str) -> Tuple[bool, str]:
+        """Check if the motif can be used with a given relative style.
+
+        Args:
+            style (str): The relative style to check.
+        Returns:
+            bool, str: True if the style is allowed, False if not;
+                Also gives a reason why the style is not allowed.
+        """
+        if style not in self.allowed_relative_styles:
+            return False, f"style {style} is not allowed for {self.__class__.__name__}."
+        condition = self.allowed_relative_styles[style]
+        if condition is not None:
+            func, desc = condition
+            if not func(self):
+                return (
+                    False,
+                    f"style {style} is not allowed for the"
+                    f" given {self.__class__.__name__}: {desc}."
+                )
+        return True, ""
+
     def describe(
             self,
             style: str = "coord",
@@ -271,7 +293,7 @@ class BaseMotif(ABC, Atoms):
             self,
             atoms: Atoms,
             modify_indices_in_place: bool = False,
-    ) -> List[int] | Tuple[None, str]:
+    ) -> Tuple[None | List[int], str]:
         """Find the indices of this motif in the given ASE Atoms object.
 
         Check with wrapped fractional coordinates of the motif.
@@ -282,9 +304,9 @@ class BaseMotif(ABC, Atoms):
                 Will always overwrite the indices of this motif with newly found indices.
 
         Returns:
-            List[int] | Tuple[None|str]:
-            A list of indices where this motif is found in the atoms,
-            or None followed by a message if not found.
+            Tuple[None | List[int], str]:
+             A tuple containing the indices of the motif in the atoms or None if failed to find
+             motif in atoms. Also returns a message indicating the reason for failure, if any.
         """
         # Check if the motif's periodic boundary conditions and cell match the atoms.
         if (
@@ -313,7 +335,7 @@ class BaseMotif(ABC, Atoms):
                     self.indices = indices
                 else:
                     indices = indices
-                return indices
+                return indices, ""
             else:
                 return None, "Motif's species do not match the atoms' species."
         return None, "Motif's fractional coordinates not found in the atoms."

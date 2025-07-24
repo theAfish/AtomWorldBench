@@ -16,9 +16,6 @@ from ...globals import DEFAULT_FLOAT_TO_STRING_PRECISION
 
 class TranslateMotifAction(BaseAction):
     """Action to translate a motif in the structure."""
-    allowed_relative_styles = [
-        "centroid_distance",  # Translate relative to the centroid of the relative motif.
-    ]
     kwargs_and_formating_functions = {
         "to_position":
             lambda x: check_coordinates_shape(
@@ -40,8 +37,12 @@ class TranslateMotifAction(BaseAction):
             "relative_to_position": None, "translation_vector": None
         },
         "relative_to_motif": {
-            "relative_to_motif": None, "translation_vector": None,
-            "relative_style": None
+            "relative_to_motif": None,
+            "translation_vector": None,
+            "relative_style": (
+                lambda s: s == "centroid_distance",
+                "relative_style must be centroid_distance for relative_to_motif translation mode."
+            ),
         },
         "relative_to_self": {
             "self_relative": (
@@ -72,8 +73,9 @@ class TranslateMotifAction(BaseAction):
                 position. In this mode, `relative_to_position` and `translation_vector`
                 are required. No other parameters are allowed except `position_fractional`.
             3, "relative_to_motif": translation to a position relative to a specified motif.
-                In this mode, `relative_to_motif`, `translation_vector` and `relative_style`
-                are required. No other parameters are allowed except `position_fractional`.
+                In this mode, `relative_to_motif`, `translation_vector` and
+                `relative_style` == "centroid_distance" are required.
+                No other parameters are allowed except `position_fractional`.
             4, "relative_to_self": direct translation of the provided motif to the
                 `execute` method by a translation vector. No need for relative reference
                 position or motif. In this mode, `self_relative` and `translation_vector`
@@ -121,10 +123,8 @@ class TranslateMotifAction(BaseAction):
     def _check_compatibility(self, atoms: Atoms, motif: BaseMotif) -> Tuple[bool, str]:
         """Check if the motif can be translated in the structure."""
         # Check if the operated motif is in the structure.
-        indices = motif.find_indices_in_atoms(atoms, modify_indices_in_place=True)
-        if indices is not None:
-            return True, ""
-        return False, "Motif not found in the structure."
+        indices, message = motif.find_indices_in_atoms(atoms, modify_indices_in_place=True)
+        return indices is not None, f"operated motif not found in structure: {message}"
 
     def _get_translation_vector(
         self, motif: BaseMotif
@@ -170,7 +170,7 @@ class TranslateMotifAction(BaseAction):
             translation_vector = translation_vector @ atoms.cell.complete()
 
         ## Remove the motif from the structure, then add translated motif back.
-        indices = motif.find_indices_in_atoms(atoms, modify_indices_in_place=True)
+        indices, _ = motif.find_indices_in_atoms(atoms, modify_indices_in_place=True)
         other_indices = np.setdiff1d(
             np.arange(len(atoms), dtype=int), indices, assume_unique=True
         ).tolist()

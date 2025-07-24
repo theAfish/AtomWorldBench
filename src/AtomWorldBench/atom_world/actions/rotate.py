@@ -32,10 +32,6 @@ class RotateMotifAction(BaseAction):
 
     Notice: this operation only allows relative style.
     """
-    allowed_relative_styles = [
-        "centroid_distance",  # Rotate around the centroid of a relative motif.
-        "rotation_axis",  # Rotate around a specific axis.
-    ]
     kwargs_and_formating_functions = {
         "euler_angles": lambda x: check_coordinates_shape(
             x, "euler_angles", expected_1d=True, allow_none=True
@@ -55,7 +51,10 @@ class RotateMotifAction(BaseAction):
         "euler_relative_to_motif": {
             "euler_angles": None,
             "relative_to_motif": None,
-            "relative_style": None,
+            "relative_style": (
+                lambda s: s == "centroid_distance",
+                "Relative style must be centroid_distance for euler_relative_to_motif mode."
+            ),
         },
         "euler_relative_to_self": {
             "euler_angles": None,
@@ -76,7 +75,10 @@ class RotateMotifAction(BaseAction):
                 "Rotation axis angle must be a number in degrees.",
             ),
             "relative_to_motif": None,
-            "relative_style": None,
+            "relative_style": (
+                lambda s: s == "centroid_distance",
+                "Relative style must be centroid_distance for axis_relative_to_regular_motif mode."
+            ),
         },
         "axis_relative_to_pair_motif": {
             "rotation_axis_angle": (
@@ -120,8 +122,8 @@ class RotateMotifAction(BaseAction):
                 `position_fractional`.
             2,  `euler_relative_to_motif`: Perform a rotation using Euler angles
                 around a specified motif's centroid. In this mode, provide `euler_angles`,
-                `relative_to_motif`, and `relative_style`. No other parameters should be
-                give except `position_fractional`.
+                `relative_to_motif`, and `relative_style`=="centroid_distance".
+                No other parameters should be give except `position_fractional`.
             3, `euler_relative_to_self`: Perform a rotation using Euler angles
                 around the centroid of the provided motif in the `execute` method itself.
                 In this mode, provide `euler_angles`, and set `self_relative` to True.
@@ -133,14 +135,15 @@ class RotateMotifAction(BaseAction):
             5, `axis_relative_to_regular_motif`: Perform a rotation around a specified
                 rotation axis vector and a specified motif's centroid. In this mode,
                 provide `rotation_axis_vector`, `rotation_axis_angle`, `relative_to_motif`,
-                and `relative_style`. No other parameters should be given except
-                `position_fractional`.
+                and `relative_style`=="centroid_distance".
+                No other parameters should be given except `position_fractional`.
             6, `axis_relative_to_pair_motif`: Perform a rotation around a specified
                 pair motif's direction vector (pointing from the origin atom to the other atom)
                 and the pair motif's centroid as the rotation center. In this mode,
                 provide `rotation_axis_angle`, `relative_to_motif`, `relative_pair_origin_index`,
-                and `relative_style`. No other parameters should be given except
-                `position_fractional`.
+                and `relative_style`=="rotation_axis". `relative_to_motif` must be a motif with
+                two sites.
+                No other parameters should be given except  `position_fractional`.
         Note that all euler rotations are in active and intrinsic ZXZ convention.
         Euler angles and rotation angles are in degrees, using counter-clockwise
         direction.
@@ -160,8 +163,7 @@ class RotateMotifAction(BaseAction):
                 be cartesian.
                 This will also affect the description style of the action. Default is True
             relative_style (str):
-                Style of the relative action, must be one of `allowed_relative_styles` of this
-                action and the relative motif.
+                Style of the relative action.
             relative_to_motif (Optional[BaseMotif]):
                 Motif to rotate relative to. If rotating in Euler angles, this motif's centroid
                 will be used as the rotation center. If rotating around a vector, this motif must
@@ -210,15 +212,13 @@ class RotateMotifAction(BaseAction):
                 and a message describing the compatibility status.
         """
         # Check if the relative motif is in the structure.
-        indices = motif.find_indices_in_atoms(
+        indices, message = motif.find_indices_in_atoms(
             atoms,
             modify_indices_in_place=True
         )
-        if indices is not None:
-            return True, ""
-        return False, "operated motif not found in the structure."
+        return indices is not None, f"operated not found in structure: {message}"
 
-    def _get_rotation_center(self, motif):
+    def _get_rotation_center(self, motif: BaseMotif):
         """Helper function to get the rotation center based on the mode.
 
         Return cartesian coordinates of the rotation center.
@@ -276,7 +276,7 @@ class RotateMotifAction(BaseAction):
         Returns:
             Atoms: The Atoms object with motif rotated.
         """
-        indices = motif.find_indices_in_atoms(
+        indices, _ = motif.find_indices_in_atoms(
             atoms,
             modify_indices_in_place=True
         )

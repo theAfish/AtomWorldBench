@@ -14,7 +14,6 @@ class SiteMotif(BaseMotif):
         "ReplaceMotifAction",
         "TranslateMotifAction",
         "RotateMotifAction",
-        "E3MotifAction",  # E3 operation relative to other motifs or some coordinates.
     ]
     allowed_description_styles = [
         "coord",
