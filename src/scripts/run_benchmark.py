@@ -5,6 +5,7 @@ from evaluation.evaluator import Evaluator
 from models.openai_model import OpenAIModel
 from models.azure_openai_model import AzureOpenAIModel
 from models.huggingface_model import HuggingFaceModel
+from models.vllm_model import vllmModel
 
 CONFIG_DIR = Path(__file__).parent.parent / "config"
 DATA_DIR = Path(__file__).parent.parent / "data"
@@ -91,13 +92,21 @@ def run_benchmark(
     elif model_class == "HuggingFaceModel":
         model_name = config.get("model_name", None)
         device = config.get("device", "cpu")
-        use_pipeline = config.get("use_pipeline", True)
+        use_pipeline = config.get("use_pipeline", False)
         generation_params = {k: v for k, v in config.items() if k not in ["class", "model_name", "device", "use_pipeline"]}
         
         model = HuggingFaceModel(
             model_name=model_name,
             device=device,
             use_pipeline=use_pipeline,
+            **generation_params
+        )
+    elif model_class == "vllmModel":
+        model_name = config.get("model_name", None)
+        generation_params = {k: v for k, v in config.items() if k not in ["class", "model_name", "device", "use_pipeline"]}
+        
+        model = vllmModel(
+            model_name=model_name,
             **generation_params
         )
     else:
@@ -166,13 +175,20 @@ if __name__ == "__main__":
     
     args = parser.parse_args()
     
-    try:
-        run_benchmark(
+    run_benchmark(
             args.model, 
             action=args.action, 
             batch_size=args.batch_size, 
             num_batch=args.num_batch, 
             config_name=args.config
         )
-    except Exception as e:
-        print(f"Error running benchmark: {e}")
+    # try:
+    #     run_benchmark(
+    #         args.model, 
+    #         action=args.action, 
+    #         batch_size=args.batch_size, 
+    #         num_batch=args.num_batch, 
+    #         config_name=args.config
+    #     )
+    # except Exception as e:
+    #     print(f"Error running benchmark: {e}")

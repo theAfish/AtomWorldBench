@@ -2,17 +2,29 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import os
+import argparse
+import sys
+
+# ========== Argument Parsing ==========
+parser = argparse.ArgumentParser(description="Analyze evaluation results.")
+parser.add_argument("-m", "--model_name", type=str, required=True, help="Name of the model")
+parser.add_argument("-a", "--action_name", type=str, required=True, help="Name of the action")
+args = parser.parse_args()
 
 # ========== Setup ==========
 results_folder = "results"
-model_name = "llama3_70b"
-action_name = "insert_between_atoms_action"
+model_name = args.model_name
+action_name = args.action_name
 folder = f"{results_folder}/{model_name}/{action_name}"
 results_file = os.path.join(folder, f"{action_name}_evaluation_results.csv")
 wrongs_file = os.path.join(folder, f"{action_name}_evaluation_wrongs.csv")
 
 # ========== Load Data ==========
-df_results = pd.read_csv(results_file, sep=',')
+try:
+    df_results = pd.read_csv(results_file, sep=',')
+except pd.errors.EmptyDataError:
+    print(f"No-op: '{results_file}' is empty.")
+    sys.exit()
 df_errs = pd.read_csv(wrongs_file, sep=',')
 
 # ========== Statistics ==========

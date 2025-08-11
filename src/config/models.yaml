@@ -25,7 +25,43 @@ azure_openai_example:
   
 
 naturelm:
-  class: HuggingFaceModel
+  class: vllmModel
   model_name: microsoft/NatureLM-8x7B
-  device: "gpu"
+  device: cuda
+  temperature: 1.0
+  
+qwen3_06B:
+  class: vllmModel
+  model_name: Qwen/Qwen3-0.6B
+  device: cuda
+  temperature: 1.0
+  
+qwen3_1_7B:
+  class: vllmModel
+  model_name: Qwen/Qwen3-1.7B
+  device: cuda
+  temperature: 1.0
+  
+qwen3_4B:
+  class: vllmModel
+  model_name: Qwen/Qwen3-4B
+  device: cuda
+  temperature: 1.0
+  
+qwen3_8B:
+  class: vllmModel
+  model_name: Qwen/Qwen3-8B
+  device: cuda
+  temperature: 1.0
+
+qwen3_14B:
+  class: vllmModel
+  model_name: Qwen/Qwen3-14B
+  device: cuda
+  temperature: 1.0
+
+qwen3_32B:
+  class: vllmModel
+  model_name: Qwen/Qwen3-32B
+  device: cuda
   temperature: 1.0
