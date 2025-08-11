@@ -1,0 +1,465 @@
+input_cif,action_prompt,generated_cif,target_cif,rmsd,max_diff
+"# generated using pymatgen
+data_Mg14NbCu
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.29469896
+_cell_length_b   6.26323906
+_cell_length_c   9.92812979
+_cell_angle_alpha   89.99938641
+_cell_angle_beta   90.00080581
+_cell_angle_gamma   119.83385010
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Mg14NbCu
+_chemical_formula_sum   'Mg14 Nb1 Cu1'
+_cell_volume   339.54450833
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Mg  Mg0  1  0.16810778  0.33404424  0.62500068  1
+  Mg  Mg1  1  0.16927187  0.83463814  0.62499550  1
+  Mg  Mg2  1  0.66209034  0.33744955  0.12500013  1
+  Mg  Mg3  1  0.66542147  0.33201346  0.62500053  1
+  Mg  Mg4  1  0.66213015  0.82464549  0.12499904  1
+  Mg  Mg5  1  0.66545097  0.83341901  0.62499932  1
+  Mg  Mg6  1  0.32580564  0.16234113  0.36227337  1
+  Mg  Mg7  1  0.32581530  0.16234411  0.88772021  1
+  Mg  Mg8  1  0.32580604  0.66347435  0.36228113  1
+  Mg  Mg9  1  0.32581329  0.66348386  0.88771195  1
+  Mg  Mg10  1  0.84382411  0.17192563  0.36385713  1
+  Mg  Mg11  1  0.84384280  0.17193867  0.88617533  1
+  Mg  Mg12  1  0.84345976  0.67173675  0.37221632  1
+  Mg  Mg13  1  0.84346528  0.67173770  0.87777307  1
+  Nb  Nb14  1  0.15732632  0.82861036  0.12499695  1
+  Cu  Cu15  1  0.17236889  0.33619755  0.12499935  1
+",Rotate all surrounding atoms within 3.331235449986973 angstrom of the center atom at index 7 by 190.80550623712563 degree around the axis [0. 1. 0.] in the cif file. The rotation should following the right-hand rule.,"# generated using pymatgen
+data_Mg14NbCu
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.29469896
+_cell_length_b   6.26323906
+_cell_length_c   9.92812979
+_cell_angle_alpha   89.99938641
+_cell_angle_beta   90.00080581
+_cell_angle_gamma   119.83385010
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Mg14NbCu
+_chemical_formula_sum   'Mg14 Nb1 Cu1'
+_cell_volume   339.54450833
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Mg  Mg0  1  0.30421895  0.56721771  0.58999893  1
+  Mg  Mg1  1  0.16927187  0.83463814  0.62499550  1
+  Mg  Mg2  1  0.66209034  0.33744955  0.12500013  1
+  Mg  Mg3  1  0.66542147  0.33201346  0.62500053  1
+  Mg  Mg4  1  0.66213015  0.82464549  0.12499904  1
+  Mg  Mg5  1  0.66545097  0.83341901  0.62499932  1
+  Mg  Mg6  1  0.32580564  0.16234113  0.36227337  1
+  Mg  Mg7  1  0.32581530  0.16234411  0.88772021  1
+  Mg  Mg8  1  0.32580604  0.66347435  0.36228113  1
+  Mg  Mg9  1  0.32581329  0.66348386  0.88771195  1
+  Mg  Mg10  1  0.84382411  0.17192563  0.36385713  1
+  Mg  Mg11  1  0.84324522  0.17180217  0.87987476  1
+  Mg  Mg12  1  0.84345976  0.67173675  0.37221632  1
+  Mg  Mg13  1  0.84346528  0.67173770  0.87777307  1
+  Nb  Nb14  1  0.15732632  0.82861036  0.12499695  1
+  Cu  Cu15  1  0.17236889  0.33619755  0.12499935  1","data_image0
+_chemical_formula_structural       Mg14NbCu
+_chemical_formula_sum              ""Mg14 Nb1 Cu1""
+_cell_length_a       6.29469896
+_cell_length_b       6.263239059999999
+_cell_length_c       9.928129790000002
+_cell_angle_alpha    89.99938641
+_cell_angle_beta     90.00080581
+_cell_angle_gamma    119.8338501
+
+_space_group_name_H-M_alt    ""P 1""
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Mg  Mg1       1.0  0.7268839203378061  0.33404039293085075  0.11693388189147669  1.0000
+  Mg  Mg2       1.0  0.21693603702138065  0.8346345221073724  0.08762339552713994  1.0000
+  Mg  Mg3       1.0  0.3928441077220981  0.33743749431558934  0.6665870376072862  1.0000
+  Mg  Mg4       1.0  0.2363964603810805  0.332009149712289  0.17616650922228216  1.0000
+  Mg  Mg5       1.0  0.66213015  0.8246454900000001  0.12499904  1.0000
+  Mg  Mg6       1.0  0.6654509700000002  0.83341901  0.62499932  1.0000
+  Mg  Mg7       1.0  0.32580564  0.16234113  0.3622733700000001  1.0000
+  Mg  Mg8       1.0  0.32581530000000003  0.16234411  0.88772021  1.0000
+  Mg  Mg9       1.0  0.3258060400000001  0.66347435  0.36228113  1.0000
+  Mg  Mg10      1.0  0.8175493493468657  0.6634840904638954  0.8582420243006816  1.0000
+  Mg  Mg11      1.0  0.8438241100000001  0.17192563  0.36385713000000003  1.0000
+  Mg  Mg12      1.0  0.8268451429902337  0.17193816892956915  0.9502483091608565  1.0000
+  Mg  Mg13      1.0  0.84345976  0.67173675  0.37221632  1.0000
+  Mg  Mg14      1.0  0.3201144610761267  0.6717372990020242  0.9290495640181254  1.0000
+  Nb  Nb1       1.0  0.37059619040695857  0.8285989994720673  0.5776926682965817  1.0000
+  Cu  Cu1       1.0  0.8726530975622776  0.33618594895179876  0.608450924569792  1.0000
+",0.2520936153103692,0.44063764553832346
+"# generated using pymatgen
+data_Te2MoW3(Se2S)2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.34551254
+_cell_length_b   3.34551254
+_cell_length_c   39.70672700
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   120.00001061
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Te2MoW3(Se2S)2
+_chemical_formula_sum   'Te2 Mo1 W3 Se4 S2'
+_cell_volume   384.87526278
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Te  Te0  1  0.66666700  0.33333300  0.42150300  1
+  Te  Te1  1  0.66666700  0.33333300  0.51755600  1
+  Mo  Mo2  1  0.33333300  0.66666700  0.09390700  1
+  W  W3  1  0.33333300  0.66666700  0.46953400  1
+  W  W4  1  0.66666700  0.33333300  0.28098300  1
+  W  W5  1  0.66666700  0.33333300  0.65850100  1
+  Se  Se6  1  0.33333300  0.66666700  0.32313600  1
+  Se  Se7  1  0.33333300  0.66666700  0.70064700  1
+  Se  Se8  1  0.33333300  0.66666700  0.23879800  1
+  Se  Se9  1  0.33333300  0.66666700  0.61635700  1
+  S  S10  1  0.66666700  0.33333300  0.05568700  1
+  S  S11  1  0.66666700  0.33333300  0.13214000  1
+",Rotate all surrounding atoms within 3.563226317317919 angstrom of the center atom at index 9 by 243.59535035018934 degree around the axis [0. 1. 0.] in the cif file. The rotation should following the right-hand rule.,"# generated using pymatgen
+data_Te2MoW3(Se2S)2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.34551254
+_cell_length_b   3.34551254
+_cell_length_c   39.70672700
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   120.00001061
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Te2MoW3(Se2S)2
+_chemical_formula_sum   'Te2 Mo1 W3 Se4 S2'
+_cell_volume   384.87526278
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Te  Te0  1  0.66666700  0.33333300  0.42150300  1
+  Te  Te1  1  0.66666700  0.33333300  0.51755600  1
+  Mo  Mo2  1  0.33333300  0.66666700  0.09390700  1
+  W  W3  1  0.33333300  0.66666700  0.46953400  1
+  W  W5  1  0.49885000  0.33333300  0.63545700  1
+  W  W4  1  0.66666700  0.33333300  0.28098300  1
+  Se  Se6  1  0.33333300  0.66666700  0.32313600  1
+  Se  Se7  1  0.40861500  0.66666700  0.57791800  1
+  Se  Se8  1  0.33333300  0.66666700  0.23879800  1
+  Se  Se9  1  0.33333300  0.66666700  0.61635700  1
+  S  S10  1  0.66666700  0.33333300  0.05568700  1
+  S  S11  1  0.66666700  0.33333300  0.13214000  1","data_image0
+_chemical_formula_structural       Te2MoW3Se4S2
+_chemical_formula_sum              ""Te2 Mo1 W3 Se4 S2""
+_cell_length_a       3.34551254
+_cell_length_b       3.34551254
+_cell_length_c       39.706727
+_cell_angle_alpha    90.0
+_cell_angle_beta     90.0
+_cell_angle_gamma    120.00001060999999
+
+_space_group_name_H-M_alt    ""P 1""
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Te  Te1       1.0  0.6666669999999999  0.333333  0.4215030000000001  1.0000
+  Te  Te2       1.0  0.6666669999999999  0.333333  0.517556  1.0000
+  Mo  Mo1       1.0  0.333333  0.666667  0.09390700000000002  1.0000
+  W   W1        1.0  0.333333  0.666667  0.46953400000000006  1.0000
+  W   W2        1.0  0.6666669999999999  0.333333  0.280983  1.0000
+  W   W3        1.0  0.4963012844121337  0.333333  0.6353481391817121  1.0000
+  Se  Se1       1.0  0.333333  0.666667  0.32313600000000003  1.0000
+  Se  Se2       1.0  0.43729121802285076  0.666667  0.5788725739536824  1.0000
+  Se  Se3       1.0  0.333333  0.666667  0.238798  1.0000
+  Se  Se4       1.0  0.333333  0.666667  0.6163570000000002  1.0000
+  S   S1        1.0  0.6666669999999999  0.333333  0.05568700000000001  1.0000
+  S   S2        1.0  0.6666669999999999  0.333333  0.13214  1.0000
+",0.009086339475918996,0.030010545424120183
+"# generated using pymatgen
+data_Te2MoWSeS
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.39930210
+_cell_length_b   3.39930210
+_cell_length_c   38.72283700
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   120.00000190
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Te2MoWSeS
+_chemical_formula_sum   'Te4 Mo2 W2 Se2 S2'
+_cell_volume   387.50500480
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Te  Te0  1  0.00000000  0.00000000  0.33019500  1
+  Te  Te1  1  0.00000000  0.00000000  0.70620500  1
+  Te  Te2  1  0.00000000  0.00000000  0.23343800  1
+  Te  Te3  1  0.00000000  0.00000000  0.60884100  1
+  Mo  Mo4  1  0.00000000  0.00000000  0.46966800  1
+  Mo  Mo5  1  0.33333300  0.66666700  0.28182000  1
+  W  W6  1  0.00000000  0.00000000  0.09389600  1
+  W  W7  1  0.33333300  0.66666700  0.65754600  1
+  Se  Se8  1  0.33333300  0.66666700  0.05115000  1
+  Se  Se9  1  0.33333300  0.66666700  0.13665700  1
+  S  S10  1  0.33333300  0.66666700  0.43088200  1
+  S  S11  1  0.33333300  0.66666700  0.50845000  1
+",Rotate all surrounding atoms within 3.1169565393634073 angstrom of the center atom at index 4 by 172.56683690192682 degree around the axis [-1.  0.  0.] in the cif file. The rotation should following the right-hand rule.,"# generated using pymatgen
+data_Te2MoWSeS
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.39930210
+_cell_length_b   3.39930210
+_cell_length_c   38.72283700
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   120.00000190
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Te2MoWSeS
+_chemical_formula_sum   'Te4 Mo2 W2 Se2 S2'
+_cell_volume   387.50500480
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Te  Te0  1  0.00000000  0.00000000  0.33019500  1
+  Te  Te1  1  0.00000000  0.00000000  0.70620500  1
+  Te  Te2  1  0.00000000  0.00000000  0.23343800  1
+  Te  Te3  1  0.00000000  0.00000000  0.60884100  1
+  Mo  Mo4  1  0.00000000  0.00000000  0.46966800  1
+  Mo  Mo5  1  0.33333300  0.66666700  0.28182000  1
+  W  W6  1  0.00000000  0.00000000  0.09389600  1
+  W  W7  1  0.33333300  0.66666700  0.65754600  1
+  Se  Se8  1  0.33333300  0.66666700  0.05115000  1
+  Se  Se9  1  0.33333300  0.66666700  0.13665700  1
+  S  S10  1  0.63660000  0.27260000  0.50180000  1
+  S  S11  1  0.70260000  0.40490000  0.42460000  1","data_image0
+_chemical_formula_structural       Te4Mo2W2Se2S2
+_chemical_formula_sum              ""Te4 Mo2 W2 Se2 S2""
+_cell_length_a       3.3993021
+_cell_length_b       3.3993021
+_cell_length_c       38.722837
+_cell_angle_alpha    90.0
+_cell_angle_beta     90.0
+_cell_angle_gamma    120.0000019
+
+_space_group_name_H-M_alt    ""P 1""
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Te  Te1       1.0  0.0  0.0  0.330195  1.0000
+  Te  Te2       1.0  0.0  0.0  0.706205  1.0000
+  Te  Te3       1.0  0.0  0.0  0.23343799999999998  1.0000
+  Te  Te4       1.0  0.0  0.0  0.608841  1.0000
+  Mo  Mo1       1.0  0.0  0.0  0.4696679999999999  1.0000
+  Mo  Mo2       1.0  0.33333300000000005  0.666667  0.28182  1.0000
+  W   W1        1.0  0.0  0.0  0.093896  1.0000
+  W   W2        1.0  0.33333300000000005  0.666667  0.657546  1.0000
+  Se  Se1       1.0  0.33333300000000005  0.666667  0.05115  1.0000
+  Se  Se2       1.0  0.33333300000000005  0.666667  0.136657  1.0000
+  S   S1        1.0  0.6364663899187442  0.2729338598893096  0.5015712245542969  1.0000
+  S   S2        1.0  0.702464500782305  0.4049300740349676  0.42465507122099483  1.0000
+",0.0008170493367841803,0.0026358481102463096
+"# generated using pymatgen
+data_Te2MoW3(SeS2)2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.30740050
+_cell_length_b   3.30740050
+_cell_length_c   39.27690300
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   120.00001004
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Te2MoW3(SeS2)2
+_chemical_formula_sum   'Te2 Mo1 W3 Se2 S4'
+_cell_volume   372.08434660
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Te  Te0  1  0.66666700  0.33333300  0.41956400  1
+  Te  Te1  1  0.66666700  0.33333300  0.51752400  1
+  Mo  Mo2  1  0.66666700  0.33333300  0.28135300  1
+  W  W3  1  0.33333300  0.66666700  0.09391800  1
+  W  W4  1  0.33333300  0.66666700  0.46854600  1
+  W  W5  1  0.66666700  0.33333300  0.65911800  1
+  Se  Se6  1  0.33333300  0.66666700  0.70217200  1
+  Se  Se7  1  0.33333300  0.66666700  0.61607300  1
+  S  S8  1  0.33333300  0.66666700  0.32018300  1
+  S  S9  1  0.66666700  0.33333300  0.05489400  1
+  S  S10  1  0.66666700  0.33333300  0.13293700  1
+  S  S11  1  0.33333300  0.66666700  0.24246600  1
+",Rotate all surrounding atoms within 3.4358201015766494 angstrom of the center atom at index 7 by 54.87164784009051 degree around the axis [1. 0. 0.] in the cif file. The rotation should following the right-hand rule.,"# generated using pymatgen
+data_Te2MoW3(SeS2)2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.30740050
+_cell_length_b   3.30740050
+_cell_length_c   39.27690300
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   120.00001004
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Te2MoW3(SeS2)2
+_chemical_formula_sum   'Te2 Mo1 W3 Se2 S4'
+_cell_volume   372.08434660
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Te  Te0  1  0.66666700  0.33333300  0.41956400  1
+  Te  Te1  1  0.66666700  0.33333300  0.51752400  1
+  Mo  Mo2  1  0.66666700  0.33333300  0.28135300  1
+  W  W3  1  0.33333300  0.66666700  0.09391800  1
+  W  W4  1  0.33333300  0.66666700  0.46854600  1
+  W  W5  1  0.49948600  0.99892100  0.62070000  1
+  Se  Se6  1  0.85260900  0.70450200  0.66570100  1
+  Se  Se7  1  0.33333300  0.66666700  0.61607300  1
+  S  S8  1  0.33333300  0.66666700  0.32018300  1
+  S  S9  1  0.66666700  0.33333300  0.05489400  1
+  S  S10  1  0.66666700  0.33333300  0.13293700  1
+  S  S11  1  0.33333300  0.66666700  0.24246600  1","data_image0
+_chemical_formula_structural       Te2MoW3Se2S4
+_chemical_formula_sum              ""Te2 Mo1 W3 Se2 S4""
+_cell_length_a       3.3074005
+_cell_length_b       3.3074005
+_cell_length_c       39.276903
+_cell_angle_alpha    90.0
+_cell_angle_beta     90.0
+_cell_angle_gamma    120.00001004
+
+_space_group_name_H-M_alt    ""P 1""
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Te  Te1       1.0  0.666667  0.333333  0.419564  1.0000
+  Te  Te2       1.0  0.666667  0.333333  0.517524  1.0000
+  Mo  Mo1       1.0  0.666667  0.333333  0.281353  1.0000
+  W   W1        1.0  0.333333  0.666667  0.093918  1.0000
+  W   W2        1.0  0.333333  0.666667  0.4685460000000001  1.0000
+  W   W3        1.0  0.49605599621889496  0.9921110960017353  0.6209603786413287  1.0000
+  Se  Se1       1.0  0.8505302098584746  0.70106171278692  0.6656152284863216  1.0000
+  Se  Se2       1.0  0.333333  0.666667  0.616073  1.0000
+  S   S1        1.0  0.333333  0.666667  0.320183  1.0000
+  S   S2        1.0  0.666667  0.333333  0.054894000000000005  1.0000
+  S   S3        1.0  0.666667  0.333333  0.132937  1.0000
+  S   S4        1.0  0.333333  0.666667  0.242466  1.0000
+",0.002093389544546091,0.006239420086466154

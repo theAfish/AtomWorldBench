@@ -1,3 +1,4 @@
+import datetime
 import os
 import yaml
 from pathlib import Path
@@ -116,10 +117,8 @@ def run_benchmark(
         raise ValueError(f"Invalid action '{action}'. Must be one of: {action_names}")
 
     # automatically set results folder if not provided
-    if results_folder is None:
-        results_folder = f"results/{model_id}/{action}"
-    else:
-        results_folder = f"{results_folder}/{model_id}/{action}"
+    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    results_folder = f"{results_folder or "results"}/{timestamp}/{model_id}/{action}"
     
     # Initialize evaluator
     evaluator = Evaluator(

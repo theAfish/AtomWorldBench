@@ -21089,3 +21089,673 @@ Occupancy 2.0 exceeded tolerance.
 2025-07-23 18:20:16,073 - INFO - Structures do not match for index 247
 2025-07-23 18:20:16,164 - INFO - Structures do NOT match within tolerances.
 2025-07-23 18:20:16,164 - INFO - Structures do not match for index 249
+2025-08-11 21:58:11,710 - INFO - Structures do NOT match within tolerances.
+2025-08-11 21:58:11,718 - INFO - Structures do not match for index 3
+2025-08-11 21:58:11,735 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-08-11 21:58:11,735 - INFO - Invalid generated structure for index 4
+2025-08-11 21:58:11,897 - INFO - Structures do NOT match within tolerances.
+2025-08-11 21:58:11,897 - INFO - Structures do not match for index 5
+2025-08-11 21:58:11,994 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-08-11 21:58:11,994 - INFO - Invalid generated structure for index 9
+2025-08-11 21:58:12,002 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-08-11 21:58:12,003 - INFO - Invalid generated structure for index 10
+2025-08-11 21:58:12,008 - WARNING - /scratch/pawsey1151/alexchen5/AtomWorldBench/src/evaluation/metrics.py:30: UserWarning: Issues encountered while parsing CIF: 4 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  structures = parser.parse_structures(primitive=True)
+
+2025-08-11 21:58:12,013 - WARNING - /scratch/pawsey1151/alexchen5/AtomWorldBench/src/evaluation/metrics.py:30: UserWarning: Issues encountered while parsing CIF: 3 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  structures = parser.parse_structures(primitive=True)
+
+2025-08-11 21:58:12,033 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-08-11 21:58:12,033 - INFO - Invalid generated structure for index 12
+2025-08-11 21:58:12,065 - INFO - Structures do NOT match within tolerances.
+2025-08-11 21:58:12,066 - INFO - Structures do not match for index 13
+2025-08-11 21:58:12,108 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-08-11 21:58:12,108 - INFO - Invalid generated structure for index 15
+2025-08-11 21:58:12,112 - WARNING - /scratch/pawsey1151/alexchen5/AtomWorldBench/src/evaluation/metrics.py:30: UserWarning: Issues encountered while parsing CIF: 24 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  structures = parser.parse_structures(primitive=True)
+
+2025-08-11 21:58:12,115 - WARNING - /scratch/pawsey1151/alexchen5/AtomWorldBench/src/evaluation/metrics.py:30: UserWarning: Issues encountered while parsing CIF: 22 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  structures = parser.parse_structures(primitive=True)
+
+2025-08-11 21:58:12,190 - INFO - Invalid generated output for index 17
+2025-08-11 21:58:12,198 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-08-11 21:58:12,199 - INFO - Invalid generated structure for index 18
+2025-08-11 21:58:12,506 - WARNING - /scratch/pawsey1151/alexchen5/AtomWorldBench/src/evaluation/metrics.py:30: UserWarning: Issues encountered while parsing CIF: 12 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  structures = parser.parse_structures(primitive=True)
+
+2025-08-11 21:58:12,978 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-08-11 21:58:12,979 - INFO - Invalid generated structure for index 35
+2025-08-11 21:58:13,001 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-08-11 21:58:13,002 - INFO - Invalid generated structure for index 36
+2025-08-11 21:58:13,141 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-08-11 21:58:13,141 - INFO - Invalid generated structure for index 38
+2025-08-11 21:58:13,164 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-08-11 21:58:13,164 - INFO - Invalid generated structure for index 39
+2025-08-11 21:58:13,224 - INFO - Structures do NOT match within tolerances.
+2025-08-11 21:58:13,224 - INFO - Structures do not match for index 40
+2025-08-11 21:58:13,253 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:1313: UserWarning: Some occupancies ([2.0]) sum to > 1! If they are within the occupancy_tolerance, they will be rescaled. The current occupancy_tolerance is set to: 1.0
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-08-11 21:58:13,256 - WARNING - /scratch/pawsey1151/alexchen5/AtomWorldBench/src/evaluation/metrics.py:30: UserWarning: No structure parsed for section 1 in CIF.
+Occupancy 2.0 exceeded tolerance.
+  structures = parser.parse_structures(primitive=True)
+
+2025-08-11 21:58:13,256 - WARNING - /scratch/pawsey1151/alexchen5/AtomWorldBench/src/evaluation/metrics.py:30: UserWarning: Issues encountered while parsing CIF: Some occupancies ([2.0]) sum to > 1! If they are within the occupancy_tolerance, they will be rescaled. The current occupancy_tolerance is set to: 1.0
+No structure parsed for section 1 in CIF.
+Occupancy 2.0 exceeded tolerance.
+  structures = parser.parse_structures(primitive=True)
+
+2025-08-11 21:58:13,257 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-08-11 21:58:13,257 - INFO - Invalid generated structure for index 41
+2025-08-11 21:58:13,481 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-08-11 21:58:13,482 - INFO - Invalid generated structure for index 45
+2025-08-11 21:59:17,716 - INFO - Invalid generated output for index 0
+2025-08-11 21:59:18,098 - INFO - Invalid generated output for index 5
+2025-08-11 21:59:18,107 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/core/periodic_table.py:252: UserWarning: No Pauling electronegativity for Sg. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  if not hasattr(other, "X") or not hasattr(other, "symbol"):
+
+2025-08-11 21:59:18,108 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/core/periodic_table.py:255: UserWarning: No Pauling electronegativity for Sg. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  x2 = float("inf") if other.X != other.X else other.X
+
+2025-08-11 21:59:18,110 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/core/composition.py:328: UserWarning: No Pauling electronegativity for Sg. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  return sum((el.X * abs(amt) for el, amt in self.items())) / self.num_atoms
+
+2025-08-11 21:59:18,293 - WARNING - /scratch/pawsey1151/alexchen5/AtomWorldBench/src/evaluation/metrics.py:30: UserWarning: Issues encountered while parsing CIF: 4 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  structures = parser.parse_structures(primitive=True)
+
+2025-08-11 21:59:18,391 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/core/periodic_table.py:254: UserWarning: No Pauling electronegativity for Nh. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  x1 = float("inf") if self.X != self.X else self.X
+
+2025-08-11 21:59:18,393 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/core/composition.py:328: UserWarning: No Pauling electronegativity for Nh. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  return sum((el.X * abs(amt) for el, amt in self.items())) / self.num_atoms
+
+2025-08-11 21:59:18,419 - INFO - Structures do NOT match within tolerances.
+2025-08-11 21:59:18,420 - INFO - Structures do not match for index 14
+2025-08-11 21:59:18,460 - WARNING - /scratch/pawsey1151/alexchen5/AtomWorldBench/src/evaluation/metrics.py:30: UserWarning: Issues encountered while parsing CIF: 24 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  structures = parser.parse_structures(primitive=True)
+
+2025-08-11 21:59:18,650 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/core/periodic_table.py:254: UserWarning: No Pauling electronegativity for Db. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  x1 = float("inf") if self.X != self.X else self.X
+
+2025-08-11 21:59:18,651 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/core/composition.py:328: UserWarning: No Pauling electronegativity for Db. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  return sum((el.X * abs(amt) for el, amt in self.items())) / self.num_atoms
+
+2025-08-11 21:59:18,739 - INFO - Invalid generated output for index 23
+2025-08-11 21:59:18,825 - WARNING - /scratch/pawsey1151/alexchen5/AtomWorldBench/src/evaluation/metrics.py:30: UserWarning: Issues encountered while parsing CIF: 12 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  structures = parser.parse_structures(primitive=True)
+
+2025-08-11 21:59:19,003 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/core/periodic_table.py:254: UserWarning: No Pauling electronegativity for Bh. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  x1 = float("inf") if self.X != self.X else self.X
+
+2025-08-11 21:59:19,005 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/core/composition.py:328: UserWarning: No Pauling electronegativity for Bh. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  return sum((el.X * abs(amt) for el, amt in self.items())) / self.num_atoms
+
+2025-08-11 21:59:19,160 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/core/periodic_table.py:252: UserWarning: No Pauling electronegativity for Ar. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  if not hasattr(other, "X") or not hasattr(other, "symbol"):
+
+2025-08-11 21:59:19,160 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/core/periodic_table.py:255: UserWarning: No Pauling electronegativity for Ar. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  x2 = float("inf") if other.X != other.X else other.X
+
+2025-08-11 21:59:19,163 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/core/composition.py:328: UserWarning: No Pauling electronegativity for Ar. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  return sum((el.X * abs(amt) for el, amt in self.items())) / self.num_atoms
+
+2025-08-11 21:59:19,521 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-08-11 21:59:19,522 - INFO - Invalid generated structure for index 38
+2025-08-11 21:59:19,810 - INFO - Structures do NOT match within tolerances.
+2025-08-11 21:59:19,811 - INFO - Structures do not match for index 41
+2025-08-11 21:59:19,811 - INFO - Invalid generated output for index 42
+2025-08-11 21:59:19,842 - INFO - Structures do NOT match within tolerances.
+2025-08-11 21:59:19,843 - INFO - Structures do not match for index 43
+2025-08-11 21:59:20,168 - INFO - Structures do NOT match within tolerances.
+2025-08-11 21:59:20,168 - INFO - Structures do not match for index 49
+2025-08-11 21:59:59,044 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: Na
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,061 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: Na0
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,061 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 1
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,062 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.26528600
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,062 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.44268800
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,062 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.53442200
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,062 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: Na1
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,062 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.03442200
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,062 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: Na2
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,063 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.73471400
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,063 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.55731200
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,063 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.46557800
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,063 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: Na3
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,063 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.96557800
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,064 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: Zn
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,064 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: Zn4
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,064 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.13181900
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,064 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.86818100
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,064 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.75000000
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,064 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: Zn5
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,064 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.25000000
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,065 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: B
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,065 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: B6
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,065 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.78753600
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,065 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.74015900
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,065 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.65411300
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,065 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: B7
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,066 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.15411300
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,066 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: B8
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,066 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.89283100
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,066 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.29402400
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,066 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.98784500
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,066 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: B9
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,067 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.48784500
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,067 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: B10
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,067 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.90798900
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,067 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.32470500
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,067 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.76573400
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,067 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: B11
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,068 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.26573400
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,068 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: B12
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,068 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.67529500
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,068 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.09201100
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,068 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.73426600
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,068 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: B13
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,068 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.23426600
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,069 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: B14
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,069 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.10716900
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,069 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.70597600
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,069 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.01215500
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,069 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: B15
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,069 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.51215500
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,070 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: B16
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,070 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.25984100
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,070 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.21246400
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,070 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.84588700
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,070 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: B17
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,070 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.34588700
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,071 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: O
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,071 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: O18
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,071 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.74607300
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,071 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.83831300
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,071 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.75021100
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,071 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: O19
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,072 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.25021100
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,072 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: O20
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,072 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.79047500
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,072 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.37282500
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,072 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.88867200
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,072 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: O21
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,072 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.38867200
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,073 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: O22
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,073 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.85212000
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,073 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.51619000
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,073 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.66248900
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,073 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: O23
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,073 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.16248900
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,074 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: O24
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,074 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.12652300
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,074 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.22994700
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,074 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.96562000
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,074 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: O25
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,074 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.26610385
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,075 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.03112910
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,075 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.45649121
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,075 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: O26
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,075 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.77005300
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,075 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.87347700
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,075 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.53438000
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,076 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: O27
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,076 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.03438000
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,076 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: O28
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,076 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.86864100
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,076 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.13135900
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,076 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: O29
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,076 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: O30
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,077 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.28616300
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,077 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.76151000
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,077 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.60322400
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,077 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: O31
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,077 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.10322400
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,077 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: O32
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,078 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.16168700
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,078 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.25392700
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,078 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.74978900
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,078 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: O33
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,078 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.24978900
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,078 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: O34
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,079 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.48381000
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,079 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.14788000
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,079 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.83751100
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,079 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: O35
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,079 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.33751100
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,079 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: O36
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,080 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.23849000
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,080 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.71383700
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,080 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.89677600
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,080 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: O37
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,080 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.39677600
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,080 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: O38
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,080 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.62717500
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,081 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.20952500
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,081 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.61132800
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,081 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: O39
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,081 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:285: UserWarning: Possible issue in CIF file at line: 0.11132800
+  block = CifBlock.from_str(f"data_{block_str}")
+
+2025-08-11 21:59:59,081 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:1028: UserWarning: No _symmetry_equiv_pos_as_xyz type key found. Defaulting to P1.
+  self.symmetry_operations = self.get_symops(data)  # type:ignore[assignment]
+
+2025-08-11 21:59:59,082 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:1043: UserWarning: t parsed as T
+  symbol = self._parse_symbol(label)
+
+2025-08-11 21:59:59,083 - WARNING - /scratch/pawsey1151/alexchen5/AtomWorldBench/src/evaluation/metrics.py:30: UserWarning: No structure parsed for section 1 in CIF.
+could not convert string to float: 't'
+  structures = parser.parse_structures(primitive=True)
+
+2025-08-11 21:59:59,084 - WARNING - /scratch/pawsey1151/alexchen5/AtomWorldBench/src/evaluation/metrics.py:30: UserWarning: Issues encountered while parsing CIF: No _symmetry_equiv_pos_as_xyz type key found. Defaulting to P1.
+t parsed as T
+No structure parsed for section 1 in CIF.
+could not convert string to float: 't'
+  structures = parser.parse_structures(primitive=True)
+
+2025-08-11 21:59:59,084 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-08-11 21:59:59,084 - INFO - Invalid generated structure for index 4
+2025-08-11 21:59:59,201 - INFO - Structures do NOT match within tolerances.
+2025-08-11 21:59:59,202 - INFO - Structures do not match for index 5
+2025-08-11 21:59:59,228 - INFO - Structures do NOT match within tolerances.
+2025-08-11 21:59:59,228 - INFO - Structures do not match for index 6
+2025-08-11 21:59:59,256 - INFO - Structures do NOT match within tolerances.
+2025-08-11 21:59:59,256 - INFO - Structures do not match for index 7
+2025-08-11 21:59:59,379 - WARNING - /scratch/pawsey1151/alexchen5/AtomWorldBench/src/evaluation/metrics.py:30: UserWarning: Issues encountered while parsing CIF: 4 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  structures = parser.parse_structures(primitive=True)
+
+2025-08-11 21:59:59,415 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-08-11 21:59:59,416 - INFO - Invalid generated structure for index 12
+2025-08-11 21:59:59,416 - INFO - Invalid generated output for index 13
+2025-08-11 21:59:59,416 - INFO - Invalid generated output for index 14
+2025-08-11 21:59:59,464 - WARNING - /scratch/pawsey1151/alexchen5/AtomWorldBench/src/evaluation/metrics.py:30: UserWarning: Issues encountered while parsing CIF: 24 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  structures = parser.parse_structures(primitive=True)
+
+2025-08-11 21:59:59,467 - WARNING - /scratch/pawsey1151/alexchen5/AtomWorldBench/src/evaluation/metrics.py:30: UserWarning: Issues encountered while parsing CIF: 22 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  structures = parser.parse_structures(primitive=True)
+
+2025-08-11 21:59:59,711 - INFO - Structures do NOT match within tolerances.
+2025-08-11 21:59:59,711 - INFO - Structures do not match for index 21
+2025-08-11 21:59:59,711 - INFO - Invalid generated output for index 22
+2025-08-11 21:59:59,800 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-08-11 21:59:59,800 - INFO - Invalid generated structure for index 25
+2025-08-11 21:59:59,804 - WARNING - /scratch/pawsey1151/alexchen5/AtomWorldBench/src/evaluation/metrics.py:30: UserWarning: Issues encountered while parsing CIF: 12 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  structures = parser.parse_structures(primitive=True)
+
+2025-08-11 21:59:59,937 - INFO - Structures do NOT match within tolerances.
+2025-08-11 21:59:59,937 - INFO - Structures do not match for index 27
+2025-08-11 21:59:59,944 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-08-11 21:59:59,944 - INFO - Invalid generated structure for index 28
+2025-08-11 22:00:00,375 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-08-11 22:00:00,375 - INFO - Invalid generated structure for index 36
+2025-08-11 22:00:00,630 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-08-11 22:00:00,630 - INFO - Invalid generated structure for index 38
+2025-08-11 22:00:00,921 - INFO - Structures do NOT match within tolerances.
+2025-08-11 22:00:00,921 - INFO - Structures do not match for index 40
+2025-08-11 22:00:00,948 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:1313: UserWarning: Some occupancies ([2.0]) sum to > 1! If they are within the occupancy_tolerance, they will be rescaled. The current occupancy_tolerance is set to: 1.0
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-08-11 22:00:00,951 - WARNING - /scratch/pawsey1151/alexchen5/AtomWorldBench/src/evaluation/metrics.py:30: UserWarning: No structure parsed for section 1 in CIF.
+Occupancy 2.0 exceeded tolerance.
+  structures = parser.parse_structures(primitive=True)
+
+2025-08-11 22:00:00,951 - WARNING - /scratch/pawsey1151/alexchen5/AtomWorldBench/src/evaluation/metrics.py:30: UserWarning: Issues encountered while parsing CIF: Some occupancies ([2.0]) sum to > 1! If they are within the occupancy_tolerance, they will be rescaled. The current occupancy_tolerance is set to: 1.0
+No structure parsed for section 1 in CIF.
+Occupancy 2.0 exceeded tolerance.
+  structures = parser.parse_structures(primitive=True)
+
+2025-08-11 22:00:00,951 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-08-11 22:00:00,951 - INFO - Invalid generated structure for index 41
+2025-08-11 22:00:01,447 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-08-11 22:00:01,447 - INFO - Invalid generated structure for index 48
+2025-08-11 22:00:16,723 - INFO - Structures do NOT match within tolerances.
+2025-08-11 22:00:16,740 - INFO - Structures do not match for index 0
+2025-08-11 22:00:16,740 - INFO - Invalid generated output for index 1
+2025-08-11 22:00:16,751 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-08-11 22:00:16,751 - INFO - Invalid generated structure for index 2
+2025-08-11 22:00:16,751 - INFO - Invalid generated output for index 3
+2025-08-11 22:00:16,751 - INFO - Invalid generated output for index 4
+2025-08-11 22:00:16,833 - INFO - Structures do NOT match within tolerances.
+2025-08-11 22:00:16,834 - INFO - Structures do not match for index 5
+2025-08-11 22:00:16,856 - INFO - Structures do NOT match within tolerances.
+2025-08-11 22:00:16,856 - INFO - Structures do not match for index 6
+2025-08-11 22:00:16,856 - INFO - Invalid generated output for index 7
+2025-08-11 22:00:16,878 - INFO - Structures do NOT match within tolerances.
+2025-08-11 22:00:16,878 - INFO - Structures do not match for index 8
+2025-08-11 22:00:16,879 - INFO - Invalid generated output for index 9
+2025-08-11 22:00:16,879 - INFO - Invalid generated output for index 10
+2025-08-11 22:00:16,879 - INFO - Invalid generated output for index 11
+2025-08-11 22:00:16,904 - INFO - Structures do NOT match within tolerances.
+2025-08-11 22:00:16,904 - INFO - Structures do not match for index 12
+2025-08-11 22:00:16,905 - INFO - Invalid generated output for index 13
+2025-08-11 22:00:16,931 - INFO - Structures do NOT match within tolerances.
+2025-08-11 22:00:16,931 - INFO - Structures do not match for index 14
+2025-08-11 22:00:16,969 - WARNING - /scratch/pawsey1151/alexchen5/AtomWorldBench/src/evaluation/metrics.py:30: UserWarning: Issues encountered while parsing CIF: 24 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  structures = parser.parse_structures(primitive=True)
+
+2025-08-11 22:00:16,973 - WARNING - /scratch/pawsey1151/alexchen5/AtomWorldBench/src/evaluation/metrics.py:30: UserWarning: Issues encountered while parsing CIF: 22 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  structures = parser.parse_structures(primitive=True)
+
+2025-08-11 22:00:17,050 - INFO - Invalid generated output for index 17
+2025-08-11 22:00:17,062 - WARNING - /scratch/pawsey1151/alexchen5/.local/lib/python3.12/site-packages/pymatgen/io/cif.py:1313: UserWarning: Some occupancies ([2.0]) sum to > 1! If they are within the occupancy_tolerance, they will be rescaled. The current occupancy_tolerance is set to: 1.0
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-08-11 22:00:17,063 - WARNING - /scratch/pawsey1151/alexchen5/AtomWorldBench/src/evaluation/metrics.py:30: UserWarning: No structure parsed for section 1 in CIF.
+Occupancy 2.0 exceeded tolerance.
+  structures = parser.parse_structures(primitive=True)
+
+2025-08-11 22:00:17,063 - WARNING - /scratch/pawsey1151/alexchen5/AtomWorldBench/src/evaluation/metrics.py:30: UserWarning: Issues encountered while parsing CIF: Some occupancies ([2.0]) sum to > 1! If they are within the occupancy_tolerance, they will be rescaled. The current occupancy_tolerance is set to: 1.0
+No structure parsed for section 1 in CIF.
+Occupancy 2.0 exceeded tolerance.
+  structures = parser.parse_structures(primitive=True)
+
+2025-08-11 22:00:17,063 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-08-11 22:00:17,064 - INFO - Invalid generated structure for index 18
+2025-08-11 22:00:17,089 - INFO - Structures do NOT match within tolerances.
+2025-08-11 22:00:17,089 - INFO - Structures do not match for index 19
+2025-08-11 22:00:17,115 - INFO - Structures do NOT match within tolerances.
+2025-08-11 22:00:17,115 - INFO - Structures do not match for index 20
+2025-08-11 22:00:17,115 - INFO - Invalid generated output for index 21
+2025-08-11 22:00:17,120 - WARNING - /scratch/pawsey1151/alexchen5/AtomWorldBench/src/evaluation/metrics.py:30: UserWarning: Issues encountered while parsing CIF: 4 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  structures = parser.parse_structures(primitive=True)
+
+2025-08-11 22:00:17,142 - INFO - Structures do NOT match within tolerances.
+2025-08-11 22:00:17,143 - INFO - Structures do not match for index 22
+2025-08-11 22:00:17,169 - INFO - Structures do NOT match within tolerances.
+2025-08-11 22:00:17,170 - INFO - Structures do not match for index 23
+2025-08-11 22:00:17,178 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-08-11 22:00:17,178 - INFO - Invalid generated structure for index 24
+2025-08-11 22:00:17,205 - INFO - Structures do NOT match within tolerances.
+2025-08-11 22:00:17,205 - INFO - Structures do not match for index 25
+2025-08-11 22:00:17,209 - WARNING - /scratch/pawsey1151/alexchen5/AtomWorldBench/src/evaluation/metrics.py:30: UserWarning: Issues encountered while parsing CIF: 12 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  structures = parser.parse_structures(primitive=True)
+
+2025-08-11 22:00:17,213 - WARNING - /scratch/pawsey1151/alexchen5/AtomWorldBench/src/evaluation/metrics.py:30: UserWarning: Issues encountered while parsing CIF: 8 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  structures = parser.parse_structures(primitive=True)
+
+2025-08-11 22:00:17,272 - WARNING - /scratch/pawsey1151/alexchen5/AtomWorldBench/src/evaluation/metrics.py:30: UserWarning: Issues encountered while parsing CIF: 20 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  structures = parser.parse_structures(primitive=True)
+
+2025-08-11 22:00:17,349 - INFO - Invalid generated output for index 28
+2025-08-11 22:00:17,371 - INFO - Structures do NOT match within tolerances.
+2025-08-11 22:00:17,372 - INFO - Structures do not match for index 29
+2025-08-11 22:00:17,383 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-08-11 22:00:17,383 - INFO - Invalid generated structure for index 30
+2025-08-11 22:00:17,406 - INFO - Structures do NOT match within tolerances.
+2025-08-11 22:00:17,406 - INFO - Structures do not match for index 31
+2025-08-11 22:00:17,450 - INFO - Structures do NOT match within tolerances.
+2025-08-11 22:00:17,451 - INFO - Structures do not match for index 32
+2025-08-11 22:00:17,451 - INFO - Invalid generated output for index 33
+2025-08-11 22:00:17,451 - INFO - Invalid generated output for index 34
+2025-08-11 22:00:17,512 - INFO - Structures do NOT match within tolerances.
+2025-08-11 22:00:17,513 - INFO - Structures do not match for index 35
+2025-08-11 22:00:17,538 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-08-11 22:00:17,539 - INFO - Invalid generated structure for index 36
+2025-08-11 22:00:17,539 - INFO - Invalid generated output for index 37
+2025-08-11 22:00:17,539 - INFO - Invalid generated output for index 38
+2025-08-11 22:00:17,568 - INFO - Error loading CIF from string: Invalid CIF file with no structures!
+2025-08-11 22:00:17,569 - INFO - Invalid generated structure for index 39
+2025-08-11 22:00:17,627 - INFO - Structures do NOT match within tolerances.
+2025-08-11 22:00:17,628 - INFO - Structures do not match for index 40
+2025-08-11 22:00:17,685 - INFO - Structures do NOT match within tolerances.
+2025-08-11 22:00:17,686 - INFO - Structures do not match for index 41
+2025-08-11 22:00:17,723 - INFO - Structures do NOT match within tolerances.
+2025-08-11 22:00:17,724 - INFO - Structures do not match for index 42
+2025-08-11 22:00:17,758 - INFO - Structures do NOT match within tolerances.
+2025-08-11 22:00:17,758 - INFO - Structures do not match for index 43
+2025-08-11 22:00:17,758 - INFO - Invalid generated output for index 44
+2025-08-11 22:00:17,790 - INFO - Structures do NOT match within tolerances.
+2025-08-11 22:00:17,790 - INFO - Structures do not match for index 45
+2025-08-11 22:00:17,814 - INFO - Structures do NOT match within tolerances.
+2025-08-11 22:00:17,814 - INFO - Structures do not match for index 46
+2025-08-11 22:00:17,862 - INFO - Structures do NOT match within tolerances.
+2025-08-11 22:00:17,862 - INFO - Structures do not match for index 47
+2025-08-11 22:00:17,862 - INFO - Invalid generated output for index 48
+2025-08-11 22:00:17,891 - INFO - Structures do NOT match within tolerances.
+2025-08-11 22:00:17,892 - INFO - Structures do not match for index 49

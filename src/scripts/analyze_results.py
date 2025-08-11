@@ -7,12 +7,13 @@ import sys
 
 # ========== Argument Parsing ==========
 parser = argparse.ArgumentParser(description="Analyze evaluation results.")
+parser.add_argument("-f", "--results_folder", type=str, required=True, help="Results folder")
 parser.add_argument("-m", "--model_name", type=str, required=True, help="Name of the model")
 parser.add_argument("-a", "--action_name", type=str, required=True, help="Name of the action")
 args = parser.parse_args()
 
 # ========== Setup ==========
-results_folder = "results"
+results_folder = args.results_folder
 model_name = args.model_name
 action_name = args.action_name
 folder = f"{results_folder}/{model_name}/{action_name}"
