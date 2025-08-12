@@ -8,12 +8,6 @@ class BondMotif(ClusterMotif):
     This motif is defined by the species of the two sites and their fractional coordinates.
     It can be used to represent bonds in a structure.
     """
-    allowed_actions = [
-        "resize", # Only allowed to resize the bond length.
-    ]
-    allowed_description_styles = [
-        "index",
-    ]  # Only allow description by index for atoms in bond.
 
     # To supress mypy, we need to define __len__ explicitly.
     def __len__(self) -> int: ...

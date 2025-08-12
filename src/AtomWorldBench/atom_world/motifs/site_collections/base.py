@@ -28,35 +28,6 @@ class BaseSiteCollectionMotif(ABC, BaseMotif, Atoms):
     Notice: all fractional coordinates must be unwrapped, i.e., not confined to
      the range [0, 1).
     """
-    # TODO: in the future, change these to read from registry.
-    # Define allowed actions for this motif. subclasses can override this.
-    allowed_actions = [
-        "add",
-        "remove",
-        "replace",
-        "translate",
-        "rotate",
-        "resize",  # Resize the cluster motif's radius wrt centroid or a node in cluster.
-    ]
-    # Define allowed description styles for this motif. subclasses can override this.
-    allowed_description_styles = [
-        "coord",
-        "index",
-    ]
-    # Define allowed relative styles for this motif. subclasses can override this.
-    # Keys are style names, values are either None (no conditions)
-    # or a tuple of a function that checks the motif and a description of the condition.
-    allowed_relative_styles = {
-        "centroid_distance": None,
-        "position_in_line": (
-            lambda motif: len(motif) == 2,
-            "only for atom pairs!"
-        ),
-        "rotation_axis": (
-            lambda motif: len(motif) == 2,
-            "only for atom pairs!"
-        ),
-    }
 
     def __init__(
             self,

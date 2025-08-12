@@ -6,13 +6,6 @@ class SiteMotif(BaseSiteCollectionMotif):
 
     Can be either an atom or an ionic species in a crystal structure.
     """
-    allowed_actions = BaseSiteCollectionMotif.allowed_actions
-    allowed_actions.pop("rotate") # SiteMotif cannot be rotated.
-    allowed_actions.pop("resize")  # SiteMotif cannot be resized.
-
-    allowed_relative_styles = {
-        "centroid_distance": None,
-    }
 
     # To supress mypy, we need to define __len__ explicitly.
     def __len__(self) -> int: ...

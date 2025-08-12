@@ -9,20 +9,6 @@ import numpy as np
 from ..motifs.site_collections.base import BaseSiteCollectionMotif
 
 
-def _check_relative_style_compatibility(
-        relative_style: str,
-        relative_to_motif: BaseSiteCollectionMotif,
-):
-    """Check if the relative style is compatible with the given relative motif.
-
-    Compatibility with the action should be implemented in mode_definitions.
-    """
-    if relative_to_motif is not None:
-        check_result, message = relative_to_motif.check_relative_style(relative_style)
-        if not check_result:
-            raise ValueError(message)
-
-
 class BaseAction(ABC):
     """Base class for actions that can be performed on crystal structures.
 

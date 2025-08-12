@@ -11,12 +11,6 @@ class BaseMotif(ABC):
     Used to define an operable region, geometric element, or sub-collection
     of sites in a system.
     """
-    # TODO: in the future, change these to read from registry.
-    # List of allowed actions that can be performed on this motif.
-    allowed_actions = []
-    # Dict of styles stating how this motif can be used as a reference to the action on other motifs.
-    # Keys are allowed styles, values are condition checking functions.
-    allowed_relative_styles = {}
 
     def __init__(self, name: Optional[str] = None):
         """Initialize the motif with an optional name."""
