@@ -13,7 +13,7 @@ class BondMotif(ClusterMotif):
     ]
     allowed_description_styles = [
         "index",
-    ]
+    ]  # Only allow description by index for atoms in bond.
 
     # To supress mypy, we need to define __len__ explicitly.
     def __len__(self) -> int: ...

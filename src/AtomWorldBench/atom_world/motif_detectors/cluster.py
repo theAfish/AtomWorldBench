@@ -7,8 +7,8 @@ import numpy as np
 
 from .base import BaseDetector
 from .site import SiteDetector
-from ..motifs.site_collection_motifs.site import SiteMotif
-from ..motifs.site_collection_motifs.cluster import ClusterMotif
+from ..motifs.site_collections.site import SiteMotif
+from ..motifs.site_collections.cluster import ClusterMotif
 
 
 def grow_cluster(

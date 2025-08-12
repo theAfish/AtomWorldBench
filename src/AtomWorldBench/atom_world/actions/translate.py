@@ -6,7 +6,7 @@ from numpy.typing import ArrayLike
 import numpy as np
 
 from .base import BaseAction
-from ..motifs.site_collection_motifs.base import BaseSiteCollectionMotif
+from ..motifs.site_collections.base import BaseSiteCollectionMotif
 
 from ...utils.coord_utils import check_coordinates_shape
 from ...utils.atoms_utils import merge_atoms

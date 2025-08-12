@@ -8,7 +8,7 @@ from numpy.typing import ArrayLike
 from scipy.spatial.transform import Rotation
 
 from .base import BaseAction
-from ..motifs.site_collection_motifs.base import BaseSiteCollectionMotif
+from ..motifs.site_collections.base import BaseSiteCollectionMotif
 
 from ...utils.coord_utils import check_coordinates_shape
 from ...utils.description_utils import describe_arraylike

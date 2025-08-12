@@ -6,7 +6,7 @@ from numpy.typing import ArrayLike
 from numpy.random import default_rng
 from ase import Atoms
 
-from ..motifs.site_collection_motifs.base import BaseSiteCollectionMotif
+from ..motifs.site_collections.base import BaseSiteCollectionMotif
 
 class BaseDetector(ABC):
     """Base class for motif detectors in the atom world.

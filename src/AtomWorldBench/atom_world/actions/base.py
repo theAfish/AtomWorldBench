@@ -6,7 +6,7 @@ from collections import defaultdict
 from ase import Atoms
 import numpy as np
 
-from ..motifs.site_collection_motifs.base import BaseSiteCollectionMotif
+from ..motifs.site_collections.base import BaseSiteCollectionMotif
 
 
 def _check_relative_style_compatibility(

@@ -5,7 +5,7 @@ from ase import Atoms
 import numpy as np
 
 from .base import BaseAction
-from ..motifs.site_collection_motifs.base import BaseSiteCollectionMotif
+from ..motifs.site_collections.base import BaseSiteCollectionMotif
 
 
 class ReplaceMotifAction(BaseAction):

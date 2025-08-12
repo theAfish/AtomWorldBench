@@ -5,7 +5,6 @@ from typing import Optional
 
 from ase import Atoms
 from numpy import ndarray
-from numpy.typing import ArrayLike
 
 from ..base import BaseMotif
 

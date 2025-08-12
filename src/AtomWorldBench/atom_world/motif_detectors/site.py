@@ -5,7 +5,7 @@ from numpy.typing import ArrayLike
 from ase import Atoms
 
 from .base import BaseDetector
-from ..motifs.site_collection_motifs.site import SiteMotif
+from ..motifs.site_collections.site import SiteMotif
 from ...utils.neighbor_utils import detect_indices_offests_around_frac_coords
 
 

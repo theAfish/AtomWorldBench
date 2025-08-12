@@ -5,7 +5,7 @@ from ase import Atoms
 import numpy as np
 
 from .base import BaseAction
-from ..motifs.site_collection_motifs.base import BaseSiteCollectionMotif
+from ..motifs.site_collections.base import BaseSiteCollectionMotif
 
 from ...utils.atoms_utils import merge_atoms
 from ...globals import DEFAULT_FLOAT_TO_STRING_PRECISION

@@ -11,11 +11,10 @@ import numpy as np
 from numpy.typing import ArrayLike
 from ase import Atoms
 
-from ...motif_description_styles import description_style_factory
-from ....utils.description_utils import get_species_string
+from ....utils.description_utils import get_species_string, describe_arraylike
 from ....utils.coord_utils import check_integer_translation, find_coordinate_subset_indices
 
-from ....globals import ALLOW_TRANSLATION_EQUIVALENCE
+from ....globals import ALLOW_TRANSLATION_EQUIVALENCE, DEFAULT_FLOAT_TO_STRING_PRECISION
 from ..base import BaseMotif
 
 
@@ -228,7 +227,8 @@ class BaseSiteCollectionMotif(ABC, BaseMotif, Atoms):
             self,
             style: str = "coord",
             is_addition: bool = False,
-            **kwargs
+            coord_fractional: bool = False,
+            precision: int = DEFAULT_FLOAT_TO_STRING_PRECISION,
     ) -> str:
         """Return a string description of the cluster motif.
 
@@ -236,29 +236,48 @@ class BaseSiteCollectionMotif(ABC, BaseMotif, Atoms):
             style (str): The style of description. Default is "coord".
             is_addition (bool): If True, the description is for an addition action.
                 This affects how the description is formatted. Default is False.
-            **kwargs: Additional keyword arguments for the description style.
-                For example, `coord_style` and `precision` for coordinate descriptions.
-                For other styles, refer to the specific description style documentation.
+            coord_fractional (bool): If True, use fractional coordinates in the description.
+                If False, use Cartesian coordinates. Default is False.
+            precision (int): The precision for floating-point numbers in the description.
         Returns:
             str: A string description of the cluster motif.
         """
-        if self.indices is None and style == "index":
-            print("Warning: No indices set for the motif. Must use coordinates to describe.")
-            style = "coord"
-
         style = style.lower()
+        if self.indices is None and style == "index":
+            raise ValueError(
+                f"Cannot describe {self.__class__.__name__} with style 'index' "
+                f"because it has no indices set. Please set indices first."
+                f"To find indices, use the `find_indices_in_atoms` method."
+            )
+
         if style not in self.allowed_description_styles:
             raise ValueError(
-                f"Description style '{style}' is not allowed for this motif. "
+                f"Description style '{style}' is not allowed for {self.__class__.__name__}. "
                 f"Allowed styles: {self.allowed_description_styles}."
             )
 
-        # For single atom motifs, return the name directly for addition actions.
-        kwargs.update({"is_addition": is_addition})
-        description_style = description_style_factory(
-            style, **kwargs
-        )
-        return description_style.describe(self)
+        # addition of a single site motif, return the name directly.
+        if len(self) == 1 and is_addition:
+            return self.name
+        else:
+            if style == "coord":
+                coord_word = "fractional" if coord_fractional else "cartesian"
+                coords = self.frac_coords if coord_fractional else self.cart_coords
+                coords_string = describe_arraylike(coords, precision=precision)
+                return (
+                    f"{self.name} with {coord_word} coordinates: "
+                    f"{coords_string}"
+                )
+            elif style == "index":
+                indices_string = describe_arraylike(self.indices, precision=0)
+                return (
+                    f"{self.name} at site indices: "
+                    f"{indices_string} in the structure."
+                )
+            else:
+                raise NotImplementedError(
+                    f"Description style '{style}' is not implemented for site collection motifs."
+                )
 
     @classmethod
     def from_atoms(

@@ -12,9 +12,15 @@ from ....utils.description_utils import describe_arraylike
 from ....globals import DEFAULT_FLOAT_TO_STRING_PRECISION
 
 
-
+# Design philosophy: When requiring different arguments in the constructor,
+# will use different classes.
 class SphereAroundCoordRegionMotif(BaseRegionMotif):
     """A spherical region motif that defines a spherical operable region in space."""
+    allowed_actions = [
+        "remove",
+        "rotate",
+        "resize",
+    ]
 
     def __init__(
             self,
@@ -84,6 +90,11 @@ class SphereAroundCoordRegionMotif(BaseRegionMotif):
 
 class SphereAroundIndexRegionMotif(BaseRegionMotif):
     """A spherical region motif that defines a spherical operable region in space."""
+    allowed_actions = [
+        "remove",
+        "rotate",
+        "resize",
+    ]
 
     def __init__(
             self,

@@ -1,6 +1,6 @@
 from ...utils.class_utils import class_name_from_str, derived_class_factory
 
-from ..motifs.site_collection_motifs.base import BaseSiteCollectionMotif
+from .base import BaseMotif
 
 
 # TODO: polyhedra, etc.
@@ -22,4 +22,4 @@ def motif_factory(
         BaseSiteCollectionMotif: An instance of the specified motif type.
     """
     class_name = class_name_from_str(motif_name + "-motif")
-    return derived_class_factory(class_name, BaseSiteCollectionMotif, *args, **kwargs)
+    return derived_class_factory(class_name, BaseMotif, *args, **kwargs)

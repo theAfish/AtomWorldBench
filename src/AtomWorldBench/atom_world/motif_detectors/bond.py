@@ -6,7 +6,7 @@ from numpy.typing import ArrayLike
 
 from .cluster import ClusterDetector
 
-from ..motifs.site_collection_motifs.bond import BondMotif
+from ..motifs.site_collections.bond import BondMotif
 
 
 class BondDetector(ClusterDetector):
