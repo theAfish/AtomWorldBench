@@ -5,7 +5,7 @@ from __future__ import annotations
 import inspect
 import itertools
 from abc import ABC
-from typing import Any, Union, Optional, Callable, Sequence, Mapping
+from typing import Any, Union, Callable, Sequence, Mapping
 
 
 # ---- Type aliases -----------------------------------------------------------
