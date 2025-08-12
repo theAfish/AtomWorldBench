@@ -3,7 +3,7 @@
 Motifs are inherited from ase.Atoms.
 """
 from typing import List, Optional, Dict, Tuple
-from abc import ABC, abstractmethod
+from abc import ABC
 from functools import cached_property
 from collections import Counter
 
@@ -16,25 +16,48 @@ from ....utils.description_utils import get_species_string
 from ....utils.coord_utils import check_integer_translation, find_coordinate_subset_indices
 
 from ....globals import ALLOW_TRANSLATION_EQUIVALENCE
+from ..base import BaseMotif
 
 
-class BaseSiteCollectionMotif(ABC, Atoms):
-    """Base class for motifs in the atom world.
+class BaseSiteCollectionMotif(ABC, BaseMotif, Atoms):
+    """Base class for site collection motifs in the atom world.
 
-    A motif is defined as a specific collection of atoms that can be
+    Defined as a specific collection of atoms that can be
     recognized and manipulated within a structure. This class provides an interface
     for defining and applying motifs to structures.
 
     Notice: all fractional coordinates must be unwrapped, i.e., not confined to
      the range [0, 1).
     """
-    # List of allowed actions that can be performed on this motif.
-    allowed_actions = []
-    # List of allowed description styles for this motif.
-    allowed_description_styles = []
-    # Dict of styles stating how this motif can be used as a reference to the action on other motifs.
-    # Keys are allowed styles, values are condition checking functions.
-    allowed_relative_styles = {}
+    # TODO: in the future, change these to read from registry.
+    # Define allowed actions for this motif. subclasses can override this.
+    allowed_actions = [
+        "add",
+        "remove",
+        "replace",
+        "translate",
+        "rotate",
+        "resize",  # Resize the cluster motif's radius wrt centroid or a node in cluster.
+    ]
+    # Define allowed description styles for this motif. subclasses can override this.
+    allowed_description_styles = [
+        "coord",
+        "index",
+    ]
+    # Define allowed relative styles for this motif. subclasses can override this.
+    # Keys are style names, values are either None (no conditions)
+    # or a tuple of a function that checks the motif and a description of the condition.
+    allowed_relative_styles = {
+        "centroid_distance": None,
+        "position_in_line": (
+            lambda motif: len(motif) == 2,
+            "only for atom pairs!"
+        ),
+        "rotation_axis": (
+            lambda motif: len(motif) == 2,
+            "only for atom pairs!"
+        ),
+    }
 
     def __init__(
             self,
@@ -58,20 +81,15 @@ class BaseSiteCollectionMotif(ABC, Atoms):
                 if they are related by an integer translation.
                 Default is not given, then will use the global setting ALLOW_TRANSLATION_EQUIVALENCE.
         """
-        super().__init__(*args, **kwargs)
-        self.name = name
+        BaseMotif.__init__(self, name=name)
+        Atoms.__init__(self, *args, **kwargs)
         self.indices = indices
         if allow_translation_equivalence is None:
             allow_translation_equivalence = ALLOW_TRANSLATION_EQUIVALENCE
         self.allow_translation_equivalence = allow_translation_equivalence
+
+        # Post init checks. Can be overridden by subclasses.
         self.__post_init__()
-
-    def __post_init__(self):
-        """Post-initialization to set the motif mets criterion of its type.
-
-        This method can be overridden by subclasses to perform additional initialization.
-        """
-        pass
 
     @property
     def species_strings(self) -> List[str]:
@@ -184,25 +202,6 @@ class BaseSiteCollectionMotif(ABC, Atoms):
         # If None, clear the existing indices. Already implemented in ASE.
         self.set_array("site_indices", indices, dtype=int)
 
-    @property
-    def name(self) -> str:
-        """Set the name of the motif."""
-        return self.info["motif_name"]
-
-    @name.setter
-    def name(self, name: Optional[str] = None):
-        """Set the name of the motif.
-
-        Args:
-            name (str, optional): The name of the motif. If None, a default name will be generated.
-        """
-        self.info["motif_name"] = name if name is not None else self._get_default_name()
-
-    @abstractmethod
-    def _get_default_name(self) -> str:
-        """Generate a default name based on motif type, species and coordinates."""
-        pass
-
     def check_relative_style(self, style: str) -> Tuple[bool, str]:
         """Check if the motif can be used with a given relative style.
 
@@ -245,7 +244,7 @@ class BaseSiteCollectionMotif(ABC, Atoms):
         """
         if self.indices is None and style == "index":
             print("Warning: No indices set for the motif. Must use coordinates to describe.")
-            style = "index"
+            style = "coord"
 
         style = style.lower()
         if style not in self.allowed_description_styles:
@@ -348,7 +347,7 @@ class BaseSiteCollectionMotif(ABC, Atoms):
         """
         return Atoms(
             symbols=self.get_chemical_symbols(),
-            positions=self.cart_coords,
+            positions=self.cart_coords.tolist(),
             cell=self.cell.array,
             pbc=self.pbc,
             charges=self.get_initial_charges(),
@@ -366,6 +365,19 @@ class BaseSiteCollectionMotif(ABC, Atoms):
         super().extend(other)
         self.name = None  # Reset name to default to avoid conflicts with the original motif name.
 
+    def copy(self):
+        """Return a copy of the motif."""
+        atoms_copy = Atoms.copy(self)
+        return self.__class__.from_atoms(
+            atoms_copy,
+            name=self.name,  # Keep the name of the motif.
+            indices=self.indices
+        )
+
+    def __len__(self) -> int:
+        """Return the number of atoms in the motif."""
+        return Atoms.__len__(self)
+
     def __getitem__(self, i):
         """Return a subset of the motif."""
         atoms = super().__getitem__(i)
@@ -378,7 +390,7 @@ class BaseSiteCollectionMotif(ABC, Atoms):
 
     def __imul__(self, m):
         """Repeat the motif by a given factor."""
-        _ = super().__imul__(m)
+        _ = Atoms.__imul__(self, m)
         self.name = None # Reset name to default to avoid conflicts with the original motif name.
         return self
 

@@ -9,16 +9,15 @@ class BondMotif(ClusterMotif):
     It can be used to represent bonds in a structure.
     """
     allowed_actions = [
-        "ResizeMotifAction", # Resize the bond motif's length wrt centroid or a node in cluster.
+        "resize", # Only allowed to resize the bond length.
     ]
     allowed_description_styles = [
         "index",
     ]
-    allowed_relative_styles = {
-        "rotation_axis": None,  # No need to check for conditions.
-        "position_in_line": None,
-        "centroid_distance": None,
-    }
+
+    # To supress mypy, we need to define __len__ explicitly.
+    def __len__(self) -> int: ...
+
     def __post_init__(self):
         """Post-initialization to check whether motif size is 1."""
         if len(self) != 2:

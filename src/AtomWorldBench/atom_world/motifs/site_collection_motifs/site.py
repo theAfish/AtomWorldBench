@@ -1,4 +1,4 @@
-from ..motifs.site_collection_motifs.base import BaseSiteCollectionMotif
+from .base import BaseSiteCollectionMotif
 
 
 class SiteMotif(BaseSiteCollectionMotif):
@@ -6,20 +6,16 @@ class SiteMotif(BaseSiteCollectionMotif):
 
     Can be either an atom or an ionic species in a crystal structure.
     """
-    allowed_actions = [
-        "AddMotifAction",
-        "RemoveMotifAction",
-        "ReplaceMotifAction",
-        "TranslateMotifAction",
-        "RotateMotifAction",
-    ]
-    allowed_description_styles = [
-        "coord",
-        "index",
-    ]
+    allowed_actions = BaseSiteCollectionMotif.allowed_actions
+    allowed_actions.pop("rotate") # SiteMotif cannot be rotated.
+    allowed_actions.pop("resize")  # SiteMotif cannot be resized.
+
     allowed_relative_styles = {
-        "centroid_distance": None,  # No need to check for conditions.
+        "centroid_distance": None,
     }
+
+    # To supress mypy, we need to define __len__ explicitly.
+    def __len__(self) -> int: ...
 
     def __post_init__(self):
         """Post-initialization to check whether motif size is 1."""

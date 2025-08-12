@@ -1,7 +1,7 @@
 """Motif comprising multiple atoms."""
 from typing import List
 
-from ..motifs.site_collection_motifs.base import BaseSiteCollectionMotif
+from .base import BaseSiteCollectionMotif
 from .site import SiteMotif
 
 
@@ -11,29 +11,9 @@ class ClusterMotif(BaseSiteCollectionMotif):
     This motif is defined by a list of species and their fractional coordinates.
     It can be used to represent clusters of atoms in a structure.
     """
-    allowed_actions = [
-        "AddMotifAction",
-        "RemoveMotifAction",
-        "ReplaceMotifAction",
-        "TranslateMotifAction",
-        "RotateMotifAction",
-        "ResizeMotifAction",  # Resize the cluster motif's radius wrt centroid or a node in cluster.
-    ]
-    allowed_description_styles = [
-        "coord",
-        "index",
-    ]
-    allowed_relative_styles = {
-        "centroid_distance": None,
-        "position_in_line": (
-            lambda motif: len(motif) == 2,
-            "only for pairs!"
-        ),
-        "rotation_axis": (
-            lambda motif: len(motif) == 2,
-            "only for pairs!"
-        ),
-    }
+
+    # To supress mypy, we need to define __len__ explicitly.
+    def __len__(self) -> int: ...
 
     def _get_default_name(self) -> str:
         """Generate a default name for the cluster motif based on species and coordinates."""
