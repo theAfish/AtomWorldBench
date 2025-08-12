@@ -6,7 +6,7 @@ from numpy.typing import ArrayLike
 from numpy.random import default_rng
 from ase import Atoms
 
-from ..motifs.base import BaseMotif
+from ..motifs.site_collection_motifs.base import BaseSiteCollectionMotif
 
 class BaseDetector(ABC):
     """Base class for motif detectors in the atom world.
@@ -42,7 +42,7 @@ class BaseDetector(ABC):
             self,
             atoms: Atoms,
             frac_coords: ArrayLike,
-    ) -> List[BaseMotif]:
+    ) -> List[BaseSiteCollectionMotif]:
         """Detect motifs in the given structure.
 
         This method should be implemented by every subclass to analyze the structure.
@@ -60,7 +60,7 @@ class BaseDetector(ABC):
             self,
             atoms: Atoms,
             indices: List[int],
-    ) -> List[BaseMotif]:
+    ) -> List[BaseSiteCollectionMotif]:
         """Detect motifs in the given structure based on indices.
 
         This method can be overridden by subclasses if they need to implement
@@ -84,7 +84,7 @@ class BaseDetector(ABC):
             self,
             atoms: Atoms,
             **kwargs
-    ) -> BaseMotif:
+    ) -> BaseSiteCollectionMotif:
         """Detect a single motif at random in the given structure.
 
         This method should be implemented by every subclass to analyze the structure.
@@ -102,7 +102,7 @@ class BaseDetector(ABC):
     def detect_all(
             self,
             atoms: Atoms,
-    ) -> List[BaseMotif]:
+    ) -> List[BaseSiteCollectionMotif]:
         """Detect all motifs in the given structure.
 
         This method should be implemented by every subclass to analyze the structure.

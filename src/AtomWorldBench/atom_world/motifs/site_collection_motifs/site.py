@@ -1,9 +1,7 @@
-from typing import List, Optional
-
-from .base import BaseMotif
+from ..motifs.site_collection_motifs.base import BaseSiteCollectionMotif
 
 
-class SiteMotif(BaseMotif):
+class SiteMotif(BaseSiteCollectionMotif):
     """A motif that represents a point in space, defined by its coordinates.
 
     Can be either an atom or an ionic species in a crystal structure.

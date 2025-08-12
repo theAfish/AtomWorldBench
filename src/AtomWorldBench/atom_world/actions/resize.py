@@ -2,11 +2,10 @@
 from typing import Optional, Tuple
 
 from ase import Atoms
-from numpy.typing import ArrayLike
 import numpy as np
 
 from .base import BaseAction
-from ..motifs.base import BaseMotif
+from ..motifs.site_collection_motifs.base import BaseSiteCollectionMotif
 
 from ...utils.atoms_utils import merge_atoms
 from ...globals import DEFAULT_FLOAT_TO_STRING_PRECISION
@@ -91,12 +90,12 @@ class ResizeMotifAction(BaseAction):
             to_radius = to_radius,
         )
 
-    def _check_compatibility(self, atoms: Atoms, motif: BaseMotif) -> Tuple[bool, str]:
+    def _check_compatibility(self, atoms: Atoms, motif: BaseSiteCollectionMotif) -> Tuple[bool, str]:
         """Check if the motif can be resized in the structure.
 
         Args:
             atoms (Atoms): The structure containing the motif.
-            motif (BaseMotif): The motif to be resized.
+            motif (BaseSiteCollectionMotif): The motif to be resized.
 
         Returns:
             Tuple[bool, str]: A tuple indicating compatibility and a message.
@@ -124,14 +123,14 @@ class ResizeMotifAction(BaseAction):
         return (motif.cart_coords - center) * scale + center
 
 
-    def _execute(self, atoms: Atoms, motif: BaseMotif) -> Atoms:
+    def _execute(self, atoms: Atoms, motif: BaseSiteCollectionMotif) -> Atoms:
         """Execute the action to resize the motif in the structure.
 
         Resizes the motif in the structure based on the action parameters.
         Order of atoms in the structure is preserved, but the motif is resized.
         Args:
             atoms (Atoms): The structure containing the motif.
-            motif (BaseMotif): The motif to be resized.
+            motif (BaseSiteCollectionMotif): The motif to be resized.
 
         Returns:
             Atoms: The modified structure with the resized motif.
@@ -154,14 +153,14 @@ class ResizeMotifAction(BaseAction):
 
     def describe(
             self,
-            motif: BaseMotif,
+            motif: BaseSiteCollectionMotif,
             precision: int = DEFAULT_FLOAT_TO_STRING_PRECISION,
             motif_kwargs: Optional[dict] = None
     ) -> str:
         """Generate a description for the resize action.
 
         Args:
-            motif (BaseMotif): The motif being resized.
+            motif (BaseSiteCollectionMotif): The motif being resized.
             precision (int): The number of decimal places to format the coordinates.
             motif_kwargs (Optional[dict]): Additional keyword arguments for the motif.describe method.
 

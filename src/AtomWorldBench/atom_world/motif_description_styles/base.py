@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from ..motifs.base import BaseMotif
+from ..motifs.site_collection_motifs.base import BaseSiteCollectionMotif
 
 
 class BaseDescriptionStyle(ABC):
@@ -26,6 +26,6 @@ class BaseDescriptionStyle(ABC):
         self.is_addition = is_addition
 
     @abstractmethod
-    def describe(self, motif: BaseMotif) -> str:
+    def describe(self, motif: BaseSiteCollectionMotif) -> str:
         """Generate a description for the given motif."""
         pass

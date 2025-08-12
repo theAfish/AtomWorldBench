@@ -8,7 +8,7 @@ from numpy.typing import ArrayLike
 from scipy.spatial.transform import Rotation
 
 from .base import BaseAction
-from ..motifs.base import BaseMotif
+from ..motifs.site_collection_motifs.base import BaseSiteCollectionMotif
 
 from ...utils.coord_utils import check_coordinates_shape
 from ...utils.description_utils import describe_arraylike
@@ -109,7 +109,7 @@ class RotateMotifAction(BaseAction):
             relative_to_position: Optional[ArrayLike] = None,
             position_fractional: Optional[bool] = True,
             relative_style: str = None,
-            relative_to_motif: Optional[BaseMotif] = None,
+            relative_to_motif: Optional[BaseSiteCollectionMotif] = None,
             relative_pair_origin_index: Optional[int] = None,
             self_relative: Optional[bool] = None,
     ):
@@ -164,7 +164,7 @@ class RotateMotifAction(BaseAction):
                 This will also affect the description style of the action. Default is True
             relative_style (str):
                 Style of the relative action.
-            relative_to_motif (Optional[BaseMotif]):
+            relative_to_motif (Optional[BaseSiteCollectionMotif]):
                 Motif to rotate relative to. If rotating in Euler angles, this motif's centroid
                 will be used as the rotation center. If rotating around a vector, this motif must
                 be a pair motif, with its rotation vector calculated from the line of the pair motif,
@@ -199,13 +199,13 @@ class RotateMotifAction(BaseAction):
             self_relative=self_relative,
         )
 
-    def _check_compatibility(self, atoms: Atoms, motif: BaseMotif) -> Tuple[bool, str]:
+    def _check_compatibility(self, atoms: Atoms, motif: BaseSiteCollectionMotif) -> Tuple[bool, str]:
         """Check if the action is compatible with the given atoms and motif.
 
         In this action, only checks whether motif is in atoms.
         Args:
             atoms (Atoms): The Atoms object to check compatibility with.
-            motif (BaseMotif): The motif to check compatibility with.
+            motif (BaseSiteCollectionMotif): The motif to check compatibility with.
 
         Returns:
             Tuple[bool, str]: A tuple containing a boolean indicating compatibility
@@ -218,7 +218,7 @@ class RotateMotifAction(BaseAction):
         )
         return indices is not None, f"operated not found in structure: {message}"
 
-    def _get_rotation_center(self, motif: BaseMotif):
+    def _get_rotation_center(self, motif: BaseSiteCollectionMotif):
         """Helper function to get the rotation center based on the mode.
 
         Return cartesian coordinates of the rotation center.
@@ -265,13 +265,13 @@ class RotateMotifAction(BaseAction):
     def _execute(
             self,
             atoms: Atoms,
-            motif: BaseMotif
+            motif: BaseSiteCollectionMotif
     ) -> Atoms:
         """Execute the rotation action on the atoms and motif.
 
         Args:
             atoms (Atoms): The Atoms object to rotate.
-            motif (BaseMotif): The motif to rotate.
+            motif (BaseSiteCollectionMotif): The motif to rotate.
 
         Returns:
             Atoms: The Atoms object with motif rotated.
@@ -318,7 +318,7 @@ class RotateMotifAction(BaseAction):
 
     def describe(
             self,
-            motif: BaseMotif,
+            motif: BaseSiteCollectionMotif,
             precision: int = DEFAULT_FLOAT_TO_STRING_PRECISION,
             motif_kwargs: Optional[dict] = None,
             relative_motif_kwargs: Optional[dict] = None,
@@ -328,7 +328,7 @@ class RotateMotifAction(BaseAction):
          Note that motif and relative motif description styles are not affected by the action's
         `position_fractional` attribute.
         Args:
-            motif (BaseMotif): The motif being translated.
+            motif (BaseSiteCollectionMotif): The motif being translated.
             precision (int): The precision for formatting numerical values in the description in decimals.
                 Default is set in `globals.py`, typically 4.
                 Will overwrite motif and relative motif description precision settings.

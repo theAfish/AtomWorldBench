@@ -5,7 +5,7 @@ from ase import Atoms
 import numpy as np
 
 from .base import BaseAction
-from ..motifs.base import BaseMotif
+from ..motifs.site_collection_motifs.base import BaseSiteCollectionMotif
 
 
 class ReplaceMotifAction(BaseAction):
@@ -19,12 +19,12 @@ class ReplaceMotifAction(BaseAction):
 
     def __init__(
             self,
-            replaced_motif: BaseMotif,
+            replaced_motif: BaseSiteCollectionMotif,
     ):
         """Initialize the ReplaceMotifAction with fractional coordinates and cutoff.
 
         Args:
-            replaced_motif (BaseMotif):
+            replaced_motif (BaseSiteCollectionMotif):
                 A motif that the action will replace in the structure.
                 Must be in the structure (will check at `execute` call).
         """
@@ -46,7 +46,7 @@ class ReplaceMotifAction(BaseAction):
     def _execute(
             self,
             atoms: Atoms,
-            motif: BaseMotif,
+            motif: BaseSiteCollectionMotif,
     ) -> Atoms:
         """Execute the action to replace the motif in the structure.
 
@@ -55,7 +55,7 @@ class ReplaceMotifAction(BaseAction):
 
         Args:
             atoms (Atoms): The structure to operate on.
-            motif (BaseMotif): The motif to put in the structure.
+            motif (BaseSiteCollectionMotif): The motif to put in the structure.
         Returns:
             Atoms: The modified structure with the motif replaced.
         """
@@ -75,7 +75,7 @@ class ReplaceMotifAction(BaseAction):
 
     def describe(
             self,
-            motif: BaseMotif,
+            motif: BaseSiteCollectionMotif,
             motif_kwargs: Optional[dict] = None,
             relative_motif_kwargs: Optional[dict] = None,
             **kwargs
@@ -83,7 +83,7 @@ class ReplaceMotifAction(BaseAction):
         """Describe the action to replace a motif.
 
         Args:
-            motif (BaseMotif): The motif to put in the structure.
+            motif (BaseSiteCollectionMotif): The motif to put in the structure.
             motif_kwargs (Optional[dict]):
                 Additional keyword arguments for describing the motif.
             relative_motif_kwargs (Optional[dict]):

@@ -11,14 +11,14 @@ import numpy as np
 from numpy.typing import ArrayLike
 from ase import Atoms
 
-from ..motif_description_styles import description_style_factory
-from ...utils.description_utils import get_species_string
-from ...utils.coord_utils import check_integer_translation, find_coordinate_subset_indices
+from ...motif_description_styles import description_style_factory
+from ....utils.description_utils import get_species_string
+from ....utils.coord_utils import check_integer_translation, find_coordinate_subset_indices
 
-from ...globals import ALLOW_TRANSLATION_EQUIVALENCE
+from ....globals import ALLOW_TRANSLATION_EQUIVALENCE
 
 
-class BaseMotif(ABC, Atoms):
+class BaseSiteCollectionMotif(ABC, Atoms):
     """Base class for motifs in the atom world.
 
     A motif is defined as a specific collection of atoms that can be
@@ -277,7 +277,7 @@ class BaseMotif(ABC, Atoms):
                 Indices should always be provided, if the motif belongs to a specific structure.
 
         Returns:
-            BaseMotif: An instance of BaseMotif with the specified atoms and indices.
+            BaseSiteCollectionMotif: An instance of BaseMotif with the specified atoms and indices.
         """
         return cls(
             symbols=atoms.get_chemical_symbols(),
@@ -358,7 +358,7 @@ class BaseMotif(ABC, Atoms):
         """Extend the motif with another motif or ASE Atoms object.
 
         Args:
-            other (BaseMotif or Atoms): The motif or ASE Atoms object to extend this motif with.
+            other (BaseSiteCollectionMotif or Atoms): The motif or ASE Atoms object to extend this motif with.
         """
         if (self.indices is None and other.indices is not None) or \
            (self.indices is not None and other.indices is None):

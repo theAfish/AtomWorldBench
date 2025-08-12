@@ -2,7 +2,7 @@
 
 from .base import BaseDescriptionStyle
 
-from ..motifs.base import BaseMotif
+from ..motifs.site_collection_motifs.base import BaseSiteCollectionMotif
 from ...utils.description_utils import describe_arraylike
 from ...globals import DEFAULT_FLOAT_TO_STRING_PRECISION
 
@@ -42,7 +42,7 @@ class CoordDescriptionStyle(BaseDescriptionStyle):
         self.precision = precision
         self.center = center
 
-    def describe(self, motif: BaseMotif) -> str:
+    def describe(self, motif: BaseSiteCollectionMotif) -> str:
         """Generate a description for the given motif.
 
         Args:

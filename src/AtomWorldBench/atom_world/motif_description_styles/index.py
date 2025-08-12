@@ -1,9 +1,9 @@
 import numpy as np
 
 from .base import BaseDescriptionStyle
-from ..motifs.base import BaseMotif
+from ..motifs.site_collection_motifs.base import BaseSiteCollectionMotif
 
-from src.AtomWorldBench.utils.description_utils import describe_arraylike
+from ...utils.description_utils import describe_arraylike
 
 
 class IndexDescriptionStyle(BaseDescriptionStyle):
@@ -21,7 +21,7 @@ class IndexDescriptionStyle(BaseDescriptionStyle):
         " and is shifted forward by one unit cell along the c-axis."
     )
 
-    def describe(self, motif: BaseMotif) -> str:
+    def describe(self, motif: BaseSiteCollectionMotif) -> str:
         """Generate a description for the given motif.
 
         Args:

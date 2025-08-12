@@ -1,11 +1,11 @@
 """Motif comprising multiple atoms."""
 from typing import List
 
-from .base import BaseMotif
+from ..motifs.site_collection_motifs.base import BaseSiteCollectionMotif
 from .site import SiteMotif
 
 
-class ClusterMotif(BaseMotif):
+class ClusterMotif(BaseSiteCollectionMotif):
     """Motif representing a cluster of atoms.
 
     This motif is defined by a list of species and their fractional coordinates.

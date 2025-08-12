@@ -6,12 +6,12 @@ from collections import defaultdict
 from ase import Atoms
 import numpy as np
 
-from ..motifs.base import BaseMotif
+from ..motifs.site_collection_motifs.base import BaseSiteCollectionMotif
 
 
 def _check_relative_style_compatibility(
         relative_style: str,
-        relative_to_motif: BaseMotif,
+        relative_to_motif: BaseSiteCollectionMotif,
 ):
     """Check if the relative style is compatible with the given relative motif.
 
@@ -187,7 +187,7 @@ class BaseAction(ABC):
         # Implement other check here.
         pass
 
-    def execute(self, atoms: Atoms, operated_motif: BaseMotif) -> Atoms:
+    def execute(self, atoms: Atoms, operated_motif: BaseSiteCollectionMotif) -> Atoms:
         """Execute the action on the structure to generate the ground truth structure."""
         passed, message = self.check_compatibility(atoms, operated_motif)
         if passed:
@@ -198,7 +198,7 @@ class BaseAction(ABC):
         )
 
     @abstractmethod
-    def _execute(self, atoms: Atoms, operated_motif: BaseMotif) -> Atoms:
+    def _execute(self, atoms: Atoms, operated_motif: BaseSiteCollectionMotif) -> Atoms:
         """Execute the action on the structure to generate the ground truth structure.
 
         Must be overridden by subclasses to implement specific actions.
@@ -206,7 +206,7 @@ class BaseAction(ABC):
         pass
 
     @classmethod
-    def class_compatibility(cls, motif: BaseMotif) -> bool:
+    def class_compatibility(cls, motif: BaseSiteCollectionMotif) -> bool:
         """Check if the action is compatible with the given Atoms and motif object.
 
         Args:
@@ -216,12 +216,12 @@ class BaseAction(ABC):
         """
         return cls.__name__ in motif.allowed_actions
 
-    def check_compatibility(self, atoms: Atoms, motif: BaseMotif) -> Tuple[bool, str]:
+    def check_compatibility(self, atoms: Atoms, motif: BaseSiteCollectionMotif) -> Tuple[bool, str]:
         """Check if the action is compatible with the given Atoms object.
 
         Args:
             atoms(Atoms): An instance of Atoms to check compatibility with.
-            motif(BaseMotif): An instance of BaseMotif to check compatibility with.
+            motif(BaseSiteCollectionMotif): An instance of BaseMotif to check compatibility with.
         Returns:
             Tuple[bool, str]:
               True if the action is compatible with the Atoms and motif, False otherwise.
@@ -248,13 +248,13 @@ class BaseAction(ABC):
         return self._check_compatibility(atoms, motif)
 
     @abstractmethod
-    def _check_compatibility(self, atoms: Atoms, motif: BaseMotif) -> Tuple[bool, str]:
+    def _check_compatibility(self, atoms: Atoms, motif: BaseSiteCollectionMotif) -> Tuple[bool, str]:
         """Check if the action is compatible with the given Atoms object.
 
         Must be overridden by subclasses to implement specific compatibility checks.
         Args:
             atoms(Atoms): An instance of Atoms to check compatibility with.
-            motif(BaseMotif): An instance of BaseMotif to check compatibility with.
+            motif(BaseSiteCollectionMotif): An instance of BaseMotif to check compatibility with.
         Returns:
             Tuple[bool,str]:
             True if the action is compatible with the Atoms and motif, False otherwise.
@@ -262,6 +262,6 @@ class BaseAction(ABC):
         pass
 
     @abstractmethod
-    def describe(self, motif: BaseMotif, **kwargs) -> str:
+    def describe(self, motif: BaseSiteCollectionMotif, **kwargs) -> str:
         """Generate a description of the action to be performed on the structure."""
         pass

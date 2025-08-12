@@ -5,7 +5,7 @@ import numpy as np
 from ase import Atoms
 
 from .base import BaseAction
-from ..motifs import BaseMotif
+from ..motifs.site_collection_motifs.base import BaseSiteCollectionMotif
 
 
 class RemoveMotifAction(BaseAction):
@@ -26,13 +26,13 @@ class RemoveMotifAction(BaseAction):
         """
         super().__init__()
 
-    def _check_compatibility(self, atoms: Atoms, motif: BaseMotif) -> Tuple[bool, str]:
+    def _check_compatibility(self, atoms: Atoms, motif: BaseSiteCollectionMotif) -> Tuple[bool, str]:
         """Check if the motif can be removed from the structure.
 
         Will override the motif's original indices attribute, if the motif is found in the structure.
         Args:
             atoms (Atoms): The structure from which the motif is to be removed.
-            motif (BaseMotif): The motif to be removed.
+            motif (BaseSiteCollectionMotif): The motif to be removed.
 
         Returns:
             Tuple[bool, str]: A tuple indicating compatibility and a message.
@@ -41,14 +41,14 @@ class RemoveMotifAction(BaseAction):
         indices, message = motif.find_indices_in_atoms(atoms, modify_indices_in_place=True)
         return indices is not None, f"operated motif not found in structure: {message}"
 
-    def _execute(self, atoms: Atoms, motif: BaseMotif) -> Atoms:
+    def _execute(self, atoms: Atoms, motif: BaseSiteCollectionMotif) -> Atoms:
         """Execute the action to remove the motif from the structure.
 
         Removes the motif from the structure by its indices, does not change the
         order of remaining atoms in structure.
         Args:
             atoms (Atoms): The structure from which the motif is to be removed.
-            motif (BaseMotif): The motif to be removed.
+            motif (BaseSiteCollectionMotif): The motif to be removed.
 
         Returns:
             Atoms: The modified structure with the motif removed.
@@ -60,14 +60,14 @@ class RemoveMotifAction(BaseAction):
 
     def describe(
             self,
-            motif: BaseMotif,
+            motif: BaseSiteCollectionMotif,
             motif_kwargs: Optional[dict] = None,
             **kwargs
     ) -> str:
         """Describe the action to remove a motif.
 
         Args:
-            motif (BaseMotif): The motif to be removed.
+            motif (BaseSiteCollectionMotif): The motif to be removed.
             motif_kwargs (Optional[dict]): Additional keyword arguments for the motif.describe method.
                 Not used, just to match the interface.
             **kwargs: Additional keyword arguments. Not used, just to match the interface.

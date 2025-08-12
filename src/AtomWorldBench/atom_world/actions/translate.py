@@ -6,7 +6,7 @@ from numpy.typing import ArrayLike
 import numpy as np
 
 from .base import BaseAction
-from ..motifs.base import BaseMotif
+from ..motifs.site_collection_motifs.base import BaseSiteCollectionMotif
 
 from ...utils.coord_utils import check_coordinates_shape
 from ...utils.atoms_utils import merge_atoms
@@ -60,7 +60,7 @@ class TranslateMotifAction(BaseAction):
             translation_vector: Optional[ArrayLike] = None,
             position_fractional: bool = True,
             relative_style: str = None,
-            relative_to_motif: Optional[BaseMotif] = None,
+            relative_to_motif: Optional[BaseSiteCollectionMotif] = None,
             self_relative: Optional[bool] = None,
     ):
         """Initialize the TranslateMotifAction with a relative motif and style.
@@ -120,14 +120,14 @@ class TranslateMotifAction(BaseAction):
             self_relative=self_relative,
         )
 
-    def _check_compatibility(self, atoms: Atoms, motif: BaseMotif) -> Tuple[bool, str]:
+    def _check_compatibility(self, atoms: Atoms, motif: BaseSiteCollectionMotif) -> Tuple[bool, str]:
         """Check if the motif can be translated in the structure."""
         # Check if the operated motif is in the structure.
         indices, message = motif.find_indices_in_atoms(atoms, modify_indices_in_place=True)
         return indices is not None, f"operated motif not found in structure: {message}"
 
     def _get_translation_vector(
-        self, motif: BaseMotif
+        self, motif: BaseSiteCollectionMotif
     ) -> ArrayLike:
         """Get the translation vector based on the action parameters."""
         if self.mode_flag == "absolute":
@@ -152,14 +152,14 @@ class TranslateMotifAction(BaseAction):
 
         raise NotImplementedError(f"Invalid mode_flag: {self.mode_flag}.")
 
-    def _execute(self, atoms: Atoms, motif: BaseMotif) -> Atoms:
+    def _execute(self, atoms: Atoms, motif: BaseSiteCollectionMotif) -> Atoms:
         """Execute the action to translate the motif in the structure.
 
         Translates the motif in the structure based on the action parameters.
         Order of atoms in the structure is preserved, but the motif is translated.
         Args:
             atoms (Atoms): The structure to operate on.
-            motif (BaseMotif): The motif to translate.
+            motif (BaseSiteCollectionMotif): The motif to translate.
 
         Returns:
             Atoms: The modified structure with the motif translated.
@@ -183,7 +183,7 @@ class TranslateMotifAction(BaseAction):
 
     def describe(
             self,
-            motif: BaseMotif,
+            motif: BaseSiteCollectionMotif,
             precision: int = DEFAULT_FLOAT_TO_STRING_PRECISION,
             motif_kwargs: Optional[dict] = None,
             relative_motif_kwargs: Optional[dict] = None,
@@ -193,7 +193,7 @@ class TranslateMotifAction(BaseAction):
          Note that motif and relative motif description styles are not affected by the action's
         `position_fractional` attribute.
         Args:
-            motif (BaseMotif): The motif being translated.
+            motif (BaseSiteCollectionMotif): The motif being translated.
             precision (int): The precision for formatting numerical values in the description in decimals.
                 Default is set in `globals.py`, typically 4.
                 Will overwrite motif and relative motif description precision settings.

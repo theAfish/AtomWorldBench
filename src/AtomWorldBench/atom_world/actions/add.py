@@ -7,7 +7,7 @@ from ase import Atoms
 from numpy.typing import ArrayLike
 
 from .base import BaseAction
-from ..motifs.base import BaseMotif
+from ..motifs.site_collection_motifs.base import BaseSiteCollectionMotif
 from ...utils.description_utils import describe_arraylike
 from ...utils.coord_utils import check_coordinates_shape
 
@@ -79,7 +79,7 @@ class AddMotifAction(BaseAction):
             relative_to_position: Optional[ArrayLike] = None,
             position_fractional: bool = True,
             relative_style: Optional[str] = None,
-            relative_to_motif: Optional[BaseMotif] = None,
+            relative_to_motif: Optional[BaseSiteCollectionMotif] = None,
             relative_shift: Optional[ArrayLike | float] = None,
             relative_atom_index: Optional[int] = None,
     ):
@@ -140,7 +140,7 @@ class AddMotifAction(BaseAction):
             relative_atom_index = relative_atom_index,
         )
 
-    def _check_compatibility(self, atoms: Atoms, motif: BaseMotif) -> Tuple[bool, str]:
+    def _check_compatibility(self, atoms: Atoms, motif: BaseSiteCollectionMotif) -> Tuple[bool, str]:
         """Check if the action is compatible with the given Atoms and motif."""
         if self.relative_style == "position_in_line":
             max_d = self.relative_to_motif.radius * 2  # Bond length.
@@ -184,13 +184,13 @@ class AddMotifAction(BaseAction):
             raise NotImplementedError(f"Invalid mode_flag: {self.mode_flag}")
         return centroid + relative_shift
 
-    def _execute(self, atoms: Atoms, operated_motif: BaseMotif) -> Atoms:
+    def _execute(self, atoms: Atoms, operated_motif: BaseSiteCollectionMotif) -> Atoms:
         """Execute the action on the structure to generate the ground truth structure.
 
         Added motif will always be appended to the end of the structure.
         Args:
             atoms (Atoms): The structure to operate on.
-            operated_motif (BaseMotif): The motif to be added to the structure.
+            operated_motif (BaseSiteCollectionMotif): The motif to be added to the structure.
         Returns:
             Atoms: The modified structure with the motif added.
         """
@@ -203,7 +203,7 @@ class AddMotifAction(BaseAction):
 
     def describe(
             self,
-            motif: BaseMotif,
+            motif: BaseSiteCollectionMotif,
             precision: int = DEFAULT_FLOAT_TO_STRING_PRECISION,
             motif_kwargs: Optional[dict] = None,
             relative_motif_kwargs: Optional[dict] = None,
@@ -212,7 +212,7 @@ class AddMotifAction(BaseAction):
         """Describe the action for LLM prompting.
 
         Args:
-            motif (BaseMotif): The motif being added.
+            motif (BaseSiteCollectionMotif): The motif being added.
             precision (int): The precision for formatting numerical values in the description in decimals.
                 Will overwrite motif and relative motif description precision settings.
                 Default is set in `globals.py`, typically 4.
