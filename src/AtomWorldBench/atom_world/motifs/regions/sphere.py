@@ -12,8 +12,10 @@ from ....utils.description_utils import describe_arraylike
 from ....globals import DEFAULT_FLOAT_TO_STRING_PRECISION
 
 
-# Design philosophy: When requiring different arguments in the constructor,
-# will use different classes.
+# Design philosophy: Inherit from multimode object when initialization has multiple modes.
+# This allows us to have a single class that can be used in different ways,
+# such as by specifying a center coordinate or an index of an atom.
+# Don't do multiple classes.
 class SphereAroundCoordRegionMotif(BaseRegionMotif):
     """A spherical region motif that defines a spherical operable region in space."""
     allowed_actions = [
