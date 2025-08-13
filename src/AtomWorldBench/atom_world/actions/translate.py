@@ -1,5 +1,5 @@
 """Implement Translate action."""
-from typing import Optional, Tuple
+from typing import Optional
 
 from ase import Atoms
 from numpy.typing import ArrayLike
@@ -15,7 +15,7 @@ from ...utils.description_utils import describe_arraylike
 from ...globals import DEFAULT_FLOAT_TO_STRING_PRECISION
 
 
-class TranslateMotifAction(BaseAction):
+class TranslateAction(BaseAction):
     """Action to translate a motif in the structure."""
     kwargs_formating_functions = {
         "to_position":
