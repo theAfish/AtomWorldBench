@@ -24,16 +24,3 @@ class BaseRegionMotif(ABC, BaseMotif):
         """Initialize the base region motif."""
         BaseMotif.__init__(self, name=name)
         self.symbols = symbols if symbols is not None else []
-
-    @abstractmethod
-    def get_included_atom_indices(self, atoms: Atoms) -> ndarray[int]:
-        """Return the subset of atoms included in the region motif.
-
-        If one of the periodic images lies within the region,
-        it will include the corresponding atom.
-        Args:
-            atoms (Atoms): The ASE Atoms object containing all atoms in the system.
-        Returns:
-            ndarray[int]: An array of indices of atoms that are within the region motif.
-        """
-        pass

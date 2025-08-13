@@ -6,7 +6,7 @@ from collections import defaultdict
 from ase import Atoms
 import numpy as np
 
-from ..motifs.site_collections.base import BaseSiteCollectionMotif
+from ..motifs.base import BaseMotif
 
 
 class BaseAction(ABC):
@@ -16,43 +16,9 @@ class BaseAction(ABC):
     yielding a new pymatgen structure object as the ground truth, as well as a
     prompt to large language models (LLMs) describing operations done to the structure.
 
-    If you implement a new action, you can simply edit:
-        1, `kwargs_and_formating_functions` class attribute, to specify how to check and
-            format keyword arguments of __init__;
-            This is a dictionary where keys are the names of the keyword arguments,
-            and values are functions that take the value of the keyword argument to check.
-        2, Call super().__init__ from your __init__ method to ensure proper checking
-            and formatting of your keyword arguments.
-            As all attributes will be dynamically assigned in `_set_and_format_kwargs` and
-            will not be explicitly defined in the __init__ method, you should
-            also remember to pre-assign None to every attribute used in your own codes,
-            in order to declare all attributes for passing IDE static check.
-        3, Override the `mode_definitions` class attribute to define the modes of the action.
-            It is a dictionary where keys are mode flags and values are dictionaries
-            with the allowed input parameter names in the mode as keys and the conditions they must
-            satisfy in the mode as values. A condition is a tuple containing one checking function
-            and one description, or None. None means the no extra condition, just require the
-            parameter not to be None.
-            The reserved key `_excluded` is a list used to specify parameters that are not used to
-            check mode. Cannot overlap with any other keys in the mode definitions. They should be
-            common parameters used by all modes, such as `position_fractional`.
-            If required parameters are not provided, or additional parameters other than in the
-            definition are provided, will fail to detect the corresponding mode.
-            Read the `_check_mode` method for more details on how it works, and AddMotifAction's
-            `mode_definitions` for an example of how to define modes.
-        4, Inherit or override `__post_init__` method to implement any additional checks.
-        5, Override the `_check_compatibility` method to implement the compatibility
-            check to the operated motif.
-        6, Override the `_execute` method to implement the action logic.
-        7, Implement the `describe` method to generate a description of the action.
+    See documentation for AtomWorldBench.mixin_classes for more details on how to
+     implement actions, if it has multiple modes of initialization and operation.
     """
-    # A dictionary of functions to format kwargs for the action.
-    # If a specific key is not found here, the value will be put directly into attribute.
-    # Used by _set_and_format_kwargs method.
-    kwargs_and_formating_functions = {}
-    # Definition of modes. Used by _check_mode method to detect the mode of the action.
-    # Must be overridden in all subclasses, otherwise will raise an error.
-    mode_definitions = {}
 
     def __init__(
             self,
@@ -173,7 +139,7 @@ class BaseAction(ABC):
         # Implement other check here.
         pass
 
-    def execute(self, atoms: Atoms, operated_motif: BaseSiteCollectionMotif) -> Atoms:
+    def execute(self, atoms: Atoms, operated_motif: BaseMotif) -> Atoms:
         """Execute the action on the structure to generate the ground truth structure."""
         passed, message = self.check_compatibility(atoms, operated_motif)
         if passed:
@@ -184,7 +150,7 @@ class BaseAction(ABC):
         )
 
     @abstractmethod
-    def _execute(self, atoms: Atoms, operated_motif: BaseSiteCollectionMotif) -> Atoms:
+    def _execute(self, atoms: Atoms, operated_motif: BaseMotif) -> Atoms:
         """Execute the action on the structure to generate the ground truth structure.
 
         Must be overridden by subclasses to implement specific actions.
@@ -192,7 +158,7 @@ class BaseAction(ABC):
         pass
 
     @classmethod
-    def class_compatibility(cls, motif: BaseSiteCollectionMotif) -> bool:
+    def class_compatibility(cls, motif: BaseMotif) -> bool:
         """Check if the action is compatible with the given Atoms and motif object.
 
         Args:
@@ -202,12 +168,12 @@ class BaseAction(ABC):
         """
         return cls.__name__ in motif.allowed_actions
 
-    def check_compatibility(self, atoms: Atoms, motif: BaseSiteCollectionMotif) -> Tuple[bool, str]:
+    def check_compatibility(self, atoms: Atoms, motif: BaseMotif) -> Tuple[bool, str]:
         """Check if the action is compatible with the given Atoms object.
 
         Args:
             atoms(Atoms): An instance of Atoms to check compatibility with.
-            motif(BaseSiteCollectionMotif): An instance of BaseMotif to check compatibility with.
+            motif(BaseMotif): An instance of BaseMotif to check compatibility with.
         Returns:
             Tuple[bool, str]:
               True if the action is compatible with the Atoms and motif, False otherwise.
@@ -234,13 +200,13 @@ class BaseAction(ABC):
         return self._check_compatibility(atoms, motif)
 
     @abstractmethod
-    def _check_compatibility(self, atoms: Atoms, motif: BaseSiteCollectionMotif) -> Tuple[bool, str]:
+    def _check_compatibility(self, atoms: Atoms, motif: BaseMotif) -> Tuple[bool, str]:
         """Check if the action is compatible with the given Atoms object.
 
         Must be overridden by subclasses to implement specific compatibility checks.
         Args:
             atoms(Atoms): An instance of Atoms to check compatibility with.
-            motif(BaseSiteCollectionMotif): An instance of BaseMotif to check compatibility with.
+            motif(BaseMotif): An instance of BaseMotif to check compatibility with.
         Returns:
             Tuple[bool,str]:
             True if the action is compatible with the Atoms and motif, False otherwise.
@@ -248,6 +214,6 @@ class BaseAction(ABC):
         pass
 
     @abstractmethod
-    def describe(self, motif: BaseSiteCollectionMotif, **kwargs) -> str:
+    def describe(self, motif: BaseMotif, **kwargs) -> str:
         """Generate a description of the action to be performed on the structure."""
         pass

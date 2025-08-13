@@ -52,7 +52,7 @@ class SphereAroundCoordRegionMotif(BaseRegionMotif):
         else:
             return self.center
 
-    def get_included_atoms(self, atoms: Atoms) -> Atoms:
+    def get_site_indices_in_atoms(self, atoms: Atoms) -> Atoms:
         """Return the subset of atoms included in the spherical region motif.
 
         If one of the periodic images lies within the region,
@@ -110,7 +110,7 @@ class SphereAroundIndexRegionMotif(BaseRegionMotif):
         """Get the center of the spherical region motif."""
         return atoms.get_positions(wrap=False)[self.center_index]
 
-    def get_included_atoms(self, atoms: Atoms) -> Atoms:
+    def get_site_indices_in_atoms(self, atoms: Atoms) -> Atoms:
         """Return the subset of atoms included in the spherical region motif.
 
         If one of the periodic images lies within the region,

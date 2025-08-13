@@ -172,28 +172,6 @@ class BaseSiteCollectionMotif(ABC, BaseMotif, Atoms):
         # If None, clear the existing indices. Already implemented in ASE.
         self.set_array("site_indices", indices, dtype=int)
 
-    def check_relative_style(self, style: str) -> Tuple[bool, str]:
-        """Check if the motif can be used with a given relative style.
-
-        Args:
-            style (str): The relative style to check.
-        Returns:
-            bool, str: True if the style is allowed, False if not;
-                Also gives a reason why the style is not allowed.
-        """
-        if style not in self.allowed_relative_styles:
-            return False, f"style {style} is not allowed for {self.__class__.__name__}."
-        condition = self.allowed_relative_styles[style]
-        if condition is not None:
-            func, desc = condition
-            if not func(self):
-                return (
-                    False,
-                    f"style {style} is not allowed for the"
-                    f" given {self.__class__.__name__}: {desc}."
-                )
-        return True, ""
-
     def describe(
             self,
             style: str = "coord",
@@ -328,6 +306,25 @@ class BaseSiteCollectionMotif(ABC, BaseMotif, Atoms):
             else:
                 return None, "Motif's species do not match the atoms' species."
         return None, "Motif's fractional coordinates not found in the atoms."
+
+    def get_site_indices_in_atoms(self, atoms: Atoms) -> List[int]:
+        """Return the indices of sites included in the motif.
+
+        This method will be the interface for the action to determine the
+        sites to operate on.
+
+        Args:
+            atoms (Atoms): An ASE Atoms object containing all atoms in the system.
+
+        Returns:
+            List[int]: A list of indices of sites that are included in the motif.
+        """
+        indices, _ = self.find_indices_in_atoms(atoms, modify_indices_in_place=True)
+        if indices is None:
+            raise ValueError(
+                f"Motif [{self.name}] not found in the provided Atoms object."
+            )
+        return indices
 
     def get_atoms(self) -> Atoms:
         """Get the ASE Atoms object corresponding to this motif.

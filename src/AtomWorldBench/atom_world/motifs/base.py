@@ -1,8 +1,8 @@
 """Define base motif class."""
-
-
 from abc import ABC, abstractmethod
 from typing import Optional
+
+from ase import Atoms
 
 
 class BaseMotif(ABC):
@@ -45,4 +45,17 @@ class BaseMotif(ABC):
     @abstractmethod
     def describe(self) -> str:
         """Return a string description of the motif."""
+        pass
+
+    @abstractmethod
+    def get_site_indices_in_atoms(self, atoms: Atoms) -> list[int]:
+        """Return the indices of sites included in the motif.
+
+        This method will be the interface for the action to determine the
+        sites to operate on.
+        Args:
+            atoms: An ASE Atoms object containing all atoms in the system.
+        Returns:
+            list[int]: A list of indices of sites that are included in the motif.
+        """
         pass
