@@ -10,7 +10,12 @@ class BaseMotif(ABC):
 
     Used to define an operable region, geometric element, or sub-collection
     of sites in a system.
+
+    Class Attributes:
+        forbidden_actions (list): A list of action class names that are not
+            allowed to operate on this motif. We only use black-listing for now.
     """
+    forbidden_actions = []
 
     def __init__(self, name: Optional[str] = None):
         """Initialize the motif with an optional name."""
@@ -50,5 +55,16 @@ class BaseMotif(ABC):
             atoms: An ASE Atoms object containing all atoms in the system.
         Returns:
             list[int]: A list of indices of sites that are included in the motif.
+        """
+        pass
+
+    @abstractmethod
+    def get_atoms(self) -> Atoms:
+        """Return the ASE Atoms object representing the motif.
+
+        This method should return an Atoms object that contains only the atoms
+        that are part of the motif.
+        Returns:
+            Atoms: An ASE Atoms object containing only the atoms in the motif.
         """
         pass

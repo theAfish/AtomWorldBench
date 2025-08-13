@@ -1,106 +1,111 @@
 """Implements replace action."""
 from typing import Optional
+import inspect
 
 from ase import Atoms
 import numpy as np
 
 from .base import BaseAction
-from ..motifs.site_collections.base import BaseSiteCollectionMotif
+from ..motifs.base import BaseMotif
 
 
-class ReplaceMotifAction(BaseAction):
+class ReplaceAction(BaseAction):
     """Action to replace a motif in the structure.
 
     This action replaces motifs in the structure based on their fractional coordinates.
     """
     mode_definitions = {
-        "default": {"replaced_motif": None},
+        "_excluded": ["operated_motif", "operated_atoms", "relative_to_motif"],
+        "default": {},
     }
 
     def __init__(
             self,
-            replaced_motif: BaseSiteCollectionMotif,
+            operated_motif: BaseMotif,
+            operated_atoms: Atoms,
+            relative_to_motif: BaseMotif,
     ):
         """Initialize the ReplaceMotifAction with fractional coordinates and cutoff.
 
         Args:
-            replaced_motif (BaseSiteCollectionMotif):
+            operated_motif (BaseMotif):
+                A motif that will be added to the structure.
+            operated_atoms (Atoms):
+                The structure (ASE Atoms object) that the action will operate on.
+            relative_to_motif (BaseMotif):
                 A motif that the action will replace in the structure.
                 Must be in the structure (will check at `execute` call).
         """
-        # Static declaration for IDE linting.
-        self.replaced_motif = replaced_motif
-        super().__init__(replaced_motif=replaced_motif)
-
-    def _check_compatibility(self, atoms, motif):
-        """Check if the motif can be replaced in the structure."""
-        # Check whether replaced_motif is in the structure.
-        # As attribute name changes, this is no longer checked by
-        # BaseAction.check_compatibility by default.
-        indices, message = self.replaced_motif.find_indices_in_atoms(
-            atoms,
-            modify_indices_in_place=True
+        super().__init__(
+            operated_motif=operated_motif,
+            operated_atoms=operated_atoms,
+            relative_to_motif=relative_to_motif,
         )
-        return indices is not None, f"replaced motif not found in structure: {message}"
+        self.replaced_motif = self.relative_to_motif  # Make an alias for clarity.
 
-    def _execute(
-            self,
-            atoms: Atoms,
-            motif: BaseSiteCollectionMotif,
-    ) -> Atoms:
+    def __post_init__(self):
+        """Post-initialization to ensure the action is valid."""
+        self.__check_operated_motif_compatibility()
+        self.__check_operated_motif_in_atoms()
+        self.__check_relative_motif_in_atoms()
+
+    def execute(self) -> Atoms:
         """Execute the action to replace the motif in the structure.
 
         Removes the motif defined by `self.relative_to_motif` from the structure, and
         append `motif` to the remaining atoms. The order of the remaining atoms is preserved.
 
-        Args:
-            atoms (Atoms): The structure to operate on.
-            motif (BaseSiteCollectionMotif): The motif to put in the structure.
         Returns:
             Atoms: The modified structure with the motif replaced.
         """
-        remove_indices, _ = self.replaced_motif.find_indices_in_atoms(
-            atoms,
-            modify_indices_in_place=False
-        )
+        # __check_relative_motif_in_atoms() in __post_init__ guarantees that
+        # the motif to be replaced is in the atoms and has indices.
+        remove_indices = self.replaced_motif.indices
         remaining_indices = np.setdiff1d(
-            np.arange(len(atoms), dtype=int),
+            np.arange(len(self.operated_atoms), dtype=int),
             remove_indices,
             assume_unique=True
         ).tolist()
-        atoms_cp = atoms[remaining_indices]
-        atoms_cp += motif.get_atoms()
+        # Preserve the order of remaining atoms.
+        atoms_cp = self.operated_atoms[np.sort(remaining_indices)]
+        atoms_cp += self.operated_motif.get_atoms()
 
         return atoms_cp
 
     def describe(
             self,
-            motif: BaseSiteCollectionMotif,
-            motif_kwargs: Optional[dict] = None,
-            relative_motif_kwargs: Optional[dict] = None,
-            **kwargs
+            motif_desc_kwargs: Optional[dict] = None,
+            relative_motif_desc_kwargs: Optional[dict] = None,
     ) -> str:
         """Describe the action to replace a motif.
 
         Args:
-            motif (BaseSiteCollectionMotif): The motif to put in the structure.
-            motif_kwargs (Optional[dict]):
+            motif_desc_kwargs (Optional[dict]):
                 Additional keyword arguments for describing the motif.
-            relative_motif_kwargs (Optional[dict]):
+            relative_motif_desc_kwargs (Optional[dict]):
                 Additional keyword arguments for describing the relative motif.
-            **kwargs: Additional keyword arguments.
         Returns:
             str: Description of the action.
         """
-        motif_kwargs = motif_kwargs or {}
-        relative_motif_kwargs = relative_motif_kwargs or {}
-        motif_kwargs.update({"is_addition": True})
-        relative_motif_kwargs.update({"is_addition": False})
+        motif_desc_kwargs = motif_desc_kwargs or {}
+        relative_motif_desc_kwargs = relative_motif_desc_kwargs or {}
+
+        # Update motif description kwargs.
+        motif_desc_params = inspect.signature(self.motif.describe).parameters
+        relative_motif_desc_params = inspect.signature(
+            self.relative_to_motif.describe
+        ).parameters if self.relative_to_motif is not None else {}
+        # Use addition mode as site motif needs different short description.
+        # when being added.
+        if "is_addition" in motif_desc_params:
+            motif_desc_kwargs["is_addition"] = True
+        if "is_addition" in relative_motif_desc_params:
+            relative_motif_desc_kwargs["is_addition"] = False
 
         return (
-            f"Replace [{self.replaced_motif.describe(**relative_motif_kwargs)}]"
-            f" with [{motif.describe(**motif_kwargs)}]."
-            f" Do not change the order of other atoms not to be replaced,"
+            f"replace [{self.replaced_motif.describe(**relative_motif_desc_kwargs)}]"
+            f" with [{self.operated_motif.describe(**motif_desc_kwargs)}]."
+            f" do not change the order of other unaffected atoms,"
             f" and the newly added atoms should be appended to the end of"
-            f" the structure."
+            f" the structure in the order as described."
         )

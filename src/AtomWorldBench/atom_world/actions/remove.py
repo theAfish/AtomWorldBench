@@ -1,79 +1,88 @@
 """Actions to remove atoms."""
-from typing import Tuple, Optional
+from typing import Optional
+import inspect
 
 import numpy as np
 from ase import Atoms
 
 from .base import BaseAction
-from ..motifs.site_collections.base import BaseSiteCollectionMotif
+from ..motifs.base import BaseMotif
 
 
-class RemoveMotifAction(BaseAction):
+class RemoveAction(BaseAction):
     """Action to remove a motif from the structure.
 
     This action removes motifs from the structure based on their fractional coordinates.
     """
     # Only absolute allowed (specify the motif to remove directly). No parameters needed
     # for init.
-    mode_definitions = {"default": {}}
+    mode_definitions = {
+        "_excluded": ["operated_motif", "operated_atoms"],
+        "default": {},
+    }
 
-    def __init__(self):
+    def __init__(
+            self,
+            operated_motif: BaseMotif,
+            operated_atoms: Atoms,
+    ):
         """Initialize the RemoveMotifAction with fractional coordinates and cutoff.
 
-        Does not take relative motif or style, as it operates independently.
-        Specify the motif to remove directly in the `execute` method.
-        No need for additional parameters in the constructor.
-        """
-        super().__init__()
-
-    def _check_compatibility(self, atoms: Atoms, motif: BaseSiteCollectionMotif) -> Tuple[bool, str]:
-        """Check if the motif can be removed from the structure.
-
-        Will override the motif's original indices attribute, if the motif is found in the structure.
+        Only has "default" mode, which does not require any additional parameters
+        than operated_motif and operated_atoms.
         Args:
-            atoms (Atoms): The structure from which the motif is to be removed.
-            motif (BaseSiteCollectionMotif): The motif to be removed.
-
-        Returns:
-            Tuple[bool, str]: A tuple indicating compatibility and a message.
+            operated_motif (BaseMotif): The motif to be removed.
+            operated_atoms (Atoms): The structure from which the motif is to be removed.
         """
-        # Check if the motif is in the structure.
-        indices, message = motif.find_indices_in_atoms(atoms, modify_indices_in_place=True)
-        return indices is not None, f"operated motif not found in structure: {message}"
+        super().__init__(
+            operated_motif=operated_motif,
+            operated_atoms=operated_atoms,
+            relative_to_motif=None,
+        )
 
-    def _execute(self, atoms: Atoms, motif: BaseSiteCollectionMotif) -> Atoms:
+    def __post_init__(self):
+        """Post-initialization to ensure the action is valid."""
+        self.__check_operated_motif_compatibility()
+        self.__check_operated_motif_in_atoms()
+
+    def execute(self) -> Atoms:
         """Execute the action to remove the motif from the structure.
 
         Removes the motif from the structure by its indices, does not change the
         order of remaining atoms in structure.
-        Args:
-            atoms (Atoms): The structure from which the motif is to be removed.
-            motif (BaseSiteCollectionMotif): The motif to be removed.
-
         Returns:
             Atoms: The modified structure with the motif removed.
         """
         # Remove the motif by its indices.
-        indices, _ = motif.find_indices_in_atoms(atoms, modify_indices_in_place=False)
-        remaining_indices = np.setdiff1d(np.arange(len(atoms), dtype=int), indices, assume_unique=True).tolist()
-        return atoms[remaining_indices]
+        # __check_operated_motif_in_atoms() in __post_init()
+        # ensures that the motif is in the atoms and
+        # has indices.
+        indices = self.operated_motif.indices
+        remaining_indices = np.setdiff1d(
+            np.arange(len(self.operated_atoms), dtype=int),
+            indices, assume_unique=True
+        ).tolist()
+        # Guarantee the order of remaining atoms is unchanged.
+        return self.operated_atoms[np.sort(remaining_indices)]
 
     def describe(
             self,
-            motif: BaseSiteCollectionMotif,
-            motif_kwargs: Optional[dict] = None,
-            **kwargs
+            motif_desc_kwargs: Optional[dict] = None,
     ) -> str:
         """Describe the action to remove a motif.
 
         Args:
-            motif (BaseSiteCollectionMotif): The motif to be removed.
-            motif_kwargs (Optional[dict]): Additional keyword arguments for the motif.describe method.
+            motif_desc_kwargs (Optional[dict]): Additional keyword arguments for the motif.describe method.
                 Not used, just to match the interface.
-            **kwargs: Additional keyword arguments. Not used, just to match the interface.
-
         Returns:
             str: A description of the action.
         """
-        return (f"Remove [{motif.describe(**motif_kwargs)}] from the structure."
-                f" Do not change the order of remaining atoms in structure.")
+        # Update motif description kwargs. Prevent using addition mode.
+        motif_desc_params = inspect.signature(self.motif.describe).parameters
+        if "is_addition" in motif_desc_params:
+            motif_desc_kwargs["is_addition"] = False
+
+        return (
+            f"remove [{self.operated_motif.describe(**motif_desc_kwargs)}] from the structure."
+            f" Do not change the order of remaining atoms in structure."
+        )

@@ -15,6 +15,10 @@ class ClusterMotif(BaseSiteCollectionMotif):
     # To supress mypy, we need to define __len__ explicitly.
     def __len__(self) -> int: ...
 
+    def __post_init__(self):
+        if len(self) < 2:
+            raise ValueError("ClusterMotif must contain at least two atoms.")
+
     def _get_default_name(self) -> str:
         """Generate a default name for the cluster motif based on species and coordinates."""
         if len(self) == 2:

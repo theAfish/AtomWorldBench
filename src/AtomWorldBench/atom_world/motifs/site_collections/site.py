@@ -6,6 +6,7 @@ class SiteMotif(BaseSiteCollectionMotif):
 
     Can be either an atom or an ionic species in a crystal structure.
     """
+    forbidden_actions = ["resize"]
 
     # To supress mypy, we need to define __len__ explicitly.
     def __len__(self) -> int: ...
