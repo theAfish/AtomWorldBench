@@ -1,0 +1,41 @@
+data_image0
+_chemical_formula_structural       Sr4I8O4
+_chemical_formula_sum              "Sr4 I8 O4"
+_cell_length_a       4.893612
+_cell_length_b       8.948233
+_cell_length_c       12.996661
+_cell_angle_alpha    90.0
+_cell_angle_beta     90.0
+_cell_angle_gamma    90.0
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Sr  Sr1       1.0  0.25  0.385568  0.702922  1.0000
+  Sr  Sr2       1.0  0.25  0.11443199999999999  0.20292200000000002  1.0000
+  Sr  Sr3       1.0  0.75  0.614432  0.297078  1.0000
+  Sr  Sr4       1.0  0.75  0.885568  0.797078  1.0000
+  I   I1        1.0  0.75  0.619453  0.608726  1.0000
+  I   I2        1.0  0.75  0.880547  0.10872600000000002  1.0000
+  I   I3        1.0  0.25  0.380547  0.39127400000000007  1.0000
+  I   I4        1.0  0.25  0.119453  0.891274  1.0000
+  I   I5        1.0  0.75  0.144989  0.602233  1.0000
+  I   I6        1.0  0.75  0.355011  0.102233  1.0000
+  I   I7        1.0  0.25  0.855011  0.39776700000000004  1.0000
+  I   I8        1.0  0.25  0.644989  0.8977670000000002  1.0000
+  O   O1        1.0  0.75  0.427833028729738  0.6903025533669735  1.0000
+  O   O2        1.0  0.75  0.12463100000000002  0.233853  1.0000
+  O   O3        1.0  0.25  0.624631  0.266147  1.0000
+  O   O4        1.0  0.25  0.875369  0.7661470000000001  1.0000
