@@ -30,5 +30,5 @@ def download_random_mp_cif(api_key, out_path, min_natoms=10, max_natoms=100, num
 
 if __name__ == "__main__":
     # Example
-    api_key = "P2FX03eMhkvYdTYEGNSt6mXPSTZMluHd"
+    api_key = "YOUR_API_KEY"
     download_random_mp_cif(api_key, 'init_cifs', min_natoms=10, max_natoms=100, num_entries=1000)
