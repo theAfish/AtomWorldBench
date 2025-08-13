@@ -16,13 +16,6 @@ class BaseMotif(ABC):
         """Initialize the motif with an optional name."""
         self.name = name
 
-    def __post_init__(self):
-        """Post-initialization to set the motif mets criterion of its type.
-
-        This method can be overridden by subclasses to perform additional initialization.
-        """
-        pass
-
     @abstractmethod
     def _get_default_name(self) -> str:
         """Generate a default name based on motif type, species and coordinates."""

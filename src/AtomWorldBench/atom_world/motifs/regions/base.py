@@ -3,9 +3,6 @@
 from abc import ABC, abstractmethod
 from typing import Optional
 
-from ase import Atoms
-from numpy import ndarray
-
 from ..base import BaseMotif
 
 
