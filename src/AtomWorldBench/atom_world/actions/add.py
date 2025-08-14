@@ -1,6 +1,5 @@
 """Implementation of actions that add a motif to a structure."""
 from typing import Optional
-from numbers import Number
 import inspect
 
 import numpy as np
@@ -16,7 +15,7 @@ from ...globals import DEFAULT_FLOAT_TO_STRING_PRECISION
 
 
 def _check_relative_shift(x):
-    if isinstance(x, Number):
+    if isinstance(x, (int, float)):
         return float(x)
     else:
         return check_coordinates_shape(
@@ -77,7 +76,7 @@ class AddAction(BaseAction):
                 "Only pair motifs are allowed for relative_to_pair_motif mode."
             ),
             "relative_shift": (
-                lambda n: isinstance(n, Number),
+                lambda n: isinstance(n, (int, float)),
                 "Relative shift must be a number for relative_to_pair_motif mode."
             ),
             "relative_style": (

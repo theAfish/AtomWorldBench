@@ -1,6 +1,5 @@
 """Rotate motif action."""
 from typing import Optional
-from numbers import Number
 import inspect
 
 from ase import Atoms
@@ -68,7 +67,7 @@ class RotateAction(BaseAction):
         "axis_relative_to_position": {
             "rotation_axis_vector": None,
             "rotation_axis_angle": (
-                lambda x: isinstance(x, Number),
+                lambda x: isinstance(x, (int, float)),
                 "Rotation axis angle must be a number in degrees.",
             ),
             "relative_to_position": None,
@@ -76,7 +75,7 @@ class RotateAction(BaseAction):
         "axis_relative_to_regular_motif":{
             "rotation_axis_vector": None,  # Need to provide axis, motif only used as center.
             "rotation_axis_angle": (
-                lambda x: isinstance(x, Number),
+                lambda x: isinstance(x, (int, float)),
                 "Rotation axis angle must be a number in degrees.",
             ),
             "relative_to_motif": None,
@@ -87,7 +86,7 @@ class RotateAction(BaseAction):
         },
         "axis_relative_to_pair_motif": {
             "rotation_axis_angle": (
-                lambda x: isinstance(x, Number),
+                lambda x: isinstance(x, (int, float)),
                 "Rotation axis angle must be a number in degrees.",
             ),
             "relative_to_motif": (

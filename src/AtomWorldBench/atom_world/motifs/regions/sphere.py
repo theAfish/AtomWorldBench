@@ -1,6 +1,5 @@
 """Defines spherical region motif."""
-from typing import Optional
-from numbers import Number
+from typing import Optional, Union
 
 from ase import Atoms
 import numpy as np
@@ -15,9 +14,9 @@ from ....globals import DEFAULT_FLOAT_TO_STRING_PRECISION
 from ....mixin_classes import MultiModeInitMixin
 
 
-def _check_radius(x: Number):
+def _check_radius(x: Union[int, float]) -> float:
     """Check if the radius is a positive number."""
-    if not isinstance(x, Number) or x <= 0:
+    if not isinstance(x, (int, float)) or x <= 0:
         raise ValueError("The radius must be a positive number.")
     return float(x)
 

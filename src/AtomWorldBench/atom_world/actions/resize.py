@@ -1,6 +1,5 @@
 """Implement Resize action."""
-from typing import Optional, Tuple
-from numbers import Number
+from typing import Optional
 import inspect
 
 from ase import Atoms
@@ -40,13 +39,13 @@ class ResizeAction(BaseAction):
                 "size_mode": {
                     "scale_by": {
                         "scale_by": (
-                            lambda x: isinstance(x, Number) and x > 0 and x != 1,
+                            lambda x: isinstance(x, (int, float)) and x > 0 and x != 1,
                             "scale_by must be a positive number not equal to 1 for scale_by mode."
                         ),
                     },
                     "to_radius": {
                         "to_radius": (
-                            lambda x: isinstance(x, Number) and x > 0,
+                            lambda x: isinstance(x, (int, float)) and x > 0,
                             "to_radius must be a positive number for to_radius mode."
                         ),
                     },
@@ -190,36 +189,47 @@ class ResizeAction(BaseAction):
         else:
             raise NotImplementedError(f"Invalid mode_flag: {self.mode_flag}.")
 
+        is_region = "RegionMotif" in self.operated_motif.__class__.__name__
+
         if "scale_by" in self.mode_flag:
-            scale_word = f"by a scale factor of {self.scale_by}"
-            if is_pair:
-                if self.scale_by > 1:
-                    op_word = "elongate"
-                else:
-                    op_word = "shorten"
-            else:
-                if self.scale_by > 1:
-                    op_word = "enlarge"
-                else:
-                    op_word = "shrink"
+            scale_word = f"by a scale factor of {self.scale_by:.{precision}f}"
+            is_enlarge = (self.scale_by > 1)
         elif "to_radius" in self.mode_flag:
-            scale_word = f"to a {size_word} of {self.to_radius} angstroms"
-            is_enlarge = self.to_radius > self.operated_motif.radius()
-            if is_pair:
-                if is_enlarge:
-                    op_word = "elongate"
-                else:
-                    op_word = "shorten"
+            if is_region:
+                scale_word = f"to {self.to_radius:.{precision}f} angstroms"
             else:
-                if is_enlarge:
-                    op_word = "enlarge"
-                else:
-                    op_word = "shrink"
+                scale_word = f"to a {size_word} of {self.to_radius:.{precision}f} angstroms"
+            is_enlarge = (self.to_radius > self.operated_motif.radius)
         else:
             raise NotImplementedError(f"Invalid mode_flag: {self.mode_flag}.")
 
-        return (
-            f"{op_word} [{self.operated_motif.describe(**motif_desc_kwargs)}]"
-            f" with {relative_word} fixed, {scale_word}."
-            f" update atom coordinates only, do not change their order in structure."
-        )
+        if is_region:
+            if is_enlarge:
+                op_word = "away from"
+            else:
+                op_word = "towards"
+        else:
+            if is_pair:
+                if is_enlarge:
+                    op_word = "elongate"
+                else:
+                    op_word = "shorten"
+            else:
+                if is_enlarge:
+                    op_word = "enlarge"
+                else:
+                    op_word = "shrink"
+
+        if is_region:
+            return (
+                f"move [{self.operated_motif.describe(**motif_desc_kwargs)}]"
+                f" {op_word} the region center, such that their distances to the region center"
+                f" are changed {scale_word}."
+                f" update atom coordinates only, do not change their order in structure."
+            )
+        else:
+            return (
+                f"{op_word} [{self.operated_motif.describe(**motif_desc_kwargs)}]"
+                f" {scale_word} relative to {relative_word}."
+                f" update atom coordinates only, do not change their order in structure."
+            )
