@@ -6,6 +6,7 @@ from typing import List, Optional, Dict, Tuple
 from abc import ABC
 from functools import cached_property
 from collections import Counter
+import copy
 
 import numpy as np
 from numpy.typing import ArrayLike
@@ -39,6 +40,7 @@ class BaseSiteCollectionMotif(ABC, BaseMotif, Atoms):
     ):
         """A Motif is an ASE Atoms comprising a subset of atoms in original ase.Atoms.
 
+        Not recommended to be used directly.
         Args:
             *args, **kwargs: See `ase.Atoms.__init__`_.
              .. _ase.Atoms.__init__: https://wiki.fysik.dtu.dk/ase/ase/atoms.html
@@ -60,6 +62,13 @@ class BaseSiteCollectionMotif(ABC, BaseMotif, Atoms):
 
         # Post init checks. Can be overridden by subclasses.
         self.__post_init__()
+
+    def __post_init__(self):
+        """Post-initialization checks for the motif.
+
+        Can be overridden by subclasses to perform additional checks
+        """
+        pass
 
     @property
     def species_strings(self) -> List[str]:
@@ -123,7 +132,7 @@ class BaseSiteCollectionMotif(ABC, BaseMotif, Atoms):
         """
         cart_centroid = np.mean(self.cart_coords, axis=0)
         if fractional:
-            return cart_centroid @ np.linalg.inv(self.cell.complete)
+            return cart_centroid @ np.linalg.inv(self.cell.complete())
         else:
             return cart_centroid
 
@@ -234,7 +243,7 @@ class BaseSiteCollectionMotif(ABC, BaseMotif, Atoms):
             atoms: Atoms,
             name: Optional[str] = None,
             indices: Optional[List[int]] = None,
-    ):
+    ) -> "BaseSiteCollectionMotif":
         """Create a BaseMotif from an ASE Atoms object.
 
         Args:
@@ -246,15 +255,36 @@ class BaseSiteCollectionMotif(ABC, BaseMotif, Atoms):
         Returns:
             BaseSiteCollectionMotif: An instance of BaseMotif with the specified atoms and indices.
         """
-        return cls(
-            symbols=atoms.get_chemical_symbols(),
-            positions=atoms.get_positions(wrap=False),
-            cell=atoms.get_cell(complete=True),
-            pbc=atoms.get_cell(complete=True),
-            charges=atoms.get_initial_charges(),
+        obj = cls(
             name=name,
-            indices=indices
+            indices=indices,
+            cell=atoms.get_cell(complete=True),
+            celldisp=atoms.get_celldisp(),
+            pbc=atoms.get_pbc(),
+            info=atoms.info,
         )
+        obj.arrays = {}
+        for name, a in atoms.arrays.items():
+            obj.arrays[name] = a.copy()
+        obj.constraints = copy.deepcopy(atoms.constraints)
+        return obj
+
+    def get_atoms(self) -> Atoms:
+        """Get the ASE Atoms object corresponding to this motif.
+
+        Returns:
+            Atoms: An ASE Atoms object with the same properties as this motif.
+        """
+        atoms = Atoms(
+            cell=self.cell, pbc=self.pbc, info=self.info,
+            celldisp=self._celldisp.copy()
+        )
+
+        atoms.arrays = {}
+        for name, a in self.arrays.items():
+            atoms.arrays[name] = a.copy()
+        atoms.constraints = copy.deepcopy(self.constraints)
+        return atoms
 
     def find_indices_in_atoms(
             self,
@@ -326,25 +356,23 @@ class BaseSiteCollectionMotif(ABC, BaseMotif, Atoms):
             )
         return indices
 
-    def get_atoms(self) -> Atoms:
-        """Get the ASE Atoms object corresponding to this motif.
+    # For IDE linting only.
+    # The actual implementation is the same as ASE Atoms class.
+    def __add__(self, other: "BaseSiteCollectionMotif") -> "BaseSiteCollectionMotif":
+        out = self.copy()
+        out.extend(other)
+        return out
 
-        Returns:
-            Atoms: An ASE Atoms object with the same properties as this motif.
-        """
-        return Atoms(
-            symbols=self.get_chemical_symbols(),
-            positions=self.cart_coords.tolist(),
-            cell=self.cell.array,
-            pbc=self.pbc,
-            charges=self.get_initial_charges(),
-        )
+    def __iadd__(self, other: "BaseSiteCollectionMotif") -> "BaseSiteCollectionMotif":
+        self.extend(other)
+        return self
 
-    def extend(self, other):
+    def extend(self, other: "BaseSiteCollectionMotif"):
         """Extend the motif with another motif or ASE Atoms object.
 
         Args:
-            other (BaseSiteCollectionMotif or Atoms): The motif or ASE Atoms object to extend this motif with.
+            other (BaseSiteCollectionMotif or Atoms): The motif object to extend this motif with.
+                Do not support pure ase.Atoms, only BaseSiteCollectionMotif.
         """
         if (self.indices is None and other.indices is not None) or \
            (self.indices is not None and other.indices is None):
@@ -354,7 +382,7 @@ class BaseSiteCollectionMotif(ABC, BaseMotif, Atoms):
 
     def copy(self):
         """Return a copy of the motif."""
-        atoms_copy = Atoms.copy(self)
+        atoms_copy = self.get_atoms()
         return self.__class__.from_atoms(
             atoms_copy,
             name=self.name,  # Keep the name of the motif.
@@ -367,8 +395,12 @@ class BaseSiteCollectionMotif(ABC, BaseMotif, Atoms):
 
     def __getitem__(self, i):
         """Return a subset of the motif."""
-        atoms = super().__getitem__(i)
-        indices = self.indices[i] if self.indices is not None else None
+        if isinstance(i, int):
+            idx = [i]  # Force list.
+        else:
+            idx = i
+        atoms = self.get_atoms()[idx]
+        indices = np.array(self.indices, dtype=int)[idx] if self.indices is not None else None
         return self.__class__.from_atoms(
             atoms,
             name=None, # Reset name to default to avoid conflicts with the original motif name.

@@ -288,7 +288,7 @@ class ClusterDetector(BaseDetector):
                 )
             ]
 
-        def _detect_attempt(a):
+        def _detect_attempt(a) -> ClusterMotif | None:
             # Perform a single detection attempt.
             valid_indices = self._get_symbol_valid_indices(a)
             rand_idx = self.rng.choice(valid_indices)
@@ -300,7 +300,7 @@ class ClusterDetector(BaseDetector):
                     cutoff=self.cutoff,
                     symbols=self.symbols
                 ).detect_around_site_indices(a, [rand_indices[-1]])
-                deduplicated_site_motifs = _filter_neighbors(cluster, neighbor_site_motifs)
+                deduplicated_site_motifs = _filter_neighbors(c, neighbor_site_motifs)
                 if len(deduplicated_site_motifs) == 0:
                     return None  # Failed to grow the cluster.
                 deduplicated_site_indices = [
@@ -313,7 +313,7 @@ class ClusterDetector(BaseDetector):
 
         for _ in range(n_attempts):
             cluster = _detect_attempt(atoms)
-            if cluster is not None and len(cluster) == size:
+            if cluster is not None:
                 return cluster
 
         print(f"Warning: Failed to detect a cluster of size {size} in {n_attempts} attempts."

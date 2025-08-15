@@ -16,8 +16,9 @@ class ClusterMotif(BaseSiteCollectionMotif):
     def __len__(self) -> int: ...
 
     def __post_init__(self):
-        if len(self) < 2:
-            raise ValueError("ClusterMotif must contain at least two atoms.")
+        # Widen restriction to allow single point cluster, such that cluster detector can grow from it.
+        if len(self) < 1:
+            raise ValueError("ClusterMotif must contain at least one atom.")
 
     def _get_default_name(self) -> str:
         """Generate a default name for the cluster motif based on species and coordinates."""

@@ -22,7 +22,6 @@ azure_openai_example:
   api_key: ${OPENAI_API_KEY}
   api_version: ${AZURE_OPENAI_API_VERSION}
   azure_endpoint: ${AZURE_ENDPOINT}
-  
 
 naturelm:
   class: HuggingFaceModel

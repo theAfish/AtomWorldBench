@@ -43,7 +43,7 @@ class BondMotif(ClusterMotif):
                 symbols=cluster_motif.get_chemical_symbols(),
                 positions=cluster_motif.get_positions(wrap=False),
                 cell=cluster_motif.get_cell(complete=True),
-                pbc=cluster_motif.get_cell(complete=True),
+                pbc=cluster_motif.get_pbc(),
                 charges=cluster_motif.get_initial_charges(),
                 name=None, # Bonds do not have a specific name.
                 indices=cluster_motif.indices

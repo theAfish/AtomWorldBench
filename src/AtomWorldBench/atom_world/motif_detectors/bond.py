@@ -8,7 +8,6 @@ from .cluster import ClusterDetector
 
 from ..motifs.site_collections.bond import BondMotif
 
-
 class BondDetector(ClusterDetector):
     """Detects bonds between atoms in a structure.
 
@@ -55,16 +54,21 @@ class BondDetector(ClusterDetector):
     def detect_one(
             self,
             atoms: Atoms,
+            size: Optional[int] = None,
             n_attempts: Optional[int] = 10,
     ) -> BondMotif | None:
         """Detect a single bond motif in the given structure.
 
         Args:
             atoms (Atoms): The structure to analyze, represented as an ASE Atoms object.
+            size (int, optional): Unused parameter just for linting. Will always be 2.
             n_attempts (Optional[int]): Number of attempts to find a bond motif. Default is 10.
 
         Returns:
             A BondMotif object if a bond is detected, otherwise None.
         """
-        motif = super().detect_one(atoms, size=2, n_attempts=n_attempts)
-        return BondMotif.from_cluster_motif(motif) if motif is not None else None
+        _ = size  # Size is ignored for bonds, always 2.
+        motif = ClusterDetector.detect_one(self, atoms, size=2, n_attempts=n_attempts)
+        if motif is None:
+            return None
+        return BondMotif.from_cluster_motif(motif)
