@@ -1,4 +1,4 @@
-from typing import Tuple, List, Optional
+from typing import Tuple, List, Optional, Union
 
 import numpy as np
 from numpy.typing import ArrayLike
@@ -9,7 +9,7 @@ def check_coordinates_shape(
         name: Optional[str] = None,
         expected_1d: bool = True,
         allow_none: bool = True,
-) -> np.ndarray | None:
+) -> Union[np.ndarray, None]:
     """Check if the shape of the fractional coordinates matches the expected shape.
 
     Returns np.ndarray if the shape matches, otherwise throws an error.
@@ -59,7 +59,9 @@ def check_integer_translation(
     Returns:
         Tuple[np.ndarray, np.ndarray, np.ndarray] | None: A tuple containing:
             - Lexicographically sorted indices of frac1 according to ascending x, y, z.
+                (sort by x, then y, then z).
             - Lexicographically sorted indices of frac2 according to ascending x, y, z.
+                (sort by x, then y, then z).
             - Translation vector if the two sets are related by an integer translation,
              otherwise None.
             Or None if the input arrays are not related.
@@ -71,6 +73,7 @@ def check_integer_translation(
         return None
 
     # Sort the arrays to handle permutations.
+    # Sort by x, then y, then z.
     idx1 = np.lexsort((a1[:, 2], a1[:, 1], a1[:, 0]))
     idx2 = np.lexsort((a2[:, 2], a2[:, 1], a2[:, 0]))
 
@@ -109,5 +112,5 @@ def find_coordinate_subset_indices(subset, fullset, wrap=True, atol=1e-8) -> Lis
         matches = np.where(np.all(np.isclose(fullset, a, atol=atol), axis=1))[0]
         if len(matches) == 0:
             return None
-        indices.append(matches[0])  # 取第一个匹配
+        indices.append(matches[0])  # use the first match.
     return indices

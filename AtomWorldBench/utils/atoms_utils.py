@@ -23,7 +23,7 @@ def merge_atoms(
     """
     # Check if all atoms have the same cell and pbc.
     if not all(
-            np.allclose(a.cell.complete(), all_atoms[0].cell.complete)
+            np.allclose(a.cell.complete(), all_atoms[0].cell.complete())
             and np.all(a.pbc == all_atoms[0].pbc) for a in all_atoms
     ):
         raise ValueError("All Atoms objects must have the same cell and pbc.")

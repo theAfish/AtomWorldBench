@@ -10,7 +10,7 @@ import copy
 
 import numpy as np
 from numpy.typing import ArrayLike
-from ase import Atoms
+from ase import Atoms, Atom
 
 from ....utils.description_utils import get_species_string, describe_arraylike
 from ....utils.coord_utils import check_integer_translation, find_coordinate_subset_indices
@@ -37,12 +37,17 @@ class BaseSiteCollectionMotif(BaseMotif, Atoms, ABC):
             *args,
             name: Optional[str] = None,
             indices: Optional[List[int]] = None,
-            allow_translation_equivalence: bool = None,
+            allow_translation_equivalence: Optional[bool] = None,
             **kwargs
     ):
         """A Motif is an ASE Atoms comprising a subset of atoms in original ase.Atoms.
 
         Not recommended to be used directly.
+        Must provide `positions` keyword argument or feed it in as the second positional
+        argument. This is to avoid ambiguity of the `cell_offsets` property.
+        Passing in the first argument an ASE Atoms object or a list of ASE Atom
+        objects with readable positions is also allowed, though not recommended, as ASE Atoms
+        initialization might not have positions but still function normally.
         Args:
             *args, **kwargs: See `ase.Atoms.__init__`_.
              .. _ase.Atoms.__init__: https://wiki.fysik.dtu.dk/ase/ase/atoms.html
@@ -55,6 +60,36 @@ class BaseSiteCollectionMotif(BaseMotif, Atoms, ABC):
                 if they are related by an integer translation.
                 Default is not given, then will use the global setting ALLOW_TRANSLATION_EQUIVALENCE.
         """
+        _positions_provided = False
+        # Case 1: explicit keyword
+        if 'positions' in kwargs:
+            _positions_provided = True
+
+        # Case 2: positional (e.g., Atoms(symbols, positions))
+        elif len(args) >= 2 and isinstance(args[1], (list, tuple, np.ndarray)):
+            _positions_provided = True
+
+        # Case 3: Atoms object copy
+        elif (
+                len(args) >= 1 and
+                (
+                        isinstance(args[0], Atoms) or
+                        (
+                                isinstance(args[0], list) and
+                                all(isinstance(a, Atom) for a in args[0])
+                        )
+                )
+        ):
+            _positions_provided = True
+
+        if not _positions_provided:
+            raise ValueError(
+                "Motif must be initialized with positions either as a keyword argument "
+                "or as the second positional argument. Please provide 'positions' or "
+                "a list/tuple/ndarray of positions."
+                " Passing in the first argument an ASE Atoms object or a list of ASE Atom"
+                " objects is also allowed, though not recommended."
+            )
         BaseMotif.__init__(self, name=name)
         Atoms.__init__(self, *args, **kwargs)
         self.indices = indices
@@ -224,9 +259,22 @@ class BaseSiteCollectionMotif(BaseMotif, Atoms, ABC):
                 )
             elif style == "index":
                 indices_string = describe_arraylike(self.indices, precision=0)
+                if np.allclose(self.cell_offsets, 0):
+                    # Notice: with this condition, you should always wrap atom coordinates
+                    # to the unit cell before using detector to detect a motif.
+                    offset_string = "."
+                else:
+                    offset_string = (
+                        f" and offsets {describe_arraylike(self.cell_offsets, precision=0)}."
+                        f" offsets represents how many unit cells the atoms"
+                        f" are away from the origin unit cell"
+                        f" (fractional coordinates between 0 and 1)"
+                        f" in the direction"
+                        f" of each lattice vector."
+                    )
                 return (
                     f"{self.name} at site indices: "
-                    f"{indices_string} in the structure."
+                    f"{indices_string}{offset_string}"
                 )
             else:
                 raise NotImplementedError(
@@ -294,6 +342,8 @@ class BaseSiteCollectionMotif(BaseMotif, Atoms, ABC):
         """Find the indices of this motif in the given ASE Atoms object.
 
         Check with wrapped fractional coordinates of the motif.
+        Notice: If all atoms in the motif can match **any of the periodic images**
+        of the given atoms, it will be considered a match.
         Args:
             atoms (Atoms): The ASE Atoms object to search in.
             modify_indices_in_place (bool):
@@ -444,9 +494,10 @@ class BaseSiteCollectionMotif(BaseMotif, Atoms, ABC):
             frac1 = self.frac_coords[group1]
             frac2 = other.frac_coords[group2]
             # Allow permutation within species groups, but check for integer translation.
-            sorted_args1, sorted_args2, taus = check_integer_translation(frac1, frac2, atol=1e-6)
-            if taus is None:
+            results = check_integer_translation(frac1, frac2, atol=1e-6)
+            if results is None:
                 return False
+            sorted_args1, sorted_args2, taus = results
             if prev_taus is None:
                 prev_taus = taus
             else:

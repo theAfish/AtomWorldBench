@@ -130,7 +130,7 @@ class SphereRegionMotif(BaseRegionMotif, MultiModeInitMixin):
         """
         cart_centroid = self._get_center()
         if fractional:
-            return cart_centroid @ np.linalg.inv(self.cell.complete)
+            return cart_centroid @ np.linalg.inv(self.cell.complete())
         else:
             return cart_centroid
 
