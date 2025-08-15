@@ -8,9 +8,6 @@ class SiteMotif(BaseSiteCollectionMotif):
     """
     forbidden_actions = ["resize"]
 
-    # To supress mypy, we need to define __len__ explicitly.
-    def __len__(self) -> int: ...
-
     def __post_init__(self):
         """Post-initialization to check whether motif size is 1."""
         if len(self) != 1:

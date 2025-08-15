@@ -19,9 +19,6 @@ class BondMotif(ClusterMotif):
 
     forbidden_actions = ["add", "remove", "replace", "rotate", "translate"]
 
-    # To supress mypy, we need to define __len__ explicitly.
-    def __len__(self) -> int: ...
-
     def __post_init__(self):
         """Post-initialization to check whether motif size is 1."""
         if len(self) != 2:

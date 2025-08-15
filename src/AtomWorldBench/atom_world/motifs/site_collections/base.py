@@ -19,7 +19,7 @@ from ....globals import ALLOW_TRANSLATION_EQUIVALENCE, DEFAULT_FLOAT_TO_STRING_P
 from ..base import BaseMotif
 
 
-class BaseSiteCollectionMotif(ABC, BaseMotif, Atoms):
+class BaseSiteCollectionMotif(BaseMotif, Atoms, ABC):
     """Base class for site collection motifs in the atom world.
 
     Defined as a specific collection of atoms that can be
@@ -29,6 +29,8 @@ class BaseSiteCollectionMotif(ABC, BaseMotif, Atoms):
     Notice: all fractional coordinates must be unwrapped, i.e., not confined to
      the range [0, 1).
     """
+    # Do not modify this.
+    _reserved_arrays = ["site_indices"]
 
     def __init__(
             self,
@@ -74,7 +76,7 @@ class BaseSiteCollectionMotif(ABC, BaseMotif, Atoms):
     def species_strings(self) -> List[str]:
         """Get the species of the motif."""
         return [
-            get_species_string(el, c)
+            get_species_string(el, int(c))
             for el, c in
             zip(
                 self.get_chemical_symbols(),
@@ -208,12 +210,6 @@ class BaseSiteCollectionMotif(ABC, BaseMotif, Atoms):
                 f"To find indices, use the `find_indices_in_atoms` method."
             )
 
-        if style not in self.allowed_description_styles:
-            raise ValueError(
-                f"Description style '{style}' is not allowed for {self.__class__.__name__}. "
-                f"Allowed styles: {self.allowed_description_styles}."
-            )
-
         # addition of a single site motif, return the name directly.
         if len(self) == 1 and is_addition:
             return self.name
@@ -255,19 +251,21 @@ class BaseSiteCollectionMotif(ABC, BaseMotif, Atoms):
         Returns:
             BaseSiteCollectionMotif: An instance of BaseMotif with the specified atoms and indices.
         """
-        obj = cls(
+        array_kwargs = {}
+        for arr_name, a in atoms.arrays.items():
+            if arr_name not in cls._reserved_arrays:
+                array_kwargs[arr_name] = a.copy()
+        array_kwargs["constraint"] = copy.deepcopy(atoms.constraints)
+        # Must pass in all arguments as __post_init__ will not be called.
+        return cls(
             name=name,
             indices=indices,
             cell=atoms.get_cell(complete=True),
             celldisp=atoms.get_celldisp(),
             pbc=atoms.get_pbc(),
             info=atoms.info,
+            **array_kwargs,
         )
-        obj.arrays = {}
-        for name, a in atoms.arrays.items():
-            obj.arrays[name] = a.copy()
-        obj.constraints = copy.deepcopy(atoms.constraints)
-        return obj
 
     def get_atoms(self) -> Atoms:
         """Get the ASE Atoms object corresponding to this motif.
@@ -282,7 +280,9 @@ class BaseSiteCollectionMotif(ABC, BaseMotif, Atoms):
 
         atoms.arrays = {}
         for name, a in self.arrays.items():
-            atoms.arrays[name] = a.copy()
+            # Do not copy reserved arrays.
+            if name not in self._reserved_arrays:
+                atoms.arrays[name] = a.copy()
         atoms.constraints = copy.deepcopy(self.constraints)
         return atoms
 
@@ -460,12 +460,15 @@ class BaseSiteCollectionMotif(ABC, BaseMotif, Atoms):
 
         return (
                 np.allclose(
-                    self.arrays['initial_charges'][sorted_indices1],
-                    other.arrays['initial_charges'][sorted_indices2],
+                    self.get_initial_charges()[sorted_indices1],
+                    other.get_initial_charges()[sorted_indices2],
                     atol=1e-6
                 ) and
-                np.array_equal(
-                    np.array(self.indices, dtype=int)[sorted_indices1],
-                    np.array(other.indices, dtype=int)[sorted_indices2],
+                (
+                    np.array_equal(
+                        np.array(self.indices, dtype=int)[sorted_indices1],
+                        np.array(other.indices, dtype=int)[sorted_indices2],
+                    ) if self.indices is not None and other.indices is not None
+                    else (self.indices == other.indices)
                 )
         )

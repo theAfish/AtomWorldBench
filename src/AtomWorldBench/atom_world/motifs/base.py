@@ -19,7 +19,10 @@ class BaseMotif(ABC):
 
     def __init__(self, name: Optional[str] = None):
         """Initialize the motif with an optional name."""
-        self.name = name
+        # Prevent calling the setter directly in the constructor
+        # As at the initialization, the attributes required to compute
+        # the default name are not set yet.
+        self._name = name
 
     @abstractmethod
     def _get_default_name(self) -> str:
@@ -29,6 +32,8 @@ class BaseMotif(ABC):
     @property
     def name(self) -> str:
         """Set the name of the motif."""
+        if self._name is None:
+            return self._get_default_name()
         return self._name
 
     @name.setter
@@ -36,7 +41,8 @@ class BaseMotif(ABC):
         """Set the name of the motif.
 
         Args:
-            name (str, optional): The name of the motif. If None, a default name will be generated.
+            name (str, optional): The name of the motif.
+                If None, a default name will be generated and set.
         """
         self._name = name if name is not None else self._get_default_name()
 

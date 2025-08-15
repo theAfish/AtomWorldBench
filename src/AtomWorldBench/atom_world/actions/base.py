@@ -9,7 +9,7 @@ from ..motifs.base import BaseMotif
 from ...mixin_classes import MultiModeInitMixin
 
 
-class BaseAction(ABC, MultiModeInitMixin):
+class BaseAction(MultiModeInitMixin, ABC):
     """Base class for actions that can be performed on crystal structures.
 
     An action is defined as an interface to change a pymatgen.structure object,

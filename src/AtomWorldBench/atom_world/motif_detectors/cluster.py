@@ -313,6 +313,7 @@ class ClusterDetector(BaseDetector):
 
         for _ in range(n_attempts):
             cluster = _detect_attempt(atoms)
+            # TODO: fix this, why is not reachable?
             if cluster is not None:
                 return cluster
 

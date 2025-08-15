@@ -12,9 +12,6 @@ class ClusterMotif(BaseSiteCollectionMotif):
     It can be used to represent clusters of atoms in a structure.
     """
 
-    # To supress mypy, we need to define __len__ explicitly.
-    def __len__(self) -> int: ...
-
     def __post_init__(self):
         # Widen restriction to allow single point cluster, such that cluster detector can grow from it.
         if len(self) < 1:
@@ -22,7 +19,9 @@ class ClusterMotif(BaseSiteCollectionMotif):
 
     def _get_default_name(self) -> str:
         """Generate a default name for the cluster motif based on species and coordinates."""
-        if len(self) == 2:
+        if len(self) == 1:
+            prefix = "point"
+        elif len(self) == 2:
             prefix = "pair"
         elif len(self) == 3:
             prefix = "triplet"
