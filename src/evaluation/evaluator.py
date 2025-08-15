@@ -67,6 +67,8 @@ class Evaluator:
             if len(prompts) == batch_size or i == len(self.data) - 1:
                 # Generate responses in batch
                 generated_outputs = self.model.generate_batch(prompts)
+                print("prompts:", prompts)
+                print("generated_outputs:", generated_outputs)
                 for j, generated_output in enumerate(generated_outputs):
                     row = rows[j]
                     generated_cif = extract_from_string(generated_output, format="cif")

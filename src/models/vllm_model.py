@@ -14,6 +14,8 @@ assert Version(ray.__version__) >= Version("2.44.1"), (
 # ray.init(log_to_driver=False)
 # ray.data.DataContext.get_current().enable_progress_bars = False
 
+ray.data.DataContext.get_current().wait_for_min_actors_s = 30*60
+
 class vllmModel(BaseModel):
     def __init__(
         self,
@@ -45,6 +47,7 @@ class vllmModel(BaseModel):
                 "pipeline_parallel_size": self.world_size,
                 "max_num_batched_tokens": 16384,
                 # "distributed_executor_backend": "ray"
+                "hf_token": os.environ.get("HF_TOKEN")
             },
             concurrency=1,  # set the number of parallel vLLM replicas
             batch_size=64,

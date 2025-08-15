@@ -118,7 +118,7 @@ def run_benchmark(
 
     # automatically set results folder if not provided
     timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    results_folder = f"{results_folder or "results"}/{timestamp}/{model_id}/{action}"
+    results_folder = f"{results_folder or "results"}/{model_id}/{action}/{timestamp}"
     
     # Initialize evaluator
     evaluator = Evaluator(

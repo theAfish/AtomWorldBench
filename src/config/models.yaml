@@ -30,6 +30,12 @@ naturelm:
   device: cuda
   temperature: 1.0
   
+llama3_70B:
+  class: vllmModel
+  model_name: meta-llama/Llama-3.3-70B-Instruct
+  device: cuda
+  temperature: 1.0
+  
 qwen3_06B:
   class: vllmModel
   model_name: Qwen/Qwen3-0.6B
