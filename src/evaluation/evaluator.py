@@ -32,7 +32,6 @@ class Evaluator:
         self.action_name = action_name
         self.data = load_data(data_folder, action_name)
         self.results_folder = results_folder
-        os.makedirs(self.results_folder, exist_ok=True)
 
     def evaluate(self, batch_size: int = 8, num_batch: int = -1):
         """
@@ -145,6 +144,8 @@ class Evaluator:
         print(f"Unreadable outputs: {num_unreadable_out}, Invalid CIFs: {num_invalid_cif}")
 
         # Save results to a DataFrame and then to a CSV file
+        os.makedirs(self.results_folder, exist_ok=True)
+        
         results_df = pd.DataFrame(results)
         results_csv_path = os.path.join(self.results_folder, f"{self.action_name}_evaluation_results.csv")
         results_df.to_csv(results_csv_path, index=False)

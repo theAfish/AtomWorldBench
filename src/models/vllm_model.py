@@ -14,7 +14,7 @@ assert Version(ray.__version__) >= Version("2.44.1"), (
 # ray.init(log_to_driver=False)
 # ray.data.DataContext.get_current().enable_progress_bars = False
 
-ray.data.DataContext.get_current().wait_for_min_actors_s = 30*60
+ray.data.DataContext.get_current().wait_for_min_actors_s = 60*60
 
 class vllmModel(BaseModel):
     def __init__(
@@ -57,18 +57,28 @@ class vllmModel(BaseModel):
             self.vllm_config,
             preprocess=lambda row: dict(
                 messages=[
-                    {"role": "user", "content": row["item"]}
+                    {"role": "user", "content": f"Instruction: {row["item"]}\n\n\nResponse:"}
                 ],
-                # messages=[
-                #     row["item"]
-                # ],
                 sampling_params=dict(self.default_generation_params)
             ),
             postprocess=lambda row: dict(
-                answer=row["generated_text"],
+                answer=row["generated_text"].replace("<m>", ""),
                 **row  # This will return all the original columns in the dataset.
             ),
         )
+        
+        # self.vllm_processor = build_llm_processor(
+        #     self.vllm_config,
+        #     preprocess=lambda row: dict(
+        #         messages=[f"Instruction: {row["item"]}\n\n\nResponse:"],
+        #         sampling_params=dict(self.default_generation_params)
+        #     ),
+        #     postprocess=lambda row: dict(
+        #         answer=row["generated_text"].replace("<m>", ""),
+        #         **row  # This will return all the original columns in the dataset.
+        #     ),
+        # )
+        
         
     def generate(self, prompt: str, **kwargs) -> str:
         return self.generate_batch([prompt], **kwargs)

@@ -26,7 +26,7 @@ azure_openai_example:
 
 naturelm:
   class: vllmModel
-  model_name: microsoft/NatureLM-8x7B
+  model_name: microsoft/NatureLM-8x7B-Inst
   device: cuda
   temperature: 1.0
   
