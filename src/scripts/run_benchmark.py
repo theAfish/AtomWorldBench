@@ -181,13 +181,3 @@ if __name__ == "__main__":
             num_batch=args.num_batch, 
             config_name=args.config
         )
-    # try:
-    #     run_benchmark(
-    #         args.model, 
-    #         action=args.action, 
-    #         batch_size=args.batch_size, 
-    #         num_batch=args.num_batch, 
-    #         config_name=args.config
-    #     )
-    # except Exception as e:
-    #     print(f"Error running benchmark: {e}")
