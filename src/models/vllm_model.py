@@ -57,28 +57,15 @@ class vllmModel(BaseModel):
             self.vllm_config,
             preprocess=lambda row: dict(
                 messages=[
-                    {"role": "user", "content": f"Instruction: {row["item"]}\n\n\nResponse:"}
+                    {"role": "user", "content": row["item"]}
                 ],
                 sampling_params=dict(self.default_generation_params)
             ),
             postprocess=lambda row: dict(
-                answer=row["generated_text"].replace("<m>", ""),
+                answer=row["generated_text"],
                 **row  # This will return all the original columns in the dataset.
             ),
         )
-        
-        # self.vllm_processor = build_llm_processor(
-        #     self.vllm_config,
-        #     preprocess=lambda row: dict(
-        #         messages=[f"Instruction: {row["item"]}\n\n\nResponse:"],
-        #         sampling_params=dict(self.default_generation_params)
-        #     ),
-        #     postprocess=lambda row: dict(
-        #         answer=row["generated_text"].replace("<m>", ""),
-        #         **row  # This will return all the original columns in the dataset.
-        #     ),
-        # )
-        
         
     def generate(self, prompt: str, **kwargs) -> str:
         return self.generate_batch([prompt], **kwargs)
