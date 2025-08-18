@@ -6,6 +6,9 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
 from .base_model import BaseModel
 
 class HuggingFaceModel(BaseModel):
+    # HuggingFaceModel is untested. 
+    # Use vllm_model instead.
+
     def __init__(
         self,
         model_name: str,
@@ -56,73 +59,9 @@ class HuggingFaceModel(BaseModel):
             outputs = self.generator(prompts, **params)
             return [out[0]["generated_text"] for out in outputs]
         else:
-            texts = [
-                self.tokenizer.apply_chat_template(
-                    [ {"role": "user", "content": prompt} ],
-                    tokenize=False,
-                    add_generation_prompt=True,
-                    enable_thinking=True, # Switches between thinking and non-thinking modes. Default is True.
-                ) for prompt in prompts
-            ]
-            model_inputs = self.tokenizer(texts, 
-                return_tensors="pt",
-                padding=True,
-                truncation=True,
-                padding_side="left",
-                max_length = 8192 
-            ).to(self.model.device)
-            
-            # conduct text completion
-            generated_ids = self.model.generate(
-                **model_inputs,
-                max_new_tokens=16384
-            )
-            
             results = []
-            for i in range(len(prompts)):
-                input_len = len(model_inputs.input_ids[i])
-                output_ids = generated_ids[i][input_len:].tolist()
-                
-                # Split thinking and content sections
-                try:
-                    index = len(output_ids) - output_ids[::-1].index(151668)  # </think> token ID
-                except ValueError:
-                    index = 0
-            
-                thinking_content = self.tokenizer.decode(output_ids[:index], skip_special_tokens=True).strip("\n")
-                content = self.tokenizer.decode(output_ids[index:], skip_special_tokens=True).strip("\n")
-                
-                results.append(content)
-            
-            return results
-
-            messages = [
-                {"role": "user", "content": prompt} for prompt in prompts
-            ]
-            
-            
-            text = self.tokenizer.apply_chat_template(
-                messages,
-                tokenize=False,
-                add_generation_prompt=True,
-                enable_thinking=True # Switches between thinking and non-thinking modes. Default is True.
-            )
-            
-            model_inputs = self.tokenizer([text], return_tensors="pt").to(self.model.device)
-            
-            # conduct text completion
-            generated_ids = self.model.generate(
-                **model_inputs,
-                max_new_tokens=32768
-            )
-            output_ids = [g[len(model_inputs.input_ids[0]):].tolist() for g in generated_ids]
-            results = [self.tokenizer.decode(out, skip_special_tokens=True) for out in output_ids]
-            
-            # results = []
-            # for prompt in prompts:
-            #     inputs = self.tokenizer(prompt, return_tensors="pt", truncation=False).to(self.model.device)
-            #     output_ids = self.model.generate(**inputs, **params)
-            #     results.append(self.tokenizer.decode(output_ids[0], skip_special_tokens=True, truncation=False))
-            #     # print(f"Generated output length: {len(self.tokenizer.decode(output_ids[0], skip_special_tokens=False))}")
-            # # print(results)
+            for prompt in prompts:
+                inputs = self.tokenizer(prompt, return_tensors="pt", truncation=False).to(self.model.device)
+                output_ids = self.model.generate(**inputs, **params)
+                results.append(self.tokenizer.decode(output_ids[0], skip_special_tokens=True, truncation=False))
             return results
