@@ -21,14 +21,14 @@ def get_species_string(
     """
     if charge is not None and charge != 0:
         if charge == 1:
-            return f"{element_symbol} +"
+            return f"{element_symbol}+"
         elif charge == -1:
-            return f"{element_symbol} -"
+            return f"{element_symbol}-"
         else:
             if charge > 0:
-                return f"{element_symbol} {charge}+"
+                return f"{element_symbol}{charge}+"
             else:
-                return f"{element_symbol} {abs(charge)}-"
+                return f"{element_symbol}{abs(charge)}-"
     return element_symbol
 
 
