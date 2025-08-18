@@ -260,3 +260,21 @@ class RotateAroundAtomAction(BaseAction):
 
     def __str__(self):
         return f"Rotate all surrounding atoms within {self.radius} angstrom of the center atom at index {self.index} by {self.angle} degree around the axis {self.axis} in the cif file. The rotation should following the right-hand rule."
+
+
+class RotateWholeAction(BaseAction):
+    def __init__(self, atoms: Atoms, angle: float, axis: np.ndarray):
+        super().__init__(atoms)
+        if not (0 <= angle < 360):
+            raise ValueError("Angle must be in the range [0, 2π).")
+        if np.linalg.norm(axis) == 0:
+            raise ValueError("Axis of rotation cannot be a zero vector.")
+        self.angle = angle
+        self.axis = axis / np.linalg.norm(axis)  # Normalize the rotation axis
+
+    def execute(self):
+        self.atoms.rotate(self.angle, self.axis, rotate_cell=True)
+        return self.atoms
+
+    def __str__(self):
+        return f"Rotate the structure and cell by {self.angle} degree around the axis {self.axis} in the cif file. The rotation should following the right-hand rule."

@@ -89,21 +89,3 @@ def match_structures(struct1, struct2):
     else:
         logging.info("Structures do NOT match within tolerances.")
         return -1, -1
-
-# def get_rmsd_and_maxdiff(struct1, struct2):
-#     """
-#     Compute RMSD and maximum difference in positions between two structures.
-#     """
-#     coords1 = struct1.cart_coords
-#     coords2 = struct2.cart_coords
-
-#     # Ensure both structures have the same number of atoms
-#     if len(coords1) != len(coords2):
-#         raise ValueError("Structures must have the same number of atoms for RMSD calculation.")
-
-#     # Compute the RMSD
-#     diff = coords1 - coords2
-#     rmsd = np.sqrt((diff**2).sum(axis=1).mean())
-#     max_diff = np.max(np.linalg.norm(diff, axis=1))
-
-#     return rmsd, max_diff
