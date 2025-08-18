@@ -30,7 +30,8 @@ def detect_indices_offests_around_frac_coords(
     """
     # Add a dummy atom to the structure at the given fractional coordinates to mark.
     atoms_modified = atoms.copy()
-    atoms_modified += Atoms("X", positions=[frac_coords], cell=atoms.cell, pbc=atoms.pbc)
+    cart_coords = frac_coords @ atoms_modified.cell.complete()
+    atoms_modified += Atoms("X", positions=[cart_coords], cell=atoms.cell, pbc=atoms.pbc)
     # Dummy atom is added to the end of the atoms list.
     dummy_index = len(atoms_modified) - 1
 
@@ -43,12 +44,16 @@ def detect_indices_offests_around_frac_coords(
         self_interaction=False,
     )
 
-    symbols = np.array(atoms_modified.get_chemical_symbols())
+    symbols_atoms = np.array(atoms_modified.get_chemical_symbols())
     # Filter indices to only include those that are within the cutoff distance from the dummy atom,
     # and that match the specified symbols if provided.
+    if symbols is None:
+        symbols = [sym for sym in np.unique(symbols_atoms).tolist() if sym != "X"]
     indices_valid = (
             (indices_i == dummy_index) &
-            np.vectorize(lambda x: x in symbols)(symbols[indices_j])
+            np.vectorize(lambda x: x in symbols, otypes=[bool])(
+                symbols_atoms[indices_j]
+            )
     )
     indices_j_valid = indices_j[indices_valid]
     offsets_valid = offsets[indices_valid, :]
