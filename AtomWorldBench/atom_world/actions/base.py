@@ -6,7 +6,7 @@ import re
 from ase import Atoms
 
 from ..motifs.base import BaseMotif
-from ...mixin_classes import MultiModeInitMixin
+from ...common.mixin_classes import MultiModeInitMixin
 
 
 class BaseAction(MultiModeInitMixin, ABC):

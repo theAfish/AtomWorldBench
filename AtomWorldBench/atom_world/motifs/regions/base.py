@@ -9,7 +9,7 @@ from numpy import ndarray
 from ..base import BaseMotif
 
 
-class BaseRegionMotif(ABC, BaseMotif):
+class BaseRegionMotif(BaseMotif, ABC):
     """A base class for region motifs.
 
     A region motif is a geometric element that defines an operable region in space.

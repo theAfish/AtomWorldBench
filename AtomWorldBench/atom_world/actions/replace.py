@@ -8,7 +8,10 @@ import numpy as np
 from .base import BaseAction
 from ..motifs.base import BaseMotif
 
+from ...common.registry import register
 
+
+@register(BaseMotif, ["replace"])
 class ReplaceAction(BaseAction):
     """Action to replace a motif in the structure.
 

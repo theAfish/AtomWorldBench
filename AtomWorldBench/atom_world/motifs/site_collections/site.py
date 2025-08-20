@@ -1,6 +1,10 @@
 from .base import BaseSiteCollectionMotif
+from ..base import BaseMotif
 
+from ....common.registry import register
 
+@register(BaseMotif, aliases=["site", "single-site"])
+@register(BaseSiteCollectionMotif, aliases=["site", "single-site"])
 class SiteMotif(BaseSiteCollectionMotif):
     """A motif that represents a point in space, defined by its coordinates.
 

@@ -7,7 +7,12 @@ from numpy.typing import ArrayLike
 from .cluster import ClusterDetector
 
 from ..motifs.site_collections.bond import BondMotif
+from .base import BaseDetector
 
+from ...common.registry import register
+
+
+@register(BaseDetector, ["bond"])
 class BondDetector(ClusterDetector):
     """Detects bonds between atoms in a structure.
 

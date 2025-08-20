@@ -1,7 +1,12 @@
 """Bond motif class."""
 
 from .cluster import ClusterMotif
+from ....common.registry import register
+from ..base import BaseMotif
+from .base import BaseSiteCollectionMotif
 
+@register(BaseMotif, ["bond"])
+@register(BaseSiteCollectionMotif, ["bond"])
 class BondMotif(ClusterMotif):
     """Motif representing a bond between two sites.
 

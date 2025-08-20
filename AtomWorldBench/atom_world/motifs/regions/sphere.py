@@ -7,11 +7,14 @@ from numpy import ndarray
 from numpy.typing import ArrayLike
 
 from .base import BaseRegionMotif
+from ..base import BaseMotif
 from ....utils.coord_utils import check_coordinates_shape
 from ....utils.neighbor_utils import detect_indices_offests_around_frac_coords
 from ....utils.description_utils import describe_arraylike
-from ....globals import DEFAULT_FLOAT_TO_STRING_PRECISION
-from ....mixin_classes import MultiModeInitMixin
+from ....common.globals import DEFAULT_FLOAT_TO_STRING_PRECISION
+from ....common.mixin_classes import MultiModeInitMixin
+
+from ....common.registry import register
 
 
 def _check_radius(x: Union[int, float]) -> float:
@@ -24,6 +27,8 @@ def _check_radius(x: Union[int, float]) -> float:
 # This allows us to have a single class that can be used in different ways,
 # such as by specifying a center coordinate or an index of an atom.
 # Don't do multiple classes.
+@register(BaseMotif, ["sphere", "sphere-region"])
+@register(BaseRegionMotif,["sphere", "sphere-region"])
 class SphereRegionMotif(BaseRegionMotif, MultiModeInitMixin):
     """A spherical region motif that defines a spherical operable region in space."""
     kwargs_formatting_functions = {

@@ -15,7 +15,7 @@ from ase import Atoms, Atom
 from ....utils.description_utils import get_species_string, describe_arraylike
 from ....utils.coord_utils import check_integer_translation, find_coordinate_subset_indices
 
-from ....globals import ALLOW_TRANSLATION_EQUIVALENCE, DEFAULT_FLOAT_TO_STRING_PRECISION
+from ....common.globals import ALLOW_TRANSLATION_EQUIVALENCE, DEFAULT_FLOAT_TO_STRING_PRECISION
 from ..base import BaseMotif
 
 

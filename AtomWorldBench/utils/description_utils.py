@@ -4,7 +4,7 @@ from typing import Optional
 
 from numpy.typing import ArrayLike
 
-from ..globals import DEFAULT_FLOAT_TO_STRING_PRECISION
+from ..common.globals import DEFAULT_FLOAT_TO_STRING_PRECISION
 
 
 def get_species_string(

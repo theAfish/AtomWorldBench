@@ -9,9 +9,12 @@ from .base import BaseAction
 from ..motifs.base import BaseMotif
 
 from ...utils.atoms_utils import merge_atoms
-from ...globals import DEFAULT_FLOAT_TO_STRING_PRECISION
+from ...common.globals import DEFAULT_FLOAT_TO_STRING_PRECISION
+
+from ...common.registry import register
 
 
+@register(BaseMotif, ["resize"])
 class ResizeAction(BaseAction):
     """Resize a motif by changing the motif's radius with respect to its centroid or a node."""
     mode_definitions = {

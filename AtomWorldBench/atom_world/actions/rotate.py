@@ -14,7 +14,8 @@ from ...utils.coord_utils import check_coordinates_shape
 from ...utils.description_utils import describe_arraylike
 from ...utils.atoms_utils import merge_atoms
 
-from ...globals import DEFAULT_FLOAT_TO_STRING_PRECISION
+from ...common.globals import DEFAULT_FLOAT_TO_STRING_PRECISION
+from ...common.registry import register
 
 
 def _check_rotation_axis_vector(r):
@@ -27,6 +28,7 @@ def _check_rotation_axis_vector(r):
     return r / np.linalg.norm(r)
 
 
+@register(BaseMotif, ["rotate"])
 class RotateAction(BaseAction):
     """Action to rotate a motif in the structure.
 

@@ -479,8 +479,8 @@ class MultiModeInitMixin(ABC):
                 setattr(self, key, value)
                 continue
 
-            sig = inspect.signature(fn)
             try:
+                sig = inspect.signature(fn)
                 if "mode_flag" in sig.parameters:
                     formatted = fn(value, mode_flag=self.mode_flag)
                 else:
@@ -488,7 +488,8 @@ class MultiModeInitMixin(ABC):
             except TypeError as e:
                 raise TypeError(
                     f"Formatter for '{key}' must be callable(value) or "
-                    f"callable(value, *, mode_flag: Optional[str] = None); got {fn!r}"
-                ) from e
+                    f"callable(value, *, mode_flag: Optional[str] = None);"
+                    f" got {fn!r}. Error message: {e}."
+                )
 
             setattr(self, key, formatted)

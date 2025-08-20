@@ -1,11 +1,9 @@
-from ...utils.class_utils import class_name_from_str, derived_class_factory
+from ...common.registry import derived_class_factory
 
 from .base import BaseMotif
 
 
 # TODO: polyhedra, etc.
-# TODO: implement a region motif that can be used to include all sites in a region in space.
-#  This will enable actions such as "move all atoms in a region towards or away from a point",
 def motif_factory(
         motif_name: str,
         *args,
@@ -15,11 +13,11 @@ def motif_factory(
 
     Args:
         motif_name (str): The type of motif to create.
-            Must be the first part of the class name, e.g., "cluster" for ClusterMotif.
+            Must be one of the alias names registered in the BaseMotif class.
+            See documentation of `common.registry.register` for more details.
         *args: Positional arguments to pass to the motif's constructor.
         **kwargs: Keyword arguments to pass to the motif's constructor.
     Returns:
         BaseSiteCollectionMotif: An instance of the specified motif type.
     """
-    class_name = class_name_from_str(motif_name + "-motif")
-    return derived_class_factory(class_name, BaseMotif, *args, **kwargs)
+    return derived_class_factory(motif_name, BaseMotif, *args, **kwargs)

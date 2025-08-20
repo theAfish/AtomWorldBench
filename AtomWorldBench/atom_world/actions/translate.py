@@ -12,9 +12,11 @@ from ..motifs.base import BaseMotif
 from ...utils.coord_utils import check_coordinates_shape
 from ...utils.atoms_utils import merge_atoms
 from ...utils.description_utils import describe_arraylike
-from ...globals import DEFAULT_FLOAT_TO_STRING_PRECISION
+from ...common.globals import DEFAULT_FLOAT_TO_STRING_PRECISION
+from ...common.registry import register
 
 
+@register(BaseAction, ["translate"])
 class TranslateAction(BaseAction):
     """Action to translate a motif in the structure."""
     kwargs_formating_functions = {

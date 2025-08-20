@@ -2,9 +2,13 @@
 from typing import List
 
 from .base import BaseSiteCollectionMotif
+from ..base import BaseMotif
 from .site import SiteMotif
 
+from ....common.registry import register
 
+@register(BaseMotif, aliases=["cluster", "atom-cluster"])
+@register(BaseSiteCollectionMotif, aliases=["cluster", "atom-cluster"])
 class ClusterMotif(BaseSiteCollectionMotif):
     """Motif representing a cluster of atoms.
 

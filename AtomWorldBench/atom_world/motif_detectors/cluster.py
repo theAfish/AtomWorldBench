@@ -10,6 +10,8 @@ from .site import SiteDetector
 from ..motifs.site_collections.site import SiteMotif
 from ..motifs.site_collections.cluster import ClusterMotif
 
+from ...common.registry import register
+
 
 def grow_cluster(
         cluster: ClusterMotif,
@@ -84,6 +86,7 @@ def deduplicate_same_list_clusters(
     return unique_clusters
 
 
+@register(ClusterMotif, aliases=["cluster"])
 class ClusterDetector(BaseDetector):
     """Detects clusters of atoms in a structure.
 
@@ -313,7 +316,6 @@ class ClusterDetector(BaseDetector):
 
         for _ in range(n_attempts):
             cluster = _detect_attempt(atoms)
-            # TODO: fix this, why is not reachable?
             if cluster is not None:
                 return cluster
 

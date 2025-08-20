@@ -11,7 +11,8 @@ from ..motifs.base import BaseMotif
 from ...utils.description_utils import describe_arraylike
 from ...utils.coord_utils import check_coordinates_shape
 
-from ...globals import DEFAULT_FLOAT_TO_STRING_PRECISION
+from ...common.globals import DEFAULT_FLOAT_TO_STRING_PRECISION
+from ...common.registry import register
 
 
 def _check_relative_shift(x):
@@ -23,6 +24,7 @@ def _check_relative_shift(x):
         )
 
 
+@register(BaseAction, ["add"])
 class AddAction(BaseAction):
     """Action to add a motif to a structure.
 

@@ -8,7 +8,10 @@ from ase import Atoms
 from .base import BaseAction
 from ..motifs.base import BaseMotif
 
+from ...common.registry import register
 
+
+@register(BaseMotif, ["remove"])
 class RemoveAction(BaseAction):
     """Action to remove a motif from the structure.
 

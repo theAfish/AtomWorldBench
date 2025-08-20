@@ -7,8 +7,10 @@ from ase import Atoms
 from .base import BaseDetector
 from ..motifs.site_collections.site import SiteMotif
 from ...utils.neighbor_utils import detect_indices_offests_around_frac_coords
+from ...common.registry import register
 
 
+@register(BaseDetector, ["site", "single-site"])
 class SiteDetector(BaseDetector):
     """Class for detecting atoms."""
 
