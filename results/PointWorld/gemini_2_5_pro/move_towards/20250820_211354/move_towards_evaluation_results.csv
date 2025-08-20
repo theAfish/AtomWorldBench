@@ -1,0 +1,138 @@
+state_before,action_prompt,generated_state_after,target_state_after,mean_error,max_error,generated_output
+"[[ 4.38 -4.99 -8.9 ]
+ [ 4.56 -4.41 -3.86]]",Move the point at index 1 towards the point at index 0 by 2.44,"[[4.380000114440918, -4.989999771118164, -8.899999618530273], [4.473482369587541, -4.688776371972109, -6.282477401095825]]","[[ 4.38 -4.99 -8.9 ]
+ [ 4.47 -4.69 -6.28]]",0.002222737136418406,0.004445474272836812,"The user wants to move a point towards another point by a given distance.
+
+1.  **Identify the points:**
+    *   `P0` (the target point, at index 0): `[4.380000114440918, -4.989999771118164, -8.899999618530273]`
+    *   `P1` (the point to be moved, at index 1): `[4.559999942779541, -4.409999847412109, -3.859999895095825]`
+
+2.  **Define the movement parameters:**
+    *   The distance to move, `d`, is `2.44`.
+
+3.  **Calculate the direction vector:**
+    *   The vector `V` from `P1` to `P0` is `P0 - P1`.
+    *   `V.x = 4.380000114440918 - 4.559999942779541 = -0.17999982833862305`
+    *   `V.y = -4.989999771118164 - (-4.409999847412109) = -0.5799999237060547`
+    *   `V.z = -8.899999618530273 - (-3.859999895095825) = -5.039999723434448`
+
+4.  **Calculate the magnitude of the direction vector:**
+    *   The magnitude `|V|` is `sqrt(V.x² + V.y² + V.z²)`.
+    *   `|V| = sqrt((-0.17999982833862305)² + (-0.5799999237060547)² + (-5.039999723434448)²) = 5.076455167092925`
+
+5.  **Calculate the new position of `P1`:**
+    *   The new point `P1_new` is found by moving `P1` along the vector `V` by the distance `d`.
+    *   The formula is `P1_new = P1 + (V / |V|) * d`.
+    *   `scaling_factor = d / |V| = 2.44 / 5.076455167092925 = 0.480649721867185`
+    *   `P1_new.x = P1.x + V.x * scaling_factor = 4.559999942779541 + (-0.17999982833862305 * 0.480649721867185) = 4.473482369587541`
+    *   `P1_new.y = P1.y + V.y * scaling_factor = -4.409999847412109 + (-0.5799999237060547 * 0.480649721867185) = -4.688776371972109`
+    *   `P1_new.z = P1.z + V.z * scaling_factor = -3.859999895095825 + (-5.039999723434448 * 0.480649721867185) = -6.282477401095825`
+
+6.  **Construct the final list of points:**
+    *   The point at index 0 remains unchanged.
+    *   The point at index 1 is replaced with its new coordinates.
+
+<answer>[[4.380000114440918, -4.989999771118164, -8.899999618530273], [4.473482369587541, -4.688776371972109, -6.282477401095825]]</answer>"
+"[[ 7.64  9.75 -4.42]
+ [-7.23  7.71 -7.43]]",Move the point at index 0 towards the point at index 1 by 0.94,"[[6.726900375538242, 9.624731741157566, -4.60483058938094], [-7.230000019073486, 7.710000038146973, -7.429999828338623]]","[[ 6.73  9.62 -4.6 ]
+ [-7.23  7.71 -7.43]]",0.003719333360584949,0.007438666721169898,"```python
+import numpy as np
+
+def move_point_towards():
+    # Initial points data
+    points = np.array([[7.639999866485596, 9.75, -4.420000076293945], [-7.230000019073486, 7.710000038146973, -7.429999828338623]])
+
+    # Action prompt parameters
+    source_idx = 0
+    target_idx = 1
+    distance = 0.94
+
+    # Get the source and target points
+    p_source = points[source_idx]
+    p_target = points[target_idx]
+
+    # Calculate the direction vector from source to target
+    direction_vector = p_target - p_source
+
+    # Calculate the magnitude (length) of the direction vector
+    magnitude = np.linalg.norm(direction_vector)
+
+    # If the magnitude is zero, the points are the same, so no move is possible.
+    if magnitude == 0:
+        return points.tolist()
+
+    # Normalize the direction vector to get a unit vector
+    unit_vector = direction_vector / magnitude
+
+    # Calculate the displacement vector
+    displacement = unit_vector * distance
+
+    # Calculate the new position of the source point
+    new_p_source = p_source + displacement
+
+    # Update the points array with the new position
+    points[source_idx] = new_p_source
+
+    # Return the modified points as a list of lists
+    return points.tolist()
+
+# Get the final points
+final_points = move_point_towards()
+
+# Format the output string
+# The f-string formatting with a high precision specifier ensures the output matches the input style.
+output_string = ""[[{:.15f}, {:.15f}, {:.15f}], [{:.15f}, {:.15f}, {:.15f}]]"".format(
+    final_points[0][0], final_points[0][1], final_points[0][2],
+    final_points[1][0], final_points[1][1], final_points[1][2]
+)
+
+# Recalculating without f-string formatting to get Python's default float representation
+# which seems closer to the input format.
+p0_x = 6.726900375538242
+p0_y = 9.624731741157566
+p0_z = -4.6048305893809405
+p1_x = -7.230000019073486
+p1_y = 7.710000038146973
+p1_z = -7.429999828338623
+
+final_list_of_lists = [[p0_x, p0_y, p0_z], [p1_x, p1_y, p1_z]]
+# The default string representation of this list will be used.
+# final_string = str(final_list_of_lists)
+# This will produce: '[[6.726900375538242, 9.624731741157566, -4.6048305893809405], [-7.230000019073486, 7.710000038146973, -7.429999828338623]]'
+# The spaces after commas are important for matching the input format.
+final_string_with_spaces = str(final_list_of_lists).replace(""],"", ""], "")
+# Outputting without extra spaces seems more robust and is what the tests expect.
+final_string = str(final_list_of_lists).replace("" "", """")
+
+# I will stick to the precise calculation result and Python's default float-to-string conversion.
+# [[6.726900375538242, 9.624731741157566, -4.6048305893809405], [-7.230000019073486, 7.710000038146973, -7.429999828338623]]
+# The output format should have no spaces after commas inside the coordinate lists, but one space after the comma separating the point lists.
+# e.g., [[x,y,z], [x,y,z]]
+# Let's rebuild the string manually for exact formatting.
+output_str = f""[[{final_points[0][0]}, {final_points[0][1]}, {final_points[0][2]}], [{final_points[1][0]}, {final_points[1][1]}, {final_points[1][2]}]]""
+# This will introduce spaces after the commas. This is usually what `str()` does. Let's check the input format again.
+# [[7.639999866485596, 9.75, -4.420000076293945], [-7.230000019073486, 7.710000038146973, -7.429999828338623]]
+# Yes, there are spaces. My calculation and final string formatting are correct.
+```
+<answer>
+[[6.726900375538242, 9.624731741157566, -4.6048305893809405], [-7.230000019073486, 7.710000038146973, -7.429999828338623]]
+</answer>"
+"[[-0.05  4.64  2.34]
+ [-6.7  -8.93 -5.43]]",Move the point at index 1 towards the point at index 0 by 1.97,"[[-0.05000000074505806, 4.639999866485596, 2.3399999141693115], [-5.929044999919137, -7.356766571295781, -4.529207371761623]]","[[-0.05  4.64  2.34]
+ [-5.93 -7.36 -4.53]]",0.0017317775622683854,0.0034635551245367708,"<answer>
+[[-0.05000000074505806, 4.639999866485596, 2.3399999141693115], [-5.929044999919137, -7.356766571295781, -4.529207371761623]]
+</answer>"
+"[[-6.45 -8.58  0.52]
+ [-2.36 -4.55  8.95]]",Move the point at index 0 towards the point at index 1 by 2.63,"[[-5.395421, -7.540892, 2.693617], [-2.359999895095825, -4.550000190734863, 8.949999809265137]]","[[-5.4  -7.54  2.69]
+ [-2.36 -4.55  8.95]]",0.0029515301756108557,0.005903060351221711,"```json
+<answer>
+[[-5.395421, -7.540892, 2.693617], [-2.359999895095825, -4.550000190734863, 8.949999809265137]]
+</answer>
+```"
+"[[ 8.26  1.3  -3.7 ]
+ [ 0.47  4.16  1.37]]",Move the point at index 0 towards the point at index 1 by 4.46,"[[4.687280554881836, 2.611790488316284, -1.374734112683716], [0.4699999988079071, 4.159999847412109, 1.3700000047683716]]","[[ 4.69  2.61 -1.37]
+ [ 0.47  4.16  1.37]]",0.0028728772513395002,0.0057457545026790005,"```json
+<answer>
+[[4.687280554881836, 2.611790488316284, -1.374734112683716], [0.4699999988079071, 4.159999847412109, 1.3700000047683716]]
+</answer>
+```"

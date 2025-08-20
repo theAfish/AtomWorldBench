@@ -10,6 +10,7 @@ import re
 import os
 import logging
 import json
+import random
 
 logging.captureWarnings(True)
 logging.basicConfig(
@@ -49,6 +50,8 @@ class Evaluator:
         return matched_distances
 
     def evaluate(self, batch_size: int = 8, num_batch: int = -1):
+        print("Running evaluate")
+    
         results = []
         wrongs = []
         num_unreadable_out = 0
@@ -62,8 +65,14 @@ class Evaluator:
             total = min(len(self.data), batch_size * num_batch)
         else:
             total = len(self.data)
-
-        for i, row in tqdm(enumerate(self.data), total=total, desc="LLM Calling"):
+            
+        evaluation_data = random.sample(self.data, batch_size * num_batch)
+        print(f"Before tqdm: len(self.data): {len(self.data)}, len(evaluation_data): {len(evaluation_data)}, total: {total}")
+        for i, row in enumerate(evaluation_data):
+            print(i, row)
+        # for i, row in tqdm(enumerate(evaluation_data), total=total, desc="LLM Calling"):
+        for i, row in enumerate(evaluation_data):
+            print(f"Packing row: {i}")
             points_before = row['state_before']
             action_prompt = row['action_prompt']
 
@@ -74,8 +83,10 @@ class Evaluator:
             prompts.append(prompt)
             rows.append(row)
 
-            if len(prompts) == batch_size or i == len(self.data) - 1:
+            if len(prompts) == batch_size or i == len(evaluation_data) - 1:
+                print(f"Sending batch.")
                 generated_outputs = self.model.generate_batch(prompts)
+                print(f"Received batch.")
                 for j, generated_output in enumerate(generated_outputs):
                     row = rows[j]
                     points_pred = extract_points_from_answer(generated_output)
@@ -125,7 +136,7 @@ class Evaluator:
                 if num_batch > 0 and batch_count >= num_batch:
                     break
 
-        print(f"Total: {len(self.data)}")
+        print(f"Total: {len(evaluation_data)}")
         print(f"Unreadable: {num_unreadable_out}, Invalid: {num_invalid_pred}")
         avg_max_error = np.mean([r['max_error'] for r in results]) if results else float('inf')
         avg_mean_error = np.mean([r['mean_error'] for r in results]) if results else float('inf')
