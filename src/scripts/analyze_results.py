@@ -2,17 +2,37 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import os
+import argparse
+import sys
+
+# ========== Argument Parsing ==========
+parser = argparse.ArgumentParser(description="Analyze evaluation results.")
+parser.add_argument("-m", "--model_name", type=str, required=True, help="Name of the model")
+parser.add_argument("-a", "--action_name", type=str, required=True, help="Name of the action")
+args = parser.parse_args()
 
 # ========== Setup ==========
-results_folder = "results"
-model_name = "llama3_70b"
-action_name = "insert_between_atoms_action"
-folder = f"{results_folder}/{model_name}/{action_name}"
-results_file = os.path.join(folder, f"{action_name}_evaluation_results.csv")
-wrongs_file = os.path.join(folder, f"{action_name}_evaluation_wrongs.csv")
+base_folder = "results"
+model_name = args.model_name
+action_name = args.action_name
+results_folder = f"{base_folder}/{model_name}/{action_name}"
+
+# Find the latest datetime subfolder under the model/action folder
+subfolders = [d for d in os.listdir(results_folder) if os.path.isdir(os.path.join(results_folder, d))]
+if subfolders:
+    latest_datetime_subfolder = sorted(subfolders)[-1]
+    results_folder = os.path.join(results_folder, latest_datetime_subfolder)
+
+print(f"Analysing folder: {results_folder}")
+results_file = os.path.join(results_folder, f"{action_name}_evaluation_results.csv")
+wrongs_file = os.path.join(results_folder, f"{action_name}_evaluation_wrongs.csv")
 
 # ========== Load Data ==========
-df_results = pd.read_csv(results_file, sep=',')
+try:
+    df_results = pd.read_csv(results_file, sep=',')
+except pd.errors.EmptyDataError:
+    print(f"No-op: '{results_file}' is empty.")
+    sys.exit()
 df_errs = pd.read_csv(wrongs_file, sep=',')
 
 # ========== Statistics ==========
@@ -52,7 +72,7 @@ plt.text(
 )
 
 plt.tight_layout()
-plt.savefig(f"{results_folder}/{model_name}/{model_name}-{action_name}-max_dist.png", dpi=300, bbox_inches='tight')
+plt.savefig(f"{results_folder}/{model_name}-{action_name}-max_dist.png", dpi=300, bbox_inches='tight')
 plt.show()
 
 # ========== Boxplot ==========
@@ -73,11 +93,11 @@ init_cif = df_results["input_cif"][index2save]
 gen_cif = df_results["generated_cif"][index2save]
 target_cif = df_results["target_cif"][index2save]
 
-with open(f"{results_folder}/{model_name}/example_2.cif", "w") as f:
+with open(f"{results_folder}/example_2.cif", "w") as f:
     f.write(gen_cif)
 
-with open(f"{results_folder}/{model_name}/example_1.cif", "w") as f:
+with open(f"{results_folder}/example_1.cif", "w") as f:
     f.write(target_cif)
 
-with open(f"{results_folder}/{model_name}/example_0.cif", "w") as f:
+with open(f"{results_folder}/example_0.cif", "w") as f:
     f.write(init_cif)

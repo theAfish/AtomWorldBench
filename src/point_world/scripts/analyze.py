@@ -1,15 +1,30 @@
+import argparse
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import os
 
+# ========== Argument Parsing ==========
+parser = argparse.ArgumentParser(description="Analyze evaluation results.")
+parser.add_argument("-m", "--model_name", type=str, required=True, help="Name of the model")
+parser.add_argument("-a", "--action_name", type=str, required=True, help="Name of the action")
+args = parser.parse_args()
+
 # ========== Setup ==========
-results_folder = "../results"
-model_name = "deepseek_chat"
-action_name = "insert_between"
-folder = f"{results_folder}/{model_name}/{action_name}"
-results_file = os.path.join(folder, f"{action_name}_evaluation_results.csv")
-wrongs_file = os.path.join(folder, f"{action_name}_evaluation_wrongs.csv")
+base_folder = "results/PointWorld"
+model_name = args.model_name
+action_name = args.action_name
+results_folder = f"{base_folder}/{model_name}/{action_name}"
+
+# Find the latest datetime subfolder under the model/action folder
+subfolders = [d for d in os.listdir(results_folder) if os.path.isdir(os.path.join(results_folder, d))]
+if subfolders:
+    latest_datetime_subfolder = sorted(subfolders)[-1]
+    results_folder = os.path.join(results_folder, latest_datetime_subfolder)
+
+print(f"Analysing folder: {results_folder}")
+results_file = os.path.join(results_folder, f"{action_name}_evaluation_results.csv")
+wrongs_file = os.path.join(results_folder, f"{action_name}_evaluation_wrongs.csv")
 
 # ========== Load Data ==========
 df_results = pd.read_csv(results_file, sep=',')
@@ -61,7 +76,7 @@ plt.text(
 )
 
 plt.tight_layout()
-plt.savefig(f"{results_folder}/{model_name}/{model_name}-{action_name}-max_dist.png", dpi=300, bbox_inches='tight')
+plt.savefig(f"{results_folder}/{model_name}-{action_name}-max_dist.png", dpi=300, bbox_inches='tight')
 plt.show()
 
 # # ========== Boxplot ==========

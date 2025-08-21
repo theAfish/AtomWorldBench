@@ -1,3 +1,4 @@
+import datetime
 import os
 import argparse
 import yaml
@@ -6,6 +7,7 @@ from point_world.evaluator import Evaluator
 from models.openai_model import OpenAIModel
 from models.azure_openai_model import AzureOpenAIModel
 from models.huggingface_model import HuggingFaceModel
+from models.vllm_model import vllmModel
 
 CONFIG_DIR = Path(__file__).parent.parent.parent / "config"
 DATA_DIR = Path(__file__).parent.parent / "datasets"
@@ -71,6 +73,14 @@ def run_benchmark(
             use_pipeline=use_pipeline,
             **generation_params
         )
+    elif model_class == "vllmModel":
+        model_name = config.get("model_name", None)
+        generation_params = {k: v for k, v in config.items() if k not in ["class", "model_name", "device", "use_pipeline"]}
+        
+        model = vllmModel(
+            model_name=model_name,
+            **generation_params
+        )
     else:
         raise ValueError(f"Unimplemented model_class '{model_class}'.")
 
@@ -80,11 +90,10 @@ def run_benchmark(
     # 数据集路径
     data_path = DATA_DIR
 
-    # 结果保存路径
-    if results_folder is None:
-        results_folder = f"results/{model_id}/{action}"
-    else:
-        results_folder = f"{results_folder}/{model_id}/{action}"
+    # automatically set results folder if not provided
+    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    results_folder = f"{results_folder or "results/PointWorld"}/{model_id}/{action}/{timestamp}"
+    
 
     evaluator = Evaluator(
         model=model,
@@ -136,7 +145,7 @@ if __name__ == "__main__":
         "--results_folder",
         type=str,
         default=None,
-        help="Folder to save results. Default: 'results/{model_id}/{action}'"
+        help="Folder to save results. Default: 'results/PointWorld/{model_id}/{action}/{timestamp}'"
     )
     args = parser.parse_args()
 
