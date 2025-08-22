@@ -98,7 +98,6 @@ class SphereRegionMotif(BaseRegionMotif, MultiModeInitMixin):
             center_id=center_id,
             radius=radius,
             center_is_fractional=center_is_fractional,
-            symbols=symbols
         )
 
     def __post_init__(self):
@@ -116,14 +115,14 @@ class SphereRegionMotif(BaseRegionMotif, MultiModeInitMixin):
                 )
 
     def _get_center(self) -> ndarray:
-        """Get the center of the spherical region motif."""
+        """Get the center of the spherical region motif in cartesian."""
         if self.mode_flag == "center_around_coordinates":
             if self.center_is_fractional:
                 return self.center @ self.in_atoms.cell.complete()
             else:
                 return self.center
         elif self.mode_flag == "center_around_atom_index":
-            return self.in_atoms.get_positions()[self.center_id]
+            return self.in_atoms.get_positions(wrap=False)[self.center_id]
         else:
             raise NotImplementedError(
                 f"operation mode {self.mode_flag} for {self.__class__.__name__} not implemented."
@@ -144,7 +143,7 @@ class SphereRegionMotif(BaseRegionMotif, MultiModeInitMixin):
         else:
             return cart_centroid
 
-    def get_site_indices_in_atoms(self, atoms: Atoms) -> Atoms:
+    def get_site_indices_in_atoms(self, atoms: Atoms) -> ArrayLike:
         """Return the subset of atoms included in the spherical region motif.
 
         If one of the periodic images lies within the region,
@@ -155,7 +154,9 @@ class SphereRegionMotif(BaseRegionMotif, MultiModeInitMixin):
             ndarray[int]: An array of indices of atoms that are within the region motif.
         """
         indices, _ = detect_indices_offests_around_frac_coords(
-            atoms, self._get_center(), self.radius, self.symbols
+            atoms,
+            self.get_centroid(fractional=True),
+            self.radius, self.symbols
         )
         return indices
 
@@ -176,7 +177,7 @@ class SphereRegionMotif(BaseRegionMotif, MultiModeInitMixin):
             str: A string description of the spherical region motif.
         """
         if self.mode_flag == "center_around_coordinates":
-            coord_word = "fractional" if self.center_is_fractional else "Cartesian"
+            coord_word = "fractional" if self.center_is_fractional else "cartesian"
             coord_string = describe_arraylike(self.center, precision=precision)
             center_string = f"{coord_word} coordinates {coord_string}"
         elif self.mode_flag == "center_around_atom_index":
@@ -230,9 +231,12 @@ class SphereRegionMotif(BaseRegionMotif, MultiModeInitMixin):
         rng = np.random.default_rng(seed)
         if len(atoms) == 0:
             raise ValueError("The provided Atoms object is empty.")
-        cell_lengths = atoms.cell.lengths()
-        min_cell_length = np.min(cell_lengths)
-        radius = rng.uniform(2.0, min_cell_length / 2.0)
+        if radius is None:
+            # Generate a random radius from 2 angstroms to half of
+            # the shortest cell vector length.
+            cell_lengths = atoms.cell.lengths()
+            min_cell_length = np.min(cell_lengths)
+            radius = rng.uniform(2.0, min_cell_length / 2.0)
 
         if randomize_symbols:
             all_symbols = list(set(atoms.get_chemical_symbols()))

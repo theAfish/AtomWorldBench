@@ -41,12 +41,15 @@ class BaseRegionMotif(BaseMotif, ABC):
         """
         BaseMotif.__init__(self, name=name)
         self.in_atoms = in_atoms
-        self.symbols = symbols if symbols is not None else []
+        self.symbols = symbols
+        self._atoms_subset = None
 
     def get_atoms(self) -> Atoms:
         """Return an atoms object including all sites in this region."""
-        indices = self.get_site_indices_in_atoms(self.in_atoms)
-        return self.in_atoms[indices]
+        if self._atoms_subset is None:
+            indices = self.get_site_indices_in_atoms(self.in_atoms)
+            self._atoms_subset = self.in_atoms[indices]
+        return self._atoms_subset
 
     @property
     def cart_coords(self) -> ndarray:
