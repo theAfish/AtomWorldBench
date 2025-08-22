@@ -1,7 +1,9 @@
 import os
 from typing import Any, Dict, List, Optional, Union
-from openai import OpenAI
+from openai import OpenAI, RateLimitError, APIStatusError, APITimeoutError, APIConnectionError
+import time
 import concurrent.futures
+import random
 
 from .base_model import BaseModel
 
@@ -34,21 +36,32 @@ class OpenAIModel(BaseModel):
 
     def _call_api(self, messages: List[Dict[str, str]], **kwargs) -> str:
         """ private method to call OpenAI API with given messages and parameters."""
-        try:
-            # Merge default parameters with parameters passed during the call
-            generation_params = self.default_generation_params.copy()
-            generation_params.update(kwargs)
-
-            # Calling OpenAI API
-            chat_completion = self.client.chat.completions.create(
-                model=self.model_name,
-                messages=messages,
-                **generation_params
-            )
-            return chat_completion.choices[0].message.content
-        except Exception as e:
-            print(f"Error calling {self.model_name} API: {e}")
-            return ""
+        max_retries = 14
+        backoff = 2  # seconds
+        for attempt in range(max_retries):
+            try:
+                generation_params = self.default_generation_params.copy()
+                generation_params.update(kwargs)
+                chat_completion = self.client.chat.completions.create(
+                    model=self.model_name,
+                    messages=messages,
+                    **generation_params
+                )
+                # print(f"Debug: API response for messages {messages}: {chat_completion}")
+                content = chat_completion.choices[0].message.content
+                if content is None or content.strip() == "":
+                    print("Warning: API returned no content, will retry...")
+                    raise ValueError("Empty completion")
+                return content
+            except (RateLimitError, APIStatusError, APITimeoutError, APIConnectionError, ValueError) as e:
+                wait_time = backoff * (2 ** attempt) * random.uniform(0.5, 1.5)
+                print(f"{type(e).__name__} (attempt {attempt+1}/{max_retries}), retrying in {wait_time}s...")
+                time.sleep(wait_time)
+            except Exception as e:
+                print(f"Error calling {self.model_name} API: {e}")
+                return ""
+        print(f"Failed after {max_retries} retries due to rate limit.")
+        return ""
 
     def generate(self, prompt: str, **kwargs) -> str:
         """
@@ -63,5 +76,12 @@ class OpenAIModel(BaseModel):
             futures = {executor.submit(self.generate, prompt, **kwargs): idx for idx, prompt in enumerate(prompts)}
             for future in concurrent.futures.as_completed(futures):
                 idx = futures[future]
-                results[idx] = future.result()
+                try:
+                    result = future.result()
+                    if result is None or result == "":
+                        print(f"Warning: No result for prompt at index {idx}")
+                    results[idx] = result
+                except Exception as e:
+                    print(f"Exception for prompt at index {idx} - {e}")
+                    results[idx] = ""
         return results

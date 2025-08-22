@@ -1,15 +1,19 @@
 import os
+import torch
 from typing import Any, Dict, List, Optional, Union
 from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
 
 from .base_model import BaseModel
 
 class HuggingFaceModel(BaseModel):
+    # HuggingFaceModel is untested. 
+    # Use vllm_model instead.
+
     def __init__(
         self,
         model_name: str,
         device: Optional[Union[str, int]] = None,
-        use_pipeline: bool = True,
+        use_pipeline: bool = False,
         **kwargs
     ):
         super().__init__(model_name, **kwargs)
@@ -18,7 +22,8 @@ class HuggingFaceModel(BaseModel):
 
         # Load tokenizer and model
         self.tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
-        self.model = AutoModelForCausalLM.from_pretrained(model_name, trust_remote_code=True)
+        self.model = AutoModelForCausalLM.from_pretrained(model_name, trust_remote_code=True, torch_dtype=torch.float16, device_map="auto")
+        print("Model GPU mapping:", self.model.hf_device_map)
 
         if self.use_pipeline:
             self.generator = pipeline(
@@ -52,11 +57,11 @@ class HuggingFaceModel(BaseModel):
         params.update(kwargs)
         if self.use_pipeline and self.generator is not None:
             outputs = self.generator(prompts, **params)
-            return [out["generated_text"] for out in outputs]
+            return [out[0]["generated_text"] for out in outputs]
         else:
             results = []
             for prompt in prompts:
-                inputs = self.tokenizer(prompt, return_tensors="pt").to(self.model.device)
+                inputs = self.tokenizer(prompt, return_tensors="pt", truncation=False).to(self.model.device)
                 output_ids = self.model.generate(**inputs, **params)
-                results.append(self.tokenizer.decode(output_ids[0], skip_special_tokens=True))
+                results.append(self.tokenizer.decode(output_ids[0], skip_special_tokens=True, truncation=False))
             return results

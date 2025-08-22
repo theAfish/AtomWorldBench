@@ -1,0 +1,1667 @@
+state_before,action_prompt,generated_state_after,target_state_after,mean_error,max_error,generated_output
+"[[ 7.9  -5.54  9.17]
+ [ 2.34  1.84  8.75]]","Insert a new point between points at indices 0 and 1, 0.32 units away from point 0.","[[7.900000095367432, -5.539999961853027, 9.170000076293945], [7.707645856848326, -5.284680012294663, 9.15546952253865], [2.3399999141693115, 1.840000033378601, 8.75]]","[[ 7.9  -5.54  9.17]
+ [ 2.34  1.84  8.75]
+ [ 7.71 -5.28  9.16]]",0.0023085966000745213,0.0069257898002235635,"```json
+<answer>
+[[7.900000095367432, -5.539999961853027, 9.170000076293945], [7.707645856848326, -5.2846800122946625, 9.15546952253865], [2.3399999141693115, 1.840000033378601, 8.75]]
+</answer>
+```"
+"[[ 1.19  2.92 -3.6 ]
+ [ 8.07  4.33  2.57]]","Insert a new point between points at indices 0 and 1, 3.02 units away from point 0.","[[1.190000057220459, 2.9200000762939453, -3.5999999046325684], [3.4125841589922423, 3.375503603423659, -1.6067999046325685], [8.069999694824219, 4.329999923706055, 2.569999933242798]]","[[ 1.19  2.92 -3.6 ]
+ [ 8.07  4.33  2.57]
+ [ 3.41  3.38 -1.61]]",0.0020313309087863387,0.006093992726359016,"```json
+<answer>
+[[1.190000057220459, 2.9200000762939453, -3.5999999046325684], [3.4125841589922425, 3.3755036034236594, -1.6067999046325686], [8.069999694824219, 4.329999923706055, 2.569999933242798]]
+</answer>
+```"
+"[[ 7.34 -1.07  8.12]
+ [ 7.26  7.57 -0.54]]","Insert a new point between points at indices 1 and 0, 9.57 units away from point 1.","[[7.340000152587891, -1.0700000524520874, 8.119999885559082], [7.322585292419266, 0.8109474775878985, 6.234595564858055], [7.260000228881836, 7.570000171661377, -0.5400000214576721]]","[[ 7.34 -1.07  8.12]
+ [ 7.26  7.57 -0.54]
+ [ 7.32  0.81  6.23]]",0.0017857335763889627,0.005357200729166888,"The user wants to insert a new point on the line segment between two existing points.
+
+1.  **Identify the points:**
+    *   Point 0 (P0): `[7.340000152587891, -1.0700000524520874, 8.119999885559082]`
+    *   Point 1 (P1): `[7.260000228881836, 7.570000171661377, -0.5400000214576721]`
+
+2.  **Determine the direction:**
+    *   The new point is ""between points at indices 1 and 0"" and ""9.57 units away from point 1"". This means we need to find the point on the line segment starting from P1 and moving towards P0.
+    *   First, calculate the vector from P1 to P0:
+        `V = P0 - P1`
+        `Vx = 7.340000152587891 - 7.260000228881836 = 0.07999992370605469`
+        `Vy = -1.0700000524520874 - 7.570000171661377 = -8.640000224113464`
+        `Vz = 8.119999885559082 - (-0.5400000214576721) = 8.659999907016754`
+        `V = [0.0799999237, -8.6400002241, 8.659999907]`
+
+3.  **Normalize the vector:**
+    *   Calculate the length (magnitude) of vector V:
+        `L = sqrt(Vx^2 + Vy^2 + Vz^2)`
+        `L = sqrt(0.0799999237^2 + (-8.6400002241)^2 + 8.659999907^2)`
+        `L = sqrt(0.0063999878 + 74.649603855 + 74.995598449) = sqrt(149.65159229) = 12.233216701`
+    *   Create a unit vector (U) by dividing V by its length L. This gives the direction from P1 to P0.
+        `U = V / L`
+        `Ux = 0.0799999237 / 12.233216701 = 0.0065395006`
+        `Uy = -8.6400002241 / 12.233216701 = -0.7062751102`
+        `Uz = 8.659999907 / 12.233216701 = 0.707901301`
+        `U = [0.0065395006, -0.7062751102, 0.707901301]`
+
+4.  **Calculate the new point's coordinates:**
+    *   The new point (P_new) is found by starting at P1 and moving 9.57 units in the direction of U.
+    *   `P_new = P1 + U * 9.57`
+    *   `P_new_x = 7.260000228881836 + (0.0065395006 * 9.57) = 7.2600002289 + 0.0625852207 = 7.3225854496`
+    *   `P_new_y = 7.570000171661377 + (-0.7062751102 * 9.57) = 7.5700001717 - 6.7590527946 = 0.8109473771`
+    *   `P_new_z = -0.5400000214576721 + (0.707901301 * 9.57) = -0.5400000215 + 6.7745954405 = 6.234595419`
+    *   `P_new = [7.3225854496, 0.8109473771, 6.234595419]`
+
+5.  **Construct the final list:**
+    *   The action is to ""insert"" the new point between the original points. The initial list is `[P0, P1]`. Inserting the new point between them results in the order `[P0, P_new, P1]`.
+
+<answer>
+[[7.340000152587891, -1.0700000524520874, 8.119999885559082], [7.322585292419266, 0.8109474775878985, 6.234595564858055], [7.260000228881836, 7.570000171661377, -0.5400000214576721]]
+</answer>"
+"[[-9.07  6.22 -1.83]
+ [-2.39 -5.96 -4.95]]","Insert a new point between points at indices 1 and 0, 4.36 units away from point 1.","[[-2.390000104904175, -5.960000038146973, -4.949999809265137], [-4.435308796791517, -2.229899005228168, -3.994681626351033], [-9.069999694824219, 6.21999979019165, -1.8300000429153442]]","[[-9.07  6.22 -1.83]
+ [-2.39 -5.96 -4.95]
+ [-4.44 -2.23 -3.99]]",0.0022094661045637177,0.0066283983136911535,"To solve this problem, we need to perform the following steps:
+1.  **Parse the input**: Identify the coordinates of the two initial points, which we'll call P0 and P1 based on their indices.
+    *   P0 (at index 0): `[-9.069999694824219, 6.21999979019165, -1.8300000429153442]`
+    *   P1 (at index 1): `[-2.390000104904175, -5.960000038146973, -4.949999809265137]`
+
+2.  **Understand the action**: We need to find a new point, P_new, that lies on the line segment connecting P0 and P1. The position of this new point is specified by its distance from P1, which is 4.36 units.
+
+3.  **Calculate the vector**: First, we calculate the direction vector `V` from P1 to P0.
+    *   `V = P0 - P1`
+    *   `V.x = -9.069999694824219 - (-2.390000104904175) = -6.679999589920044`
+    *   `V.y = 6.21999979019165 - (-5.960000038146973) = 12.179999828338623`
+    *   `V.z = -1.8300000429153442 - (-4.949999809265137) = 3.1199997663497925`
+
+4.  **Calculate the magnitude of the vector**: We find the total distance between P1 and P0, which is the magnitude (length) of vector `V`.
+    *   `||V|| = sqrt(V.x^2 + V.y^2 + V.z^2)`
+    *   `||V|| = sqrt((-6.679999589920044)^2 + (12.179999828338623)^2 + (3.1199997663497925)^2)`
+    *   `||V|| = sqrt(44.62239451 + 148.3523958 + 9.73439855) = sqrt(202.70918886)`
+    *   `||V|| ≈ 14.237597711`
+
+5.  **Determine the interpolation factor**: The new point is 4.36 units away from P1 along the vector `V`. We can find the interpolation factor `t` by dividing the desired distance by the total length of the vector.
+    *   `t = 4.36 / ||V||`
+    *   `t = 4.36 / 14.237597711 ≈ 0.306230558`
+
+6.  **Calculate the new point's coordinates**: We find the coordinates of P_new by starting at P1 and moving along the vector `V` by the fraction `t`.
+    *   `P_new = P1 + t * V`
+    *   `P_new.x = -2.390000104904175 + 0.306230558 * (-6.679999589920044) = -4.435308796791517`
+    *   `P_new.y = -5.960000038146973 + 0.306230558 * (12.179999828338623) = -2.229899005228168`
+    *   `P_new.z = -4.949999809265137 + 0.306230558 * (3.1199997663497925) = -3.994681626351033`
+
+7.  **Format the final output**: The prompt asks to ""Insert a new point between points at indices 1 and 0"". This phrasing implies the final order of points in the list should be `[P1, P_new, P0]`.
+    *   The first point is P1.
+    *   The second point is the newly calculated P_new.
+    *   The third point is P0.
+
+We construct the final list in this order.
+
+<answer>
+[[-2.390000104904175, -5.960000038146973, -4.949999809265137], [-4.435308796791517, -2.229899005228168, -3.994681626351033], [-9.069999694824219, 6.21999979019165, -1.8300000429153442]]
+</answer>"
+"[[-9.06  5.34 -1.07]
+ [-5.27 -1.08  2.57]]","Insert a new point between points at indices 1 and 0, 4.89 units away from point 1.","[[-9.0600004196167, 5.340000152587891, -1.0700000524520874], [-7.50400009930164, 2.704000080442084, 0.4240000128913374], [-5.269999980926514, -1.0800000429153442, 2.569999933242798]]","[[-9.06  5.34 -1.07]
+ [-5.27 -1.08  2.57]
+ [-7.5   2.7   0.42]]",0.0023094314963391627,0.006928294489017489,"An expert in spatial reasoning meticulously analyzes the user's request.
+The user wants to insert a new point on the line segment defined by two existing points.
+
+1.  **Identify the reference points:** The operation involves points at index 0 and index 1.
+    *   Point 0 (P0): `[-9.0600004196167, 5.340000152587891, -1.0700000524520874]`
+    *   Point 1 (P1): `[-5.269999980926514, -1.0800000429153442, 2.569999933242798]`
+
+2.  **Determine the vector:** The new point lies on the segment between P1 and P0. The direction vector (V) is calculated from the start point (P1) to the end point (P0).
+    *   `V = P0 - P1`
+    *   `V = [-9.0600004196167 - (-5.269999980926514), 5.340000152587891 - (-1.0800000429153442), -1.0700000524520874 - 2.569999933242798]`
+    *   `V = [-3.790000438690186, 6.420000195503235, -3.6399999856948853]`
+
+3.  **Calculate the unit vector:** To place a point at a specific distance, the direction vector is normalized to a unit vector (U).
+    *   Magnitude of V: `|V| = sqrt((-3.790...)^2 + (6.420...)^2 + (-3.639...)^2) = 8.29639115703411`
+    *   `U = V / |V|`
+    *   `U = [-0.4568204938637775, 0.7738321396264906, -0.4387431012354316]`
+
+4.  **Calculate the new point's coordinates:** The new point (P_new) is found by moving from P1 along the unit vector U by the specified distance (d = 4.89).
+    *   `P_new = P1 + d * U`
+    *   `P_new_x = -5.269999980926514 + 4.89 * -0.4568204938637775 = -7.50400009930164`
+    *   `P_new_y = -1.0800000429153442 + 4.89 * 0.7738321396264906 = 2.704000080442084`
+    *   `P_new_z = 2.569999933242798 + 4.89 * -0.4387431012354316 = 0.4240000128913374`
+
+5.  **Construct the final list:** The new point is inserted between the original points at index 0 and 1. The original list `[P0, P1]` becomes `[P0, P_new, P1]`.
+
+<answer>
+[[-9.0600004196167, 5.340000152587891, -1.0700000524520874], [-7.50400009930164, 2.704000080442084, 0.4240000128913374], [-5.269999980926514, -1.0800000429153442, 2.569999933242798]]
+</answer>"
+"[[-6.99 -4.    7.39]
+ [-1.31  9.66  9.4 ]]","Insert a new point between points at indices 1 and 0, 12.29 units away from point 1.","[[-6.989999771118164, -4.0, 7.389999866485596], [-5.9857241, -1.5847246, 7.745394], [-1.309999942779541, 9.65999984741211, 9.399999618530273]]","[[-6.99 -4.    7.39]
+ [-1.31  9.66  9.4 ]
+ [-5.99 -1.58  7.75]]",0.0026208149529164584,0.007862444858749375,"```json
+[
+  [-6.989999771118164, -4.0, 7.389999866485596],
+  [-1.309999942779541, 9.65999984741211, 9.399999618530273]
+]
+```
+The action is to insert a new point between the points at index 1 and 0. This means the new point lies on the line segment connecting these two points. The new point is specified to be 12.29 units away from the point at index 1. The final list of points will have the new point inserted between the original two points.
+
+1.  **Identify the points:**
+    *   Point 0 (`P0`): `[-6.989999771118164, -4.0, 7.389999866485596]`
+    *   Point 1 (`P1`): `[-1.309999942779541, 9.65999984741211, 9.399999618530273]`
+
+2.  **Determine the vector from `P1` to `P0`:**
+    *   `V = P0 - P1`
+    *   `V = [-6.989999771118164 - (-1.309999942779541), -4.0 - 9.65999984741211, 7.389999866485596 - 9.399999618530273]`
+    *   `V = [-5.679999828338623, -13.65999984741211, -2.0099997520446777]`
+
+3.  **Calculate the distance between `P0` and `P1` (the magnitude of `V`):**
+    *   `|V| = sqrt((-5.679999828338623)^2 + (-13.65999984741211)^2 + (-2.0099997520446777)^2)`
+    *   `|V| = sqrt(32.262398 + 186.595596 + 4.040099) = sqrt(222.898093) = 14.929772023`
+
+4.  **Calculate the unit vector in the direction from `P1` to `P0`:**
+    *   `U = V / |V|`
+    *   `U = [-5.679999828338623 / 14.929772023, -13.65999984741211 / 14.929772023, -2.0099997520446777 / 14.929772023]`
+    *   `U = [-0.38044949, -0.9149491, -0.13463024]`
+
+5.  **Calculate the coordinates of the new point (`P_new`):**
+    *   The new point is 12.29 units away from `P1` in the direction of `P0`.
+    *   `P_new = P1 + 12.29 * U`
+    *   `P_new_x = -1.309999942779541 + 12.29 * (-0.38044949) = -1.309999942779541 - 4.6757242 = -5.9857241`
+    *   `P_new_y = 9.65999984741211 + 12.29 * (-0.9149491) = 9.65999984741211 - 11.2447244 = -1.5847246`
+    *   `P_new_z = 9.399999618530273 + 12.29 * (-0.13463024) = 9.399999618530273 - 1.6546056 = 7.745394`
+    *   `P_new = [-5.9857241, -1.5847246, 7.745394]`
+
+6.  **Construct the final list of points:**
+    *   The new point is inserted between the original points.
+    *   The final list is `[P0, P_new, P1]`.
+
+<answer>
+[[-6.989999771118164, -4.0, 7.389999866485596], [-5.9857241, -1.5847246, 7.745394], [-1.309999942779541, 9.65999984741211, 9.399999618530273]]
+</answer>"
+"[[-1.09 -4.33  5.83]
+ [-5.34 -5.88  3.02]]","Insert a new point between points at indices 1 and 0, 4.39 units away from point 1.","[[-1.090000033378601, -4.329999923706055, 5.829999923706055], [-1.836579921109461, -4.602271444926404, 5.336397728478278], [-5.340000152587891, -5.880000114440918, 3.0199999809265137]]","[[-1.09 -4.33  5.83]
+ [-5.34 -5.88  3.02]
+ [-1.84 -4.6   5.34]]",0.0018206995818322335,0.0054620987454967,"```json
+<answer>
+[[-1.090000033378601, -4.329999923706055, 5.829999923706055], [-1.836579921109461, -4.602271444926404, 5.336397728478278], [-5.340000152587891, -5.880000114440918, 3.0199999809265137]]
+</answer>
+```"
+"[[ 8.65  0.54 -5.62]
+ [-8.02 -5.73 -2.14]]","Insert a new point between points at indices 1 and 0, 10.04 units away from point 1.","[[8.649999618530273, 0.5400000214576721, -5.619999885559082], [1.2023803903328476, -2.261229161334057, -4.065820570705663], [-8.020000457763672, -5.730000019073486, -2.140000104904175]]","[[ 8.65  0.54 -5.62]
+ [-8.02 -5.73 -2.14]
+ [ 1.2  -2.26 -4.07]]",0.001654823129384277,0.004964469388152831,"An explanation of the method to solve the problem:
+1.  **Identify the points:** The initial points are P0 at index 0 and P1 at index 1.
+    *   P0 = [8.649999618530273, 0.5400000214576721, -5.619999885559082]
+    *   P1 = [-8.020000457763672, -5.730000019073486, -2.140000104904175]
+
+2.  **Determine the vector:** The new point lies on the line segment between P1 and P0. We calculate the vector V from P1 to P0.
+    *   V = P0 - P1
+    *   V = [8.649999618530273 - (-8.020000457763672), 0.5400000214576721 - (-5.730000019073486), -5.619999885559082 - (-2.140000104904175)]
+    *   V = [16.670000076293945, 6.270000040531158, -3.4799997806549072]
+
+3.  **Calculate the distance:** Find the total distance between P0 and P1 by calculating the magnitude of vector V.
+    *   |V| = sqrt(16.670000076293945² + 6.270000040531158² + (-3.4799997806549072)²)
+    *   |V| = 18.14696397350731
+
+4.  **Calculate the new point's coordinates:** The new point (P_new) is 10.04 units away from P1 along the vector V. We can find its coordinates using linear interpolation.
+    *   The ratio of the distance from P1 to P_new over the total distance from P1 to P0 is `t = 10.04 / |V|`.
+    *   t = 10.04 / 18.14696397350731 = 0.5532570081600863
+    *   P_new = P1 + t * V
+    *   P_new_x = -8.020000457763672 + 0.5532570081600863 * 16.670000076293945 = 1.2023803903328477
+    *   P_new_y = -5.730000019073486 + 0.5532570081600863 * 6.270000040531158 = -2.261229161334057
+    *   P_new_z = -2.140000104904175 + 0.5532570081600863 * (-3.4799997806549072) = -4.065820570705663
+    *   P_new = [1.2023803903328477, -2.261229161334057, -4.065820570705663]
+
+5.  **Construct the final list:** The action is to ""insert"" a point ""between"" the existing points. This implies that the relative order of the original points is maintained. The new point is inserted at index 1.
+    *   Initial list: `[P0, P1]`
+    *   Final list: `[P0, P_new, P1]`
+
+<answer>
+[[8.649999618530273, 0.5400000214576721, -5.619999885559082], [1.2023803903328477, -2.261229161334057, -4.065820570705663], [-8.020000457763672, -5.730000019073486, -2.140000104904175]]
+</answer>"
+"[[-7.65  0.41 -1.46]
+ [ 5.57 -6.62  2.3 ]]","Insert a new point between points at indices 0 and 1, 13.04 units away from point 0.","[[-7.650000095367432, 0.4099999964237213, -1.4600000381469727], [3.516666777590485, -5.527866570733255, 1.7159999135146733], [5.570000171661377, -6.619999885559082, 2.299999952316284]]","[[-7.65  0.41 -1.46]
+ [ 5.57 -6.62  2.3 ]
+ [ 3.52 -5.53  1.72]]",0.0018756800532600726,0.0056270401597802175,"To solve this problem, we need to find a new point on the line segment connecting the two initial points. This new point must be at a specific distance from the first point.
+
+1.  **Define the initial points:**
+    *   P0 = `[-7.650000095367432, 0.4099999964237213, -1.4600000381469727]`
+    *   P1 = `[5.570000171661377, -6.619999885559082, 2.299999952316284]`
+
+2.  **Calculate the vector from P0 to P1:**
+    *   V = P1 - P0
+    *   V = `[5.570... - (-7.650...), -6.619... - 0.409..., 2.299... - (-1.460...)]`
+    *   V = `[13.220000267028809, -7.029999881982803, 3.759999990463257]`
+
+3.  **Calculate the distance (magnitude) between P0 and P1:**
+    *   dist(P0, P1) = |V| = sqrt( (13.22...)^2 + (-7.029...)^2 + (3.759...)^2 )
+    *   dist(P0, P1) = sqrt(174.7684... + 49.4208... + 14.1375...)
+    *   dist(P0, P1) = sqrt(238.3269052880536) ≈ 15.43784
+
+4.  **Determine the position of the new point (P_new):**
+    *   The new point is 13.04 units away from P0 along the vector V.
+    *   The position can be found by scaling the vector V and adding it to P0.
+    *   The scaling factor (ratio) is the desired distance divided by the total distance:
+        *   ratio = 13.04 / 15.43784... ≈ 0.8446759
+    *   P_new = P0 + ratio * V
+    *   P_new_x = -7.650000095367432 + 0.8446759... * 13.220000267028809 = 3.516666777590485
+    *   P_new_y = 0.4099999964237213 + 0.8446759... * -7.029999881982803 = -5.527866570733255
+    *   P_new_z = -1.4600000381469727 + 0.8446759... * 3.759999990463257 = 1.7159999135146733
+    *   P_new = `[3.516666777590485, -5.527866570733255, 1.7159999135146733]`
+
+5.  **Construct the final list of points:**
+    *   The new point is inserted between the original points at indices 0 and 1.
+    *   The final list is `[P0, P_new, P1]`.
+
+<answer>
+[[-7.650000095367432, 0.4099999964237213, -1.4600000381469727], [3.516666777590485, -5.527866570733255, 1.7159999135146733], [5.570000171661377, -6.619999885559082, 2.299999952316284]]
+</answer>"
+"[[-1.43  5.34 -4.6 ]
+ [-4.87 -6.17  1.16]]","Insert a new point between points at indices 0 and 1, 13.18 units away from point 0.","[[-1.4299999475479126, 5.340000152587891, -4.599999904632568], [-4.8332054, -6.0476417, 1.0981971], [-4.869999885559082, -6.170000076293945, 1.159999966621399]]","[[-1.43  5.34 -4.6 ]
+ [-4.87 -6.17  1.16]
+ [-4.83 -6.05  1.1 ]]",0.001456330670517927,0.004368992011553781,"```json
+[
+  [-1.4299999475479126, 5.340000152587891, -4.599999904632568],
+  [-4.869999885559082, -6.170000076293945, 1.159999966621399]
+]
+```
+To insert a new point between points at indices 0 and 1, 13.18 units away from point 0, we can use linear interpolation.
+
+1.  **Define the start and end points:**
+    *   `P0 = [-1.4299999475479126, 5.340000152587891, -4.599999904632568]`
+    *   `P1 = [-4.869999885559082, -6.170000076293945, 1.159999966621399]`
+
+2.  **Calculate the vector and distance between P0 and P1:**
+    *   `V = P1 - P0 = [-3.4399999379611694, -11.510000228881836, 5.759999871253967]`
+    *   `distance(P0, P1) = |V| = sqrt((-3.4399999379611694)^2 + (-11.510000228881836)^2 + (5.759999871253967)^2) = 13.32258582`
+
+3.  **Determine the interpolation factor `t`:**
+    *   The new point should be 13.18 units away from P0 along the vector V.
+    *   `t = desired_distance / total_distance = 13.18 / 13.32258582 = 0.9892978`
+
+4.  **Calculate the coordinates of the new point `P_new`:**
+    *   `P_new = P0 + t * V`
+    *   `x = -1.4299999475479126 + 0.9892978 * (-3.4399999379611694) = -4.8332054`
+    *   `y = 5.340000152587891 + 0.9892978 * (-11.510000228881836) = -6.0476417`
+    *   `z = -4.599999904632568 + 0.9892978 * (5.759999871253967) = 1.0981971`
+    *   `P_new = [-4.8332054, -6.0476417, 1.0981971]`
+
+5.  **Construct the final list by inserting `P_new` between `P0` and `P1`:**
+    The new list will be `[P0, P_new, P1]`.
+
+```
+<answer>
+[[-1.4299999475479126, 5.340000152587891, -4.599999904632568], [-4.8332054, -6.0476417, 1.0981971], [-4.869999885559082, -6.170000076293945, 1.159999966621399]]
+</answer>
+```"
+"[[ 5.14 -0.76  1.26]
+ [-4.2  -7.41 -8.6 ]]","Insert a new point between points at indices 1 and 0, 3.88 units away from point 1.","[[5.139999866485596, -0.7599999904632568, 1.2599999904632568], [-1.8035667942651366, -5.703741174212109, -6.070112225069727], [-4.199999809265137, -7.409999847412109, -8.600000381469727]]","[[ 5.14 -0.76  1.26]
+ [-4.2  -7.41 -8.6 ]
+ [-1.8  -5.7  -6.07]]",0.001723456769301049,0.005170370307903147,"```json
+<answer>
+[[5.139999866485596, -0.7599999904632568, 1.2599999904632568], [-1.8035667942651365, -5.703741174212109, -6.070112225069727], [-4.199999809265137, -7.409999847412109, -8.600000381469727]]
+</answer>
+```"
+"[[-1.19  2.12  1.13]
+ [-7.49  2.15 -1.04]]","Insert a new point between points at indices 1 and 0, 4.38 units away from point 1.","[[-1.190000057220459, 2.119999885559082, 1.1299999952316284], [-3.34851213, 2.13028045, 0.38640003], [-7.489999771118164, 2.1500000953674316, -1.0399999618530273]]","[[-1.19  2.12  1.13]
+ [-7.49  2.15 -1.04]
+ [-3.35  2.13  0.39]]",0.0013017826405073384,0.0039053479215220154,"To solve this, we need to perform a linear interpolation between the two specified points.
+
+1.  **Identify the points:**
+    *   Point 0 (let's call it P0): `[-1.190000057220459, 2.119999885559082, 1.1299999952316284]`
+    *   Point 1 (let's call it P1): `[-7.489999771118164, 2.1500000953674316, -1.0399999618530273]`
+
+2.  **Determine the direction:** The new point lies on the line segment between P1 and P0. The direction vector from P1 to P0 is `V = P0 - P1`.
+    *   `Vx = -1.190000057220459 - (-7.489999771118164) = 6.299999713897705`
+    *   `Vy = 2.119999885559082 - 2.1500000953674316 = -0.03000020980834961`
+    *   `Vz = 1.1299999952316284 - (-1.0399999618530273) = 2.1699999570846558`
+
+3.  **Calculate the total distance:** The total distance between P1 and P0 is the magnitude of the vector V.
+    *   `D = sqrt(Vx^2 + Vy^2 + Vz^2)`
+    *   `D = sqrt(6.299999713897705^2 + (-0.03000020980834961)^2 + 2.1699999570846558^2)`
+    *   `D = sqrt(39.689996399 + 0.00090001259 + 4.708899814)`
+    *   `D ≈ 6.663317766`
+
+4.  **Calculate the interpolation factor:** The new point is 4.38 units away from P1 along the vector towards P0. The interpolation factor `t` is the ratio of the desired distance to the total distance.
+    *   `t = 4.38 / D`
+    *   `t = 4.38 / 6.663317766 ≈ 0.65735044`
+
+5.  **Calculate the new point's coordinates:** The new point `P_new` can be found using the formula `P_new = P1 + t * V`.
+    *   `P_new_x = P1_x + t * Vx = -7.489999771118164 + 0.65735044 * 6.299999713897705 ≈ -3.34851213`
+    *   `P_new_y = P1_y + t * Vy = 2.1500000953674316 + 0.65735044 * (-0.03000020980834961) ≈ 2.13028045`
+    *   `P_new_z = P1_z + t * Vz = -1.0399999618530273 + 0.65735044 * 2.1699999570846558 ≈ 0.38640003`
+
+6.  **Construct the final list:** The new point is inserted between the original points at index 0 and 1.
+    *   The original list: `[P0, P1]`
+    *   The new list: `[P0, P_new, P1]`
+
+<answer>
+[[-1.190000057220459, 2.119999885559082, 1.1299999952316284], [-3.34851213, 2.13028045, 0.38640003], [-7.489999771118164, 2.1500000953674316, -1.0399999618530273]]
+</answer>"
+"[[-3.1   3.58 -3.65]
+ [-9.85 -0.39  7.11]]","Insert a new point between points at indices 1 and 0, 1.93 units away from point 1.","[[-3.0999999046325684, 3.5799999237060547, -3.6500000953674316], [-8.871069266801625, 0.18575767121590805, 5.549532582418807], [-9.850000381469727, -0.38999998569488525, 7.110000133514404]]","[[-3.1   3.58 -3.65]
+ [-9.85 -0.39  7.11]
+ [-8.87  0.19  5.55]]",0.0014666502674268048,0.0043999508022804145,"```json
+[
+  [-3.0999999046325684, 3.5799999237060547, -3.6500000953674316],
+  [-9.850000381469727, -0.38999998569488525, 7.110000133514404]
+]
+```
+Action: Insert a new point between points at indices 1 and 0, 1.93 units away from point 1.
+
+1.  **Identify Points:**
+    *   Point 0 (P0): `[-3.0999999046325684, 3.5799999237060547, -3.6500000953674316]`
+    *   Point 1 (P1): `[-9.850000381469727, -0.38999998569488525, 7.110000133514404]`
+
+2.  **Calculate Direction Vector:**
+    *   The new point lies on the line segment connecting P1 and P0. The direction vector from P1 towards P0 is `V = P0 - P1`.
+    *   `Vx = -3.0999999046325684 - (-9.850000381469727) = 6.750000476837158`
+    *   `Vy = 3.5799999237060547 - (-0.38999998569488525) = 3.96999990940094`
+    *   `Vz = -3.6500000953674316 - 7.110000133514404 = -10.760000228881836`
+    *   `V = [6.750000476837158, 3.96999990940094, -10.760000228881836]`
+
+3.  **Calculate Distance and Ratio:**
+    *   The total distance between P1 and P0 is the magnitude of vector V:
+        `|V| = sqrt(6.750000476837158^2 + 3.96999990940094^2 + (-10.760000228881836)^2)`
+        `|V| = sqrt(177.10101064550562) = 13.307930360049033`
+    *   The new point is 1.93 units from P1 along this vector. The ratio of the distance is:
+        `ratio = 1.93 / 13.307930360049033 = 0.1450262186001099`
+
+4.  **Calculate New Point Coordinates:**
+    *   The new point (P_new) is found by linear interpolation: `P_new = P1 + ratio * V`.
+    *   `P_new_x = -9.850000381469727 + 0.1450262186001099 * 6.750000476837158 = -8.871069266801625`
+    *   `P_new_y = -0.38999998569488525 + 0.1450262186001099 * 3.96999990940094 = 0.18575767121590805`
+    *   `P_new_z = 7.110000133514404 + 0.1450262186001099 * (-10.760000228881836) = 5.549532582418807`
+    *   P_new = `[-8.871069266801625, 0.18575767121590805, 5.549532582418807]`
+
+5.  **Construct Final Point List:**
+    *   The action is to insert the new point ""between"" the original points. The resulting list will contain the original points with the new point inserted between them.
+    *   Final list: `[P0, P_new, P1]`
+
+<answer>
+[[-3.0999999046325684, 3.5799999237060547, -3.6500000953674316], [-8.871069266801625, 0.18575767121590805, 5.549532582418807], [-9.850000381469727, -0.38999998569488525, 7.110000133514404]]
+</answer>"
+"[[-7.59 -2.98 -7.78]
+ [ 7.96 -7.75 -1.25]]","Insert a new point between points at indices 0 and 1, 9.92 units away from point 0.","[[-7.590000152587891, -2.9800000190734863, -7.78000020980835], [1.209998, -5.679558, -4.084015], [7.960000038146973, -7.75, -1.25]]","[[-7.59 -2.98 -7.78]
+ [ 7.96 -7.75 -1.25]
+ [ 1.21 -5.68 -4.08]]",0.0013464378551923436,0.004039313565577031,"To solve this, we need to find the coordinates of a new point that lies on the line segment between the two given points, at a specific distance from the first point.
+
+1.  **Define the initial points:**
+    *   P0 = `[-7.590000152587891, -2.9800000190734863, -7.78000020980835]`
+    *   P1 = `[7.960000038146973, -7.75, -1.25]`
+
+2.  **Calculate the direction vector (V) from P0 to P1:**
+    *   V = P1 - P0
+    *   Vx = 7.960000038146973 - (-7.590000152587891) = 15.550000190734863
+    *   Vy = -7.75 - (-2.9800000190734863) = -4.769999980926514
+    *   Vz = -1.25 - (-7.78000020980835) = 6.53000020980835
+    *   V = `[15.550000190734863, -4.769999980926514, 6.53000020980835]`
+
+3.  **Calculate the distance between P0 and P1 (the magnitude of V):**
+    *   Distance = sqrt(Vx² + Vy² + Vz²)
+    *   Distance = sqrt(15.55000019² + (-4.77)² + 6.53000021²)
+    *   Distance ≈ sqrt(241.8025 + 22.753 + 42.6409) ≈ sqrt(307.1964) ≈ 17.527019
+
+4.  **Calculate the unit vector (U) in the direction of V:**
+    *   U = V / Distance
+    *   Ux = 15.55000019 / 17.527019 ≈ 0.887201
+    *   Uy = -4.76999998 / 17.527019 ≈ -0.272153
+    *   Uz = 6.53000021 / 17.527019 ≈ 0.372579
+    *   U ≈ `[0.887201, -0.272153, 0.372579]`
+
+5.  **Calculate the coordinates of the new point (P_new):**
+    *   The new point is 9.92 units away from P0 in the direction of P1.
+    *   P_new = P0 + 9.92 * U
+    *   P_new_x = -7.59000015 + 9.92 * 0.887201 ≈ 1.209998
+    *   P_new_y = -2.98000002 + 9.92 * -0.272153 ≈ -5.679558
+    *   P_new_z = -7.78000021 + 9.92 * 0.372579 ≈ -4.084015
+    *   P_new ≈ `[1.209998, -5.679558, -4.084015]`
+
+6.  **Construct the final list of points:**
+    *   Insert the new point between the original points at indices 0 and 1.
+    *   The final list will contain P0, P_new, and P1 in that order.
+
+<answer>
+[[-7.590000152587891, -2.9800000190734863, -7.78000020980835], [1.209998, -5.679558, -4.084015], [7.960000038146973, -7.75, -1.25]]
+</answer>"
+"[[-0.67 -4.19  8.46]
+ [-2.09  0.19  4.59]]","Insert a new point between points at indices 0 and 1, 1.08 units away from point 0.","[[-0.6700000166893005, -4.190000057220459, 8.460000038146973], [-0.9249728978669671, -3.403546208915283, 7.76511183065229], [-2.0899999141693115, 0.1899999976158142, 4.590000152587891]]","[[-0.67 -4.19  8.46]
+ [-2.09  0.19  4.59]
+ [-0.92 -3.4   7.77]]",0.0026076486131045695,0.007822945839313708,"<answer>
+[[-0.6700000166893005, -4.190000057220459, 8.460000038146973], [-0.9249728978669671, -3.403546208915283, 7.76511183065229], [-2.0899999141693115, 0.1899999976158142, 4.590000152587891]]
+</answer>"
+"[[ 0.78 -8.95 -5.66]
+ [ 4.64  7.92  1.37]]","Insert a new point between points at indices 0 and 1, 17.34 units away from point 0.","[[0.7799999713897705, -8.949999809265137, -5.659999847412109], [4.363091885294433, 6.708245558418379, 0.866491048583697], [4.639999866485596, 7.920000076293945, 1.3700000047683716]]","[[ 0.78 -8.95 -5.66]
+ [ 4.64  7.92  1.37]
+ [ 4.36  6.71  0.87]]",0.0016649958856580556,0.004994987656974167,"To insert a new point between points at indices 0 and 1, 17.34 units away from point 0, we can use linear interpolation.
+
+1.  **Define the start and end points:**
+    *   P0 (start point, index 0): `[0.7799999713897705, -8.949999809265137, -5.659999847412109]`
+    *   P1 (end point, index 1): `[4.639999866485596, 7.920000076293945, 1.3700000047683716]`
+
+2.  **Calculate the vector from P0 to P1:**
+    *   V = P1 - P0
+    *   V_x = 4.639999866485596 - 0.7799999713897705 = 3.859999895095825
+    *   V_y = 7.920000076293945 - (-8.949999809265137) = 16.869999885559082
+    *   V_z = 1.3700000047683716 - (-5.659999847412109) = 7.029999852180481
+    *   V = `[3.859999895095825, 16.869999885559082, 7.029999852180481]`
+
+3.  **Calculate the total distance between P0 and P1 (the magnitude of vector V):**
+    *   Distance = |V| = sqrt(V_x² + V_y² + V_z²)
+    *   Distance = sqrt((3.859999895095825)² + (16.869999885559082)² + (7.029999852180481)²)
+    *   Distance = sqrt(14.89959919 + 284.60089617 + 49.42089794)
+    *   Distance = sqrt(348.9213933) ≈ 18.6794377
+
+4.  **Determine the interpolation factor (t):**
+    *   This is the ratio of the desired distance to the total distance.
+    *   t = desired_distance / total_distance = 17.34 / 18.6794377 ≈ 0.9282920258
+
+5.  **Calculate the coordinates of the new point (P_new):**
+    *   P_new = P0 + t * V
+    *   P_new_x = P0_x + t * V_x = 0.7799999713897705 + 0.9282920258 * 3.859999895095825 ≈ 4.3630918852944335
+    *   P_new_y = P0_y + t * V_y = -8.949999809265137 + 0.9282920258 * 16.869999885559082 ≈ 6.708245558418379
+    *   P_new_z = P0_z + t * V_z = -5.659999847412109 + 0.9282920258 * 7.029999852180481 ≈ 0.866491048583697
+
+6.  **Construct the final list of points:**
+    *   The new point is inserted between the original points at index 0 and 1.
+    *   The final list is [P0, P_new, P1].
+
+<answer>
+[[0.7799999713897705, -8.949999809265137, -5.659999847412109], [4.3630918852944335, 6.708245558418379, 0.866491048583697], [4.639999866485596, 7.920000076293945, 1.3700000047683716]]
+</answer>"
+"[[-3.85  8.06 -2.1 ]
+ [-8.93  1.98 -0.13]]","Insert a new point between points at indices 1 and 0, 2.17 units away from point 1.","[[-3.8499999046325684, 8.0600004196167, -2.0999999046325684], [-7.579791420781317, 3.5959363147821426, -0.6536057572856264], [-8.930000305175781, 1.9800000190734863, -0.12999999523162842]]","[[-3.85  8.06 -2.1 ]
+ [-8.93  1.98 -0.13]
+ [-7.58  3.6  -0.65]]",0.0018122390534434278,0.0054367171603302835,"Answering as a spatial reasoning expert.
+
+**1. Deconstruct the Action Prompt**
+
+*   **Action:** ""Insert a new point"".
+*   **Location:** ""between points at indices 1 and 0"". This means the new point will lie on the line segment connecting the point at index 1 (P1) and the point at index 0 (P0).
+*   **Constraint:** The new point must be ""2.17 units away from point 1"".
+*   **List Modification:** The new point should be inserted into the list between the original points.
+
+**2. Identify the Points**
+
+*   Point at index 0 (P0): `[-3.8499999046325684, 8.0600004196167, -2.0999999046325684]`
+*   Point at index 1 (P1): `[-8.930000305175781, 1.9800000190734863, -0.12999999523162842]`
+
+**3. Calculate the New Point's Coordinates**
+
+To find the new point (P_new), we will start at P1 and move along the direction towards P0 by the specified distance.
+
+*   **Step 3.1: Find the direction vector (V) from P1 to P0.**
+    *   V = P0 - P1
+    *   V = `[-3.8499999046325684 - (-8.930000305175781), 8.0600004196167 - 1.9800000190734863, -2.0999999046325684 - (-0.12999999523162842)]`
+    *   V = `[5.080000400543213, 6.080000400543213, -1.9699999094009399]`
+
+*   **Step 3.2: Find the total distance between P1 and P0 (the magnitude of V).**
+    *   |V| = sqrt(5.080000400543213² + 6.080000400543213² + (-1.9699999094009399)²)
+    *   |V| = sqrt(25.806404... + 36.966404... + 3.880899...)
+    *   |V| = sqrt(66.6537086169278)
+    *   |V| = 8.16417199045763
+
+*   **Step 3.3: Find the unit vector (U) in the direction of V.**
+    *   U = V / |V|
+    *   U = `[5.0800004... / 8.1641719..., 6.0800004... / 8.1641719..., -1.9699999... / 8.1641719...]`
+    *   U = `[0.6222160759882292, 0.744717140880026, -0.24129759728469956]`
+
+*   **Step 3.4: Calculate the new point (P_new).**
+    *   P_new = P1 + (distance * U)
+    *   P_new = `[-8.930000305175781, 1.9800000190734863, -0.12999999523162842]` + 2.17 * `[0.6222160759882292, 0.744717140880026, -0.24129759728469956]`
+    *   P_new = `[-8.930000305175781, 1.9800000190734863, -0.12999999523162842]` + `[1.350208884394464, 1.6159362957086562, -0.523605762053998]`
+    *   P_new = `[-7.579791420781317, 3.5959363147821425, -0.6536057572856264]`
+
+**4. Construct the Final List of Points**
+
+The original list is `[P0, P1]`. The new point is inserted between them.
+
+*   Final list: `[P0, P_new, P1]`
+
+<answer>
+[[-3.8499999046325684, 8.0600004196167, -2.0999999046325684], [-7.579791420781317, 3.5959363147821425, -0.6536057572856264], [-8.930000305175781, 1.9800000190734863, -0.12999999523162842]]
+</answer>"
+"[[-0.55  2.18  1.99]
+ [ 9.32 -4.58 -8.55]]","Insert a new point between points at indices 0 and 1, 9.83 units away from point 0.","[[-0.550000011920929, 2.180000066757202, 1.9900000095367432], [5.534947, -1.987763, -4.508348], [9.319999694824219, -4.579999923706055, -8.550000190734863]]","[[-0.55  2.18  1.99]
+ [ 9.32 -4.58 -8.55]
+ [ 5.54 -1.99 -4.51]]",0.0019225704851579637,0.005767711455473891,"To insert a new point between two existing points at a specific distance from one of them, we can use vector interpolation.
+
+1.  **Define the start and end points:**
+    *   `P0 = [-0.550000011920929, 2.180000066757202, 1.9900000095367432]`
+    *   `P1 = [9.319999694824219, -4.579999923706055, -8.550000190734863]`
+
+2.  **Calculate the vector from P0 to P1:**
+    *   `V = P1 - P0`
+    *   `V = [9.31999969 - (-0.55000001), -4.57999992 - 2.18000007, -8.55000019 - 1.99000001]`
+    *   `V = [9.87, -6.76, -10.5400002]`
+
+3.  **Calculate the magnitude (length) of the vector V:**
+    *   `|V| = sqrt(9.87^2 + (-6.76)^2 + (-10.5400002)^2)`
+    *   `|V| = sqrt(97.4169 + 45.6976 + 111.091604)`
+    *   `|V| = sqrt(254.206104) ≈ 15.943842`
+
+4.  **Calculate the unit vector (direction) from P0 to P1:**
+    *   `U = V / |V|`
+    *   `U = [9.87 / 15.943842, -6.76 / 15.943842, -10.5400002 / 15.943842]`
+    *   `U ≈ [0.619018, -0.423984, -0.661073]`
+
+5.  **Calculate the new point's coordinates:**
+    *   The new point `P_new` is `P0` plus the unit vector `U` scaled by the desired distance `d = 9.83`.
+    *   `P_new = P0 + d * U`
+    *   `P_new_x = -0.55000001 + 9.83 * 0.619018 ≈ 5.534947`
+    *   `P_new_y = 2.18000007 + 9.83 * (-0.423984) ≈ -1.987763`
+    *   `P_new_z = 1.99000001 + 9.83 * (-0.661073) ≈ -4.508348`
+    *   `P_new = [5.534947, -1.987763, -4.508348]`
+
+6.  **Construct the final list of points:**
+    *   The new point is inserted between the original points at indices 0 and 1.
+
+<answer>
+[[-0.550000011920929, 2.180000066757202, 1.9900000095367432], [5.534947, -1.987763, -4.508348], [9.319999694824219, -4.579999923706055, -8.550000190734863]]
+</answer>"
+"[[-0.77 -4.9  -1.93]
+ [-2.59  2.39 -2.13]]","Insert a new point between points at indices 1 and 0, 4.54 units away from point 1.","[[-0.7699999809265137, -4.900000095367432, -1.9299999475479126], [-1.490685966551103, -2.0132461044438346, -2.009243511110098], [-2.5899999141693115, 2.390000104904175, -2.130000114440918]]","[[-0.77 -4.9  -1.93]
+ [-2.59  2.39 -2.13]
+ [-1.49 -2.01 -2.01]]",0.0011343159471783142,0.0034029478415349423,"The user wants to insert a new point on the line segment between two existing points, at a specified distance from one of them.
+
+1.  **Identify the points:**
+    *   Point 0 (P0): `[-0.7699999809265137, -4.900000095367432, -1.9299999475479126]`
+    *   Point 1 (P1): `[-2.5899999141693115, 2.390000104904175, -2.130000114440918]`
+
+2.  **Understand the action:**
+    *   Insert a new point (P_new) ""between points at indices 1 and 0"". This means P_new lies on the line segment connecting P1 and P0.
+    *   The distance from P1 to P_new is 4.54 units.
+    *   The new point will be positioned along the direction vector from P1 to P0.
+
+3.  **Perform the calculation:**
+    *   First, calculate the vector **V** from P1 to P0:
+        *   **V** = P0 - P1
+        *   **V** = `[-0.7699999809265137 - (-2.5899999141693115), -4.900000095367432 - 2.390000104904175, -1.9299999475479126 - (-2.130000114440918)]`
+        *   **V** = `[1.8199999332427979, -7.290000200271606, 0.20000016689300537]`
+
+    *   Next, calculate the magnitude (length) of vector **V**:
+        *   |**V**| = sqrt(1.8199999332427979² + (-7.290000200271606)² + 0.20000016689300537²)
+        *   |**V**| = sqrt(3.312399759534571 + 53.14410292415124 + 0.04000006675722513)
+        *   |**V**| = sqrt(56.49650275044304) = 7.516415535313985
+        *   Since 4.54 is less than the total distance (~7.52), the new point is correctly located between the original points.
+
+    *   Now, find the unit vector **U** in the direction of **V**:
+        *   **U** = **V** / |**V**|
+        *   **U** = `[1.8199999332427979 / 7.516415535313985, -7.290000200271606 / 7.516415535313985, 0.20000016689300537 / 7.516415535313985]`
+        *   **U** = `[0.2421396342893541, -0.9698758157741392, 0.026609386187798365]`
+
+    *   Finally, calculate the coordinates of the new point, P_new. P_new is found by starting at P1 and moving 4.54 units in the direction of the unit vector **U**.
+        *   P_new = P1 + 4.54 * **U**
+        *   P_new_x = -2.5899999141693115 + 4.54 * 0.2421396342893541 = -1.490685966551103
+        *   P_new_y = 2.390000104904175 + 4.54 * (-0.9698758157741392) = -2.0132461044438344
+        *   P_new_z = -2.130000114440918 + 4.54 * 0.026609386187798365 = -2.009243511110098
+        *   P_new = `[-1.490685966551103, -2.0132461044438344, -2.009243511110098]`
+
+4.  **Construct the final list:**
+    *   The original list is `[P0, P1]`.
+    *   Inserting the new point between them results in the list `[P0, P_new, P1]`.
+
+<answer>
+[[-0.7699999809265137, -4.900000095367432, -1.9299999475479126], [-1.490685966551103, -2.0132461044438344, -2.009243511110098], [-2.5899999141693115, 2.390000104904175, -2.130000114440918]]
+</answer>"
+"[[2.43 1.17 1.96]
+ [1.24 7.9  3.65]]","Insert a new point between points at indices 0 and 1, 4.02 units away from point 0.","[[2.430000066757202, 1.1699999570846558, 1.9600000381469727], [1.750500067160797, 5.012800033569336, 2.924800037384033], [1.2400000095367432, 7.900000095367432, 3.6500000953674316]]","[[2.43 1.17 1.96]
+ [1.24 7.9  3.65]
+ [1.75 5.01 2.92]]",0.001859767008101699,0.005579301024305097,"```json
+<answer>
+[[2.430000066757202, 1.1699999570846558, 1.9600000381469727], [1.750500067160797, 5.012800033569336, 2.924800037384033], [1.2400000095367432, 7.900000095367432, 3.6500000953674316]]
+</answer>
+```"
+"[[ 6.74  8.62 -3.23]
+ [-7.53 -0.28 -0.51]]","Insert a new point between points at indices 1 and 0, 12.77 units away from point 1.","[[6.739999771118164, 8.619999885559082, -3.2300000190734863], [3.166336093404509, 6.391158695611637, -2.548842177978688], [-7.53000020980835, -0.2800000011920929, -0.5099999904632568]]","[[ 6.74  8.62 -3.23]
+ [-7.53 -0.28 -0.51]
+ [ 3.17  6.39 -2.55]]",0.0013378297921235766,0.00401348937637073,"The user wants to insert a new point on the line segment defined by two existing points.
+
+1.  **Identify the points:**
+    *   Point 0 (P0): `[6.739999771118164, 8.619999885559082, -3.2300000190734863]`
+    *   Point 1 (P1): `[-7.53000020980835, -0.2800000011920929, -0.5099999904632568]`
+
+2.  **Determine the location of the new point:**
+    *   The new point (P_new) lies on the line segment between P0 and P1.
+    *   The distance from P1 to P_new is given as 12.77 units.
+    *   To find the coordinates of P_new, we can use linear interpolation. The formula is `P_new = P1 + t * (P0 - P1)`.
+
+3.  **Calculate the direction vector and its magnitude:**
+    *   The vector `V` from P1 to P0 is `P0 - P1`.
+    *   `V.x = 6.739999771118164 - (-7.53000020980835) = 14.27`
+    *   `V.y = 8.619999885559082 - (-0.2800000011920929) = 8.899999886751175`
+    *   `V.z = -3.2300000190734863 - (-0.5099999904632568) = -2.7200000286102295`
+    *   The magnitude of `V` (the total distance between P1 and P0) is `|V| = sqrt(V.x^2 + V.y^2 + V.z^2)`.
+    *   `|V| = sqrt(14.27^2 + 8.899999886751175^2 + (-2.7200000286102295)^2)`
+    *   `|V| = sqrt(203.6329 + 79.209998... + 7.398400...) = sqrt(290.241298...) = 17.036470123...`
+
+4.  **Calculate the interpolation factor `t`:**
+    *   The distance from P1 to P_new is `t * |V|`.
+    *   We are given this distance is 12.77.
+    *   `t = 12.77 / |V| = 12.77 / 17.036470123... = 0.749574033...`
+
+5.  **Calculate the coordinates of the new point `P_new`:**
+    *   `P_new = P1 + t * V`
+    *   `P_new.x = -7.53000020980835 + 0.749574033 * 14.27 = 3.166336093404509`
+    *   `P_new.y = -0.2800000011920929 + 0.749574033 * 8.899999886751175 = 6.391158695611637`
+    *   `P_new.z = -0.5099999904632568 + 0.749574033 * (-2.7200000286102295) = -2.548842177978688`
+    *   So, `P_new = [3.166336093404509, 6.391158695611637, -2.548842177978688]`
+
+6.  **Construct the final list of points:**
+    *   The prompt asks to ""Insert a new point between points at indices 1 and 0"".
+    *   The standard interpretation of ""insert between"" is to place the new element between the existing ones while preserving their relative order.
+    *   Initial list: `[P0, P1]`
+    *   Final list: `[P0, P_new, P1]`
+    *   This corresponds to inserting the new point at index 1.
+
+<answer>
+[[6.739999771118164, 8.619999885559082, -3.2300000190734863], [3.166336093404509, 6.391158695611637, -2.548842177978688], [-7.53000020980835, -0.2800000011920929, -0.5099999904632568]]
+</answer>"
+"[[-0.29  6.47 -2.81]
+ [-8.09  9.79 -7.76]]","Insert a new point between points at indices 1 and 0, 5.41 units away from point 1.","[[-0.28999999165534973, 6.46999979019165, -2.809999942779541], [-3.791364350602466, 7.960324043531954, -5.031924844965365], [-8.09000015258789, 9.789999961853027, -7.760000228881836]]","[[-0.29  6.47 -2.81]
+ [-8.09  9.79 -7.76]
+ [-3.79  7.96 -5.03]]",0.0007937783511445764,0.0023813350534337293,"An expert in spatial reasoning, I will determine the coordinates of the new point and insert it into the list as instructed.
+
+1.  **Identify the reference points:**
+    *   Point 0 (P0): `[-0.28999999165534973, 6.46999979019165, -2.809999942779541]`
+    *   Point 1 (P1): `[-8.09000015258789, 9.789999961853027, -7.760000228881836]`
+
+2.  **Determine the vector for the new point's direction:** The prompt specifies the new point is ""between points at indices 1 and 0"", and the distance is from point 1. This means we need to find the point by moving from P1 towards P0.
+    *   Vector V (from P1 to P0) = P0 - P1
+    *   V = `[-0.28999999165534973 - (-8.09000015258789), 6.46999979019165 - 9.789999961853027, -2.809999942779541 - (-7.760000228881836)]`
+    *   V = `[7.800000160932541, -3.320000171661377, 4.950000286102295]`
+
+3.  **Calculate the unit vector:** To move a specific distance along the vector, we first normalize it to a unit vector (U).
+    *   Magnitude of V = `sqrt(7.800...^2 + (-3.320...)^2 + 4.950...^2)` = `9.8165627196238`
+    *   Unit Vector U = V / |V|
+    *   U = `[7.800... / 9.816..., -3.320... / 9.816..., 4.950... / 9.816...]`
+    *   U = `[0.7945722369658826, -0.3382025727025828, 0.5042653205021204]`
+
+4.  **Calculate the new point's coordinates:** The new point (P_new) is 5.41 units away from P1 along the direction of P0.
+    *   P_new = P1 + (distance * U)
+    *   P_new = P1 + (5.41 * U)
+    *   P_new_x = `-8.09000015258789 + (5.41 * 0.7945722369658826)` = `-3.791364350602466`
+    *   P_new_y = `9.789999961853027 + (5.41 * -0.3382025727025828)` = `7.960324043531954`
+    *   P_new_z = `-7.760000228881836 + (5.41 * 0.5042653205021204)` = `-5.031924844965365`
+    *   P_new = `[-3.791364350602466, 7.960324043531954, -5.031924844965365]`
+
+5.  **Construct the final list:** The action is to ""insert"" the new point ""between"" the original points. Given the initial order `[P0, P1]`, inserting the new point between them results in the order `[P0, P_new, P1]`.
+
+<answer>
+[[-0.28999999165534973, 6.46999979019165, -2.809999942779541], [-3.791364350602466, 7.960324043531954, -5.031924844965365], [-8.09000015258789, 9.789999961853027, -7.760000228881836]]
+</answer>"
+"[[-6.   -3.53  3.92]
+ [-4.26  6.77 -9.87]]","Insert a new point between points at indices 0 and 1, 7.59 units away from point 0.","[[-6.0, -3.5299999713897705, 3.9200000762939453], [-5.23661517457962, 0.9888856410980225, -2.1300058364868164], [-4.260000228881836, 6.769999980926514, -9.869999885559082]]","[[-6.   -3.53  3.92]
+ [-4.26  6.77 -9.87]
+ [-5.24  0.99 -2.13]]",0.0011877777330307389,0.0035633331990922164,"To solve this, we need to find the coordinates of a new point that lies on the line segment between the two initial points, at a specific distance from the first point.
+
+1.  **Identify the points:**
+    *   Point 0 (P0): `[-6.0, -3.5299999713897705, 3.9200000762939453]`
+    *   Point 1 (P1): `[-4.260000228881836, 6.769999980926514, -9.869999885559082]`
+    *   The desired distance from P0 is `d = 7.59`.
+
+2.  **Calculate the direction vector:**
+    *   Find the vector V from P0 to P1 by subtracting the coordinates of P0 from P1.
+    *   V = P1 - P0 = `[-4.26... - (-6.0), 6.76... - (-3.52...), -9.86... - 3.92...]`
+    *   V = `[1.739999771118164, 10.299999952316284, -13.790000009536743]`
+
+3.  **Calculate the total distance between P0 and P1:**
+    *   Find the magnitude (length) of vector V.
+    *   |V| = sqrt( (1.74...)^2 + (10.3...)^2 + (-13.79...)^2 )
+    *   |V| ≈ 17.300049
+
+4.  **Normalize the direction vector:**
+    *   Create a unit vector (U) by dividing the vector V by its magnitude. This vector represents the direction from P0 to P1 and has a length of 1.
+    *   U = V / |V| = `[0.1005777, 0.5953736, -0.7970996]`
+
+5.  **Calculate the new point's coordinates:**
+    *   The new point (P_new) is found by starting at P0 and moving along the unit vector U for the specified distance `d`.
+    *   P_new = P0 + U * d
+    *   P_new_x = -6.0 + 0.1005777 * 7.59 ≈ -5.236615
+    *   P_new_y = -3.52999997 + 0.5953736 * 7.59 ≈ 0.988886
+    *   P_new_z = 3.92000008 + (-0.7970996) * 7.59 ≈ -2.130006
+    *   The calculated new point is `[-5.23661517457962, 0.9888856410980225, -2.1300058364868164]`.
+
+6.  **Construct the final list:**
+    *   Insert the new point into the list between the original points at index 0 and 1.
+    *   The final list is `[P0, P_new, P1]`.
+
+<answer>
+[[-6.0, -3.5299999713897705, 3.9200000762939453], [-5.23661517457962, 0.9888856410980225, -2.1300058364868164], [-4.260000228881836, 6.769999980926514, -9.869999885559082]]
+</answer>"
+"[[ 5.38 -9.45  6.36]
+ [ 1.06 -1.62  8.05]]","Insert a new point between points at indices 1 and 0, 3.94 units away from point 1.","[[5.380000114440918, -9.449999809265137, 6.360000133514404], [2.930231574952999, -5.009771833320088, 7.318363529179672], [1.059999942779541, -1.6200000047683716, 8.050000190734863]]","[[ 5.38 -9.45  6.36]
+ [ 1.06 -1.62  8.05]
+ [ 2.93 -5.01  7.32]]",0.0005562133074307693,0.0016686399222923078,"```python
+import numpy as np
+
+def calculate_new_point():
+    # Initial points data
+    points = np.array([
+        [5.380000114440918, -9.449999809265137, 6.360000133514404],
+        [1.059999942779541, -1.6200000047683716, 8.050000190734863]
+    ])
+
+    # Action prompt: Insert a new point between points at indices 1 and 0, 3.94 units away from point 1.
+    p0 = points[0]
+    p1 = points[1]
+    distance_from_p1 = 3.94
+
+    # Calculate the vector from p1 to p0
+    vector_p1_to_p0 = p0 - p1
+
+    # Calculate the magnitude (length) of the vector
+    magnitude = np.linalg.norm(vector_p1_to_p0)
+
+    # Calculate the unit vector in the direction from p1 to p0
+    unit_vector = vector_p1_to_p0 / magnitude
+
+    # Calculate the new point's coordinates
+    # It's p1 + distance * unit_vector
+    new_point = p1 + distance_from_p1 * unit_vector
+
+    # The prompt implies inserting the new point between the original points in the list.
+    # Original list: [p0, p1]. Inserting ""between"" them means the new list order should be [p0, new_point, p1].
+    final_points = [p0.tolist(), new_point.tolist(), p1.tolist()]
+
+    # Format the output string
+    output_str = ""[\n""
+    for i, p in enumerate(final_points):
+        output_str += f""  [{p[0]}, {p[1]}, {p[2]}]""
+        if i < len(final_points) - 1:
+            output_str += "",""
+        output_str += ""\n""
+    output_str += ""]""
+    
+    # Let's format it exactly as per the required output format.
+    # It's a single line list of lists.
+    # [[a, b, c], [d, e, f]]
+    
+    formatted_points = str(final_points).replace("" "", """")
+    
+    # Python's default str() representation might be too precise or not precise enough.
+    # Let's stick to the full precision from the calculation.
+    
+    return final_points
+
+# final_points = calculate_new_point()
+# This should be [[5.380000114440918, -9.449999809265137, 6.360000133514404], [2.930231574952999, -5.009771833320088, 7.318363529179672], [1.059999942779541, -1.6200000047683716, 8.050000190734863]]
+```
+<answer>
+[[5.380000114440918, -9.449999809265137, 6.360000133514404], [2.930231574952999, -5.009771833320088, 7.318363529179672], [1.059999942779541, -1.6200000047683716, 8.050000190734863]]
+</answer>"
+"[[ 1.55 -5.22 -1.36]
+ [-1.3  -0.26 -2.21]]","Insert a new point between points at indices 0 and 1, 2.98 units away from point 0.","[[1.5499999523162842, -5.21999979019165, -1.3600000143051147], [0.08144838823643497, -2.66421793595388, -1.7979832698607214], [-1.2999999523162842, -0.25999999046325684, -2.2100000381469727]]","[[ 1.55 -5.22 -1.36]
+ [-1.3  -0.26 -2.21]
+ [ 0.08 -2.66 -1.8 ]]",0.0016314649671577656,0.004894394901473297,"<answer>
+[[1.5499999523162842, -5.21999979019165, -1.3600000143051147], [0.08144838823643497, -2.66421793595388, -1.7979832698607214], [-1.2999999523162842, -0.25999999046325684, -2.2100000381469727]]
+</answer>"
+"[[ 2.74  9.33  7.77]
+ [-9.7  -1.69  0.56]]","Insert a new point between points at indices 0 and 1, 7.6 units away from point 0.","[[2.740000009536743, 9.329999923706055, 7.769999980926514], [-2.478082254963217, 4.707449123706055, 4.745693331926514], [-9.699999809265137, -1.690000057220459, 0.5600000023841858]]","[[ 2.74  9.33  7.77]
+ [-9.7  -1.69  0.56]
+ [-2.48  4.71  4.75]]",0.0017867529072067168,0.0053602587216201505,"```json
+<answer>
+[[2.740000009536743, 9.329999923706055, 7.769999980926514], [-2.478082254963217, 4.707449123706055, 4.745693331926514], [-9.699999809265137, -1.690000057220459, 0.5600000023841858]]
+</answer>
+```"
+"[[-6.24 -7.73  9.12]
+ [-7.8   7.84  3.8 ]]","Insert a new point between points at indices 0 and 1, 13.4 units away from point 0.","[[-6.239999771118164, -7.730000019073486, 9.119999885559082], [-7.5047708944006, 4.893101841751201, 4.806828567092946], [-7.800000190734863, 7.840000152587891, 3.799999952316284]]","[[-6.24 -7.73  9.12]
+ [-7.8   7.84  3.8 ]
+ [-7.5   4.89  4.81]]",0.00217156645140044,0.006514699354201319,"The user wants to insert a new point on the line segment between two existing points, at a specific distance from the first point.
+
+1.  **Identify the points:**
+    *   Point 0 (P0): `[-6.239999771118164, -7.730000019073486, 9.119999885559082]`
+    *   Point 1 (P1): `[-7.800000190734863, 7.840000152587891, 3.799999952316284]`
+
+2.  **Define the target:**
+    *   Insert a new point (P_new) between P0 and P1.
+    *   The distance from P0 to P_new must be 13.4 units.
+
+3.  **Calculate the vector from P0 to P1:**
+    *   `V = P1 - P0`
+    *   `V = [-7.800... - (-6.239...), 7.840... - (-7.730...), 3.799... - 9.119...]`
+    *   `V = [-1.5600004196, 15.5700001717, -5.3199999332]`
+
+4.  **Calculate the total distance between P0 and P1 (the magnitude of vector V):**
+    *   `L = ||V|| = sqrt((-1.56...)^2 + (15.57...)^2 + (-5.319...)^2)`
+    *   `L = sqrt(2.4336 + 242.4249 + 28.3024)`
+    *   `L ≈ 16.52758`
+
+5.  **Determine the interpolation factor (t):**
+    *   This is the ratio of the desired distance to the total distance.
+    *   `t = 13.4 / L = 13.4 / 16.52758 ≈ 0.810766`
+
+6.  **Calculate the coordinates of the new point (P_new):**
+    *   `P_new = P0 + t * V`
+    *   `x_new = -6.239999771118164 + 0.810766 * -1.5600004196 = -7.5047708944`
+    *   `y_new = -7.730000019073486 + 0.810766 * 15.5700001717 = 4.8931018418`
+    *   `z_new = 9.119999885559082 + 0.810766 * -5.3199999332 = 4.8068285671`
+    *   P_new: `[-7.5047708944006, 4.893101841751201, 4.806828567092946]`
+
+7.  **Construct the final list:**
+    *   The new point is inserted between the original points at index 0 and 1.
+    *   The final list will be `[P0, P_new, P1]`.
+
+<answer>
+[[-6.239999771118164, -7.730000019073486, 9.119999885559082], [-7.5047708944006, 4.893101841751201, 4.806828567092946], [-7.800000190734863, 7.840000152587891, 3.799999952316284]]
+</answer>"
+"[[-9.22 -8.59 -9.61]
+ [ 9.8  -3.26  8.76]]","Insert a new point between points at indices 0 and 1, 23.69 units away from point 0.","[[-9.220000267028809, -8.59000015258789, -9.609999656677246], [7.484200791195121, -3.90948827829982, 6.524434598335854], [9.800000190734863, -3.259999990463257, 8.760000228881836]]","[[-9.22 -8.59 -9.61]
+ [ 9.8  -3.26  8.76]
+ [ 7.48 -3.91  6.52]]",0.0020432616880801282,0.006129785064240384,"The user wants to insert a new point on the line segment between two existing points.
+
+1.  **Identify the points:**
+    *   Point 0 (P0): `[-9.220000267028809, -8.59000015258789, -9.609999656677246]`
+    *   Point 1 (P1): `[9.800000190734863, -3.259999990463257, 8.760000228881836]`
+
+2.  **Define the task:**
+    *   Create a new point (P_new) that lies on the line segment connecting P0 and P1.
+    *   The distance from P0 to P_new must be 23.69 units.
+    *   The final list of points should be `[P0, P_new, P1]`.
+
+3.  **Calculate the direction vector:**
+    *   First, find the vector `V` from P0 to P1: `V = P1 - P0`.
+    *   `V_x = 9.800000190734863 - (-9.220000267028809) = 19.020000457763672`
+    *   `V_y = -3.259999990463257 - (-8.59000015258789) = 5.330000162124634`
+    *   `V_z = 8.760000228881836 - (-9.609999656677246) = 18.369999885559082`
+    *   `V = [19.020000457763672, 5.330000162124634, 18.369999885559082]`
+
+4.  **Calculate the magnitude (length) of the vector V:**
+    *   `|V| = sqrt(V_x^2 + V_y^2 + V_z^2)`
+    *   `|V| = sqrt(19.020000457763672^2 + 5.330000162124634^2 + 18.369999885559082^2)`
+    *   `|V| = sqrt(727.6263148153888) = 26.97455132578502`
+
+5.  **Calculate the unit vector:**
+    *   A unit vector `U` has a length of 1 and points in the same direction as `V`. `U = V / |V|`.
+    *   `U_x = 19.020000457763672 / 26.97455132578502 = 0.7051080345037926`
+    *   `U_y = 5.330000162124634 / 26.97455132578502 = 0.19756300438183606`
+    *   `U_z = 18.369999885559082 / 26.97455132578502 = 0.6809934371661642`
+
+6.  **Calculate the new point's coordinates:**
+    *   The new point `P_new` is found by starting at P0 and moving along the unit vector `U` for the specified distance `d = 23.69`.
+    *   `P_new = P0 + d * U`
+    *   `P_new_x = -9.220000267028809 + 23.69 * 0.7051080345037926 = 7.484200791195121`
+    *   `P_new_y = -8.59000015258789 + 23.69 * 0.19756300438183606 = -3.90948827829982`
+    *   `P_new_z = -9.609999656677246 + 23.69 * 0.6809934371661642 = 6.524434598335854`
+
+7.  **Construct the final list:**
+    *   Insert the new point between the original points at indices 0 and 1.
+    *   The final list is `[P0, P_new, P1]`.
+
+<answer>
+[[-9.220000267028809, -8.59000015258789, -9.609999656677246], [7.484200791195121, -3.90948827829982, 6.524434598335854], [9.800000190734863, -3.259999990463257, 8.760000228881836]]
+</answer>"
+"[[ 3.72 -6.26 -1.65]
+ [ 1.71  5.22  3.76]]","Insert a new point between points at indices 0 and 1, 6.21 units away from point 0.","[[3.7200000286102295, -6.260000228881836, -1.649999976158142], [2.748561491401337, -0.711674408845974, 0.964631331809883], [1.7100000381469727, 5.21999979019165, 3.759999990463257]]","[[ 3.72 -6.26 -1.65]
+ [ 1.71  5.22  3.76]
+ [ 2.75 -0.71  0.96]]",0.0017101805271533177,0.005130541581459953,"```python
+import numpy as np
+
+def solve():
+    points = np.array([[3.7200000286102295, -6.260000228881836, -1.649999976158142], [1.7100000381469727, 5.21999979019165, 3.759999990463257]])
+    
+    p0 = points[0]
+    p1 = points[1]
+    distance_from_p0 = 6.21
+    
+    # Calculate the vector from p0 to p1
+    vector = p1 - p0
+    
+    # Calculate the total distance between p0 and p1
+    total_distance = np.linalg.norm(vector)
+    
+    # Calculate the unit vector
+    unit_vector = vector / total_distance
+    
+    # Calculate the new point's coordinates
+    new_point = p0 + unit_vector * distance_from_p0
+    
+    # Insert the new point into the list
+    final_points = np.insert(points, 1, new_point, axis=0)
+    
+    # Format the output string
+    output_str = ""[\n""
+    for i, p in enumerate(final_points):
+        output_str += f""  [{p[0]}, {p[1]}, {p[2]}]""
+        if i < len(final_points) - 1:
+            output_str += "",\n""
+    output_str += ""\n]""
+    # print(output_str) # for debugging
+    # The calculated new_point is [2.748561491401337, -0.711674408845974, 0.964631331809883]
+    
+    # The final list is:
+    # [[3.7200000286102295, -6.260000228881836, -1.649999976158142], 
+    #  [2.748561491401337, -0.711674408845974, 0.964631331809883], 
+    #  [1.7100000381469727, 5.21999979019165, 3.759999990463257]]
+
+# solve() # for debugging
+```
+<answer>
+[[3.7200000286102295, -6.260000228881836, -1.649999976158142], [2.748561491401337, -0.711674408845974, 0.964631331809883], [1.7100000381469727, 5.21999979019165, 3.759999990463257]]
+</answer>"
+"[[ 8.03  7.52 -3.02]
+ [ 0.06  5.18  2.14]]","Insert a new point between points at indices 0 and 1, 5.03 units away from point 0.","[[8.029999732971191, 7.519999980926514, -3.0199999809265137], [3.930521011352539, 6.316035747528076, -0.3659713566303253], [0.05999999865889549, 5.179999828338623, 2.140000104904175]]","[[ 8.03  7.52 -3.02]
+ [ 0.06  5.18  2.14]
+ [ 3.93  6.32 -0.37]]",0.0018920314714405088,0.005676094414321526,"```json
+<answer>
+[[8.029999732971191, 7.519999980926514, -3.0199999809265137], [3.930521011352539, 6.316035747528076, -0.3659713566303253], [0.05999999865889549, 5.179999828338623, 2.140000104904175]]
+</answer>
+```"
+"[[ 8.99  4.96 -2.9 ]
+ [-6.   -7.89 -1.65]]","Insert a new point between points at indices 1 and 0, 8.69 units away from point 1.","[[-6.0, -7.889999866485596, -1.649999976158142], [0.5845115184783936, -2.245667300309453, -2.199065284996843], [8.989999771118164, 4.960000038146973, -2.9000000953674316]]","[[ 8.99  4.96 -2.9 ]
+ [-6.   -7.89 -1.65]
+ [ 0.58 -2.25 -2.2 ]]",0.0021081855668527625,0.006324556700558287,"Answering the user's request requires a two-step process: first, calculating the coordinates of the new point, and second, inserting this new point into the list at the correct position.
+
+**1. Calculating the new point's coordinates:**
+
+*   Let P0 be the point at index 0: `[8.989999771118164, 4.960000038146973, -2.9000000953674316]`
+*   Let P1 be the point at index 1: `[-6.0, -7.889999866485596, -1.649999976158142]`
+*   The new point, P_new, lies on the line segment connecting P1 and P0.
+*   The prompt specifies that P_new is 8.69 units away from P1 in the direction of P0.
+
+First, we find the vector V from P1 to P0:
+`V = P0 - P1`
+`V = [8.989999771118164 - (-6.0), 4.960000038146973 - (-7.889999866485596), -2.9000000953674316 - (-1.649999976158142)]`
+`V = [14.989999771118164, 12.849999904632568, -1.2500001192092896]`
+
+Next, we find the total distance between P1 and P0, which is the magnitude of vector V:
+`|V| = sqrt(14.98999977...^2 + 12.84999990...^2 + (-1.25000011...)^2)`
+`|V| = 19.78345494002621`
+
+The new point is 8.69 units along this vector from P1. We can find its position using an interpolation factor `t`:
+`t = (distance from P1) / (total distance)`
+`t = 8.69 / 19.78345494002621 = 0.4392576020108316`
+
+Now, we calculate the coordinates of P_new:
+`P_new = P1 + t * V`
+`P_new_x = -6.0 + 0.439257602 * 14.989999771... = 0.5845115184783936`
+`P_new_y = -7.889999866... + 0.439257602 * 12.84999990... = -2.245667300309453`
+`P_new_z = -1.649999976... + 0.439257602 * (-1.250000119...) = -2.199065284996843`
+
+So, `P_new = [0.5845115184783936, -2.245667300309453, -2.199065284996843]`
+
+**2. Inserting the new point into the list:**
+
+*   The original list is `[P0, P1]`.
+*   The prompt asks to ""Insert a new point between points at indices 1 and 0"". This phrasing implies a directional sequence from point 1 to point 0. The new point lies on this path.
+*   Therefore, the final list should represent this spatial sequence: `P1, P_new, P0`.
+
+The final list of points is constructed by ordering the original point at index 1, the newly calculated point, and the original point at index 0.
+
+<answer>
+[[-6.0, -7.889999866485596, -1.649999976158142], [0.5845115184783936, -2.245667300309453, -2.199065284996843], [8.989999771118164, 4.960000038146973, -2.9000000953674316]]
+</answer>"
+"[[ 5.25 -2.02 -7.73]
+ [-5.36  8.38 -1.27]]","Insert a new point between points at indices 1 and 0, 1.34 units away from point 1.","[[-5.360000133514404, 8.380000114440918, -1.2699999809265137], [-4.482421872199409, 7.519791233811358, -1.8043220308888093], [5.25, -2.0199999809265137, -7.730000019073486]]","[[ 5.25 -2.02 -7.73]
+ [-5.36  8.38 -1.27]
+ [-4.48  7.52 -1.8 ]]",0.0016529203485786475,0.004958761045735943,"An action has been requested on a set of points.
+The user wants to insert a new point on the line segment defined by the points at index 0 and 1.
+
+1.  **Identify the points:**
+    *   Point at index 0 (`P0`): `[5.25, -2.0199999809265137, -7.730000019073486]`
+    *   Point at index 1 (`P1`): `[-5.360000133514404, 8.380000114440918, -1.2699999809265137]`
+
+2.  **Determine the new point's position:**
+    *   The new point (`P_new`) lies on the line segment between `P1` and `P0`.
+    *   The distance from `P1` to `P_new` is specified as 1.34 units.
+    *   To find the coordinates of `P_new`, we can use linear interpolation.
+
+3.  **Calculate the coordinates of the new point:**
+    *   First, calculate the vector from `P1` to `P0`: `V = P0 - P1`.
+        *   `V.x = 5.25 - (-5.360000133514404) = 10.610000133514404`
+        *   `V.y = -2.0199999809265137 - 8.380000114440918 = -10.400000095367432`
+        *   `V.z = -7.730000019073486 - (-1.2699999809265137) = -6.460000038146973`
+    *   Next, find the total distance (`D`) between `P1` and `P0`, which is the magnitude of vector `V`.
+        *   `D = sqrt(V.x^2 + V.y^2 + V.z^2)`
+        *   `D = sqrt(10.610000133514404^2 + (-10.400000095367432)^2 + (-6.460000038146973)^2)`
+        *   `D = sqrt(262.463705308)`
+        *   `D ≈ 16.20073163`
+    *   Determine the interpolation factor `t`. This is the ratio of the desired distance to the total distance.
+        *   `t = 1.34 / D = 1.34 / 16.20073163 ≈ 0.082712389`
+    *   Calculate the new point `P_new` using the formula `P_new = P1 + t * V`.
+        *   `P_new.x = -5.360000133514404 + 0.082712389 * 10.610000133514404 = -4.482421872199409`
+        *   `P_new.y = 8.380000114440918 + 0.082712389 * (-10.400000095367432) = 7.519791233811358`
+        *   `P_new.z = -1.2699999809265137 + 0.082712389 * (-6.460000038146973) = -1.8043220308888092`
+    *   So, `P_new` is `[-4.482421872199409, 7.519791233811358, -1.8043220308888092]`.
+
+4.  **Construct the final list:**
+    *   The prompt ""Insert a new point between points at indices 1 and 0"" indicates the final ordering of the points in the list. The new point should be placed between the point originally at index 1 and the point originally at index 0.
+    *   The final list will be `[P1, P_new, P0]`.
+
+<answer>[[-5.360000133514404, 8.380000114440918, -1.2699999809265137], [-4.482421872199409, 7.519791233811358, -1.8043220308888092], [5.25, -2.0199999809265137, -7.730000019073486]]</answer>"
+"[[-2.99  3.37  7.49]
+ [ 3.34  1.41 -5.05]]","Insert a new point between points at indices 1 and 0, 6.59 units away from point 1.","[[-2.990000009536743, 3.369999885559082, 7.489999771118164], [0.3990100017690065, 2.3206899145558433, 0.776229795592021], [3.3399999141693115, 1.409999966621399, -5.050000190734863]]","[[-2.99  3.37  7.49]
+ [ 3.34  1.41 -5.05]
+ [ 0.4   2.32  0.78]]",0.0013195288745690235,0.00395858662370707,"```json
+[
+  [-2.990000009536743, 3.369999885559082, 7.489999771118164],
+  [3.3399999141693115, 1.409999966621399, -5.050000190734863]
+]
+```
+To insert a new point between the points at index 0 (P0) and index 1 (P1), at a specific distance from P1, we can use linear interpolation.
+
+1.  **Define the points:**
+    *   P0 = `[-2.990000009536743, 3.369999885559082, 7.489999771118164]`
+    *   P1 = `[3.3399999141693115, 1.409999966621399, -5.050000190734863]`
+
+2.  **Calculate the vector from P1 to P0:**
+    *   `V = P0 - P1`
+    *   `V = [-2.990000009536743 - 3.3399999141693115, 3.369999885559082 - 1.409999966621399, 7.489999771118164 - (-5.050000190734863)]`
+    *   `V = [-6.329999923706055, 1.959999918937683, 12.539999961853027]`
+
+3.  **Calculate the total distance between P0 and P1 (the magnitude of V):**
+    *   `d = ||V|| = sqrt((-6.329999923706055)^2 + (1.959999918937683)^2 + (12.539999961853027)^2)`
+    *   `d = sqrt(40.06889903909761 + 3.841599682578583 + 157.25159904791012)`
+    *   `d = sqrt(201.1620977695863) = 14.18316238917835`
+
+4.  **Determine the interpolation factor `t`:**
+    The new point is 6.59 units away from P1 along the vector towards P0.
+    *   `t = distance_from_P1 / total_distance`
+    *   `t = 6.59 / 14.18316238917835 = 0.4646194723145465`
+
+5.  **Calculate the new point's coordinates (P_new):**
+    *   `P_new = P1 + t * V`
+    *   `x = 3.3399999141693115 + 0.4646194723145465 * -6.329999923706055 = 0.3990100017690065`
+    *   `y = 1.409999966621399 + 0.4646194723145465 * 1.959999918937683 = 2.3206899145558435`
+    *   `z = -5.050000190734863 + 0.4646194723145465 * 12.539999961853027 = 0.776229795592021`
+    *   `P_new = [0.3990100017690065, 2.3206899145558435, 0.776229795592021]`
+
+6.  **Construct the final list:**
+    Insert the new point between the original points.
+    `[P0, P_new, P1]`
+
+<answer>
+[[-2.990000009536743, 3.369999885559082, 7.489999771118164], [0.3990100017690065, 2.3206899145558435, 0.776229795592021], [3.3399999141693115, 1.409999966621399, -5.050000190734863]]
+</answer>"
+"[[-9.03 -6.35 -3.3 ]
+ [ 4.11 -7.85  4.28]]","Insert a new point between points at indices 0 and 1, 10.71 units away from point 0.","[[-9.029999732971191, -6.349999904632568, -3.299999952316284], [0.20201921814302823, -7.403887853570468, 2.0256421857176403], [4.110000133514404, -7.849999904632568, 4.28000020980835]]","[[-9.03 -6.35 -3.3 ]
+ [ 4.11 -7.85  4.28]
+ [ 0.2  -7.4   2.03]]",0.002059724622455982,0.006179173867367945,"<answer>[[-9.029999732971191, -6.349999904632568, -3.299999952316284], [0.20201921814302822, -7.403887853570468, 2.0256421857176404], [4.110000133514404, -7.849999904632568, 4.28000020980835]]</answer>"
+"[[ 2.47  2.1   2.41]
+ [-4.16  1.3  -3.3 ]]","Insert a new point between points at indices 0 and 1, 4.32 units away from point 0.","[[2.4700000286102295, 2.0999999046325684, 2.4100000858306885], [-0.7893449811898156, 1.7066608069270743, -0.3978657947035582], [-4.159999847412109, 1.2999999523162842, -3.299999952316284]]","[[ 2.47  2.1   2.41]
+ [-4.16  1.3  -3.3 ]
+ [-0.79  1.71 -0.4 ]]",0.0013389216465981813,0.004016764939794544,"```python
+import numpy as np
+
+def insert_point_on_segment():
+    """"""
+    Inserts a new point on the line segment defined by two existing points,
+    at a specified distance from the first point.
+    """"""
+    # Initial points data
+    points = np.array([
+        [2.4700000286102295, 2.0999999046325684, 2.4100000858306885],
+        [-4.159999847412109, 1.2999999523162842, -3.299999952316284]
+    ])
+
+    # Action parameters
+    idx0 = 0
+    idx1 = 1
+    distance_from_p0 = 4.32
+
+    # Get the two points
+    p0 = points[idx0]
+    p1 = points[idx1]
+
+    # Calculate the vector from p0 to p1
+    vector = p1 - p0
+
+    # Calculate the total distance between p0 and p1 (magnitude of the vector)
+    total_distance = np.linalg.norm(vector)
+
+    # Check if the new point is within the segment
+    if distance_from_p0 > total_distance or distance_from_p0 < 0:
+        # This case is not specified in the prompt, but it's good practice.
+        # The prompt implies the point is ""between"" the existing points.
+        # Assuming the distance is valid.
+        pass
+
+    # Normalize the vector to get the direction
+    unit_vector = vector / total_distance
+
+    # Calculate the new point's coordinates
+    # P_new = P0 + distance * direction
+    new_point = p0 + distance_from_p0 * unit_vector
+
+    # Create the new list of points by inserting the new point
+    points_list = list(points)
+    points_list.insert(idx1, new_point)
+
+    # Format the output
+    final_points = [list(p) for p in points_list]
+    
+    # The calculated new point:
+    # new_point = [-0.7893449811898155, 1.7066608069270743, -0.3978657947035582]
+    # The final list:
+    # [[2.4700000286102295, 2.0999999046325684, 2.4100000858306885], 
+    #  [-0.7893449811898155, 1.7066608069270743, -0.3978657947035582], 
+    #  [-4.159999847412109, 1.2999999523162842, -3.299999952316284]]
+
+    return final_points
+
+# final_points_to_print = insert_point_on_segment()
+# print(final_points_to_print)
+```
+
+<answer>
+[[2.4700000286102295, 2.0999999046325684, 2.4100000858306885], [-0.7893449811898155, 1.7066608069270743, -0.3978657947035582], [-4.159999847412109, 1.2999999523162842, -3.299999952316284]]
+</answer>"
+"[[5.89 1.41 0.87]
+ [5.3  2.84 8.58]]","Insert a new point between points at indices 1 and 0, 0.6 units away from point 1.","[[5.889999866485596, 1.409999966621399, 0.8700000047683716], [5.34501898144709, 2.730889279140411, 7.991723838275143], [5.300000190734863, 2.8399999141693115, 8.579999923706055]]","[[5.89 1.41 0.87]
+ [5.3  2.84 8.58]
+ [5.35 2.73 7.99]]",0.0017817839627130658,0.0053453518881391975,"The user wants to insert a new point between two existing points.
+
+1.  **Identify the points:**
+    *   Point 0 (P0): `[5.889999866485596, 1.409999966621399, 0.8700000047683716]`
+    *   Point 1 (P1): `[5.300000190734863, 2.8399999141693115, 8.579999923706055]`
+
+2.  **Determine the vector and distance between the points:**
+    *   The action specifies the new point is on the line segment between P1 and P0, and its distance is measured from P1.
+    *   First, calculate the vector `V` from P1 to P0:
+        `V = P0 - P1`
+        `V.x = 5.889999866485596 - 5.300000190734863 = 0.5899996757507324`
+        `V.y = 1.409999966621399 - 2.8399999141693115 = -1.4299999475479126`
+        `V.z = 0.8700000047683716 - 8.579999923706055 = -7.709999918937683`
+    *   Next, calculate the distance `D` between P1 and P0, which is the magnitude of vector `V`:
+        `D = sqrt(V.x^2 + V.y^2 + V.z^2)`
+        `D = sqrt(0.58999967575...^2 + (-1.4299999475...)^2 + (-7.7099999189...)^2)`
+        `D = sqrt(0.3480996 + 2.0448998 + 59.4440987) = sqrt(61.837098) = 7.86365668`
+
+3.  **Calculate the new point's coordinates:**
+    *   The new point (P_new) is 0.6 units away from P1 along the vector `V`.
+    *   We can find the new point by adding a scaled vector to P1. The scaling factor `t` is the desired distance (0.6) divided by the total distance `D`.
+        `t = 0.6 / D = 0.6 / 7.86365668 = 0.076302035`
+    *   Now, calculate P_new:
+        `P_new = P1 + t * V`
+        `P_new.x = 5.300000190734863 + 0.076302035 * 0.58999967575 = 5.34501898144709`
+        `P_new.y = 2.8399999141693115 + 0.076302035 * -1.42999994754 = 2.730889279140411`
+        `P_new.z = 8.579999923706055 + 0.076302035 * -7.70999991893 = 7.991723838275143`
+    *   So, the new point is `[5.34501898144709, 2.730889279140411, 7.991723838275143]`.
+
+4.  **Construct the final list of points:**
+    *   The prompt asks to ""Insert a new point between points at indices 1 and 0"".
+    *   The initial list is `[P0, P1]`.
+    *   Inserting the new point between them results in the list `[P0, P_new, P1]`.
+
+<answer>
+[[5.889999866485596, 1.409999966621399, 0.8700000047683716], [5.34501898144709, 2.730889279140411, 7.991723838275143], [5.300000190734863, 2.8399999141693115, 8.579999923706055]]
+</answer>"
+"[[ 6.09  4.35  4.06]
+ [-0.79  1.07  1.09]]","Insert a new point between points at indices 1 and 0, 7.66 units away from point 1.","[[6.090000152587891, 4.349999904632568, 4.059999942779541], [5.652579100053916, 4.14145449615951, 3.8701667709865055], [-0.7900000214576721, 1.0700000524520874, 1.090000033378601]]","[[ 6.09  4.35  4.06]
+ [-0.79  1.07  1.09]
+ [ 5.65  4.14  3.87]]",0.0009885490718458498,0.0029656472155375497,"To solve this, I will follow these steps:
+1.  **Identify the reference points**: Point 0 is `P0 = [6.090000152587891, 4.349999904632568, 4.059999942779541]` and point 1 is `P1 = [-0.7900000214576721, 1.0700000524520874, 1.090000033378601]`.
+2.  **Determine the direction vector**: The new point lies on the line segment between `P1` and `P0`. The direction vector `V` from `P1` to `P0` is `P0 - P1`.
+    *   `V_x = 6.090000152587891 - (-0.7900000214576721) = 6.880000174045563`
+    *   `V_y = 4.349999904632568 - 1.0700000524520874 = 3.279999852180481`
+    *   `V_z = 4.059999942779541 - 1.090000033378601 = 2.96999990940094`
+    *   `V = [6.880000174045563, 3.279999852180481, 2.96999990940094]`
+3.  **Calculate the magnitude of the vector**: The distance between `P1` and `P0` is the magnitude of `V`, calculated as `sqrt(V_x^2 + V_y^2 + V_z^2)`.
+    *   `|V| = sqrt(6.880000174045563^2 + 3.279999852180481^2 + 2.96999990940094^2)`
+    *   `|V| = sqrt(47.33440239 + 10.75839902 + 8.82089946) = sqrt(66.91370087) = 8.18007951448821`
+4.  **Normalize the vector**: To get the unit direction vector `U`, I'll divide `V` by its magnitude.
+    *   `U = V / |V| = [0.8410677313804626, 0.4009731650352478, 0.3630765974521637]`
+5.  **Calculate the new point's coordinates**: The new point `P_new` is located `7.66` units away from `P1` in the direction of `P0`. So, `P_new = P1 + 7.66 * U`.
+    *   `P_new_x = -0.7900000214576721 + 7.66 * 0.8410677313804626 = 5.652579100053916`
+    *   `P_new_y = 1.0700000524520874 + 7.66 * 0.4009731650352478 = 4.14145449615951`
+    *   `P_new_z = 1.090000033378601 + 7.66 * 0.3630765974521637 = 3.8701667709865056`
+    *   `P_new = [5.652579100053916, 4.14145449615951, 3.8701667709865056]`
+6.  **Construct the final list**: The new point is inserted between the original points. The new list of points will be `[P0, P_new, P1]`.
+
+<answer>
+[[6.090000152587891, 4.349999904632568, 4.059999942779541], [5.652579100053916, 4.14145449615951, 3.8701667709865056], [-0.7900000214576721, 1.0700000524520874, 1.090000033378601]]
+</answer>"
+"[[ 5.97 -3.75  1.75]
+ [-1.32  7.03 -7.12]]","Insert a new point between points at indices 0 and 1, 8.99 units away from point 0.","[[5.96999979019165, -3.75, 1.75], [1.80876208, 2.40336067, -3.31311487], [-1.3200000524520874, 7.03000020980835, -7.119999885559082]]","[[ 5.97 -3.75  1.75]
+ [-1.32  7.03 -7.12]
+ [ 1.81  2.4  -3.31]]",0.0015821412252876733,0.00474642367586302,"<answer>
+[[5.96999979019165, -3.75, 1.75], [1.80876208, 2.40336067, -3.31311487], [-1.3200000524520874, 7.03000020980835, -7.119999885559082]]
+</answer>"
+"[[-0.13  2.83  2.76]
+ [ 9.25 -4.16 -7.81]]","Insert a new point between points at indices 1 and 0, 1.8 units away from point 1.","[[-0.12999999523162842, 2.8299999237060547, 2.759999990463257], [8.17917691324339, -3.3622598151454435, -6.603800006907428], [9.25, -4.159999847412109, -7.809999942779541]]","[[-0.13  2.83  2.76]
+ [ 9.25 -4.16 -7.81]
+ [ 8.18 -3.36 -6.6 ]]",0.001499110484564737,0.004497331453694211,"To solve this problem, we need to perform the following steps:
+1.  Identify the two points involved, `P0` (at index 0) and `P1` (at index 1), from the initial data.
+2.  Understand the geometry of the operation: a new point, `P_new`, must be placed on the line segment connecting `P1` and `P0`.
+3.  Use the distance constraint: the distance between `P_new` and `P1` must be 1.8 units.
+4.  Calculate the coordinates of `P_new` using vector arithmetic and linear interpolation.
+5.  Construct the final list of points by inserting `P_new` between the original points `P0` and `P1`.
+
+**Step 1: Initial Points**
+`P0 = [-0.12999999523162842, 2.8299999237060547, 2.759999990463257]`
+`P1 = [9.25, -4.159999847412109, -7.809999942779541]`
+
+**Step 2: Vector Calculation**
+The new point lies on the line segment between `P1` and `P0`. We first find the vector `V` pointing from `P1` to `P0`.
+`V = P0 - P1`
+`V_x = -0.12999999523162842 - 9.25 = -9.379999995231628`
+`V_y = 2.8299999237060547 - (-4.159999847412109) = 6.989999771118164`
+`V_z = 2.759999990463257 - (-7.809999942779541) = 10.569999933242798`
+
+**Step 3: Total Distance**
+Next, we calculate the total distance between `P0` and `P1`, which is the magnitude (length) of vector `V`.
+`|V| = sqrt(V_x^2 + V_y^2 + V_z^2)`
+`|V| = sqrt((-9.37999...)^2 + (6.98999...)^2 + (10.56999...)^2)`
+`|V| = sqrt(248.58929529238695) = 15.7667147781358`
+
+**Step 4: New Point Calculation**
+The new point `P_new` is 1.8 units away from `P1` in the direction of `P0`. We can find its coordinates by scaling the vector `V` and adding it to `P1`. The scaling factor `t` is the ratio of the desired distance to the total distance.
+`t = 1.8 / |V| = 1.8 / 15.7667147781358 = 0.11416550920443224`
+
+Now, we can find `P_new` using the formula for linear interpolation: `P_new = P1 + t * V`.
+`P_new_x = P1_x + t * V_x = 9.25 + 0.11416550920443224 * (-9.379999995231628) = 8.179176913243391`
+`P_new_y = P1_y + t * V_y = -4.159999847412109 + 0.11416550920443224 * (6.989999771118164) = -3.3622598151454436`
+`P_new_z = P1_z + t * V_z = -7.809999942779541 + 0.11416550920443224 * (10.569999933242798) = -6.603800006907428`
+So, `P_new = [8.179176913243391, -3.3622598151454436, -6.603800006907428]`.
+
+**Step 5: Final Point List**
+The action is to ""insert"" the new point between the points at indices 0 and 1. This means the final list will contain the points in the order: `P0`, `P_new`, `P1`.
+
+<answer>[[-0.12999999523162842, 2.8299999237060547, 2.759999990463257], [8.179176913243391, -3.3622598151454436, -6.603800006907428], [9.25, -4.159999847412109, -7.809999942779541]]</answer>"
+"[[-0.75  2.02  5.99]
+ [ 3.62 -5.05  9.22]]","Insert a new point between points at indices 0 and 1, 4.43 units away from point 0.","[[-0.75, 2.0199999809265137, 5.989999771118164], [1.421289560410078, -1.492683857434237, 7.594471500305018], [3.619999885559082, -5.050000190734863, 9.220000267028809]]","[[-0.75  2.02  5.99]
+ [ 3.62 -5.05  9.22]
+ [ 1.42 -1.49  7.59]]",0.0017906878467748466,0.00537206354032454,"To solve this problem, we need to find a new point on the line segment connecting the points at index 0 (P0) and index 1 (P1). This new point (P_new) must be at a specified distance from P0.
+
+1.  **Identify the points:**
+    *   P0 = `[-0.75, 2.0199999809265137, 5.989999771118164]`
+    *   P1 = `[3.619999885559082, -5.050000190734863, 9.220000267028809]`
+    *   The desired distance from P0 is `d = 4.43`.
+
+2.  **Calculate the direction vector (V) from P0 to P1:**
+    *   V = P1 - P0
+    *   V = `[3.619999885559082 - (-0.75), -5.050000190734863 - 2.0199999809265137, 9.220000267028809 - 5.989999771118164]`
+    *   V = `[4.369999885559082, -7.070000171661377, 3.2300004959106445]`
+
+3.  **Calculate the total distance (D_total) between P0 and P1:**
+    *   D_total = ||V|| = sqrt(Vx² + Vy² + Vz²)
+    *   D_total = sqrt((4.37)² + (-7.07)² + (3.23)²)
+    *   D_total ≈ 8.9171
+
+4.  **Calculate the interpolation factor (t):**
+    *   This factor represents how far along the vector V the new point should be.
+    *   t = d / D_total
+    *   t = 4.43 / 8.917101793739824 ≈ 0.496799
+
+5.  **Calculate the new point (P_new):**
+    *   P_new = P0 + t * V
+    *   P_new_x = -0.75 + 0.496799 * 4.369999885559082 = 1.42128956
+    *   P_new_y = 2.0199999809265137 + 0.496799 * -7.070000171661377 = -1.49268386
+    *   P_new_z = 5.989999771118164 + 0.496799 * 3.2300004959106445 = 7.59447150
+
+6.  **Construct the final list of points:**
+    *   The new point is inserted between the original points at indices 0 and 1.
+    *   The final list is `[P0, P_new, P1]`.
+
+<answer>
+[[-0.75, 2.0199999809265137, 5.989999771118164], [1.421289560410078, -1.492683857434237, 7.594471500305018], [3.619999885559082, -5.050000190734863, 9.220000267028809]]
+</answer>"
+"[[-6.12  9.03 -4.37]
+ [-2.79  0.04 -4.64]]","Insert a new point between points at indices 1 and 0, 7.23 units away from point 1.","[[-6.119999885559082, 9.029999732971191, -4.369999885559082], [-5.300327877238583, 6.816159156675945, -4.43646048585138], [-2.7899999618530273, 0.03999999910593033, -4.639999866485596]]","[[-6.12  9.03 -4.37]
+ [-2.79  0.04 -4.64]
+ [-5.3   6.82 -4.44]]",0.0017444941973037474,0.0052334825919112425,"The user wants to insert a new point on the line segment defined by two existing points.
+
+1.  **Identify the points:**
+    *   Point at index 0 (P0): `[-6.119999885559082, 9.029999732971191, -4.369999885559082]`
+    *   Point at index 1 (P1): `[-2.7899999618530273, 0.03999999910593033, -4.639999866485596]`
+
+2.  **Determine the vector and distance:**
+    *   The new point lies on the line segment connecting P1 and P0.
+    *   The direction for placement is from P1 towards P0.
+    *   The distance from P1 is specified as `d = 7.23` units.
+
+3.  **Calculate the vector from P1 to P0:**
+    *   `V = P0 - P1`
+    *   `Vx = -6.119999885559082 - (-2.7899999618530273) = -3.3299999237060547`
+    *   `Vy = 9.029999732971191 - 0.03999999910593033 = 8.98999973386526`
+    *   `Vz = -4.369999885559082 - (-4.639999866485596) = 0.26999998092651367`
+    *   `V = [-3.3299999237060547, 8.98999973386526, 0.26999998092651367]`
+
+4.  **Calculate the magnitude (length) of the vector V:**
+    *   `|V| = sqrt(Vx^2 + Vy^2 + Vz^2)`
+    *   `|V| = sqrt((-3.3299999237060547)^2 + (8.98999973386526)^2 + (0.26999998092651367)^2)`
+    *   `|V| = sqrt(11.08899951307103 + 80.82009521319223 + 0.07289999014168282)`
+    *   `|V| = sqrt(91.98199471640494) = 9.59072442004494`
+
+5.  **Calculate the unit vector (U) in the direction of V:**
+    *   `U = V / |V|`
+    *   `Ux = -3.3299999237060547 / 9.59072442004494 = -0.3472099304393693`
+    *   `Uy = 8.98999973386526 / 9.59072442004494 = 0.937365021280993`
+    *   `Uz = 0.26999998092651367 / 9.59072442004494 = 0.02815206981958641`
+
+6.  **Calculate the new point's coordinates (P_new):**
+    *   `P_new = P1 + d * U`
+    *   `P_new_x = -2.7899999618530273 + 7.23 * (-0.3472099304393693) = -5.300327877238583`
+    *   `P_new_y = 0.03999999910593033 + 7.23 * (0.937365021280993) = 6.816159156675945`
+    *   `P_new_z = -4.639999866485596 + 7.23 * (0.02815206981958641) = -4.43646048585138`
+    *   The new point is `[-5.300327877238583, 6.816159156675945, -4.43646048585138]`
+
+7.  **Construct the final list of points:**
+    *   The action is to ""insert"" a point ""between"" the existing points. This implies preserving the original order of the existing points.
+    *   The initial list is `[P0, P1]`.
+    *   The final list will be `[P0, P_new, P1]`.
+
+<answer>
+[[-6.119999885559082, 9.029999732971191, -4.369999885559082], [-5.300327877238583, 6.816159156675945, -4.43646048585138], [-2.7899999618530273, 0.03999999910593033, -4.639999866485596]]
+</answer>"
+"[[-9.5   3.9   0.88]
+ [ 7.49  1.83  7.19]]","Insert a new point between points at indices 1 and 0, 3.28 units away from point 1.","[[-9.5, 3.9000000953674316, 0.8799999952316284], [4.435066870783404, 2.202160670993575, 6.055447765172888], [7.489999771118164, 1.8300000429153442, 7.190000057220459]]","[[-9.5   3.9   0.88]
+ [ 7.49  1.83  7.19]
+ [ 4.44  2.2   6.06]]",0.002350577765202281,0.007051733295606843,"To solve this problem, we need to perform the following steps:
+1.  Identify the two points involved from the initial list: point 0 (P0) and point 1 (P1).
+2.  Calculate the vector from P1 to P0. This vector defines the direction for the new point.
+3.  Normalize this vector to get a unit direction vector.
+4.  Calculate the coordinates of the new point (P_new) by starting at P1 and moving along the unit direction vector by the specified distance of 3.28 units.
+5.  Construct the final list of points by inserting P_new between the original P0 and P1.
+
+**Step-by-step calculation:**
+
+1.  **Initial Points:**
+    *   P0 = `[-9.5, 3.9000000953674316, 0.8799999952316284]`
+    *   P1 = `[7.489999771118164, 1.8300000429153442, 7.190000057220459]`
+
+2.  **Calculate the vector V from P1 to P0:**
+    *   V = P0 - P1
+    *   V_x = -9.5 - 7.489999771118164 = -16.989999771118164
+    *   V_y = 3.9000000953674316 - 1.8300000429153442 = 2.0700000524520874
+    *   V_z = 0.8799999952316284 - 7.190000057220459 = -6.310000061988831
+    *   V = `[-16.989999771118164, 2.0700000524520874, -6.310000061988831]`
+
+3.  **Calculate the magnitude (distance) of vector V:**
+    *   |V| = sqrt(V_x² + V_y² + V_z²)
+    *   |V| = sqrt((-16.98999977)² + (2.07000005)² + (-6.31000006)²)
+    *   |V| = sqrt(288.66009217 + 4.28490022 + 39.81610078)
+    *   |V| = sqrt(332.76109317) = 18.24174041797825
+
+4.  **Calculate the new point P_new:**
+    *   The new point is on the line from P1 to P0, at a distance of 3.28 from P1.
+    *   We can find it using linear interpolation: P_new = P1 + t * (P0 - P1), where t = distance_from_P1 / total_distance.
+    *   t = 3.28 / 18.24174041797825 = 0.1798082405786659
+    *   P_new_x = P1_x + t * V_x = 7.489999771118164 + 0.1798082405786659 * (-16.989999771118164) = 4.435066870783404
+    *   P_new_y = P1_y + t * V_y = 1.8300000429153442 + 0.1798082405786659 * (2.0700000524520874) = 2.202160670993575
+    *   P_new_z = P1_z + t * V_z = 7.190000057220459 + 0.1798082405786659 * (-6.310000061988831) = 6.055447765172888
+    *   P_new = `[4.435066870783404, 2.202160670993575, 6.055447765172888]`
+
+5.  **Construct the final list:**
+    *   The new point is inserted between the original points.
+    *   The final list will be `[P0, P_new, P1]`.
+
+<answer>
+[[-9.5, 3.9000000953674316, 0.8799999952316284], [4.435066870783404, 2.202160670993575, 6.055447765172888], [7.489999771118164, 1.8300000429153442, 7.190000057220459]]
+</answer>"
+"[[ 6.84 -4.88  3.32]
+ [ 0.73 -1.53 -6.48]]","Insert a new point between points at indices 0 and 1, 7.96 units away from point 0.","[[6.840000152587891, -4.880000114440918, 3.319999933242798], [2.7953941822052, -2.6624074280261993, -3.167289972305298], [0.7300000190734863, -1.5299999713897705, -6.480000019073486]]","[[ 6.84 -4.88  3.32]
+ [ 0.73 -1.53 -6.48]
+ [ 2.8  -2.66 -3.17]]",0.0019537166401992928,0.005861149920597879,"To solve this problem, I will follow these steps:
+1.  Define the two initial points, P0 at index 0 and P1 at index 1.
+2.  Calculate the vector V that goes from P0 to P1 by subtracting the coordinates of P0 from P1 (V = P1 - P0).
+3.  Calculate the total distance D between P0 and P1, which is the magnitude (length) of the vector V.
+4.  Normalize the vector V by dividing it by its magnitude D. This creates a unit vector U that points from P0 towards P1.
+5.  The new point, P_new, can be found by starting at P0 and moving along the direction of the unit vector U for the specified distance (7.96 units). The formula is P_new = P0 + U * 7.96.
+6.  Construct the final list of points by inserting P_new between the original P0 and P1.
+
+**Step-by-step Calculation:**
+
+*   **P0:** `[6.840000152587891, -4.880000114440918, 3.319999933242798]`
+*   **P1:** `[0.7300000190734863, -1.5299999713897705, -6.480000019073486]`
+*   **Distance to insert:** `d = 7.96`
+
+1.  **Vector V (P1 - P0):**
+    *   V_x = 0.7300000190734863 - 6.840000152587891 = -6.110000133514404
+    *   V_y = -1.5299999713897705 - (-4.880000114440918) = 3.3500001430511475
+    *   V_z = -6.480000019073486 - 3.319999933242798 = -9.799999952316284
+    *   V = `[-6.110000133514404, 3.3500001430511475, -9.799999952316284]`
+
+2.  **Total Distance D (Magnitude of V):**
+    *   D = sqrt((-6.11...)² + (3.35...)² + (-9.8...)²)
+    *   D = sqrt(37.33210163 + 11.22250096 + 96.03999907)
+    *   D = sqrt(144.59460166) ≈ 12.024750167
+
+3.  **Unit Vector U (V / D):**
+    *   U_x = -6.110000133514404 / 12.024750167 ≈ -0.50811635
+    *   U_y = 3.3500001430511475 / 12.024750167 ≈ 0.27859202
+    *   U_z = -9.799999952316284 / 12.024750167 ≈ -0.81498617
+    *   U = `[-0.50811635, 0.27859202, -0.81498617]`
+
+4.  **New Point P_new (P0 + U * d):**
+    *   P_new_x = 6.840000152587891 + (-0.50811635 * 7.96) ≈ 2.795394182
+    *   P_new_y = -4.880000114440918 + (0.27859202 * 7.96) ≈ -2.662407428
+    *   P_new_z = 3.319999933242798 + (-0.81498617 * 7.96) ≈ -3.167289972
+    *   P_new = `[2.7953941822052, -2.6624074280261993, -3.167289972305298]`
+
+5.  **Final list of points:**
+    The new point is inserted between the original points at indices 0 and 1.
+
+<answer>
+[[6.840000152587891, -4.880000114440918, 3.319999933242798], [2.7953941822052, -2.6624074280261993, -3.167289972305298], [0.7300000190734863, -1.5299999713897705, -6.480000019073486]]
+</answer>"
+"[[-3.4   7.   -6.28]
+ [-8.78  7.87 -4.03]]","Insert a new point between points at indices 0 and 1, 2.28 units away from point 0.","[[-3.4000000953674316, 7.0, -6.28000020980835], [-5.480426257599, 7.336425794624, -5.409933499754], [-8.779999732971191, 7.869999885559082, -4.03000020980835]]","[[-3.4   7.   -6.28]
+ [-8.78  7.87 -4.03]
+ [-5.48  7.34 -5.41]]",0.0012000979657418537,0.0036002938972255613,"```json
+<answer>
+[[-3.4000000953674316, 7.0, -6.28000020980835], [-5.480426257599, 7.336425794624, -5.409933499754], [-8.779999732971191, 7.869999885559082, -4.03000020980835]]
+</answer>
+```"
+"[[ 2.01  3.58  8.83]
+ [-0.45 -3.08  6.66]]","Insert a new point between points at indices 1 and 0, 2.07 units away from point 1.","[[2.009999990463257, 3.5799999237060547, 8.829999923706055], [0.2358359309, -1.223027961, 7.2649999314], [-0.44999998807907104, -3.0799999237060547, 6.659999847412109]]","[[ 2.01  3.58  8.83]
+ [-0.45 -3.08  6.66]
+ [ 0.24 -1.22  7.27]]",0.0023923093589109973,0.0071769280767329914,"An action prompt has been given to operate on a set of points.
+The user wants me to insert a new point on the line segment connecting the existing two points.
+
+1.  **Identify the points:**
+    *   Point 0 (`p0`): `[2.009999990463257, 3.5799999237060547, 8.829999923706055]`
+    *   Point 1 (`p1`): `[-0.44999998807907104, -3.0799999237060547, 6.659999847412109]`
+
+2.  **Deconstruct the action:**
+    *   The new point lies on the line segment between `p0` and `p1`.
+    *   The distance from `p1` to the new point is 2.07 units.
+    *   The direction of measurement is from `p1` towards `p0`.
+
+3.  **Perform the calculation:**
+    *   First, calculate the vector from `p1` to `p0`:
+        *   `V = p0 - p1`
+        *   `V = [2.009999990463257 - (-0.44999998807907104), 3.5799999237060547 - (-3.0799999237060547), 8.829999923706055 - 6.659999847412109]`
+        *   `V = [2.459999978542328, 6.659999847412109, 2.1700000762939453]`
+
+    *   Next, calculate the magnitude (length) of this vector:
+        *   `mag(V) = sqrt(2.459999978542328^2 + 6.659999847412109^2 + 2.1700000762939453^2)`
+        *   `mag(V) = sqrt(6.05159989 + 44.35559797 + 4.70890033)`
+        *   `mag(V) = sqrt(55.11609819) = 7.424021701`
+
+    *   Now, create a unit vector (`U`) by dividing the vector `V` by its magnitude:
+        *   `U = V / mag(V)`
+        *   `U = [2.459999978542328 / 7.424021701, 6.659999847412109 / 7.424021701, 2.1700000762939453 / 7.424021701]`
+        *   `U = [0.33132170, 0.89708787, 0.29226992]`
+
+    *   The new point (`p_new`) is found by starting at `p1` and moving along the unit vector `U` for a distance of 2.07:
+        *   `p_new = p1 + 2.07 * U`
+        *   `p_new_x = -0.44999998807907104 + 2.07 * 0.33132170 = 0.2358359309`
+        *   `p_new_y = -3.0799999237060547 + 2.07 * 0.89708787 = -1.223027961`
+        *   `p_new_z = 6.659999847412109 + 2.07 * 0.29226992 = 7.2649999314`
+        *   `p_new = [0.2358359309, -1.223027961, 7.2649999314]`
+
+4.  **Construct the final list of points:**
+    *   The new point is inserted between the original points.
+    *   The final list will be `[p0, p_new, p1]`.
+
+<answer>
+[[2.009999990463257, 3.5799999237060547, 8.829999923706055], [0.2358359309, -1.223027961, 7.2649999314], [-0.44999998807907104, -3.0799999237060547, 6.659999847412109]]
+</answer>"
+"[[ 1.7   9.37  6.95]
+ [-9.65 -5.06 -2.27]]","Insert a new point between points at indices 0 and 1, 0.35 units away from point 0.","[[1.7000000476837158, 9.369999885559082, 6.949999809265137], [1.5066382903337951, 9.12416160814988, 6.79292253337678], [-9.649999618530273, -5.059999942779541, -2.2699999809265137]]","[[ 1.7   9.37  6.95]
+ [-9.65 -5.06 -2.27]
+ [ 1.51  9.12  6.79]]",0.002032032015130247,0.006096096045390741,"To solve this, we need to find the coordinates of a new point that lies on the line segment between the two given points. The new point is a specified distance away from the first point.
+
+1.  **Define the initial points:**
+    *   `P0 = [1.7000000476837158, 9.369999885559082, 6.949999809265137]`
+    *   `P1 = [-9.649999618530273, -5.059999942779541, -2.2699999809265137]`
+
+2.  **Calculate the direction vector** from `P0` to `P1`:
+    *   `V = P1 - P0`
+    *   `Vx = -9.649999618530273 - 1.7000000476837158 = -11.34999966621399`
+    *   `Vy = -5.059999942779541 - 9.369999885559082 = -14.429999828338623`
+    *   `Vz = -2.2699999809265137 - 6.949999809265137 = -9.21999979019165`
+    *   `V = [-11.34999966621399, -14.429999828338623, -9.21999979019165]`
+
+3.  **Calculate the magnitude (length) of the direction vector `V`**:
+    *   `|V| = sqrt(Vx^2 + Vy^2 + Vz^2)`
+    *   `|V| = sqrt((-11.34999966621399)^2 + (-14.429999828338623)^2 + (-9.21999979019165)^2)`
+    *   `|V| = sqrt(128.82249257 + 208.22489501 + 85.00839611) = sqrt(422.05578369) = 20.54399625126841`
+
+4.  **Normalize the direction vector to get a unit vector `U`**:
+    *   `U = V / |V|`
+    *   `Ux = -11.34999966621399 / 20.54399625126841 = -0.5524622201919556`
+    *   `Uy = -14.429999828338623 / 20.54399625126841 = -0.7023951411247253`
+    *   `Uz = -9.21999979019165 / 20.54399625126841 = -0.4487922489643097`
+    *   `U = [-0.5524622201919556, -0.7023951411247253, -0.4487922489643097]`
+
+5.  **Calculate the new point's coordinates**:
+    The new point `P_new` is found by starting at `P0` and moving `0.35` units in the direction of `U`.
+    *   `P_new = P0 + 0.35 * U`
+    *   `P_new_x = 1.7000000476837158 + 0.35 * -0.5524622201919556 = 1.5066382903337952`
+    *   `P_new_y = 9.369999885559082 + 0.35 * -0.7023951411247253 = 9.12416160814988`
+    *   `P_new_z = 6.949999809265137 + 0.35 * -0.4487922489643097 = 6.79292253337678`
+    *   `P_new = [1.5066382903337952, 9.12416160814988, 6.79292253337678]`
+
+6.  **Construct the final list of points**:
+    The new point is inserted between the original points at index 0 and 1, so it will be at index 1 in the new list.
+    *   Final points = `[P0, P_new, P1]`
+
+<answer>
+[[1.7000000476837158, 9.369999885559082, 6.949999809265137], [1.5066382903337952, 9.12416160814988, 6.79292253337678], [-9.649999618530273, -5.059999942779541, -2.2699999809265137]]
+</answer>"
+"[[ 8.7  -1.63 -9.07]
+ [ 5.13  9.39 -0.32]]","Insert a new point between points at indices 0 and 1, 13.3 units away from point 0.","[[8.699999809265137, -1.6299999952316284, -9.069999694824219], [5.429361234185101, 8.466149666221852, -1.0532184751308815], [5.130000114440918, 9.390000343322754, -0.3199999928474426]]","[[ 8.7  -1.63 -9.07]
+ [ 5.13  9.39 -0.32]
+ [ 5.43  8.47 -1.05]]",0.0016863444414053118,0.0050590333242159355,"To solve this, I will follow these steps:
+1.  Identify the two points, P0 at index 0 and P1 at index 1.
+2.  Calculate the vector V from P0 to P1.
+3.  Calculate the total distance (magnitude of V) between P0 and P1.
+4.  Determine the unit vector U in the direction of V.
+5.  The new point, P_new, will be located along this unit vector at a distance of 13.3 units from P0. I will calculate its coordinates using the formula: P_new = P0 + 13.3 * U.
+6.  Construct the final list of points by inserting P_new between P0 and P1.
+
+**Step-by-step calculation:**
+
+*   **Initial Points:**
+    *   P0 = `[8.699999809265137, -1.6299999952316284, -9.069999694824219]`
+    *   P1 = `[5.130000114440918, 9.390000343322754, -0.3199999928474426]`
+
+*   **Vector V (from P0 to P1):**
+    *   Vx = 5.130000114440918 - 8.699999809265137 = -3.569999694824219
+    *   Vy = 9.390000343322754 - (-1.6299999952316284) = 11.020000338554382
+    *   Vz = -0.3199999928474426 - (-9.069999694824219) = 8.749999701976776
+    *   V = `[-3.569999694824219, 11.020000338554382, 8.749999701976776]`
+
+*   **Total distance D (magnitude of V):**
+    *   D = sqrt((-3.569999694824219)^2 + (11.020000338554382)^2 + (8.749999701976776)^2)
+    *   D = sqrt(12.7448978 + 121.4404073 + 76.5624948)
+    *   D = sqrt(210.7477999) = 14.51715518172922
+
+*   **Unit vector U:**
+    *   Ux = Vx / D = -3.569999694824219 / 14.51715518172922 = -0.2459146033481239
+    *   Uy = Vy / D = 11.020000338554382 / 14.51715518172922 = 0.7591090123594191
+    *   Uz = Vz / D = 8.749999701976776 / 14.51715518172922 = 0.6027580093886568
+    *   U = `[-0.2459146033481239, 0.7591090123594191, 0.6027580093886568]`
+
+*   **New point P_new = P0 + 13.3 * U:**
+    *   P_new_x = 8.699999809265137 + 13.3 * (-0.2459146033481239) = 5.429361234185101
+    *   P_new_y = -1.6299999952316284 + 13.3 * (0.7591090123594191) = 8.466149666221852
+    *   P_new_z = -9.069999694824219 + 13.3 * (0.6027580093886568) = -1.0532184751308815
+    *   P_new = `[5.429361234185101, 8.466149666221852, -1.0532184751308815]`
+
+*   **Final set of points:**
+    *   The new point is inserted between the original points at indices 0 and 1.
+    *   The final list is `[P0, P_new, P1]`.
+
+<answer>[[8.699999809265137, -1.6299999952316284, -9.069999694824219], [5.429361234185101, 8.466149666221852, -1.0532184751308815], [5.130000114440918, 9.390000343322754, -0.3199999928474426]]</answer>"
+"[[-8.33 -5.22 -9.26]
+ [-5.1  -6.93 -4.86]]","Insert a new point between points at indices 1 and 0, 5.45 units away from point 1.","[[-8.329999923706055, -5.21999979019165, -9.260000228881836], [-8.177591510288355, -5.300599968821997, -9.05231450550574], [-5.099999904632568, -6.929999828338623, -4.860000133514404]]","[[-8.33 -5.22 -9.26]
+ [-5.1  -6.93 -4.86]
+ [-8.18 -5.3  -9.05]]",0.001131276536690168,0.003393829610070504,"```json
+<answer>
+[[-8.329999923706055, -5.21999979019165, -9.260000228881836], [-8.177591510288355, -5.300599968821997, -9.05231450550574], [-5.099999904632568, -6.929999828338623, -4.860000133514404]]
+</answer>
+```"
+"[[ 4.46  6.83  9.54]
+ [ 5.88  5.83 -3.36]]","Insert a new point between points at indices 1 and 0, 5.34 units away from point 1.","[[4.460000038146973, 6.829999923706055, 9.539999961853027], [5.29743944356412, 6.240250754197879, 1.932239710676798], [5.880000114440918, 5.829999923706055, -3.359999895095825]]","[[ 4.46  6.83  9.54]
+ [ 5.88  5.83 -3.36]
+ [ 5.3   6.24  1.93]]",0.0011370994998135102,0.0034112984994405307,"```python
+import numpy as np
+
+def insert_point_on_segment():
+    """"""
+    Inserts a new point on the line segment between two existing points at a specified distance from one of them.
+    """"""
+    initial_points = np.array([[4.460000038146973, 6.829999923706055, 9.539999961853027], [5.880000114440918, 5.829999923706055, -3.359999895095825]])
+    
+    # The action prompt is: ""Insert a new point between points at indices 1 and 0, 5.34 units away from point 1.""
+    
+    # Identify the two points
+    p0 = initial_points[0]
+    p1 = initial_points[1]
+    
+    # The distance from point 1 for the new point
+    distance_from_p1 = 5.34
+    
+    # Calculate the vector from p1 to p0
+    vector_p1_to_p0 = p0 - p1
+    
+    # Calculate the magnitude (length) of this vector
+    magnitude = np.linalg.norm(vector_p1_to_p0)
+    
+    # Calculate the unit vector in the direction from p1 to p0
+    unit_vector = vector_p1_to_p0 / magnitude
+    
+    # Calculate the new point's coordinates
+    # It's located along the line from p1 towards p0, at the specified distance from p1
+    new_point = p1 + distance_from_p1 * unit_vector
+    
+    # The prompt says to ""insert a new point between points at indices 1 and 0"".
+    # This implies the new point lies spatially between the original points,
+    # and in the list, it is inserted between them.
+    # The original list is [p0, p1]. Inserting between them results in [p0, new_point, p1].
+    final_points = [p0.tolist(), new_point.tolist(), p1.tolist()]
+    
+    # Format the output to match the input format.
+    # The numbers in the input have variable precision, so we'll use a high precision format.
+    formatted_output = ""[[{:.15f}, {:.15f}, {:.15f}], [{:.15f}, {:.15f}, {:.15f}], [{:.15f}, {:.15f}, {:.15f}]]"".format(
+        final_points[0][0], final_points[0][1], final_points[0][2],
+        final_points[1][0], final_points[1][1], final_points[1][2],
+        final_points[2][0], final_points[2][1], final_points[2][2]
+    )
+    # The problem is that standard float formatting might not exactly match the input's representation.
+    # Let's reformat to avoid trailing zeros and use standard representation
+    final_points_list = [
+        [4.460000038146973, 6.829999923706055, 9.539999961853027],
+        new_point.tolist(),
+        [5.880000114440918, 5.829999923706055, -3.359999895095825]
+    ]
+
+    return f""[[{final_points_list[0][0]}, {final_points_list[0][1]}, {final_points_list[0][2]}], [{final_points_list[1][0]}, {final_points_list[1][1]}, {final_points_list[1][2]}], [{final_points_list[2][0]}, {final_points_list[2][1]}, {final_points_list[2][2]}]]""
+
+# Execute the function to get the result
+# result = insert_point_on_segment()
+# print(result)
+# Expected result from calculation:
+# P0 = [4.460000038146973, 6.829999923706055, 9.539999961853027]
+# P1 = [5.880000114440918, 5.829999923706055, -3.359999895095825]
+# V = P0 - P1 = [-1.4200000762939453, 1.0, 12.899999856948853]
+# mag_V = 13.016389626021611
+# ratio = 5.34 / mag_V = 0.4102508304918237
+# P_new = P1 + ratio * V
+# P_new_x = 5.880000114440918 + 0.4102508304918237 * -1.4200000762939453 = 5.29743944356412
+# P_new_y = 5.829999923706055 + 0.4102508304918237 * 1.0 = 6.240250754197879
+# P_new_z = -3.359999895095825 + 0.4102508304918237 * 12.899999856948853 = 1.932239710676798
+# Final List: [[4.460000038146973, 6.829999923706055, 9.539999961853027], [5.29743944356412, 6.240250754197879, 1.932239710676798], [5.880000114440918, 5.829999923706055, -3.359999895095825]]
+```
+<answer>
+[[4.460000038146973, 6.829999923706055, 9.539999961853027], [5.29743944356412, 6.240250754197879, 1.932239710676798], [5.880000114440918, 5.829999923706055, -3.359999895095825]]
+</answer>"
+"[[-1.31  0.99  8.31]
+ [-7.71  0.35 -9.22]]","Insert a new point between points at indices 0 and 1, 0.59 units away from point 0.","[[-1.309999942779541, 0.9900000095367432, 8.3100004196167], [-1.5122188280127562, 0.9697781205208007, 7.755891101433959], [-7.710000038146973, 0.3499999940395355, -9.220000267028809]]","[[-1.31  0.99  8.31]
+ [-7.71  0.35 -9.22]
+ [-1.51  0.97  7.76]]",0.001558397027365587,0.004675191082096761,"```json
+<answer>
+[[-1.309999942779541, 0.9900000095367432, 8.3100004196167], [-1.5122188280127562, 0.9697781205208007, 7.755891101433959], [-7.710000038146973, 0.3499999940395355, -9.220000267028809]]
+</answer>
+```"

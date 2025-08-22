@@ -46,3 +46,12 @@ python ./src/scripts/run_benchmark.py -m [model_name] -a [action_name] -b [batch
 
 Please run the `./src/scripts/analyze_results.py`
 
+
+# How to construct your own data with mp-api
+
+Firstly, run the `src/scripts/download_random_mp_data.py` to obtain random structures from the Materials Project. You can DIY the code to selectively download desired structures according to the mp-api's document.
+
+Then move to the folder where your data is downloaded/stored. Run `src/atom_world/data_generator.py` with your own settings. You will get a csv and a folder of output_cifs.
+
+Finally, collect the folder into a single h5 file using the code `src/scripts/convert_cifs_to_h5.py`. Remember to set the file dir and the chosen actions.
+
