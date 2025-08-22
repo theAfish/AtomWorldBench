@@ -11,7 +11,7 @@ def detect_indices_offests_around_frac_coords(
         frac_coords: ArrayLike,
         cutoff: float,
         symbols: list[str] = None,
-):
+) -> tuple[np.ndarray, np.ndarray]:
     """Detect indices and offsets of atoms around the given fractional coordinates.
 
     Args:

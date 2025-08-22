@@ -83,6 +83,11 @@ class SphereRegionMotif(BaseRegionMotif, MultiModeInitMixin):
             symbols (Optional[list[str]]): An optional list of symbols to filter atoms by.
                 If provided, only atoms with these symbols will be included in the motif.
         """
+        # Added to supress mypy warnings about uninitialized attributes.
+        self.radius = None
+        self.center = None
+        self.center_id = None
+        self.center_is_fractional = None
         # Always use default name.
         BaseRegionMotif.__init__(
             self, in_atoms=in_atoms, name=None, symbols=symbols
@@ -135,7 +140,7 @@ class SphereRegionMotif(BaseRegionMotif, MultiModeInitMixin):
         """
         cart_centroid = self._get_center()
         if fractional:
-            return cart_centroid @ np.linalg.inv(self.cell.complete())
+            return cart_centroid @ np.linalg.inv(self.in_atoms.cell.complete())
         else:
             return cart_centroid
 
@@ -189,3 +194,76 @@ class SphereRegionMotif(BaseRegionMotif, MultiModeInitMixin):
             f"{symbol_word} in the spherical region centered at"
             f" {center_string} with radius {self.radius:.{precision}f} angstroms"
         )
+
+    @classmethod
+    def detect_random_one(
+            cls,
+            atoms: Atoms,
+            radius: Optional[float] = None,
+            randomize_symbols: bool = False,
+            style="center_around_atom_index",
+            seed: Optional[int] = None
+    ) -> 'SphereRegionMotif':
+        """Detect a random spherical region motif from the given atoms.
+
+        The center will be randomly chosen from the atoms in the provided Atoms object.
+        The radius will be randomly chosen between 1 and half of the shortest cell vector length.
+        Args:
+            atoms (Atoms): The ASE Atoms object containing all atoms in the system.
+            radius (float, optional): The radius of the spherical region motif.
+                Unit is angstroms.
+                If None, a random radius will be chosen between 2 and half of the shortest
+                cell vector length. Defaults to None.
+            randomize_symbols (bool): If True, the symbols of the atoms in the motif will be
+                randomly chosen from the symbols of the atoms in the provided Atoms object.
+                If False, the symbols will be set to None, meaning all atoms in the region
+                will be included regardless of their symbols.
+                Defaults to False.
+            style (str): The style of the spherical region motif to create.
+                Can be "center_around_atom_index" or "center_around_coordinates".
+                Defaults to "center_around_atom_index".
+            seed (Optional[int]): Random seed for reproducibility.
+                If None, a random seed will be used.
+        Returns:
+            SphereRegionMotif: A randomly generated spherical region motif.
+        """
+        rng = np.random.default_rng(seed)
+        if len(atoms) == 0:
+            raise ValueError("The provided Atoms object is empty.")
+        cell_lengths = atoms.cell.lengths()
+        min_cell_length = np.min(cell_lengths)
+        radius = rng.uniform(2.0, min_cell_length / 2.0)
+
+        if randomize_symbols:
+            all_symbols = list(set(atoms.get_chemical_symbols()))
+            num_symbols = int(rng.integers(1, len(all_symbols) + 1))
+            symbols = rng.choice(
+                all_symbols, size=num_symbols, replace=False
+            ).tolist()
+        else:
+            symbols = None
+
+        if style == "center_around_atom_index":
+            center_id = int(rng.integers(0, len(atoms)))
+
+            return cls(
+                in_atoms=atoms,
+                center_id=center_id,
+                radius=radius,
+                symbols=symbols
+            )
+        elif style == "center_around_coordinates":
+            # Generate a random cartesian position within the cell box.
+            rand_frac = rng.random(3)
+            center = rand_frac @ atoms.cell.complete()
+            return cls(
+                in_atoms=atoms,
+                center=center,
+                radius=radius,
+                center_is_fractional=False,
+                symbols=symbols
+            )
+        else:
+            raise NotImplementedError(
+                f"Invalid style '{style}' for detecting random spherical region motif."
+            )

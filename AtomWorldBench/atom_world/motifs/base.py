@@ -74,3 +74,28 @@ class BaseMotif(ABC):
             Atoms: An ASE Atoms object containing only the atoms in the motif.
         """
         pass
+
+
+    @classmethod
+    @abstractmethod
+    def detect_random_one(
+            cls,
+            atoms: Atoms,
+            seed: Optional[int] = None,
+    ) -> 'BaseMotif':
+        """Detect a random motif from the given atoms.
+
+        This method should be implemented by every non-abstract subclass
+        to detect a random motif from the provided Atoms object.
+
+        Used for generating actions and prompts from a given atoms object.
+
+        Args:
+            atoms (Atoms): An ASE Atoms object containing all atoms in the system.
+            seed (Optional[int]): An optional seed for random number generation.
+                If provided, it ensures reproducibility of the random motif detection.
+
+        Returns:
+            BaseMotif: An instance of a subclass of BaseMotif representing the detected motif.
+        """
+        pass
