@@ -45,7 +45,7 @@ class AddAction(BaseAction):
     mode_definitions = {
         # Operated_motif and operated_atoms are always required.
         # position_fractional doesn't need to be checked.
-        "_excluded": ["position_fractional", "operated_motif", "operated_atoms"],
+        "_excluded": ["position_fractional", "operated_motif"],
         "absolute": {"at_position": None},
         "relative_to_position": {
             "relative_to_position": None,
@@ -95,7 +95,6 @@ class AddAction(BaseAction):
     def __init__(
             self,
             operated_motif: BaseMotif,
-            operated_atoms: Atoms,
             relative_to_motif: Optional[BaseMotif] = None,
             at_position: Optional[ArrayLike] = None,
             relative_to_position: Optional[ArrayLike] = None,
@@ -126,8 +125,7 @@ class AddAction(BaseAction):
                 No other parameters should be given except position_fractional.
         Args:
             operated_motif (BaseMotif): The motif to be added to the structure.
-            operated_atoms (Atoms): The structure to which the motif is added.
-            relative_to_motif (BaseMotif, optional): A motif that the action is taken
+            relative_to_motif (BaseMotif): The motif to which the operated motif is added
                 relative to.
             at_position (ArrayLike, optional): The position where the motif is added.
                 If provided, it overrides all relative parameters.
@@ -146,9 +144,16 @@ class AddAction(BaseAction):
                  distance, if relative_style is `position_in_line`. Must be provided if working
                  in `position_in_line` mode.
         """
+        # Just for Linting purpose.
+        self.position_fractional = None
+        self.at_position = None
+        self.relative_to_position = None
+        self.relative_to_motif = None
+        self.relative_style = None
+        self.relative_shift = None
+        self.relative_atom_index = None
         super().__init__(
             operated_motif=operated_motif,
-            operated_atoms=operated_atoms,
             relative_to_motif=relative_to_motif,
             at_position=at_position,
             relative_to_position=relative_to_position,
@@ -238,7 +243,7 @@ class AddAction(BaseAction):
         relative_motif_desc_kwargs = relative_motif_desc_kwargs or {}
 
         # Update motif description kwargs.
-        motif_desc_params = inspect.signature(self.motif.describe).parameters
+        motif_desc_params = inspect.signature(self.operated_motif.describe).parameters
         relative_motif_desc_params = inspect.signature(
             self.relative_to_motif.describe
         ).parameters if self.relative_to_motif is not None else {}

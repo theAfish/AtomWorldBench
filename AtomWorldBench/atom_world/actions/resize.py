@@ -19,7 +19,7 @@ class ResizeAction(BaseAction):
     """Resize a motif by changing the motif's radius with respect to its centroid or a node."""
     mode_definitions = {
         # Parameters that are always required.
-        "_excluded": ["operated_motif", "operated_atoms"],
+        "_excluded": ["operated_motif"],
         # Four valid modes of operation from combinations of 2x2 options.
         "_combinations": [
             {
@@ -60,7 +60,6 @@ class ResizeAction(BaseAction):
     def __init__(
             self,
             operated_motif: BaseMotif,
-            operated_atoms: Atoms,
             relative_to_centroid: Optional[bool] = None,
             relative_to_node_index: Optional[int] = None,
             scale_by: Optional[float] = None,
@@ -89,16 +88,18 @@ class ResizeAction(BaseAction):
 
         Args:
             operated_motif (BaseMotif): The motif to be resized.
-            operated_atoms (Atoms): The structure containing the motif.
             relative_to_centroid (Optional[bool]): If True, resize the motif relative to its
                 centroid.
             relative_to_node_index (Optional[int]): The index of the node to resize relative to.
             scale_by (Optional[float]): Scale factor to apply to the motif's radius.
             to_radius (Optional[float]): The new radius for the motif. Unit is Angstroms.
         """
+        # Just for linting.
+        self.scale_by=None
+        self.relative_to_node_index=None
+        self.to_radius=None
         super().__init__(
             operated_motif=operated_motif,
-            operated_atoms=operated_atoms,
             relative_to_motif=None, # Does not need a relative motif.
             relative_to_centroid=relative_to_centroid,
             relative_to_node_index=relative_to_node_index,
@@ -109,7 +110,6 @@ class ResizeAction(BaseAction):
     def __post_init__(self):
         """Post-initialization to validate parameters."""
         self.__check_operated_motif_compatibility()
-        self.__check_operated_motif_in_atoms()
 
     def _get_resized_positions(self, motif):
         """Get position of the resized motif."""
@@ -177,7 +177,7 @@ class ResizeAction(BaseAction):
         motif_desc_kwargs = motif_desc_kwargs or {}
 
         # Update motif description kwargs. Prevent using addition mode.
-        motif_desc_params = inspect.signature(self.motif.describe).parameters
+        motif_desc_params = inspect.signature(self.operated_motif.describe).parameters
         if "is_addition" in motif_desc_params:
             motif_desc_kwargs["is_addition"] = False
 

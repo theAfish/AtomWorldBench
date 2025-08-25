@@ -24,7 +24,6 @@ class BaseAction(MultiModeInitMixin, ABC):
     def __init__(
             self,
             operated_motif: BaseMotif,
-            operated_atoms: Atoms,
             relative_to_motif: Optional[BaseMotif] = None,
             **kwargs,
     ):
@@ -32,18 +31,24 @@ class BaseAction(MultiModeInitMixin, ABC):
 
         Args:
             operated_motif (BaseMotif): The motif that this action operates on. Required.
-            operated_atoms (Atoms): The atoms that this action operates on. Required.
             relative_to_motif (Optional[BaseMotif]): An optional motif that the action
                 may use as a reference. Default is None.
             **kwargs: Additional keyword arguments for initialization.
         """
+        # Only for suppressing linter warnings
+        self.operated_motif = None
+        self.relative_to_motif = None
         MultiModeInitMixin.__init__(
             self,
             operated_motif=operated_motif,
-            operated_atoms=operated_atoms,
             relative_to_motif=relative_to_motif,
             **kwargs
         )
+
+    @property
+    def operated_atoms(self) -> Atoms:
+        """Return the Atoms object associated with the operated motif."""
+        return self.operated_motif.in_atoms
 
     @property
     def action_name(self) -> str:
@@ -62,32 +67,16 @@ class BaseAction(MultiModeInitMixin, ABC):
         """
         self.__check_operated_motif_compatibility()
 
-    def __check_operated_motif_in_atoms(self):
-        """Check if the operated motif is present in the provided atoms.
-
-        Use in __post_init__ when needed.
-        """
-        operated_motif_indices = self.operated_motif.get_site_indices_in_atoms(
-            self.operated_atoms, modify_indices_in_place=True
-        )
-        if operated_motif_indices is None:
-            raise ValueError(
-                f"Operated motif {self.operated_motif.name} not found in the provided Atoms."
-            )
-
     def __check_relative_motif_in_atoms(self):
         """Check if the relative motif is present in the provided atoms.
 
         Use in __post_init__ when needed.
         """
         if self.relative_to_motif is not None:
-            relative_motif_indices = self.relative_to_motif.get_site_indices_in_atoms(
-                self.operated_atoms, modify_indices_in_place=True
-            )
-            if relative_motif_indices is None:
+            if self.relative_to_motif.in_atoms != self.operated_atoms:
                 raise ValueError(
-                    f"Relative motif {self.relative_to_motif.name} not found in the"
-                    f" provided Atoms."
+                    f"Relative motif {self.relative_to_motif.name} must be"
+                    f" attached to the same Atoms object as the operated motif!"
                 )
 
     def __check_operated_motif_compatibility(self):

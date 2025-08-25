@@ -46,7 +46,7 @@ class RotateAction(BaseAction):
     mode_definitions = {
         # operated_motif and operated_atoms are always required.
         # position_fractional does not need to be checked.
-        "_excluded": ["operated_motif", "operated_atoms", "position_fractional"],
+        "_excluded": ["operated_motif", "position_fractional"],
         "euler_relative_to_position": {
             "euler_angles": None,
             "relative_to_position": None,
@@ -110,7 +110,6 @@ class RotateAction(BaseAction):
     def __init__(
             self,
             operated_motif: BaseMotif,
-            operated_atoms: Atoms,
             # The rest of parameters are optional, depending on the mode.
             relative_to_motif: Optional[BaseMotif] = None,
             euler_angles: Optional[ArrayLike] = None,  # In degrees. Always ZXZ, active convention.
@@ -159,8 +158,6 @@ class RotateAction(BaseAction):
         Args:
             operated_motif (BaseMotif):
                 The motif that this action operates on. Required.
-            operated_atoms (Atoms):
-                The atoms that this action operates on. Required.
             euler_angles (Optional[ArrayLike]):
                 Euler angles for rotation in degrees (ZXZ intrinsic convention, active rotation,
                 counter-clockwise direction).
@@ -189,9 +186,14 @@ class RotateAction(BaseAction):
                 will be used as the origin of the rotation vector. Must be provided if working
                  in `position_in_line` mode.
         """
+        self.relative_to_position=None
+        self.position_fractional=None
+        self.rotation_axis_vector=None
+        self.relative_axis_origin_index=None
+        self.euler_angles=None
+        self.rotation_axis_angle=None
         super().__init__(
             operated_motif=operated_motif,
-            operated_atoms=operated_atoms,
             relative_to_motif=relative_to_motif,
             euler_angles=euler_angles,
             rotation_axis_vector=rotation_axis_vector,
@@ -205,7 +207,6 @@ class RotateAction(BaseAction):
     def __post_init__(self):
         """Post-initialization to validate parameters."""
         self.__check_operated_motif_compatibility()
-        self.__check_operated_motif_in_atoms()
         self.__check_relative_motif_in_atoms()
         if "self" in self.mode_flag:
             if len(self.operated_motif) == 1:
@@ -328,7 +329,7 @@ class RotateAction(BaseAction):
         relative_motif_desc_kwargs = relative_motif_desc_kwargs or {}
 
         # Update motif description kwargs.
-        motif_desc_params = inspect.signature(self.motif.describe).parameters
+        motif_desc_params = inspect.signature(self.operated_motif.describe).parameters
         relative_motif_desc_params = inspect.signature(
             self.relative_to_motif.describe
         ).parameters if self.relative_to_motif is not None else {}

@@ -20,14 +20,13 @@ class RemoveAction(BaseAction):
     # Only absolute allowed (specify the motif to remove directly). No parameters needed
     # for init.
     mode_definitions = {
-        "_excluded": ["operated_motif", "operated_atoms"],
+        "_excluded": ["operated_motif"],
         "default": {},
     }
 
     def __init__(
             self,
             operated_motif: BaseMotif,
-            operated_atoms: Atoms,
     ):
         """Initialize the RemoveMotifAction with fractional coordinates and cutoff.
 
@@ -35,18 +34,15 @@ class RemoveAction(BaseAction):
         than operated_motif and operated_atoms.
         Args:
             operated_motif (BaseMotif): The motif to be removed.
-            operated_atoms (Atoms): The structure from which the motif is to be removed.
         """
         super().__init__(
             operated_motif=operated_motif,
-            operated_atoms=operated_atoms,
             relative_to_motif=None,
         )
 
     def __post_init__(self):
         """Post-initialization to ensure the action is valid."""
         self.__check_operated_motif_compatibility()
-        self.__check_operated_motif_in_atoms()
 
     def execute(self) -> Atoms:
         """Execute the action to remove the motif from the structure.
@@ -81,7 +77,7 @@ class RemoveAction(BaseAction):
             str: A description of the action.
         """
         # Update motif description kwargs. Prevent using addition mode.
-        motif_desc_params = inspect.signature(self.motif.describe).parameters
+        motif_desc_params = inspect.signature(self.operated_motif.describe).parameters
         if "is_addition" in motif_desc_params:
             motif_desc_kwargs["is_addition"] = False
 

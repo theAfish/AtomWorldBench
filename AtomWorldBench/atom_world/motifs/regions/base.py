@@ -39,16 +39,32 @@ class BaseRegionMotif(BaseMotif, ABC):
             symbols (list[str], optional): A list of chemical symbols that this motif includes.
                 Other elements will not be selected as part of this motif.
         """
-        BaseMotif.__init__(self, name=name)
-        self.in_atoms = in_atoms
+        BaseMotif.__init__(self, in_atoms, name=name)
         self.symbols = symbols
         self._atoms_subset = None
+
+    @abstractmethod
+    def _get_site_indices_offsets_in_atoms(self) -> tuple[list[int], ndarray]:
+        """Get the indices and periodic offsets of sites in this region within the parent atoms.
+
+        Must be implemented by subclasses.
+        Returns:
+            indices (list[int]): A list of indices of sites in this region within the parent atoms.
+            offsets (list[ndarray]): A list of periodic offsets for each site in this region relative
+                to the parent atoms.get_positions(wrap=False).
+                Each offset is a numpy array of shape (3,).
+        """
+        pass
 
     def get_atoms(self) -> Atoms:
         """Return an atoms object including all sites in this region."""
         if self._atoms_subset is None:
-            indices = self.get_site_indices_in_atoms(self.in_atoms)
+            indices, offsets = self._get_site_indices_offsets_in_atoms()
             self._atoms_subset = self.in_atoms[indices]
+            # Apply offsets to positions.
+            positions_orig = self._atoms_subset.get_positions(wrap=False)
+            positions_new = positions_orig + offsets @ self.in_atoms.cell.complete()
+            self._atoms_subset.set_positions(positions_new)
         return self._atoms_subset
 
     @property

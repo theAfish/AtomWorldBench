@@ -10,7 +10,7 @@ from ..base import BaseMotif
 from .site import SiteMotif
 
 from ....common.registry import register
-from ....utils.neighbor_utils import detect_indices_offests_around_frac_coords
+from ....utils.neighbor_utils import detect_indices_offsets_around_frac_coords
 
 
 def detect_neighbor_sites_around_site_index(
@@ -37,13 +37,11 @@ def detect_neighbor_sites_around_site_index(
                          "Please use a different symbol for the dummy atom.")
     frac_coords = atoms.get_scaled_positions(wrap=False)[site_index]
 
-    indices_j_valid, offsets_valid = detect_indices_offests_around_frac_coords(
-        atoms,
-        frac_coords,
-        cutoff,
-        symbols=symbols,
+    indices_j_valid, offsets_valid = detect_indices_offsets_around_frac_coords(
+        atoms, frac_coords, cutoff, symbols=symbols
     )
     # Exclude the provided site itself from the results.
+    indices_j_valid = np.array(indices_j_valid)
     offsets_valid = offsets_valid[indices_j_valid != site_index]
     indices_j_valid = indices_j_valid[indices_j_valid != site_index]
 
@@ -77,6 +75,37 @@ class ClusterMotif(BaseSiteCollectionMotif):
     This motif is defined by a list of species and their fractional coordinates.
     It can be used to represent clusters of atoms in a structure.
     """
+    def __init__(
+            self,
+            in_atoms: Atoms,
+            indices: List[int],
+            offsets: Optional[ArrayLike] = None,
+            name: Optional[str] = None,
+            allow_translation_equivalence: Optional[bool] = None,
+    ):
+        """ClusterMotif constructor.
+
+        Args:
+            in_atoms (Atoms): The ASE Atoms object to create the motif from.
+            indices (list of int): Original indices from structure.
+                Indices should always be provided, as the motif belongs to a specific structure.
+            offsets (ArrayLike, optional): The cell offsets for each atom in the motif.
+                Cell offsets are the integer part of the fractional coordinates in the form of
+                triplets (i, j, k). If None, will assume all zeros.
+            name (str, optional): Human-readable motif name. Optional.
+             If None, will generate a default name.
+            allow_translation_equivalence (bool):
+                If True, the motif can be considered equivalent to another motif
+                if they are related by an integer translation.
+                Default is not given, then will use the global setting ALLOW_TRANSLATION_EQUIVALENCE.
+        """
+        super().__init__(
+            in_atoms,
+            indices,
+            offsets,
+            name,
+            allow_translation_equivalence,
+        )
 
     def __post_init__(self):
         # Widen restriction to allow single point cluster, such that cluster detector can grow from it.
@@ -106,9 +135,12 @@ class ClusterMotif(BaseSiteCollectionMotif):
     def site_motifs(self) -> List[SiteMotif]:
         """Return a list of SiteMotif objects representing the sites in the cluster."""
         return [
-            SiteMotif.from_atoms(
-                self[[i]], indices=[int(self.indices[i])]
-            )
+            SiteMotif(
+                self.in_atoms,
+                indices=[self.indices[i]],
+                offsets=[self.cell_offsets[i]],
+                allow_translation_equivalence=self.allow_translation_equivalence
+            )  # Use default name for sites.
             for i in range(len(self))
         ]
 
@@ -120,7 +152,8 @@ class ClusterMotif(BaseSiteCollectionMotif):
             max_cluster_radius: float = 3.0,
             n_attempts: int = 10,
             randomize_symbols: bool = False,
-            seed: Optional[int] = None
+            seed: Optional[int] = None,
+            allow_translation_equivalence: Optional[bool] = None,
     ) -> 'ClusterMotif':
         """Detect a random cluster motif from the given Atoms object.
 
@@ -136,6 +169,9 @@ class ClusterMotif(BaseSiteCollectionMotif):
                 will be included regardless of their symbols.
                 Defaults to False.
             seed (Optional[int]): Random seed for reproducibility. Defaults to None.
+            allow_translation_equivalence (Optional[bool]): If True, the motif can be considered
+                equivalent to another motif if they are related by an integer translation.
+                Default is not given, then will use the global setting ALLOW_TRANSLATION_EQUIVALENCE.
 
         Returns:
             ClusterMotif: A ClusterMotif instance representing the detected cluster.
@@ -169,7 +205,9 @@ class ClusterMotif(BaseSiteCollectionMotif):
             # Perform a single detection attempt.
             rand_idx = int(rng.integers(0, len(a)))
             rand_indices = [rand_idx]
-            c = ClusterMotif.from_atoms(a[[rand_idx]], indices=[rand_idx])
+            c = ClusterMotif(
+                a, indices=[rand_idx], allow_translation_equivalence=allow_translation_equivalence
+            )
             for _ in range(cluster_size - 1):
                 # Randomly select a site to grow the cluster around.
                 neighbor_site_motifs = detect_neighbor_sites_around_site_index(

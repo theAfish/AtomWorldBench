@@ -18,14 +18,13 @@ class ReplaceAction(BaseAction):
     This action replaces motifs in the structure based on their fractional coordinates.
     """
     mode_definitions = {
-        "_excluded": ["operated_motif", "operated_atoms", "relative_to_motif"],
+        "_excluded": ["operated_motif", "relative_to_motif"],
         "default": {},
     }
 
     def __init__(
             self,
             operated_motif: BaseMotif,
-            operated_atoms: Atoms,
             relative_to_motif: BaseMotif,
     ):
         """Initialize the ReplaceMotifAction with fractional coordinates and cutoff.
@@ -33,15 +32,12 @@ class ReplaceAction(BaseAction):
         Args:
             operated_motif (BaseMotif):
                 A motif that will be added to the structure.
-            operated_atoms (Atoms):
-                The structure (ASE Atoms object) that the action will operate on.
             relative_to_motif (BaseMotif):
                 A motif that the action will replace in the structure.
                 Must be in the structure (will check at `execute` call).
         """
         super().__init__(
             operated_motif=operated_motif,
-            operated_atoms=operated_atoms,
             relative_to_motif=relative_to_motif,
         )
         self.replaced_motif = self.relative_to_motif  # Make an alias for clarity.
@@ -49,7 +45,6 @@ class ReplaceAction(BaseAction):
     def __post_init__(self):
         """Post-initialization to ensure the action is valid."""
         self.__check_operated_motif_compatibility()
-        self.__check_operated_motif_in_atoms()
         self.__check_relative_motif_in_atoms()
 
     def execute(self) -> Atoms:
@@ -94,7 +89,7 @@ class ReplaceAction(BaseAction):
         relative_motif_desc_kwargs = relative_motif_desc_kwargs or {}
 
         # Update motif description kwargs.
-        motif_desc_params = inspect.signature(self.motif.describe).parameters
+        motif_desc_params = inspect.signature(self.operated_motif.describe).parameters
         relative_motif_desc_params = inspect.signature(
             self.relative_to_motif.describe
         ).parameters if self.relative_to_motif is not None else {}

@@ -9,7 +9,7 @@ from numpy.typing import ArrayLike
 from .base import BaseRegionMotif
 from ..base import BaseMotif
 from ....utils.coord_utils import check_coordinates_shape
-from ....utils.neighbor_utils import detect_indices_offests_around_frac_coords
+from ....utils.neighbor_utils import detect_indices_offsets_around_frac_coords
 from ....utils.description_utils import describe_arraylike
 from ....common.globals import DEFAULT_FLOAT_TO_STRING_PRECISION
 from ....common.mixin_classes import MultiModeInitMixin
@@ -143,22 +143,18 @@ class SphereRegionMotif(BaseRegionMotif, MultiModeInitMixin):
         else:
             return cart_centroid
 
-    def get_site_indices_in_atoms(self, atoms: Atoms) -> ArrayLike:
+    def _get_site_indices_offsets_in_atoms(self) -> tuple[list[int], ndarray]:
         """Return the subset of atoms included in the spherical region motif.
 
         If one of the periodic images lies within the region,
         it will include the corresponding atom.
-        Args:
-            atoms (Atoms): The ASE Atoms object containing all atoms in the system.
+
         Returns:
             ndarray[int]: An array of indices of atoms that are within the region motif.
         """
-        indices, _ = detect_indices_offests_around_frac_coords(
-            atoms,
-            self.get_centroid(fractional=True),
-            self.radius, self.symbols
+        return detect_indices_offsets_around_frac_coords(
+            self.in_atoms, self.get_centroid(fractional=True), self.radius, self.symbols
         )
-        return indices
 
     def _get_default_name(self) -> str:
         # Not used, just to satisfy the abstract method requirement.

@@ -117,11 +117,14 @@ def test_get_site_indices_in_atoms(sphere_motif):
     """Test site indices detection."""
     orig_atoms = sphere_motif.in_atoms
     assert isinstance(orig_atoms, Atoms)
-    indices = sphere_motif.get_site_indices_in_atoms(orig_atoms)
-    assert isinstance(indices, np.ndarray)
+    indices, offsets = sphere_motif._get_site_indices_offsets_in_atoms()
+    assert isinstance(indices, list)
     assert all(isinstance(idx, (int, np.integer)) for idx in indices)
     assert all(0 <= idx < len(orig_atoms) for idx in indices)
     subset = orig_atoms[indices]
+    orig_positions = subset.get_positions(wrap=False)
+    new_positions = orig_positions + offsets @ orig_atoms.cell.complete()
+    subset.set_positions(new_positions)
     distances = np.linalg.norm(
         subset.get_positions(wrap=False) -
         sphere_motif.get_centroid(fractional=False),
@@ -134,11 +137,14 @@ def test_get_site_indices_in_atoms_partial(sphere_motif_partial):
     """Test site indices detection."""
     orig_atoms = sphere_motif_partial.in_atoms
     assert isinstance(orig_atoms, Atoms)
-    indices = sphere_motif_partial.get_site_indices_in_atoms(orig_atoms)
-    assert isinstance(indices, np.ndarray)
+    indices, offsets = sphere_motif_partial._get_site_indices_offsets_in_atoms()
+    assert isinstance(indices, list)
     assert all(isinstance(idx, (int, np.integer)) for idx in indices)
     assert all(0 <= idx < len(orig_atoms) for idx in indices)
     subset = orig_atoms[indices]
+    orig_positions = subset.get_positions(wrap=False)
+    new_positions = orig_positions + offsets @ orig_atoms.cell.complete()
+    subset.set_positions(new_positions)
     distances = np.linalg.norm(
         subset.get_scaled_positions(wrap=False) -
         sphere_motif_partial.get_centroid(fractional=True),

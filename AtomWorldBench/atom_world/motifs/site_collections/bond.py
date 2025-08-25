@@ -45,13 +45,10 @@ class BondMotif(ClusterMotif):
         if len(cluster_motif) != 2:
             raise ValueError("ClusterMotif must contain exactly two sites to create a BondMotif.")
         return cls(
-                symbols=cluster_motif.get_chemical_symbols(),
-                positions=cluster_motif.get_positions(wrap=False),
-                cell=cluster_motif.get_cell(complete=True),
-                pbc=cluster_motif.get_pbc(),
-                charges=cluster_motif.get_initial_charges(),
-                name=None, # Bonds do not have a specific name.
-                indices=cluster_motif.indices
+                in_atoms=cluster_motif.in_atoms,
+                indices=cluster_motif.indices,
+                offsets=cluster_motif.cell_offsets,
+                allow_translation_equivalence=cluster_motif.allow_translation_equivalence,
             )
 
     @classmethod

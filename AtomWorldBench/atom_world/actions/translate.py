@@ -37,7 +37,7 @@ class TranslateAction(BaseAction):
         # operated_motif, operated_atoms and translation_vector are always required.
         # position_fractional does not need to be checked.
         "_excluded": [
-            "operated_motif", "operated_atoms",
+            "operated_motif",
             "position_fractional"
         ],
         "absolute": {"to_position": None},
@@ -65,7 +65,6 @@ class TranslateAction(BaseAction):
     def __init__(
             self,
             operated_motif: BaseMotif,
-            operated_atoms: Atoms,
             # Optional Parameters.
             relative_to_motif: Optional[BaseMotif] = None,
             to_position: Optional[ArrayLike] = None,
@@ -95,7 +94,6 @@ class TranslateAction(BaseAction):
 
         Args:
             operated_motif (BaseMotif): The motif to be translated.
-            operated_atoms (Atoms): The structure from which the motif is to be translated.
             to_position (ArrayLike, optional): The position to translate the motif to.
                 Turns on the absolute mode of the action.
             relative_to_position (ArrayLike, optional): The position to translate
@@ -113,9 +111,13 @@ class TranslateAction(BaseAction):
                 See `allowed_relative_styles` for the list of allowed styles. If None,
                 will use the first style in `allowed_relative_styles`.
         """
+        # Just for linting.
+        self.to_position = None
+        self.position_fractional = None
+        self.translation_vector=None
+        self.relative_to_position=None
         super().__init__(
             operated_motif=operated_motif,
-            operated_atoms=operated_atoms,
             relative_to_motif=relative_to_motif,
             to_position=to_position,
             relative_to_position=relative_to_position,
@@ -127,7 +129,6 @@ class TranslateAction(BaseAction):
     def __post_init__(self):
         """Post-initialization to ensure the action is valid."""
         self.__check_operated_motif_compatibility()
-        self.__check_operated_motif_in_atoms()
         self.__check_relative_motif_in_atoms()
 
     def _get_translation_vector(self) -> ArrayLike:
@@ -210,7 +211,7 @@ class TranslateAction(BaseAction):
         relative_motif_desc_kwargs = relative_motif_desc_kwargs or {}
 
         # Update motif description kwargs.
-        motif_desc_params = inspect.signature(self.motif.describe).parameters
+        motif_desc_params = inspect.signature(self.operated_motif.describe).parameters
         relative_motif_desc_params = inspect.signature(
             self.relative_to_motif.describe
         ).parameters if self.relative_to_motif is not None else {}

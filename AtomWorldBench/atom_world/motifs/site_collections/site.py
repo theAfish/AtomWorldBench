@@ -1,7 +1,8 @@
-from typing import Optional
+from typing import Optional, List
 
 from ase import Atoms
 import numpy as np
+from numpy.typing import ArrayLike
 
 from .base import BaseSiteCollectionMotif
 from ..base import BaseMotif
@@ -16,6 +17,38 @@ class SiteMotif(BaseSiteCollectionMotif):
     Can be either an atom or an ionic species in a crystal structure.
     """
     forbidden_actions = ["resize"]
+
+    def __init__(
+            self,
+            in_atoms: Atoms,
+            indices: List[int],
+            offsets: Optional[ArrayLike] = None,
+            name: Optional[str] = None,
+            allow_translation_equivalence: Optional[bool] = None,
+    ):
+        """SiteMotif constructor.
+
+        Args:
+            in_atoms (Atoms): The ASE Atoms object to create the motif from.
+            indices (list of int): Original indices from structure.
+                Indices should always be provided, as the motif belongs to a specific structure.
+            offsets (ArrayLike, optional): The cell offsets for each atom in the motif.
+                Cell offsets are the integer part of the fractional coordinates in the form of
+                triplets (i, j, k). If None, will assume all zeros.
+            name (str, optional): Human-readable motif name. Optional.
+             If None, will generate a default name.
+            allow_translation_equivalence (bool):
+                If True, the motif can be considered equivalent to another motif
+                if they are related by an integer translation.
+                Default is not given, then will use the global setting ALLOW_TRANSLATION_EQUIVALENCE.
+        """
+        super().__init__(
+            in_atoms,
+            indices,
+            offsets,
+            name,
+            allow_translation_equivalence,
+        )
 
     def __post_init__(self):
         """Post-initialization to check whether motif size is 1."""
@@ -41,7 +74,7 @@ class SiteMotif(BaseSiteCollectionMotif):
         """
         rng = np.random.default_rng(seed)
         rand_idx = int(rng.integers(0, len(atoms)))
-        return SiteMotif.from_atoms(
-            atoms[[rand_idx]],
+        return SiteMotif(
+            atoms,
             indices=[rand_idx]
         )

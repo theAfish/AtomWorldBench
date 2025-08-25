@@ -6,12 +6,12 @@ import numpy as np
 from numpy.typing import ArrayLike
 
 
-def detect_indices_offests_around_frac_coords(
+def detect_indices_offsets_around_frac_coords(
         atoms: Atoms,
         frac_coords: ArrayLike,
         cutoff: float,
         symbols: list[str] = None,
-) -> tuple[np.ndarray, np.ndarray]:
+) -> tuple[list[int], np.ndarray]:
     """Detect indices and offsets of atoms around the given fractional coordinates.
 
     Args:
@@ -58,4 +58,4 @@ def detect_indices_offests_around_frac_coords(
     indices_j_valid = indices_j[indices_valid]
     offsets_valid = offsets[indices_valid, :]
 
-    return indices_j_valid, offsets_valid
+    return indices_j_valid.astype(int).tolist(), offsets_valid

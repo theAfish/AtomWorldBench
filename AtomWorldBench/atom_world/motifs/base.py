@@ -17,11 +17,22 @@ class BaseMotif(ABC):
     """
     forbidden_actions = []
 
-    def __init__(self, name: Optional[str] = None):
-        """Initialize the motif with an optional name."""
+    def __init__(
+            self,
+            in_atoms: Atoms,
+            name: Optional[str] = None
+    ):
+        """Initialize the motif with an optional name.
+
+        Args:
+            in_atoms (Atoms): An ASE Atoms object that this motif belongs to.
+            name (str, optional): The name of the motif.
+                If None, a default name will be generated and set.
+        """
         # Prevent calling the setter directly in the constructor
         # As at the initialization, the attributes required to compute
         # the default name are not set yet.
+        self.in_atoms = in_atoms
         self._name = name
 
     @abstractmethod
@@ -49,19 +60,6 @@ class BaseMotif(ABC):
     @abstractmethod
     def describe(self) -> str:
         """Return a string description of the motif."""
-        pass
-
-    @abstractmethod
-    def get_site_indices_in_atoms(self, atoms: Atoms) -> list[int]:
-        """Return the indices of sites included in the motif.
-
-        This method will be the interface for the action to determine the
-        sites to operate on.
-        Args:
-            atoms: An ASE Atoms object containing all atoms in the system.
-        Returns:
-            list[int]: A list of indices of sites that are included in the motif.
-        """
         pass
 
     @abstractmethod
