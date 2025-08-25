@@ -42,7 +42,7 @@ class MoveAction(BaseAction):
         return env.get_state()
 
     def __str__(self):
-        return f"Move the point at index {self.config['index']} by displacement {self.config['displacement']}"
+        return f"Move the point at index {self.config['index']} by displacement {self.config['displacement']}."
 
 
 class MoveTowardsAction(BaseAction):
@@ -54,7 +54,7 @@ class MoveTowardsAction(BaseAction):
         return env.get_state()
 
     def __str__(self):
-        return f"Move the point at index {self.config['from_index']} towards the point at index {self.config['to_index']} by {self.config['distance']}"
+        return f"Move the point at index {self.config['from_index']} towards the point at index {self.config['to_index']} by {self.config['distance']}."
 
 
 class InsertBetweenAction(BaseAction):
