@@ -1,12 +1,15 @@
 """Bond motif class."""
-from typing import Optional
+from typing import Optional, List
 
 from ase import Atoms
+from numpy.typing import ArrayLike
 
 from .cluster import ClusterMotif
 from ....common.registry import register
 from ..base import BaseMotif
 from .base import BaseSiteCollectionMotif
+from ....common.globals import ALLOW_TRANSLATION_EQUIVALENCE
+
 
 @register(BaseMotif, ["bond"])
 @register(BaseSiteCollectionMotif, ["bond"])
@@ -26,6 +29,41 @@ class BondMotif(ClusterMotif):
     """
 
     forbidden_actions = ["add", "remove", "replace", "rotate", "translate"]
+
+    def __init__(
+            self,
+            in_atoms: Atoms,
+            indices: List[int],
+            offsets: Optional[ArrayLike] = None,
+            name: Optional[str] = None,
+            allow_translation_equivalence: Optional[bool] = None,
+    ):
+        """BondMotif constructor.
+
+        Args:
+            in_atoms (Atoms): The ASE Atoms object to create the motif from.
+                Notice: this object will always be wrapped at init if not already!
+                All cell offsets will be computed relative to the wrapped positions.
+            indices (list of int): Original indices from structure.
+                Indices should always be provided, as the motif belongs to a specific structure.
+            offsets (ArrayLike, optional): The cell offsets for each atom in the motif.
+                Cell offsets are the integer part of the fractional coordinates in the form of
+                triplets (i, j, k) representing their unwrapped location in periodic images.
+                If None, will assume all zeros.
+            name (str, optional): Human-readable motif name. Optional.
+             If None, will generate a default name.
+            allow_translation_equivalence (bool):
+                If True, the motif can be considered equivalent to another motif
+                if they are related by an integer translation.
+                Default is not given, then will use the global setting ALLOW_TRANSLATION_EQUIVALENCE.
+        """
+        super().__init__(
+            in_atoms,
+            indices,
+            offsets,
+            name,
+            allow_translation_equivalence,
+        )
 
     def __post_init__(self):
         """Post-initialization to check whether motif size is 1."""
@@ -59,7 +97,8 @@ class BondMotif(ClusterMotif):
             n_attempts: int = 10,
             randomize_symbols: bool = False,
             seed: Optional[int] = None,
-            cluster_size: int = 2
+            cluster_size: int = 2,
+            allow_translation_equivalence: bool = ALLOW_TRANSLATION_EQUIVALENCE,
     ) -> "BondMotif":
         """Detect a random bond motif from the given atoms.
 
@@ -76,6 +115,8 @@ class BondMotif(ClusterMotif):
             seed (Optional[int]): Random seed for reproducibility. Defaults to None.
             cluster_size (int): The desired size of the cluster.
                 No effect for BondMotif, as it is always 2.
+            allow_translation_equivalence (bool): Whether to consider translation equivalence
+                when detecting the cluster. Defaults to the global setting.
 
         Returns:
             BondMotif: A single bond motif detected from the atoms.

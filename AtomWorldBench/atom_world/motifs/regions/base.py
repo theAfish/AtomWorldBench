@@ -35,6 +35,8 @@ class BaseRegionMotif(BaseMotif, ABC):
 
         Args:
             in_atoms (Atoms): The atoms that this region motif is in.
+                Notice: this object will always be wrapped at init if not already!
+                All cell offsets will be computed relative to the wrapped positions.
             name (str, optional): The name of the motif. If None, a default name will be generated.
             symbols (list[str], optional): A list of chemical symbols that this motif includes.
                 Other elements will not be selected as part of this motif.

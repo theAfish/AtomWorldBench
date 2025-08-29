@@ -18,6 +18,7 @@ def detect_neighbor_sites_around_site_index(
         site_index: int,
         cutoff: float = 3.0,
         symbols: Optional[List[str]] = None,
+        allow_translation_equivalence: Optional[bool] = None,
 ) -> List[SiteMotif]:
     """Detect atoms in the given structure around fractional coordinates.
 
@@ -28,6 +29,9 @@ def detect_neighbor_sites_around_site_index(
         cutoff (float): The radius within which to detect atoms. Default is 3.0.
         symbols (Optional[List[str]]): If provided, only atoms with these symbols will be detected.
             Default is None, which means no filtering.
+        allow_translation_equivalence (bool): If True, the detected motifs can be considered
+            equivalent to another motif if they are related by an integer translation.
+            Default is set in the global setting ALLOW_TRANSLATION_EQUIVALENCE.
 
     Returns:
         List of detected site motifs within the specified radius.
@@ -45,22 +49,13 @@ def detect_neighbor_sites_around_site_index(
     offsets_valid = offsets_valid[indices_j_valid != site_index]
     indices_j_valid = indices_j_valid[indices_j_valid != site_index]
 
-    positions_valid = (
-            atoms.get_positions(wrap=False)[indices_j_valid] +
-            offsets_valid @ atoms.cell.complete()
-    )
-    symbols_valid = atoms.get_chemical_symbols()[indices_j_valid]
-    charges_valid = atoms.get_initial_charges()[indices_j_valid]
-
     deduplicated_motifs = []
-    for ii in range(len(symbols_valid)):
+    for ii in range(len(indices_j_valid)):
         motif = SiteMotif(
-            symbols=[symbols_valid[ii]],
-            positions=[positions_valid[ii]],
-            cell=atoms.cell,
-            pbc=atoms.pbc,
-            charges=charges_valid[ii],
-            name=None,  # Default name will be generated in the SiteMotif class.
+            in_atoms=atoms,
+            offsets=[offsets_valid[ii]],
+            name=None,  # Use default name for detected sites.
+            allow_translation_equivalence=allow_translation_equivalence,  # Use global setting.
             indices=[int(indices_j_valid[ii])]  # Ensure indices are integers.,
         )
         deduplicated_motifs.append(motif)
@@ -87,11 +82,14 @@ class ClusterMotif(BaseSiteCollectionMotif):
 
         Args:
             in_atoms (Atoms): The ASE Atoms object to create the motif from.
+                Notice: this object will always be wrapped at init if not already!
+                All cell offsets will be computed relative to the wrapped positions.
             indices (list of int): Original indices from structure.
                 Indices should always be provided, as the motif belongs to a specific structure.
             offsets (ArrayLike, optional): The cell offsets for each atom in the motif.
                 Cell offsets are the integer part of the fractional coordinates in the form of
-                triplets (i, j, k). If None, will assume all zeros.
+                triplets (i, j, k) representing their unwrapped location in periodic images.
+                If None, will assume all zeros.
             name (str, optional): Human-readable motif name. Optional.
              If None, will generate a default name.
             allow_translation_equivalence (bool):
@@ -159,6 +157,8 @@ class ClusterMotif(BaseSiteCollectionMotif):
 
         Args:
             atoms (Atoms): The Atoms object from which to detect the cluster.
+                Notice: this object will always be wrapped at init if not already!
+                All cell offsets will be computed relative to the wrapped positions.
             cluster_size (int): The desired size of the cluster. Defaults to 3.
             max_cluster_radius (float): Maximum allowable radius of the cluster.
                 Defaults to 3.0.
@@ -176,6 +176,7 @@ class ClusterMotif(BaseSiteCollectionMotif):
         Returns:
             ClusterMotif: A ClusterMotif instance representing the detected cluster.
         """
+        atoms.wrap()
         rng = np.random.default_rng(seed)
         if randomize_symbols:
             all_symbols = list(set(atoms.get_chemical_symbols()))

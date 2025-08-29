@@ -30,11 +30,14 @@ class SiteMotif(BaseSiteCollectionMotif):
 
         Args:
             in_atoms (Atoms): The ASE Atoms object to create the motif from.
+                Notice: this object will always be wrapped at init if not already!
+                All cell offsets will be computed relative to the wrapped positions.
             indices (list of int): Original indices from structure.
                 Indices should always be provided, as the motif belongs to a specific structure.
             offsets (ArrayLike, optional): The cell offsets for each atom in the motif.
                 Cell offsets are the integer part of the fractional coordinates in the form of
-                triplets (i, j, k). If None, will assume all zeros.
+                triplets (i, j, k) representing their unwrapped location in periodic images.
+                If None, will assume all zeros.
             name (str, optional): Human-readable motif name. Optional.
              If None, will generate a default name.
             allow_translation_equivalence (bool):
@@ -57,7 +60,7 @@ class SiteMotif(BaseSiteCollectionMotif):
 
     def _get_default_name(self) -> str:
         """Generate a default name for the motif based on its species and coordinates."""
-        if self.get_initial_charges()[0] == 0:
+        if self.in_atoms.get_initial_charges()[self.indices[0]] == 0:
             return f"an atom {self.species_strings[0]}"
         else:
             return f"a species {self.species_strings[0]}"
@@ -68,6 +71,8 @@ class SiteMotif(BaseSiteCollectionMotif):
 
         Args:
             atoms (Atoms): The structure to analyze, represented as an ASE Atoms object.
+                Notice: this object will always be wrapped at init if not already!
+                All cell offsets will be computed relative to the wrapped positions.
             seed (Optional[int]): Random seed for reproducibility. Default is None.
         Returns:
             SiteMotif: A single site motif detected from the atoms.

@@ -75,6 +75,8 @@ class SphereRegionMotif(BaseRegionMotif, MultiModeInitMixin):
                 arguments other than `in_atoms`, `symbols` can be provided.
         Args:
             in_atoms (Atoms): The atoms object that this region motif is in. Required.
+                Notice: this object will always be wrapped at init if not already!
+                All cell offsets will be computed relative to the wrapped positions.
             radius (float): The radius of the sphere. Required.
             center (ArrayLike): The center of the sphere as a list of three coordinates [x, y, z].
             center_id (Optional[int]): The index of the atom that serves as the center of the sphere.
@@ -207,6 +209,8 @@ class SphereRegionMotif(BaseRegionMotif, MultiModeInitMixin):
         The radius will be randomly chosen between 1 and half of the shortest cell vector length.
         Args:
             atoms (Atoms): The ASE Atoms object containing all atoms in the system.
+                Notice: this object will always be wrapped at init if not already!
+                All cell offsets will be computed relative to the wrapped positions.
             radius (float, optional): The radius of the spherical region motif.
                 Unit is angstroms.
                 If None, a random radius will be chosen between 2 and half of the shortest
@@ -224,6 +228,7 @@ class SphereRegionMotif(BaseRegionMotif, MultiModeInitMixin):
         Returns:
             SphereRegionMotif: A randomly generated spherical region motif.
         """
+        atoms.wrap()
         rng = np.random.default_rng(seed)
         if len(atoms) == 0:
             raise ValueError("The provided Atoms object is empty.")

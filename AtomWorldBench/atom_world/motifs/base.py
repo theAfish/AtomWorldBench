@@ -26,12 +26,16 @@ class BaseMotif(ABC):
 
         Args:
             in_atoms (Atoms): An ASE Atoms object that this motif belongs to.
+                Notice: this object will always be wrapped at init if not already!
+                All cell offsets will be computed relative to the wrapped positions.
             name (str, optional): The name of the motif.
                 If None, a default name will be generated and set.
         """
         # Prevent calling the setter directly in the constructor
         # As at the initialization, the attributes required to compute
         # the default name are not set yet.
+        # Wrap the atoms if not already.
+        in_atoms.wrap()
         self.in_atoms = in_atoms
         self._name = name
 
