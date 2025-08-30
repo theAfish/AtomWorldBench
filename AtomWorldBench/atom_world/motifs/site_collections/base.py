@@ -57,12 +57,11 @@ class BaseSiteCollectionMotif(BaseMotif, ABC):
                 Default is not given, then will use the global setting ALLOW_TRANSLATION_EQUIVALENCE.
         """
         # Wraps atom after super init.
-        super().__init__(self, in_atoms=in_atoms, name=name)
+        BaseMotif.__init__(self, in_atoms, name=name)
         self._atoms = None
-        self._indices = None
         self._offsets = None
         self.indices = indices
-        self.offsets = (
+        self.cell_offsets = (
             np.array(offsets, dtype=int) if offsets is not None
             else np.zeros((len(indices), 3), dtype=int)
         )
@@ -70,6 +69,8 @@ class BaseSiteCollectionMotif(BaseMotif, ABC):
         if allow_translation_equivalence is None:
             allow_translation_equivalence = ALLOW_TRANSLATION_EQUIVALENCE
         self.allow_translation_equivalence = allow_translation_equivalence
+
+        self._atoms = self.get_atoms()
 
         # Post init checks. Can be overridden by subclasses.
         self.__post_init__()
@@ -104,8 +105,7 @@ class BaseSiteCollectionMotif(BaseMotif, ABC):
             raise ValueError("Indices must be a list of integers.")
         self._indices = value
         # Resetting indices should update the internal atoms attribute.
-        if self._indices is not None:
-            self._atoms = self.get_atoms()
+        self._atoms = self.get_atoms()
 
     @cell_offsets.setter
     def cell_offsets(self, value: ArrayLike):
@@ -137,9 +137,7 @@ class BaseSiteCollectionMotif(BaseMotif, ABC):
         Returns:
             Atoms: An ASE Atoms object with the same properties as this motif.
         """
-        if self._atoms is not None:
-            return self._atoms
-        subset = self.in_atoms[self.indices]
+        subset = self.in_atoms[self.indices].copy()
         cell = self.in_atoms.cell.complete()
         positions_orig = subset.get_positions(wrap=False)
         positions_update = positions_orig + np.dot(
@@ -147,6 +145,7 @@ class BaseSiteCollectionMotif(BaseMotif, ABC):
         ) if self.cell_offsets is not None else positions_orig
         subset.set_positions(positions_update)
         return subset
+
 
     @property
     def species_strings(self) -> List[str]:
@@ -169,12 +168,12 @@ class BaseSiteCollectionMotif(BaseMotif, ABC):
     @property
     def frac_coords(self) -> np.ndarray:
         """Get the unwrapped fractional coordinates of the motif."""
-        return self.get_atoms().get_scaled_positions(wrap=False)
+        return self._atoms.get_scaled_positions(wrap=False)
 
     @property
     def cart_coords(self) -> np.ndarray:
         """Get the unwrapped Cartesian coordinates of the motif."""
-        return self.get_atoms().get_positions(wrap=False)
+        return self._atoms.get_positions(wrap=False)
 
     def get_centroid(self, fractional=False) -> np.ndarray:
         """Get the centroid of the motif.
@@ -184,7 +183,7 @@ class BaseSiteCollectionMotif(BaseMotif, ABC):
                 If False, return in Cartesian coordinates. Default is False.
         """
         cart_centroid = np.mean(self.cart_coords, axis=0)
-        cell = self.get_atoms().cell.complete()
+        cell = self._atoms.cell.complete()
         if fractional:
             return cart_centroid @ np.linalg.inv(cell)
         else:
@@ -285,14 +284,15 @@ class BaseSiteCollectionMotif(BaseMotif, ABC):
         """
         if other.in_atoms != self.in_atoms:
             raise ValueError("Can only extend motifs from the same original structure.")
+        # Do not call setters as get_atoms() will be called at the end.
+         # This is to avoid multiple calls to get_atoms().
+        self._indices = self.indices + other.indices
+        self._offsets = np.vstack((self.cell_offsets, other.cell_offsets))
+        self._atoms = self.get_atoms()
+        # Post init checks to avoid invalid addition, for example, adding cluster to site.
+        self.__post_init__()
         # Reset name to default to avoid conflicts with the original motif name.
-        return self.__class__(
-            in_atoms=self.in_atoms.copy(),
-            indices=self.indices + other.indices,
-            offsets=np.vstack((self.cell_offsets, other.cell_offsets)),
-            name=None,
-            allow_translation_equivalence=self.allow_translation_equivalence
-        )
+        self.name = None
 
 
     def copy(self):
@@ -315,7 +315,7 @@ class BaseSiteCollectionMotif(BaseMotif, ABC):
             idx = [i]  # Force list.
         else:
             idx = i
-        indices = [self.indices[j] for j in idx] if self.indices is not None else None
+        indices = np.array(self.indices, dtype=int)[idx].tolist()
         offsets = self.cell_offsets[idx]
         return self.__class__(
             self.in_atoms.copy(),
@@ -324,10 +324,6 @@ class BaseSiteCollectionMotif(BaseMotif, ABC):
             offsets=offsets,
             allow_translation_equivalence=self.allow_translation_equivalence
         )
-
-    def __imul__(self, m):
-        """Repeat of motif not allowed!"""
-        raise NotImplementedError("Repeating a motif is not allowed.")
 
 
     def __eq__(self, other):

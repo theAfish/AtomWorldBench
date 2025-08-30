@@ -1,6 +1,7 @@
 """Tool functions for describing objects in AtomWorldBench."""
 from collections.abc import Iterable
 from typing import Optional
+import numbers
 
 from numpy.typing import ArrayLike
 
@@ -46,11 +47,11 @@ def describe_arraylike(
     Returns:
         str: formatted string of the array-like object.
     """
-    if isinstance(obj, (int, float)):
+    if isinstance(obj, numbers.Real):
         if precision > 0:
             return f"{obj:.{precision}f}"
         else:
-            return str(int(obj))
+            return str(int(round(obj)))
     elif isinstance(obj, str):
         return repr(obj)
     elif isinstance(obj, Iterable):

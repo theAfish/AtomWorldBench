@@ -35,8 +35,9 @@ class BaseMotif(ABC):
         # As at the initialization, the attributes required to compute
         # the default name are not set yet.
         # Wrap the atoms if not already.
-        in_atoms.wrap()
-        self.in_atoms = in_atoms
+        in_atoms_cp = in_atoms.copy()
+        in_atoms_cp.wrap()
+        self.in_atoms = in_atoms_cp  # Avoid affecting the original atoms.
         self._name = name
 
     @abstractmethod

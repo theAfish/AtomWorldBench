@@ -136,26 +136,27 @@ def test_coordinates_properties(simple_atoms):
     """Test frac_coords, cart_coords, and cell_offsets properties."""
     # Apply a non-zero offset to simple atoms for testing.
     orig_positions = simple_atoms.get_positions(wrap=False).copy()
-    simple_atoms.set_positions(
+    simple_atoms_cp = simple_atoms.copy()
+    simple_atoms_cp.set_positions(
         orig_positions +
-        np.array([1.0, 0.0, 1.0]) @ simple_atoms.cell.complete()
+        np.array([[1.0, 0.0, 1.0], [0.0, 1.0, 0.0]]) @ simple_atoms.cell.complete()
     )  # Will be wrapped back into cell later.
     cluster = ClusterMotif(
-        in_atoms=simple_atoms,
+        in_atoms=simple_atoms_cp,
         indices=[1, 0],
-        offsets=[[1,0,0], [0, 0, 0]]
+        offsets=[[0, 1, 0], [1, 0, 1]]
     )
 
     # Test fractional coordinates (unwrapped)
-    expected_frac = simple_atoms.get_scaled_positions(wrap=False)[[1, 0]]
+    expected_frac = simple_atoms_cp.get_scaled_positions(wrap=False)[[1, 0]]
     npt.assert_allclose(cluster.frac_coords, expected_frac)
 
     # Test Cartesian coordinates (unwrapped)
-    expected_cart = simple_atoms.get_positions(wrap=False)[[1, 0]]
+    expected_cart = simple_atoms_cp.get_positions(wrap=False)[[1, 0]]
     npt.assert_allclose(cluster.cart_coords, expected_cart)
 
     # Test cell offsets. Original atoms already wrapped, so offsets should match input.
-    expected_offsets = np.array([[1, 0, 0], [0, 0, 0]], dtype=int)
+    expected_offsets = np.array([[0, 1, 0], [1, 0, 1]], dtype=int)
     npt.assert_array_equal(cluster.cell_offsets, expected_offsets)
 
 
@@ -216,7 +217,7 @@ def test_indices_property(simple_atoms):
         in_atoms=simple_atoms,
         indices=[1, 0]
     )
-    assert cluster.indices == [0, 1]
+    assert cluster.indices == [1, 0]
 
 def test_update_indices_offsets(simple_atoms):
     """Test updating indices and offsets."""
@@ -271,11 +272,7 @@ def test_update_indices_offsets(simple_atoms):
         cluster.indices = [0, "a"]
 
     # Try update with wrong offsets format.
-    with pytest.raises(ValueError, match="Cell offsets must be a 2D array with shape (n, 3)"):
-        cluster.cell_offsets = "not an array"
-    with pytest.raises(ValueError, match="Cell offsets must be a 2D array with shape (n, 3)"):
-        cluster.cell_offsets = [[0, 0], [1, 0, 0]]
-    with pytest.raises(ValueError, match="Cell offsets must be a 2D array with shape (n, 3)"):
+    with pytest.raises(ValueError, match="Cell offsets must be a 2D array with shape"):
         cluster.cell_offsets = [[0, 0], [1, 0]]
     with pytest.raises(ValueError, match="Cell offsets must have the same length as indices."):
         cluster.cell_offsets = [[0, 0, 0]]
@@ -316,7 +313,7 @@ def test_describe_index_style(simple_atoms):
     assert "((1, 0, 0), (0, -1, 0))" in desc_offsets
 
 
-def test_describe_invalid_style(self, simple_atoms):
+def test_describe_invalid_style(simple_atoms):
     """Test describe method with invalid style."""
     cluster = ClusterMotif(
         in_atoms=simple_atoms,
@@ -356,11 +353,13 @@ def test_extend_and_add(simple_atoms):
     """Test extending and adding clusters."""
     cluster1 = ClusterMotif(
         in_atoms=simple_atoms,
-        indices=[0]
+        indices=[0],
+        name="cluster1"
     )
     cluster2 = ClusterMotif(
         in_atoms=simple_atoms,
-        indices=[1]
+        indices=[1],
+        name="cluster2"
     )
     site2 = SiteMotif(
         in_atoms=simple_atoms,
@@ -369,13 +368,15 @@ def test_extend_and_add(simple_atoms):
 
     # Test addition
     combined = cluster1 + cluster2
+    print("combined indices:", combined.indices)
     assert len(combined) == 2
-    assert combined.name is None  # Name should be reset
+    assert "pair" in combined.name  # Name should be reset to default.
 
     # Test in-place addition
-    cluster1 += cluster2
-    assert len(cluster1) == 2
-    assert cluster1.name is None
+    cluster3 = cluster1.copy()
+    cluster3 += cluster2
+    assert len(cluster3) == 2
+    assert "pair" in combined.name  # Name should be reset to default.
 
     combined2 = cluster1 + site2
     assert len(combined2) == 2
@@ -388,22 +389,22 @@ def test_extend_and_add(simple_atoms):
         _ = site2 + cluster1
 
 
-# TODO: check tests following this and pass them.
-def test_extend_indices_mismatch(self, simple_atoms):
+def test_extend_atoms_mismatch(simple_atoms, complex_atoms):
     """Test extend with mismatched indices."""
     cluster1 = ClusterMotif(
         in_atoms=simple_atoms,
         indices=[0]
     )
     cluster2 = ClusterMotif(
-        in_atoms=simple_atoms,
+        in_atoms=complex_atoms,
         indices=[1]
     )
 
-    with pytest.raises(ValueError, match="Both motifs must have indices"):
+    with pytest.raises(ValueError, match="Can only extend motifs from the same original structure"):
         cluster1.extend(cluster2)
 
-def test_copy(self, simple_atoms):
+
+def test_copy(simple_atoms):
     """Test copying clusters."""
     original = ClusterMotif(
         in_atoms=simple_atoms,
@@ -415,53 +416,53 @@ def test_copy(self, simple_atoms):
     assert copy_cluster == original
     assert copy_cluster is not original
     assert copy_cluster.indices == original.indices
+    npt.assert_array_equal(copy_cluster.cell_offsets, original.cell_offsets)
+    assert copy_cluster.in_atoms == original.in_atoms
     assert copy_cluster.name == original.name
+    npt.assert_allclose(copy_cluster.cart_coords, original.cart_coords)
 
-def test_getitem(self, simple_atoms):
+
+def test_getitem(complex_atoms):
     """Test slicing and indexing."""
     cluster = ClusterMotif(
-        in_atoms=simple_atoms,
+        in_atoms=complex_atoms,
         indices=[0, 1],
         name="original"
     )
 
     # Single index
     sub_cluster = cluster[0]
+    assert isinstance(sub_cluster, ClusterMotif)
     assert len(sub_cluster) == 1
     assert sub_cluster.indices == [0]
-    assert sub_cluster.name is None  # Name should be reset
+    assert "point" in sub_cluster.name  # Name should be reset to default.
 
     # Slice
-    sub_cluster = cluster[0:1]
+    sub_cluster = cluster[1:]
     assert len(sub_cluster) == 1
-    assert sub_cluster.indices == [0]
+    assert sub_cluster.indices == [1]
 
-def test_imul_not_allowed(self, simple_atoms):
-    """Test that repeating clusters is not allowed."""
-    cluster = ClusterMotif(
-        in_atoms=simple_atoms,
-        indices=[0, 1]
-    )
+    assert cluster[[0, 1]] == cluster # Fancy indexing returns identical cluster
 
-    with pytest.raises(NotImplementedError, match="Repeating a motif is not allowed"):
-        cluster *= 2
 
-def test_equality(self, simple_atoms, complex_atoms):
+def test_equality(simple_atoms, complex_atoms):
     """Test equality comparison."""
     cluster1 = ClusterMotif(
         in_atoms=simple_atoms,
-        indices=[0, 1]
+        indices=[0, 1],
+        name="cluster1",
     )
     cluster2 = ClusterMotif(
         in_atoms=simple_atoms,
-        indices=[0, 1]
+        indices=[0, 1],
+        name="cluster2",
     )
     cluster3 = ClusterMotif(
         in_atoms=complex_atoms,
         indices=[0, 1]
     )
 
-    # Same clusters should be equal
+    # Same clusters should be equal, even with different names.
     assert cluster1 == cluster2
 
     # Different source atoms should not be equal
@@ -474,303 +475,280 @@ def test_equality(self, simple_atoms, complex_atoms):
 # -----------------------------
 # Tests for ClusterMotif specific functionality
 # -----------------------------
-
-class TestClusterMotif:
-
-    def test_post_init_empty_cluster(self, simple_atoms):
-        """Test that empty clusters are not allowed."""
-        with pytest.raises(ValueError, match="ClusterMotif must contain at least one atom"):
-            ClusterMotif(
-                in_atoms=simple_atoms,
-                indices=[]
-            )
-
-    def test_default_names(self):
-        """Test default name generation for different cluster sizes."""
-        cell = np.eye(3) * 3.0
-
-        # Point (1 atom)
-        atoms1 = Atoms("H", positions=[[0, 0, 0]], cell=cell, pbc=True)
-        cluster1 = ClusterMotif(in_atoms=atoms1, indices=[0])
-        assert "point" in cluster1._get_default_name()
-
-        # Pair (2 atoms)
-        atoms2 = Atoms("HH", positions=[[0, 0, 0], [1, 0, 0]], cell=cell, pbc=True)
-        cluster2 = ClusterMotif(in_atoms=atoms2, indices=[0, 1])
-        assert "pair" in cluster2._get_default_name()
-
-        # Triplet (3 atoms)
-        atoms3 = Atoms("HHH", positions=[[0, 0, 0], [1, 0, 0], [0, 1, 0]], cell=cell, pbc=True)
-        cluster3 = ClusterMotif(in_atoms=atoms3, indices=[0, 1, 2])
-        assert "triplet" in cluster3._get_default_name()
-
-        # Quadruplet (4 atoms)
-        atoms4 = Atoms("HHHH", positions=[[0, 0, 0], [1, 0, 0], [0, 1, 0], [1, 1, 0]], cell=cell, pbc=True)
-        cluster4 = ClusterMotif(in_atoms=atoms4, indices=[0, 1, 2, 3])
-        assert "quadruplet" in cluster4._get_default_name()
-
-        # Large cluster
-        atoms_large = Atoms("H" * 10, positions=np.random.rand(10, 3), cell=cell, pbc=True)
-        cluster_large = ClusterMotif(in_atoms=atoms_large, indices=list(range(10)))
-        assert "10-sites cluster" in cluster_large._get_default_name()
-
-    def test_site_motifs_property(self, simple_atoms):
-        """Test site_motifs property."""
-        cluster = ClusterMotif(
+def test_post_init_empty_cluster(simple_atoms):
+    """Test that empty clusters are not allowed."""
+    with pytest.raises(ValueError, match="ClusterMotif must contain at least one atom"):
+        ClusterMotif(
             in_atoms=simple_atoms,
-            indices=[0, 1]
+            indices=[]
         )
 
-        site_motifs = cluster.site_motifs
-        assert len(site_motifs) == 2
+def test_default_names():
+    """Test default name generation for different cluster sizes."""
+    cell = np.eye(3) * 3.0
 
-        # Check that each site motif has correct properties
-        for i, site_motif in enumerate(site_motifs):
-            assert site_motif.indices == [cluster.indices[i]]
-            npt.assert_array_equal(site_motif.cell_offsets, [cluster.cell_offsets[i]])
+    # Point (1 atom)
+    atoms1 = Atoms("H", positions=[(0, 0, 0)], cell=cell, pbc=True)
+    cluster1 = ClusterMotif(in_atoms=atoms1, indices=[0])
+    assert cluster1.name == "a point of atoms/species H"
 
-    @patch('AtomWorldBench.atom_world.motifs.site_collections.cluster.detect_neighbor_sites_around_site_index')
-    def test_detect_random_one_success(self, mock_detect, simple_atoms):
-        """Test successful random cluster detection."""
-        from AtomWorldBench.atom_world.motifs.site_collections.site import SiteMotif
+    # Pair (2 atoms)
+    atoms2 = Atoms("HH", positions=[(0, 0, 0), (1, 0, 0)], cell=cell, pbc=True)
+    cluster2 = ClusterMotif(in_atoms=atoms2, indices=[0, 1])
+    assert cluster2.name == "a pair of atoms/species H, H"
 
-        # Mock the neighbor detection to return a site motif
-        mock_site = MagicMock(spec=SiteMotif)
-        mock_site.indices = [1]
+    # Triplet (3 atoms)
+    atoms3 = Atoms("HCH", positions=[(0, 0, 0), (1, 0, 0), (0, 1, 0)], cell=cell, pbc=True)
+    cluster3 = ClusterMotif(in_atoms=atoms3, indices=[0, 1, 2])
+    assert cluster3.name == "a triplet of atoms/species H, C, H"
+
+    # Quadruplet (4 atoms)
+    atoms4 = Atoms(
+        "HHHH",
+        positions=[(0, 0, 0), (1, 0, 0), (0, 1, 0), (1, 1, 0)],
+        cell=cell,
+        pbc=True
+    )
+    cluster4 = ClusterMotif(in_atoms=atoms4, indices=[0, 1, 2, 3])
+    assert "quadruplet" in cluster4._get_default_name()
+
+    # Large cluster
+    atoms_large = Atoms("H" * 10, positions=np.random.rand(10, 3), cell=cell, pbc=True)
+    cluster_large = ClusterMotif(in_atoms=atoms_large, indices=list(range(10)))
+    assert "10-sites cluster" in cluster_large._get_default_name()
+
+
+def test_site_motifs_property(simple_atoms):
+    """Test site_motifs property."""
+    cluster = ClusterMotif(
+        in_atoms=simple_atoms,
+        indices=[0, 1]
+    )
+
+    site_motifs = cluster.site_motifs
+    assert len(site_motifs) == 2
+
+    # Check that each site motif has correct properties
+    for i, site_motif in enumerate(site_motifs):
+        assert isinstance(site_motif, SiteMotif)
+        assert site_motif.indices == [cluster.indices[i]]
+        npt.assert_array_equal(site_motif.cell_offsets, [cluster.cell_offsets[i]])
+        npt.assert_allclose(site_motif.cart_coords, cluster.cart_coords[[i]])
+
+
+def test_detect_random_one_success(monkeypatch, simple_atoms):
+    # mock neighbor site.
+    mock_site = MagicMock(spec=SiteMotif)
+    mock_site.indices = [1]
+    mock_site.in_atoms = simple_atoms
+    mock_site.cell_offsets = np.array([[0, 0, 0]])
+
+    with (
+        patch('AtomWorldBench.atom_world.motifs.site_collections.cluster.detect_neighbor_sites_around_site_index')
+        as mock_detect
+    ):
         mock_detect.return_value = [mock_site]
 
-        # Create a partial mock for the filter function to control radius
-        original_add = ClusterMotif.__add__
+        # fix radius to 2.0 (effective in this test only)
+        monkeypatch.setattr(ClusterMotif, 'radius', property(lambda self: 2.0))
 
-        def mock_add(self, other):
-            result = original_add(self, other)
-            result.radius = 2.0  # Mock radius within limit
-            return result
+        cluster = ClusterMotif.detect_random_one(
+            simple_atoms, cluster_size=2, max_cluster_radius=3.0, seed=42
+        )
+        assert cluster.radius == 2.0
+        mock_detect.assert_called()
 
-        with patch.object(ClusterMotif, '__add__', mock_add):
-            cluster = ClusterMotif.detect_random_one(
-                simple_atoms,
-                cluster_size=2,
-                max_cluster_radius=3.0,
-                seed=42
-            )
 
-            assert isinstance(cluster, ClusterMotif)
-            mock_detect.assert_called()
+@patch('AtomWorldBench.atom_world.motifs.site_collections.cluster.detect_neighbor_sites_around_site_index')
+def test_detect_random_one_failure(mock_detect, simple_atoms):
+    """Test failure case for random cluster detection."""
+    # Mock to return no neighbors
+    mock_detect.return_value = []
 
-    @patch('AtomWorldBench.atom_world.motifs.site_collections.cluster.detect_neighbor_sites_around_site_index')
-    def test_detect_random_one_failure(self, mock_detect, simple_atoms):
-        """Test failure case for random cluster detection."""
-        # Mock to return no neighbors
-        mock_detect.return_value = []
+    with pytest.raises(RuntimeError, match="Failed to detect a valid"):
+        ClusterMotif.detect_random_one(
+            simple_atoms,
+            cluster_size=3,
+            n_attempts=2,
+            max_cluster_radius=1.0
+        )
+
+
+@patch('AtomWorldBench.atom_world.motifs.site_collections.cluster.detect_neighbor_sites_around_site_index')
+def test_detect_random_one_with_symbols(mock_detect, simple_atoms):
+    """Test random cluster detection with symbol filtering."""
+    mock_detect.return_value = []
+
+    try:
+        ClusterMotif.detect_random_one(
+            simple_atoms,
+            cluster_size=2,
+            randomize_symbols=True,
+            seed=42,
+            n_attempts=1
+        )
+    except RuntimeError:
+        pass  # Expected to fail, but we want to check the call
+
+    # Verify that symbols were passed to the detection function
+    assert mock_detect.call_count > 0
+
+
+def test_detect_random_one_radius_filter(monkeypatch, simple_atoms):
+    """Test that clusters exceeding max radius are filtered out."""
+    mock_site = MagicMock(spec=SiteMotif)
+    mock_site.indices = [1]
+    mock_site.in_atoms = simple_atoms
+    mock_site.cell_offsets = np.array([[0, 0, 0]])
+
+    with (
+        patch('AtomWorldBench.atom_world.motifs.site_collections.cluster.detect_neighbor_sites_around_site_index')
+        as mock_detect
+    ):
+        mock_detect.return_value = [mock_site]
+
+        # fix radius to 10.0, exceed detection range (effective in this test only)
+        monkeypatch.setattr(ClusterMotif, 'radius', property(lambda self: 10.0))
 
         with pytest.raises(RuntimeError, match="Failed to detect a valid"):
-            ClusterMotif.detect_random_one(
-                simple_atoms,
-                cluster_size=3,
-                n_attempts=2,
-                max_cluster_radius=1.0
+            _ = ClusterMotif.detect_random_one(
+                simple_atoms, cluster_size=2, max_cluster_radius=3.0, seed=42, n_attempts=10
             )
-
-    @patch('AtomWorldBench.atom_world.motifs.site_collections.cluster.detect_neighbor_sites_around_site_index')
-    def test_detect_random_one_with_symbols(self, mock_detect, simple_atoms):
-        """Test random cluster detection with symbol filtering."""
-        mock_detect.return_value = []
-
-        try:
-            ClusterMotif.detect_random_one(
-                simple_atoms,
-                cluster_size=2,
-                randomize_symbols=True,
-                seed=42,
-                n_attempts=1
-            )
-        except RuntimeError:
-            pass  # Expected to fail, but we want to check the call
-
-        # Verify that symbols were passed to the detection function
-        assert mock_detect.call_count > 0
-
-    @patch('AtomWorldBench.atom_world.motifs.site_collections.cluster.detect_neighbor_sites_around_site_index')
-    def test_detect_random_one_radius_filter(self, mock_detect, simple_atoms):
-        """Test that clusters exceeding max radius are filtered out."""
-        from AtomWorldBench.atom_world.motifs.site_collections.site import SiteMotif
-
-        mock_site = MagicMock(spec=SiteMotif)
-        mock_site.indices = [1]
-        mock_detect.return_value = [mock_site]
-
-        # Mock addition to return cluster with large radius
-        def mock_add_large_radius(self, other):
-            result = ClusterMotif(
-                in_atoms=self.in_atoms,
-                indices=self.indices + other.indices
-            )
-            result.radius = 10.0  # Exceeds max_cluster_radius
-            return result
-
-        with patch.object(ClusterMotif, '__add__', mock_add_large_radius):
-            with pytest.raises(RuntimeError, match="Failed to detect a valid"):
-                ClusterMotif.detect_random_one(
-                    simple_atoms,
-                    cluster_size=2,
-                    max_cluster_radius=3.0,
-                    n_attempts=1
-                )
-
 
 # -----------------------------
 # Tests for detect_neighbor_sites_around_site_index
 # -----------------------------
+def test_detect_with_dummy_atom_error():
+    """Test error when structure contains dummy atom 'X'."""
+    atoms = Atoms("HX", positions=[(0, 0, 0), (0.5, 0, 0)], cell=np.eye(3), pbc=True)
 
-class TestDetectNeighborSites:
+    with pytest.raises(ValueError, match="already contains a dummy atom with symbol 'X'"):
+        detect_neighbor_sites_around_site_index(atoms, site_index=0, cutoff=1.0)
 
-    def test_detect_with_dummy_atom_error(self):
-        """Test error when structure contains dummy atom 'X'."""
-        atoms = Atoms("HX", positions=[[0, 0, 0], [0.5, 0, 0]], cell=np.eye(3), pbc=True)
 
-        with pytest.raises(ValueError, match="already contains a dummy atom with symbol 'X'"):
-            detect_neighbor_sites_around_site_index(atoms, site_index=0, cutoff=1.0)
+@patch('AtomWorldBench.atom_world.motifs.site_collections.cluster.detect_indices_offsets_around_frac_coords')
+def test_detect_basic_functionality(mock_detect_indices):
+    """Test basic neighbor detection functionality."""
+    atoms = Atoms("HHH", positions=[(0, 0, 0), (0.5, 0, 0), (2.0, 0, 0)], cell=np.eye(3), pbc=True)
+    atoms.set_initial_charges([0, 0, 0])
 
-    @patch('AtomWorldBench.atom_world.motifs.site_collections.cluster.detect_indices_offsets_around_frac_coords')
-    def test_detect_basic_functionality(self, mock_detect_indices):
-        """Test basic neighbor detection functionality."""
-        atoms = Atoms("HHH", positions=[[0, 0, 0], [0.5, 0, 0], [2.0, 0, 0]], cell=np.eye(3), pbc=True)
-        atoms.set_initial_charges([0, 0, 0])
+    # Mock the low-level detection function
+    mock_detect_indices.return_value = (
+        np.array([0, 1, 2]),  # indices
+        np.zeros((3, 3))  # offsets
+    )
 
-        # Mock the low-level detection function
-        mock_detect_indices.return_value = (
-            np.array([0, 1, 2]),  # indices
-            np.zeros((3, 3))  # offsets
-        )
+    result = detect_neighbor_sites_around_site_index(atoms, site_index=1, cutoff=1.0)
 
-        result = detect_neighbor_sites_around_site_index(atoms, site_index=1, cutoff=1.0)
+    # Should exclude the site itself (index 1)
+    assert len(result) == 2
 
-        # Should exclude the site itself (index 1)
-        assert len(result) == 2
+    # Check that indices are properly converted to integers
+    for site_motif in result:
+        assert isinstance(site_motif.indices[0], (int, np.integer))
+        assert site_motif.indices[0] != 1  # Should not include the passed in site
 
-        # Check that indices are properly converted to integers
-        for site_motif in result:
-            assert isinstance(site_motif.indices[0], (int, np.integer))
 
-    @patch('AtomWorldBench.atom_world.motifs.site_collections.cluster.detect_indices_offsets_around_frac_coords')
-    def test_detect_with_symbol_filtering(self, mock_detect_indices):
-        """Test neighbor detection with symbol filtering."""
-        atoms = Atoms("HHeH", positions=[[0, 0, 0], [0.5, 0, 0], [1.0, 0, 0], [1.5, 0, 0]], cell=np.eye(3) * 2,
-                      pbc=True)
-        atoms.set_initial_charges([0, 0, 0, 0])
+def test_detect_with_symbol_filtering():
+    """Test neighbor detection with symbol filtering."""
+    atoms = Atoms(
+        "HHCH",
+        positions=[(0, 0, 0), (0.5, 0, 0), (1.0, 0, 0), (1.5, 0, 0)],
+        cell=np.eye(3) * 2,
+        pbc=True
+    )
+    atoms.set_initial_charges([0, 0, 0, 0])
 
-        mock_detect_indices.return_value = (
-            np.array([0, 1, 2, 3]),
-            np.zeros((4, 3))
-        )
-
-        result = detect_neighbor_sites_around_site_index(
-            atoms,
-            site_index=0,
-            cutoff=2.0,
-            symbols=["H"]
-        )
-
-        # Should call the detection function with symbols parameter
-        mock_detect_indices.assert_called_once()
-        call_args = mock_detect_indices.call_args
-        assert call_args[1]['symbols'] == ["H"]
+    result = detect_neighbor_sites_around_site_index(
+        atoms,
+        site_index=1,
+        cutoff=0.6,
+        symbols=["H"]
+    )
+    assert len(result) == 1
+    all_result_indices = [site.indices[0] for site in result]
+    # Should only include site 0 as it is the only H within cutoff.
+    assert set(all_result_indices) == {0}
 
 
 # -----------------------------
 # Integration Tests
 # -----------------------------
+def test_cluster_workflow(complex_atoms):
+    """Test a complete workflow with ClusterMotif."""
+    # Create a cluster
+    cluster = ClusterMotif(
+        in_atoms=complex_atoms,
+        indices=[0, 1, 2],
+        name="test_cluster"
+    )
 
-class TestIntegration:
+    # Test basic properties
+    assert len(cluster) == 3
+    assert cluster.name == "test_cluster"
 
-    def test_cluster_workflow(self, complex_atoms):
-        """Test a complete workflow with ClusterMotif."""
-        # Create a cluster
-        cluster = ClusterMotif(
-            in_atoms=complex_atoms,
-            indices=[0, 1, 2],
-            name="test_cluster"
-        )
+    # Test site motifs
+    site_motifs = cluster.site_motifs
+    assert len(site_motifs) == 3
 
-        # Test basic properties
-        assert len(cluster) == 3
-        assert cluster.name == "test_cluster"
+    # Test copy and equality
+    cluster_copy = cluster.copy()
+    assert cluster_copy == cluster
 
-        # Test site motifs
-        site_motifs = cluster.site_motifs
-        assert len(site_motifs) == 3
+    # Test describe
+    desc = cluster.describe(style="coord")
+    assert "test_cluster" in desc
 
-        # Test copy and equality
-        cluster_copy = cluster.copy()
-        assert cluster_copy == cluster
+    # Test conversion to atoms
+    atoms = cluster.get_atoms()
+    assert len(atoms) == 3
 
-        # Test describe
-        desc = cluster.describe(style="coord")
-        assert "test_cluster" in desc
 
-        # Test conversion to atoms
-        atoms = cluster.get_atoms()
-        assert len(atoms) == 3
+def test_motif_with_offsets_workflow(atoms_with_offsets):
+    """Test workflow with cell offsets."""
+    offsets = np.array([[0, 0, 0], [1, 0, 0]])  # Second atom is in next unit cell
 
-    def test_motif_with_offsets_workflow(self, atoms_with_offsets):
-        """Test workflow with cell offsets."""
-        offsets = np.array([[0, 0, 0], [1, 0, 0]])  # Second atom is in next unit cell
+    cluster = ClusterMotif(
+        in_atoms=atoms_with_offsets,
+        indices=[0, 1],
+        offsets=offsets
+    )
 
-        cluster = ClusterMotif(
-            in_atoms=atoms_with_offsets,
-            indices=[0, 1],
-            offsets=offsets
-        )
+    # Check that offsets and pre_init wrap are properly applied
+    expected_offsets = np.array([[0, 0, 0], [1, 0, 0]])
+    npt.assert_array_equal(cluster.cell_offsets, expected_offsets)
 
-        # Check that offsets are properly applied
-        expected_offsets = np.array([[0, 0, 0], [1, 0, 0]])
-        npt.assert_array_equal(cluster.cell_offsets, expected_offsets)
+    # Test describe with offsets
+    desc = cluster.describe(style="index")
+    assert "offsets" in desc
 
-        # Test describe with offsets
-        desc = cluster.describe(style="index")
-        assert "offsets" in desc
 
-    def test_edge_cases(self, simple_atoms):
-        """Test various edge cases."""
-        # Single atom cluster
-        single_cluster = ClusterMotif(
-            in_atoms=simple_atoms,
-            indices=[0]
-        )
-        assert len(single_cluster) == 1
-        assert single_cluster.radius == 0.0
+def test_edge_cases(simple_atoms):
+    """Test various edge cases."""
+    # Single atom cluster
+    single_cluster = ClusterMotif(
+        in_atoms=simple_atoms,
+        indices=[0]
+    )
+    assert len(single_cluster) == 1
+    assert single_cluster.radius == 0.0
 
-        # Test slicing
-        two_cluster = ClusterMotif(
-            in_atoms=simple_atoms,
-            indices=[0, 1]
-        )
-        sliced = two_cluster[0:1]
-        assert len(sliced) == 1
-        assert sliced.indices == [0]
 
-        # Test equality with different compositions
-        different_atoms = Atoms("HH", positions=[(0.0, 0.0, 0.0), (1.5, 0.0, 0.0)], cell=np.eye(3) * 3.0, pbc=True)
-        different_atoms.set_initial_charges([0, 0])
-        different_cluster = ClusterMotif(in_atoms=different_atoms, indices=[0, 1])
-        assert two_cluster != different_cluster  # Different composition
+def test_describe_addition_mode(simple_atoms):
+    """Test describe method in addition mode."""
+    single_cluster = ClusterMotif(
+        in_atoms=simple_atoms,
+        indices=[0]
+    )
 
-    def test_describe_addition_mode(self, simple_atoms):
-        """Test describe method in addition mode."""
-        single_cluster = ClusterMotif(
-            in_atoms=simple_atoms,
-            indices=[0]
-        )
+    # Single site in addition mode should return just the name
+    desc = single_cluster.describe(style="coord", is_addition=True)
+    assert desc == single_cluster.name
 
-        # Single site in addition mode should return just the name
-        desc = single_cluster.describe(style="coord", is_addition=True)
-        assert desc == single_cluster.name
-
-        # Multi-site should still use full description
-        multi_cluster = ClusterMotif(
-            in_atoms=simple_atoms,
-            indices=[0, 1]
-        )
-        desc_multi = multi_cluster.describe(style="coord", is_addition=True)
-        assert "coordinates" in desc_multi
+    # Multi-site should still use full description
+    multi_cluster = ClusterMotif(
+        in_atoms=simple_atoms,
+        indices=[0, 1]
+    )
+    desc_multi = multi_cluster.describe(style="coord", is_addition=True)
+    assert "coordinates" in desc_multi

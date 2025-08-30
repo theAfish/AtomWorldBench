@@ -97,12 +97,13 @@ class ClusterMotif(BaseSiteCollectionMotif):
                 if they are related by an integer translation.
                 Default is not given, then will use the global setting ALLOW_TRANSLATION_EQUIVALENCE.
         """
-        super().__init__(
-            in_atoms,
-            indices,
-            offsets,
-            name,
-            allow_translation_equivalence,
+        BaseSiteCollectionMotif.__init__(
+            self,
+            in_atoms=in_atoms,
+            indices=indices,
+            offsets=offsets,
+            name=name,
+            allow_translation_equivalence=allow_translation_equivalence,
         )
 
     def __post_init__(self):

@@ -3,7 +3,7 @@ from AtomWorldBench.utils.description_utils import (
     describe_arraylike,
 )
 
-import pytest
+import numpy as np
 
 def test_get_species_string():
     assert get_species_string("H") == "H"
@@ -16,8 +16,10 @@ def test_get_species_string():
 
 def test_describe_arraylike():
     assert describe_arraylike([1, 2, 3], precision=0) == "(1, 2, 3)"
+    assert describe_arraylike(np.array([1, 2, 3]), precision=0) == "(1, 2, 3)"
     assert describe_arraylike([1, 2, 3], precision=2) == "(1.00, 2.00, 3.00)"
     assert describe_arraylike((1.23456, 2.34567), precision=3) == "(1.235, 2.346)"
+    assert describe_arraylike(np.array((1.23456, 2.34567)), precision=3) == "(1.235, 2.346)"
     assert describe_arraylike([[1, 2], [3, 4]], precision=0) == "((1, 2), (3, 4))"
     assert describe_arraylike("Hello") == "'Hello'"
     assert describe_arraylike(42, precision=0) == "42"
