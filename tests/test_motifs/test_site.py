@@ -77,7 +77,7 @@ def test_default_name(simple_atoms):
 def test_forbidden_actions(simple_atoms):
     """Test that forbidden actions are correctly set."""
     motif = SiteMotif(simple_atoms, indices=[0])
-    assert "resize" in motif.forbidden_actions
+    assert "resize-motif" in motif.forbidden_actions
 
 
 def test_detect_random_one(simple_atoms):

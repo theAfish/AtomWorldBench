@@ -51,8 +51,8 @@ class SphereRegionMotif(BaseRegionMotif, MultiModeInitMixin):
         },
     }
 
-    # Can perform resize.
-    forbidden_actions = ["replace", "add", "translate"]
+    # Can perform resize, rotate or remove.
+    forbidden_actions = ["replace-motif", "add-motif", "translate-motif"]
     def __init__(
             self,
             in_atoms: Atoms,

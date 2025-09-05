@@ -60,12 +60,13 @@ class BaseMotifAction(MultiModeInitMixin, ABC):
             raise ValueError(f"Cannot infer action name from class name '{cls_name}'")
         return match.group(1).lower()
 
+    @abstractmethod
     def __post_init__(self):
         """Check compatibility of the action with operated motif, relative_motif and atoms.
 
-        It is strongly recommended to overwrite this method in subclasses.
+        Must be implemented in subclasses.
         """
-        self.__check_operated_motif_compatibility()
+        raise NotImplementedError
 
     def __check_relative_motif_in_atoms(self):
         """Check if the relative motif is present in the provided atoms.

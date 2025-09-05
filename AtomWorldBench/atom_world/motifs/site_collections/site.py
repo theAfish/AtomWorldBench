@@ -16,7 +16,7 @@ class SiteMotif(BaseSiteCollectionMotif):
 
     Can be either an atom or an ionic species in a crystal structure.
     """
-    forbidden_actions = ["resize"]
+    forbidden_actions = ["resize-motif"]
 
     def __init__(
             self,

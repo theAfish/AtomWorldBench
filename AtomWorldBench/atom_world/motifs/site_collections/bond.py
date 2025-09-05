@@ -28,7 +28,9 @@ class BondMotif(ClusterMotif):
     length.
     """
 
-    forbidden_actions = ["add", "remove", "replace", "rotate", "translate"]
+    forbidden_actions = [
+        "add-motif", "remove-motif", "replace-motif", "rotate-motif", "translate-motif"
+    ]
 
     def __init__(
             self,

@@ -23,7 +23,7 @@ class BaseRegionMotif(BaseMotif, ABC):
     Resize actions are also not supported except for sphere region, as defining a radius for
     the is not meaningful for most regions.
     """
-    forbidden_actions = ["replace", "add", "translate", "resize"]
+    forbidden_actions = ["replace-motif", "add-motif", "translate-motif", "resize-motif"]
 
     def __init__(
             self,

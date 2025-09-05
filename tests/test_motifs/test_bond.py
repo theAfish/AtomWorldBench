@@ -40,7 +40,9 @@ def simple_atoms():
 def test_forbidden_actions(simple_atoms):
     """Test that forbidden actions are correctly set."""
     motif = BondMotif(simple_atoms, indices=[0, 1])
-    expected_forbidden = ["add", "remove", "replace", "rotate", "translate"]
+    expected_forbidden = [
+        "add-motif", "remove-motif", "replace-motif", "rotate-motif", "translate-motif"
+    ]
     assert set(motif.forbidden_actions) == set(expected_forbidden)
 
 

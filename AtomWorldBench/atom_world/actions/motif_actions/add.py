@@ -23,6 +23,10 @@ def _check_relative_shift(x):
             x, "relative_shift", expected_1d=True, allow_none=True
         )
 
+def _check_relative_to_motif(motif):
+    if motif is not None and not hasattr(motif, "get_centroid"):
+        raise ValueError("relative_to_motif must support get_centroid method.")
+
 
 @register(BaseMotifAction, ["add", "add-motif"])
 class AddMotifAction(BaseMotifAction):
@@ -41,6 +45,7 @@ class AddMotifAction(BaseMotifAction):
                 x, "relative_to_position", expected_1d=True, allow_none=True
             ),
         "relative_shift": _check_relative_shift,
+        "relative_to_motif": _check_relative_to_motif,
     }
     mode_definitions = {
         # Operated_motif and operated_atoms are always required.
@@ -69,7 +74,7 @@ class AddMotifAction(BaseMotifAction):
             "relative_style": (
                 lambda s: s  == "centroid_distance",
                 "Relative style must be centroid_distance for"
-                " relative_to_regular_motif mode."
+                " relative_to_motif_centroid mode."
             ),
         },
         "relative_to_pair_motif": {
@@ -113,7 +118,7 @@ class AddMotifAction(BaseMotifAction):
             2, `relative_to_position`: Add the motif relative to a specified position.
                 In this mode, provide `relative_to_position` and `relative_shift`.
                 No other parameters should be given except position_fractional.
-            3, `relative_to_regular_motif`: Add the motif relative to a specified motif's
+            3, `relative_to_motif_centroid`: Add the motif relative to a specified motif's
                 centroid. In this mode, provide `relative_to_motif`, `relative_shift`,
                 and `relative_style`=="centroid_distance".
                 No other parameters should be given except
@@ -163,7 +168,7 @@ class AddMotifAction(BaseMotifAction):
             relative_atom_index=relative_atom_index,
         )
 
-    def __post__init__(self):
+    def __post_init__(self):
         # AddAction does not need to check operated_motif existence in atoms.
         self.__check_operated_motif_compatibility()
         self.__check_relative_motif_in_atoms()
@@ -189,7 +194,7 @@ class AddMotifAction(BaseMotifAction):
                 bond_norm_vec = (ref_position - centroid) / np.linalg.norm(ref_position - centroid)
                 relative_shift = self.relative_shift * bond_norm_vec
         # Insert at distance to relative motif centroid.
-        elif self.mode_flag == "relative_to_regular_motif":
+        elif self.mode_flag == "relative_to_motif_centroid":
             centroid = self.relative_to_motif.get_centroid(
                 fractional=False
             )
@@ -294,7 +299,7 @@ class AddMotifAction(BaseMotifAction):
                 f" {rel_motif.indices[self.relative_atom_index]}."
                 + " " + common_instruction
             )
-        if self.mode_flag == "relative_to_regular_motif":
+        if self.mode_flag == "relative_to_motif_centroid":
             return (
                 f"add [{motif.describe(**motif_desc_kwargs)}] to the structure,"
                 f" with its centroid shifted in {coord_word} by"

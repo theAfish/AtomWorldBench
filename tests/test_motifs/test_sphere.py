@@ -316,3 +316,14 @@ def test_default_name(sphere_motif):
     default_name = sphere_motif._get_default_name()
     assert isinstance(default_name, str)
     assert default_name == "SphereRegionMotif"
+
+
+def test_forbidden_actions(sphere_motif):
+    """Test that forbidden actions include expected ones."""
+    forbidden = sphere_motif.forbidden_actions
+    assert isinstance(forbidden, list)
+    assert "add-motif" in forbidden
+    assert "remove-motif" not in forbidden
+    assert "translate-motif" in forbidden
+    assert "resize-motif" not in forbidden
+    assert "replace-motif" in forbidden
