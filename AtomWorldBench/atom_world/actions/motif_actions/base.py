@@ -5,18 +5,18 @@ import re
 
 from ase import Atoms
 
-from ..motifs.base import BaseMotif
-from ...common.mixin_classes import MultiModeInitMixin
+from AtomWorldBench.atom_world.motifs.base import BaseMotif
+from AtomWorldBench.common.mixin_classes import MultiModeInitMixin
 
 
-class BaseAction(MultiModeInitMixin, ABC):
-    """Base class for actions that can be performed on crystal structures.
+class BaseMotifAction(MultiModeInitMixin, ABC):
+    """Base class for actions that can be performed on a motif of crystal structures.
 
     An action is defined as an interface to change a pymatgen.structure object,
     yielding a new pymatgen structure object as the ground truth, as well as a
     prompt to large language models (LLMs) describing operations done to the structure.
 
-    A specific action should be a subclass of BaseAction and MultiModeInitMixin.
+    A specific action should be a subclass of BaseMotifAction and MultiModeInitMixin.
     See documentation for AtomWorldBench.mixin_classes for more details on how to
     implement actions.
     """

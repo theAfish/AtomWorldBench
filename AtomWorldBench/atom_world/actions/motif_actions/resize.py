@@ -5,17 +5,18 @@ import inspect
 from ase import Atoms
 import numpy as np
 
-from .base import BaseAction
-from ..motifs.base import BaseMotif
+from .base import BaseMotifAction
+from ...motifs.base import BaseMotif
 
-from ...utils.atoms_utils import merge_atoms
-from ...common.globals import DEFAULT_FLOAT_TO_STRING_PRECISION
+from ....utils.atoms_utils import merge_atoms
+from ....common.globals import DEFAULT_FLOAT_TO_STRING_PRECISION
 
-from ...common.registry import register
+from ....common.registry import register
 
 
-@register(BaseMotif, ["resize"])
-class ResizeAction(BaseAction):
+# Can only be called "resize-motif" as "resize" may conflict with ResizeStructureAction.
+@register(BaseMotifAction, ["resize-motif"])
+class ResizeMotifAction(BaseMotifAction):
     """Resize a motif by changing the motif's radius with respect to its centroid or a node."""
     mode_definitions = {
         # Parameters that are always required.

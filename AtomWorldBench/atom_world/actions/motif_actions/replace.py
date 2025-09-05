@@ -5,14 +5,14 @@ import inspect
 from ase import Atoms
 import numpy as np
 
-from .base import BaseAction
-from ..motifs.base import BaseMotif
+from .base import BaseMotifAction
+from ...motifs.base import BaseMotif
 
-from ...common.registry import register
+from ....common.registry import register
 
 
-@register(BaseMotif, ["replace"])
-class ReplaceAction(BaseAction):
+@register(BaseMotif, ["replace", "replace-motif"])
+class ReplaceMotifAction(BaseMotifAction):
     """Action to replace a motif in the structure.
 
     This action replaces motifs in the structure based on their fractional coordinates.

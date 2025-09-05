@@ -6,18 +6,19 @@ from numpy.typing import ArrayLike
 import numpy as np
 import inspect
 
-from .base import BaseAction
-from ..motifs.base import BaseMotif
+from .base import BaseMotifAction
+from ...motifs.base import BaseMotif
 
-from ...utils.coord_utils import check_coordinates_shape
-from ...utils.atoms_utils import merge_atoms
-from ...utils.description_utils import describe_arraylike
-from ...common.globals import DEFAULT_FLOAT_TO_STRING_PRECISION
-from ...common.registry import register
+from ....utils.coord_utils import check_coordinates_shape
+from ....utils.atoms_utils import merge_atoms
+from ....utils.description_utils import describe_arraylike
+from ....common.globals import DEFAULT_FLOAT_TO_STRING_PRECISION
+from ....common.registry import register
 
 
-@register(BaseAction, ["translate"])
-class TranslateAction(BaseAction):
+# Can only be called "translate-motif" as "translate" may conflict with TranslateStructureAction.
+@register(BaseMotifAction, ["translate-motif"])
+class TranslateAction(BaseMotifAction):
     """Action to translate a motif in the structure."""
     kwargs_formating_functions = {
         "to_position":

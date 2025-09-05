@@ -5,14 +5,14 @@ import inspect
 import numpy as np
 from ase import Atoms
 
-from .base import BaseAction
-from ..motifs.base import BaseMotif
+from .base import BaseMotifAction
+from ...motifs.base import BaseMotif
 
-from ...common.registry import register
+from ....common.registry import register
 
 
-@register(BaseMotif, ["remove"])
-class RemoveAction(BaseAction):
+@register(BaseMotifAction, ["remove", "remove-motif"])
+class RemoveMotifAction(BaseMotifAction):
     """Action to remove a motif from the structure.
 
     This action removes motifs from the structure based on their fractional coordinates.

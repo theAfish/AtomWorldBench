@@ -7,15 +7,15 @@ import numpy as np
 from numpy.typing import ArrayLike
 from scipy.spatial.transform import Rotation
 
-from .base import BaseAction
-from ..motifs.base import BaseMotif
+from .base import BaseMotifAction
+from ...motifs.base import BaseMotif
 
-from ...utils.coord_utils import check_coordinates_shape
-from ...utils.description_utils import describe_arraylike
-from ...utils.atoms_utils import merge_atoms
+from ....utils.coord_utils import check_coordinates_shape
+from ....utils.description_utils import describe_arraylike
+from ....utils.atoms_utils import merge_atoms
 
-from ...common.globals import DEFAULT_FLOAT_TO_STRING_PRECISION
-from ...common.registry import register
+from ....common.globals import DEFAULT_FLOAT_TO_STRING_PRECISION
+from ....common.registry import register
 
 
 def _check_rotation_axis_vector(r):
@@ -28,8 +28,9 @@ def _check_rotation_axis_vector(r):
     return r / np.linalg.norm(r)
 
 
-@register(BaseMotif, ["rotate"])
-class RotateAction(BaseAction):
+# Can only be called "rotate-motif" as "rotate" may conflict with RotateStructureAction.
+@register(BaseMotifAction, ["rotate-motif"])
+class RotateMotifAction(BaseMotifAction):
     """Action to rotate a motif in the structure.
 
     Notice: this operation only allows relative style.

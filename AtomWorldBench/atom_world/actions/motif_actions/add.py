@@ -6,13 +6,13 @@ import numpy as np
 from ase import Atoms
 from numpy.typing import ArrayLike
 
-from .base import BaseAction
-from ..motifs.base import BaseMotif
-from ...utils.description_utils import describe_arraylike
-from ...utils.coord_utils import check_coordinates_shape
+from .base import BaseMotifAction
+from ...motifs.base import BaseMotif
+from ....utils.description_utils import describe_arraylike
+from ....utils.coord_utils import check_coordinates_shape
 
-from ...common.globals import DEFAULT_FLOAT_TO_STRING_PRECISION
-from ...common.registry import register
+from ....common.globals import DEFAULT_FLOAT_TO_STRING_PRECISION
+from ....common.registry import register
 
 
 def _check_relative_shift(x):
@@ -24,8 +24,8 @@ def _check_relative_shift(x):
         )
 
 
-@register(BaseAction, ["add"])
-class AddAction(BaseAction):
+@register(BaseMotifAction, ["add", "add-motif"])
+class AddMotifAction(BaseMotifAction):
     """Action to add a motif to a structure.
 
     This action defines how to add a motif to a given structure, including the
