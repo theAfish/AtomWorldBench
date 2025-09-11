@@ -87,7 +87,6 @@ def run_benchmark(
     if action not in action_names:
         raise ValueError(f"Invalid action '{action}'. Must be one of: {action_names}")
 
-    # 数据集路径
     data_path = DATA_DIR
 
     # automatically set results folder if not provided
