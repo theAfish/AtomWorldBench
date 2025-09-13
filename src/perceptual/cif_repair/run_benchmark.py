@@ -3,21 +3,13 @@ import os
 import argparse
 import yaml
 from pathlib import Path
-from utils.load_model import load_model
-from perceptual.evaluator import PerceptualEvaluator as Evaluator
-from perceptual.dataloader import load_data
+from utils.load_model import load_model, load_config
+from perceptual.evaluator.cif_repair_evaluator import CIFRepairEvaluator as Evaluator
+from perceptual.utils.dataloader import load_data
 
-CONFIG_DIR = Path(__file__).parent.parent / "config"
-DATA_DIR = Path(__file__).parent / "cif_modifications.csv"
+CONFIG_DIR = Path(__file__).parent.parent.parent / "config"
+DATA_DIR = Path(__file__).parent.parent / "cif_modifications.csv"
 
-
-def load_config(config_name: str) -> dict:
-    config_path = CONFIG_DIR / f"{config_name}.yaml"
-    if not config_path.exists():
-        raise FileNotFoundError(f"{config_path} does not exist.")
-    with open(config_path, 'r', encoding='utf-8') as f:
-        config = yaml.safe_load(f)
-    return config
 
 def run_benchmark(
         model_id: str,
@@ -26,14 +18,9 @@ def run_benchmark(
         config_name: str = "models",
         results_folder: str = None
     ):
-    config = load_config(config_name)[model_id]
-
-    # Initialize model
+    config = load_config(CONFIG_DIR / config_name)[model_id]
     model = load_model(config)
-
-
-    data_path = DATA_DIR
-    data = load_data(data_path)
+    data = load_data(DATA_DIR)
 
     # automatically set results folder if not provided
     timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -46,6 +33,7 @@ def run_benchmark(
         results_folder=results_folder
     )
     evaluator.evaluate(batch_size=batch_size, num_batch=num_batch)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Run benchmark with specified configuration.")

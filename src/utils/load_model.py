@@ -1,8 +1,10 @@
 import os
+from pathlib import Path
 from models.openai_model import OpenAIModel
 from models.azure_openai_model import AzureOpenAIModel
 from models.huggingface_model import HuggingFaceModel
 from models.vllm_model import vllmModel
+import yaml
 
 
 def load_model(config):
@@ -53,3 +55,23 @@ def load_model(config):
         raise ValueError(f"Unimplemented model_class '{model_class}'.")
     
     return model
+
+
+def load_config(config_name: str) -> dict:
+    """
+    Load configuration from a YAML file.
+    
+    Args:
+        config_name (str): Name of the configuration file (without .yaml extension).
+    
+    Returns:
+        dict: Configuration parameters.
+    """
+    config_path = Path(f"{config_name}.yaml")
+    if not config_path.exists():
+        raise FileNotFoundError(f"Configuration file {config_path} does not exist.")
+    
+    with open(config_path, 'r') as file:
+        config = yaml.safe_load(file)
+    
+    return config

@@ -15,7 +15,7 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 
-class PerceptualEvaluator:
+class CIFGenEvaluator:
     def __init__(
             self, 
             model: BaseModel,
