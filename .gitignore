@@ -6,8 +6,9 @@ node_modules/
 __pycache__/
 build/
 
-raw_data/
+# raw_data/
 tests/
 local.models.yaml
 
 run.log
+.coverage

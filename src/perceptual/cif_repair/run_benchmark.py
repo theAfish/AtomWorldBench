@@ -1,14 +1,15 @@
 import datetime
 import os
 import argparse
-import yaml
 from pathlib import Path
 from utils.load_model import load_model, load_config
 from perceptual.evaluator.cif_repair_evaluator import CIFRepairEvaluator as Evaluator
 from perceptual.utils.dataloader import load_data
 
 CONFIG_DIR = Path(__file__).parent.parent.parent / "config"
-DATA_DIR = Path(__file__).parent.parent / "cif_modifications.csv"
+DATA_DIR = Path(__file__).parent / "cif_modifications.csv"
+RESULT_DIR = Path(__file__).parent.parent.parent.parent / "results" / "CifRepair"
+os.makedirs(RESULT_DIR, exist_ok=True)
 
 
 def run_benchmark(
@@ -24,7 +25,7 @@ def run_benchmark(
 
     # automatically set results folder if not provided
     timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    results_folder = f"{results_folder or "results/CifRepair"}/{model_id}/{timestamp}"
+    results_folder = f"{results_folder or RESULT_DIR}/{model_id}/{timestamp}"
     
 
     evaluator = Evaluator(
@@ -70,7 +71,7 @@ if __name__ == "__main__":
         "--results_folder",
         type=str,
         default=None,
-        help="Folder to save results. Default: 'results/PointWorld/{model_id}/{action}/{timestamp}'"
+        help="Folder to save results. Default: 'results/CifRepair/{model_id}/{timestamp}'"
     )
     args = parser.parse_args()
 

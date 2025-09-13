@@ -1,0 +1,38 @@
+# generated using pymatgen
+data_KTcO4
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.63457647
+_cell_length_b   5.63457451
+_cell_length_c   7.45778148
+_cell_angle_alpha   112.19530501
+_cell_angle_beta   112.19530102
+_cell_angle_gamma   90.00000014
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   KTcO4
+_chemical_formula_sum   'K2 Tc2 O8'
+_cell_volume   200.15190577
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  K  K0  1  0.37500000  0.12500000  0.75000000  1.0
+  K  K1  1  0.62500000  0.87500000  0.25000000  1.0
+  Tc  Tc2  1  0.87500000  0.62500000  0.75000000  1.0
+  Tc  Tc3  1  0.12500000  0.37500000  0.25000000  1.0
+  O  O4  1  0.91599605  0.32780596  0.59551553  1.0
+  O  O5  1  0.26770957  0.41599605  0.09551553  1.0
+  O  O6  1  0.82780596  0.17951948  0.09551553  1.0
+  O  O7  1  0.67951948  0.76770957  0.59551553  1.0
+  O  O8  1  0.32048052  0.23229043  0.40448447  1.0
+  O  O9  1  0.17219404  0.82048052  0.90448447  1.0
+  O  O10  1  0.73229043  0.58400395  0.90448447  1.0
+  O  O11  1  0.08400395  0.67219404  0.40448447  1.0

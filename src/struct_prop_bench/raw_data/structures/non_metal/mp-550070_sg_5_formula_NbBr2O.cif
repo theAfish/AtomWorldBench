@@ -1,0 +1,34 @@
+# generated using pymatgen
+data_NbBr2O
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.92237750
+_cell_length_b   7.06102318
+_cell_length_c   7.46907643
+_cell_angle_alpha   104.61070109
+_cell_angle_beta   105.27556480
+_cell_angle_gamma   89.99233088
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   NbBr2O
+_chemical_formula_sum   'Nb2 Br4 O2'
+_cell_volume   192.61378742
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Nb  Nb0  1  0.00842811  0.71407122  0.99954691  1.0
+  Nb  Nb1  1  0.00918168  0.28592769  0.00043733  1.0
+  Br  Br2  1  0.92296142  0.93237680  0.74420585  1.0
+  Br  Br3  1  0.89447536  0.41823497  0.69711224  1.0
+  Br  Br4  1  0.19855419  0.58201658  0.30277636  1.0
+  Br  Br5  1  0.17893889  0.06755587  0.25600632  1.0
+  O  O6  1  0.53948520  0.72026401  0.99888866  1.0
+  O  O7  1  0.54077416  0.27954985  0.00102633  1.0
