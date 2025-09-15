@@ -46,11 +46,11 @@ class CIFGenEvaluator:
         batch_count = 0
         total = min(num_batch * batch_size, len(self.data)) if num_batch > 0 else len(self.data)
         for i, row in tqdm(self.data.iterrows(), total=total, desc="LLM Calling"):
-            reference_structure = row['structure']
+            # reference_structure = row['structure']
             prompt = row['prompt']
 
-            if reference_structure is None:
-                raise ValueError(f"No reference structure at row {i}")
+            # if reference_structure is None:
+            #     raise ValueError(f"No reference structure at row {i}")
 
             prompts.append(prompt)
             rows.append(row)
@@ -95,7 +95,7 @@ class CIFGenEvaluator:
                     #     })
                     #     continue
 
-                    rmsd, max_diff = match_structures(reference_structure, generated_structure, primitive_cell=True)
+                    rmsd, max_diff = match_structures(row['structure'], generated_structure, primitive_cell=True, attempt_supercell=True)
                     if rmsd == -1:
                         logging.info(f"Structures do not match for index {i - len(prompts) + 1 + j}")
                         num_invalid_cif += 1

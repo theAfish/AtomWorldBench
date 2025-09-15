@@ -78,11 +78,11 @@ def check_atom_counts(struct1, struct2):
 #     max_diff = np.max(np.linalg.norm(diff, axis=1))
 #     return rmsd, max_diff
 
-def match_structures(struct1, struct2, primitive_cell=False, stol=0.5):
+def match_structures(struct1, struct2, primitive_cell=False, stol=0.5, **kwargs):
     """
     Match two structures using StructureMatcher.
     """
-    matcher = StructureMatcher(primitive_cell=primitive_cell, stol=stol)
+    matcher = StructureMatcher(primitive_cell=primitive_cell, stol=stol, **kwargs)
     if matcher.fit(struct1, struct2):
         rmsd, max_dist = matcher.get_rms_dist(struct1, struct2)
         return rmsd, max_dist
