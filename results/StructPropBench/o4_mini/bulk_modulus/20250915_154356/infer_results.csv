@@ -1,0 +1,812 @@
+input_cif_name,generated_cif,generated_output
+mp-160_sg_166_formula_B.cif,"data_B_modified
+_symmetry_space_group_name_H-M   'P 1'
+_symmetry_Int_Tables_number      1
+
+_cell_length_a   4.94160773
+_cell_length_b   4.94160802
+_cell_length_c   4.94160892
+_cell_angle_alpha   58.11864518
+_cell_angle_beta    58.11864725
+_cell_angle_gamma   58.11862732
+_cell_volume        81.67
+_cell_formula_units_Z   12
+
+_chemical_formula_structural   B10C2
+_chemical_formula_sum          B10C2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+ 1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+
+C  C0   1  0.00997004  0.65428512  0.00997004  1.0
+C  C1   1  0.00997004  0.00997004  0.65428512  1.0
+B  B2   1  0.65428512  0.00997004  0.00997004  1.0
+B  B3   1  0.34571488  0.99002996  0.99002996  1.0
+B  B4   1  0.99002996  0.34571488  0.99002996  1.0
+B  B5   1  0.99002996  0.99002996  0.34571488  1.0
+B  B6   1  0.22056557  0.63163483  0.22056557  1.0
+B  B7   1  0.22056557  0.22056557  0.63163483  1.0
+B  B8   1  0.63163483  0.22056557  0.22056557  1.0
+B  B9   1  0.36836517  0.77943443  0.77943443  1.0
+B  B10  1  0.77943443  0.36836517  0.77943443  1.0
+B  B11  1  0.77943443  0.77943443  0.36836517  1.0","Here is a modified CIF that (1) substitutes two of the B atoms by C to stiffen the network and (2) uniformly contracts the cell by 2% to shorten bond lengths—all aimed at increasing the bulk modulus.  
+
+<cif>
+data_B_modified
+_symmetry_space_group_name_H-M   'P 1'
+_symmetry_Int_Tables_number      1
+
+_cell_length_a   4.94160773
+_cell_length_b   4.94160802
+_cell_length_c   4.94160892
+_cell_angle_alpha   58.11864518
+_cell_angle_beta    58.11864725
+_cell_angle_gamma   58.11862732
+_cell_volume        81.67
+_cell_formula_units_Z   12
+
+_chemical_formula_structural   B10C2
+_chemical_formula_sum          B10C2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+ 1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+
+C  C0   1  0.00997004  0.65428512  0.00997004  1.0
+C  C1   1  0.00997004  0.00997004  0.65428512  1.0
+B  B2   1  0.65428512  0.00997004  0.00997004  1.0
+B  B3   1  0.34571488  0.99002996  0.99002996  1.0
+B  B4   1  0.99002996  0.34571488  0.99002996  1.0
+B  B5   1  0.99002996  0.99002996  0.34571488  1.0
+B  B6   1  0.22056557  0.63163483  0.22056557  1.0
+B  B7   1  0.22056557  0.22056557  0.63163483  1.0
+B  B8   1  0.63163483  0.22056557  0.22056557  1.0
+B  B9   1  0.36836517  0.77943443  0.77943443  1.0
+B  B10  1  0.77943443  0.36836517  0.77943443  1.0
+B  B11  1  0.77943443  0.77943443  0.36836517  1.0
+</cif>"
+mp-239_sg_113_formula_BaS3.cif,"data_CaS3
+_symmetry_space_group_name_H-M   'P 1'
+_symmetry_Int_Tables_number      1
+
+_cell_length_a   4.00521092
+_cell_length_b   6.60435730
+_cell_length_c   6.60435730
+_cell_angle_alpha   90.00000000
+_cell_angle_beta    90.00000000
+_cell_angle_gamma   90.00000000
+
+_cell_volume     174.668    # approx. 203.76*(0.95)^3
+_cell_formula_units_Z   2
+
+_chemical_formula_structural   CaS3
+_chemical_formula_sum          'Ca2 S6'
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+ 1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+ Ca  Ca0 1  -0.00000000  0.50000000  0.50000000  1.0
+ Ca  Ca1 1  -0.00000000 -0.00000000  0.00000000  1.0
+ S   S2  1   0.47518716  0.82212087  0.32212087  1.0
+ S   S3  1   0.52481284  0.32212087  0.17787913  1.0
+ S   S4  1   0.21150960  -0.00000000  0.50000000  1.0
+ S   S5  1   0.78849040   0.50000000  0.00000000  1.0
+ S   S6  1   0.47518716  0.17787913  0.67787913  1.0
+ S   S7  1   0.52481284  0.67787913  0.82212087  1.0","Here we substitute the larger Ba2+ cation by the smaller Ca2+ and uniformly shrink the cell by 5% to shorten Ca–S bonds and raise the bulk modulus.  All fractional coordinates are kept the same to preserve topology.
+
+<cif>
+data_CaS3
+_symmetry_space_group_name_H-M   'P 1'
+_symmetry_Int_Tables_number      1
+
+_cell_length_a   4.00521092
+_cell_length_b   6.60435730
+_cell_length_c   6.60435730
+_cell_angle_alpha   90.00000000
+_cell_angle_beta    90.00000000
+_cell_angle_gamma   90.00000000
+
+_cell_volume     174.668    # approx. 203.76*(0.95)^3
+_cell_formula_units_Z   2
+
+_chemical_formula_structural   CaS3
+_chemical_formula_sum          'Ca2 S6'
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+ 1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+ Ca  Ca0 1  -0.00000000  0.50000000  0.50000000  1.0
+ Ca  Ca1 1  -0.00000000 -0.00000000  0.00000000  1.0
+ S   S2  1   0.47518716  0.82212087  0.32212087  1.0
+ S   S3  1   0.52481284  0.32212087  0.17787913  1.0
+ S   S4  1   0.21150960  -0.00000000  0.50000000  1.0
+ S   S5  1   0.78849040   0.50000000  0.00000000  1.0
+ S   S6  1   0.47518716  0.17787913  0.67787913  1.0
+ S   S7  1   0.52481284  0.67787913  0.82212087  1.0
+</cif>"
+mp-288_sg_131_formula_PtS.cif,"# modified to reduce bulk modulus by partial Pt→Pd substitution, lattice expansion, and S displacement
+data_PtPdS
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.56435041
+_cell_length_b   3.56435041
+_cell_length_c   6.23861977
+_cell_angle_alpha   90.00000000
+_cell_angle_beta    90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   'Pt0.5Pd0.5S'
+_chemical_formula_sum          'Pt0.5 Pd0.5 S'
+_cell_volume    79.315
+_cell_formula_units_Z   2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+ 1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+ Pt   Pt0   1   0.50000000  -0.00000000   0.50000000   0.500
+ Pd   Pd0   1   0.50000000  -0.00000000   0.50000000   0.500
+ Pt   Pt1   1   0.00000000   0.50000000   0.00000000   0.500
+ Pd   Pd1   1   0.00000000   0.50000000   0.00000000   0.500
+ S    S2    1  -0.00000000  -0.00000000   0.76000000   1.0
+ S    S3    1   0.00000000   0.00000000   0.24000000   1.0","<cif>
+# modified to reduce bulk modulus by partial Pt→Pd substitution, lattice expansion, and S displacement
+data_PtPdS
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.56435041
+_cell_length_b   3.56435041
+_cell_length_c   6.23861977
+_cell_angle_alpha   90.00000000
+_cell_angle_beta    90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   'Pt0.5Pd0.5S'
+_chemical_formula_sum          'Pt0.5 Pd0.5 S'
+_cell_volume    79.315
+_cell_formula_units_Z   2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+ 1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+ Pt   Pt0   1   0.50000000  -0.00000000   0.50000000   0.500
+ Pd   Pd0   1   0.50000000  -0.00000000   0.50000000   0.500
+ Pt   Pt1   1   0.00000000   0.50000000   0.00000000   0.500
+ Pd   Pd1   1   0.00000000   0.50000000   0.00000000   0.500
+ S    S2    1  -0.00000000  -0.00000000   0.76000000   1.0
+ S    S3    1   0.00000000   0.00000000   0.24000000   1.0
+</cif>"
+mp-306_sg_152_formula_B2O3.cif,"data_B2O3_bulkmodulus_enhanced
+_symmetry_space_group_name_H-M   'P 1'
+_symmetry_Int_Tables_number      1
+
+_cell_length_a   4.25060827
+_cell_length_b   4.25061551
+_cell_length_c   8.14284305
+_cell_angle_alpha   90.00000000
+_cell_angle_beta    90.00000000
+_cell_angle_gamma   120.00001084
+_cell_volume        128.430      # ~2% denser than original
+_cell_formula_units_Z   3
+
+_chemical_formula_structural   B1.97Al0.03O3
+_chemical_formula_sum          'B5.91 Al0.09 O9'
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+#
+# Boron sites (one site partially substituted by Al)
+  B   B0   1  0.10014870  0.27065547  0.89931969  1.00
+  B   B1   1  0.17050877  0.89985130  0.56598569  1.00
+  B   B2   1  0.72934453  0.82949123  0.23265269  1.00
+  B   B3   1  0.56654681  0.50382586  0.68267751  1.00
+  B   B4   1  0.93727805  0.43345319  0.34934451  1.00
+  B   B5   1  0.49617414  0.06272195  0.01601151  0.90
+  Al  Al5  1  0.49617414  0.06272195  0.01601151  0.10
+#
+# Oxygen network unchanged
+  O   O6   1  0.48233896  0.21679708  0.58562766  1.00
+  O   O7   1  0.78320292  0.26554188  0.91896166  1.00
+  O   O8   1  0.73445812  0.51766104  0.25229466  1.00
+  O   O9   1  0.33336984  0.51095125  0.79100187  1.00
+  O   O10  1  0.17758141  0.66663016  0.45766887  1.00
+  O   O11  1  0.48904875  0.82241859  0.12433487  1.00
+  O   O12  1  0.88348663  0.81565118  0.66303728  1.00
+  O   O13  1  0.93216255  0.11651337  0.32970428  1.00
+  O   O14  1  0.18434882  0.06783745  0.99637128  1.00","<cif>
+data_B2O3_bulkmodulus_enhanced
+_symmetry_space_group_name_H-M   'P 1'
+_symmetry_Int_Tables_number      1
+
+_cell_length_a   4.25060827
+_cell_length_b   4.25061551
+_cell_length_c   8.14284305
+_cell_angle_alpha   90.00000000
+_cell_angle_beta    90.00000000
+_cell_angle_gamma   120.00001084
+_cell_volume        128.430      # ~2% denser than original
+_cell_formula_units_Z   3
+
+_chemical_formula_structural   B1.97Al0.03O3
+_chemical_formula_sum          'B5.91 Al0.09 O9'
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+#
+# Boron sites (one site partially substituted by Al)
+  B   B0   1  0.10014870  0.27065547  0.89931969  1.00
+  B   B1   1  0.17050877  0.89985130  0.56598569  1.00
+  B   B2   1  0.72934453  0.82949123  0.23265269  1.00
+  B   B3   1  0.56654681  0.50382586  0.68267751  1.00
+  B   B4   1  0.93727805  0.43345319  0.34934451  1.00
+  B   B5   1  0.49617414  0.06272195  0.01601151  0.90
+  Al  Al5  1  0.49617414  0.06272195  0.01601151  0.10
+#
+# Oxygen network unchanged
+  O   O6   1  0.48233896  0.21679708  0.58562766  1.00
+  O   O7   1  0.78320292  0.26554188  0.91896166  1.00
+  O   O8   1  0.73445812  0.51766104  0.25229466  1.00
+  O   O9   1  0.33336984  0.51095125  0.79100187  1.00
+  O   O10  1  0.17758141  0.66663016  0.45766887  1.00
+  O   O11  1  0.48904875  0.82241859  0.12433487  1.00
+  O   O12  1  0.88348663  0.81565118  0.66303728  1.00
+  O   O13  1  0.93216255  0.11651337  0.32970428  1.00
+  O   O14  1  0.18434882  0.06783745  0.99637128  1.00
+</cif>"
+mp-361_sg_224_formula_Cu2O.cif,"data_Cu2O_mod
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.15000000
+_cell_length_b   4.15000000
+_cell_length_c   4.15000000
+_cell_angle_alpha   90.00000000
+_cell_angle_beta    90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Cu1.6Zn0.4O
+_chemical_formula_sum          'Cu3.2 Zn0.8 O2'
+_cell_volume   71.403875
+_cell_formula_units_Z   2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+ Cu  Cu0  1  0.50000000  0.50000000  0.00000000  0.80
+ Zn  Zn0  1  0.50000000  0.50000000  0.00000000  0.20
+ Cu  Cu1  1  0.00000000  0.50000000  0.50000000  0.80
+ Zn  Zn1  1  0.00000000  0.50000000  0.50000000  0.20
+ Cu  Cu2  1  0.50000000  0.00000000  0.50000000  0.80
+ Zn  Zn2  1  0.50000000  0.00000000  0.50000000  0.20
+ Cu  Cu3  1  0.00000000  0.00000000  0.00000000  0.80
+ Zn  Zn3  1  0.00000000  0.00000000  0.00000000  0.20
+ O   O4   1  0.75000000  0.75000000  0.75000000  1.00
+ O   O5   1  0.25000000  0.25000000  0.25000000  1.00","<cif>
+data_Cu2O_mod
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.15000000
+_cell_length_b   4.15000000
+_cell_length_c   4.15000000
+_cell_angle_alpha   90.00000000
+_cell_angle_beta    90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Cu1.6Zn0.4O
+_chemical_formula_sum          'Cu3.2 Zn0.8 O2'
+_cell_volume   71.403875
+_cell_formula_units_Z   2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+ Cu  Cu0  1  0.50000000  0.50000000  0.00000000  0.80
+ Zn  Zn0  1  0.50000000  0.50000000  0.00000000  0.20
+ Cu  Cu1  1  0.00000000  0.50000000  0.50000000  0.80
+ Zn  Zn1  1  0.00000000  0.50000000  0.50000000  0.20
+ Cu  Cu2  1  0.50000000  0.00000000  0.50000000  0.80
+ Zn  Zn2  1  0.50000000  0.00000000  0.50000000  0.20
+ Cu  Cu3  1  0.00000000  0.00000000  0.00000000  0.80
+ Zn  Zn3  1  0.00000000  0.00000000  0.00000000  0.20
+ O   O4   1  0.75000000  0.75000000  0.75000000  1.00
+ O   O5   1  0.25000000  0.25000000  0.25000000  1.00
+</cif>"
+mp-468_sg_167_formula_AlF3.cif,"data_AlF3_mod
+_symmetry_space_group_name_H-M   'P 1'
+_symmetry_Int_Tables_number      1
+_chemical_formula_structural     AlF2.7O0.3
+_chemical_formula_sum            'Al2 F5.4 O0.6'
+_cell_length_a                   8.59876607
+_cell_length_b                   6.85463639
+_cell_length_c                   4.91726588
+_cell_angle_alpha                135.84411518
+_cell_angle_beta                 150.95003080
+_cell_angle_gamma                34.84540193
+_cell_volume                     80.45
+_cell_formula_units_Z            2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+Al  Al0  1  0.49991311  0.75013768   0.00011922  1.0
+Al  Al1  1  0.49998650  0.24996728  -0.00016565  1.0
+
+F   F2  1  0.41281156  -0.00027007  0.82516300  0.90
+O   O2  1  0.41281156  -0.00027007  0.82516300  0.10
+
+F   F3  1  0.00001468   0.91197287  0.41178250  0.90
+O   O3  1  0.00001468   0.91197287  0.41178250  0.10
+
+F   F4  1  0.41180985   0.08818844  0.41163447  0.90
+O   O4  1  0.41180985   0.08818844  0.41163447  0.10
+
+F   F5  1  0.58763630   0.50026991  0.17574064  0.90
+O   O5  1  0.58763630   0.50026991  0.17574064  0.10
+
+F   F6  1  0.00004140   0.58739818  0.58782109  0.90
+O   O6  1  0.00004140   0.58739818  0.58782109  0.10
+
+F   F7  1  0.58778759   0.41233672  0.58790473  0.90
+O   O7  1  0.58778759   0.41233672  0.58790473  0.10","<cif>
+data_AlF3_mod
+_symmetry_space_group_name_H-M   'P 1'
+_symmetry_Int_Tables_number      1
+_chemical_formula_structural     AlF2.7O0.3
+_chemical_formula_sum            'Al2 F5.4 O0.6'
+_cell_length_a                   8.59876607
+_cell_length_b                   6.85463639
+_cell_length_c                   4.91726588
+_cell_angle_alpha                135.84411518
+_cell_angle_beta                 150.95003080
+_cell_angle_gamma                34.84540193
+_cell_volume                     80.45
+_cell_formula_units_Z            2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+Al  Al0  1  0.49991311  0.75013768   0.00011922  1.0
+Al  Al1  1  0.49998650  0.24996728  -0.00016565  1.0
+
+F   F2  1  0.41281156  -0.00027007  0.82516300  0.90
+O   O2  1  0.41281156  -0.00027007  0.82516300  0.10
+
+F   F3  1  0.00001468   0.91197287  0.41178250  0.90
+O   O3  1  0.00001468   0.91197287  0.41178250  0.10
+
+F   F4  1  0.41180985   0.08818844  0.41163447  0.90
+O   O4  1  0.41180985   0.08818844  0.41163447  0.10
+
+F   F5  1  0.58763630   0.50026991  0.17574064  0.90
+O   O5  1  0.58763630   0.50026991  0.17574064  0.10
+
+F   F6  1  0.00004140   0.58739818  0.58782109  0.90
+O   O6  1  0.00004140   0.58739818  0.58782109  0.10
+
+F   F7  1  0.58778759   0.41233672  0.58790473  0.90
+O   O7  1  0.58778759   0.41233672  0.58790473  0.10
+</cif>"
+mp-470_sg_136_formula_GeO2.cif,"# Modified: 25% Ge→Sn substitution + 2% lattice expansion to reduce bulk modulus
+data_Ge0.75Sn0.25O2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a                   2.93304563
+_cell_length_b                   4.50067284
+_cell_length_c                   4.50067284
+_cell_angle_alpha                90.00000000
+_cell_angle_beta                 90.00000000
+_cell_angle_gamma                90.00000000
+_symmetry_Int_Tables_number      1
+_chemical_formula_structural     'Ge0.75Sn0.25O2'
+_chemical_formula_sum            'Ge0.75 Sn0.25 O2'
+_cell_volume                     59.404
+_cell_formula_units_Z            2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+ 1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+Ge  Ge0  1  0.50000000  0.50000000  0.50000000  0.75
+Sn  Sn0  1  0.50000000  0.50000000  0.50000000  0.25
+Ge  Ge1  1  0.00000000  0.00000000  0.00000000  0.75
+Sn  Sn1  1  0.00000000  0.00000000  0.00000000  0.25
+O   O2   1 -0.00000000  0.69422923  0.69422923  1.0
+O   O3   1  0.50000000  0.80577077  0.19422923  1.0
+O   O4   1  0.00000000  0.30577077  0.30577077  1.0
+O   O5   1  0.50000000  0.19422923  0.80577077  1.0","Here we introduce two modifications to lower the bulk modulus: (1) partial substitution of Ge by the larger, softer Sn (25 % Sn, 75 % Ge), which weakens the M–O bonds; (2) a 2 % uniform expansion of the unit‐cell parameters, increasing compressibility.  
+Below is the complete CIF:
+
+<cif>
+# Modified: 25% Ge→Sn substitution + 2% lattice expansion to reduce bulk modulus
+data_Ge0.75Sn0.25O2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a                   2.93304563
+_cell_length_b                   4.50067284
+_cell_length_c                   4.50067284
+_cell_angle_alpha                90.00000000
+_cell_angle_beta                 90.00000000
+_cell_angle_gamma                90.00000000
+_symmetry_Int_Tables_number      1
+_chemical_formula_structural     'Ge0.75Sn0.25O2'
+_chemical_formula_sum            'Ge0.75 Sn0.25 O2'
+_cell_volume                     59.404
+_cell_formula_units_Z            2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+ 1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+Ge  Ge0  1  0.50000000  0.50000000  0.50000000  0.75
+Sn  Sn0  1  0.50000000  0.50000000  0.50000000  0.25
+Ge  Ge1  1  0.00000000  0.00000000  0.00000000  0.75
+Sn  Sn1  1  0.00000000  0.00000000  0.00000000  0.25
+O   O2   1 -0.00000000  0.69422923  0.69422923  1.0
+O   O3   1  0.50000000  0.80577077  0.19422923  1.0
+O   O4   1  0.00000000  0.30577077  0.30577077  1.0
+O   O5   1  0.50000000  0.19422923  0.80577077  1.0
+</cif>"
+mp-471_sg_98_formula_CdAs2.cif,"data_CdAs2_mod
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.631122
+_cell_length_b   6.032263
+_cell_length_c   6.032246
+_cell_angle_alpha   81.52656947
+_cell_angle_beta    67.42683261
+_cell_angle_gamma   67.42683613
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Cd0.5Zn0.5As2
+_chemical_formula_sum   'Cd0.5 Zn0.5 As2'
+_cell_volume   139.622  
+_cell_formula_units_Z   2
+
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+1  'x, y, z'
+
+loop_
+_atom_site_type_symbol
+_atom_site_label
+_atom_site_symmetry_multiplicity
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_occupancy
+
+Cd   Cd0 1  0.250000  0.500000  0.500000  0.50
+Zn   Zn0 1  0.250000  0.500000  0.500000  0.50
+Cd   Cd1 1  0.000000  0.000000  0.000000  0.50
+Zn   Zn1 1  0.000000  0.000000  0.000000  0.50
+As   As2 1  0.686707  0.188293  0.688293  1.00
+As   As3 1  0.625000  0.811707  0.688293  1.00
+As   As4 1  0.563293  0.811707  0.311707  1.00
+As   As5 1  0.125000  0.188293  0.311707  1.00","<cif>
+data_CdAs2_mod
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.631122
+_cell_length_b   6.032263
+_cell_length_c   6.032246
+_cell_angle_alpha   81.52656947
+_cell_angle_beta    67.42683261
+_cell_angle_gamma   67.42683613
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Cd0.5Zn0.5As2
+_chemical_formula_sum   'Cd0.5 Zn0.5 As2'
+_cell_volume   139.622  
+_cell_formula_units_Z   2
+
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+1  'x, y, z'
+
+loop_
+_atom_site_type_symbol
+_atom_site_label
+_atom_site_symmetry_multiplicity
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_occupancy
+
+Cd   Cd0 1  0.250000  0.500000  0.500000  0.50
+Zn   Zn0 1  0.250000  0.500000  0.500000  0.50
+Cd   Cd1 1  0.000000  0.000000  0.000000  0.50
+Zn   Zn1 1  0.000000  0.000000  0.000000  0.50
+As   As2 1  0.686707  0.188293  0.688293  1.00
+As   As3 1  0.625000  0.811707  0.688293  1.00
+As   As4 1  0.563293  0.811707  0.311707  1.00
+As   As5 1  0.125000  0.188293  0.311707  1.00
+</cif>"
+mp-539_sg_9_formula_Ga2S3.cif,"data_Ga2Se3
+_symmetry_space_group_name_H-M   'P 1'
+_symmetry_Int_Tables_number      1
+
+_cell_length_a   6.65388768   ; # increased by ~3%
+_cell_length_b   6.67188868   ; # increased by ~3%
+_cell_length_c   7.26504257   ; # increased by ~3%
+_cell_angle_alpha   116.53502820
+_cell_angle_beta    90.00000000
+_cell_angle_gamma   119.89095037
+
+_cell_volume      0.0          ; # automatically recalculated by most CIF readers
+_cell_formula_units_Z   2
+
+_chemical_formula_structural   Ga2Se3
+_chemical_formula_sum          'Ga4 Se6'
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+ 1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+
+# Ga sites (unchanged)
+ Ga  Ga0  1  0.13653814  0.40574596  0.61964728  1.0
+ Ga  Ga1  1  0.26920781  0.40574596  0.11964728  1.0
+ Ga  Ga2  1  0.44718999  0.08814768  0.62905923  1.0
+ Ga  Ga3  1  0.64095870  0.08814768  0.12905923  1.0
+
+# Se sites (substituted for S, same positions)
+ Se  Se4  1  0.42851516  0.67989794  0.50284171  1.0
+ Se  Se5  1  0.25138278  0.67989794  0.00284171  1.0
+ Se  Se6  1  0.76053466  0.34699161  0.51185829  1.0
+ Se  Se7  1  0.58645796  0.34699161  0.01185829  1.0
+ Se  Se8  1  0.91099758  0.00121681  0.98559649  1.0
+ Se  Se9  1  0.09021723  0.00121681  0.48559649  1.0","Below is a possible way to soften the Ga–chalcogen bonds (and thus lower the bulk modulus) by substituting the smaller S atoms with larger Se atoms and simultaneously expanding the unit‐cell by about 3 %. This increases bond lengths and reduces the resistance to compression. All S sites have been replaced by Se in the CIF; the lattice parameters a, b and c have been increased by ~3 %. The angles and fractional coordinates remain unchanged.
+
+<cif>
+data_Ga2Se3
+_symmetry_space_group_name_H-M   'P 1'
+_symmetry_Int_Tables_number      1
+
+_cell_length_a   6.65388768   ; # increased by ~3%
+_cell_length_b   6.67188868   ; # increased by ~3%
+_cell_length_c   7.26504257   ; # increased by ~3%
+_cell_angle_alpha   116.53502820
+_cell_angle_beta    90.00000000
+_cell_angle_gamma   119.89095037
+
+_cell_volume      0.0          ; # automatically recalculated by most CIF readers
+_cell_formula_units_Z   2
+
+_chemical_formula_structural   Ga2Se3
+_chemical_formula_sum          'Ga4 Se6'
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+ 1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+
+# Ga sites (unchanged)
+ Ga  Ga0  1  0.13653814  0.40574596  0.61964728  1.0
+ Ga  Ga1  1  0.26920781  0.40574596  0.11964728  1.0
+ Ga  Ga2  1  0.44718999  0.08814768  0.62905923  1.0
+ Ga  Ga3  1  0.64095870  0.08814768  0.12905923  1.0
+
+# Se sites (substituted for S, same positions)
+ Se  Se4  1  0.42851516  0.67989794  0.50284171  1.0
+ Se  Se5  1  0.25138278  0.67989794  0.00284171  1.0
+ Se  Se6  1  0.76053466  0.34699161  0.51185829  1.0
+ Se  Se7  1  0.58645796  0.34699161  0.01185829  1.0
+ Se  Se8  1  0.91099758  0.00121681  0.98559649  1.0
+ Se  Se9  1  0.09021723  0.00121681  0.48559649  1.0
+</cif>"
+mp-661_sg_186_formula_AlN.cif,"data_AlScN
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.09730200
+_cell_length_b   3.09730230
+_cell_length_c   4.96678500
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   119.99999712
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Al1.5Sc0.5N2
+_chemical_formula_sum   'Al1.5 Sc0.5 N2'
+_cell_volume   41.25
+_cell_formula_units_Z   2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Al   Al0   1   0.66666700   0.33333300   0.49928700   0.75
+  Sc   Sc0   1   0.66666700   0.33333300   0.49928700   0.25
+  Al   Al1   1   0.33333300   0.66666700   0.99928700   0.75
+  Sc   Sc1   1   0.33333300   0.66666700   0.99928700   0.25
+  N    N2    1   0.66666700   0.33333300   0.88071300   1.0
+  N    N3    1   0.33333300   0.66666700   0.38071300   1.0","<cif>
+data_AlScN
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.09730200
+_cell_length_b   3.09730230
+_cell_length_c   4.96678500
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   119.99999712
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Al1.5Sc0.5N2
+_chemical_formula_sum   'Al1.5 Sc0.5 N2'
+_cell_volume   41.25
+_cell_formula_units_Z   2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Al   Al0   1   0.66666700   0.33333300   0.49928700   0.75
+  Sc   Sc0   1   0.66666700   0.33333300   0.49928700   0.25
+  Al   Al1   1   0.33333300   0.66666700   0.99928700   0.75
+  Sc   Sc1   1   0.33333300   0.66666700   0.99928700   0.25
+  N    N2    1   0.66666700   0.33333300   0.88071300   1.0
+  N    N3    1   0.33333300   0.66666700   0.38071300   1.0
+</cif>"
