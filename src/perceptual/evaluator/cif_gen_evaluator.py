@@ -1,9 +1,10 @@
 from models.base_model import BaseModel
 import os
+from typing import Union, List
 import pandas as pd
 from utils.extract_data import extract_from_string
-from prompts.cif_repair_prompt import cif_repair_prompt
-from evaluation.metrics import load_cif_file_from_string, check_atom_counts, match_structures
+from evaluation.metrics import load_cif_file_from_string, match_structures
+from pymatgen.core.structure import Structure
 from tqdm import tqdm
 import logging
 import time
@@ -19,7 +20,7 @@ class CIFGenEvaluator:
     def __init__(
             self, 
             model: BaseModel,
-            data: pd.DataFrame, 
+            data: Union[pd.DataFrame, List[Structure]], 
             results_folder: str = "results"
     ):
         """
@@ -33,6 +34,8 @@ class CIFGenEvaluator:
         """
         Evaluate the model on the provided data in batches.
         """
+        self.data['cif'] = self.data['structure'].apply(lambda s: s.to(fmt="cif"))
+
         results = []
         wrongs = []
         num_unreadable_out = 0
@@ -41,14 +44,14 @@ class CIFGenEvaluator:
         prompts = []
         rows = []
         batch_count = 0
-        for i, row in tqdm(self.data.iterrows(), total=len(self.data), desc="LLM Calling"):
-            original_cif = row['original_cif']
-            modified_cif = row['modified_cif']
+        total = min(num_batch * batch_size, len(self.data)) if num_batch > 0 else len(self.data)
+        for i, row in tqdm(self.data.iterrows(), total=total, desc="LLM Calling"):
+            reference_structure = row['structure']
+            prompt = row['prompt']
 
-            if original_cif is None:
-                raise ValueError(f"input_cif is None at row {i}")
+            if reference_structure is None:
+                raise ValueError(f"No reference structure at row {i}")
 
-            prompt = cif_repair_prompt(modified_cif=modified_cif)
             prompts.append(prompt)
             rows.append(row)
 
@@ -63,62 +66,49 @@ class CIFGenEvaluator:
                         logging.info(f"Invalid generated output for index {i - len(prompts) + 1 + j}")
                         num_unreadable_out += 1
                         wrongs.append({
-                            "broken_cif": row['modified_cif'],
+                            "reference_cif": row['cif'],
                             "generated_output": generated_output,
-                            "fixed_cif": row['original_cif'],
                             "wrong_type": "OutputFormatError"
                         })
                         continue
 
-                    # if there are [VALUE_TO_BE_INSERTED] in the generated_cif, change them back to the removed_values
-                    if '[VALUE_TO_BE_INSERTED]' in generated_cif and row['removed_value'] != 'None':
-                        print(f"Replacing [VALUE_TO_BE_INSERTED] with {row['removed_value']}")
-                        print(type(row['removed_value']))
-                        generated_cif = generated_cif.replace('[VALUE_TO_BE_INSERTED]', row['removed_value'])
-
-                    input_structure = load_cif_file_from_string(row["modified_cif"])
-                    fixed_structure = load_cif_file_from_string(row["original_cif"])
                     generated_structure = load_cif_file_from_string(generated_cif)
 
                     if generated_structure is None:
                         logging.info(f"Invalid generated structure for index {i - len(prompts) + 1 + j}")
                         num_invalid_cif += 1
                         wrongs.append({
-                            "broken_cif": row['modified_cif'],
+                            "reference_cif": row['cif'],
                             "generated_output": generated_output,
-                            "fixed_cif": row['original_cif'],
                             "wrong_type": "CIFParsingError"
                         })
                         continue
 
-                    atom_counts_match = check_atom_counts(fixed_structure, generated_structure)
-                    if not atom_counts_match:
-                        logging.info(f"Atom counts do not match for index {i - len(prompts) + 1 + j}")
-                        num_invalid_cif += 1
-                        wrongs.append({
-                            "broken_cif": row['modified_cif'],
-                            "generated_output": generated_output,
-                            "fixed_cif": row['original_cif'],
-                            "wrong_type": "AtomCountMismatch"
-                        })
-                        continue
+                    # atom_counts_match = check_atom_counts(reference_structure, generated_structure)
+                    # if not atom_counts_match:
+                    #     logging.info(f"Atom counts do not match for index {i - len(prompts) + 1 + j}")
+                    #     num_invalid_cif += 1
+                    #     wrongs.append({
+                    #         "reference_cif": reference_cif,
+                    #         "generated_output": generated_output,
+                    #         "wrong_type": "AtomCountMismatch"
+                    #     })
+                    #     continue
 
-                    rmsd, max_diff = match_structures(fixed_structure, generated_structure)
+                    rmsd, max_diff = match_structures(reference_structure, generated_structure, primitive_cell=True)
                     if rmsd == -1:
                         logging.info(f"Structures do not match for index {i - len(prompts) + 1 + j}")
                         num_invalid_cif += 1
                         wrongs.append({
-                            "broken_cif": row['modified_cif'],
+                            "reference_cif": row['cif'],
                             "generated_output": generated_output,
-                            "fixed_cif": row['original_cif'],
                             "wrong_type": "StructureMismatch"
                         })
                         continue
 
                     results.append({
-                        "broken_cif": row['modified_cif'],
+                        "reference_cif": row['cif'],
                         "generated_cif": generated_cif,
-                        "fixed_cif": row['original_cif'],
                         "rmsd": rmsd,
                         "max_diff": max_diff,
                         "generated_output": generated_output

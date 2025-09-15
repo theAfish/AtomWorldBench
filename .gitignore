@@ -6,7 +6,7 @@ node_modules/
 __pycache__/
 build/
 
-# raw_data/
+_raw_data/
 tests/
 local.models.yaml
 
