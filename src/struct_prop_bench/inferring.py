@@ -2,7 +2,7 @@ from models.base_model import BaseModel
 import os
 import pandas as pd
 from utils.extract_data import extract_from_string
-from evaluation.metrics import load_cif_file_from_string
+from evaluation.metrics import load_cif_file_from_string, check_partially_occupied_sites
 from tqdm import tqdm
 import logging
 from pathlib import Path
@@ -91,6 +91,17 @@ class PropertyActionInfer:
                             "input_cif_name": row['input_cif_name'],
                             "generated_output": generated_output,
                             "wrong_type": "CIFParsingError"
+                        })
+                        continue
+
+                    # check partially occupied 
+                    if check_partially_occupied_sites(generated_structure):
+                        logging.info(f"Generated structure has partially occupied sites for index {i - len(prompts) + 1 + j}")
+                        num_invalid_cif += 1
+                        wrongs.append({
+                            "input_cif_name": row['input_cif_name'],
+                            "generated_output": generated_output,
+                            "wrong_type": "PartialOccupancyError"
                         })
                         continue
 

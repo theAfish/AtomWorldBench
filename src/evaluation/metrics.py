@@ -89,3 +89,15 @@ def match_structures(struct1, struct2, primitive_cell=False, stol=0.5, **kwargs)
     else:
         logging.info("Structures do NOT match within tolerances.")
         return -1, -1
+
+
+def check_partially_occupied_sites(struct):
+    """
+    Check if a structure has partially occupied sites.
+    Returns True if any site is partially occupied, False otherwise.
+    """
+    for site in struct.sites:
+        for occu in site.species.values():
+            if occu < 1.0:
+                return True
+    return False
