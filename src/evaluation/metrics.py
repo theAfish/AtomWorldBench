@@ -101,3 +101,15 @@ def check_partially_occupied_sites(struct):
             if occu < 1.0:
                 return True
     return False
+
+
+def check_atoms_too_close(struct, threshold=0.5):
+    """
+    Check if any two atoms in the structure are closer than the given threshold (in Angstroms).
+    Returns True if any pair is too close, False otherwise.
+    """
+    dists = struct.distance_matrix
+    np.fill_diagonal(dists, np.inf)
+    if np.any(dists < threshold):
+        return True
+    return False
