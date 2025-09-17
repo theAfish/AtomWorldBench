@@ -1,25 +1,15 @@
+from evaluation.base_evaluator import BaseEvaluator
 from models.base_model import BaseModel
 from point_world.data_io import load_dataset_from_h5
 from point_world.prompt import final_prompt
-
+from typing import Dict, Any, List
 import numpy as np
-import pandas as pd
-from tqdm import tqdm
 from scipy.optimize import linear_sum_assignment
 import re
-import os
-import logging
 import json
-import random
+import logging
 
-logging.captureWarnings(True)
-logging.basicConfig(
-    filename='run.log',
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
-)
-
-class Evaluator:
+class PointWorldEvaluator(BaseEvaluator):
     def __init__(
             self,
             model: BaseModel,
@@ -28,128 +18,109 @@ class Evaluator:
             results_folder: str = "results",
     ):
         """
-        Initialize the Evaluator with the data folder and optional action name.
+        Initialize the PointWorld Evaluator.
         """
-        self.model = model
         self.data_folder = data_folder
         self.action_name = action_name
-        self.data = load_dataset_from_h5(data_folder, action_name)
-        self.results_folder = results_folder
-        os.makedirs(self.results_folder, exist_ok=True)
+        data = load_dataset_from_h5(data_folder, action_name)
+        super().__init__(model=model, results_folder=results_folder, data=data)
 
-    def compute_distance_matrix(self, points1, points2):
+    def compute_distance_matrix(self, points1: np.ndarray, points2: np.ndarray) -> np.ndarray:
+        """Compute pairwise distances between two sets of points."""
         diff = points1[:, None, :] - points2[None, :, :]
         dist_mat = np.linalg.norm(diff, axis=2)
         return dist_mat
 
-    # Hungarian algorithm
-    def match_points(self, points_true, points_pred):
+    def match_points(self, points_true: np.ndarray, points_pred: np.ndarray) -> np.ndarray:
+        """Match points using Hungarian algorithm."""
         dist_mat = self.compute_distance_matrix(points_true, points_pred)
         row_ind, col_ind = linear_sum_assignment(dist_mat)
         matched_distances = dist_mat[row_ind, col_ind]
         return matched_distances
 
-    def evaluate(self, batch_size: int = 8, num_batch: int = -1):
-        print("Running evaluate")
-    
-        results = []
-        wrongs = []
-        num_unreadable_out = 0
-        num_invalid_pred = 0
+    def _initialize_stats(self) -> Dict:
+        """Initialize statistics tracking."""
+        return {
+            'num_unreadable_out': 0,
+            'num_invalid_pred': 0,
+            'results': []
+        }
 
-        prompts = []
-        rows = []
-        batch_count = 0
+    def _create_prompt(self, row: Any) -> str:
+        """Create a prompt from the data row."""
+        return final_prompt(
+            input_points=row['state_before'],
+            action_prompt=row['action_prompt']
+        )
 
-        if num_batch > 0:
-            total = min(len(self.data), batch_size * num_batch)
-        else:
-            total = len(self.data)
-            
-        evaluation_data = random.sample(self.data, batch_size * num_batch)
-        print(f"Before tqdm: len(self.data): {len(self.data)}, len(evaluation_data): {len(evaluation_data)}, total: {total}")
-        for i, row in enumerate(evaluation_data):
-            print(i, row)
-        # for i, row in tqdm(enumerate(evaluation_data), total=total, desc="LLM Calling"):
-        for i, row in enumerate(evaluation_data):
-            print(f"Packing row: {i}")
-            points_before = row['state_before']
-            action_prompt = row['action_prompt']
+    def _process_single_output(
+        self,
+        row: Any,
+        generated_output: str,
+        stats: Dict
+    ) -> Dict:
+        """Process a single generated output."""
+        points_pred = extract_points_from_answer(generated_output)
+        points_true = np.array(row['state_after'])
 
-            prompt = final_prompt(
-                input_points=points_before,
-                action_prompt=action_prompt
-            )
-            prompts.append(prompt)
-            rows.append(row)
+        if points_pred is None:
+            logging.info("Unreadable output")
+            stats['num_unreadable_out'] += 1
+            return {
+                'is_error': True,
+                'state_before': row['state_before'],
+                'action_prompt': row['action_prompt'],
+                'generated_output': generated_output,
+                'target_state_after': row['state_after'],
+                'wrong_type': "UnreadableOutput"
+            }
 
-            if len(prompts) == batch_size or i == len(evaluation_data) - 1:
-                print(f"Sending batch.")
-                generated_outputs = self.model.generate_batch(prompts)
-                print(f"Received batch.")
-                for j, generated_output in enumerate(generated_outputs):
-                    row = rows[j]
-                    points_pred = extract_points_from_answer(generated_output)
-                    points_true = np.array(row['state_after'])
+        if points_true.shape != points_pred.shape:
+            logging.info("Invalid prediction shape")
+            stats['num_invalid_pred'] += 1
+            return {
+                'is_error': True,
+                'state_before': row['state_before'],
+                'action_prompt': row['action_prompt'],
+                'generated_output': generated_output,
+                'target_state_after': row['state_after'],
+                'wrong_type': "InvalidShape"
+            }
 
-                    if points_pred is None:
-                        logging.info(f"Unreadable. Index: {i - len(prompts) + 1 + j}")
-                        num_unreadable_out += 1
-                        wrongs.append({
-                            "state_before": row['state_before'],
-                            "action_prompt": row['action_prompt'],
-                            "generated_output": generated_output,
-                            "target_state_after": row['state_after'],
-                        })
-                        continue
+        matched_distances = self.match_points(points_true, points_pred)
+        mean_error = matched_distances.mean()
+        max_error = matched_distances.max()
 
-                    if points_true.shape != points_pred.shape:
-                        logging.info(f"Invalid shape. Index: {i - len(prompts) + 1 + j}")
-                        num_invalid_pred += 1
-                        wrongs.append({
-                            "state_before": row['state_before'],
-                            "action_prompt": row['action_prompt'],
-                            "generated_output": generated_output,
-                            "target_state_after": row['state_after'],
-                        })
-                        continue
+        return {
+            'is_error': False,
+            'state_before': row['state_before'],
+            'action_prompt': row['action_prompt'],
+            'generated_state_after': points_pred.tolist(),
+            'target_state_after': row['state_after'],
+            'mean_error': mean_error,
+            'max_error': max_error,
+            'generated_output': generated_output
+        }
 
-                    matched_distances = self.match_points(points_true, points_pred)
-                    mean_error = matched_distances.mean()
-                    max_error = matched_distances.max()
+    def _log_success_metrics(self, result: Dict) -> None:
+        """Log metrics for successful generations."""
+        print(f"Mean Error: {result['mean_error']}, Max Error: {result['max_error']}")
 
-                    results.append({
-                        "state_before": row['state_before'],
-                        "action_prompt": row['action_prompt'],
-                        "generated_state_after": points_pred.tolist(),
-                        "target_state_after": row['state_after'],
-                        "mean_error": mean_error,
-                        "max_error": max_error,
-                        "generated_output": generated_output
-                    })
-                    # print(f"Mean Error: {mean_error}, Max Error: {max_error}")
+    def _print_summary(self, stats: Dict) -> None:
+        """Print evaluation summary."""
+        print(f"Total: {len(self.data)}")
+        print(f"Unreadable: {stats['num_unreadable_out']}, Invalid: {stats['num_invalid_pred']}")
 
-                prompts = []
-                rows = []
-                batch_count += 1
+        # Calculate average errors from successful results
+        if 'results' in stats:
+            results = [r for r in stats['results'] if not r.get('is_error', False)]
+            if results:
+                avg_max_error = np.mean([r['max_error'] for r in results])
+                avg_mean_error = np.mean([r['mean_error'] for r in results])
+                print(f"Average Max Error: {avg_max_error}, Average Mean Error: {avg_mean_error}")
+            else:
+                print("No successful results to compute average errors")
 
-                if num_batch > 0 and batch_count >= num_batch:
-                    break
-
-        print(f"Total: {len(evaluation_data)}")
-        print(f"Unreadable: {num_unreadable_out}, Invalid: {num_invalid_pred}")
-        avg_max_error = np.mean([r['max_error'] for r in results]) if results else float('inf')
-        avg_mean_error = np.mean([r['mean_error'] for r in results]) if results else float('inf')
-        print(f"Average Max Error: {avg_max_error}, Average Mean Error: {avg_mean_error}")
-
-        results_df = pd.DataFrame(results)
-        results_csv_path = os.path.join(self.results_folder, f"{self.action_name}_evaluation_results.csv")
-        results_df.to_csv(results_csv_path, index=False)
-        print(f"Saved to {results_csv_path}")
-
-        wrongs_df = pd.DataFrame(wrongs)
-        wrongs_csv_path = os.path.join(self.results_folder, f"{self.action_name}_evaluation_wrongs.csv")
-        wrongs_df.to_csv(wrongs_csv_path, index=False)
 
 
 def extract_points_from_answer(text: str) -> np.ndarray | None:

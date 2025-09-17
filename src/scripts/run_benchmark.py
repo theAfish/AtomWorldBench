@@ -2,10 +2,11 @@ import datetime
 import os
 from pathlib import Path
 from utils.load_model import load_model, load_config
-from evaluation.evaluator import Evaluator
+from evaluation.evaluator import AtomWorldEvaluator as Evaluator
 
 CONFIG_DIR = Path(__file__).parent.parent / "config"
 DATA_DIR = Path(__file__).parent.parent / "data"
+RESULTS_DIR = Path(__file__).parent.parent.parent / "results/AtomWorld"
 
 print(f"Using config directory: {CONFIG_DIR}")
 print(f"Using data directory: {DATA_DIR}")
@@ -52,7 +53,7 @@ def run_benchmark(
 
     # automatically set results folder if not provided
     timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    results_folder = f"{results_folder or "results"}/{model_id}/{action}/{timestamp}"
+    results_folder = f"{results_folder or RESULTS_DIR}/{model_id}/{action}/{timestamp}"
     
     # Initialize evaluator
     evaluator = Evaluator(
@@ -109,9 +110,9 @@ if __name__ == "__main__":
     args = parser.parse_args()
     
     run_benchmark(
-            args.model, 
-            action=args.action, 
-            batch_size=args.batch_size, 
-            num_batch=args.num_batch, 
-            config_name=args.config
-        )
+        args.model, 
+        action=args.action, 
+        batch_size=args.batch_size, 
+        num_batch=args.num_batch, 
+        config_name=args.config
+    )
