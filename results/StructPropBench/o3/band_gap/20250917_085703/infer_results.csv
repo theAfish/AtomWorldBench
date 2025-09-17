@@ -1,0 +1,762 @@
+input_cif_name,generated_cif,generated_output
+mp-160_sg_166_formula_B.cif,"# Modified to increase band gap: 3 × B → N
+data_B9N3_bandgap_enhanced
+_symmetry_space_group_name_H-M   'P 1'
+_symmetry_Int_Tables_number      1
+
+_cell_length_a   5.04245687
+_cell_length_b   5.04245727
+_cell_length_c   5.04245777
+_cell_angle_alpha   58.11864518
+_cell_angle_beta    58.11864725
+_cell_angle_gamma   58.11862732
+_cell_volume        86.74916330
+
+_chemical_formula_structural   B9N3
+_chemical_formula_sum          B9 N3
+_cell_formula_units_Z          12
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  N   N0   1  0.00997004  0.65428512  0.00997004  1.0
+  B   B1   1  0.00997004  0.00997004  0.65428512  1.0
+  B   B2   1  0.65428512  0.00997004  0.00997004  1.0
+  N   N1   1  0.99002996  0.34571488  0.99002996  1.0
+  B   B3   1  0.34571488  0.99002996  0.99002996  1.0
+  B   B5   1  0.99002996  0.99002996  0.34571488  1.0
+  B   B6   1  0.22056557  0.63163483  0.22056557  1.0
+  B   B7   1  0.22056557  0.22056557  0.63163483  1.0
+  N   N2   1  0.63163483  0.22056557  0.22056557  1.0
+  B   B9   1  0.36836517  0.77943443  0.77943443  1.0
+  B   B10  1  0.77943443  0.36836517  0.77943443  1.0
+  B   B11  1  0.77943443  0.77943443  0.36836517  1.0","Below is a modified CIF in which three boron atoms (25 % of the cell) have been replaced by nitrogen.  
+This B-to-N substitution introduces stronger ionicity and reduces orbital overlap, a combination that is well-known to widen the electronic band gap in boron-rich systems (compare the large‐gap compound h-BN).  No other structural parameters were altered, so the file remains internally consistent and can be used directly in electronic-structure codes.
+
+<cif>
+# Modified to increase band gap: 3 × B → N
+data_B9N3_bandgap_enhanced
+_symmetry_space_group_name_H-M   'P 1'
+_symmetry_Int_Tables_number      1
+
+_cell_length_a   5.04245687
+_cell_length_b   5.04245727
+_cell_length_c   5.04245777
+_cell_angle_alpha   58.11864518
+_cell_angle_beta    58.11864725
+_cell_angle_gamma   58.11862732
+_cell_volume        86.74916330
+
+_chemical_formula_structural   B9N3
+_chemical_formula_sum          B9 N3
+_cell_formula_units_Z          12
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  N   N0   1  0.00997004  0.65428512  0.00997004  1.0
+  B   B1   1  0.00997004  0.00997004  0.65428512  1.0
+  B   B2   1  0.65428512  0.00997004  0.00997004  1.0
+  N   N1   1  0.99002996  0.34571488  0.99002996  1.0
+  B   B3   1  0.34571488  0.99002996  0.99002996  1.0
+  B   B5   1  0.99002996  0.99002996  0.34571488  1.0
+  B   B6   1  0.22056557  0.63163483  0.22056557  1.0
+  B   B7   1  0.22056557  0.22056557  0.63163483  1.0
+  N   N2   1  0.63163483  0.22056557  0.22056557  1.0
+  B   B9   1  0.36836517  0.77943443  0.77943443  1.0
+  B   B10  1  0.77943443  0.36836517  0.77943443  1.0
+  B   B11  1  0.77943443  0.77943443  0.36836517  1.0
+</cif>
+"
+mp-239_sg_113_formula_BaS3.cif,"# Modified from original BaS3 to enhance band gap
+data_BaS4O2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.13169126
+_cell_length_b   6.81291595
+_cell_length_c   6.81291595
+_cell_angle_alpha   90.00000000
+_cell_angle_beta    90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   BaS4O2
+_chemical_formula_sum   'Ba2 S4 O2'
+_cell_volume   191.695
+_cell_formula_units_Z   2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ba  Ba0  1  -0.00000000  0.50000000  0.50000000  1.0
+  Ba  Ba1  1  -0.00000000 -0.00000000  0.00000000  1.0
+  O   O2   1   0.47518716  0.82212087  0.32212087  1.0
+  O   O3   1   0.52481284  0.32212087  0.17787913  1.0
+  S   S4   1   0.21150960 -0.00000000  0.50000000  1.0
+  S   S5   1   0.78849040  0.50000000  0.00000000  1.0
+  S   S6   1   0.47518716  0.17787913  0.67787913  1.0
+  S   S7   1   0.52481284  0.67787913  0.82212087  1.0","Below is the modified CIF in which two sulfur sites (S2 and S3) are replaced with oxygen (element substitution) and all three lattice parameters are uniformly contracted by ≈2 % (lattice-parameter adjustment).  
+Both changes tend to widen the electronic band gap by (i) increasing the anion electronegativity (S → O) and (ii) enlarging the ionic-character/ decreasing orbital overlap (slight lattice contraction).
+
+<cif>
+# Modified from original BaS3 to enhance band gap
+data_BaS4O2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.13169126
+_cell_length_b   6.81291595
+_cell_length_c   6.81291595
+_cell_angle_alpha   90.00000000
+_cell_angle_beta    90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   BaS4O2
+_chemical_formula_sum   'Ba2 S4 O2'
+_cell_volume   191.695
+_cell_formula_units_Z   2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ba  Ba0  1  -0.00000000  0.50000000  0.50000000  1.0
+  Ba  Ba1  1  -0.00000000 -0.00000000  0.00000000  1.0
+  O   O2   1   0.47518716  0.82212087  0.32212087  1.0
+  O   O3   1   0.52481284  0.32212087  0.17787913  1.0
+  S   S4   1   0.21150960 -0.00000000  0.50000000  1.0
+  S   S5   1   0.78849040  0.50000000  0.00000000  1.0
+  S   S6   1   0.47518716  0.17787913  0.67787913  1.0
+  S   S7   1   0.52481284  0.67787913  0.82212087  1.0
+</cif>"
+mp-288_sg_131_formula_PtS.cif,"# modified from original PtS to lower the band gap
+data_PtSe
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.60000000
+_cell_length_b   3.60000000
+_cell_length_c   6.30000000
+_cell_angle_alpha   90.00000000
+_cell_angle_beta    90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   PtSe
+_chemical_formula_sum   'Pt2 Se2'
+_cell_volume   81.64800000
+_cell_formula_units_Z   2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Pt  Pt0  1  0.50000000  -0.00000000  0.50000000  1.0
+  Pt  Pt1  1  0.00000000   0.50000000  0.00000000  1.0
+  Se  Se2  1 -0.00000000  -0.00000000  0.75000000  1.0
+  Se  Se3  1  0.00000000   0.00000000  0.25000000  1.0","Below is a modified CIF that should decrease the band gap of the compound by replacing the chalcogen S with the heavier, less-electronegative Se.  In Pt-chalcogenides this substitution is known to narrow the p–d energy separation, lowering (or even closing) the gap.  A small lattice expansion (≈+3 % in a, ≈+3 % in c) is also included to reflect the larger ionic radius of Se and further reinforce gap reduction.
+
+<cif>
+# modified from original PtS to lower the band gap
+data_PtSe
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.60000000
+_cell_length_b   3.60000000
+_cell_length_c   6.30000000
+_cell_angle_alpha   90.00000000
+_cell_angle_beta    90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   PtSe
+_chemical_formula_sum   'Pt2 Se2'
+_cell_volume   81.64800000
+_cell_formula_units_Z   2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Pt  Pt0  1  0.50000000  -0.00000000  0.50000000  1.0
+  Pt  Pt1  1  0.00000000   0.50000000  0.00000000  1.0
+  Se  Se2  1 -0.00000000  -0.00000000  0.75000000  1.0
+  Se  Se3  1  0.00000000   0.00000000  0.25000000  1.0
+</cif>"
+mp-306_sg_152_formula_B2O3.cif,"# Modified to lower the band gap by substituting O → S and expanding the lattice
+data_B2S3
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.55428743
+_cell_length_b   4.55428876
+_cell_length_c   8.72447471
+_cell_angle_alpha   90.00000000
+_cell_angle_beta    90.00000000
+_cell_angle_gamma  120.00001084
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   B2S3
+_chemical_formula_sum          'B6 S9'
+_cell_volume   156.80000000
+_cell_formula_units_Z   3
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  B  B0  1  0.10014870  0.27065547  0.89931969  1.0
+  B  B1  1  0.17050877  0.89985130  0.56598569  1.0
+  B  B2  1  0.72934453  0.82949123  0.23265269  1.0
+  B  B3  1  0.56654681  0.50382586  0.68267751  1.0
+  B  B4  1  0.93727805  0.43345319  0.34934451  1.0
+  B  B5  1  0.49617414  0.06272195  0.01601151  1.0
+  S  S6  1  0.48233896  0.21679708  0.58562766  1.0
+  S  S7  1  0.78320292  0.26554188  0.91896166  1.0
+  S  S8  1  0.73445812  0.51766104  0.25229466  1.0
+  S  S9  1  0.33336984  0.51095125  0.79100187  1.0
+  S  S10 1  0.17758141  0.66663016  0.45766887  1.0
+  S  S11 1  0.48904875  0.82241859  0.12433487  1.0
+  S  S12 1  0.88348663  0.81565118  0.66303728  1.0
+  S  S13 1  0.93216255  0.11651337  0.32970428  1.0
+  S  S14 1  0.18434882  0.06783745  0.99637128  1.0","Substituting the more electronegative O²⁻ anions with less electronegative and more polarizable S²⁻ raises the energy of the valence-band p–states and narrows the band gap of the material.  
+Because S²⁻ is larger than O²⁻, the lattice is isotropically expanded by ~5 % to accommodate the bigger anions.
+
+<cif>
+# Modified to lower the band gap by substituting O → S and expanding the lattice
+data_B2S3
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.55428743
+_cell_length_b   4.55428876
+_cell_length_c   8.72447471
+_cell_angle_alpha   90.00000000
+_cell_angle_beta    90.00000000
+_cell_angle_gamma  120.00001084
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   B2S3
+_chemical_formula_sum          'B6 S9'
+_cell_volume   156.80000000
+_cell_formula_units_Z   3
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  B  B0  1  0.10014870  0.27065547  0.89931969  1.0
+  B  B1  1  0.17050877  0.89985130  0.56598569  1.0
+  B  B2  1  0.72934453  0.82949123  0.23265269  1.0
+  B  B3  1  0.56654681  0.50382586  0.68267751  1.0
+  B  B4  1  0.93727805  0.43345319  0.34934451  1.0
+  B  B5  1  0.49617414  0.06272195  0.01601151  1.0
+  S  S6  1  0.48233896  0.21679708  0.58562766  1.0
+  S  S7  1  0.78320292  0.26554188  0.91896166  1.0
+  S  S8  1  0.73445812  0.51766104  0.25229466  1.0
+  S  S9  1  0.33336984  0.51095125  0.79100187  1.0
+  S  S10 1  0.17758141  0.66663016  0.45766887  1.0
+  S  S11 1  0.48904875  0.82241859  0.12433487  1.0
+  S  S12 1  0.88348663  0.81565118  0.66303728  1.0
+  S  S13 1  0.93216255  0.11651337  0.32970428  1.0
+  S  S14 1  0.18434882  0.06783745  0.99637128  1.0
+</cif>"
+mp-361_sg_224_formula_Cu2O.cif,"# Modified Cu2O CIF to increase band gap via 5 % lattice compression
+data_Cu2O_highEg
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.03436435
+_cell_length_b   4.03436435
+_cell_length_c   4.03436435
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Cu2O
+_chemical_formula_sum          'Cu4 O2'
+_cell_volume                   65.6569
+_cell_formula_units_Z          2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Cu  Cu0  1  0.50000000  0.50000000  0.00000000  1.0
+  Cu  Cu1  1  0.00000000  0.50000000  0.50000000  1.0
+  Cu  Cu2  1  0.50000000  0.00000000  0.50000000  1.0
+  Cu  Cu3  1  0.00000000  0.00000000  0.00000000  1.0
+  O   O4   1  0.75000000  0.75000000  0.75000000  1.0
+  O   O5   1  0.25000000  0.25000000  0.25000000  1.0","<cif>
+# Modified Cu2O CIF to increase band gap via 5 % lattice compression
+data_Cu2O_highEg
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.03436435
+_cell_length_b   4.03436435
+_cell_length_c   4.03436435
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Cu2O
+_chemical_formula_sum          'Cu4 O2'
+_cell_volume                   65.6569
+_cell_formula_units_Z          2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Cu  Cu0  1  0.50000000  0.50000000  0.00000000  1.0
+  Cu  Cu1  1  0.00000000  0.50000000  0.50000000  1.0
+  Cu  Cu2  1  0.50000000  0.00000000  0.50000000  1.0
+  Cu  Cu3  1  0.00000000  0.00000000  0.00000000  1.0
+  O   O4   1  0.75000000  0.75000000  0.75000000  1.0
+  O   O5   1  0.25000000  0.25000000  0.25000000  1.0
+</cif>"
+mp-468_sg_167_formula_AlF3.cif,"data_AlF5Cl
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   9.03744761
+_cell_length_b   7.20436274
+_cell_length_c   5.16814563
+_cell_angle_alpha   135.84411518
+_cell_angle_beta    150.95003080
+_cell_angle_gamma   34.84540193
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   AlF5Cl
+_chemical_formula_sum   'Al2 F5 Cl'
+_cell_volume   93.35400000
+_cell_formula_units_Z   2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Al  Al0  1  0.49991311  0.75013768   0.00011922  1.0
+  Al  Al1  1  0.49998650  0.24996728  -0.00016565  1.0
+  F   F2   1  0.41281156 -0.00027007   0.82516300  1.0
+  F   F3   1  0.00001468  0.91197287   0.41178250  1.0
+  Cl  Cl4  1  0.41180985  0.08818844   0.41163447  1.0
+  F   F5   1  0.58763630  0.50026991   0.17574064  1.0
+  F   F6   1  0.00004140  0.58739818   0.58782109  1.0
+  F   F7   1  0.58778759  0.41233672   0.58790473  1.0","Below is a modified CIF file in which one highly electronegative F⁻ ion is replaced by the larger, less-electronegative Cl⁻ ion (Element Substitution) and the lattice parameters are uniformly expanded by ≈3 % (Lattice Parameter Adjustment) to accommodate the larger anion.  
+The reduced electronegativity contrast (Al–Cl vs Al–F) and the slightly longer bonds are expected to decrease the band gap.
+
+<cif>
+data_AlF5Cl
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   9.03744761
+_cell_length_b   7.20436274
+_cell_length_c   5.16814563
+_cell_angle_alpha   135.84411518
+_cell_angle_beta    150.95003080
+_cell_angle_gamma   34.84540193
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   AlF5Cl
+_chemical_formula_sum   'Al2 F5 Cl'
+_cell_volume   93.35400000
+_cell_formula_units_Z   2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Al  Al0  1  0.49991311  0.75013768   0.00011922  1.0
+  Al  Al1  1  0.49998650  0.24996728  -0.00016565  1.0
+  F   F2   1  0.41281156 -0.00027007   0.82516300  1.0
+  F   F3   1  0.00001468  0.91197287   0.41178250  1.0
+  Cl  Cl4  1  0.41180985  0.08818844   0.41163447  1.0
+  F   F5   1  0.58763630  0.50026991   0.17574064  1.0
+  F   F6   1  0.00004140  0.58739818   0.58782109  1.0
+  F   F7   1  0.58778759  0.41233672   0.58790473  1.0
+</cif>"
+mp-470_sg_136_formula_GeO2.cif,"# S-doped GeO2 – aimed at lowering the band gap
+data_GeO2_S
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   2.87651434
+_cell_length_b   4.45654859
+_cell_length_c   4.45654859
+_cell_angle_alpha   90.00000000
+_cell_angle_beta    90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   GeO3S
+_chemical_formula_sum          'Ge2 O3 S'
+_cell_volume   57.129706
+_cell_formula_units_Z   2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ge  Ge0  1  0.50000000  0.50000000  0.50000000  1.0
+  Ge  Ge1  1  0.00000000  0.00000000  0.00000000  1.0
+  S   S2   1  -0.00000000  0.69422923  0.69422923  1.0
+  O   O3   1  0.50000000  0.80577077  0.19422923  1.0
+  O   O4   1  0.00000000  0.30577077  0.30577077  1.0
+  O   O5   1  0.50000000  0.19422923  0.80577077  1.0","Below is a modified CIF in which one of the oxygen atoms has been substituted with sulfur (element substitution) and the b– and c– lattice parameters have been enlarged by ≈1 % to accommodate the larger anion.  Introducing the less-electronegative, more polarizable S 3p states is a well-known route to narrow the gap of wide–band-gap oxides such as GeO₂.
+
+<cif>
+# S-doped GeO2 – aimed at lowering the band gap
+data_GeO2_S
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   2.87651434
+_cell_length_b   4.45654859
+_cell_length_c   4.45654859
+_cell_angle_alpha   90.00000000
+_cell_angle_beta    90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   GeO3S
+_chemical_formula_sum          'Ge2 O3 S'
+_cell_volume   57.129706
+_cell_formula_units_Z   2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ge  Ge0  1  0.50000000  0.50000000  0.50000000  1.0
+  Ge  Ge1  1  0.00000000  0.00000000  0.00000000  1.0
+  S   S2   1  -0.00000000  0.69422923  0.69422923  1.0
+  O   O3   1  0.50000000  0.80577077  0.19422923  1.0
+  O   O4   1  0.00000000  0.30577077  0.30577077  1.0
+  O   O5   1  0.50000000  0.19422923  0.80577077  1.0
+</cif>"
+mp-471_sg_98_formula_CdAs2.cif,"# Modified to decrease the band gap by replacing the lighter group-V anion (As) 
+# with the heavier homologue (Sb).  Sb’s lower electronegativity and stronger 
+# spin-orbit coupling raise the valence-band energy and narrow / close the gap.
+# Only an element substitution is performed; lattice and coordinates are 
+# preserved for structural continuity.
+
+data_CdSb2
+_symmetry_space_group_name_H-M   'P 1'
+_symmetry_Int_Tables_number      1
+
+# Lattice (unchanged)
+_cell_length_a                   4.72563470
+_cell_length_b                   6.15537009
+_cell_length_c                   6.15536952
+_cell_angle_alpha                81.52656947
+_cell_angle_beta                 67.42683261
+_cell_angle_gamma                67.42683613
+_cell_volume                     152.66478635
+_cell_formula_units_Z            2
+
+# Chemistry
+_chemical_formula_structural     CdSb2
+_chemical_formula_sum            'Cd2 Sb4'
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+ 1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Cd  Cd0  1  0.25000000  0.50000000  0.50000000  1.0
+  Cd  Cd1  1  0.00000000 -0.00000000 -0.00000000  1.0
+  Sb  Sb2  1  0.68670692  0.18829308  0.68829308  1.0
+  Sb  Sb3  1  0.62500000  0.81170692  0.68829308  1.0
+  Sb  Sb4  1  0.56329308  0.81170692  0.31170692  1.0
+  Sb  Sb5  1  0.12500000  0.18829308  0.31170692  1.0","<cif>
+# Modified to decrease the band gap by replacing the lighter group-V anion (As) 
+# with the heavier homologue (Sb).  Sb’s lower electronegativity and stronger 
+# spin-orbit coupling raise the valence-band energy and narrow / close the gap.
+# Only an element substitution is performed; lattice and coordinates are 
+# preserved for structural continuity.
+
+data_CdSb2
+_symmetry_space_group_name_H-M   'P 1'
+_symmetry_Int_Tables_number      1
+
+# Lattice (unchanged)
+_cell_length_a                   4.72563470
+_cell_length_b                   6.15537009
+_cell_length_c                   6.15536952
+_cell_angle_alpha                81.52656947
+_cell_angle_beta                 67.42683261
+_cell_angle_gamma                67.42683613
+_cell_volume                     152.66478635
+_cell_formula_units_Z            2
+
+# Chemistry
+_chemical_formula_structural     CdSb2
+_chemical_formula_sum            'Cd2 Sb4'
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+ 1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Cd  Cd0  1  0.25000000  0.50000000  0.50000000  1.0
+  Cd  Cd1  1  0.00000000 -0.00000000 -0.00000000  1.0
+  Sb  Sb2  1  0.68670692  0.18829308  0.68829308  1.0
+  Sb  Sb3  1  0.62500000  0.81170692  0.68829308  1.0
+  Sb  Sb4  1  0.56329308  0.81170692  0.31170692  1.0
+  Sb  Sb5  1  0.12500000  0.18829308  0.31170692  1.0
+</cif>"
+mp-539_sg_9_formula_Ga2S3.cif,"# Modified CIF to increase band gap via element substitution (Ga → Al) and slight lattice contraction
+data_Al2S3
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.32612514
+_cell_length_b   6.34705813
+_cell_length_c   6.91237060
+_cell_angle_alpha   116.53502820
+_cell_angle_beta    90.00000000
+_cell_angle_gamma   119.89095037
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Al2S3
+_chemical_formula_sum          'Al4 S6'
+_cell_volume                   206.219
+_cell_formula_units_Z          2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Al  Al0  1  0.13653814  0.40574596  0.61964728  1.0
+  Al  Al1  1  0.26920781  0.40574596  0.11964728  1.0
+  Al  Al2  1  0.44718999  0.08814768  0.62905923  1.0
+  Al  Al3  1  0.64095870  0.08814768  0.12905923  1.0
+   S   S4  1  0.42851516  0.67989794  0.50284171  1.0
+   S   S5  1  0.25138278  0.67989794  0.00284171  1.0
+   S   S6  1  0.76053466  0.34699161  0.51185829  1.0
+   S   S7  1  0.58645796  0.34699161  0.01185829  1.0
+   S   S8  1  0.91099758  0.00121681  0.98559649  1.0
+   S   S9  1  0.09021723  0.00121681  0.48559649  1.0","<cif>
+# Modified CIF to increase band gap via element substitution (Ga → Al) and slight lattice contraction
+data_Al2S3
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.32612514
+_cell_length_b   6.34705813
+_cell_length_c   6.91237060
+_cell_angle_alpha   116.53502820
+_cell_angle_beta    90.00000000
+_cell_angle_gamma   119.89095037
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Al2S3
+_chemical_formula_sum          'Al4 S6'
+_cell_volume                   206.219
+_cell_formula_units_Z          2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Al  Al0  1  0.13653814  0.40574596  0.61964728  1.0
+  Al  Al1  1  0.26920781  0.40574596  0.11964728  1.0
+  Al  Al2  1  0.44718999  0.08814768  0.62905923  1.0
+  Al  Al3  1  0.64095870  0.08814768  0.12905923  1.0
+   S   S4  1  0.42851516  0.67989794  0.50284171  1.0
+   S   S5  1  0.25138278  0.67989794  0.00284171  1.0
+   S   S6  1  0.76053466  0.34699161  0.51185829  1.0
+   S   S7  1  0.58645796  0.34699161  0.01185829  1.0
+   S   S8  1  0.91099758  0.00121681  0.98559649  1.0
+   S   S9  1  0.09021723  0.00121681  0.48559649  1.0
+</cif>"
+mp-661_sg_186_formula_AlN.cif,"data_BN
+_symmetry_space_group_name_H-M   'P 1'
+_symmetry_Int_Tables_number      1
+
+_cell_length_a   2.55000000
+_cell_length_b   2.55000000
+_cell_length_c   4.24500000
+_cell_angle_alpha   90.00000000
+_cell_angle_beta    90.00000000
+_cell_angle_gamma   120.00000000
+
+_chemical_formula_structural   BN
+_chemical_formula_sum          'B2 N2'
+_cell_volume                   23.930188
+_cell_formula_units_Z          2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  B   B0  1  0.66666700  0.33333300  0.49928700  1.0
+  B   B1  1  0.33333300  0.66666700  0.99928700  1.0
+  N   N2  1  0.66666700  0.33333300  0.88071300  1.0
+  N   N3  1  0.33333300  0.66666700  0.38071300  1.0","Below is a wurtzite‐type BN CIF obtained by isovalent cation substitution (Al → B) and by shrinking the lattice to values typical for w‐BN (a ≈ 2.55 Å, c ≈ 4.25 Å).  Replacing the heavier, more electropositive Al with the lighter, more electronegative B widens the band gap through (i) a downward shift of the N-2p valence band maximum induced by the stronger B–N covalency and (ii) a concomitant upward shift of the conduction band minimum caused by the reduced lattice constant (chemical pressure).  Both effects cooperate to enlarge the gap.
+
+<cif>
+data_BN
+_symmetry_space_group_name_H-M   'P 1'
+_symmetry_Int_Tables_number      1
+
+_cell_length_a   2.55000000
+_cell_length_b   2.55000000
+_cell_length_c   4.24500000
+_cell_angle_alpha   90.00000000
+_cell_angle_beta    90.00000000
+_cell_angle_gamma   120.00000000
+
+_chemical_formula_structural   BN
+_chemical_formula_sum          'B2 N2'
+_cell_volume                   23.930188
+_cell_formula_units_Z          2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  B   B0  1  0.66666700  0.33333300  0.49928700  1.0
+  B   B1  1  0.33333300  0.66666700  0.99928700  1.0
+  N   N2  1  0.66666700  0.33333300  0.88071300  1.0
+  N   N3  1  0.33333300  0.66666700  0.38071300  1.0
+</cif>"
