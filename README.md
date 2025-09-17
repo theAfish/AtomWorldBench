@@ -3,13 +3,11 @@
 Testing LLMs' ability on operating 3D atomic structures.
 
 
-## Installation
+## Installation for dev
 
 ```
 pip install -e .
 ```
-
-The `-e` stands for "editable", meaning the package is linked to your local project directory. Changes made to the source code in your local directory take effect immediately without needing to reinstall the package.
 
 ## Usage
 
@@ -18,12 +16,21 @@ If you want to run the benchmark for your own model, please add your model in `s
 ### Run the benchmark
 
 ```
-python ./src/scripts/run_benchmark.py -m [model_name] -a [action_name] -b [batch_size] -n [num_batch]
+python ./src/run_benchmark.py -t [benchmark_type] -m [model_name] -a [action_name] -b [batch_size] -n [num_batch]
 ```
+
+`benchmark_type` is used for selecting which benchmark you want to run. Current availiable benchmarks:
+
+- `atomworld`:    AtomWorld  
+- `pointworld`:   PointWorld
+- `cifgen`:       CIFGen
+- `cifrepair`:    CIFRepair
 
 `model_name` is the model you want to test. For example, `deepseek_reasoner`
 
-`action_name` is the action to test. Current avaliable actions:
+`action_name` is the action to test. This argument is only for **AtomWorld** and **PointWorld**. Please ignore this for running other benchmarks.
+
+Current avaliable actions:
 
 - add_atom_action
 - change_atom_action
@@ -38,13 +45,20 @@ python ./src/scripts/run_benchmark.py -m [model_name] -a [action_name] -b [batch
 - rotate_around_atom_action
 - swap_atoms_action
 
+For **PointWorld**, 4 actions are implemented:
+
+- move
+- move_towards
+- insert_between
+- rotate_around
+
 `batch_size` is the number of parallel LLM calls. Default 50
 
-`num_batch` is the number of batches for test.
+`num_batch` is the number of batches for test. Default is the whole dataset
 
 ### Analyze the results
 
-Please run the `./src/scripts/analyze_results.py`
+Please run the `./src/scripts/analyze_results.py` to analyze the AtomWorld bench results
 
 
 ### How to construct your own data with mp-api
