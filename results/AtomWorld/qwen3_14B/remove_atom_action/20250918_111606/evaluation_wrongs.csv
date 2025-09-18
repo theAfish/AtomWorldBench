@@ -1,0 +1,2426 @@
+is_error,input_cif,action_prompt,generated_output,target_cif,wrong_type
+True,"# generated using pymatgen
+data_CaMg14Ga
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.42119116
+_cell_length_b   6.42119063
+_cell_length_c   10.47650274
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   120.00000275
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   CaMg14Ga
+_chemical_formula_sum   'Ca1 Mg14 Ga1'
+_cell_volume   374.09173454
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ca  Ca0  1  0.16666700  0.33333300  0.12500000  1
+  Mg  Mg1  1  0.17276721  0.83638310  0.12500000  1
+  Mg  Mg2  1  0.16426532  0.83213216  0.62500000  1
+  Mg  Mg3  1  0.66361690  0.32723279  0.12500000  1
+  Mg  Mg4  1  0.66786784  0.33573468  0.62500000  1
+  Mg  Mg5  1  0.66361690  0.83638310  0.12500000  1
+  Mg  Mg6  1  0.66786784  0.83213216  0.62500000  1
+  Mg  Mg7  1  0.33336688  0.16663312  0.38210862  1
+  Mg  Mg8  1  0.33336688  0.16663312  0.86789138  1
+  Mg  Mg9  1  0.33336688  0.66673476  0.38210862  1
+  Mg  Mg10  1  0.33336688  0.66673476  0.86789138  1
+  Mg  Mg11  1  0.83326524  0.16663312  0.38210862  1
+  Mg  Mg12  1  0.83326524  0.16663312  0.86789138  1
+  Mg  Mg13  1  0.83333300  0.66666700  0.37107122  1
+  Mg  Mg14  1  0.83333300  0.66666700  0.87892878  1
+  Ga  Ga15  1  0.16666700  0.33333300  0.62500000  1
+",Remove the atom at index 15 from the cif file. The indices of atoms are started from 0.,"<think>
+Okay, let me try to figure out how to approach this. The user wants me to remove the atom at index 15 from the CIF file. The indices start from 0, so the 15th atom is the one labeled Ga15.
+
+First, I need to check the CIF content provided. The loop_ section under _atom_site_type_symbol lists all the atoms. Let me count them to confirm the index. Starting from 0:
+
+1. Ca0 (index 0)
+2. Mg1 (1)
+3. Mg2 (2)
+4. Mg3 (3)
+5. Mg4 (4)
+6. Mg5 (5)
+7. Mg6 (6)
+8. Mg7 (7)
+9. Mg8 (8)
+10. Mg9 (9)
+11. Mg10 (10)
+12. Mg11 (11)
+13. Mg12 (12)
+14. Mg13 (13)
+15. Mg14 (14)
+16. Ga15 (15)
+
+Yes, Ga15 is the 16th entry, so index 15. That's the one to remove.
+
+Next, I need to make sure that removing Ga15 doesn't affect the formula. The original formula is CaMg14Ga. Removing Ga would change the formula to Mg14Ca. Wait, but the user says the chemical formula should be correct. So if Ga is removed, the formula should be adjusted. However, in the CIF, the _chemical_formula_structural is 'CaMg14Ga', and the _chemical_formula_sum is 'Ca1 Mg14 Ga1'. So removing the Ga atom would mean the formula should become 'Ca1 Mg14' since Ga1 is removed.
+
+But the user's action is to remove the atom, so the formula should reflect that. However, the problem statement says to ensure the output is a valid CIF with correct formula and atom positions. So maybe the user expects that when removing Ga15, the formula is updated accordingly. However, maybe the user just wants the atom removed without adjusting the formula. Wait, the problem says the action is to remove the atom. The original question says ""apply the action described in the action prompt to the initial CIF content"". The action is to remove the atom at index 15, which is Ga15. So the formula would need to be updated from 'CaMg14Ga' to 'CaMg14', and 'Ca1 Mg14 Ga1' to 'Ca1 Mg14'. But I need to check if the user expects that. The instruction says to ensure correct formula and atom positions. So the formula should be adjusted to reflect the removal of Ga. However, sometimes when atoms are removed, the formula might not be automatically updated, but in CIF files, the formula is a separate entry. So I think the correct approach is to remove the Ga15 entry from the loop, and adjust the _chemical_formula_sum and _chemical_formula_structural accordingly.
+
+Wait, the original _chemical_formula_structural is 'CaMg14Ga' and _chemical_formula_sum is 'Ca1 Mg14 Ga1'. Removing Ga would make the formula 'CaMg14', so _chemical_formula_structural should be 'CaMg14' and _chemical_formula_sum 'Ca1 Mg14'. 
+
+But maybe the user only wants the atom removed from the loop and doesn't adjust the formula. But since the instruction says to ensure the output is a valid CIF with correct formula and atom positions, it's necessary to adjust the formula. However, in many cases, CIF files might have formulas that are not perfectly aligned with the actual atom counts if they are edited manually. But given that the original formula is correct, removing an atom would require adjusting the formula. 
+
+Alternatively, maybe the Ga atom is a separate species and its removal is allowed, even if that changes the formula. The user's instruction is just to remove the atom at index 15, regardless of the formula. But the problem says to ensure the output is a valid CIF with correct formula. So if we remove the Ga atom, the formula must reflect that. 
+
+So I need to adjust the _chemical_formula_structural and _chemical_formula_sum entries. The original _chemical_formula_structural is 'CaMg14Ga' which would be CaMg14Ga. After removing Ga, it's CaMg14. Similarly, the sum formula was 'Ca1 Mg14 Ga1' which would become 'Ca1 Mg14'.
+
+Therefore, in the modified CIF, I need to:
+
+1. Remove the Ga15 entry from the loop.
+2. Change _chemical_formula_structural from 'CaMg14Ga' to 'CaMg14'.
+3. Change _chemical_formula_sum from 'Ca1 Mg14 Ga1' to 'Ca1 Mg14'.
+
+Also, check if _cell_formula_units_Z is affected. The original Z is 1, which is the number of formula units per unit cell. If the formula is CaMg14, then Z remains 1. So that entry can stay the same.
+
+Now, let me look at the original CIF content again and make these changes.
+
+Original CIF:
+...
+_chemical_formula_structural   CaMg14Ga
+_chemical_formula_sum   'Ca1 Mg14 Ga1'
+...
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ca  Ca0  1  0.16666700  0.33333300  0.12500000  1
+  Mg  Mg1  1  0.17276721  0.83638310  0.12500000  1
+  Mg  Mg2  1  0.16426532  0.83213216  0.62500000  1
+  Mg  Mg3  1  0.66361690  0.32723279  0.12500000  1
+  Mg  Mg4  1  0.66786784  0.33573468  0.62500000  1
+  Mg  Mg5  1  0.66361690  0.83638310  0.12500000  1
+  Mg  Mg6  1  0.66786784  0.83213216  0.62500000  1
+  Mg  Mg7  1  0.33336688  0.16663312  0.38210862  1
+  Mg  Mg8  1  0.33336688  0.16663312  0.86789138  1
+  Mg  Mg9  1  0.33336688  0.66673476  0.38210862  1
+  Mg  Mg10  1  0.33336688  0.66673476  0.86789138  1
+  Mg  Mg11  1  0.83326524  0.16663312  0.38210862  1
+  Mg  Mg12  1  0.83326524  0.16663312  0.86789138  1
+  Mg  Mg13  1  0.83333300  0.66666700  0.37107122  1
+  Mg  Mg14  1  0.83333300  0.66666700  0.87892878  1
+  Ga  Ga15  1  0.16666700  0.33333300  0.62500000  1
+
+So removing the last line (Ga15) and then updating the formula lines.
+
+So the modified CIF would be:
+
+data_CaMg14Ga
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.42119116
+_cell_length_b   6.42119063
+_cell_length_c   10.47650274
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   120.00000275
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   CaMg14
+_chemical_formula_sum   'Ca1 Mg14'
+_cell_volume   374.09173454
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ca  Ca0  1  0.16666700  0.33333300  0.12500000  1
+  Mg  Mg1  1  0.17276721  0.83638310  0.12500000  1
+  Mg  Mg2  1  0.16426532  0.83213216  0.62500000  1
+  Mg  Mg3  1  0.66361690  0.32723279  0.12500000  1
+  Mg  Mg4  1  0.66786784  0.33573468  0.62500000  1
+  Mg  Mg5  1  0.66361690  0.83638310  0.12500000  1
+  Mg  Mg6  1  0.66786784  0.83213216  0.62500000  1
+  Mg  Mg7  1  0.33336688  0.16663312  0.38210862  1
+  Mg  Mg8  1  0.33336688  0.16663312  0.86789138  1
+  Mg  Mg9  1  0.33336688  0.66673476  0.38210862  1
+  Mg  Mg10  1  0.33336688  0.66673476  0.86789138  1
+  Mg  Mg11  1  0.83326524  0.16663312  0.38210862  1
+  Mg  Mg12  1  0.83326524  0.16663312  0.86789138  1
+  Mg  Mg13  1  0.83333300  0.66666700  0.37107122  1
+  Mg  Mg14  1  0.83333300  0.66666700  0.87892878  1
+
+But wait, the original data_CaMg14Ga might need to be renamed if the formula is changed. However, the user might expect that the data name remains as is, even if the formula is different. However, in CIF files, the data block name is usually based on the formula. But since the user hasn't specified changing the data name, I think it's better to keep it as is, even though the formula now is CaMg14 instead of CaMg14Ga.
+
+So the data block name was 'CaMg14Ga', but with the change, it's not accurate. However, the instruction doesn't mention changing the data name, only to apply the action of removing the atom. So perhaps the name should stay as 'data_CaMg14Ga', but that might be incorrect. However, the user's instruction says to return the modified CIF content as valid, so if the name is incorrect, that's an issue. 
+
+But in materials science, CIF data names are often arbitrary and may not change even if the content does. However, in this case, the data name is 'CaMg14Ga', but after removing Ga, it's not accurate. However, the user hasn't mentioned changing the name. So maybe we leave it as is, considering that the name might not always reflect the exact formula. Therefore, I'll proceed with the rest of the modifications, leaving the data name as 'data_CaMg14Ga' even though the formula has changed.
+
+So the modified CIF should have:
+
+- Removed the Ga15 line.
+- Updated _chemical_formula_structural to 'CaMg14'.
+- Updated _chemical_formula_sum to 'Ca1 Mg14'.
+
+I think that's all. Now, putting it all together in the required format with <cif> and </cif> tags.
+</think>
+
+<cif>
+data_CaMg14Ga
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.42119116
+_cell_length_b   6.42119063
+_cell_length_c   10.47650274
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   120.00000275
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   CaMg14
+_chemical_formula_sum   'Ca1 Mg14'
+_cell_volume   374.09173454
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ca  Ca0  1  0.16666700  0.33333300  0.12500000  1
+  Mg  Mg1  1  0.17276721  0.83638310  0.12500000  1
+  Mg  Mg2  1  0.16426532  0.83213216  0.62500000  1
+  Mg  Mg3  1  0.66361690  0.32723279  0.12500000  1
+  Mg  Mg4  1  0.66786784  0.33573468  0.62500000  1
+  Mg  Mg5  1  0.66361690  0.83638310  0.12500000  1
+  Mg  Mg6  1  0.66786784  0.83213216  0.62500000  1
+  Mg  Mg7  1  0.33336688  0.16663312  0.38210862  1
+  Mg  Mg8  1  0.33336688  0.16663312  0.86789138  1
+  Mg  Mg9  1  0.33336688  0.66673476  0.38210862  1
+  Mg  Mg10  1  0.33336688  0.66673476  0.86789138  1
+  Mg  Mg11  1  0.83326524  0.16663312  0.38210862  1
+  Mg  Mg12  1  0.83326524  0.16663312  0.86789138  1
+  Mg  Mg13  1  0.83333300  0.66666700  0.37107122  1
+  Mg  Mg14  1  0.83333300  0.66666700  0.87892878  1
+</cif>","data_image0
+_chemical_formula_structural       CaMg14
+_chemical_formula_sum              ""Ca1 Mg14""
+_cell_length_a       6.42119116
+_cell_length_b       6.42119063
+_cell_length_c       10.47650274
+_cell_angle_alpha    90.0
+_cell_angle_beta     90.0
+_cell_angle_gamma    120.00000275000001
+
+_space_group_name_H-M_alt    ""P 1""
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ca  Ca1       1.0  0.166667  0.333333  0.125  1.0000
+  Mg  Mg1       1.0  0.17276721000000003  0.8363831  0.125  1.0000
+  Mg  Mg2       1.0  0.16426532  0.83213216  0.625  1.0000
+  Mg  Mg3       1.0  0.6636169000000001  0.32723279  0.125  1.0000
+  Mg  Mg4       1.0  0.66786784  0.33573468  0.625  1.0000
+  Mg  Mg5       1.0  0.6636169000000001  0.8363831  0.125  1.0000
+  Mg  Mg6       1.0  0.66786784  0.83213216  0.625  1.0000
+  Mg  Mg7       1.0  0.3333668799999999  0.16663312  0.38210862  1.0000
+  Mg  Mg8       1.0  0.3333668799999999  0.16663312  0.8678913800000001  1.0000
+  Mg  Mg9       1.0  0.3333668799999999  0.66673476  0.38210862  1.0000
+  Mg  Mg10      1.0  0.3333668799999999  0.66673476  0.8678913800000001  1.0000
+  Mg  Mg11      1.0  0.83326524  0.16663312  0.38210862  1.0000
+  Mg  Mg12      1.0  0.83326524  0.16663312  0.8678913800000001  1.0000
+  Mg  Mg13      1.0  0.8333329999999999  0.666667  0.37107122000000003  1.0000
+  Mg  Mg14      1.0  0.8333329999999999  0.666667  0.8789287800000001  1.0000
+",CIFParsingError
+True,"# generated using pymatgen
+data_Te2MoWSeS
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.39930210
+_cell_length_b   3.39930210
+_cell_length_c   38.72283700
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   120.00000190
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Te2MoWSeS
+_chemical_formula_sum   'Te4 Mo2 W2 Se2 S2'
+_cell_volume   387.50500480
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Te  Te0  1  0.00000000  0.00000000  0.33019500  1
+  Te  Te1  1  0.00000000  0.00000000  0.70620500  1
+  Te  Te2  1  0.00000000  0.00000000  0.23343800  1
+  Te  Te3  1  0.00000000  0.00000000  0.60884100  1
+  Mo  Mo4  1  0.00000000  0.00000000  0.46966800  1
+  Mo  Mo5  1  0.33333300  0.66666700  0.28182000  1
+  W  W6  1  0.00000000  0.00000000  0.09389600  1
+  W  W7  1  0.33333300  0.66666700  0.65754600  1
+  Se  Se8  1  0.33333300  0.66666700  0.05115000  1
+  Se  Se9  1  0.33333300  0.66666700  0.13665700  1
+  S  S10  1  0.33333300  0.66666700  0.43088200  1
+  S  S11  1  0.33333300  0.66666700  0.50845000  1
+",Remove the atom at index 11 from the cif file. The indices of atoms are started from 0.,"<think>
+Okay, let me try to figure out how to approach this. The user wants me to remove the atom at index 11 from the given CIF content. First, I need to understand the structure of the CIF file provided.
+
+Looking at the CIF data, there's a loop_ section under _atom_site_type_symbol and other related fields. Each line in this loop represents an atom with its type, label, symmetry multiplicity, and fractional coordinates. The action is to remove the atom at index 11, which starts counting from 0. Let me count the atoms in the loop to confirm their positions.
+
+Let's list them out:
+
+1. Te0
+2. Te1
+3. Te2
+4. Te3
+5. Mo4
+6. Mo5
+7. W6
+8. W7
+9. Se8
+10. Se9
+11. S10
+12. S11
+
+So the 11th index (starting at 0) is S10. That's the 12th line in the loop. So I need to remove the line corresponding to S10.
+
+Next, I need to check if there are any references to this atom elsewhere in the CIF. The _chemical_formula_structural is ""Te2MoWSeS"" and _chemical_formula_sum is 'Te4 Mo2 W2 Se2 S2'. Removing S10 would affect the formula sum because S10 is a sulfur atom (S), so the formula_sum would have S2, but with one S removed, it should be S1. However, the user might expect the formula to be adjusted accordingly.
+
+Wait, the original formula is Te2MoWSeS. The formula_sum is Te4 Mo2 W2 Se2 S2. But the Z value is 2, meaning two formula units. So the original formula_sum is 2*(Te2MoWSeS) which would be Te4, Mo2, W2, Se2, S2. If we remove one S atom, then the formula_sum would have S1 instead of S2. However, the original Z is 2, but maybe the formula_sum is per unit cell. Wait, maybe the Z is 2, meaning two formula units in the unit cell. So the formula_sum should be Te4 Mo2 W2 Se2 S2. If we remove one S atom, then the S count in the unit cell is 1, so perhaps the formula_sum would be adjusted to S1. But the user hasn't specified changing the formula, just removing the atom. However, the CIF requires the chemical formula to be correct.
+
+Wait, the problem says to apply the action described in the action prompt. The original formula_sum is 'Te4 Mo2 W2 Se2 S2', which is correct for a unit cell with Z=2, meaning two formula units (Te2MoWSeS). Removing one S atom would make it Te4, Mo2, W2, Se2, S1. So the formula_sum should be updated to 'Te4 Mo2 W2 Se2 S1', but I need to check if that's necessary. The user hasn't mentioned changing the formula, but the CIF file requires it to be correct. However, the action prompt only says to remove the atom. The user might expect that the formula remains as is, but that would be incorrect. However, perhaps the original CIF has a mistake in the formula_sum? Let me check.
+
+Original _chemical_formula_sum is 'Te4 Mo2 W2 Se2 S2', but the formula structural is Te2MoWSeS. The formula structural is for one molecule, and with Z=2, the formula_sum should be 2*(Te2MoWSeS) which is Te4 Mo2 W2 Se2 S2. That's correct. If we remove one S, then the formula_sum should be adjusted. However, the user's action is to remove the atom. The problem says to ensure the output is a valid CIF with correct formula and atom positions.
+
+Therefore, I need to adjust the _chemical_formula_sum to reflect the removal of one S atom. But wait, the original formula_sum is per unit cell. If we remove one atom, the formula_sum would have one less S. So the new formula_sum would be 'Te4 Mo2 W2 Se2 S1'. However, the _chemical_formula_structural might be affected as well. The original structural formula is Te2MoWSeS, which has one S. If we remove one S from the unit cell (original Z=2, so two formula units), then the formula_sum would be Te4, Mo2, W2, Se2, S1. But the _chemical_formula_structural would then be Te2MoWSeS^(1/2)? That doesn't make sense. Wait, maybe the formula structural is for one formula unit, and the formula_sum is for the entire unit cell. So removing one S atom would change the formula_sum to S1, but the formula structural remains Te2MoWSeS, but that would mean the unit cell has two formula units, but one S in total? That doesn't add up.
+
+Alternatively, maybe the formula structural is wrong. Let's check the counts again. Original _chemical_formula_sum is Te4 Mo2 W2 Se2 S2. That's four Te, two Mo, two W, two Se, two S. The _chemical_formula_structural is Te2MoWSeS. If Z is 2, then that would be 2*(Te2MoWSeS) = Te4 Mo2 W2 Se2 S2. So that's correct. After removing one S atom, the unit cell would have Te4, Mo2, W2, Se2, S1. Therefore, the formula_sum would be 'Te4 Mo2 W2 Se2 S1', and the formula structural would be Te2MoWSeS with (1/2) S? Which is not possible. So maybe the formula structural should be adjusted to Te2MoWSeS0.5, but CIFs usually have integer counts in the formula. Alternatively, the formula structural might not be changed, but the formula_sum would be adjusted. However, the CIF standard requires that _chemical_formula_structural and _chemical_formula_sum be consistent with Z.
+
+This is a bit of a problem. The user hasn't mentioned changing the formula, but if the formula_sum is incorrect, the CIF would be invalid. However, the user's instruction is to remove the atom, not to correct the formula. Maybe they just want the atom removed, and leave the formula as is, even if it's incorrect. But that's likely not acceptable. Alternatively, maybe the formula_sum is not required to be updated if the action is only to remove the atom, but the correct CIF would require it. The user instruction says to ensure the output is a valid CIF with correct formula and atom positions.
+
+Therefore, I should adjust the formula_sum to reflect the correct count. Let's proceed with that.
+
+So the original formula_sum is 'Te4 Mo2 W2 Se2 S2'. After removing one S, it should be 'Te4 Mo2 W2 Se2 S1'. The _chemical_formula_structural would then need to be adjusted to reflect the correct formula for one formula unit. Since Z=2, the formula structural should be (Te4 Mo2 W2 Se2 S1)/2 = Te2 Mo1 W1 Se1 S0.5. But that's not a valid formula. Wait, this seems complicated. Alternatively, maybe the Z value should be adjusted. But the user hasn't mentioned changing Z. So perhaps the formula structural is not properly updated, but that's an inconsistency. However, the user's prompt is to remove the atom, not to update the formula. Maybe the user made a mistake in the input CIF, and we should not worry about that as long as we remove the atom and adjust the formula. But this is a bit of a dilemma.
+
+Alternatively, maybe the formula in the CIF is a mistake, and the correct formula after removing one S is Te4 Mo2 W2 Se2 S1, and the formula structural could be written as Te2MoWSeS0.5, but that's non-standard. Alternatively, maybe the formula structural remains as is, and the formula_sum is corrected to 'Te4 Mo2 W2 Se2 S1', accepting that the formula structural isn't perfectly aligned with the formula_sum. However, the CIF standard might require consistency between these fields. But given the user's instruction, perhaps the best approach is to remove the atom and update the formula_sum accordingly, even if the formula structural is not perfectly aligned, as the user might have other intentions. Alternatively, the user might expect the formula to remain the same, but that would be incorrect.
+
+This is tricky. The user might not be aware of the need to adjust the formula, so maybe they just want the atom removed and the rest of the CIF left as is. However, that would make the CIF invalid. But maybe the user is only concerned about the atom positions and the formula is a given, and they just want the removal action done. However, the user explicitly says to ensure the output is a valid CIF with correct formula. So I need to adjust the formula as well.
+
+Let me proceed. The original formula_sum has two S atoms. After removing one S, it should have one S. So the formula_sum should be changed from 'S2' to 'S1'. Therefore, the line _chemical_formula_sum will become 'Te4 Mo2 W2 Se2 S1'.
+
+Now, let's check the loop_ section. The original has 12 atoms. After removing S10 (the 11th index), there should be 11 atoms left. So I need to delete that line from the loop.
+
+Putting it all together: remove the line with S10 and update the formula_sum.
+
+Looking back at the original input, the loop has 12 entries. So after removing S10 (index 11), the loop will have 11 entries. The _chemical_formula_sum line needs to be adjusted.
+
+So the modified CIF should have the S10 line removed and the formula_sum updated.
+</think>
+
+<cif>
+data_Te2MoWSeS
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.39930210
+_cell_length_b   3.39930210
+_cell_length_c   38.72283700
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   120.00000190
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Te2MoWSeS
+_chemical_formula_sum   'Te4 Mo2 W2 Se2 S1'
+_cell_volume   387.50500480
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Te  Te0  1  0.00000000  0.00000000  0.33019500  1
+  Te  Te1  1  0.00000000  0.00000000  0.70620500  1
+  Te  Te2  1  0.00000000  0.00000000  0.23343800  1
+  Te  Te3  1  0.00000000  0.00000000  0.60884100  1
+  Mo  Mo4  1  0.00000000  0.00000000  0.46966800  1
+  Mo  Mo5  1  0.33333300  0.66666700  0.28182000  1
+  W  W6  1  0.00000000  0.00000000  0.09389600  1
+  W  W7  1  0.33333300  0.66666700  0.65754600  1
+  Se  Se8  1  0.33333300  0.66666700  0.05115000  1
+  Se  Se9  1  0.33333300  0.66666700  0.13665700  1
+  S  S11  1  0.33333300  0.66666700  0.50845000  1
+</cif>","data_image0
+_chemical_formula_structural       Te4Mo2W2Se2S
+_chemical_formula_sum              ""Te4 Mo2 W2 Se2 S1""
+_cell_length_a       3.3993021
+_cell_length_b       3.3993021
+_cell_length_c       38.722837
+_cell_angle_alpha    90.0
+_cell_angle_beta     90.0
+_cell_angle_gamma    120.0000019
+
+_space_group_name_H-M_alt    ""P 1""
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Te  Te1       1.0  0.0  0.0  0.330195  1.0000
+  Te  Te2       1.0  0.0  0.0  0.706205  1.0000
+  Te  Te3       1.0  0.0  0.0  0.23343799999999998  1.0000
+  Te  Te4       1.0  0.0  0.0  0.608841  1.0000
+  Mo  Mo1       1.0  0.0  0.0  0.4696679999999999  1.0000
+  Mo  Mo2       1.0  0.33333300000000005  0.666667  0.28182  1.0000
+  W   W1        1.0  0.0  0.0  0.093896  1.0000
+  W   W2        1.0  0.33333300000000005  0.666667  0.657546  1.0000
+  Se  Se1       1.0  0.33333300000000005  0.666667  0.05115  1.0000
+  Se  Se2       1.0  0.33333300000000005  0.666667  0.136657  1.0000
+  S   S1        1.0  0.33333300000000005  0.666667  0.43088199999999993  1.0000
+",StructureMismatch
+True,"# generated using pymatgen
+data_Te2MoW3(SeS2)2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.30740050
+_cell_length_b   3.30740050
+_cell_length_c   39.27690300
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   120.00001004
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Te2MoW3(SeS2)2
+_chemical_formula_sum   'Te2 Mo1 W3 Se2 S4'
+_cell_volume   372.08434660
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Te  Te0  1  0.66666700  0.33333300  0.41956400  1
+  Te  Te1  1  0.66666700  0.33333300  0.51752400  1
+  Mo  Mo2  1  0.66666700  0.33333300  0.28135300  1
+  W  W3  1  0.33333300  0.66666700  0.09391800  1
+  W  W4  1  0.33333300  0.66666700  0.46854600  1
+  W  W5  1  0.66666700  0.33333300  0.65911800  1
+  Se  Se6  1  0.33333300  0.66666700  0.70217200  1
+  Se  Se7  1  0.33333300  0.66666700  0.61607300  1
+  S  S8  1  0.33333300  0.66666700  0.32018300  1
+  S  S9  1  0.66666700  0.33333300  0.05489400  1
+  S  S10  1  0.66666700  0.33333300  0.13293700  1
+  S  S11  1  0.33333300  0.66666700  0.24246600  1
+",Remove the atom at index 9 from the cif file. The indices of atoms are started from 0.,"<think>
+Okay, let's tackle this problem. The user wants me to remove the atom at index 9 from the CIF file provided. The indices start from 0, so I need to count the atoms in the order they appear in the CIF's atom_site loop.
+
+First, I'll look at the input CIF content. The loop starts with _atom_site_type_symbol and includes entries for each atom. Let me list them out in order with their indices.
+
+Index 0: Te0 (Te)
+Index 1: Te1 (Te)
+Index 2: Mo2 (Mo)
+Index 3: W3 (W)
+Index 4: W4 (W)
+Index 5: W5 (W)
+Index 6: Se6 (Se)
+Index 7: Se7 (Se)
+Index 8: S8 (S)
+Index 9: S9 (S)
+Index 10: S10 (S)
+Index 11: S11 (S)
+
+So the atom at index 9 is S9 with coordinates (0.66666700, 0.33333300, 0.05489400). I need to remove this entry from the loop.
+
+Next, I need to ensure that the formula in the CIF is updated correctly. The original formula sum is 'Te2 Mo1 W3 Se2 S4'. Removing one S atom (S9) would change the S count from 4 to 3. So the new formula should be 'Te2 Mo1 W3 Se2 S3'.
+
+I should check the chemical formula structural as well. The original is Te2MoW3(SeS2)2. Since there are two Se and four S in the original, removing one S would affect that part. However, the formula might have to be adjusted. Let me see. The original formula (SeS2)2 would contribute Se2S4. If we remove one S, that becomes Se2S3. But that might not be balanced. Alternatively, the formula might need to be adjusted. However, the user didn't specify changing the formula, just the positions. But since the formula is based on the atoms present, I need to correct that.
+
+Wait, the user's instruction says to apply the action to the CIF content. Since the atom is removed, the formula should reflect that. So the original _chemical_formula_sum was 'Te2 Mo1 W3 Se2 S4'. Removing S9 (which is one S) changes the S count to 3. Therefore, the new formula sum should be 'Te2 Mo1 W3 Se2 S3'.
+
+But the structural formula is Te2MoW3(SeS2)2. Without the S count, maybe that's a different notation. However, the CIF standard typically expects the _chemical_formula_sum to be accurate. So I'll correct that to have S3 instead of S4.
+
+Also, I need to check that the loop entries are correctly removed. The S9 entry is index 9, so after removing it, the remaining entries should be adjusted in the loop.
+
+Let me verify the rest of the CIF data. The cell parameters, symmetry, etc., should remain unchanged. The Z value is 1, and the formula units are correct as long as the count of atoms is accurate.
+
+Now, assembling the modified CIF. Remove the line corresponding to index 9, which is:
+
+  S  S9  1  0.66666700  0.33333300  0.05489400  1
+
+Then update the _chemical_formula_sum to 'Te2 Mo1 W3 Se2 S3'.
+
+I need to ensure that the line numbers and the formatting (with the correct number of spaces) are maintained, as CIF files can be sensitive to formatting.
+
+Finally, wrap the modified CIF content within the <cif> and </cif> tags as specified.
+</think>
+
+<cif>
+data_Te2MoW3(SeS2)2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.30740050
+_cell_length_b   3.30740050
+_cell_length_c   39.27690300
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   120.00001004
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Te2MoW3(SeS2)2
+_chemical_formula_sum   'Te2 Mo1 W3 Se2 S3'
+_cell_volume   372.08434660
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Te  Te0  1  0.66666700  0.33333300  0.41956400  1
+  Te  Te1  1  0.66666700  0.33333300  0.51752400  1
+  Mo  Mo2  1  0.66666700  0.33333300  0.28135300  1
+  W  W3  1  0.33333300  0.66666700  0.09391800  1
+  W  W4  1  0.33333300  0.66666700  0.46854600  1
+  W  W5  1  0.66666700  0.33333300  0.65911800  1
+  Se  Se6  1  0.33333300  0.66666700  0.70217200  1
+  Se  Se7  1  0.33333300  0.66666700  0.61607300  1
+  S  S8  1  0.33333300  0.66666700  0.32018300  1
+  S  S10  1  0.66666700  0.33333300  0.13293700  1
+  S  S11  1  0.33333300  0.66666700  0.24246600  1
+</cif>","data_image0
+_chemical_formula_structural       Te2MoW3Se2S3
+_chemical_formula_sum              ""Te2 Mo1 W3 Se2 S3""
+_cell_length_a       3.3074005
+_cell_length_b       3.3074005
+_cell_length_c       39.276903
+_cell_angle_alpha    90.0
+_cell_angle_beta     90.0
+_cell_angle_gamma    120.00001004
+
+_space_group_name_H-M_alt    ""P 1""
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Te  Te1       1.0  0.666667  0.333333  0.419564  1.0000
+  Te  Te2       1.0  0.666667  0.333333  0.517524  1.0000
+  Mo  Mo1       1.0  0.666667  0.333333  0.281353  1.0000
+  W   W1        1.0  0.333333  0.666667  0.093918  1.0000
+  W   W2        1.0  0.333333  0.666667  0.4685460000000001  1.0000
+  W   W3        1.0  0.666667  0.333333  0.659118  1.0000
+  Se  Se1       1.0  0.333333  0.666667  0.702172  1.0000
+  Se  Se2       1.0  0.333333  0.666667  0.616073  1.0000
+  S   S1        1.0  0.333333  0.666667  0.320183  1.0000
+  S   S2        1.0  0.666667  0.333333  0.132937  1.0000
+  S   S3        1.0  0.333333  0.666667  0.242466  1.0000
+",CIFParsingError
+True,"# generated using pymatgen
+data_NaMg14BiO16
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   8.72124523
+_cell_length_b   8.72124523
+_cell_length_c   4.40486891
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   NaMg14BiO16
+_chemical_formula_sum   'Na1 Mg14 Bi1 O16'
+_cell_volume   335.03485066
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Na  Na0  1  0.00000000  0.00000000  0.00000000  1
+  Mg  Mg1  1  0.00000000  0.50000000  0.00000000  1
+  Mg  Mg2  1  0.50000000  0.00000000  0.00000000  1
+  Mg  Mg3  1  0.00000000  0.24396930  0.50000000  1
+  Mg  Mg4  1  0.00000000  0.75603070  0.50000000  1
+  Mg  Mg5  1  0.50000000  0.23295945  0.50000000  1
+  Mg  Mg6  1  0.50000000  0.76704055  0.50000000  1
+  Mg  Mg7  1  0.24396930  0.00000000  0.50000000  1
+  Mg  Mg8  1  0.23295945  0.50000000  0.50000000  1
+  Mg  Mg9  1  0.75603070  0.00000000  0.50000000  1
+  Mg  Mg10  1  0.76704055  0.50000000  0.50000000  1
+  Mg  Mg11  1  0.23849287  0.23849287  0.00000000  1
+  Mg  Mg12  1  0.23849287  0.76150713  -0.00000000  1
+  Mg  Mg13  1  0.76150713  0.23849287  0.00000000  1
+  Mg  Mg14  1  0.76150713  0.76150713  0.00000000  1
+  Bi  Bi15  1  0.50000000  0.50000000  0.00000000  1
+  O  O16  1  0.26287344  0.00000000  0.00000000  1
+  O  O17  1  0.23470744  0.50000000  0.00000000  1
+  O  O18  1  0.73712656  0.00000000  -0.00000000  1
+  O  O19  1  0.76529256  0.50000000  -0.00000000  1
+  O  O20  1  0.25196526  0.25196526  0.50000000  1
+  O  O21  1  0.25196526  0.74803474  0.50000000  1
+  O  O22  1  0.74803474  0.25196526  0.50000000  1
+  O  O23  1  0.74803474  0.74803474  0.50000000  1
+  O  O24  1  0.00000000  0.00000000  0.50000000  1
+  O  O25  1  0.00000000  0.50000000  0.50000000  1
+  O  O26  1  0.50000000  0.00000000  0.50000000  1
+  O  O27  1  0.50000000  0.50000000  0.50000000  1
+  O  O28  1  0.00000000  0.26287344  -0.00000000  1
+  O  O29  1  0.00000000  0.73712656  0.00000000  1
+  O  O30  1  0.50000000  0.23470744  0.00000000  1
+  O  O31  1  0.50000000  0.76529256  -0.00000000  1
+",Remove the atom at index 30 from the cif file. The indices of atoms are started from 0.,"data_NaMg14BiO16
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   8.72124523
+_cell_length_b   8.72124523
+_cell_length_c   4.40486891
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   NaMg14BiO15
+_chemical_formula_sum   'Na1 Mg14 Bi1 O15'
+_cell_volume   335.03485066
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Na  Na0  1  0.00000000  0.00000000  0.00000000  1
+  Mg  Mg1  1  0.00000000  0.50000000  0.00000000  1
+  Mg  Mg2  1  0.50000000  0.00000000  0.00000000  1
+  Mg  Mg3  1  0.00000000  0.24396930  0.50000000  1
+  Mg  Mg4  1  0.00000000  0.75603070  0.50000000  1
+  Mg  Mg5  1  0.50000000  0.23295945  0.50000000  1
+  Mg  Mg6  1  0.50000000  0.76704055  0.50000000  1
+  Mg  Mg7  1  0.24396930  0.00000000  0.50000000  1
+  Mg  Mg8  1  0.23295945  0.50000000  0.50000000  1
+  Mg  Mg9  1  0.75603070  0.00000000  0.50000000  1
+  Mg  Mg10  1  0.76704055  0.50000000  0.50000000  1
+  Mg  Mg11  1  0.23849287  0.23849287  0.00000000  1
+  Mg  Mg12  1  0.23849287  0.76150713  -0.00000000  1
+  Mg  Mg13  1  0.76150713  0.23849287  0.00000000  1
+  Mg  Mg14  1  0.76150713  0.76150713  0.00000000  1
+  Bi  Bi15  1  0.50000000  0.50000000  0.00000000  1
+  O  O16  1  0.26287344  0.00000000  0.00000000  1
+  O  O17  1  0.23470744  0.50000000  0.00000000  1
+  O  O18  1  0.73712656  0.00000000  -0.00000000  1
+  O  O19  1  0.76529256  0.50000000  -0.00000000  1
+  O  O20  1  0.25196526  0.25196526  0.50000000  1
+  O  O21  1  0.25196526  0.74803474  0.50000000  1
+  O  O22  1  0.74803474  0.25196526  0.50000000  1
+  O  O23  1  0.74803474  0.74803474  0.50000000  1
+  O  O24  1  0.00000000  0.00000000  0.50000000  1
+  O  O25  1  0.00000000  0.50000000  0.50000000  1
+  O  O26  1  0.50000000  0.00000000  0.50000000  1
+  O  O27  1  0.50000000  0.50000000  0.50000000  1
+  O  O28  1  0.00000000  0.26287344  -0.00000000  1
+  O  O29  1  0.00000000  0.73712656  0.00000000  1","data_image0
+_chemical_formula_structural       NaMg14BiO15
+_chemical_formula_sum              ""Na1 Mg14 Bi1 O15""
+_cell_length_a       8.72124523
+_cell_length_b       8.72124523
+_cell_length_c       4.40486891
+_cell_angle_alpha    90.0
+_cell_angle_beta     90.0
+_cell_angle_gamma    90.0
+
+_space_group_name_H-M_alt    ""P 1""
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Na  Na1       1.0  0.0  0.0  0.0  1.0000
+  Mg  Mg1       1.0  0.0  0.5  0.0  1.0000
+  Mg  Mg2       1.0  0.5  0.0  0.0  1.0000
+  Mg  Mg3       1.0  0.0  0.24396930000000003  0.5  1.0000
+  Mg  Mg4       1.0  0.0  0.7560307  0.5  1.0000
+  Mg  Mg5       1.0  0.5  0.23295945  0.5  1.0000
+  Mg  Mg6       1.0  0.5  0.76704055  0.5  1.0000
+  Mg  Mg7       1.0  0.24396930000000003  0.0  0.5  1.0000
+  Mg  Mg8       1.0  0.23295945  0.5  0.5  1.0000
+  Mg  Mg9       1.0  0.7560307  0.0  0.5  1.0000
+  Mg  Mg10      1.0  0.76704055  0.5  0.5  1.0000
+  Mg  Mg11      1.0  0.23849287  0.23849287  0.0  1.0000
+  Mg  Mg12      1.0  0.23849287  0.76150713  0.0  1.0000
+  Mg  Mg13      1.0  0.76150713  0.23849287  0.0  1.0000
+  Mg  Mg14      1.0  0.76150713  0.76150713  0.0  1.0000
+  Bi  Bi1       1.0  0.5  0.5  0.0  1.0000
+  O   O1        1.0  0.26287344  0.0  0.0  1.0000
+  O   O2        1.0  0.23470744  0.5  0.0  1.0000
+  O   O3        1.0  0.73712656  0.0  0.0  1.0000
+  O   O4        1.0  0.76529256  0.5  0.0  1.0000
+  O   O5        1.0  0.25196526  0.25196526  0.5  1.0000
+  O   O6        1.0  0.25196526  0.74803474  0.5  1.0000
+  O   O7        1.0  0.74803474  0.25196526  0.5  1.0000
+  O   O8        1.0  0.74803474  0.74803474  0.5  1.0000
+  O   O9        1.0  0.0  0.0  0.5  1.0000
+  O   O10       1.0  0.0  0.5  0.5  1.0000
+  O   O11       1.0  0.5  0.0  0.5  1.0000
+  O   O12       1.0  0.5  0.5  0.5  1.0000
+  O   O13       1.0  0.0  0.26287344  0.0  1.0000
+  O   O14       1.0  0.0  0.73712656  0.0  1.0000
+  O   O15       1.0  0.5  0.76529256  0.0  1.0000
+",AtomCountMismatch
+True,"# generated using pymatgen
+data_Mg30NbCO32
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   8.60541200
+_cell_length_b   8.60541200
+_cell_length_c   8.53405100
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Mg30NbCO32
+_chemical_formula_sum   'Mg30 Nb1 C1 O32'
+_cell_volume   631.97306601
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Mg  Mg0  1  0.50000000  0.00000000  0.00000000  1
+  Mg  Mg1  1  0.00000000  0.50000000  0.00000000  1
+  Mg  Mg2  1  0.00000000  0.00000000  0.50000000  1
+  Mg  Mg3  1  0.50000000  0.00000000  0.50000000  1
+  Mg  Mg4  1  0.00000000  0.50000000  0.50000000  1
+  Mg  Mg5  1  0.50000000  0.50000000  0.50000000  1
+  Mg  Mg6  1  0.26150200  0.26150200  0.00000000  1
+  Mg  Mg7  1  0.73849800  0.26150200  0.00000000  1
+  Mg  Mg8  1  0.26150200  0.73849800  0.00000000  1
+  Mg  Mg9  1  0.73849800  0.73849800  0.00000000  1
+  Mg  Mg10  1  0.25193600  0.25193600  0.50000000  1
+  Mg  Mg11  1  0.74806400  0.25193600  0.50000000  1
+  Mg  Mg12  1  0.25193600  0.74806400  0.50000000  1
+  Mg  Mg13  1  0.74806400  0.74806400  0.50000000  1
+  Mg  Mg14  1  0.25476800  0.00000000  0.25381300  1
+  Mg  Mg15  1  0.74523200  0.00000000  0.25381300  1
+  Mg  Mg16  1  0.25271500  0.50000000  0.24646100  1
+  Mg  Mg17  1  0.74728500  0.50000000  0.24646100  1
+  Mg  Mg18  1  0.25476800  0.00000000  0.74618700  1
+  Mg  Mg19  1  0.74523200  0.00000000  0.74618700  1
+  Mg  Mg20  1  0.25271500  0.50000000  0.75353900  1
+  Mg  Mg21  1  0.74728500  0.50000000  0.75353900  1
+  Mg  Mg22  1  0.00000000  0.25476800  0.25381300  1
+  Mg  Mg23  1  0.50000000  0.25271500  0.24646100  1
+  Mg  Mg24  1  0.00000000  0.74523200  0.25381300  1
+  Mg  Mg25  1  0.50000000  0.74728500  0.24646100  1
+  Mg  Mg26  1  0.00000000  0.25476800  0.74618700  1
+  Mg  Mg27  1  0.50000000  0.25271500  0.75353900  1
+  Mg  Mg28  1  0.00000000  0.74523200  0.74618700  1
+  Mg  Mg29  1  0.50000000  0.74728500  0.75353900  1
+  Nb  Nb30  1  0.00000000  0.00000000  0.00000000  1
+  C  C31  1  0.50000000  0.50000000  0.00000000  1
+  O  O32  1  0.00000000  0.00000000  0.25704800  1
+  O  O33  1  0.50000000  0.00000000  0.25360100  1
+  O  O34  1  0.00000000  0.50000000  0.25360100  1
+  O  O35  1  0.50000000  0.50000000  0.25600500  1
+  O  O36  1  0.00000000  0.00000000  0.74295200  1
+  O  O37  1  0.50000000  0.00000000  0.74639900  1
+  O  O38  1  0.00000000  0.50000000  0.74639900  1
+  O  O39  1  0.50000000  0.50000000  0.74399500  1
+  O  O40  1  0.24982500  0.24982500  0.24879700  1
+  O  O41  1  0.75017500  0.24982500  0.24879700  1
+  O  O42  1  0.24982500  0.75017500  0.24879700  1
+  O  O43  1  0.75017500  0.75017500  0.24879700  1
+  O  O44  1  0.24982500  0.24982500  0.75120300  1
+  O  O45  1  0.75017500  0.24982500  0.75120300  1
+  O  O46  1  0.24982500  0.75017500  0.75120300  1
+  O  O47  1  0.75017500  0.75017500  0.75120300  1
+  O  O48  1  0.24687900  0.00000000  0.00000000  1
+  O  O49  1  0.75312100  0.00000000  0.00000000  1
+  O  O50  1  0.22672900  0.50000000  0.00000000  1
+  O  O51  1  0.77327100  0.50000000  0.00000000  1
+  O  O52  1  0.24995900  0.00000000  0.50000000  1
+  O  O53  1  0.75004100  0.00000000  0.50000000  1
+  O  O54  1  0.24994900  0.50000000  0.50000000  1
+  O  O55  1  0.75005100  0.50000000  0.50000000  1
+  O  O56  1  0.00000000  0.24687900  0.00000000  1
+  O  O57  1  0.50000000  0.22672900  0.00000000  1
+  O  O58  1  0.00000000  0.75312100  0.00000000  1
+  O  O59  1  0.50000000  0.77327100  0.00000000  1
+  O  O60  1  0.00000000  0.24995900  0.50000000  1
+  O  O61  1  0.50000000  0.24994900  0.50000000  1
+  O  O62  1  0.00000000  0.75004100  0.50000000  1
+  O  O63  1  0.50000000  0.75005100  0.50000000  1
+",Remove the atom at index 48 from the cif file. The indices of atoms are started from 0.,"data_Mg30NbCO32
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   8.60541200
+_cell_length_b   8.60541200
+_cell_length_c   8.53405100
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Mg30NbCO31
+_chemical_formula_sum   'Mg30 Nb1 C1 O31'
+_cell_volume   631.97306601
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Mg  Mg0  1  0.50000000  0.00000000  0.00000000  1
+  Mg  Mg1  1  0.00000000  0.50000000  0.00000000  1
+  Mg  Mg2  1  0.00000000  0.00000000  0.50000000  1
+  Mg  Mg3  1  0.50000000  0.00000000  0.50000000  1
+  Mg  Mg4  1  0.00000000  0.50000000  0.50000000  1
+  Mg  Mg5  1  0.50000000  0.50000000  0.50000000  1
+  Mg  Mg6  1  0.26150200  0.26150200  0.00000000  1
+  Mg  Mg7  1  0.73849800  0.26150200  0.00000000  1
+  Mg  Mg8  1  0.26150200  0.73849800  0.00000000  1
+  Mg  Mg9  1  0.73849800  0.73849800  0.00000000  1
+  Mg  Mg10  1  0.25193600  0.25193600  0.50000000  1
+  Mg  Mg11  1  0.74806400  0.25193600  0.50000000  1
+  Mg  Mg12  1  0.25193600  0.74806400  0.50000000  1
+  Mg  Mg13  1  0.74806400  0.74806400  0.50000000  1
+  Mg  Mg14  1  0.25476800  0.00000000  0.25381300  1
+  Mg  Mg15  1  0.74523200  0.00000000  0.25381300  1
+  Mg  Mg16  1  0.25271500  0.50000000  0.24646100  1
+  Mg  Mg17  1  0.74728500  0.50000000  0.24646100  1
+  Mg  Mg18  1  0.25476800  0.00000000  0.74618700  1
+  Mg  Mg19  1  0.74523200  0.00000000  0.74618700  1
+  Mg  Mg20  1  0.25271500  0.50000000  0.75353900  1
+  Mg  Mg21  1  0.74728500  0.50000000  0.75353900  1
+  Mg  Mg22  1  0.00000000  0.25476800  0.25381300  1
+  Mg  Mg23  1  0.50000000  0.25271500  0.24646100  1
+  Mg  Mg24  1  0.00000000  0.74523200  0.25381300  1
+  Mg  Mg25  1  0.50000000  0.74728500  0.24646100  1
+  Mg  Mg26  1  0.00000000  0.25476800  0.74618700  1
+  Mg  Mg27  1  0.50000000  0.25271500  0.75353900  1
+  Mg  Mg28  1  0.00000000  0.74523200  0.74618700  1
+  Mg  Mg29  1  0.50000000  0.74728500  0.75353900  1
+  Nb  Nb30  1  0.00000000  0.00000000  0.00000000  1
+  C  C31  1  0.50000000  0.50000000  0.00000000  1
+  O  O32  1  0.00000000  0.00000000  0.25704800  1
+  O  O33  1  0.50000000  0.00000000  0.25360100  1
+  O  O34  1  0.00000000  0.50000000  0.25360100  1
+  O  O35  1  0.50000000  0.50000000  0.25600500  1
+  O  O36  1  0.00000000  0.00000000  0.74295200  1
+  O  O37  1  0.50000000  0.00000000  0.74639900  1
+  O  O38  1  0.00000000  0.50000000  0.74639900  1
+  O  O39  1  0.50000000  0.50000000  0.74399500  1
+  O  O40  1  0.24982500  0.24982500  0.24879700  1
+  O  O41  1  0.75017500  0.24982500  0.24879700  1
+  O  O42  1  0.24982500  0.75017500  0.24879700  1
+  O  O43  1  0.75017500  0.75017500  0.24879700  1
+  O  O44  1  0.24982500  0.24982500  0.75120300  1
+  O  O45  1  0.75017500  0.24982500  0.75120300  1
+  O  O46  1  0.24982500  0.75017500  0.75120300  1
+  O  O47  1  0.75017500  0.75017500  0.75120300  1
+  O  O48  1  0.24687900  0.00000000  0.00000000  1
+  O  O49  1  0.75312100  0.00000000  0.00000000  1
+  O  O50  1  0.22672900  0.50000000  0.00000000  1
+  O  O51  1  0.77327100  0.50000000  0.00000000  1
+  O  O52  1  0.24995900  0.00000000  0.50000000  1
+  O  O53  1  0.75004100  0.00000000  0.50000000  1
+  O  O54  1  0.24994900  0.50000000  0.50000000  1
+  O  O55  1  0.75005100  0.50000000  0.50000000  1
+  O  O56  1  0.00000000  0.24687900  0.00000000  1
+  O  O57  1  0.50000000  0.22672900  0.00000000  1
+  O  O58  1  0.00000000  0.75312100  0.00000000  1
+  O  O59  1  0.50000000  0.77327100  0.00000000  1
+  O  O60  1  0.00000000  0.24995900  0.50000000  1
+  O  O61  1  0.50000000  0.24994900  0.50000000  1
+  O  O62  1  0.00000000  0.75004100  0.50000000  1
+  O  O63  1  0.50000000  0.75005100  0.50000000  1","data_image0
+_chemical_formula_structural       Mg30NbCO31
+_chemical_formula_sum              ""Mg30 Nb1 C1 O31""
+_cell_length_a       8.605412
+_cell_length_b       8.605412
+_cell_length_c       8.534051
+_cell_angle_alpha    90.0
+_cell_angle_beta     90.0
+_cell_angle_gamma    90.0
+
+_space_group_name_H-M_alt    ""P 1""
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Mg  Mg1       1.0  0.5  0.0  0.0  1.0000
+  Mg  Mg2       1.0  0.0  0.5  0.0  1.0000
+  Mg  Mg3       1.0  0.0  0.0  0.5  1.0000
+  Mg  Mg4       1.0  0.5  0.0  0.5  1.0000
+  Mg  Mg5       1.0  0.0  0.5  0.5  1.0000
+  Mg  Mg6       1.0  0.5  0.5  0.5  1.0000
+  Mg  Mg7       1.0  0.261502  0.261502  0.0  1.0000
+  Mg  Mg8       1.0  0.738498  0.261502  0.0  1.0000
+  Mg  Mg9       1.0  0.261502  0.738498  0.0  1.0000
+  Mg  Mg10      1.0  0.738498  0.738498  0.0  1.0000
+  Mg  Mg11      1.0  0.251936  0.251936  0.5  1.0000
+  Mg  Mg12      1.0  0.748064  0.251936  0.5  1.0000
+  Mg  Mg13      1.0  0.251936  0.748064  0.5  1.0000
+  Mg  Mg14      1.0  0.748064  0.748064  0.5  1.0000
+  Mg  Mg15      1.0  0.254768  0.0  0.253813  1.0000
+  Mg  Mg16      1.0  0.745232  0.0  0.253813  1.0000
+  Mg  Mg17      1.0  0.252715  0.5  0.24646099999999999  1.0000
+  Mg  Mg18      1.0  0.747285  0.5  0.24646099999999999  1.0000
+  Mg  Mg19      1.0  0.254768  0.0  0.746187  1.0000
+  Mg  Mg20      1.0  0.745232  0.0  0.746187  1.0000
+  Mg  Mg21      1.0  0.252715  0.5  0.753539  1.0000
+  Mg  Mg22      1.0  0.747285  0.5  0.753539  1.0000
+  Mg  Mg23      1.0  0.0  0.254768  0.253813  1.0000
+  Mg  Mg24      1.0  0.5  0.252715  0.24646099999999999  1.0000
+  Mg  Mg25      1.0  0.0  0.745232  0.253813  1.0000
+  Mg  Mg26      1.0  0.5  0.747285  0.24646099999999999  1.0000
+  Mg  Mg27      1.0  0.0  0.254768  0.746187  1.0000
+  Mg  Mg28      1.0  0.5  0.252715  0.753539  1.0000
+  Mg  Mg29      1.0  0.0  0.745232  0.746187  1.0000
+  Mg  Mg30      1.0  0.5  0.747285  0.753539  1.0000
+  Nb  Nb1       1.0  0.0  0.0  0.0  1.0000
+  C   C1        1.0  0.5  0.5  0.0  1.0000
+  O   O1        1.0  0.0  0.0  0.257048  1.0000
+  O   O2        1.0  0.5  0.0  0.253601  1.0000
+  O   O3        1.0  0.0  0.5  0.253601  1.0000
+  O   O4        1.0  0.5  0.5  0.256005  1.0000
+  O   O5        1.0  0.0  0.0  0.742952  1.0000
+  O   O6        1.0  0.5  0.0  0.746399  1.0000
+  O   O7        1.0  0.0  0.5  0.746399  1.0000
+  O   O8        1.0  0.5  0.5  0.7439949999999999  1.0000
+  O   O9        1.0  0.249825  0.249825  0.248797  1.0000
+  O   O10       1.0  0.750175  0.249825  0.248797  1.0000
+  O   O11       1.0  0.249825  0.750175  0.248797  1.0000
+  O   O12       1.0  0.750175  0.750175  0.248797  1.0000
+  O   O13       1.0  0.249825  0.249825  0.751203  1.0000
+  O   O14       1.0  0.750175  0.249825  0.751203  1.0000
+  O   O15       1.0  0.249825  0.750175  0.751203  1.0000
+  O   O16       1.0  0.750175  0.750175  0.751203  1.0000
+  O   O17       1.0  0.753121  0.0  0.0  1.0000
+  O   O18       1.0  0.226729  0.5  0.0  1.0000
+  O   O19       1.0  0.773271  0.5  0.0  1.0000
+  O   O20       1.0  0.249959  0.0  0.5  1.0000
+  O   O21       1.0  0.750041  0.0  0.5  1.0000
+  O   O22       1.0  0.24994900000000003  0.5  0.5  1.0000
+  O   O23       1.0  0.750051  0.5  0.5  1.0000
+  O   O24       1.0  0.0  0.246879  0.0  1.0000
+  O   O25       1.0  0.5  0.226729  0.0  1.0000
+  O   O26       1.0  0.0  0.753121  0.0  1.0000
+  O   O27       1.0  0.5  0.773271  0.0  1.0000
+  O   O28       1.0  0.0  0.249959  0.5  1.0000
+  O   O29       1.0  0.5  0.24994900000000003  0.5  1.0000
+  O   O30       1.0  0.0  0.750041  0.5  1.0000
+  O   O31       1.0  0.5  0.750051  0.5  1.0000
+",AtomCountMismatch
+True,"# generated using pymatgen
+data_RbCeMg30O32
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   8.69620600
+_cell_length_b   8.69620600
+_cell_length_c   8.78449500
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   RbCeMg30O32
+_chemical_formula_sum   'Rb1 Ce1 Mg30 O32'
+_cell_volume   664.31863929
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Rb  Rb0  1  0.00000000  0.00000000  0.50000000  1
+  Ce  Ce1  1  0.00000000  0.00000000  0.00000000  1
+  Mg  Mg2  1  0.00000000  0.50000000  0.00000000  1
+  Mg  Mg3  1  0.00000000  0.50000000  0.50000000  1
+  Mg  Mg4  1  0.50000000  0.00000000  0.00000000  1
+  Mg  Mg5  1  0.50000000  0.00000000  0.50000000  1
+  Mg  Mg6  1  0.50000000  0.50000000  0.00000000  1
+  Mg  Mg7  1  0.50000000  0.50000000  0.50000000  1
+  Mg  Mg8  1  0.00000000  0.26206800  0.25631600  1
+  Mg  Mg9  1  0.00000000  0.26206800  0.74368400  1
+  Mg  Mg10  1  0.00000000  0.73793200  0.25631600  1
+  Mg  Mg11  1  0.00000000  0.73793200  0.74368400  1
+  Mg  Mg12  1  0.50000000  0.25133600  0.25148100  1
+  Mg  Mg13  1  0.50000000  0.25133600  0.74851900  1
+  Mg  Mg14  1  0.50000000  0.74866400  0.25148100  1
+  Mg  Mg15  1  0.50000000  0.74866400  0.74851900  1
+  Mg  Mg16  1  0.26206800  0.00000000  0.25631600  1
+  Mg  Mg17  1  0.26206800  0.00000000  0.74368400  1
+  Mg  Mg18  1  0.25133600  0.50000000  0.25148100  1
+  Mg  Mg19  1  0.25133600  0.50000000  0.74851900  1
+  Mg  Mg20  1  0.73793200  0.00000000  0.25631600  1
+  Mg  Mg21  1  0.73793200  0.00000000  0.74368400  1
+  Mg  Mg22  1  0.74866400  0.50000000  0.25148100  1
+  Mg  Mg23  1  0.74866400  0.50000000  0.74851900  1
+  Mg  Mg24  1  0.25778900  0.25778900  0.00000000  1
+  Mg  Mg25  1  0.25396100  0.25396100  0.50000000  1
+  Mg  Mg26  1  0.25778900  0.74221100  0.00000000  1
+  Mg  Mg27  1  0.25396100  0.74603900  0.50000000  1
+  Mg  Mg28  1  0.74221100  0.25778900  0.00000000  1
+  Mg  Mg29  1  0.74603900  0.25396100  0.50000000  1
+  Mg  Mg30  1  0.74221100  0.74221100  0.00000000  1
+  Mg  Mg31  1  0.74603900  0.74603900  0.50000000  1
+  O  O32  1  0.26783000  0.00000000  0.00000000  1
+  O  O33  1  0.27997200  0.00000000  0.50000000  1
+  O  O34  1  0.25369300  0.50000000  0.00000000  1
+  O  O35  1  0.25591600  0.50000000  0.50000000  1
+  O  O36  1  0.73217000  0.00000000  0.00000000  1
+  O  O37  1  0.72002800  0.00000000  0.50000000  1
+  O  O38  1  0.74630700  0.50000000  0.00000000  1
+  O  O39  1  0.74408400  0.50000000  0.50000000  1
+  O  O40  1  0.24905600  0.24905600  0.24971200  1
+  O  O41  1  0.24905600  0.24905600  0.75028800  1
+  O  O42  1  0.24905600  0.75094400  0.24971200  1
+  O  O43  1  0.24905600  0.75094400  0.75028800  1
+  O  O44  1  0.75094400  0.24905600  0.24971200  1
+  O  O45  1  0.75094400  0.24905600  0.75028800  1
+  O  O46  1  0.75094400  0.75094400  0.24971200  1
+  O  O47  1  0.75094400  0.75094400  0.75028800  1
+  O  O48  1  0.00000000  0.00000000  0.23836200  1
+  O  O49  1  0.00000000  0.00000000  0.76163800  1
+  O  O50  1  0.00000000  0.50000000  0.24616100  1
+  O  O51  1  0.00000000  0.50000000  0.75383900  1
+  O  O52  1  0.50000000  0.00000000  0.24616100  1
+  O  O53  1  0.50000000  0.00000000  0.75383900  1
+  O  O54  1  0.50000000  0.50000000  0.24831500  1
+  O  O55  1  0.50000000  0.50000000  0.75168500  1
+  O  O56  1  0.00000000  0.26783000  0.00000000  1
+  O  O57  1  0.00000000  0.27997200  0.50000000  1
+  O  O58  1  0.00000000  0.73217000  0.00000000  1
+  O  O59  1  0.00000000  0.72002800  0.50000000  1
+  O  O60  1  0.50000000  0.25369300  0.00000000  1
+  O  O61  1  0.50000000  0.25591600  0.50000000  1
+  O  O62  1  0.50000000  0.74630700  0.00000000  1
+  O  O63  1  0.50000000  0.74408400  0.50000000  1
+",Remove the atom at index 45 from the cif file. The indices of atoms are started from 0.,"<think>
+Okay, let's tackle this problem step by step. The user wants me to remove the atom at index 45 from the given CIF file. First, I need to understand how the CIF file is structured.
+
+Looking at the CIF content provided, there's a loop_ section for _atom_site_type_symbol and other related fields. Each line under this loop represents an atom with its type, label, symmetry multiplicity, fractional coordinates, and occupancy. The user mentioned that indices start from 0, so the first atom listed (Rb) is index 0, then Ce is 1, and so on.
+
+I need to count the atoms to find which one is at index 45. Let me list out the atoms by counting:
+
+Starting from the Rb (index 0):
+0: Rb
+1: Ce
+2: Mg2
+3: Mg3
+4: Mg4
+5: Mg5
+6: Mg6
+7: Mg7
+8: Mg8
+9: Mg9
+10: Mg10
+11: Mg11
+12: Mg12
+13: Mg13
+14: Mg14
+15: Mg15
+16: Mg16
+17: Mg17
+18: Mg18
+19: Mg19
+20: Mg20
+21: Mg21
+22: Mg22
+23: Mg23
+24: Mg24
+25: Mg25
+26: Mg26
+27: Mg27
+28: Mg28
+29: Mg29
+30: Mg30
+31: Mg31
+32: O32
+33: O33
+34: O34
+35: O35
+36: O36
+37: O37
+38: O38
+39: O39
+40: O40
+41: O41
+42: O42
+43: O43
+44: O44
+45: O45
+46: O46
+47: O47
+48: O48
+49: O49
+50: O50
+51: O51
+52: O52
+53: O53
+54: O54
+55: O55
+56: O56
+57: O57
+58: O58
+59: O59
+60: O60
+61: O61
+62: O62
+63: O63
+
+Wait, let me check again. The count might be off. Let's recount from the Mg entries first. The Mg atoms start from index 2 (Mg2) up to Mg31 (index 31), that's 30 Mg atoms. Then, the O atoms start from O32 (index 32) up to O63 (index 63). So the O atoms start at index 32. Then, O32 is 32, O33 is 33,... up to O63, which would be 63 - 32 + 1 = 32 O atoms. Wait, there are 32 O atoms. So O32 is index 32, O63 is index 63.
+
+So the user wants to remove the atom at index 45. Looking at the O atoms, index 45 would be O45. Let me check the original CIF:
+
+Looking at the O entries in the loop:
+...
+  O  O44  1  0.75094400  0.24905600  0.75028800  1
+  O  O45  1  0.75094400  0.75094400  0.24971200  1
+  O  O46  1  0.75094400  0.75094400  0.75028800  1
+  O  O47  1  0.75094400  0.75094400  0.75028800  1
+...
+
+Wait, in the original input provided, the O atoms after O44 are:
+
+O44: index 44
+O45: index 45
+O46: 46
+O47: 47
+Then O48 to O63 follow. So the atom at index 45 is O45. So the task is to remove that line from the CIF.
+
+Now, the steps to do this are:
+
+1. Parse the CIF content and find the loop_ section for atom sites.
+2. Identify and remove the line corresponding to index 45.
+3. Ensure that the formula and other parts of the CIF are adjusted accordingly. However, since the formula is given as _chemical_formula_structural and _chemical_formula_sum, removing an atom would require updating those. But the problem might assume that the user is only removing an atom from the positions loop, and not updating the formula. However, the user's instruction says to return a valid CIF. So I need to check if the formula is correctly adjusted.
+
+Wait, the original _chemical_formula_sum is 'Rb1 Ce1 Mg30 O32'. If we remove an oxygen atom, that would change it to O31. However, the problem might not require updating these lines, as the user's instruction is to modify the positions, not the formula. But the task says ""apply the action described in the action prompt"", which is to remove the atom. However, in CIF files, the formula is derived from the atom positions. If you remove an atom, the formula should be adjusted. However, the user might be expecting only the positions to be modified, leaving the formula as is, which might be incorrect. However, the user says to ensure the output is a valid CIF with correct formula and atom positions. Therefore, I need to adjust the formula accordingly.
+
+But wait, how many O atoms are there originally? The _chemical_formula_sum is O32. If we remove one O, it becomes O31. Therefore, the _chemical_formula_sum and _chemical_formula_structural should be updated.
+
+But the original CIF has 32 O atoms (from O32 to O63, 32 entries). Removing one O would make it 31. So I need to adjust:
+
+_chemical_formula_structural would be Rb1 Ce1 Mg30 O31
+
+_chemical_formula_sum would be 'Rb1 Ce1 Mg30 O31'
+
+But the problem didn't mention changing the formula, only the positions. However, the user's instruction says to ensure the output is a valid CIF with correct formula. So I must modify the formula as well.
+
+But wait, the user's action is to remove an atom from the CIF. The CIF's formula is supposed to be based on the atom positions. If an atom is removed, the formula should change. However, in practice, sometimes CIFs might have the formula separate from the atom positions, but to make it valid, the formula should be consistent with the number of atoms.
+
+Therefore, I need to:
+
+1. Remove the line with O45 from the atom positions loop.
+2. Decrease the O count in the formula.
+
+But how to do that?
+
+Looking at the original CIF:
+
+_chemical_formula_structural   RbCeMg30O32
+_chemical_formula_sum   'Rb1 Ce1 Mg30 O32'
+
+After removal, it should be:
+
+_chemical_formula_structural   RbCeMg30O31
+_chemical_formula_sum   'Rb1 Ce1 Mg30 O31'
+
+So, I need to edit those lines.
+
+But I need to check if there are any other parts that depend on the atom count. For example, cell_formula_units_Z is 1, which seems okay as the formula is adjusted.
+
+Now, let me reconstruct the modified CIF.
+
+First, the original CIF content:
+
+The atom positions loop starts with:
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Rb  Rb0  1  0.00000000  0.00000000  0.50000000  1
+  Ce  Ce1  1  0.00000000  0.00000000  0.00000000  1
+  Mg  Mg2  1  0.00000000  0.50000000  0.00000000  1
+  Mg  Mg3  1  0.00000000  0.50000000  0.50000000  1
+  Mg  Mg4  1  0.50000000  0.00000000  0.00000000  1
+  Mg  Mg5  1  0.50000000  0.00000000  0.50000000  1
+  Mg  Mg6  1  0.50000000  0.50000000  0.00000000  1
+  Mg  Mg7  1  0.50000000  0.50000000  0.50000000  1
+... (other Mg atoms)
+... 
+  O  O44  1  0.75094400  0.24905600  0.75028800  1
+  O  O45  1  0.75094400  0.75094400  0.24971200  1
+  O  O46  1  0.75094400  0.75094400  0.75028800  1
+  O  O47  1  0.75094400  0.75094400  0.75028800  1
+...
+Then more O atoms.
+
+So, removing the line starting with 'O  O45' would be the entry with index 45.
+
+Therefore, the modified atom positions loop will have one fewer O entry. Now, updating the formula lines:
+
+Original:
+_chemical_formula_structural   RbCeMg30O32
+_chemical_formula_sum   'Rb1 Ce1 Mg30 O32'
+
+Modified:
+_chemical_formula_structural   RbCeMg30O31
+_chemical_formula_sum   'Rb1 Ce1 Mg30 O31'
+
+But need to make sure that the Mg count is still 30. Let's check how many Mg atoms there are. In the original CIF, from Mg2 to Mg31, that's 30 Mg atoms. If we remove an O, the Mg count remains the same. So the formula should be RbCeMg30O31. That's correct.
+
+Now, the final step is to write the modified CIF with these changes. The rest of the CIF remains the same except for the two formula lines and the atom positions loop.
+
+So, in the output, the lines:
+
+_chemical_formula_structural   RbCeMg30O31
+_chemical_formula_sum   'Rb1 Ce1 Mg30 O31'
+
+And the atom positions loop has the O45 line removed.
+</think>
+
+<cif>
+data_RbCeMg30O32
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   8.69620600
+_cell_length_b   8.69620600
+_cell_length_c   8.78449500
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   RbCeMg30O31
+_chemical_formula_sum   'Rb1 Ce1 Mg30 O31'
+_cell_volume   664.31863929
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Rb  Rb0  1  0.00000000  0.00000000  0.50000000  1
+  Ce  Ce1  1  0.00000000  0.00000000  0.00000000  1
+  Mg  Mg2  1  0.00000000  0.50000000  0.00000000  1
+  Mg  Mg3  1  0.00000000  0.50000000  0.50000000  1
+  Mg  Mg4  1  0.50000000  0.00000000  0.00000000  1
+  Mg  Mg5  1  0.50000000  0.00000000  0.50000000  1
+  Mg  Mg6  1  0.50000000  0.50000000  0.00000000  1
+  Mg  Mg7  1  0.50000000  0.50000000  0.50000000  1
+  Mg  Mg8  1  0.00000000  0.26206800  0.25631600  1
+  Mg  Mg9  1  0.00000000  0.26206800  0.74368400  1
+  Mg  Mg10  1  0.00000000  0.73793200  0.25631600  1
+  Mg  Mg11  1  0.00000000  0.73793200  0.74368400  1
+  Mg  Mg12  1  0.50000000  0.25133600  0.25148100  1
+  Mg  Mg13  1  0.50000000  0.25133600  0.74851900  1
+  Mg  Mg14  1  0.50000000  0.74866400  0.25148100  1
+  Mg  Mg15  1  0.50000000  0.74866400  0.74851900  1
+  Mg  Mg16  1  0.26206800  0.00000000  0.25631600  1
+  Mg  Mg17  1  0.26206800  0.00000000  0.74368400  1
+  Mg  Mg18  1  0.25133600  0.50000000  0.25148100  1
+  Mg  Mg19  1  0.25133600  0.50000000  0.74851900  1
+  Mg  Mg20  1  0.73793200  0.00000000  0.25631600  1
+  Mg  Mg21  1  0.73793200  0.00000000  0.74368400  1
+  Mg  Mg22  1  0.74866400  0.50000000  0.25148100  1
+  Mg  Mg23  1  0.74866400  0.50000000  0.74851900  1
+  Mg  Mg24  1  0.25778900  0.25778900  0.00000000  1
+  Mg  Mg25  1  0.25396100  0.25396100  0.50000000  1
+  Mg  Mg26  1  0.25778900  0.74221100  0.00000000  1
+  Mg  Mg27  1  0.25396100  0.74603900  0.50000000  1
+  Mg  Mg28  1  0.74221100  0.25778900  0.00000000  1
+  Mg  Mg29  1  0.74603900  0.25396100  0.50000000  1
+  Mg  Mg30  1  0.74221100  0.74221100  0.00000000  1
+  Mg  Mg31  1  0.74603900  0.74603900  0.50000000  1
+  O  O32  1  0.26783000  0.00000000  0.00000000  1
+  O  O33  1  0.27997200  0.00000000  0.50000000  1
+  O  O34  1  0.25369300  0.50000000  0.00000000  1
+  O  O35  1  0.25591600  0.50000000  0.50000000  1
+  O  O36  1  0.73217000  0.00000000  0.00000000  1
+  O  O37  1  0.72002800  0.00000000  0.50000000  1
+  O  O38  1  0.74630700  0.50000000  0.00000000  1
+  O  O39  1  0.74408400  0.50000000  0.50000000  1
+  O  O40  1  0.24905600  0.24905600  0.24971200  1
+  O  O41  1  0.24905600  0.24905600  0.75028800  1
+  O  O42  1  0.24905600  0.75094400  0.24971200  1
+  O  O43  1  0.24905600  0.75094400  0.75028800  1
+  O  O44  1  0.75094400  0.24905600  0.75028800  1
+  O  O46  1  0.75094400  0.75094400  0.75028800  1
+  O  O47  1  0.75094400  0.75094400  0.75028800  1
+  O  O48  1  0.00000000  0.00000000  0.23836200  1
+  O  O49  1  0.00000000  0.00000000  0.76163800  1
+  O  O50  1  0.00000000  0.50000000  0.24616100  1
+  O  O51  1  0.00000000  0.50000000  0.75383900  1
+  O  O52  1  0.50000000  0.00000000  0.24616100  1
+  O  O53  1  0.50000000  0.00000000  0.75383900  1
+  O  O54  1  0.50000000  0.50000000  0.24831500  1
+  O  O55  1  0.50000000  0.50000000  0.75168500  1
+  O  O56  1  0.00000000  0.26783000  0.00000000  1
+  O  O57  1  0.00000000  0.27997200  0.50000000  1
+  O  O58  1  0.00000000  0.73217000  0.00000000  1
+  O  O59  1  0.00000000  0.72002800  0.50000000  1
+  O  O60  1  0.50000000  0.25369300  0.00000000  1
+  O  O61  1  0.50000000  0.25591600  0.50000000  1
+  O  O62  1  0.50000000  0.74630700  0.00000000  1
+  O  O63  1  0.50000000  0.74408400  0.50000000  1
+</cif>","data_image0
+_chemical_formula_structural       RbCeMg30O31
+_chemical_formula_sum              ""Rb1 Ce1 Mg30 O31""
+_cell_length_a       8.696206
+_cell_length_b       8.696206
+_cell_length_c       8.784495
+_cell_angle_alpha    90.0
+_cell_angle_beta     90.0
+_cell_angle_gamma    90.0
+
+_space_group_name_H-M_alt    ""P 1""
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Rb  Rb1       1.0  0.0  0.0  0.5  1.0000
+  Ce  Ce1       1.0  0.0  0.0  0.0  1.0000
+  Mg  Mg1       1.0  0.0  0.5  0.0  1.0000
+  Mg  Mg2       1.0  0.0  0.5  0.5  1.0000
+  Mg  Mg3       1.0  0.5  0.0  0.0  1.0000
+  Mg  Mg4       1.0  0.5  0.0  0.5  1.0000
+  Mg  Mg5       1.0  0.5  0.5  0.0  1.0000
+  Mg  Mg6       1.0  0.5  0.5  0.5  1.0000
+  Mg  Mg7       1.0  0.0  0.262068  0.256316  1.0000
+  Mg  Mg8       1.0  0.0  0.262068  0.743684  1.0000
+  Mg  Mg9       1.0  0.0  0.737932  0.256316  1.0000
+  Mg  Mg10      1.0  0.0  0.737932  0.743684  1.0000
+  Mg  Mg11      1.0  0.5  0.251336  0.251481  1.0000
+  Mg  Mg12      1.0  0.5  0.251336  0.748519  1.0000
+  Mg  Mg13      1.0  0.5  0.748664  0.251481  1.0000
+  Mg  Mg14      1.0  0.5  0.748664  0.748519  1.0000
+  Mg  Mg15      1.0  0.262068  0.0  0.256316  1.0000
+  Mg  Mg16      1.0  0.262068  0.0  0.743684  1.0000
+  Mg  Mg17      1.0  0.251336  0.5  0.251481  1.0000
+  Mg  Mg18      1.0  0.251336  0.5  0.748519  1.0000
+  Mg  Mg19      1.0  0.737932  0.0  0.256316  1.0000
+  Mg  Mg20      1.0  0.737932  0.0  0.743684  1.0000
+  Mg  Mg21      1.0  0.748664  0.5  0.251481  1.0000
+  Mg  Mg22      1.0  0.748664  0.5  0.748519  1.0000
+  Mg  Mg23      1.0  0.257789  0.257789  0.0  1.0000
+  Mg  Mg24      1.0  0.253961  0.253961  0.5  1.0000
+  Mg  Mg25      1.0  0.257789  0.7422109999999997  0.0  1.0000
+  Mg  Mg26      1.0  0.253961  0.746039  0.5  1.0000
+  Mg  Mg27      1.0  0.7422109999999997  0.257789  0.0  1.0000
+  Mg  Mg28      1.0  0.746039  0.253961  0.5  1.0000
+  Mg  Mg29      1.0  0.7422109999999997  0.7422109999999997  0.0  1.0000
+  Mg  Mg30      1.0  0.746039  0.746039  0.5  1.0000
+  O   O1        1.0  0.26783  0.0  0.0  1.0000
+  O   O2        1.0  0.279972  0.0  0.5  1.0000
+  O   O3        1.0  0.253693  0.5  0.0  1.0000
+  O   O4        1.0  0.255916  0.5  0.5  1.0000
+  O   O5        1.0  0.7321699999999998  0.0  0.0  1.0000
+  O   O6        1.0  0.720028  0.0  0.5  1.0000
+  O   O7        1.0  0.746307  0.5  0.0  1.0000
+  O   O8        1.0  0.744084  0.5  0.5  1.0000
+  O   O9        1.0  0.24905599999999997  0.24905599999999997  0.249712  1.0000
+  O   O10       1.0  0.24905599999999997  0.24905599999999997  0.750288  1.0000
+  O   O11       1.0  0.24905599999999997  0.750944  0.249712  1.0000
+  O   O12       1.0  0.24905599999999997  0.750944  0.750288  1.0000
+  O   O13       1.0  0.750944  0.24905599999999997  0.249712  1.0000
+  O   O14       1.0  0.750944  0.750944  0.249712  1.0000
+  O   O15       1.0  0.750944  0.750944  0.750288  1.0000
+  O   O16       1.0  0.0  0.0  0.23836199999999996  1.0000
+  O   O17       1.0  0.0  0.0  0.761638  1.0000
+  O   O18       1.0  0.0  0.5  0.246161  1.0000
+  O   O19       1.0  0.0  0.5  0.753839  1.0000
+  O   O20       1.0  0.5  0.0  0.246161  1.0000
+  O   O21       1.0  0.5  0.0  0.753839  1.0000
+  O   O22       1.0  0.5  0.5  0.24831500000000004  1.0000
+  O   O23       1.0  0.5  0.5  0.751685  1.0000
+  O   O24       1.0  0.0  0.26783  0.0  1.0000
+  O   O25       1.0  0.0  0.279972  0.5  1.0000
+  O   O26       1.0  0.0  0.7321699999999998  0.0  1.0000
+  O   O27       1.0  0.0  0.720028  0.5  1.0000
+  O   O28       1.0  0.5  0.253693  0.0  1.0000
+  O   O29       1.0  0.5  0.255916  0.5  1.0000
+  O   O30       1.0  0.5  0.746307  0.0  1.0000
+  O   O31       1.0  0.5  0.744084  0.5  1.0000
+",CIFParsingError
+True,"# generated using pymatgen
+data_SrMg30TiO32
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   8.62310106
+_cell_length_b   8.62310106
+_cell_length_c   8.62432280
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   SrMg30TiO32
+_chemical_formula_sum   'Sr1 Mg30 Ti1 O32'
+_cell_volume   641.28628991
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Sr  Sr0  1  0.00000000  0.00000000  0.50000000  1
+  Mg  Mg1  1  0.00000000  0.50000000  0.00000000  1
+  Mg  Mg2  1  0.00000000  0.50000000  0.50000000  1
+  Mg  Mg3  1  0.50000000  0.00000000  0.00000000  1
+  Mg  Mg4  1  0.50000000  0.00000000  0.50000000  1
+  Mg  Mg5  1  0.50000000  0.50000000  0.00000000  1
+  Mg  Mg6  1  0.50000000  0.50000000  0.50000000  1
+  Mg  Mg7  1  0.00000000  0.25738647  0.24651636  1
+  Mg  Mg8  1  0.00000000  0.25738647  0.75348364  1
+  Mg  Mg9  1  0.00000000  0.74261353  0.24651636  1
+  Mg  Mg10  1  0.00000000  0.74261353  0.75348364  1
+  Mg  Mg11  1  0.50000000  0.25095069  0.24944070  1
+  Mg  Mg12  1  0.50000000  0.25095069  0.75055930  1
+  Mg  Mg13  1  0.50000000  0.74904931  0.24944070  1
+  Mg  Mg14  1  0.50000000  0.74904931  0.75055930  1
+  Mg  Mg15  1  0.25738647  0.00000000  0.24651636  1
+  Mg  Mg16  1  0.25738647  0.00000000  0.75348364  1
+  Mg  Mg17  1  0.25095069  0.50000000  0.24944070  1
+  Mg  Mg18  1  0.25095069  0.50000000  0.75055930  1
+  Mg  Mg19  1  0.74261353  -0.00000000  0.24651636  1
+  Mg  Mg20  1  0.74261353  0.00000000  0.75348364  1
+  Mg  Mg21  1  0.74904931  0.50000000  0.24944070  1
+  Mg  Mg22  1  0.74904931  0.50000000  0.75055930  1
+  Mg  Mg23  1  0.25088938  0.25088938  0.00000000  1
+  Mg  Mg24  1  0.25533209  0.25533209  0.50000000  1
+  Mg  Mg25  1  0.25088938  0.74911062  0.00000000  1
+  Mg  Mg26  1  0.25533209  0.74466791  0.50000000  1
+  Mg  Mg27  1  0.74911062  0.25088938  0.00000000  1
+  Mg  Mg28  1  0.74466791  0.25533209  0.50000000  1
+  Mg  Mg29  1  0.74911062  0.74911062  0.00000000  1
+  Mg  Mg30  1  0.74466791  0.74466791  0.50000000  1
+  Ti  Ti31  1  0.00000000  0.00000000  0.00000000  1
+  O  O32  1  0.25713380  -0.00000000  0.00000000  1
+  O  O33  1  0.27047125  0.00000000  0.50000000  1
+  O  O34  1  0.25130881  0.50000000  0.00000000  1
+  O  O35  1  0.25397542  0.50000000  0.50000000  1
+  O  O36  1  0.74286620  0.00000000  0.00000000  1
+  O  O37  1  0.72952875  -0.00000000  0.50000000  1
+  O  O38  1  0.74869119  0.50000000  0.00000000  1
+  O  O39  1  0.74602458  0.50000000  0.50000000  1
+  O  O40  1  0.24951223  0.24951223  0.25011754  1
+  O  O41  1  0.24951223  0.24951223  0.74988246  1
+  O  O42  1  0.24951223  0.75048777  0.25011754  1
+  O  O43  1  0.24951223  0.75048777  0.74988246  1
+  O  O44  1  0.75048777  0.24951223  0.25011754  1
+  O  O45  1  0.75048777  0.24951223  0.74988246  1
+  O  O46  1  0.75048777  0.75048777  0.25011754  1
+  O  O47  1  0.75048777  0.75048777  0.74988246  1
+  O  O48  1  0.00000000  -0.00000000  0.23271176  1
+  O  O49  1  0.00000000  -0.00000000  0.76728824  1
+  O  O50  1  0.00000000  0.50000000  0.24633050  1
+  O  O51  1  0.00000000  0.50000000  0.75366950  1
+  O  O52  1  0.50000000  0.00000000  0.24633050  1
+  O  O53  1  0.50000000  0.00000000  0.75366950  1
+  O  O54  1  0.50000000  0.50000000  0.24910619  1
+  O  O55  1  0.50000000  0.50000000  0.75089381  1
+  O  O56  1  0.00000000  0.25713380  0.00000000  1
+  O  O57  1  0.00000000  0.27047125  0.50000000  1
+  O  O58  1  0.00000000  0.74286620  0.00000000  1
+  O  O59  1  0.00000000  0.72952875  0.50000000  1
+  O  O60  1  0.50000000  0.25130881  0.00000000  1
+  O  O61  1  0.50000000  0.25397542  0.50000000  1
+  O  O62  1  0.50000000  0.74869119  0.00000000  1
+  O  O63  1  0.50000000  0.74602458  0.50000000  1
+",Remove the atom at index 49 from the cif file. The indices of atoms are started from 0.,"data_SrMg30TiO32
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   8.62310106
+_cell_length_b   8.62310106
+_cell_length_c   8.62432280
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   SrMg30TiO31
+_chemical_formula_sum   'Sr1 Mg30 Ti1 O31'
+_cell_volume   641.28628991
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Sr  Sr0  1  0.00000000  0.00000000  0.50000000  1
+  Mg  Mg1  1  0.00000000  0.50000000  0.00000000  1
+  Mg  Mg2  1  0.00000000  0.50000000  0.50000000  1
+  Mg  Mg3  1  0.50000000  0.00000000  0.00000000  1
+  Mg  Mg4  1  0.50000000  0.00000000  0.50000000  1
+  Mg  Mg5  1  0.50000000  0.50000000  0.00000000  1
+  Mg  Mg6  1  0.50000000  0.50000000  0.50000000  1
+  Mg  Mg7  1  0.00000000  0.25738647  0.24651636  1
+  Mg  Mg8  1  0.00000000  0.25738647  0.75348364  1
+  Mg  Mg9  1  0.00000000  0.74261353  0.24651636  1
+  Mg  Mg10  1  0.00000000  0.74261353  0.75348364  1
+  Mg  Mg11  1  0.50000000  0.25095069  0.24944070  1
+  Mg  Mg12  1  0.50000000  0.25095069  0.75055930  1
+  Mg  Mg13  1  0.50000000  0.74904931  0.24944070  1
+  Mg  Mg14  1  0.50000000  0.74904931  0.75055930  1
+  Mg  Mg15  1  0.25738647  0.00000000  0.24651636  1
+  Mg  Mg16  1  0.25738647  0.00000000  0.75348364  1
+  Mg  Mg17  1  0.25095069  0.50000000  0.24944070  1
+  Mg  Mg18  1  0.25095069  0.50000000  0.75055930  1
+  Mg  Mg19  1  0.74261353  -0.00000000  0.24651636  1
+  Mg  Mg20  1  0.74261353  0.00000000  0.75348364  1
+  Mg  Mg21  1  0.74904931  0.50000000  0.24944070  1
+  Mg  Mg22  1  0.74904931  0.50000000  0.75055930  1
+  Mg  Mg23  1  0.25088938  0.25088938  0.00000000  1
+  Mg  Mg24  1  0.25533209  0.25533209  0.50000000  1
+  Mg  Mg25  1  0.25088938  0.74911062  0.00000000  1
+  Mg  Mg26  1  0.25533209  0.74466791  0.50000000  1
+  Mg  Mg27  1  0.74911062  0.25088938  0.00000000  1
+  Mg  Mg28  1  0.74466791  0.25533209  0.50000000  1
+  Mg  Mg29  1  0.74911062  0.74911062  0.00000000  1
+  Mg  Mg30  1  0.74466791  0.74466791  0.50000000  1
+  Ti  Ti31  1  0.00000000  0.00000000  0.00000000  1
+  O  O32  1  0.25713380  -0.00000000  0.00000000  1
+  O  O33  1  0.27047125  0.00000000  0.50000000  1
+  O  O34  1  0.25130881  0.50000000  0.00000000  1
+  O  O35  1  0.25397542  0.50000000  0.50000000  1
+  O  O36  1  0.74286620  0.00000000  0.00000000  1
+  O  O37  1  0.72952875  -0.00000000  0.50000000  1
+  O  O38  1  0.74869119  0.50000000  0.00000000  1
+  O  O39  1  0.74602458  0.50000000  0.50000000  1
+  O  O40  1  0.24951223  0.24951223  0.25011754  1
+  O  O41  1  0.24951223  0.24951223  0.74988246  1
+  O  O42  1  0.24951223  0.75048777  0.25011754  1
+  O  O43  1  0.24951223  0.75048777  0.74988246  1
+  O  O44  1  0.75048777  0.24951223  0.25011754  1
+  O  O45  1  0.75048777  0.24951223  0.74988246  1
+  O  O46  1  0.75048777  0.75048777  0.25011754  1
+  O  O47  1  0.75048777  0.75048777  0.74988246  1
+  O  O48  1  0.00000000  -0.00000000  0.23271176  1
+  O  O49  1  0.00000000  -0.00000000  0.76728824  1
+  O  O50  1  0.00000000  0.50000000  0.24633050  1
+  O  O51  1  0.00000000  0.50000000  0.75366950  1
+  O  O52  1  0.50000000  0.00000000  0.24633050  1
+  O  O53  1  0.50000000  0.00000000  0.75366950  1
+  O  O54  1  0.50000000  0.50000000  0.24910619  1
+  O  O55  1  0.50000000  0.50000000  0.75089381  1
+  O  O56  1  0.00000000  0.25713380  0.00000000  1
+  O  O57  1  0.00000000  0.27047125  0.50000000  1
+  O  O58  1  0.00000000  0.74286620  0.00000000  1
+  O  O59  1  0.00000000  0.72952875  0.50000000  1
+  O  O60  1  0.50000000  0.25130881  0.00000000  1
+  O  O61  1  0.50000000  0.25397542  0.50000000  1
+  O  O62  1  0.50000000  0.74869119  0.00000000  1
+  O  O63  1  0.50000000  0.74602458  0.50000000  1","data_image0
+_chemical_formula_structural       SrMg30TiO31
+_chemical_formula_sum              ""Sr1 Mg30 Ti1 O31""
+_cell_length_a       8.62310106
+_cell_length_b       8.62310106
+_cell_length_c       8.6243228
+_cell_angle_alpha    90.0
+_cell_angle_beta     90.0
+_cell_angle_gamma    90.0
+
+_space_group_name_H-M_alt    ""P 1""
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Sr  Sr1       1.0  0.0  0.0  0.5  1.0000
+  Mg  Mg1       1.0  0.0  0.5  0.0  1.0000
+  Mg  Mg2       1.0  0.0  0.5  0.5  1.0000
+  Mg  Mg3       1.0  0.5  0.0  0.0  1.0000
+  Mg  Mg4       1.0  0.5  0.0  0.5  1.0000
+  Mg  Mg5       1.0  0.5  0.5  0.0  1.0000
+  Mg  Mg6       1.0  0.5  0.5  0.5  1.0000
+  Mg  Mg7       1.0  0.0  0.25738647  0.24651636  1.0000
+  Mg  Mg8       1.0  0.0  0.25738647  0.75348364  1.0000
+  Mg  Mg9       1.0  0.0  0.74261353  0.24651636  1.0000
+  Mg  Mg10      1.0  0.0  0.74261353  0.75348364  1.0000
+  Mg  Mg11      1.0  0.5  0.25095069  0.2494407  1.0000
+  Mg  Mg12      1.0  0.5  0.25095069  0.7505592999999999  1.0000
+  Mg  Mg13      1.0  0.5  0.74904931  0.2494407  1.0000
+  Mg  Mg14      1.0  0.5  0.74904931  0.7505592999999999  1.0000
+  Mg  Mg15      1.0  0.25738647  0.0  0.24651636  1.0000
+  Mg  Mg16      1.0  0.25738647  0.0  0.75348364  1.0000
+  Mg  Mg17      1.0  0.25095069  0.5  0.2494407  1.0000
+  Mg  Mg18      1.0  0.25095069  0.5  0.7505592999999999  1.0000
+  Mg  Mg19      1.0  0.74261353  0.0  0.24651636  1.0000
+  Mg  Mg20      1.0  0.74261353  0.0  0.75348364  1.0000
+  Mg  Mg21      1.0  0.74904931  0.5  0.2494407  1.0000
+  Mg  Mg22      1.0  0.74904931  0.5  0.7505592999999999  1.0000
+  Mg  Mg23      1.0  0.25088938  0.25088938  0.0  1.0000
+  Mg  Mg24      1.0  0.25533209  0.25533209  0.5  1.0000
+  Mg  Mg25      1.0  0.25088938  0.74911062  0.0  1.0000
+  Mg  Mg26      1.0  0.25533209  0.74466791  0.5  1.0000
+  Mg  Mg27      1.0  0.74911062  0.25088938  0.0  1.0000
+  Mg  Mg28      1.0  0.74466791  0.25533209  0.5  1.0000
+  Mg  Mg29      1.0  0.74911062  0.74911062  0.0  1.0000
+  Mg  Mg30      1.0  0.74466791  0.74466791  0.5  1.0000
+  Ti  Ti1       1.0  0.0  0.0  0.0  1.0000
+  O   O1        1.0  0.2571338  0.0  0.0  1.0000
+  O   O2        1.0  0.27047125  0.0  0.5  1.0000
+  O   O3        1.0  0.25130881  0.5  0.0  1.0000
+  O   O4        1.0  0.25397542  0.5  0.5  1.0000
+  O   O5        1.0  0.7428662  0.0  0.0  1.0000
+  O   O6        1.0  0.72952875  0.0  0.5  1.0000
+  O   O7        1.0  0.74869119  0.5  0.0  1.0000
+  O   O8        1.0  0.7460245799999999  0.5  0.5  1.0000
+  O   O9        1.0  0.24951223  0.24951223  0.25011754  1.0000
+  O   O10       1.0  0.24951223  0.24951223  0.74988246  1.0000
+  O   O11       1.0  0.24951223  0.75048777  0.25011754  1.0000
+  O   O12       1.0  0.24951223  0.75048777  0.74988246  1.0000
+  O   O13       1.0  0.75048777  0.24951223  0.25011754  1.0000
+  O   O14       1.0  0.75048777  0.24951223  0.74988246  1.0000
+  O   O15       1.0  0.75048777  0.75048777  0.25011754  1.0000
+  O   O16       1.0  0.75048777  0.75048777  0.74988246  1.0000
+  O   O17       1.0  0.0  0.0  0.23271176000000002  1.0000
+  O   O18       1.0  0.0  0.5  0.2463305  1.0000
+  O   O19       1.0  0.0  0.5  0.7536695  1.0000
+  O   O20       1.0  0.5  0.0  0.2463305  1.0000
+  O   O21       1.0  0.5  0.0  0.7536695  1.0000
+  O   O22       1.0  0.5  0.5  0.24910619  1.0000
+  O   O23       1.0  0.5  0.5  0.7508938099999998  1.0000
+  O   O24       1.0  0.0  0.2571338  0.0  1.0000
+  O   O25       1.0  0.0  0.27047125  0.5  1.0000
+  O   O26       1.0  0.0  0.7428662  0.0  1.0000
+  O   O27       1.0  0.0  0.72952875  0.5  1.0000
+  O   O28       1.0  0.5  0.25130881  0.0  1.0000
+  O   O29       1.0  0.5  0.25397542  0.5  1.0000
+  O   O30       1.0  0.5  0.74869119  0.0  1.0000
+  O   O31       1.0  0.5  0.7460245799999999  0.5  1.0000
+",AtomCountMismatch
+True,"# generated using pymatgen
+data_MgCu2(TeO4)2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.28836106
+_cell_length_b   8.74945500
+_cell_length_c   13.39749789
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   91.02886832
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   MgCu2(TeO4)2
+_chemical_formula_sum   'Mg4 Cu8 Te8 O32'
+_cell_volume   737.00790216
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Mg  Mg0  1  0.11908800  0.15590000  0.04685400  1
+  Mg  Mg1  1  0.88091200  0.84410000  0.95314600  1
+  Mg  Mg2  1  0.88091200  0.65590000  0.45314600  1
+  Mg  Mg3  1  0.11908800  0.34410000  0.54685400  1
+  Cu  Cu4  1  0.74625000  0.18276700  0.89063600  1
+  Cu  Cu5  1  0.39393600  0.07427400  0.62224300  1
+  Cu  Cu6  1  0.60606400  0.92572600  0.37775700  1
+  Cu  Cu7  1  0.25375000  0.81723300  0.10936400  1
+  Cu  Cu8  1  0.74625000  0.31723300  0.39063600  1
+  Cu  Cu9  1  0.39393600  0.42572600  0.12224300  1
+  Cu  Cu10  1  0.25375000  0.68276700  0.60936400  1
+  Cu  Cu11  1  0.60606400  0.57427400  0.87775700  1
+  Te  Te12  1  0.04684600  0.44538200  0.84143300  1
+  Te  Te13  1  0.04684600  0.05461800  0.34143300  1
+  Te  Te14  1  0.64712900  0.09762600  0.13665400  1
+  Te  Te15  1  0.95315400  0.94538200  0.65856700  1
+  Te  Te16  1  0.35287100  0.90237400  0.86334600  1
+  Te  Te17  1  0.35287100  0.59762600  0.36334600  1
+  Te  Te18  1  0.64712900  0.40237400  0.63665400  1
+  Te  Te19  1  0.95315400  0.55461800  0.15856700  1
+  O  O20  1  0.04275500  0.24923400  0.40714800  1
+  O  O21  1  0.68936500  0.01408100  0.60714400  1
+  O  O22  1  0.19432700  0.55794800  0.48583700  1
+  O  O23  1  0.80567300  0.05794800  0.01416300  1
+  O  O24  1  0.04275500  0.25076600  0.90714800  1
+  O  O25  1  0.95724500  0.75076600  0.59285200  1
+  O  O26  1  0.09227300  0.12793200  0.61584500  1
+  O  O27  1  0.51874200  0.90623000  0.15642100  1
+  O  O28  1  0.51874200  0.59377000  0.65642100  1
+  O  O29  1  0.27731500  0.88475200  0.66478200  1
+  O  O30  1  0.72268500  0.38475200  0.83521800  1
+  O  O31  1  0.48125800  0.09377000  0.84357900  1
+  O  O32  1  0.90772700  0.87206800  0.38415500  1
+  O  O33  1  0.92798200  0.55520100  0.29696300  1
+  O  O34  1  0.42555400  0.28590200  0.57295300  1
+  O  O35  1  0.42555400  0.21409800  0.07295300  1
+  O  O36  1  0.07201800  0.05520100  0.20303700  1
+  O  O37  1  0.48125800  0.40623000  0.34357900  1
+  O  O38  1  0.07201800  0.44479900  0.70303700  1
+  O  O39  1  0.80567300  0.44205200  0.51416300  1
+  O  O40  1  0.68936500  0.48591900  0.10714400  1
+  O  O41  1  0.72268500  0.11524800  0.33521800  1
+  O  O42  1  0.95724500  0.74923400  0.09285200  1
+  O  O43  1  0.09227300  0.37206800  0.11584500  1
+  O  O44  1  0.19432700  0.94205200  0.98583700  1
+  O  O45  1  0.57444600  0.78590200  0.92704700  1
+  O  O46  1  0.31063500  0.98591900  0.39285600  1
+  O  O47  1  0.31063500  0.51408100  0.89285600  1
+  O  O48  1  0.90772700  0.62793200  0.88415500  1
+  O  O49  1  0.57444600  0.71409800  0.42704700  1
+  O  O50  1  0.27731500  0.61524800  0.16478200  1
+  O  O51  1  0.92798200  0.94479900  0.79696300  1
+",Remove the atom at index 19 from the cif file. The indices of atoms are started from 0.,"<think>
+Okay, let me tackle this problem step by step. The user wants me to remove the atom at index 19 from the given CIF file. First, I need to understand how CIF files are structured. The key part here is the loop_ section under _atom_site that lists all the atoms with their coordinates and other details. Each line in that loop represents an atom, and the indices are from 0, so I need to find the 19th entry there.
+
+Looking at the input CIF, the loop starts with the Mg atoms (Mg0 to Mg3), then Cu atoms (Cu4 to Cu11), followed by Te atoms (Te12 to Te19), and finally O atoms (O20 onwards). Let me count the entries to find the 19th index.
+
+Starting from 0:
+Mg0 (0)
+Mg1 (1)
+Mg2 (2)
+Mg3 (3)
+Cu4 (4)
+Cu5 (5)
+Cu6 (6)
+Cu7 (7)
+Cu8 (8)
+Cu9 (9)
+Cu10 (10)
+Cu11 (11)
+Te12 (12)
+Te13 (13)
+Te14 (14)
+Te15 (15)
+Te16 (16)
+Te17 (17)
+Te18 (18)
+Te19 (19)
+
+So the atom at index 19 is Te19. The entry for Te19 is:
+
+Te  Te19  1  0.95315400  0.55461800  0.15856700  1
+
+I need to remove this line from the loop. After removing it, I should check if the formula is still correct. The original _chemical_formula_structural is MgCu2(TeO4)2, which implies 1 Mg, 2 Cu, 2 Te, and 8 O per formula unit. The _chemical_formula_sum is 'Mg4 Cu8 Te8 O32', which with Z=4 (cell_formula_units_Z) makes sense (4 units: Mg4, Cu8, Te8, O32). Removing one Te would change Te8 to Te7. However, the user might expect that the formula is adjusted. Wait, but the action is to remove an atom, which will affect the formula. However, the problem states to apply the action and return the modified CIF. The user might not have mentioned adjusting the formula sum, but according to CIF standards, the _chemical_formula_sum should reflect the actual atoms present.
+
+But the original _chemical_formula_sum was 'Mg4 Cu8 Te8 O32'. If we remove one Te atom, it becomes Mg4 Cu8 Te7 O32. However, looking at the atom list, the original count is:
+
+Mg: 4 atoms (Mg0-Mg3)
+Cu: 12 atoms? Wait, wait, the label starts from Cu4 to Cu11, that's 8 Cu atoms (Cu4 to Cu11 is 8 entries? Let me count:
+
+Cu4, Cu5, Cu6, Cu7, Cu8, Cu9, Cu10, Cu11. That's 8 Cu atoms. Then Te from Te12 to Te19 (8 Te atoms), and O from O20 to O51 (let's see: O20 to O51 is 32 O atoms? Let me count O entries. The O starts at O20 (index 19 in the loop? No, wait, the loop has all the atoms. Let me check the original atom counts.
+
+Original Mg: 4 atoms
+Cu: 8 atoms (Cu4-Cu11)
+Te: 8 atoms (Te12-Te19)
+O: Let's count the O entries. From O20 to O51, that's 32 O atoms (since O20 is index 19, but the total O entries are 32? Let me check:
+
+The O entries start after Te19 (index 19) and go up to O51. The count here is O20, O21, ..., O51. So 51-20+1 = 32 O atoms. Correct.
+
+So the original formula sum is 4 Mg, 8 Cu, 8 Te, 32 O. If we remove one Te (Te19), the formula sum should be 4 Mg, 8 Cu, 7 Te, 32 O. However, the user's instruction says to apply the action, not necessarily to correct the formula. But CIF files should have the formula sum correct. However, the initial _chemical_formula_sum might have been generated with a certain assumption. If the user's action is to remove an atom, the formula sum should be adjusted accordingly. But the problem says to apply the action to the initial CIF content. So, maybe the formula sum should be adjusted, but perhaps the user expects just the removal of the atom without adjusting the formula. But this might lead to an invalid CIF.
+
+However, the problem says ""return the modified CIF content in cif format within <cif> and </cif> tags. Please ensure the output is a valid CIF file, with correct formula, and atom positions."" So, the formula needs to be adjusted.
+
+But wait, the initial CIF's _chemical_formula_sum is 'Mg4 Cu8 Te8 O32', which with Z=4 implies 4 formula units. If we remove one Te, then the total Te is 7, so the formula becomes Mg4 Cu8 Te7 O32. Therefore, the _chemical_formula_sum should be updated from 'Mg4 Cu8 Te8 O32' to 'Mg4 Cu8 Te7 O32'.
+
+However, the _chemical_formula_structural would also need to be adjusted. The original is MgCu2(TeO4)2. If Te goes from 2 to 1.5 (since 4 formula units have 8 Te atoms; removing one Te would make it 7, so per formula unit it would be 7/4, but that's messy. Alternatively, maybe the structural formula is not adjusted, but the formula sum is corrected. However, this is getting complicated. The user might not expect us to adjust the structural formula, but just remove the atom and adjust the formula sum accordingly.
+
+But given that the user's instruction requires the output to be a valid CIF with correct formula and atom positions, we need to adjust both the _chemical_formula_sum and the _chemical_formula_structural.
+
+Wait, the original _chemical_formula_structural is MgCu2(TeO4)2. Let's parse that. This would correspond to MgCu2Te2O8, but in the formula sum, it's Mg4 Cu8 Te8 O32, which is 4 formula units, so each formula unit has Mg1, Cu2, Te2, O8. Therefore, if we remove one Te, then per formula unit, Te becomes 2 - 1/4 = 1.75, which is not a whole number. This suggests that the formula may need to be adjusted to reflect the change, but perhaps the user expects that the formula sum is corrected to match the actual atom counts, and the structural formula may not be changed. Alternatively, maybe the structural formula should also be adjusted.
+
+This is a bit tricky. However, the user's main request is to apply the action (removing the atom at index 19) and ensure the output CIF is valid. The problem says to ""ensure the output is a valid CIF file, with correct formula, and atom positions."" So, the formula must be correct. Therefore, after removing the Te19 atom, we need to adjust the _chemical_formula_sum accordingly, as well as the _chemical_formula_structural.
+
+So the original counts after removal:
+
+- Mg: 4 (unchanged)
+- Cu: 8 (unchanged)
+- Te: 7 (originally 8)
+- O: 32 (unchanged)
+
+So the formula_sum becomes 'Mg4 Cu8 Te7 O32', and the structural formula would need to be adjusted. The original structural formula was MgCu2(TeO4)2, which implies each formula unit has 1 Mg, 2 Cu, 2 Te, and 8 O. Removing one Te would make it 1 Mg, 2 Cu, 1.75 Te, and 8 O, which is not a whole number. This is problematic. Therefore, perhaps the correct way is to adjust the structural formula to reflect the actual composition. But since Te is removed once, maybe the formula becomes MgCu2(TeO4)1.75, which is not standard. Alternatively, perhaps the structural formula is not adjusted, and only the formula_sum is fixed. But that would be inconsistent.
+
+Alternatively, maybe the original CIF had a typo in the _chemical_formula_sum. Wait, the original _chemical_formula_sum is 'Mg4 Cu8 Te8 O32', which matches 4 formula units of MgCu2(TeO4)2 (each unit: Mg1, Cu2, Te2, O8; 4 units: Mg4, Cu8, Te8, O32). So, removing one Te would make the formula sum 'Mg4 Cu8 Te7 O32', which would indicate that the chemical formula is now not a whole number per formula unit. But that's not possible. Therefore, the structural formula might need to be adjusted. However, adjusting it may not be straightforward. Perhaps the user doesn't expect us to adjust the structural formula, only the formula_sum, but that would make the CIF technically invalid, as the formula_sum and structural formula should match.
+
+Alternatively, maybe the problem is designed such that we only need to remove the atom and adjust the formula_sum, assuming that the structural formula is not part of the required correction. However, the user instruction says to ensure the formula is correct, so the formula_sum must match the atom counts.
+
+Given that, I'll remove the Te19 atom, subtract 1 from the Te count in formula_sum, and leave the structural formula as is, even if it's not perfectly aligned. But that might be an error. Alternatively, the user might not care about the structural formula as long as the formula_sum is correct.
+
+But the original CIF's _chemical_formula_structural is MgCu2(TeO4)2. Let me count the Te in that formula. The formula is MgCu2(TeO4)2. Each (TeO4) has 1 Te, multiplied by 2, so 2 Te per formula unit. Therefore, with 4 formula units (Z=4), the Te count is 8. After removal, it's 7 Te, which implies the structural formula is incorrect. However, the problem might not require changing the structural formula, only the formula_sum. The user's instruction says to apply the action, which is removing the atom, and ensure the formula is correct. Therefore, adjusting the formula_sum is necessary.
+
+So in the modified CIF, the formula_sum becomes 'Mg4 Cu8 Te7 O32'.
+
+Therefore, in the output CIF, I'll need to:
+
+1. Remove the line corresponding to Te19 (index 19) from the atom loop.
+2. Update the _chemical_formula_sum to 'Mg4 Cu8 Te7 O32'.
+3. Check if other entries need adjustment, but the _chemical_formula_structural may remain the same, but perhaps that's incorrect. However, without more information, I'll adjust the formula_sum and leave the structural formula as is, as the user might not have mentioned changing it. Alternatively, maybe the original CIF has a mistake in the formula_sum, but given that the action is straightforward, the user's focus is on removing the atom and ensuring the count in formula_sum is correct.
+
+Thus, the steps are:
+
+- Remove the 19th atom (Te19) from the loop.
+- Adjust the _chemical_formula_sum from 'Mg4 Cu8 Te8 O32' to 'Mg4 Cu8 Te7 O32'.
+
+Now, proceed to modify the CIF accordingly.
+</think>
+
+<cif>
+data_MgCu2(TeO4)2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.28836106
+_cell_length_b   8.74945500
+_cell_length_c   13.39749789
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   91.02886832
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   MgCu2(TeO4)2
+_chemical_formula_sum   'Mg4 Cu8 Te7 O32'
+_cell_volume   737.00790216
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Mg  Mg0  1  0.11908800  0.15590000  0.04685400  1
+  Mg  Mg1  1  0.88091200  0.84410000  0.95314600  1
+  Mg  Mg2  1  0.88091200  0.65590000  0.45314600  1
+  Mg  Mg3  1  0.11908800  0.34410000  0.54685400  1
+  Cu  Cu4  1  0.74625000  0.18276700  0.89063600  1
+  Cu  Cu5  1  0.39393600  0.07427400  0.62224300  1
+  Cu  Cu6  1  0.60606400  0.92572600  0.37775700  1
+  Cu  Cu7  1  0.25375000  0.81723300  0.10936400  1
+  Cu  Cu8  1  0.74625000  0.31723300  0.39063600  1
+  Cu  Cu9  1  0.39393600  0.42572600  0.12224300  1
+  Cu  Cu10  1  0.25375000  0.68276700  0.60936400  1
+  Cu  Cu11  1  0.60606400  0.57427400  0.87775700  1
+  Te  Te12  1  0.04684600  0.44538200  0.84143300  1
+  Te  Te13  1  0.04684600  0.05461800  0.34143300  1
+  Te  Te14  1  0.64712900  0.09762600  0.13665400  1
+  Te  Te15  1  0.95315400  0.94538200  0.65856700  1
+  Te  Te16  1  0.35287100  0.90237400  0.86334600  1
+  Te  Te17  1  0.35287100  0.59762600  0.36334600  1
+  Te  Te18  1  0.64712900  0.40237400  0.63665400  1
+  O  O20  1  0.04275500  0.24923400  0.40714800  1
+  O  O21  1  0.68936500  0.01408100  0.60714400  1
+  O  O22  1  0.19432700  0.55794800  0.48583700  1
+  O  O23  1  0.80567300  0.05794800  0.01416300  1
+  O  O24  1  0.04275500  0.25076600  0.90714800  1
+  O  O25  1  0.95724500  0.75076600  0.59285200  1
+  O  O26  1  0.09227300  0.12793200  0.61584500  1
+  O  O27  1  0.51874200  0.90623000  0.15642100  1
+  O  O28  1  0.51874200  0.59377000  0.65642100  1
+  O  O29  1  0.27731500  0.88475200  0.66478200  1
+  O  O30  1  0.72268500  0.38475200  0.83521800  1
+  O  O31  1  0.48125800  0.09377000  0.84357900  1
+  O  O32  1  0.90772700  0.87206800  0.38415500  1
+  O  O33  1  0.92798200  0.55520100  0.29696300  1
+  O  O34  1  0.42555400  0.28590200  0.57295300  1
+  O  O35  1  0.42555400  0.21409800  0.07295300  1
+  O  O36  1  0.07201800  0.05520100  0.20303700  1
+  O  O37  1  0.48125800  0.40623000  0.34357900  1
+  O  O38  1  0.07201800  0.44479900  0.70303700  1
+  O  O39  1  0.80567300  0.44205200  0.51416300  1
+  O  O40  1  0.68936500  0.48591900  0.10714400  1
+  O  O41  1  0.72268500  0.11524800  0.33521800  1
+  O  O42  1  0.95724500  0.74923400  0.09285200  1
+  O  O43  1  0.09227300  0.37206800  0.11584500  1
+  O  O44  1  0.19432700  0.94205200  0.98583700  1
+  O  O45  1  0.57444600  0.78590200  0.92704700  1
+  O  O46  1  0.31063500  0.98591900  0.39285600  1
+  O  O47  1  0.31063500  0.51408100  0.89285600  1
+  O  O48  1  0.90772700  0.62793200  0.88415500  1
+  O  O49  1  0.57444600  0.71409800  0.42704700  1
+  O  O50  1  0.27731500  0.61524800  0.16478200  1
+  O  O51  1  0.92798200  0.94479900  0.79696300  1
+</cif>","data_image0
+_chemical_formula_structural       Mg4Cu8Te7O32
+_chemical_formula_sum              ""Mg4 Cu8 Te7 O32""
+_cell_length_a       6.28836106
+_cell_length_b       8.749455
+_cell_length_c       13.39749789
+_cell_angle_alpha    90.0
+_cell_angle_beta     91.02886832000002
+_cell_angle_gamma    90.0
+
+_space_group_name_H-M_alt    ""P 1""
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Mg  Mg1       1.0  0.119088  0.1559  0.046854  1.0000
+  Mg  Mg2       1.0  0.880912  0.8441  0.9531460000000003  1.0000
+  Mg  Mg3       1.0  0.880912  0.6559  0.4531460000000001  1.0000
+  Mg  Mg4       1.0  0.119088  0.3441  0.546854  1.0000
+  Cu  Cu1       1.0  0.7462499999999999  0.182767  0.8906360000000002  1.0000
+  Cu  Cu2       1.0  0.393936  0.074274  0.6222430000000002  1.0000
+  Cu  Cu3       1.0  0.606064  0.925726  0.37775700000000006  1.0000
+  Cu  Cu4       1.0  0.25375  0.817233  0.10936400000000003  1.0000
+  Cu  Cu5       1.0  0.7462499999999999  0.317233  0.390636  1.0000
+  Cu  Cu6       1.0  0.393936  0.425726  0.122243  1.0000
+  Cu  Cu7       1.0  0.25375  0.682767  0.609364  1.0000
+  Cu  Cu8       1.0  0.606064  0.574274  0.8777570000000002  1.0000
+  Te  Te1       1.0  0.046846  0.445382  0.8414330000000002  1.0000
+  Te  Te2       1.0  0.046846  0.054618  0.34143300000000004  1.0000
+  Te  Te3       1.0  0.6471289999999998  0.097626  0.136654  1.0000
+  Te  Te4       1.0  0.9531539999999998  0.945382  0.6585670000000002  1.0000
+  Te  Te5       1.0  0.35287099999999993  0.902374  0.863346  1.0000
+  Te  Te6       1.0  0.35287099999999993  0.597626  0.3633460000000001  1.0000
+  Te  Te7       1.0  0.6471289999999998  0.402374  0.636654  1.0000
+  O   O1        1.0  0.042755  0.249234  0.407148  1.0000
+  O   O2        1.0  0.6893649999999999  0.014081  0.607144  1.0000
+  O   O3        1.0  0.19432699999999997  0.557948  0.485837  1.0000
+  O   O4        1.0  0.805673  0.05794799999999999  0.014163  1.0000
+  O   O5        1.0  0.042755  0.250766  0.9071480000000002  1.0000
+  O   O6        1.0  0.957245  0.750766  0.592852  1.0000
+  O   O7        1.0  0.092273  0.127932  0.6158450000000002  1.0000
+  O   O8        1.0  0.518742  0.90623  0.156421  1.0000
+  O   O9        1.0  0.518742  0.59377  0.656421  1.0000
+  O   O10       1.0  0.27731500000000003  0.884752  0.6647820000000002  1.0000
+  O   O11       1.0  0.722685  0.384752  0.8352180000000002  1.0000
+  O   O12       1.0  0.481258  0.09377  0.8435790000000001  1.0000
+  O   O13       1.0  0.907727  0.872068  0.3841550000000001  1.0000
+  O   O14       1.0  0.927982  0.555201  0.296963  1.0000
+  O   O15       1.0  0.425554  0.285902  0.572953  1.0000
+  O   O16       1.0  0.425554  0.214098  0.07295300000000002  1.0000
+  O   O17       1.0  0.072018  0.055201  0.203037  1.0000
+  O   O18       1.0  0.481258  0.40623  0.343579  1.0000
+  O   O19       1.0  0.072018  0.444799  0.703037  1.0000
+  O   O20       1.0  0.805673  0.442052  0.514163  1.0000
+  O   O21       1.0  0.6893649999999999  0.48591899999999993  0.10714400000000002  1.0000
+  O   O22       1.0  0.722685  0.115248  0.335218  1.0000
+  O   O23       1.0  0.957245  0.749234  0.092852  1.0000
+  O   O24       1.0  0.092273  0.372068  0.115845  1.0000
+  O   O25       1.0  0.19432699999999997  0.942052  0.9858370000000002  1.0000
+  O   O26       1.0  0.574446  0.785902  0.927047  1.0000
+  O   O27       1.0  0.310635  0.985919  0.39285600000000004  1.0000
+  O   O28       1.0  0.310635  0.514081  0.892856  1.0000
+  O   O29       1.0  0.907727  0.627932  0.8841550000000002  1.0000
+  O   O30       1.0  0.574446  0.714098  0.42704700000000007  1.0000
+  O   O31       1.0  0.277315  0.615248  0.164782  1.0000
+  O   O32       1.0  0.927982  0.9447990000000002  0.796963  1.0000
+",CIFParsingError
+True,"# generated using pymatgen
+data_BiTeO5
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.17641100
+_cell_length_b   11.65213300
+_cell_length_c   16.41438300
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   BiTeO5
+_chemical_formula_sum   'Bi8 Te8 O40'
+_cell_volume   1181.31626489
+_cell_formula_units_Z   8
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Bi  Bi0  1  0.92871100  0.82573600  0.21153200  1
+  Bi  Bi1  1  0.07128900  0.17426400  0.78846800  1
+  Bi  Bi2  1  0.57128900  0.32573600  0.78846800  1
+  Bi  Bi3  1  0.07128900  0.67426400  0.71153200  1
+  Bi  Bi4  1  0.42871100  0.17426400  0.28846800  1
+  Bi  Bi5  1  0.42871100  0.67426400  0.21153200  1
+  Bi  Bi6  1  0.57128900  0.82573600  0.71153200  1
+  Bi  Bi7  1  0.92871100  0.32573600  0.28846800  1
+  Te  Te8  1  0.97384300  0.39106400  0.60697100  1
+  Te  Te9  1  0.52615700  0.89106400  0.39302900  1
+  Te  Te10  1  0.02615700  0.60893600  0.39302900  1
+  Te  Te11  1  0.47384300  0.10893600  0.60697100  1
+  Te  Te12  1  0.02615700  0.10893600  0.10697100  1
+  Te  Te13  1  0.97384300  0.89106400  0.89302900  1
+  Te  Te14  1  0.52615700  0.39106400  0.10697100  1
+  Te  Te15  1  0.47384300  0.60893600  0.89302900  1
+  O  O16  1  0.88338000  0.30069600  0.70216900  1
+  O  O17  1  0.27122800  0.03743800  0.07424800  1
+  O  O18  1  0.22877200  0.53743800  0.92575200  1
+  O  O19  1  0.22517700  0.78999100  0.15203800  1
+  O  O20  1  0.27482300  0.28999100  0.84796200  1
+  O  O21  1  0.88338000  0.80069600  0.79783100  1
+  O  O22  1  0.27482300  0.78999100  0.65203800  1
+  O  O23  1  0.61662000  0.80069600  0.29783100  1
+  O  O24  1  0.27122800  0.53743800  0.42575200  1
+  O  O25  1  0.11662000  0.69930400  0.29783100  1
+  O  O26  1  0.61662000  0.30069600  0.20216900  1
+  O  O27  1  0.66034800  0.19367500  0.54710600  1
+  O  O28  1  0.77122800  0.96256200  0.42575200  1
+  O  O29  1  0.77482300  0.71000900  0.65203800  1
+  O  O30  1  0.15133800  0.99946300  0.83496700  1
+  O  O31  1  0.77122800  0.46256200  0.07424800  1
+  O  O32  1  0.11662000  0.19930400  0.20216900  1
+  O  O33  1  0.72517700  0.21000900  0.34796200  1
+  O  O34  1  0.16034800  0.80632500  0.95289400  1
+  O  O35  1  0.22877200  0.03743800  0.57424800  1
+  O  O36  1  0.33965200  0.80632500  0.45289400  1
+  O  O37  1  0.84866200  0.00053700  0.16503300  1
+  O  O38  1  0.77482300  0.21000900  0.84796200  1
+  O  O39  1  0.65133800  0.00053700  0.66503300  1
+  O  O40  1  0.33965200  0.30632500  0.04710600  1
+  O  O41  1  0.16034800  0.30632500  0.54710600  1
+  O  O42  1  0.72877200  0.46256200  0.57424800  1
+  O  O43  1  0.72877200  0.96256200  0.92575200  1
+  O  O44  1  0.65133800  0.50053700  0.83496700  1
+  O  O45  1  0.83965200  0.69367500  0.45289400  1
+  O  O46  1  0.83965200  0.19367500  0.04710600  1
+  O  O47  1  0.66034800  0.69367500  0.95289400  1
+  O  O48  1  0.84866200  0.50053700  0.33496700  1
+  O  O49  1  0.72517700  0.71000900  0.15203800  1
+  O  O50  1  0.22517700  0.28999100  0.34796200  1
+  O  O51  1  0.15133800  0.49946300  0.66503300  1
+  O  O52  1  0.34866200  0.49946300  0.16503300  1
+  O  O53  1  0.38338000  0.19930400  0.70216900  1
+  O  O54  1  0.34866200  0.99946300  0.33496700  1
+  O  O55  1  0.38338000  0.69930400  0.79783100  1
+",Remove the atom at index 51 from the cif file. The indices of atoms are started from 0.,"<think>
+Okay, I need to remove the atom at index 51 from the given CIF file. Let me first understand how the CIF file is structured.
+
+Looking at the input CIF content, the atoms are listed in a loop under the _atom_site entries. Each line represents an atom with its type symbol, label, symmetry multiplicity, and fractional coordinates. The indices start at 0, so the first atom (Bi0) is index 0, then Bi1 is 1, and so on.
+
+The task is to remove the atom at index 51. Let me count through the atoms to find which one that is. Let's list them out:
+
+Starting from the first Bi atoms:
+Bi0 (index 0)
+Bi1 (1)
+Bi2 (2)
+Bi3 (3)
+Bi4 (4)
+Bi5 (5)
+Bi6 (6)
+Bi7 (7)
+Then Te atoms:
+Te8 (8)
+Te9 (9)
+Te10 (10)
+Te11 (11)
+Te12 (12)
+Te13 (13)
+Te14 (14)
+Te15 (15)
+Then O atoms:
+O16 (16)
+O17 (17)
+O18 (18)
+O19 (19)
+O20 (20)
+O21 (21)
+O22 (22)
+O23 (23)
+O24 (24)
+O25 (25)
+O26 (26)
+O27 (27)
+O28 (28)
+O29 (29)
+O30 (30)
+O31 (31)
+O32 (32)
+O33 (33)
+O34 (34)
+O35 (35)
+O36 (36)
+O37 (37)
+O38 (38)
+O39 (39)
+O40 (40)
+O41 (41)
+O42 (42)
+O43 (43)
+O44 (44)
+O45 (45)
+O46 (46)
+O47 (47)
+O48 (48)
+O49 (49)
+O50 (50)
+O51 (51) ← This is the one to remove.
+
+So the atom to remove is O51. Looking at the lines, O51 is the entry:
+
+O  O51  1  0.15133800  0.49946300  0.66503300  1
+
+I need to delete this line from the loop. Also, after removal, the formula might need updating. The original _chemical_formula_sum is 'Bi8 Te8 O40'. Since we're removing one O atom, the sum should be 'Bi8 Te8 O39'. However, the user didn't mention adjusting the formula, but since the CIF should be valid, it's important to correct that.
+
+Wait, the original CIF says _chemical_formula_structural is BiTeO5, and _chemical_formula_sum is 'Bi8 Te8 O40'. That makes sense because each unit cell has 8 formula units, so 8 Bi, 8 Te, and 40 O. Removing one O would make it 39 O, so the formula sum should be adjusted to 'Bi8 Te8 O39'.
+
+But the user instruction is just to apply the action. The question is whether the formula needs to be updated. Since the task is to modify the CIF content according to the action, and the formula is part of the CIF, it's necessary to adjust the formula accordingly. Otherwise, the CIF would be invalid.
+
+So steps:
+1. Remove the line corresponding to index 51 (O51).
+2. Update _chemical_formula_sum from 'Bi8 Te8 O40' to 'Bi8 Te8 O39'.
+3. Ensure that the _cell_formula_units_Z remains 8 (since the number of formula units is based on the structure, not the formula sum).
+
+Wait, the original Z is 8, which is the number of formula units per cell. The formula sum is Bi8 Te8 O40, meaning that per formula unit, it's BiTeO5 (since 8 Bi, 8 Te, 40 O divided by 8 gives BiTeO5). After removing one O, the formula sum would be Bi8 Te8 O39. Therefore, the formula units Z is still 8, but the formula sum changes. However, the chemical formula structural is still BiTeO5, which would be incorrect because with 39 O, the formula would be BiTeO(39/8). But perhaps the user expects to adjust the formula sum but leave the structural formula as is? Or maybe the Z is wrong?
+
+This is a bit tricky. The original CIF has _chemical_formula_sum as 'Bi8 Te8 O40' and _cell_formula_units_Z as 8. That implies that each formula unit has BiTeO5 (since 40 O / 8 = 5). If we remove one O, then the formula sum would be Bi8 Te8 O39, which is 39 O. The formula units Z is still 8, so the per-formula-unit O count is 39/8 = 4.875, which is not an integer. That would be problematic, but perhaps the user just wants to remove the atom without considering the formula. However, since the CIF should be valid, we have to make sure the formula is correct.
+
+But maybe the user is just testing if I can remove the atom and not worry about the formula. However, as a responsible CIF operation assistant, I should correct the formula. But the problem says ""apply the action described in the action prompt"" which is just removing the atom. However, the resulting CIF would be invalid if the formula isn't updated. The question is whether the formula needs to be adjusted. Since the CIF is supposed to be valid, I think the answer requires both removing the atom and adjusting the formula sum.
+
+But maybe the original formula was a typo? Let me check. If the structure has 8 Bi, 8 Te, and 40 O, with Z=8, then BiTeO5 per formula unit. Correct. After removing one O atom, there would be 39 O atoms, so the formula sum should be 'Bi8 Te8 O39', and the formula structural would be BiTeO(39/8), which is not a whole number. That's inconsistent. However, maybe the original CIF has a mistake in the formula_sum? For example, if the actual structure has 8 Bi, 8 Te, and 40 O, then the formula_sum is correct. But if you remove one O, the formula sum would be incorrect. Alternatively, perhaps the original CIF's _chemical_formula_sum is a mistake, but the user hasn't indicated that.
+
+The problem says ""apply the action described in the action prompt"". The action is to remove the atom, so the user might not have considered the formula. However, the assistant is supposed to return a valid CIF. Therefore, the assistant should correct both the atom removal and the formula sum. But how? The _chemical_formula_structural is BiTeO5. If the formula sum is 'Bi8 Te8 O39', then per formula unit, it's BiTeO(39/8), which doesn't align with the structural formula. That suggests that the original formula_sum might have been wrong, but since that's part of the input, we must modify it accordingly.
+
+But perhaps the user expects only the atom position removal and not adjusting the formula. However, in that case, the CIF would be invalid. The task says ""Return the modified CIF content in cif format within <cif> and </cif> tags. Please ensure the output is a valid CIF file, with correct formula, and atom positions.""
+
+Therefore, I need to make sure that after removing the atom, the formula is correct. However, the correct formula would require that the number of each atom is consistent with the formula units Z. Since Z is 8, and the formula is supposed to be BiTeO5, then the total O atoms should be 8 * 5 = 40. If we remove one O, then the formula_sum would have 39 O, but the structural formula would be inconsistent. Therefore, either:
+
+Option 1: Remove the atom but change the formula_sum to 'Bi8 Te8 O39', even though it makes the structural formula incorrect.
+
+Option 2: Adjust Z to 7.875, which is impossible.
+
+So the only feasible option is to remove the atom and adjust the formula_sum to 'Bi8 Te8 O39', even if the structural formula is now inconsistent. However, the user might not care about the structural formula, but the main point is that the CIF is valid. However, in reality, such a formula would be invalid. But given that the user's action is only to remove the atom, perhaps the formula_sum is left as is, but that would be incorrect. This is a dilemma.
+
+But maybe the original formula_sum is a mistake. Let me check the original input:
+
+Original _chemical_formula_sum is 'Bi8 Te8 O40', while _chemical_formula_structural is BiTeO5. That's correct, because 8 Bi, 8 Te, 40 O divided by 8 gives BiTeO5. If one O is removed, then the formula_sum is Bi8 Te8 O39. The formula structural would be BiTeO(39/8) which is not an integer. Therefore, the structural formula would be incorrect. However, the assistant is instructed to return a valid CIF. Therefore, either the formula_sum must be adjusted, or the structural formula. But the problem says to apply the action prompt, so the user might not have intended to adjust the formula. However, the assistant is expected to ensure the CIF is valid.
+
+But since the original formula_sum is 'Bi8 Te8 O40', and we are removing one O, the correct formula_sum would be 'Bi8 Te8 O39'. Therefore, I need to adjust that line. So the steps are:
+
+1. Remove the atom at index 51 (O51) from the loop.
+
+2. Update _chemical_formula_sum from 'Bi8 Te8 O40' to 'Bi8 Te8 O39'.
+
+The _chemical_formula_structural line, 'BiTeO5', remains the same because it's per formula unit. However, with 39 O atoms and Z=8, the per formula unit O count is 39/8, which is not consistent with BiTeO5. But the user might not have intended to change that, so perhaps the correct action is to adjust the formula_sum to 'Bi8 Te8 O39' and leave the structural formula as is, even though it's technically inconsistent. Or perhaps the structural formula should be updated as well, but that's more complicated.
+
+Assuming that the user only wants to remove the atom and adjust the formula_sum, I'll proceed with updating the formula_sum line.
+</think>
+
+<cif>
+data_BiTeO5
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.17641100
+_cell_length_b   11.65213300
+_cell_length_c   16.41438300
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   BiTeO5
+_chemical_formula_sum   'Bi8 Te8 O39'
+_cell_volume   1181.31626489
+_cell_formula_units_Z   8
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Bi  Bi0  1  0.92871100  0.82573600  0.21153200  1
+  Bi  Bi1  1  0.07128900  0.17426400  0.78846800  1
+  Bi  Bi2  1  0.57128900  0.32573600  0.78846800  1
+  Bi  Bi3  1  0.07128900  0.67426400  0.71153200  1
+  Bi  Bi4  1  0.42871100  0.17426400  0.28846800  1
+  Bi  Bi5  1  0.42871100  0.67426400  0.21153200  1
+  Bi  Bi6  1  0.57128900  0.82573600  0.71153200  1
+  Bi  Bi7  1  0.92871100  0.32573600  0.28846800  1
+  Te  Te8  1  0.97384300  0.39106400  0.60697100  1
+  Te  Te9  1  0.52615700  0.89106400  0.39302900  1
+  Te  Te10  1  0.02615700  0.60893600  0.39302900  1
+  Te  Te11  1  0.47384300  0.10893600  0.60697100  1
+  Te  Te12  1  0.02615700  0.10893600  0.10697100  1
+  Te  Te13  1  0.97384300  0.89106400  0.89302900  1
+  Te  Te14  1  0.52615700  0.39106400  0.10697100  1
+  Te  Te15  1  0.47384300  0.60893600  0.89302900  1
+  O  O16  1  0.88338000  0.30069600  0.70216900  1
+  O  O17  1  0.27122800  0.03743800  0.07424800  1
+  O  O18  1  0.22877200  0.53743800  0.92575200  1
+  O  O19  1  0.22517700  0.78999100  0.15203800  1
+  O  O20  1  0.27482300  0.28999100  0.84796200  1
+  O  O21  1  0.88338000  0.80069600  0.79783100  1
+  O  O22  1  0.27482300  0.78999100  0.65203800  1
+  O  O23  1  0.61662000  0.80069600  0.29783100  1
+  O  O24  1  0.27122800  0.53743800  0.42575200  1
+  O  O25  1  0.11662000  0.69930400  0.29783100  1
+  O  O26  1  0.61662000  0.30069600  0.20216900  1
+  O  O27  1  0.66034800  0.19367500  0.54710600  1
+  O  O28  1  0.77122800  0.96256200  0.42575200  1
+  O  O29  1  0.77482300  0.71000900  0.65203800  1
+  O  O30  1  0.15133800  0.99946300  0.83496700  1
+  O  O31  1  0.77122800  0.46256200  0.07424800  1
+  O  O32  1  0.11662000  0.19930400  0.20216900  1
+  O  O33  1  0.72517700  0.21000900  0.34796200  1
+  O  O34  1  0.16034800  0.80632500  0.95289400  1
+  O  O35  1  0.22877200  0.03743800  0.57424800  1
+  O  O36  1  0.33965200  0.80632500  0.45289400  1
+  O  O37  1  0.84866200  0.00053700  0.16503300  1
+  O  O38  1  0.77482300  0.21000900  0.84796200  1
+  O  O39  1  0.65133800  0.00053700  0.66503300  1
+  O  O40  1  0.33965200  0.30632500  0.04710600  1
+  O  O41  1  0.16034800  0.30632500  0.54710600  1
+  O  O42  1  0.72877200  0.46256200  0.57424800  1
+  O  O43  1  0.72877200  0.96256200  0.92575200  1
+  O  O44  1  0.65133800  0.50053700  0.83496700  1
+  O  O45  1  0.83965200  0.69367500  0.45289400  1
+  O  O46  1  0.83965200  0.19367500  0.04710600  1
+  O  O47  1  0.66034800  0.69367500  0.95289400  1
+  O  O48  1  0.84866200  0.50053700  0.33496700  1
+  O  O49  1  0.72517700  0.71000900  0.15203800  1
+  O  O50  1  0.22517700  0.28999100  0.34796200  1
+  O  O52  1  0.34866200  0.49946300  0.16503300  1
+  O  O53  1  0.38338000  0.19930400  0.70216900  1
+  O  O54  1  0.34866200  0.99946300  0.33496700  1
+  O  O55  1  0.38338000  0.69930400  0.79783100  1
+</cif>","data_image0
+_chemical_formula_structural       Bi8Te8O39
+_chemical_formula_sum              ""Bi8 Te8 O39""
+_cell_length_a       6.176411
+_cell_length_b       11.652133
+_cell_length_c       16.414383
+_cell_angle_alpha    90.0
+_cell_angle_beta     90.0
+_cell_angle_gamma    90.0
+
+_space_group_name_H-M_alt    ""P 1""
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Bi  Bi1       1.0  0.928711  0.825736  0.211532  1.0000
+  Bi  Bi2       1.0  0.071289  0.17426400000000003  0.788468  1.0000
+  Bi  Bi3       1.0  0.571289  0.325736  0.788468  1.0000
+  Bi  Bi4       1.0  0.071289  0.6742640000000001  0.711532  1.0000
+  Bi  Bi5       1.0  0.428711  0.17426400000000003  0.288468  1.0000
+  Bi  Bi6       1.0  0.428711  0.6742640000000001  0.211532  1.0000
+  Bi  Bi7       1.0  0.571289  0.825736  0.711532  1.0000
+  Bi  Bi8       1.0  0.928711  0.325736  0.288468  1.0000
+  Te  Te1       1.0  0.9738429999999999  0.391064  0.6069710000000003  1.0000
+  Te  Te2       1.0  0.526157  0.891064  0.393029  1.0000
+  Te  Te3       1.0  0.026157  0.6089360000000001  0.393029  1.0000
+  Te  Te4       1.0  0.473843  0.108936  0.6069710000000003  1.0000
+  Te  Te5       1.0  0.026157  0.108936  0.10697100000000002  1.0000
+  Te  Te6       1.0  0.9738429999999999  0.891064  0.893029  1.0000
+  Te  Te7       1.0  0.526157  0.391064  0.10697100000000002  1.0000
+  Te  Te8       1.0  0.473843  0.6089360000000001  0.893029  1.0000
+  O   O1        1.0  0.88338  0.300696  0.7021690000000003  1.0000
+  O   O2        1.0  0.271228  0.037438  0.074248  1.0000
+  O   O3        1.0  0.228772  0.537438  0.9257520000000002  1.0000
+  O   O4        1.0  0.225177  0.7899910000000002  0.152038  1.0000
+  O   O5        1.0  0.274823  0.289991  0.847962  1.0000
+  O   O6        1.0  0.88338  0.800696  0.797831  1.0000
+  O   O7        1.0  0.274823  0.7899910000000002  0.6520380000000002  1.0000
+  O   O8        1.0  0.61662  0.800696  0.2978310000000001  1.0000
+  O   O9        1.0  0.271228  0.537438  0.425752  1.0000
+  O   O10       1.0  0.11661999999999999  0.6993040000000003  0.2978310000000001  1.0000
+  O   O11       1.0  0.61662  0.300696  0.20216900000000004  1.0000
+  O   O12       1.0  0.660348  0.193675  0.5471060000000002  1.0000
+  O   O13       1.0  0.771228  0.9625620000000003  0.425752  1.0000
+  O   O14       1.0  0.7748229999999999  0.710009  0.6520380000000002  1.0000
+  O   O15       1.0  0.151338  0.9994630000000002  0.8349670000000002  1.0000
+  O   O16       1.0  0.771228  0.462562  0.074248  1.0000
+  O   O17       1.0  0.11661999999999999  0.19930400000000004  0.20216900000000004  1.0000
+  O   O18       1.0  0.725177  0.21000900000000006  0.3479620000000001  1.0000
+  O   O19       1.0  0.160348  0.8063250000000002  0.952894  1.0000
+  O   O20       1.0  0.228772  0.037438  0.574248  1.0000
+  O   O21       1.0  0.33965199999999995  0.8063250000000002  0.45289400000000013  1.0000
+  O   O22       1.0  0.8486619999999999  0.000537  0.165033  1.0000
+  O   O23       1.0  0.7748229999999999  0.21000900000000006  0.847962  1.0000
+  O   O24       1.0  0.651338  0.000537  0.665033  1.0000
+  O   O25       1.0  0.33965199999999995  0.30632500000000007  0.047106000000000016  1.0000
+  O   O26       1.0  0.160348  0.30632500000000007  0.5471060000000002  1.0000
+  O   O27       1.0  0.7287719999999999  0.462562  0.574248  1.0000
+  O   O28       1.0  0.7287719999999999  0.9625620000000003  0.9257520000000002  1.0000
+  O   O29       1.0  0.651338  0.500537  0.8349670000000002  1.0000
+  O   O30       1.0  0.839652  0.693675  0.45289400000000013  1.0000
+  O   O31       1.0  0.839652  0.193675  0.047106000000000016  1.0000
+  O   O32       1.0  0.660348  0.693675  0.952894  1.0000
+  O   O33       1.0  0.8486619999999999  0.500537  0.334967  1.0000
+  O   O34       1.0  0.725177  0.710009  0.152038  1.0000
+  O   O35       1.0  0.225177  0.289991  0.3479620000000001  1.0000
+  O   O36       1.0  0.348662  0.4994630000000001  0.165033  1.0000
+  O   O37       1.0  0.38338  0.19930400000000004  0.7021690000000003  1.0000
+  O   O38       1.0  0.348662  0.9994630000000002  0.334967  1.0000
+  O   O39       1.0  0.38338  0.6993040000000003  0.797831  1.0000
+",CIFParsingError
