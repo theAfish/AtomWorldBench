@@ -95,5 +95,6 @@ class BenchmarkRunner:
         evaluator = self.create_evaluator()
         evaluator.evaluate(
             batch_size=self.config.batch_size,
-            num_batch=self.config.num_batch
+            num_batch=self.config.num_batch,
+            restart_from_index=self.config.restart_from_index if self.config.restart_from_index else 0
         )

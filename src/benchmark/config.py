@@ -14,6 +14,7 @@ class BenchmarkConfig:
     num_batch: int
     config_name: str
     results_folder: Optional[str]
+    restart_from_index: Optional[int]
     
     # Base directories with defaults
     config_dir: Path = Path(__file__).parent.parent / "config"
@@ -42,6 +43,7 @@ class BenchmarkConfig:
             num_batch=args['num_batch'],
             config_name=args.get('config', 'models'),
             results_folder=args.get('results_folder'),
+            restart_from_index=args.get('restart_from_index', 0),
             benchmark_type=args['benchmark_type'],
-            action=args.get('action')
+            action=args.get('action'),
         )

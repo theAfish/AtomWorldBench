@@ -35,10 +35,13 @@ class BaseEvaluator(ABC):
             log_dir=os.path.join(self.results_folder, "logs")
         )
 
-    def evaluate(self, batch_size: int = 8, num_batch: int = -1) -> None:
+    def evaluate(self, batch_size: int = 8, num_batch: int = -1, restart_from_index: int = 0) -> None:
         """
         Main evaluation loop with batch processing.
         """
+        if len(self.data) <= restart_from_index:
+            self.logger.warning("Restart index exceeds data length. No evaluation performed.")
+            return
         results = []
         wrongs = []
         stats = self._initialize_stats()
@@ -49,8 +52,13 @@ class BaseEvaluator(ABC):
         
         total = min(num_batch * batch_size, len(self.data)) if num_batch > 0 else len(self.data)
         self.logger.info(f"Starting evaluation with {total} samples in batches of {batch_size}")
+        if restart_from_index > 0:
+            self.logger.info(f"Resuming from index {restart_from_index}")
         
         for i, row in tqdm(self._get_data_iterator(), total=total, desc="LLM Calling"):
+            if i < restart_from_index:
+                continue
+            
             prompt = self._create_prompt(row)
             prompts.append(prompt)
             rows.append(row)

@@ -66,6 +66,13 @@ class BenchmarkArgumentParser:
             default=None,
             help="Folder to save results. Will be automatically generated if not provided."
         )
+        parser.add_argument(
+            "-r",
+            "--restart_from_index",
+            type=int,
+            default=0,
+            help="Index to restart from (for long runs that were interrupted)"
+        )
         
         # Action argument (only used by some benchmark types)
         parser.add_argument(
