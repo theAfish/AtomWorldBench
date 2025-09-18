@@ -195,6 +195,6 @@ class DataGenerator:
 
 
 if __name__ == "__main__":
-    all_actions = [DeleteBelowAtomAction]
+    all_actions = [SwapAtomsAction, ChangeAtomAction, RemoveAtomAction]
     data_gen = DataGenerator("input_cifs", "output_cifs")
     data_gen.generate_data(all_actions)
