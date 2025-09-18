@@ -165,7 +165,7 @@ class DeleteBelowAtomAction(BaseAction):
             raise ValueError("No atoms below the specified atom to delete.")
         
     def __str__(self):
-        return f"Delete all atoms whose coordinate is below the atom at index {self.index} in the cif file." + (" Including itself." if self.include_self else " Excluding itself.")
+        return f"Delete all atoms whose z coordinate is lower than the atom at index {self.index} in the cif file." + (" Including itself" if self.include_self else " Excluding itself") + " and atoms with the same z coordinate."
     
 class DeleteAroundAtomAction(BaseAction):
     def __init__(self, atoms: Atoms, index: int, radius: float):

@@ -110,7 +110,9 @@ class ActionInputGenerator:
                             kwargs[name] = idx
                             break
                     else:
-                        raise ValueError("Could not find an atom with atoms below it to delete.")
+                        print(f"Warning: Could not find an atom with atoms below it to delete, skipping...")
+                        return None 
+                        # raise ValueError("Could not find an atom with atoms below it to delete.")
                 else:
                     kwargs[name] = self.random_indices(1)[0]
             elif name == 'indices':
@@ -170,6 +172,8 @@ class DataGenerator:
                     input_gen = ActionInputGenerator(atoms.copy())
                     try:
                         kwargs = input_gen.generate_inputs_for_action(action_cls)
+                        if kwargs is None:  # Skip if no valid inputs could be generated
+                            continue
                         action = action_cls(**kwargs)
                         processed_atoms = action.execute()
                     except Exception as e:
@@ -191,6 +195,6 @@ class DataGenerator:
 
 
 if __name__ == "__main__":
-    all_actions = [RotateAroundAtomAction]
+    all_actions = [DeleteBelowAtomAction]
     data_gen = DataGenerator("input_cifs", "output_cifs")
     data_gen.generate_data(all_actions)
