@@ -1,0 +1,11 @@
+2025-09-18 09:02:08,915 - AtomWorldEvaluator - INFO - Starting evaluation with 50 samples in batches of 50
+2025-09-18 09:02:08,921 - AtomWorldEvaluator - DEBUG - Processing batch 1 of 1
+2025-09-18 09:13:32,039 - AtomWorldEvaluator - INFO - Evaluation completed
+2025-09-18 09:13:32,039 - AtomWorldEvaluator - INFO - summary: {'total_samples': 50, 'success_count': 0, 'error_count': 50, 'success_rate': 0.0, 'error_types': {'AtomCountMismatch': {'count': 39, 'percentage': 0.78}, 'CIFParsingError': {'count': 11, 'percentage': 0.22}}} - statistics: {}
+2025-09-18 09:13:32,042 - AtomWorldEvaluator - INFO - Saved metrics to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/AtomWorld/qwen3_8B/delete_below_atom_action/20250918_090208/metrics.json
+2025-09-18 09:13:32,053 - AtomWorldEvaluator - INFO - Failed cases saved to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/AtomWorld/qwen3_8B/delete_below_atom_action/20250918_090208/evaluation_wrongs.csv
+2025-09-18 09:13:32,053 - AtomWorldEvaluator - INFO - 
+======== Evaluation Summary ========
+2025-09-18 09:13:32,053 - AtomWorldEvaluator - INFO - Total inputs: 999
+2025-09-18 09:13:32,053 - AtomWorldEvaluator - INFO - num_unreadable_out: 0
+2025-09-18 09:13:32,053 - AtomWorldEvaluator - INFO - num_invalid_cif: 50

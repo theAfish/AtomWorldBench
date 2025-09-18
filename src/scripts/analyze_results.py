@@ -12,7 +12,7 @@ parser.add_argument("-a", "--action_name", type=str, required=True, help="Name o
 args = parser.parse_args()
 
 # ========== Setup ==========
-base_folder = "results"
+base_folder = "results/AtomWorld"
 model_name = args.model_name
 action_name = args.action_name
 results_folder = f"{base_folder}/{model_name}/{action_name}"
@@ -24,8 +24,8 @@ if subfolders:
     results_folder = os.path.join(results_folder, latest_datetime_subfolder)
 
 print(f"Analysing folder: {results_folder}")
-results_file = os.path.join(results_folder, f"{action_name}_evaluation_results.csv")
-wrongs_file = os.path.join(results_folder, f"{action_name}_evaluation_wrongs.csv")
+results_file = os.path.join(results_folder, f"evaluation_results.csv")
+wrongs_file = os.path.join(results_folder, f"evaluation_wrongs.csv")
 
 # ========== Load Data ==========
 try:
