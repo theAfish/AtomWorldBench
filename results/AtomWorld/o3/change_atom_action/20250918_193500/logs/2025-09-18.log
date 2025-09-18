@@ -1,0 +1,20 @@
+2025-09-18 19:35:01,047 - AtomWorldEvaluator - INFO - Starting evaluation with 50 samples in batches of 5
+2025-09-18 19:35:01,050 - AtomWorldEvaluator - DEBUG - Processing batch 1 of 10
+2025-09-18 19:36:47,815 - AtomWorldEvaluator - DEBUG - Processing batch 2 of 10
+2025-09-18 19:37:22,232 - AtomWorldEvaluator - DEBUG - Processing batch 3 of 10
+2025-09-18 19:37:39,605 - AtomWorldEvaluator - DEBUG - Processing batch 4 of 10
+2025-09-18 19:37:52,824 - AtomWorldEvaluator - DEBUG - Processing batch 5 of 10
+2025-09-18 19:38:09,389 - AtomWorldEvaluator - DEBUG - Processing batch 6 of 10
+2025-09-18 19:38:27,794 - AtomWorldEvaluator - DEBUG - Processing batch 7 of 10
+2025-09-18 19:38:45,849 - AtomWorldEvaluator - DEBUG - Processing batch 8 of 10
+2025-09-18 19:40:20,125 - AtomWorldEvaluator - DEBUG - Processing batch 9 of 10
+2025-09-18 19:40:47,907 - AtomWorldEvaluator - DEBUG - Processing batch 10 of 10
+2025-09-18 19:42:24,967 - AtomWorldEvaluator - INFO - Evaluation completed
+2025-09-18 19:42:24,968 - AtomWorldEvaluator - INFO - summary: {'total_samples': 50, 'success_count': 50, 'error_count': 0, 'success_rate': 1.0, 'error_types': {}} - statistics: {'rmsd_mean': np.float64(1.825441922417877e-07), 'rmsd_median': np.float64(2.5796989063111254e-16), 'rmsd_max': np.float64(2.236689368552936e-06), 'rmsd_min': np.float64(0.0), 'max_diff_mean': np.float64(2.3826743521491816e-07), 'max_diff_median': np.float64(5.643028641098035e-16), 'max_diff_max': np.float64(2.6524861060765614e-06), 'max_diff_min': np.float64(0.0)}
+2025-09-18 19:42:24,970 - AtomWorldEvaluator - INFO - Saved metrics to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/AtomWorld/o3/change_atom_action/20250918_193500/metrics.json
+2025-09-18 19:42:24,980 - AtomWorldEvaluator - INFO - Evaluation results saved to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/AtomWorld/o3/change_atom_action/20250918_193500/evaluation_results.csv
+2025-09-18 19:42:24,980 - AtomWorldEvaluator - INFO - 
+======== Evaluation Summary ========
+2025-09-18 19:42:24,981 - AtomWorldEvaluator - INFO - Total inputs: 1000
+2025-09-18 19:42:24,981 - AtomWorldEvaluator - INFO - num_unreadable_out: 0
+2025-09-18 19:42:24,981 - AtomWorldEvaluator - INFO - num_invalid_cif: 0

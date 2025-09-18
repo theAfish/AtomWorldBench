@@ -1,0 +1,862 @@
+is_error,reference_cif,generated_cif,rmsd,max_diff,generated_output
+False,"# generated using pymatgen
+data_C
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   2.46729126
+_cell_length_b   2.46729126
+_cell_length_c   7.80307300
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   120.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   C
+_chemical_formula_sum   C4
+_cell_volume   41.13742867
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  C  C0  1  0.00000000  0.00000000  0.25000000  1.0
+  C  C1  1  0.00000000  0.00000000  0.75000000  1.0
+  C  C2  1  0.33333333  0.66666667  0.25000000  1.0
+  C  C3  1  0.66666667  0.33333333  0.75000000  1.0
+","data_graphite
+#======================================================================
+# CRYSTAL DATA
+#======================================================================
+_cell_length_a                         2.46729126
+_cell_length_b                         2.46729126
+_cell_length_c                         7.803073
+_cell_angle_alpha                      90.0000
+_cell_angle_beta                       90.0000
+_cell_angle_gamma                      120.0000
+
+#======================================================================
+# SYMMETRY
+#======================================================================
+_symmetry_space_group_name_H-M         'P 1'
+_symmetry_Int_Tables_number            1
+
+#======================================================================
+# ATOM COORDINATES
+#======================================================================
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  C1 C 0.000000 0.000000 0.000000
+  C2 C 0.666667 0.333333 0.000000
+  C3 C 0.000000 0.000000 0.500000
+  C4 C 0.333333 0.666667 0.500000",4.1455683948749216e-16,4.2040969623352214e-16,"An expert in materials science, I will now generate the requested CIF file for the conventional cell of graphite.
+
+The standard conventional cell for hexagonal graphite (AB stacking, space group P6₃/mmc) contains 4 carbon atoms. To comply with the requirement of using P1 symmetry, all four of these atoms must be listed explicitly. The coordinates provided below represent the standard atomic positions for this structure within a hexagonal lattice.
+
+The lattice parameters are set according to your specific request.
+
+<cif>
+data_graphite
+#======================================================================
+# CRYSTAL DATA
+#======================================================================
+_cell_length_a                         2.46729126
+_cell_length_b                         2.46729126
+_cell_length_c                         7.803073
+_cell_angle_alpha                      90.0000
+_cell_angle_beta                       90.0000
+_cell_angle_gamma                      120.0000
+
+#======================================================================
+# SYMMETRY
+#======================================================================
+_symmetry_space_group_name_H-M         'P 1'
+_symmetry_Int_Tables_number            1
+
+#======================================================================
+# ATOM COORDINATES
+#======================================================================
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  C1 C 0.000000 0.000000 0.000000
+  C2 C 0.666667 0.333333 0.000000
+  C3 C 0.000000 0.000000 0.500000
+  C4 C 0.333333 0.666667 0.500000
+</cif>"
+False,"# generated using pymatgen
+data_CaF2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.51605194
+_cell_length_b   5.51605194
+_cell_length_c   5.51605194
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   CaF2
+_chemical_formula_sum   'Ca4 F8'
+_cell_volume   167.83596916
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ca  Ca0  1  0.00000000  0.00000000  0.00000000  1.0
+  Ca  Ca1  1  0.00000000  0.50000000  0.50000000  1.0
+  Ca  Ca2  1  0.50000000  0.00000000  0.50000000  1.0
+  Ca  Ca3  1  0.50000000  0.50000000  0.00000000  1.0
+  F  F4  1  0.25000000  0.75000000  0.25000000  1.0
+  F  F5  1  0.25000000  0.75000000  0.75000000  1.0
+  F  F6  1  0.25000000  0.25000000  0.75000000  1.0
+  F  F7  1  0.25000000  0.25000000  0.25000000  1.0
+  F  F8  1  0.75000000  0.75000000  0.75000000  1.0
+  F  F9  1  0.75000000  0.75000000  0.25000000  1.0
+  F  F10  1  0.75000000  0.25000000  0.25000000  1.0
+  F  F11  1  0.75000000  0.25000000  0.75000000  1.0
+","# CIF file generated for CaF2 (Fluorite structure)
+# All atoms are listed explicitly for P1 symmetry.
+
+data_CaF2_Fluorite_P1
+
+_chemical_formula_sum           'Ca4 F8'
+_chemical_name_common           'Fluorite'
+_chemical_name_mineral          'Fluorite'
+
+_cell_length_a                  5.51605194
+_cell_length_b                  5.51605194
+_cell_length_c                  5.51605194
+_cell_angle_alpha               90.0000
+_cell_angle_beta                90.0000
+_cell_angle_gamma               90.0000
+_cell_volume                    167.9739
+
+# Symmetry information for P1 (triclinic, no symmetry operations)
+_symmetry_space_group_name_H-M  'P 1'
+_symmetry_Int_Tables_number     1
+
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  _atom_site_U_iso_or_equiv
+  Ca1  Ca  0.00000  0.00000  0.00000  1.0  0.0100
+  Ca2  Ca  0.50000  0.50000  0.00000  1.0  0.0100
+  Ca3  Ca  0.50000  0.00000  0.50000  1.0  0.0100
+  Ca4  Ca  0.00000  0.50000  0.50000  1.0  0.0100
+  F1   F   0.25000  0.25000  0.25000  1.0  0.0100
+  F2   F   0.75000  0.25000  0.25000  1.0  0.0100
+  F3   F   0.25000  0.75000  0.25000  1.0  0.0100
+  F4   F   0.75000  0.75000  0.25000  1.0  0.0100
+  F5   F   0.25000  0.25000  0.75000  1.0  0.0100
+  F6   F   0.75000  0.25000  0.75000  1.0  0.0100
+  F7   F   0.25000  0.75000  0.75000  1.0  0.0100
+  F8   F   0.75000  0.75000  0.75000  1.0  0.0100",3.81222097279619e-16,5.391294602491526e-16,"<cif>
+# CIF file generated for CaF2 (Fluorite structure)
+# All atoms are listed explicitly for P1 symmetry.
+
+data_CaF2_Fluorite_P1
+
+_chemical_formula_sum           'Ca4 F8'
+_chemical_name_common           'Fluorite'
+_chemical_name_mineral          'Fluorite'
+
+_cell_length_a                  5.51605194
+_cell_length_b                  5.51605194
+_cell_length_c                  5.51605194
+_cell_angle_alpha               90.0000
+_cell_angle_beta                90.0000
+_cell_angle_gamma               90.0000
+_cell_volume                    167.9739
+
+# Symmetry information for P1 (triclinic, no symmetry operations)
+_symmetry_space_group_name_H-M  'P 1'
+_symmetry_Int_Tables_number     1
+
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  _atom_site_U_iso_or_equiv
+  Ca1  Ca  0.00000  0.00000  0.00000  1.0  0.0100
+  Ca2  Ca  0.50000  0.50000  0.00000  1.0  0.0100
+  Ca3  Ca  0.50000  0.00000  0.50000  1.0  0.0100
+  Ca4  Ca  0.00000  0.50000  0.50000  1.0  0.0100
+  F1   F   0.25000  0.25000  0.25000  1.0  0.0100
+  F2   F   0.75000  0.25000  0.25000  1.0  0.0100
+  F3   F   0.25000  0.75000  0.25000  1.0  0.0100
+  F4   F   0.75000  0.75000  0.25000  1.0  0.0100
+  F5   F   0.25000  0.25000  0.75000  1.0  0.0100
+  F6   F   0.75000  0.25000  0.75000  1.0  0.0100
+  F7   F   0.25000  0.75000  0.75000  1.0  0.0100
+  F8   F   0.75000  0.75000  0.75000  1.0  0.0100
+</cif>"
+False,"# generated using pymatgen
+data_Se
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   2.81056302
+_cell_length_b   2.81056302
+_cell_length_c   2.81056302
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Se
+_chemical_formula_sum   Se1
+_cell_volume   22.20138066
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Se  Se0  1  0.00000000  0.00000000  0.00000000  1.0
+","data_Se_sc
+_cell_length_a                         2.81056302
+_cell_length_b                         2.81056302
+_cell_length_c                         2.81056302
+_cell_angle_alpha                      90.0000
+_cell_angle_beta                       90.0000
+_cell_angle_gamma                      90.0000
+_symmetry_space_group_name_H-M         'P 1'
+_symmetry_Int_Tables_number            1
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  Se1   Se   0.00000   0.00000   0.00000",0.0,0.0,"<cif>
+data_Se_sc
+_cell_length_a                         2.81056302
+_cell_length_b                         2.81056302
+_cell_length_c                         2.81056302
+_cell_angle_alpha                      90.0000
+_cell_angle_beta                       90.0000
+_cell_angle_gamma                      90.0000
+_symmetry_space_group_name_H-M         'P 1'
+_symmetry_Int_Tables_number            1
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  Se1   Se   0.00000   0.00000   0.00000
+</cif>"
+False,"# generated using pymatgen
+data_PbBr2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   7.10686483
+_cell_length_b   7.10686483
+_cell_length_c   4.58252113
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   PbBr2
+_chemical_formula_sum   'Pb2 Br4'
+_cell_volume   231.45181296
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Pb  Pb0  1  0.00000000  0.00000000  0.00000000  1.0
+  Pb  Pb1  1  0.50000000  0.50000000  0.50000000  1.0
+  Br  Br2  1  0.30115605  0.30115605  0.00000000  1.0
+  Br  Br3  1  0.69884395  0.69884395  0.00000000  1.0
+  Br  Br4  1  0.19884395  0.80115605  0.50000000  1.0
+  Br  Br5  1  0.80115605  0.19884395  0.50000000  1.0
+","# CIF file generated by a materials science expert AI
+# This file describes a hypothetical PbBr2 crystal with a rutile structure.
+# The symmetry is explicitly set to P1 by listing all atoms in the cell.
+
+data_PbBr2_rutile_P1
+
+_chemical_name_systematic       'Lead (II) Bromide'
+_chemical_formula_structural    'PbBr2'
+_chemical_formula_sum           'Pb2 Br4'
+_chemical_formula_moiety        'Pb Br2'
+
+_cell_length_a                  7.10686483
+_cell_length_b                  7.10686483
+_cell_length_c                  4.58252113
+_cell_angle_alpha               90.00
+_cell_angle_beta                90.00
+_cell_angle_gamma               90.00
+_cell_volume                    231.1392
+
+_symmetry_cell_setting          'tetragonal'
+_symmetry_space_group_name_H-M  'P 1'
+_symmetry_Int_Tables_number     1
+
+# Atomic coordinates are based on the ideal rutile (TiO2) structure type.
+# Pb is at the 2a Wyckoff site (0,0,0) of P4_2/mnm.
+# Br is at the 4f Wyckoff site (x,x,0) of P4_2/mnm, with x=0.305.
+
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  Pb1  Pb  0.00000  0.00000  0.00000
+  Pb2  Pb  0.50000  0.50000  0.50000
+  Br1  Br  0.30500  0.30500  0.00000
+  Br2  Br  0.69500  0.69500  0.00000
+  Br3  Br  0.80500  0.19500  0.50000
+  Br4  Br  0.19500  0.80500  0.50000",0.009335882450594322,0.01143407415128039,"<cif>
+# CIF file generated by a materials science expert AI
+# This file describes a hypothetical PbBr2 crystal with a rutile structure.
+# The symmetry is explicitly set to P1 by listing all atoms in the cell.
+
+data_PbBr2_rutile_P1
+
+_chemical_name_systematic       'Lead (II) Bromide'
+_chemical_formula_structural    'PbBr2'
+_chemical_formula_sum           'Pb2 Br4'
+_chemical_formula_moiety        'Pb Br2'
+
+_cell_length_a                  7.10686483
+_cell_length_b                  7.10686483
+_cell_length_c                  4.58252113
+_cell_angle_alpha               90.00
+_cell_angle_beta                90.00
+_cell_angle_gamma               90.00
+_cell_volume                    231.1392
+
+_symmetry_cell_setting          'tetragonal'
+_symmetry_space_group_name_H-M  'P 1'
+_symmetry_Int_Tables_number     1
+
+# Atomic coordinates are based on the ideal rutile (TiO2) structure type.
+# Pb is at the 2a Wyckoff site (0,0,0) of P4_2/mnm.
+# Br is at the 4f Wyckoff site (x,x,0) of P4_2/mnm, with x=0.305.
+
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  Pb1  Pb  0.00000  0.00000  0.00000
+  Pb2  Pb  0.50000  0.50000  0.50000
+  Br1  Br  0.30500  0.30500  0.00000
+  Br2  Br  0.69500  0.69500  0.00000
+  Br3  Br  0.80500  0.19500  0.50000
+  Br4  Br  0.19500  0.80500  0.50000
+</cif>"
+False,"# generated using pymatgen
+data_Cd
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   2.95847482
+_cell_length_b   2.95847482
+_cell_length_c   5.88592793
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   120.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Cd
+_chemical_formula_sum   Cd2
+_cell_volume   44.61504408
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Cd  Cd0  1  0.33333333  0.66666667  0.25000000  1.0
+  Cd  Cd1  1  0.66666667  0.33333333  0.75000000  1.0
+","data_Cd_hcp_P1
+#
+# Created by a materials science expert AI.
+#
+_chemical_name_systematic            'Cadmium'
+_chemical_formula_sum                'Cd2'
+_cell_formula_units_Z                2
+#
+_cell_length_a                         2.95847482
+_cell_length_b                         2.95847482
+_cell_length_c                         5.88592793
+_cell_angle_alpha                      90.00
+_cell_angle_beta                       90.00
+_cell_angle_gamma                      120.00
+#
+# Since the symmetry is P1, all atoms in the unit cell are listed explicitly.
+# The hcp structure has two atoms in its conventional cell.
+# The standard basis vectors are (0, 0, 0) and (1/3, 2/3, 1/2).
+#
+_symmetry_space_group_name_H-M     'P 1'
+_symmetry_Int_Tables_number        1
+#
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  Cd1   Cd   0.00000   0.00000   0.00000
+  Cd2   Cd   0.33333   0.66667   0.50000
+#",7.88781014008306e-17,7.88781014008306e-17,"<cif>
+data_Cd_hcp_P1
+#
+# Created by a materials science expert AI.
+#
+_chemical_name_systematic            'Cadmium'
+_chemical_formula_sum                'Cd2'
+_cell_formula_units_Z                2
+#
+_cell_length_a                         2.95847482
+_cell_length_b                         2.95847482
+_cell_length_c                         5.88592793
+_cell_angle_alpha                      90.00
+_cell_angle_beta                       90.00
+_cell_angle_gamma                      120.00
+#
+# Since the symmetry is P1, all atoms in the unit cell are listed explicitly.
+# The hcp structure has two atoms in its conventional cell.
+# The standard basis vectors are (0, 0, 0) and (1/3, 2/3, 1/2).
+#
+_symmetry_space_group_name_H-M     'P 1'
+_symmetry_Int_Tables_number        1
+#
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  Cd1   Cd   0.00000   0.00000   0.00000
+  Cd2   Cd   0.33333   0.66667   0.50000
+#
+</cif>"
+False,"# generated using pymatgen
+data_C
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.56074511
+_cell_length_b   3.56074511
+_cell_length_c   3.56074511
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   C
+_chemical_formula_sum   C8
+_cell_volume   45.14635161
+_cell_formula_units_Z   8
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  C  C0  1  0.00000000  0.00000000  0.50000000  1.0
+  C  C1  1  0.25000000  0.25000000  0.75000000  1.0
+  C  C2  1  0.00000000  0.50000000  0.00000000  1.0
+  C  C3  1  0.25000000  0.75000000  0.25000000  1.0
+  C  C4  1  0.50000000  0.00000000  0.00000000  1.0
+  C  C5  1  0.75000000  0.25000000  0.25000000  1.0
+  C  C6  1  0.50000000  0.50000000  0.50000000  1.0
+  C  C7  1  0.75000000  0.75000000  0.75000000  1.0
+","# CIF file for Carbon (Diamond Structure)
+# Generated by a materials science expert AI.
+
+data_diamond_P1
+
+_cell_length_a                         3.56074511
+_cell_length_b                         3.56074511
+_cell_length_c                         3.56074511
+_cell_angle_alpha                      90.0000
+_cell_angle_beta                       90.0000
+_cell_angle_gamma                      90.0000
+
+# Since P1 symmetry is requested, all 8 atoms in the conventional
+# cell are listed explicitly.
+_symmetry_space_group_name_H-M         'P 1'
+_symmetry_Int_Tables_number            1
+
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  C1 C 0.00000 0.00000 0.00000
+  C2 C 0.50000 0.50000 0.00000
+  C3 C 0.50000 0.00000 0.50000
+  C4 C 0.00000 0.50000 0.50000
+  C5 C 0.25000 0.25000 0.25000
+  C6 C 0.75000 0.75000 0.25000
+  C7 C 0.75000 0.25000 0.75000
+  C8 C 0.25000 0.75000 0.75000",4.4094491747649263e-17,4.409449174764927e-17,"<cif>
+# CIF file for Carbon (Diamond Structure)
+# Generated by a materials science expert AI.
+
+data_diamond_P1
+
+_cell_length_a                         3.56074511
+_cell_length_b                         3.56074511
+_cell_length_c                         3.56074511
+_cell_angle_alpha                      90.0000
+_cell_angle_beta                       90.0000
+_cell_angle_gamma                      90.0000
+
+# Since P1 symmetry is requested, all 8 atoms in the conventional
+# cell are listed explicitly.
+_symmetry_space_group_name_H-M         'P 1'
+_symmetry_Int_Tables_number            1
+
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  C1 C 0.00000 0.00000 0.00000
+  C2 C 0.50000 0.50000 0.00000
+  C3 C 0.50000 0.00000 0.50000
+  C4 C 0.00000 0.50000 0.50000
+  C5 C 0.25000 0.25000 0.25000
+  C6 C 0.75000 0.75000 0.25000
+  C7 C 0.75000 0.25000 0.75000
+  C8 C 0.25000 0.75000 0.75000
+</cif>"
+False,"# generated using pymatgen
+data_NaCl
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.58812644
+_cell_length_b   5.58812644
+_cell_length_c   5.58812644
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   NaCl
+_chemical_formula_sum   'Na4 Cl4'
+_cell_volume   174.50130229
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Na  Na0  1  0.00000000  0.00000000  0.00000000  1.0
+  Na  Na1  1  0.00000000  0.50000000  0.50000000  1.0
+  Na  Na2  1  0.50000000  0.00000000  0.50000000  1.0
+  Na  Na3  1  0.50000000  0.50000000  0.00000000  1.0
+  Cl  Cl4  1  0.00000000  0.00000000  0.50000000  1.0
+  Cl  Cl5  1  0.00000000  0.50000000  0.00000000  1.0
+  Cl  Cl6  1  0.50000000  0.00000000  0.00000000  1.0
+  Cl  Cl7  1  0.50000000  0.50000000  0.50000000  1.0
+","data_NaCl_P1
+
+#======================================================================
+# CRYSTAL DATA
+#----------------------------------------------------------------------
+
+_cell_length_a                    5.58812644
+_cell_length_b                    5.58812644
+_cell_length_c                    5.58812644
+_cell_angle_alpha                 90.00
+_cell_angle_beta                  90.00
+_cell_angle_gamma                 90.00
+
+_symmetry_space_group_name_H-M    'P 1'
+_symmetry_Int_Tables_number       1
+
+_chemical_formula_sum             'Na4 Cl4'
+_chemical_name_systematic         'Sodium Chloride'
+_chemical_name_common             'Halite / Rocksalt'
+
+#======================================================================
+# ATOM SITE PARAMETERS
+#----------------------------------------------------------------------
+
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+Na1  Na  0.00000  0.00000  0.00000
+Na2  Na  0.50000  0.50000  0.00000
+Na3  Na  0.50000  0.00000  0.50000
+Na4  Na  0.00000  0.50000  0.50000
+Cl1  Cl  0.50000  0.50000  0.50000
+Cl2  Cl  0.00000  0.00000  0.50000
+Cl3  Cl  0.00000  0.50000  0.00000
+Cl4  Cl  0.50000  0.00000  0.00000",0.0,0.0,"<cif>
+data_NaCl_P1
+
+#======================================================================
+# CRYSTAL DATA
+#----------------------------------------------------------------------
+
+_cell_length_a                    5.58812644
+_cell_length_b                    5.58812644
+_cell_length_c                    5.58812644
+_cell_angle_alpha                 90.00
+_cell_angle_beta                  90.00
+_cell_angle_gamma                 90.00
+
+_symmetry_space_group_name_H-M    'P 1'
+_symmetry_Int_Tables_number       1
+
+_chemical_formula_sum             'Na4 Cl4'
+_chemical_name_systematic         'Sodium Chloride'
+_chemical_name_common             'Halite / Rocksalt'
+
+#======================================================================
+# ATOM SITE PARAMETERS
+#----------------------------------------------------------------------
+
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+Na1  Na  0.00000  0.00000  0.00000
+Na2  Na  0.50000  0.50000  0.00000
+Na3  Na  0.50000  0.00000  0.50000
+Na4  Na  0.00000  0.50000  0.50000
+Cl1  Cl  0.50000  0.50000  0.50000
+Cl2  Cl  0.00000  0.00000  0.50000
+Cl3  Cl  0.00000  0.50000  0.00000
+Cl4  Cl  0.50000  0.00000  0.00000
+</cif>"
+False,"# generated using pymatgen
+data_Ba3SnO
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.50211613
+_cell_length_b   5.50211613
+_cell_length_c   5.50211613
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Ba3SnO
+_chemical_formula_sum   'Ba3 Sn1 O1'
+_cell_volume   166.56711269
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ba  Ba0  1  0.50000000  0.00000000  0.50000000  1.0
+  Ba  Ba1  1  0.50000000  0.50000000  0.00000000  1.0
+  Ba  Ba2  1  0.00000000  0.50000000  0.50000000  1.0
+  Sn  Sn3  1  0.00000000  0.00000000  0.00000000  1.0
+  O  O4  1  0.50000000  0.50000000  0.50000000  1.0
+","# CIF file generated for Ba3SnO Anti-Perovskite
+#
+data_Ba3SnO_P1
+
+_chemical_name_systematic       'Barium Tin Oxide'
+_chemical_formula_sum           'Ba3 Sn O'
+
+# The structure is a cubic anti-perovskite (A3BX type), with
+# Sn at the corner (B site), O at the body-center (X site),
+# and Ba at the face-centers (A site).
+
+_cell_length_a                  5.50211613
+_cell_length_b                  5.50211613
+_cell_length_c                  5.50211613
+_cell_angle_alpha               90.000
+_cell_angle_beta                90.000
+_cell_angle_gamma               90.000
+_cell_volume                    166.5681
+_cell_formula_units_Z           1
+
+# Symmetry is set to P1 as requested. All atoms in the
+# conventional unit cell are listed explicitly.
+_symmetry_space_group_name_H-M  'P 1'
+_symmetry_Int_Tables_number     1
+
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ba1   Ba   0.50000   0.50000   0.00000   1.0
+  Ba2   Ba   0.50000   0.00000   0.50000   1.0
+  Ba3   Ba   0.00000   0.50000   0.50000   1.0
+  Sn1   Sn   0.00000   0.00000   0.00000   1.0
+  O1    O    0.50000   0.50000   0.50000   1.0",0.0,0.0,"<cif>
+# CIF file generated for Ba3SnO Anti-Perovskite
+#
+data_Ba3SnO_P1
+
+_chemical_name_systematic       'Barium Tin Oxide'
+_chemical_formula_sum           'Ba3 Sn O'
+
+# The structure is a cubic anti-perovskite (A3BX type), with
+# Sn at the corner (B site), O at the body-center (X site),
+# and Ba at the face-centers (A site).
+
+_cell_length_a                  5.50211613
+_cell_length_b                  5.50211613
+_cell_length_c                  5.50211613
+_cell_angle_alpha               90.000
+_cell_angle_beta                90.000
+_cell_angle_gamma               90.000
+_cell_volume                    166.5681
+_cell_formula_units_Z           1
+
+# Symmetry is set to P1 as requested. All atoms in the
+# conventional unit cell are listed explicitly.
+_symmetry_space_group_name_H-M  'P 1'
+_symmetry_Int_Tables_number     1
+
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ba1   Ba   0.50000   0.50000   0.00000   1.0
+  Ba2   Ba   0.50000   0.00000   0.50000   1.0
+  Ba3   Ba   0.00000   0.50000   0.50000   1.0
+  Sn1   Sn   0.00000   0.00000   0.00000   1.0
+  O1    O    0.50000   0.50000   0.50000   1.0
+</cif>"
+False,"# generated using pymatgen
+data_Cr
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   2.96889936
+_cell_length_b   2.96889936
+_cell_length_c   2.96889936
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Cr
+_chemical_formula_sum   Cr2
+_cell_volume   26.16895789
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Cr  Cr0  1  0.00000000  0.00000000  0.00000000  1.0
+  Cr  Cr1  1  0.50000000  0.50000000  0.50000000  1.0
+","data_Cr_bcc
+_cell_length_a                        2.96889936
+_cell_length_b                        2.96889936
+_cell_length_c                        2.96889936
+_cell_angle_alpha                     90.0
+_cell_angle_beta                      90.0
+_cell_angle_gamma                     90.0
+
+_symmetry_space_group_name_H-M        'P 1'
+_symmetry_Int_Tables_number           1
+
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  Cr1  Cr  0.00000  0.00000  0.00000
+  Cr2  Cr  0.50000  0.50000  0.50000",0.0,0.0,"<cif>
+data_Cr_bcc
+_cell_length_a                        2.96889936
+_cell_length_b                        2.96889936
+_cell_length_c                        2.96889936
+_cell_angle_alpha                     90.0
+_cell_angle_beta                      90.0
+_cell_angle_gamma                     90.0
+
+_symmetry_space_group_name_H-M        'P 1'
+_symmetry_Int_Tables_number           1
+
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  Cr1  Cr  0.00000  0.00000  0.00000
+  Cr2  Cr  0.50000  0.50000  0.50000
+</cif>"
