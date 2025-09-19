@@ -1,0 +1,1001 @@
+input_cif,action_prompt,output_cif
+mp-1013842.cif,Create a supercell with the size 1X2X1.,mp-1013842_processed.cif
+mp-1015026.cif,Create a supercell with the size 1*4*1.,mp-1015026_processed.cif
+mp-1016569.cif,Create a supercell with the size 4×2×1.,mp-1016569_processed.cif
+mp-1016660.cif,Create a supercell with the size 3×2×1.,mp-1016660_processed.cif
+mp-1020181.cif,Create a supercell with the size 3X1X2.,mp-1020181_processed.cif
+mp-1020716.cif,Create a supercell with the size 2X2X1.,mp-1020716_processed.cif
+mp-1021278.cif,Create a supercell with the size 2X3X1.,mp-1021278_processed.cif
+mp-1021658.cif,Create a supercell with the size 1X3X2.,mp-1021658_processed.cif
+mp-1021682.cif,Create a supercell with the size 1×2×1.,mp-1021682_processed.cif
+mp-1022203.cif,Create a supercell with the size 2*1*1.,mp-1022203_processed.cif
+mp-1026634.cif,Create a supercell with the size 1*2*3.,mp-1026634_processed.cif
+mp-1026773.cif,Create a supercell with the size 1×2×2.,mp-1026773_processed.cif
+mp-1026775.cif,Create a supercell with the size 2*1*1.,mp-1026775_processed.cif
+mp-1026818.cif,Create a supercell with the size 2X2X2.,mp-1026818_processed.cif
+mp-1026852.cif,Create a supercell with the size 1 by 1 by 2.,mp-1026852_processed.cif
+mp-1026901.cif,Create a supercell with the size 2*1*2.,mp-1026901_processed.cif
+mp-1027134.cif,Create a supercell with the size 2×3×1.,mp-1027134_processed.cif
+mp-1027152.cif,Create a supercell with the size 2×1×4.,mp-1027152_processed.cif
+mp-1027852.cif,Create a supercell with the size 2×1×2.,mp-1027852_processed.cif
+mp-1027965.cif,Create a supercell with the size 1x4x1.,mp-1027965_processed.cif
+mp-1027971.cif,Create a supercell with the size 4x2x1.,mp-1027971_processed.cif
+mp-1028124.cif,Create a supercell with the size 1*2*1.,mp-1028124_processed.cif
+mp-1028136.cif,Create a supercell with the size 1 by 2 by 4.,mp-1028136_processed.cif
+mp-1028229.cif,Create a supercell with the size 1*2*2.,mp-1028229_processed.cif
+mp-1028374.cif,Create a supercell with the size 2X1X4.,mp-1028374_processed.cif
+mp-1028383.cif,Create a supercell with the size 2*3*1.,mp-1028383_processed.cif
+mp-1028854.cif,Create a supercell with the size 1x4x1.,mp-1028854_processed.cif
+mp-1029113.cif,Create a supercell with the size 4X2X1.,mp-1029113_processed.cif
+mp-1029368.cif,Create a supercell with the size 1X3X2.,mp-1029368_processed.cif
+mp-1031131.cif,Create a supercell with the size 4×1×2.,mp-1031131_processed.cif
+mp-1032360.cif,Create a supercell with the size 1×2×4.,mp-1032360_processed.cif
+mp-1033383.cif,Create a supercell with the size 4 by 2 by 1.,mp-1033383_processed.cif
+mp-1034355.cif,Create a supercell with the size 2x1x4.,mp-1034355_processed.cif
+mp-1035597.cif,Create a supercell with the size 1×3×2.,mp-1035597_processed.cif
+mp-1035800.cif,Create a supercell with the size 1 by 2 by 2.,mp-1035800_processed.cif
+mp-1037450.cif,Create a supercell with the size 1X2X3.,mp-1037450_processed.cif
+mp-1038247.cif,Create a supercell with the size 1*1*3.,mp-1038247_processed.cif
+mp-1038590.cif,Create a supercell with the size 1X3X1.,mp-1038590_processed.cif
+mp-1038638.cif,Create a supercell with the size 2×2×2.,mp-1038638_processed.cif
+mp-1039951.cif,Create a supercell with the size 3×1×1.,mp-1039951_processed.cif
+mp-1040370.cif,Create a supercell with the size 2X1X3.,mp-1040370_processed.cif
+mp-1041045.cif,Create a supercell with the size 1X3X2.,mp-1041045_processed.cif
+mp-1041056.cif,Create a supercell with the size 1x1x4.,mp-1041056_processed.cif
+mp-1041213.cif,Create a supercell with the size 2×3×1.,mp-1041213_processed.cif
+mp-1042028.cif,Create a supercell with the size 1x2x2.,mp-1042028_processed.cif
+mp-1042158.cif,Create a supercell with the size 1x1x3.,mp-1042158_processed.cif
+mp-1042205.cif,Create a supercell with the size 2 by 1 by 3.,mp-1042205_processed.cif
+mp-1042378.cif,Create a supercell with the size 3*1*1.,mp-1042378_processed.cif
+mp-1042415.cif,Create a supercell with the size 2X1X1.,mp-1042415_processed.cif
+mp-1042656.cif,Create a supercell with the size 1X2X3.,mp-1042656_processed.cif
+mp-1042677.cif,Create a supercell with the size 1×1×4.,mp-1042677_processed.cif
+mp-1042685.cif,Create a supercell with the size 1 by 1 by 2.,mp-1042685_processed.cif
+mp-1042896.cif,Create a supercell with the size 1*1*3.,mp-1042896_processed.cif
+mp-1043828.cif,Create a supercell with the size 1x2x3.,mp-1043828_processed.cif
+mp-1044049.cif,Create a supercell with the size 1x3x1.,mp-1044049_processed.cif
+mp-1044636.cif,Create a supercell with the size 3×1×2.,mp-1044636_processed.cif
+mp-1045786.cif,Create a supercell with the size 1×1×4.,mp-1045786_processed.cif
+mp-1045992.cif,Create a supercell with the size 1x1x3.,mp-1045992_processed.cif
+mp-1046286.cif,Create a supercell with the size 2×1×1.,mp-1046286_processed.cif
+mp-1047007.cif,Create a supercell with the size 3×1×1.,mp-1047007_processed.cif
+mp-1047085.cif,Create a supercell with the size 4X1X2.,mp-1047085_processed.cif
+mp-1047504.cif,Create a supercell with the size 2 by 1 by 3.,mp-1047504_processed.cif
+mp-1047641.cif,Create a supercell with the size 2 by 2 by 2.,mp-1047641_processed.cif
+mp-1047798.cif,Create a supercell with the size 1X2X2.,mp-1047798_processed.cif
+mp-1048141.cif,Create a supercell with the size 1X3X2.,mp-1048141_processed.cif
+mp-1048241.cif,Create a supercell with the size 2*1*2.,mp-1048241_processed.cif
+mp-1048742.cif,Create a supercell with the size 2X1X4.,mp-1048742_processed.cif
+mp-1048819.cif,Create a supercell with the size 2x3x1.,mp-1048819_processed.cif
+mp-10543.cif,Create a supercell with the size 1 by 2 by 4.,mp-10543_processed.cif
+mp-1073454.cif,Create a supercell with the size 1*3*2.,mp-1073454_processed.cif
+mp-1073857.cif,Create a supercell with the size 4×1×1.,mp-1073857_processed.cif
+mp-1074382.cif,Create a supercell with the size 1x4x2.,mp-1074382_processed.cif
+mp-1075115.cif,Create a supercell with the size 2x1x3.,mp-1075115_processed.cif
+mp-1076171.cif,Create a supercell with the size 2*3*1.,mp-1076171_processed.cif
+mp-1076264.cif,Create a supercell with the size 3*1*1.,mp-1076264_processed.cif
+mp-1080179.cif,Create a supercell with the size 2*4*1.,mp-1080179_processed.cif
+mp-1080349.cif,Create a supercell with the size 4*1*1.,mp-1080349_processed.cif
+mp-1080354.cif,Create a supercell with the size 2*1*1.,mp-1080354_processed.cif
+mp-1080713.cif,Create a supercell with the size 3x1x1.,mp-1080713_processed.cif
+mp-1094804.cif,Create a supercell with the size 1 by 1 by 3.,mp-1094804_processed.cif
+mp-1095083.cif,Create a supercell with the size 2X2X1.,mp-1095083_processed.cif
+mp-1095476.cif,Create a supercell with the size 1*1*3.,mp-1095476_processed.cif
+mp-1095575.cif,Create a supercell with the size 2X3X1.,mp-1095575_processed.cif
+mp-1095585.cif,Create a supercell with the size 2 by 1 by 3.,mp-1095585_processed.cif
+mp-1095643.cif,Create a supercell with the size 1X2X1.,mp-1095643_processed.cif
+mp-1095675.cif,Create a supercell with the size 2X1X4.,mp-1095675_processed.cif
+mp-1095677.cif,Create a supercell with the size 1x1x3.,mp-1095677_processed.cif
+mp-1096913.cif,Create a supercell with the size 1x3x1.,mp-1096913_processed.cif
+mp-1099100.cif,Create a supercell with the size 2*1*1.,mp-1099100_processed.cif
+mp-1100340.cif,Create a supercell with the size 1×2×3.,mp-1100340_processed.cif
+mp-1100512.cif,Create a supercell with the size 1X3X1.,mp-1100512_processed.cif
+mp-1100602.cif,Create a supercell with the size 1×1×2.,mp-1100602_processed.cif
+mp-1100645.cif,Create a supercell with the size 4x2x1.,mp-1100645_processed.cif
+mp-1100655.cif,Create a supercell with the size 2x4x1.,mp-1100655_processed.cif
+mp-1100709.cif,Create a supercell with the size 4x2x1.,mp-1100709_processed.cif
+mp-1100895.cif,Create a supercell with the size 1*2*3.,mp-1100895_processed.cif
+mp-1101365.cif,Create a supercell with the size 3x1x1.,mp-1101365_processed.cif
+mp-1101490.cif,Create a supercell with the size 4 by 1 by 1.,mp-1101490_processed.cif
+mp-1101729.cif,Create a supercell with the size 1X4X1.,mp-1101729_processed.cif
+mp-1101899.cif,Create a supercell with the size 2 by 2 by 1.,mp-1101899_processed.cif
+mp-1102433.cif,Create a supercell with the size 3 by 1 by 1.,mp-1102433_processed.cif
+mp-1102534.cif,Create a supercell with the size 1 by 2 by 2.,mp-1102534_processed.cif
+mp-1102795.cif,Create a supercell with the size 1*4*2.,mp-1102795_processed.cif
+mp-1102865.cif,Create a supercell with the size 1 by 2 by 1.,mp-1102865_processed.cif
+mp-1102948.cif,Create a supercell with the size 2x4x1.,mp-1102948_processed.cif
+mp-1102963.cif,Create a supercell with the size 2 by 3 by 1.,mp-1102963_processed.cif
+mp-1103212.cif,Create a supercell with the size 2X2X1.,mp-1103212_processed.cif
+mp-1103303.cif,Create a supercell with the size 1×4×2.,mp-1103303_processed.cif
+mp-1103651.cif,Create a supercell with the size 2*1*4.,mp-1103651_processed.cif
+mp-1104386.cif,Create a supercell with the size 2 by 2 by 2.,mp-1104386_processed.cif
+mp-1104404.cif,Create a supercell with the size 3*1*2.,mp-1104404_processed.cif
+mp-1104448.cif,Create a supercell with the size 1X3X2.,mp-1104448_processed.cif
+mp-1105372.cif,Create a supercell with the size 2x1x3.,mp-1105372_processed.cif
+mp-1105581.cif,Create a supercell with the size 2 by 2 by 2.,mp-1105581_processed.cif
+mp-1105587.cif,Create a supercell with the size 1×2×2.,mp-1105587_processed.cif
+mp-1105631.cif,Create a supercell with the size 1*4*1.,mp-1105631_processed.cif
+mp-1105736.cif,Create a supercell with the size 2*2*2.,mp-1105736_processed.cif
+mp-1105952.cif,Create a supercell with the size 4*2*1.,mp-1105952_processed.cif
+mp-1105985.cif,Create a supercell with the size 3x1x1.,mp-1105985_processed.cif
+mp-1106159.cif,Create a supercell with the size 1*4*1.,mp-1106159_processed.cif
+mp-1110626.cif,Create a supercell with the size 3×1×1.,mp-1110626_processed.cif
+mp-1110754.cif,Create a supercell with the size 4X1X1.,mp-1110754_processed.cif
+mp-1111211.cif,Create a supercell with the size 1X2X3.,mp-1111211_processed.cif
+mp-1111610.cif,Create a supercell with the size 1*2*1.,mp-1111610_processed.cif
+mp-1111940.cif,Create a supercell with the size 1x2x1.,mp-1111940_processed.cif
+mp-1112257.cif,Create a supercell with the size 2x1x2.,mp-1112257_processed.cif
+mp-1112416.cif,Create a supercell with the size 2X1X3.,mp-1112416_processed.cif
+mp-11143.cif,Create a supercell with the size 3*1*1.,mp-11143_processed.cif
+mp-11145.cif,Create a supercell with the size 1 by 1 by 2.,mp-11145_processed.cif
+mp-1120749.cif,Create a supercell with the size 1X2X3.,mp-1120749_processed.cif
+mp-11250.cif,Create a supercell with the size 2X1X4.,mp-11250_processed.cif
+mp-1157680.cif,Create a supercell with the size 1x4x1.,mp-1157680_processed.cif
+mp-1173361.cif,Create a supercell with the size 1×3×1.,mp-1173361_processed.cif
+mp-1173548.cif,Create a supercell with the size 3 by 1 by 1.,mp-1173548_processed.cif
+mp-1173561.cif,Create a supercell with the size 1x2x2.,mp-1173561_processed.cif
+mp-1173706.cif,Create a supercell with the size 4X1X2.,mp-1173706_processed.cif
+mp-1173883.cif,Create a supercell with the size 3X1X2.,mp-1173883_processed.cif
+mp-1174010.cif,Create a supercell with the size 1*4*1.,mp-1174010_processed.cif
+mp-1174079.cif,Create a supercell with the size 1 by 2 by 3.,mp-1174079_processed.cif
+mp-1174299.cif,Create a supercell with the size 1×4×1.,mp-1174299_processed.cif
+mp-1174536.cif,Create a supercell with the size 1×3×1.,mp-1174536_processed.cif
+mp-1174549.cif,Create a supercell with the size 1X2X1.,mp-1174549_processed.cif
+mp-1174561.cif,Create a supercell with the size 1x2x1.,mp-1174561_processed.cif
+mp-1174631.cif,Create a supercell with the size 2×1×1.,mp-1174631_processed.cif
+mp-1174708.cif,Create a supercell with the size 1*2*2.,mp-1174708_processed.cif
+mp-1175060.cif,Create a supercell with the size 1x1x4.,mp-1175060_processed.cif
+mp-1175670.cif,Create a supercell with the size 1X4X1.,mp-1175670_processed.cif
+mp-1175676.cif,Create a supercell with the size 1X3X1.,mp-1175676_processed.cif
+mp-1175716.cif,Create a supercell with the size 2×1×2.,mp-1175716_processed.cif
+mp-1176074.cif,Create a supercell with the size 2X2X2.,mp-1176074_processed.cif
+mp-1176243.cif,Create a supercell with the size 3*1*1.,mp-1176243_processed.cif
+mp-1176471.cif,Create a supercell with the size 1×2×3.,mp-1176471_processed.cif
+mp-1176486.cif,Create a supercell with the size 2 by 2 by 1.,mp-1176486_processed.cif
+mp-1176593.cif,Create a supercell with the size 4×1×2.,mp-1176593_processed.cif
+mp-1176664.cif,Create a supercell with the size 4x1x2.,mp-1176664_processed.cif
+mp-1176678.cif,Create a supercell with the size 4X1X2.,mp-1176678_processed.cif
+mp-1176692.cif,Create a supercell with the size 4 by 2 by 1.,mp-1176692_processed.cif
+mp-1176965.cif,Create a supercell with the size 2*3*1.,mp-1176965_processed.cif
+mp-1177279.cif,Create a supercell with the size 2×1×3.,mp-1177279_processed.cif
+mp-1177537.cif,Create a supercell with the size 3X2X1.,mp-1177537_processed.cif
+mp-1177559.cif,Create a supercell with the size 1 by 1 by 3.,mp-1177559_processed.cif
+mp-1177564.cif,Create a supercell with the size 1x4x2.,mp-1177564_processed.cif
+mp-1177801.cif,Create a supercell with the size 2x1x2.,mp-1177801_processed.cif
+mp-1178026.cif,Create a supercell with the size 1×2×4.,mp-1178026_processed.cif
+mp-1178085.cif,Create a supercell with the size 2X3X1.,mp-1178085_processed.cif
+mp-1178148.cif,Create a supercell with the size 1×2×1.,mp-1178148_processed.cif
+mp-1178259.cif,Create a supercell with the size 2X1X3.,mp-1178259_processed.cif
+mp-1178586.cif,Create a supercell with the size 4x1x1.,mp-1178586_processed.cif
+mp-1180130.cif,Create a supercell with the size 3 by 2 by 1.,mp-1180130_processed.cif
+mp-1180252.cif,Create a supercell with the size 2x2x1.,mp-1180252_processed.cif
+mp-1180744.cif,Create a supercell with the size 3*2*1.,mp-1180744_processed.cif
+mp-1180763.cif,Create a supercell with the size 3*1*2.,mp-1180763_processed.cif
+mp-1181255.cif,Create a supercell with the size 1×1×4.,mp-1181255_processed.cif
+mp-1181584.cif,Create a supercell with the size 1*2*4.,mp-1181584_processed.cif
+mp-1182011.cif,Create a supercell with the size 2*1*4.,mp-1182011_processed.cif
+mp-1182045.cif,Create a supercell with the size 1*4*1.,mp-1182045_processed.cif
+mp-1182066.cif,Create a supercell with the size 1x2x2.,mp-1182066_processed.cif
+mp-1182302.cif,Create a supercell with the size 1X4X1.,mp-1182302_processed.cif
+mp-1182516.cif,Create a supercell with the size 3*1*2.,mp-1182516_processed.cif
+mp-1182952.cif,Create a supercell with the size 4×2×1.,mp-1182952_processed.cif
+mp-1182993.cif,Create a supercell with the size 2 by 1 by 1.,mp-1182993_processed.cif
+mp-1185691.cif,Create a supercell with the size 3x1x1.,mp-1185691_processed.cif
+mp-1185729.cif,Create a supercell with the size 1 by 4 by 2.,mp-1185729_processed.cif
+mp-1185730.cif,Create a supercell with the size 2*1*3.,mp-1185730_processed.cif
+mp-1186069.cif,Create a supercell with the size 2×1×3.,mp-1186069_processed.cif
+mp-1188168.cif,Create a supercell with the size 4 by 1 by 1.,mp-1188168_processed.cif
+mp-1188839.cif,Create a supercell with the size 4*1*2.,mp-1188839_processed.cif
+mp-1189137.cif,Create a supercell with the size 1X3X1.,mp-1189137_processed.cif
+mp-1189325.cif,Create a supercell with the size 3x2x1.,mp-1189325_processed.cif
+mp-1189617.cif,Create a supercell with the size 1×1×2.,mp-1189617_processed.cif
+mp-1190360.cif,Create a supercell with the size 1X1X4.,mp-1190360_processed.cif
+mp-1190450.cif,Create a supercell with the size 1 by 3 by 2.,mp-1190450_processed.cif
+mp-1190471.cif,Create a supercell with the size 1X2X2.,mp-1190471_processed.cif
+mp-1190593.cif,Create a supercell with the size 1X2X2.,mp-1190593_processed.cif
+mp-1190765.cif,Create a supercell with the size 1x3x2.,mp-1190765_processed.cif
+mp-1190906.cif,Create a supercell with the size 2*2*1.,mp-1190906_processed.cif
+mp-1191263.cif,Create a supercell with the size 4x1x1.,mp-1191263_processed.cif
+mp-1191575.cif,Create a supercell with the size 1x3x2.,mp-1191575_processed.cif
+mp-1191633.cif,Create a supercell with the size 4X2X1.,mp-1191633_processed.cif
+mp-1191681.cif,Create a supercell with the size 3×1×2.,mp-1191681_processed.cif
+mp-1192077.cif,Create a supercell with the size 1 by 3 by 1.,mp-1192077_processed.cif
+mp-1192111.cif,Create a supercell with the size 1x1x2.,mp-1192111_processed.cif
+mp-1192527.cif,Create a supercell with the size 1X3X1.,mp-1192527_processed.cif
+mp-1192550.cif,Create a supercell with the size 2*2*2.,mp-1192550_processed.cif
+mp-1192556.cif,Create a supercell with the size 2*2*1.,mp-1192556_processed.cif
+mp-1192588.cif,Create a supercell with the size 2*4*1.,mp-1192588_processed.cif
+mp-1192755.cif,Create a supercell with the size 2x2x2.,mp-1192755_processed.cif
+mp-1192984.cif,Create a supercell with the size 3X1X2.,mp-1192984_processed.cif
+mp-1193276.cif,Create a supercell with the size 2 by 3 by 1.,mp-1193276_processed.cif
+mp-1193461.cif,Create a supercell with the size 2x2x1.,mp-1193461_processed.cif
+mp-1193658.cif,Create a supercell with the size 1 by 2 by 3.,mp-1193658_processed.cif
+mp-1193669.cif,Create a supercell with the size 1X4X2.,mp-1193669_processed.cif
+mp-1193753.cif,Create a supercell with the size 1X2X1.,mp-1193753_processed.cif
+mp-1194315.cif,Create a supercell with the size 3 by 1 by 2.,mp-1194315_processed.cif
+mp-1194467.cif,Create a supercell with the size 2x1x1.,mp-1194467_processed.cif
+mp-1194648.cif,Create a supercell with the size 3×1×1.,mp-1194648_processed.cif
+mp-1194808.cif,Create a supercell with the size 1x1x3.,mp-1194808_processed.cif
+mp-1194897.cif,Create a supercell with the size 2x1x3.,mp-1194897_processed.cif
+mp-1194954.cif,Create a supercell with the size 2×1×2.,mp-1194954_processed.cif
+mp-1195087.cif,Create a supercell with the size 2X1X3.,mp-1195087_processed.cif
+mp-1195106.cif,Create a supercell with the size 2×1×1.,mp-1195106_processed.cif
+mp-1195319.cif,Create a supercell with the size 2×1×2.,mp-1195319_processed.cif
+mp-1195337.cif,Create a supercell with the size 1X1X3.,mp-1195337_processed.cif
+mp-1195540.cif,Create a supercell with the size 1x4x2.,mp-1195540_processed.cif
+mp-1195827.cif,Create a supercell with the size 1X2X1.,mp-1195827_processed.cif
+mp-1195929.cif,Create a supercell with the size 1*1*3.,mp-1195929_processed.cif
+mp-1195965.cif,Create a supercell with the size 2 by 1 by 4.,mp-1195965_processed.cif
+mp-1195967.cif,Create a supercell with the size 1x2x2.,mp-1195967_processed.cif
+mp-1196244.cif,Create a supercell with the size 1x4x2.,mp-1196244_processed.cif
+mp-1196468.cif,Create a supercell with the size 1X3X1.,mp-1196468_processed.cif
+mp-1196513.cif,Create a supercell with the size 3x2x1.,mp-1196513_processed.cif
+mp-1196514.cif,Create a supercell with the size 3X1X1.,mp-1196514_processed.cif
+mp-1197108.cif,Create a supercell with the size 3×2×1.,mp-1197108_processed.cif
+mp-1197227.cif,Create a supercell with the size 4X2X1.,mp-1197227_processed.cif
+mp-1197238.cif,Create a supercell with the size 2×3×1.,mp-1197238_processed.cif
+mp-1197636.cif,Create a supercell with the size 1 by 1 by 4.,mp-1197636_processed.cif
+mp-1197877.cif,Create a supercell with the size 1×1×4.,mp-1197877_processed.cif
+mp-1198057.cif,Create a supercell with the size 4X1X1.,mp-1198057_processed.cif
+mp-1198140.cif,Create a supercell with the size 2X2X1.,mp-1198140_processed.cif
+mp-1198411.cif,Create a supercell with the size 1 by 3 by 2.,mp-1198411_processed.cif
+mp-1198574.cif,Create a supercell with the size 1×2×3.,mp-1198574_processed.cif
+mp-1198593.cif,Create a supercell with the size 3 by 2 by 1.,mp-1198593_processed.cif
+mp-1198603.cif,Create a supercell with the size 2X1X2.,mp-1198603_processed.cif
+mp-1198841.cif,Create a supercell with the size 2*3*1.,mp-1198841_processed.cif
+mp-1199018.cif,Create a supercell with the size 2X2X2.,mp-1199018_processed.cif
+mp-1199088.cif,Create a supercell with the size 1×1×2.,mp-1199088_processed.cif
+mp-1199566.cif,Create a supercell with the size 1×4×2.,mp-1199566_processed.cif
+mp-1199672.cif,Create a supercell with the size 3×1×1.,mp-1199672_processed.cif
+mp-1200359.cif,Create a supercell with the size 2*1*2.,mp-1200359_processed.cif
+mp-1200542.cif,Create a supercell with the size 3X1X1.,mp-1200542_processed.cif
+mp-1200692.cif,Create a supercell with the size 4×2×1.,mp-1200692_processed.cif
+mp-1200758.cif,Create a supercell with the size 2x3x1.,mp-1200758_processed.cif
+mp-1201497.cif,Create a supercell with the size 2x1x3.,mp-1201497_processed.cif
+mp-1201607.cif,Create a supercell with the size 1*2*1.,mp-1201607_processed.cif
+mp-1201876.cif,Create a supercell with the size 4x1x2.,mp-1201876_processed.cif
+mp-1201895.cif,Create a supercell with the size 1×4×2.,mp-1201895_processed.cif
+mp-1202389.cif,Create a supercell with the size 3 by 1 by 1.,mp-1202389_processed.cif
+mp-1202709.cif,Create a supercell with the size 2x1x3.,mp-1202709_processed.cif
+mp-1202898.cif,Create a supercell with the size 2x2x2.,mp-1202898_processed.cif
+mp-1202901.cif,Create a supercell with the size 1*2*3.,mp-1202901_processed.cif
+mp-1203035.cif,Create a supercell with the size 1*2*2.,mp-1203035_processed.cif
+mp-1203146.cif,Create a supercell with the size 2x3x1.,mp-1203146_processed.cif
+mp-1203196.cif,Create a supercell with the size 1*2*3.,mp-1203196_processed.cif
+mp-1203220.cif,Create a supercell with the size 3 by 1 by 1.,mp-1203220_processed.cif
+mp-1203746.cif,Create a supercell with the size 4*1*1.,mp-1203746_processed.cif
+mp-1203808.cif,Create a supercell with the size 1 by 2 by 2.,mp-1203808_processed.cif
+mp-1203996.cif,Create a supercell with the size 2x3x1.,mp-1203996_processed.cif
+mp-1204064.cif,Create a supercell with the size 1X1X4.,mp-1204064_processed.cif
+mp-1204087.cif,Create a supercell with the size 2x2x1.,mp-1204087_processed.cif
+mp-1204178.cif,Create a supercell with the size 3X2X1.,mp-1204178_processed.cif
+mp-1204195.cif,Create a supercell with the size 1*2*2.,mp-1204195_processed.cif
+mp-1204482.cif,Create a supercell with the size 2x1x1.,mp-1204482_processed.cif
+mp-1204573.cif,Create a supercell with the size 1×2×1.,mp-1204573_processed.cif
+mp-1204620.cif,Create a supercell with the size 1*4*1.,mp-1204620_processed.cif
+mp-1204800.cif,Create a supercell with the size 1 by 2 by 3.,mp-1204800_processed.cif
+mp-1205388.cif,Create a supercell with the size 1 by 3 by 2.,mp-1205388_processed.cif
+mp-1205391.cif,Create a supercell with the size 1×2×1.,mp-1205391_processed.cif
+mp-1205393.cif,Create a supercell with the size 4x1x2.,mp-1205393_processed.cif
+mp-1205503.cif,Create a supercell with the size 1x1x4.,mp-1205503_processed.cif
+mp-1205523.cif,Create a supercell with the size 3*2*1.,mp-1205523_processed.cif
+mp-1205660.cif,Create a supercell with the size 1 by 3 by 2.,mp-1205660_processed.cif
+mp-1205745.cif,Create a supercell with the size 4*2*1.,mp-1205745_processed.cif
+mp-1205771.cif,Create a supercell with the size 4x1x2.,mp-1205771_processed.cif
+mp-1206201.cif,Create a supercell with the size 1*2*4.,mp-1206201_processed.cif
+mp-1206250.cif,Create a supercell with the size 1 by 4 by 1.,mp-1206250_processed.cif
+mp-1206569.cif,Create a supercell with the size 2x2x2.,mp-1206569_processed.cif
+mp-1206737.cif,Create a supercell with the size 3*1*1.,mp-1206737_processed.cif
+mp-1207144.cif,Create a supercell with the size 2×1×1.,mp-1207144_processed.cif
+mp-1207398.cif,Create a supercell with the size 1×3×1.,mp-1207398_processed.cif
+mp-1207522.cif,Create a supercell with the size 2x2x1.,mp-1207522_processed.cif
+mp-1207549.cif,Create a supercell with the size 2X2X2.,mp-1207549_processed.cif
+mp-1207596.cif,Create a supercell with the size 1 by 2 by 1.,mp-1207596_processed.cif
+mp-1207733.cif,Create a supercell with the size 4*1*2.,mp-1207733_processed.cif
+mp-1207797.cif,Create a supercell with the size 2*2*1.,mp-1207797_processed.cif
+mp-1207993.cif,Create a supercell with the size 2X2X1.,mp-1207993_processed.cif
+mp-1208058.cif,Create a supercell with the size 4 by 2 by 1.,mp-1208058_processed.cif
+mp-1208219.cif,Create a supercell with the size 1 by 1 by 4.,mp-1208219_processed.cif
+mp-1208275.cif,Create a supercell with the size 1x2x4.,mp-1208275_processed.cif
+mp-1208331.cif,Create a supercell with the size 1x2x2.,mp-1208331_processed.cif
+mp-1208361.cif,Create a supercell with the size 2X1X3.,mp-1208361_processed.cif
+mp-1208425.cif,Create a supercell with the size 1*3*1.,mp-1208425_processed.cif
+mp-1208879.cif,Create a supercell with the size 1 by 2 by 2.,mp-1208879_processed.cif
+mp-1209036.cif,Create a supercell with the size 1*1*2.,mp-1209036_processed.cif
+mp-1209206.cif,Create a supercell with the size 1×4×2.,mp-1209206_processed.cif
+mp-1209348.cif,Create a supercell with the size 4*1*2.,mp-1209348_processed.cif
+mp-1209483.cif,Create a supercell with the size 1 by 1 by 4.,mp-1209483_processed.cif
+mp-1209534.cif,Create a supercell with the size 1×4×2.,mp-1209534_processed.cif
+mp-1209695.cif,Create a supercell with the size 1*1*3.,mp-1209695_processed.cif
+mp-1210015.cif,Create a supercell with the size 2 by 1 by 1.,mp-1210015_processed.cif
+mp-1210035.cif,Create a supercell with the size 1×1×4.,mp-1210035_processed.cif
+mp-1210161.cif,Create a supercell with the size 2x1x2.,mp-1210161_processed.cif
+mp-1210237.cif,Create a supercell with the size 2x1x3.,mp-1210237_processed.cif
+mp-1210462.cif,Create a supercell with the size 1x2x4.,mp-1210462_processed.cif
+mp-1210502.cif,Create a supercell with the size 2*1*3.,mp-1210502_processed.cif
+mp-1210518.cif,Create a supercell with the size 2x2x2.,mp-1210518_processed.cif
+mp-1210584.cif,Create a supercell with the size 1X2X4.,mp-1210584_processed.cif
+mp-1211181.cif,Create a supercell with the size 1X2X4.,mp-1211181_processed.cif
+mp-1211192.cif,Create a supercell with the size 1 by 2 by 1.,mp-1211192_processed.cif
+mp-1211198.cif,Create a supercell with the size 2 by 1 by 3.,mp-1211198_processed.cif
+mp-1211303.cif,Create a supercell with the size 1 by 2 by 1.,mp-1211303_processed.cif
+mp-1211402.cif,Create a supercell with the size 3×1×2.,mp-1211402_processed.cif
+mp-1211546.cif,Create a supercell with the size 1 by 3 by 2.,mp-1211546_processed.cif
+mp-1211686.cif,Create a supercell with the size 2x2x1.,mp-1211686_processed.cif
+mp-1211861.cif,Create a supercell with the size 3*2*1.,mp-1211861_processed.cif
+mp-1211971.cif,Create a supercell with the size 1*1*3.,mp-1211971_processed.cif
+mp-1212118.cif,Create a supercell with the size 2x1x3.,mp-1212118_processed.cif
+mp-1212387.cif,Create a supercell with the size 2 by 1 by 4.,mp-1212387_processed.cif
+mp-1212504.cif,Create a supercell with the size 2x2x1.,mp-1212504_processed.cif
+mp-1212600.cif,Create a supercell with the size 1 by 1 by 3.,mp-1212600_processed.cif
+mp-1212621.cif,Create a supercell with the size 1 by 3 by 2.,mp-1212621_processed.cif
+mp-1212645.cif,Create a supercell with the size 2x3x1.,mp-1212645_processed.cif
+mp-1212670.cif,Create a supercell with the size 2*1*2.,mp-1212670_processed.cif
+mp-1212757.cif,Create a supercell with the size 1 by 2 by 1.,mp-1212757_processed.cif
+mp-1213080.cif,Create a supercell with the size 2*3*1.,mp-1213080_processed.cif
+mp-1213206.cif,Create a supercell with the size 4*1*2.,mp-1213206_processed.cif
+mp-1213529.cif,Create a supercell with the size 1×2×3.,mp-1213529_processed.cif
+mp-1213562.cif,Create a supercell with the size 2 by 2 by 1.,mp-1213562_processed.cif
+mp-1213790.cif,Create a supercell with the size 2×2×2.,mp-1213790_processed.cif
+mp-1214336.cif,Create a supercell with the size 3×1×2.,mp-1214336_processed.cif
+mp-1214464.cif,Create a supercell with the size 4x1x1.,mp-1214464_processed.cif
+mp-1214610.cif,Create a supercell with the size 3×2×1.,mp-1214610_processed.cif
+mp-1214788.cif,Create a supercell with the size 4x2x1.,mp-1214788_processed.cif
+mp-1214890.cif,Create a supercell with the size 2 by 1 by 1.,mp-1214890_processed.cif
+mp-1214936.cif,Create a supercell with the size 3 by 1 by 2.,mp-1214936_processed.cif
+mp-1215141.cif,Create a supercell with the size 2X3X1.,mp-1215141_processed.cif
+mp-1215289.cif,Create a supercell with the size 3*2*1.,mp-1215289_processed.cif
+mp-1215601.cif,Create a supercell with the size 1X2X4.,mp-1215601_processed.cif
+mp-1215607.cif,Create a supercell with the size 1X4X1.,mp-1215607_processed.cif
+mp-1215624.cif,Create a supercell with the size 2 by 4 by 1.,mp-1215624_processed.cif
+mp-1215653.cif,Create a supercell with the size 2*2*2.,mp-1215653_processed.cif
+mp-1215929.cif,Create a supercell with the size 1x4x1.,mp-1215929_processed.cif
+mp-1216177.cif,Create a supercell with the size 2X1X4.,mp-1216177_processed.cif
+mp-1216179.cif,Create a supercell with the size 4×2×1.,mp-1216179_processed.cif
+mp-1216787.cif,Create a supercell with the size 1x2x2.,mp-1216787_processed.cif
+mp-1216925.cif,Create a supercell with the size 2X1X4.,mp-1216925_processed.cif
+mp-1217133.cif,Create a supercell with the size 4 by 1 by 1.,mp-1217133_processed.cif
+mp-1217420.cif,Create a supercell with the size 1×4×1.,mp-1217420_processed.cif
+mp-1217464.cif,Create a supercell with the size 1x2x2.,mp-1217464_processed.cif
+mp-1217479.cif,Create a supercell with the size 2*4*1.,mp-1217479_processed.cif
+mp-1217682.cif,Create a supercell with the size 2X1X2.,mp-1217682_processed.cif
+mp-1217834.cif,Create a supercell with the size 2x1x1.,mp-1217834_processed.cif
+mp-1218011.cif,Create a supercell with the size 1*2*2.,mp-1218011_processed.cif
+mp-1218423.cif,Create a supercell with the size 1x4x1.,mp-1218423_processed.cif
+mp-1218682.cif,Create a supercell with the size 1*4*2.,mp-1218682_processed.cif
+mp-1218922.cif,Create a supercell with the size 3X2X1.,mp-1218922_processed.cif
+mp-1219071.cif,Create a supercell with the size 4x1x1.,mp-1219071_processed.cif
+mp-1219127.cif,Create a supercell with the size 1×2×3.,mp-1219127_processed.cif
+mp-1219578.cif,Create a supercell with the size 2×4×1.,mp-1219578_processed.cif
+mp-1219615.cif,Create a supercell with the size 1*2*1.,mp-1219615_processed.cif
+mp-1219892.cif,Create a supercell with the size 1*4*1.,mp-1219892_processed.cif
+mp-1219893.cif,Create a supercell with the size 3x1x2.,mp-1219893_processed.cif
+mp-1220065.cif,Create a supercell with the size 2 by 2 by 1.,mp-1220065_processed.cif
+mp-1220070.cif,Create a supercell with the size 4*1*2.,mp-1220070_processed.cif
+mp-1220202.cif,Create a supercell with the size 2x1x4.,mp-1220202_processed.cif
+mp-1220419.cif,Create a supercell with the size 1*2*3.,mp-1220419_processed.cif
+mp-1220444.cif,Create a supercell with the size 1 by 3 by 2.,mp-1220444_processed.cif
+mp-1220553.cif,Create a supercell with the size 4x1x2.,mp-1220553_processed.cif
+mp-1220692.cif,Create a supercell with the size 1x2x3.,mp-1220692_processed.cif
+mp-1220760.cif,Create a supercell with the size 1X4X2.,mp-1220760_processed.cif
+mp-1221207.cif,Create a supercell with the size 3x2x1.,mp-1221207_processed.cif
+mp-1221380.cif,Create a supercell with the size 2×1×2.,mp-1221380_processed.cif
+mp-1221838.cif,Create a supercell with the size 1×2×4.,mp-1221838_processed.cif
+mp-1221843.cif,Create a supercell with the size 1*4*2.,mp-1221843_processed.cif
+mp-1221998.cif,Create a supercell with the size 2x1x4.,mp-1221998_processed.cif
+mp-1222146.cif,Create a supercell with the size 1 by 1 by 2.,mp-1222146_processed.cif
+mp-1222327.cif,Create a supercell with the size 2X1X1.,mp-1222327_processed.cif
+mp-1222509.cif,Create a supercell with the size 2*1*1.,mp-1222509_processed.cif
+mp-1222563.cif,Create a supercell with the size 2x2x2.,mp-1222563_processed.cif
+mp-1222827.cif,Create a supercell with the size 4*1*1.,mp-1222827_processed.cif
+mp-1223169.cif,Create a supercell with the size 2X2X1.,mp-1223169_processed.cif
+mp-1223295.cif,Create a supercell with the size 2x4x1.,mp-1223295_processed.cif
+mp-1223429.cif,Create a supercell with the size 1x3x2.,mp-1223429_processed.cif
+mp-1223578.cif,Create a supercell with the size 3X1X2.,mp-1223578_processed.cif
+mp-1223597.cif,Create a supercell with the size 2*2*1.,mp-1223597_processed.cif
+mp-1223626.cif,Create a supercell with the size 4×2×1.,mp-1223626_processed.cif
+mp-1223895.cif,Create a supercell with the size 2×1×3.,mp-1223895_processed.cif
+mp-1224478.cif,Create a supercell with the size 2x1x1.,mp-1224478_processed.cif
+mp-1224502.cif,Create a supercell with the size 1X1X2.,mp-1224502_processed.cif
+mp-1225147.cif,Create a supercell with the size 1x4x2.,mp-1225147_processed.cif
+mp-1225213.cif,Create a supercell with the size 1X4X2.,mp-1225213_processed.cif
+mp-1225229.cif,Create a supercell with the size 3×1×2.,mp-1225229_processed.cif
+mp-1225237.cif,Create a supercell with the size 1*2*2.,mp-1225237_processed.cif
+mp-1225440.cif,Create a supercell with the size 2x1x4.,mp-1225440_processed.cif
+mp-1225651.cif,Create a supercell with the size 2x1x3.,mp-1225651_processed.cif
+mp-1225781.cif,Create a supercell with the size 1x1x4.,mp-1225781_processed.cif
+mp-1226113.cif,Create a supercell with the size 1x2x2.,mp-1226113_processed.cif
+mp-1226144.cif,Create a supercell with the size 3 by 1 by 2.,mp-1226144_processed.cif
+mp-1226291.cif,Create a supercell with the size 4x2x1.,mp-1226291_processed.cif
+mp-1226695.cif,Create a supercell with the size 2×1×4.,mp-1226695_processed.cif
+mp-1227099.cif,Create a supercell with the size 1*2*2.,mp-1227099_processed.cif
+mp-1227106.cif,Create a supercell with the size 1x3x2.,mp-1227106_processed.cif
+mp-1227447.cif,Create a supercell with the size 2×1×3.,mp-1227447_processed.cif
+mp-1227574.cif,Create a supercell with the size 4X2X1.,mp-1227574_processed.cif
+mp-1227644.cif,Create a supercell with the size 2x1x4.,mp-1227644_processed.cif
+mp-1227756.cif,Create a supercell with the size 2 by 1 by 4.,mp-1227756_processed.cif
+mp-1227836.cif,Create a supercell with the size 3*2*1.,mp-1227836_processed.cif
+mp-1227849.cif,Create a supercell with the size 3×2×1.,mp-1227849_processed.cif
+mp-1227954.cif,Create a supercell with the size 2×1×1.,mp-1227954_processed.cif
+mp-1228056.cif,Create a supercell with the size 1X2X2.,mp-1228056_processed.cif
+mp-1228315.cif,Create a supercell with the size 2×1×3.,mp-1228315_processed.cif
+mp-1228494.cif,Create a supercell with the size 1x2x1.,mp-1228494_processed.cif
+mp-1228522.cif,Create a supercell with the size 3 by 1 by 2.,mp-1228522_processed.cif
+mp-1228836.cif,Create a supercell with the size 1*2*3.,mp-1228836_processed.cif
+mp-1229286.cif,Create a supercell with the size 1X3X1.,mp-1229286_processed.cif
+mp-1232260.cif,Create a supercell with the size 4 by 1 by 2.,mp-1232260_processed.cif
+mp-1232340.cif,Create a supercell with the size 3×1×1.,mp-1232340_processed.cif
+mp-1233155.cif,Create a supercell with the size 3X1X1.,mp-1233155_processed.cif
+mp-1233280.cif,Create a supercell with the size 2x1x4.,mp-1233280_processed.cif
+mp-1233390.cif,Create a supercell with the size 4X2X1.,mp-1233390_processed.cif
+mp-1233443.cif,Create a supercell with the size 1 by 4 by 1.,mp-1233443_processed.cif
+mp-1233468.cif,Create a supercell with the size 1 by 1 by 4.,mp-1233468_processed.cif
+mp-1233776.cif,Create a supercell with the size 3×1×2.,mp-1233776_processed.cif
+mp-1233932.cif,Create a supercell with the size 2 by 1 by 2.,mp-1233932_processed.cif
+mp-1233998.cif,Create a supercell with the size 1 by 3 by 1.,mp-1233998_processed.cif
+mp-1234032.cif,Create a supercell with the size 1x3x1.,mp-1234032_processed.cif
+mp-1234239.cif,Create a supercell with the size 1*3*1.,mp-1234239_processed.cif
+mp-12343.cif,Create a supercell with the size 3X2X1.,mp-12343_processed.cif
+mp-1234325.cif,Create a supercell with the size 1 by 4 by 2.,mp-1234325_processed.cif
+mp-1234413.cif,Create a supercell with the size 1x4x1.,mp-1234413_processed.cif
+mp-1234620.cif,Create a supercell with the size 4 by 2 by 1.,mp-1234620_processed.cif
+mp-1234667.cif,Create a supercell with the size 3×1×1.,mp-1234667_processed.cif
+mp-1234741.cif,Create a supercell with the size 4*2*1.,mp-1234741_processed.cif
+mp-1235023.cif,Create a supercell with the size 2X2X1.,mp-1235023_processed.cif
+mp-1235295.cif,Create a supercell with the size 1*3*1.,mp-1235295_processed.cif
+mp-1235548.cif,Create a supercell with the size 2x3x1.,mp-1235548_processed.cif
+mp-1235562.cif,Create a supercell with the size 2 by 4 by 1.,mp-1235562_processed.cif
+mp-1235571.cif,Create a supercell with the size 3X1X2.,mp-1235571_processed.cif
+mp-1235672.cif,Create a supercell with the size 1×4×1.,mp-1235672_processed.cif
+mp-1235780.cif,Create a supercell with the size 4x1x1.,mp-1235780_processed.cif
+mp-1236433.cif,Create a supercell with the size 3X2X1.,mp-1236433_processed.cif
+mp-1236543.cif,Create a supercell with the size 2X2X1.,mp-1236543_processed.cif
+mp-1237278.cif,Create a supercell with the size 1x3x2.,mp-1237278_processed.cif
+mp-1237483.cif,Create a supercell with the size 2*1*3.,mp-1237483_processed.cif
+mp-1238409.cif,Create a supercell with the size 1×3×1.,mp-1238409_processed.cif
+mp-1239078.cif,Create a supercell with the size 1 by 2 by 3.,mp-1239078_processed.cif
+mp-1239118.cif,Create a supercell with the size 4X2X1.,mp-1239118_processed.cif
+mp-1239141.cif,Create a supercell with the size 4*2*1.,mp-1239141_processed.cif
+mp-1239223.cif,Create a supercell with the size 1 by 2 by 4.,mp-1239223_processed.cif
+mp-1245280.cif,Create a supercell with the size 2*2*2.,mp-1245280_processed.cif
+mp-1245339.cif,Create a supercell with the size 3*2*1.,mp-1245339_processed.cif
+mp-1245361.cif,Create a supercell with the size 1x1x2.,mp-1245361_processed.cif
+mp-1245365.cif,Create a supercell with the size 1*4*2.,mp-1245365_processed.cif
+mp-1245626.cif,Create a supercell with the size 2x4x1.,mp-1245626_processed.cif
+mp-1245657.cif,Create a supercell with the size 1×1×2.,mp-1245657_processed.cif
+mp-1245740.cif,Create a supercell with the size 1x2x1.,mp-1245740_processed.cif
+mp-1246144.cif,Create a supercell with the size 2×1×1.,mp-1246144_processed.cif
+mp-1246228.cif,Create a supercell with the size 2x1x4.,mp-1246228_processed.cif
+mp-1246371.cif,Create a supercell with the size 2X2X2.,mp-1246371_processed.cif
+mp-1246720.cif,Create a supercell with the size 1×2×1.,mp-1246720_processed.cif
+mp-1246726.cif,Create a supercell with the size 2X1X3.,mp-1246726_processed.cif
+mp-1246860.cif,Create a supercell with the size 2X2X1.,mp-1246860_processed.cif
+mp-1247094.cif,Create a supercell with the size 1X4X1.,mp-1247094_processed.cif
+mp-1247286.cif,Create a supercell with the size 1*4*1.,mp-1247286_processed.cif
+mp-1247309.cif,Create a supercell with the size 1x1x4.,mp-1247309_processed.cif
+mp-1247354.cif,Create a supercell with the size 1X1X3.,mp-1247354_processed.cif
+mp-1247634.cif,Create a supercell with the size 2×4×1.,mp-1247634_processed.cif
+mp-1247690.cif,Create a supercell with the size 1 by 1 by 3.,mp-1247690_processed.cif
+mp-1250148.cif,Create a supercell with the size 4x1x1.,mp-1250148_processed.cif
+mp-1250558.cif,Create a supercell with the size 1 by 2 by 4.,mp-1250558_processed.cif
+mp-1253019.cif,Create a supercell with the size 1*2*1.,mp-1253019_processed.cif
+mp-1262123.cif,Create a supercell with the size 4X1X2.,mp-1262123_processed.cif
+mp-12645.cif,Create a supercell with the size 2x1x4.,mp-12645_processed.cif
+mp-1273464.cif,Create a supercell with the size 4*1*1.,mp-1273464_processed.cif
+mp-1274050.cif,Create a supercell with the size 1 by 4 by 2.,mp-1274050_processed.cif
+mp-1275879.cif,Create a supercell with the size 2×2×2.,mp-1275879_processed.cif
+mp-1278738.cif,Create a supercell with the size 2 by 1 by 2.,mp-1278738_processed.cif
+mp-1290926.cif,Create a supercell with the size 1X2X1.,mp-1290926_processed.cif
+mp-1290947.cif,Create a supercell with the size 2*2*1.,mp-1290947_processed.cif
+mp-1293037.cif,Create a supercell with the size 1x4x2.,mp-1293037_processed.cif
+mp-1294897.cif,Create a supercell with the size 1 by 3 by 1.,mp-1294897_processed.cif
+mp-1297758.cif,Create a supercell with the size 2×4×1.,mp-1297758_processed.cif
+mp-1299593.cif,Create a supercell with the size 2*1*1.,mp-1299593_processed.cif
+mp-1301981.cif,Create a supercell with the size 2*4*1.,mp-1301981_processed.cif
+mp-1302395.cif,Create a supercell with the size 4X2X1.,mp-1302395_processed.cif
+mp-1307565.cif,Create a supercell with the size 3*2*1.,mp-1307565_processed.cif
+mp-1310460.cif,Create a supercell with the size 1 by 2 by 3.,mp-1310460_processed.cif
+mp-1311133.cif,Create a supercell with the size 1*3*1.,mp-1311133_processed.cif
+mp-1323.cif,Create a supercell with the size 2*2*2.,mp-1323_processed.cif
+mp-1329989.cif,Create a supercell with the size 4 by 2 by 1.,mp-1329989_processed.cif
+mp-1330925.cif,Create a supercell with the size 1×2×2.,mp-1330925_processed.cif
+mp-1337025.cif,Create a supercell with the size 2x4x1.,mp-1337025_processed.cif
+mp-1337931.cif,Create a supercell with the size 3X1X1.,mp-1337931_processed.cif
+mp-1344766.cif,Create a supercell with the size 1x3x2.,mp-1344766_processed.cif
+mp-1347018.cif,Create a supercell with the size 2X2X2.,mp-1347018_processed.cif
+mp-1348043.cif,Create a supercell with the size 2*1*4.,mp-1348043_processed.cif
+mp-1350284.cif,Create a supercell with the size 3x2x1.,mp-1350284_processed.cif
+mp-1354141.cif,Create a supercell with the size 1X4X1.,mp-1354141_processed.cif
+mp-13560.cif,Create a supercell with the size 1X1X3.,mp-13560_processed.cif
+mp-1368020.cif,Create a supercell with the size 3×2×1.,mp-1368020_processed.cif
+mp-1370295.cif,Create a supercell with the size 2×1×4.,mp-1370295_processed.cif
+mp-1373337.cif,Create a supercell with the size 1X3X2.,mp-1373337_processed.cif
+mp-1376405.cif,Create a supercell with the size 2*2*1.,mp-1376405_processed.cif
+mp-1377393.cif,Create a supercell with the size 2×1×4.,mp-1377393_processed.cif
+mp-1377991.cif,Create a supercell with the size 2x3x1.,mp-1377991_processed.cif
+mp-1385417.cif,Create a supercell with the size 2×1×1.,mp-1385417_processed.cif
+mp-1388114.cif,Create a supercell with the size 4X1X2.,mp-1388114_processed.cif
+mp-1388425.cif,Create a supercell with the size 4×1×1.,mp-1388425_processed.cif
+mp-1391777.cif,Create a supercell with the size 4*1*2.,mp-1391777_processed.cif
+mp-14005.cif,Create a supercell with the size 2 by 4 by 1.,mp-14005_processed.cif
+mp-1401385.cif,Create a supercell with the size 1 by 3 by 1.,mp-1401385_processed.cif
+mp-1405211.cif,Create a supercell with the size 1X4X2.,mp-1405211_processed.cif
+mp-1412002.cif,Create a supercell with the size 4X1X2.,mp-1412002_processed.cif
+mp-1419122.cif,Create a supercell with the size 1*2*4.,mp-1419122_processed.cif
+mp-1439.cif,Create a supercell with the size 1x1x2.,mp-1439_processed.cif
+mp-14555.cif,Create a supercell with the size 1X2X1.,mp-14555_processed.cif
+mp-14556.cif,Create a supercell with the size 2 by 1 by 1.,mp-14556_processed.cif
+mp-1516666.cif,Create a supercell with the size 2x1x1.,mp-1516666_processed.cif
+mp-1517169.cif,Create a supercell with the size 4*1*2.,mp-1517169_processed.cif
+mp-1517627.cif,Create a supercell with the size 3 by 1 by 2.,mp-1517627_processed.cif
+mp-1518007.cif,Create a supercell with the size 1X2X3.,mp-1518007_processed.cif
+mp-1518014.cif,Create a supercell with the size 1*2*2.,mp-1518014_processed.cif
+mp-1518246.cif,Create a supercell with the size 1 by 2 by 4.,mp-1518246_processed.cif
+mp-1518458.cif,Create a supercell with the size 1X2X3.,mp-1518458_processed.cif
+mp-1518757.cif,Create a supercell with the size 1X1X3.,mp-1518757_processed.cif
+mp-1519002.cif,Create a supercell with the size 2 by 1 by 4.,mp-1519002_processed.cif
+mp-1519698.cif,Create a supercell with the size 1×2×1.,mp-1519698_processed.cif
+mp-1519736.cif,Create a supercell with the size 4×1×2.,mp-1519736_processed.cif
+mp-1519860.cif,Create a supercell with the size 2 by 1 by 3.,mp-1519860_processed.cif
+mp-1519983.cif,Create a supercell with the size 3x2x1.,mp-1519983_processed.cif
+mp-1519998.cif,Create a supercell with the size 2*1*3.,mp-1519998_processed.cif
+mp-1520500.cif,Create a supercell with the size 4 by 2 by 1.,mp-1520500_processed.cif
+mp-1521011.cif,Create a supercell with the size 2 by 1 by 4.,mp-1521011_processed.cif
+mp-1521056.cif,Create a supercell with the size 2X1X4.,mp-1521056_processed.cif
+mp-1521082.cif,Create a supercell with the size 2*2*1.,mp-1521082_processed.cif
+mp-1521221.cif,Create a supercell with the size 3*2*1.,mp-1521221_processed.cif
+mp-1521309.cif,Create a supercell with the size 1×4×2.,mp-1521309_processed.cif
+mp-1521702.cif,Create a supercell with the size 4X1X1.,mp-1521702_processed.cif
+mp-1522205.cif,Create a supercell with the size 1x1x2.,mp-1522205_processed.cif
+mp-1522629.cif,Create a supercell with the size 1*1*4.,mp-1522629_processed.cif
+mp-1522792.cif,Create a supercell with the size 1X3X1.,mp-1522792_processed.cif
+mp-1523004.cif,Create a supercell with the size 2x1x4.,mp-1523004_processed.cif
+mp-1523044.cif,Create a supercell with the size 2X1X4.,mp-1523044_processed.cif
+mp-1523067.cif,Create a supercell with the size 1×1×3.,mp-1523067_processed.cif
+mp-1523239.cif,Create a supercell with the size 2*2*2.,mp-1523239_processed.cif
+mp-15896.cif,Create a supercell with the size 2*3*1.,mp-15896_processed.cif
+mp-1643677.cif,Create a supercell with the size 2 by 1 by 1.,mp-1643677_processed.cif
+mp-1645697.cif,Create a supercell with the size 1X2X1.,mp-1645697_processed.cif
+mp-1661789.cif,Create a supercell with the size 4×1×1.,mp-1661789_processed.cif
+mp-1661936.cif,Create a supercell with the size 1×3×2.,mp-1661936_processed.cif
+mp-1662795.cif,Create a supercell with the size 3 by 1 by 2.,mp-1662795_processed.cif
+mp-1666930.cif,Create a supercell with the size 1*2*1.,mp-1666930_processed.cif
+mp-17024.cif,Create a supercell with the size 1 by 2 by 4.,mp-17024_processed.cif
+mp-17282.cif,Create a supercell with the size 3X2X1.,mp-17282_processed.cif
+mp-17344.cif,Create a supercell with the size 1*2*3.,mp-17344_processed.cif
+mp-17676.cif,Create a supercell with the size 1 by 1 by 4.,mp-17676_processed.cif
+mp-17770.cif,Create a supercell with the size 1x3x2.,mp-17770_processed.cif
+mp-17838.cif,Create a supercell with the size 4*1*2.,mp-17838_processed.cif
+mp-17861.cif,Create a supercell with the size 2 by 2 by 2.,mp-17861_processed.cif
+mp-18469.cif,Create a supercell with the size 1 by 3 by 2.,mp-18469_processed.cif
+mp-18525.cif,Create a supercell with the size 2*4*1.,mp-18525_processed.cif
+mp-18612.cif,Create a supercell with the size 2X1X3.,mp-18612_processed.cif
+mp-18701.cif,Create a supercell with the size 2*1*3.,mp-18701_processed.cif
+mp-18713.cif,Create a supercell with the size 1*1*2.,mp-18713_processed.cif
+mp-18817.cif,Create a supercell with the size 1 by 1 by 2.,mp-18817_processed.cif
+mp-18833.cif,Create a supercell with the size 1×2×1.,mp-18833_processed.cif
+mp-18848.cif,Create a supercell with the size 1 by 2 by 2.,mp-18848_processed.cif
+mp-18996.cif,Create a supercell with the size 1X1X3.,mp-18996_processed.cif
+mp-19070.cif,Create a supercell with the size 2*1*4.,mp-19070_processed.cif
+mp-19087.cif,Create a supercell with the size 4X1X2.,mp-19087_processed.cif
+mp-19123.cif,Create a supercell with the size 2x1x3.,mp-19123_processed.cif
+mp-19162.cif,Create a supercell with the size 1x1x2.,mp-19162_processed.cif
+mp-19426.cif,Create a supercell with the size 4 by 1 by 2.,mp-19426_processed.cif
+mp-19785.cif,Create a supercell with the size 4*1*2.,mp-19785_processed.cif
+mp-1987603.cif,Create a supercell with the size 2x3x1.,mp-1987603_processed.cif
+mp-19903.cif,Create a supercell with the size 1X1X3.,mp-19903_processed.cif
+mp-19931.cif,Create a supercell with the size 4 by 1 by 1.,mp-19931_processed.cif
+mp-20276.cif,Create a supercell with the size 1 by 2 by 2.,mp-20276_processed.cif
+mp-2030372.cif,Create a supercell with the size 2×1×2.,mp-2030372_processed.cif
+mp-20460.cif,Create a supercell with the size 1x1x4.,mp-20460_processed.cif
+mp-20499.cif,Create a supercell with the size 4*1*1.,mp-20499_processed.cif
+mp-2053129.cif,Create a supercell with the size 1 by 2 by 2.,mp-2053129_processed.cif
+mp-20633.cif,Create a supercell with the size 1X2X4.,mp-20633_processed.cif
+mp-21208.cif,Create a supercell with the size 4 by 2 by 1.,mp-21208_processed.cif
+mp-21493.cif,Create a supercell with the size 4×1×2.,mp-21493_processed.cif
+mp-21658.cif,Create a supercell with the size 1X4X1.,mp-21658_processed.cif
+mp-21799.cif,Create a supercell with the size 1 by 1 by 4.,mp-21799_processed.cif
+mp-22042.cif,Create a supercell with the size 1*3*1.,mp-22042_processed.cif
+mp-2206289.cif,Create a supercell with the size 2×2×1.,mp-2206289_processed.cif
+mp-22076.cif,Create a supercell with the size 1 by 2 by 3.,mp-22076_processed.cif
+mp-2215910.cif,Create a supercell with the size 1X2X4.,mp-2215910_processed.cif
+mp-2217621.cif,Create a supercell with the size 3×1×1.,mp-2217621_processed.cif
+mp-2217707.cif,Create a supercell with the size 4X1X1.,mp-2217707_processed.cif
+mp-2217878.cif,Create a supercell with the size 2*4*1.,mp-2217878_processed.cif
+mp-2218067.cif,Create a supercell with the size 3 by 1 by 2.,mp-2218067_processed.cif
+mp-2218172.cif,Create a supercell with the size 2x4x1.,mp-2218172_processed.cif
+mp-2218202.cif,Create a supercell with the size 1*2*4.,mp-2218202_processed.cif
+mp-2218885.cif,Create a supercell with the size 2 by 1 by 4.,mp-2218885_processed.cif
+mp-2218969.cif,Create a supercell with the size 2x2x1.,mp-2218969_processed.cif
+mp-2219052.cif,Create a supercell with the size 2x1x4.,mp-2219052_processed.cif
+mp-2219166.cif,Create a supercell with the size 3X1X1.,mp-2219166_processed.cif
+mp-2219262.cif,Create a supercell with the size 1×2×3.,mp-2219262_processed.cif
+mp-2219466.cif,Create a supercell with the size 1*3*1.,mp-2219466_processed.cif
+mp-2222780.cif,Create a supercell with the size 1*2*3.,mp-2222780_processed.cif
+mp-2223884.cif,Create a supercell with the size 1x3x2.,mp-2223884_processed.cif
+mp-2224443.cif,Create a supercell with the size 1*1*2.,mp-2224443_processed.cif
+mp-2224447.cif,Create a supercell with the size 1*3*2.,mp-2224447_processed.cif
+mp-22248.cif,Create a supercell with the size 1 by 1 by 2.,mp-22248_processed.cif
+mp-2224811.cif,Create a supercell with the size 2X1X4.,mp-2224811_processed.cif
+mp-2224860.cif,Create a supercell with the size 3X1X1.,mp-2224860_processed.cif
+mp-2225000.cif,Create a supercell with the size 2x1x3.,mp-2225000_processed.cif
+mp-2228328.cif,Create a supercell with the size 1*2*4.,mp-2228328_processed.cif
+mp-2228374.cif,Create a supercell with the size 2*2*2.,mp-2228374_processed.cif
+mp-2228437.cif,Create a supercell with the size 2×1×1.,mp-2228437_processed.cif
+mp-2228500.cif,Create a supercell with the size 2×1×4.,mp-2228500_processed.cif
+mp-2228706.cif,Create a supercell with the size 1x4x1.,mp-2228706_processed.cif
+mp-2228915.cif,Create a supercell with the size 2X2X1.,mp-2228915_processed.cif
+mp-2228929.cif,Create a supercell with the size 4x1x1.,mp-2228929_processed.cif
+mp-2229660.cif,Create a supercell with the size 1 by 3 by 1.,mp-2229660_processed.cif
+mp-2230032.cif,Create a supercell with the size 1X3X2.,mp-2230032_processed.cif
+mp-2230094.cif,Create a supercell with the size 3×2×1.,mp-2230094_processed.cif
+mp-2230252.cif,Create a supercell with the size 1*2*2.,mp-2230252_processed.cif
+mp-2230521.cif,Create a supercell with the size 1*4*1.,mp-2230521_processed.cif
+mp-2230812.cif,Create a supercell with the size 3 by 1 by 2.,mp-2230812_processed.cif
+mp-2231004.cif,Create a supercell with the size 3x1x1.,mp-2231004_processed.cif
+mp-2231286.cif,Create a supercell with the size 2X1X1.,mp-2231286_processed.cif
+mp-2232282.cif,Create a supercell with the size 3x2x1.,mp-2232282_processed.cif
+mp-2239868.cif,Create a supercell with the size 4×2×1.,mp-2239868_processed.cif
+mp-2240173.cif,Create a supercell with the size 2x1x3.,mp-2240173_processed.cif
+mp-2241358.cif,Create a supercell with the size 1*4*2.,mp-2241358_processed.cif
+mp-2254.cif,Create a supercell with the size 2*1*4.,mp-2254_processed.cif
+mp-23418.cif,Create a supercell with the size 2*4*1.,mp-23418_processed.cif
+mp-23498.cif,Create a supercell with the size 4×1×2.,mp-23498_processed.cif
+mp-23586.cif,Create a supercell with the size 1 by 4 by 1.,mp-23586_processed.cif
+mp-23979.cif,Create a supercell with the size 1X3X1.,mp-23979_processed.cif
+mp-24037.cif,Create a supercell with the size 2×1×2.,mp-24037_processed.cif
+mp-24044.cif,Create a supercell with the size 1*1*3.,mp-24044_processed.cif
+mp-24515.cif,Create a supercell with the size 1x2x2.,mp-24515_processed.cif
+mp-2480.cif,Create a supercell with the size 3x1x2.,mp-2480_processed.cif
+mp-25405.cif,Create a supercell with the size 2 by 1 by 2.,mp-25405_processed.cif
+mp-25457.cif,Create a supercell with the size 3x1x2.,mp-25457_processed.cif
+mp-26179.cif,Create a supercell with the size 1X1X3.,mp-26179_processed.cif
+mp-26270.cif,Create a supercell with the size 1x2x3.,mp-26270_processed.cif
+mp-2646946.cif,Create a supercell with the size 2 by 4 by 1.,mp-2646946_processed.cif
+mp-26612.cif,Create a supercell with the size 2×1×2.,mp-26612_processed.cif
+mp-2715259.cif,Create a supercell with the size 2 by 1 by 1.,mp-2715259_processed.cif
+mp-2715379.cif,Create a supercell with the size 3x2x1.,mp-2715379_processed.cif
+mp-27286.cif,Create a supercell with the size 3X2X1.,mp-27286_processed.cif
+mp-27341.cif,Create a supercell with the size 1X2X3.,mp-27341_processed.cif
+mp-27383.cif,Create a supercell with the size 4X2X1.,mp-27383_processed.cif
+mp-2751271.cif,Create a supercell with the size 4 by 1 by 2.,mp-2751271_processed.cif
+mp-28393.cif,Create a supercell with the size 1×1×2.,mp-28393_processed.cif
+mp-28394.cif,Create a supercell with the size 1 by 3 by 1.,mp-28394_processed.cif
+mp-28430.cif,Create a supercell with the size 2 by 1 by 4.,mp-28430_processed.cif
+mp-28450.cif,Create a supercell with the size 1x3x2.,mp-28450_processed.cif
+mp-28544.cif,Create a supercell with the size 1X3X1.,mp-28544_processed.cif
+mp-28580.cif,Create a supercell with the size 2 by 2 by 1.,mp-28580_processed.cif
+mp-28824.cif,Create a supercell with the size 1X3X1.,mp-28824_processed.cif
+mp-2901870.cif,Create a supercell with the size 3×1×1.,mp-2901870_processed.cif
+mp-2911.cif,Create a supercell with the size 2*4*1.,mp-2911_processed.cif
+mp-29144.cif,Create a supercell with the size 4*1*2.,mp-29144_processed.cif
+mp-29412.cif,Create a supercell with the size 1*4*2.,mp-29412_processed.cif
+mp-29415.cif,Create a supercell with the size 3X1X2.,mp-29415_processed.cif
+mp-29755.cif,Create a supercell with the size 2*4*1.,mp-29755_processed.cif
+mp-29770.cif,Create a supercell with the size 2x2x2.,mp-29770_processed.cif
+mp-30305.cif,Create a supercell with the size 1x1x2.,mp-30305_processed.cif
+mp-30320.cif,Create a supercell with the size 2 by 2 by 1.,mp-30320_processed.cif
+mp-30859.cif,Create a supercell with the size 2×1×3.,mp-30859_processed.cif
+mp-30908.cif,Create a supercell with the size 1X2X3.,mp-30908_processed.cif
+mp-31251.cif,Create a supercell with the size 2×1×1.,mp-31251_processed.cif
+mp-31314.cif,Create a supercell with the size 3 by 1 by 1.,mp-31314_processed.cif
+mp-3138.cif,Create a supercell with the size 2X4X1.,mp-3138_processed.cif
+mp-31394.cif,Create a supercell with the size 1X4X2.,mp-31394_processed.cif
+mp-3205.cif,Create a supercell with the size 1X1X4.,mp-3205_processed.cif
+mp-3216726.cif,Create a supercell with the size 1*2*4.,mp-3216726_processed.cif
+mp-32528.cif,Create a supercell with the size 1*3*1.,mp-32528_processed.cif
+mp-3316.cif,Create a supercell with the size 1 by 2 by 4.,mp-3316_processed.cif
+mp-33325.cif,Create a supercell with the size 1×1×3.,mp-33325_processed.cif
+mp-34185.cif,Create a supercell with the size 1*2*2.,mp-34185_processed.cif
+mp-3538.cif,Create a supercell with the size 2X2X2.,mp-3538_processed.cif
+mp-36310.cif,Create a supercell with the size 2x1x2.,mp-36310_processed.cif
+mp-36484.cif,Create a supercell with the size 2×1×2.,mp-36484_processed.cif
+mp-4419.cif,Create a supercell with the size 2X3X1.,mp-4419_processed.cif
+mp-4421.cif,Create a supercell with the size 1×3×2.,mp-4421_processed.cif
+mp-504149.cif,Create a supercell with the size 1X2X4.,mp-504149_processed.cif
+mp-504509.cif,Create a supercell with the size 2×4×1.,mp-504509_processed.cif
+mp-505074.cif,Create a supercell with the size 1×1×4.,mp-505074_processed.cif
+mp-505217.cif,Create a supercell with the size 1*3*2.,mp-505217_processed.cif
+mp-505540.cif,Create a supercell with the size 1X1X2.,mp-505540_processed.cif
+mp-505573.cif,Create a supercell with the size 1*2*1.,mp-505573_processed.cif
+mp-505766.cif,Create a supercell with the size 1×1×2.,mp-505766_processed.cif
+mp-510544.cif,Create a supercell with the size 2*1*1.,mp-510544_processed.cif
+mp-510717.cif,Create a supercell with the size 4*2*1.,mp-510717_processed.cif
+mp-5151.cif,Create a supercell with the size 2X1X4.,mp-5151_processed.cif
+mp-530379.cif,Create a supercell with the size 2*1*4.,mp-530379_processed.cif
+mp-530850.cif,Create a supercell with the size 3x1x1.,mp-530850_processed.cif
+mp-540740.cif,Create a supercell with the size 2×1×3.,mp-540740_processed.cif
+mp-540798.cif,Create a supercell with the size 1x2x2.,mp-540798_processed.cif
+mp-540938.cif,Create a supercell with the size 4X2X1.,mp-540938_processed.cif
+mp-540977.cif,Create a supercell with the size 2X2X1.,mp-540977_processed.cif
+mp-541595.cif,Create a supercell with the size 1x2x1.,mp-541595_processed.cif
+mp-541619.cif,Create a supercell with the size 1X4X2.,mp-541619_processed.cif
+mp-541894.cif,Create a supercell with the size 3X1X1.,mp-541894_processed.cif
+mp-541991.cif,Create a supercell with the size 1×2×3.,mp-541991_processed.cif
+mp-542024.cif,Create a supercell with the size 1×4×1.,mp-542024_processed.cif
+mp-542151.cif,Create a supercell with the size 4×1×2.,mp-542151_processed.cif
+mp-542342.cif,Create a supercell with the size 2 by 1 by 2.,mp-542342_processed.cif
+mp-542435.cif,Create a supercell with the size 3x1x2.,mp-542435_processed.cif
+mp-542448.cif,Create a supercell with the size 1×1×4.,mp-542448_processed.cif
+mp-542812.cif,Create a supercell with the size 2×1×4.,mp-542812_processed.cif
+mp-543036.cif,Create a supercell with the size 3x1x1.,mp-543036_processed.cif
+mp-543042.cif,Create a supercell with the size 1×1×4.,mp-543042_processed.cif
+mp-554174.cif,Create a supercell with the size 1*4*2.,mp-554174_processed.cif
+mp-554264.cif,Create a supercell with the size 1*1*4.,mp-554264_processed.cif
+mp-554383.cif,Create a supercell with the size 2x3x1.,mp-554383_processed.cif
+mp-554799.cif,Create a supercell with the size 2*3*1.,mp-554799_processed.cif
+mp-554818.cif,Create a supercell with the size 1x4x1.,mp-554818_processed.cif
+mp-555198.cif,Create a supercell with the size 2X1X2.,mp-555198_processed.cif
+mp-555534.cif,Create a supercell with the size 1x4x2.,mp-555534_processed.cif
+mp-555790.cif,Create a supercell with the size 1×3×1.,mp-555790_processed.cif
+mp-556185.cif,Create a supercell with the size 1 by 3 by 2.,mp-556185_processed.cif
+mp-556236.cif,Create a supercell with the size 1*2*4.,mp-556236_processed.cif
+mp-556319.cif,Create a supercell with the size 2×1×3.,mp-556319_processed.cif
+mp-556404.cif,Create a supercell with the size 2×2×2.,mp-556404_processed.cif
+mp-557059.cif,Create a supercell with the size 1 by 1 by 4.,mp-557059_processed.cif
+mp-557180.cif,Create a supercell with the size 2*2*1.,mp-557180_processed.cif
+mp-557215.cif,Create a supercell with the size 2X1X1.,mp-557215_processed.cif
+mp-557266.cif,Create a supercell with the size 4X2X1.,mp-557266_processed.cif
+mp-557389.cif,Create a supercell with the size 2x1x4.,mp-557389_processed.cif
+mp-557574.cif,Create a supercell with the size 2×4×1.,mp-557574_processed.cif
+mp-557589.cif,Create a supercell with the size 1*1*3.,mp-557589_processed.cif
+mp-557752.cif,Create a supercell with the size 2X1X1.,mp-557752_processed.cif
+mp-557824.cif,Create a supercell with the size 1×2×1.,mp-557824_processed.cif
+mp-557864.cif,Create a supercell with the size 1×2×4.,mp-557864_processed.cif
+mp-557961.cif,Create a supercell with the size 2×1×3.,mp-557961_processed.cif
+mp-558023.cif,Create a supercell with the size 3 by 1 by 2.,mp-558023_processed.cif
+mp-558368.cif,Create a supercell with the size 1x3x1.,mp-558368_processed.cif
+mp-558382.cif,Create a supercell with the size 1*3*2.,mp-558382_processed.cif
+mp-559140.cif,Create a supercell with the size 2*1*1.,mp-559140_processed.cif
+mp-559223.cif,Create a supercell with the size 1 by 3 by 2.,mp-559223_processed.cif
+mp-559929.cif,Create a supercell with the size 4 by 2 by 1.,mp-559929_processed.cif
+mp-560091.cif,Create a supercell with the size 1 by 1 by 3.,mp-560091_processed.cif
+mp-560380.cif,Create a supercell with the size 1 by 3 by 2.,mp-560380_processed.cif
+mp-560535.cif,Create a supercell with the size 4*2*1.,mp-560535_processed.cif
+mp-560605.cif,Create a supercell with the size 1X4X1.,mp-560605_processed.cif
+mp-560751.cif,Create a supercell with the size 1x1x2.,mp-560751_processed.cif
+mp-560754.cif,Create a supercell with the size 1*4*1.,mp-560754_processed.cif
+mp-561641.cif,Create a supercell with the size 1x2x2.,mp-561641_processed.cif
+mp-567492.cif,Create a supercell with the size 1*3*1.,mp-567492_processed.cif
+mp-567540.cif,Create a supercell with the size 1*3*2.,mp-567540_processed.cif
+mp-568306.cif,Create a supercell with the size 2*1*1.,mp-568306_processed.cif
+mp-568716.cif,Create a supercell with the size 3 by 2 by 1.,mp-568716_processed.cif
+mp-568757.cif,Create a supercell with the size 4*1*1.,mp-568757_processed.cif
+mp-570044.cif,Create a supercell with the size 3*1*1.,mp-570044_processed.cif
+mp-571428.cif,Create a supercell with the size 2 by 1 by 2.,mp-571428_processed.cif
+mp-571566.cif,Create a supercell with the size 2 by 4 by 1.,mp-571566_processed.cif
+mp-5730.cif,Create a supercell with the size 1 by 2 by 4.,mp-5730_processed.cif
+mp-574339.cif,Create a supercell with the size 4X2X1.,mp-574339_processed.cif
+mp-581471.cif,Create a supercell with the size 3*1*1.,mp-581471_processed.cif
+mp-582081.cif,Create a supercell with the size 2x1x1.,mp-582081_processed.cif
+mp-582587.cif,Create a supercell with the size 2×1×4.,mp-582587_processed.cif
+mp-603694.cif,Create a supercell with the size 3×1×1.,mp-603694_processed.cif
+mp-607525.cif,Create a supercell with the size 2×1×4.,mp-607525_processed.cif
+mp-608206.cif,Create a supercell with the size 2 by 1 by 4.,mp-608206_processed.cif
+mp-6112.cif,Create a supercell with the size 1 by 2 by 4.,mp-6112_processed.cif
+mp-613327.cif,Create a supercell with the size 1*2*2.,mp-613327_processed.cif
+mp-616210.cif,Create a supercell with the size 1X4X2.,mp-616210_processed.cif
+mp-616407.cif,Create a supercell with the size 2x1x3.,mp-616407_processed.cif
+mp-621964.cif,Create a supercell with the size 2 by 3 by 1.,mp-621964_processed.cif
+mp-6257.cif,Create a supercell with the size 1 by 1 by 2.,mp-6257_processed.cif
+mp-625744.cif,Create a supercell with the size 1×2×3.,mp-625744_processed.cif
+mp-626565.cif,Create a supercell with the size 1x2x4.,mp-626565_processed.cif
+mp-630976.cif,Create a supercell with the size 4x1x1.,mp-630976_processed.cif
+mp-637599.cif,Create a supercell with the size 3x2x1.,mp-637599_processed.cif
+mp-639826.cif,Create a supercell with the size 4x1x1.,mp-639826_processed.cif
+mp-642315.cif,Create a supercell with the size 3X1X2.,mp-642315_processed.cif
+mp-644221.cif,Create a supercell with the size 1X3X2.,mp-644221_processed.cif
+mp-644529.cif,Create a supercell with the size 1×2×1.,mp-644529_processed.cif
+mp-644741.cif,Create a supercell with the size 2x2x1.,mp-644741_processed.cif
+mp-654225.cif,Create a supercell with the size 1 by 1 by 4.,mp-654225_processed.cif
+mp-6653.cif,Create a supercell with the size 2 by 2 by 2.,mp-6653_processed.cif
+mp-667200.cif,Create a supercell with the size 2x1x2.,mp-667200_processed.cif
+mp-669359.cif,Create a supercell with the size 1X2X2.,mp-669359_processed.cif
+mp-669377.cif,Create a supercell with the size 1×4×2.,mp-669377_processed.cif
+mp-672228.cif,Create a supercell with the size 1*2*2.,mp-672228_processed.cif
+mp-672972.cif,Create a supercell with the size 1*1*3.,mp-672972_processed.cif
+mp-6745.cif,Create a supercell with the size 1*2*4.,mp-6745_processed.cif
+mp-675118.cif,Create a supercell with the size 2 by 1 by 2.,mp-675118_processed.cif
+mp-675519.cif,Create a supercell with the size 4×1×2.,mp-675519_processed.cif
+mp-675778.cif,Create a supercell with the size 3X1X1.,mp-675778_processed.cif
+mp-676.cif,Create a supercell with the size 1*1*3.,mp-676_processed.cif
+mp-676275.cif,Create a supercell with the size 1X2X1.,mp-676275_processed.cif
+mp-676816.cif,Create a supercell with the size 4X2X1.,mp-676816_processed.cif
+mp-676881.cif,Create a supercell with the size 2×1×2.,mp-676881_processed.cif
+mp-677725.cif,Create a supercell with the size 1 by 3 by 1.,mp-677725_processed.cif
+mp-6800.cif,Create a supercell with the size 2×1×1.,mp-6800_processed.cif
+mp-680260.cif,Create a supercell with the size 2x1x2.,mp-680260_processed.cif
+mp-684589.cif,Create a supercell with the size 4×1×2.,mp-684589_processed.cif
+mp-684710.cif,Create a supercell with the size 1×2×1.,mp-684710_processed.cif
+mp-685224.cif,Create a supercell with the size 2x1x1.,mp-685224_processed.cif
+mp-685418.cif,Create a supercell with the size 1x4x2.,mp-685418_processed.cif
+mp-690493.cif,Create a supercell with the size 4x2x1.,mp-690493_processed.cif
+mp-690517.cif,Create a supercell with the size 1x1x2.,mp-690517_processed.cif
+mp-690674.cif,Create a supercell with the size 2×1×3.,mp-690674_processed.cif
+mp-694979.cif,Create a supercell with the size 2x1x2.,mp-694979_processed.cif
+mp-695946.cif,Create a supercell with the size 2×1×2.,mp-695946_processed.cif
+mp-696298.cif,Create a supercell with the size 1*1*3.,mp-696298_processed.cif
+mp-696990.cif,Create a supercell with the size 2 by 4 by 1.,mp-696990_processed.cif
+mp-697075.cif,Create a supercell with the size 1X2X1.,mp-697075_processed.cif
+mp-697458.cif,Create a supercell with the size 2x1x4.,mp-697458_processed.cif
+mp-697721.cif,Create a supercell with the size 3×2×1.,mp-697721_processed.cif
+mp-698312.cif,Create a supercell with the size 1 by 2 by 2.,mp-698312_processed.cif
+mp-7022.cif,Create a supercell with the size 1 by 1 by 3.,mp-7022_processed.cif
+mp-703291.cif,Create a supercell with the size 2x2x1.,mp-703291_processed.cif
+mp-704116.cif,Create a supercell with the size 2×4×1.,mp-704116_processed.cif
+mp-704848.cif,Create a supercell with the size 1 by 3 by 1.,mp-704848_processed.cif
+mp-705312.cif,Create a supercell with the size 1X2X1.,mp-705312_processed.cif
+mp-706518.cif,Create a supercell with the size 1x1x3.,mp-706518_processed.cif
+mp-706524.cif,Create a supercell with the size 4X1X1.,mp-706524_processed.cif
+mp-707406.cif,Create a supercell with the size 3×1×2.,mp-707406_processed.cif
+mp-707744.cif,Create a supercell with the size 1X4X2.,mp-707744_processed.cif
+mp-707840.cif,Create a supercell with the size 1×1×2.,mp-707840_processed.cif
+mp-715457.cif,Create a supercell with the size 1x1x3.,mp-715457_processed.cif
+mp-715553.cif,Create a supercell with the size 1x3x1.,mp-715553_processed.cif
+mp-720104.cif,Create a supercell with the size 1X2X4.,mp-720104_processed.cif
+mp-720572.cif,Create a supercell with the size 2x1x1.,mp-720572_processed.cif
+mp-722790.cif,Create a supercell with the size 2×1×4.,mp-722790_processed.cif
+mp-722980.cif,Create a supercell with the size 2x1x4.,mp-722980_processed.cif
+mp-726672.cif,Create a supercell with the size 1x2x2.,mp-726672_processed.cif
+mp-7281.cif,Create a supercell with the size 1X1X2.,mp-7281_processed.cif
+mp-728374.cif,Create a supercell with the size 1x4x2.,mp-728374_processed.cif
+mp-731813.cif,Create a supercell with the size 1X1X2.,mp-731813_processed.cif
+mp-732021.cif,Create a supercell with the size 1x2x1.,mp-732021_processed.cif
+mp-734013.cif,Create a supercell with the size 2*4*1.,mp-734013_processed.cif
+mp-738609.cif,Create a supercell with the size 3×2×1.,mp-738609_processed.cif
+mp-752590.cif,Create a supercell with the size 2 by 2 by 1.,mp-752590_processed.cif
+mp-752623.cif,Create a supercell with the size 2*1*4.,mp-752623_processed.cif
+mp-752859.cif,Create a supercell with the size 1×1×4.,mp-752859_processed.cif
+mp-752896.cif,Create a supercell with the size 2*2*1.,mp-752896_processed.cif
+mp-752915.cif,Create a supercell with the size 2x3x1.,mp-752915_processed.cif
+mp-752916.cif,Create a supercell with the size 4X1X2.,mp-752916_processed.cif
+mp-752972.cif,Create a supercell with the size 2x1x4.,mp-752972_processed.cif
+mp-753000.cif,Create a supercell with the size 4*2*1.,mp-753000_processed.cif
+mp-753018.cif,Create a supercell with the size 3X1X1.,mp-753018_processed.cif
+mp-753047.cif,Create a supercell with the size 1*2*3.,mp-753047_processed.cif
+mp-753220.cif,Create a supercell with the size 1x2x1.,mp-753220_processed.cif
+mp-753282.cif,Create a supercell with the size 1X4X1.,mp-753282_processed.cif
+mp-753309.cif,Create a supercell with the size 2x1x2.,mp-753309_processed.cif
+mp-753322.cif,Create a supercell with the size 1 by 2 by 2.,mp-753322_processed.cif
+mp-753612.cif,Create a supercell with the size 1*2*2.,mp-753612_processed.cif
+mp-753724.cif,Create a supercell with the size 1 by 3 by 1.,mp-753724_processed.cif
+mp-753992.cif,Create a supercell with the size 2×3×1.,mp-753992_processed.cif
+mp-754070.cif,Create a supercell with the size 4X1X2.,mp-754070_processed.cif
+mp-754274.cif,Create a supercell with the size 4*1*2.,mp-754274_processed.cif
+mp-754345.cif,Create a supercell with the size 1*4*1.,mp-754345_processed.cif
+mp-754644.cif,Create a supercell with the size 1×3×2.,mp-754644_processed.cif
+mp-754745.cif,Create a supercell with the size 2*2*2.,mp-754745_processed.cif
+mp-754794.cif,Create a supercell with the size 1×3×2.,mp-754794_processed.cif
+mp-754886.cif,Create a supercell with the size 2x1x3.,mp-754886_processed.cif
+mp-755114.cif,Create a supercell with the size 4 by 1 by 2.,mp-755114_processed.cif
+mp-755229.cif,Create a supercell with the size 2x4x1.,mp-755229_processed.cif
+mp-755317.cif,Create a supercell with the size 1×2×3.,mp-755317_processed.cif
+mp-755498.cif,Create a supercell with the size 1X2X1.,mp-755498_processed.cif
+mp-755582.cif,Create a supercell with the size 4*1*2.,mp-755582_processed.cif
+mp-755926.cif,Create a supercell with the size 1*1*3.,mp-755926_processed.cif
+mp-755997.cif,Create a supercell with the size 4X2X1.,mp-755997_processed.cif
+mp-756062.cif,Create a supercell with the size 1×3×1.,mp-756062_processed.cif
+mp-756382.cif,Create a supercell with the size 1 by 1 by 3.,mp-756382_processed.cif
+mp-756670.cif,Create a supercell with the size 1x4x2.,mp-756670_processed.cif
+mp-756859.cif,Create a supercell with the size 1*4*2.,mp-756859_processed.cif
+mp-756990.cif,Create a supercell with the size 4×1×1.,mp-756990_processed.cif
+mp-757189.cif,Create a supercell with the size 2×2×1.,mp-757189_processed.cif
+mp-757311.cif,Create a supercell with the size 4X2X1.,mp-757311_processed.cif
+mp-757314.cif,Create a supercell with the size 1X2X3.,mp-757314_processed.cif
+mp-757440.cif,Create a supercell with the size 2 by 2 by 1.,mp-757440_processed.cif
+mp-757579.cif,Create a supercell with the size 3x1x2.,mp-757579_processed.cif
+mp-757665.cif,Create a supercell with the size 1 by 3 by 1.,mp-757665_processed.cif
+mp-757787.cif,Create a supercell with the size 3x1x1.,mp-757787_processed.cif
+mp-758534.cif,Create a supercell with the size 2×2×2.,mp-758534_processed.cif
+mp-758565.cif,Create a supercell with the size 2X1X3.,mp-758565_processed.cif
+mp-758722.cif,Create a supercell with the size 1×2×4.,mp-758722_processed.cif
+mp-758858.cif,Create a supercell with the size 4 by 2 by 1.,mp-758858_processed.cif
+mp-759080.cif,Create a supercell with the size 1X1X3.,mp-759080_processed.cif
+mp-759482.cif,Create a supercell with the size 2*2*1.,mp-759482_processed.cif
+mp-759507.cif,Create a supercell with the size 3*2*1.,mp-759507_processed.cif
+mp-759524.cif,Create a supercell with the size 2×4×1.,mp-759524_processed.cif
+mp-759607.cif,Create a supercell with the size 2×1×4.,mp-759607_processed.cif
+mp-759656.cif,Create a supercell with the size 3x1x2.,mp-759656_processed.cif
+mp-759790.cif,Create a supercell with the size 3×1×2.,mp-759790_processed.cif
+mp-759809.cif,Create a supercell with the size 1×3×2.,mp-759809_processed.cif
+mp-760193.cif,Create a supercell with the size 1X3X2.,mp-760193_processed.cif
+mp-760300.cif,Create a supercell with the size 3*1*1.,mp-760300_processed.cif
+mp-761082.cif,Create a supercell with the size 2*1*1.,mp-761082_processed.cif
+mp-761112.cif,Create a supercell with the size 1X4X1.,mp-761112_processed.cif
+mp-7614.cif,Create a supercell with the size 1 by 4 by 1.,mp-7614_processed.cif
+mp-762304.cif,Create a supercell with the size 2X2X2.,mp-762304_processed.cif
+mp-7625.cif,Create a supercell with the size 3 by 1 by 2.,mp-7625_processed.cif
+mp-762521.cif,Create a supercell with the size 1x2x3.,mp-762521_processed.cif
+mp-763259.cif,Create a supercell with the size 3×1×2.,mp-763259_processed.cif
+mp-763484.cif,Create a supercell with the size 1*1*3.,mp-763484_processed.cif
+mp-763920.cif,Create a supercell with the size 3 by 1 by 1.,mp-763920_processed.cif
+mp-765709.cif,Create a supercell with the size 2×3×1.,mp-765709_processed.cif
+mp-766040.cif,Create a supercell with the size 2 by 1 by 3.,mp-766040_processed.cif
+mp-766051.cif,Create a supercell with the size 2×2×1.,mp-766051_processed.cif
+mp-766137.cif,Create a supercell with the size 1×2×1.,mp-766137_processed.cif
+mp-766408.cif,Create a supercell with the size 1×2×4.,mp-766408_processed.cif
+mp-766447.cif,Create a supercell with the size 4x2x1.,mp-766447_processed.cif
+mp-766539.cif,Create a supercell with the size 1*2*3.,mp-766539_processed.cif
+mp-768276.cif,Create a supercell with the size 1×1×3.,mp-768276_processed.cif
+mp-768373.cif,Create a supercell with the size 2x1x2.,mp-768373_processed.cif
+mp-768854.cif,Create a supercell with the size 1X1X2.,mp-768854_processed.cif
+mp-768859.cif,Create a supercell with the size 1*3*2.,mp-768859_processed.cif
+mp-769049.cif,Create a supercell with the size 1x4x2.,mp-769049_processed.cif
+mp-769346.cif,Create a supercell with the size 2X2X1.,mp-769346_processed.cif
+mp-769383.cif,Create a supercell with the size 1*3*1.,mp-769383_processed.cif
+mp-770406.cif,Create a supercell with the size 1x2x2.,mp-770406_processed.cif
+mp-770508.cif,Create a supercell with the size 4x1x1.,mp-770508_processed.cif
+mp-770714.cif,Create a supercell with the size 3x2x1.,mp-770714_processed.cif
+mp-770847.cif,Create a supercell with the size 1X4X1.,mp-770847_processed.cif
+mp-770865.cif,Create a supercell with the size 1 by 1 by 2.,mp-770865_processed.cif
+mp-770898.cif,Create a supercell with the size 1X2X4.,mp-770898_processed.cif
+mp-770995.cif,Create a supercell with the size 1X4X1.,mp-770995_processed.cif
+mp-771674.cif,Create a supercell with the size 1 by 4 by 2.,mp-771674_processed.cif
+mp-772172.cif,Create a supercell with the size 3 by 1 by 1.,mp-772172_processed.cif
+mp-772550.cif,Create a supercell with the size 2x4x1.,mp-772550_processed.cif
+mp-772610.cif,Create a supercell with the size 1×2×1.,mp-772610_processed.cif
+mp-772749.cif,Create a supercell with the size 2 by 1 by 2.,mp-772749_processed.cif
+mp-772763.cif,Create a supercell with the size 3 by 1 by 1.,mp-772763_processed.cif
+mp-772999.cif,Create a supercell with the size 1×3×1.,mp-772999_processed.cif
+mp-773070.cif,Create a supercell with the size 1×1×3.,mp-773070_processed.cif
+mp-774146.cif,Create a supercell with the size 2x2x2.,mp-774146_processed.cif
+mp-774370.cif,Create a supercell with the size 1×4×1.,mp-774370_processed.cif
+mp-774459.cif,Create a supercell with the size 1x2x3.,mp-774459_processed.cif
+mp-774822.cif,Create a supercell with the size 4×2×1.,mp-774822_processed.cif
+mp-774929.cif,Create a supercell with the size 1X3X2.,mp-774929_processed.cif
+mp-774940.cif,Create a supercell with the size 1X3X1.,mp-774940_processed.cif
+mp-775126.cif,Create a supercell with the size 4×2×1.,mp-775126_processed.cif
+mp-775216.cif,Create a supercell with the size 1*2*1.,mp-775216_processed.cif
+mp-775224.cif,Create a supercell with the size 2 by 1 by 1.,mp-775224_processed.cif
+mp-775268.cif,Create a supercell with the size 1X2X3.,mp-775268_processed.cif
+mp-775340.cif,Create a supercell with the size 3 by 2 by 1.,mp-775340_processed.cif
+mp-775989.cif,Create a supercell with the size 1×1×4.,mp-775989_processed.cif
+mp-776097.cif,Create a supercell with the size 1x1x3.,mp-776097_processed.cif
+mp-776529.cif,Create a supercell with the size 4x2x1.,mp-776529_processed.cif
+mp-7767.cif,Create a supercell with the size 3X2X1.,mp-7767_processed.cif
+mp-776873.cif,Create a supercell with the size 2 by 3 by 1.,mp-776873_processed.cif
+mp-777288.cif,Create a supercell with the size 4*1*1.,mp-777288_processed.cif
+mp-777458.cif,Create a supercell with the size 1×3×2.,mp-777458_processed.cif
+mp-777764.cif,Create a supercell with the size 3*1*1.,mp-777764_processed.cif
+mp-778141.cif,Create a supercell with the size 1x1x2.,mp-778141_processed.cif
+mp-778158.cif,Create a supercell with the size 1*2*4.,mp-778158_processed.cif
+mp-778252.cif,Create a supercell with the size 1*2*1.,mp-778252_processed.cif
+mp-778260.cif,Create a supercell with the size 1x2x1.,mp-778260_processed.cif
+mp-779095.cif,Create a supercell with the size 1x4x1.,mp-779095_processed.cif
+mp-779789.cif,Create a supercell with the size 2x2x1.,mp-779789_processed.cif
+mp-780121.cif,Create a supercell with the size 1*1*2.,mp-780121_processed.cif
+mp-780175.cif,Create a supercell with the size 3X1X1.,mp-780175_processed.cif
+mp-780392.cif,Create a supercell with the size 1*1*4.,mp-780392_processed.cif
+mp-780797.cif,Create a supercell with the size 2x1x3.,mp-780797_processed.cif
+mp-782009.cif,Create a supercell with the size 4X1X1.,mp-782009_processed.cif
+mp-7926.cif,Create a supercell with the size 1*1*2.,mp-7926_processed.cif
+mp-803628.cif,Create a supercell with the size 2×3×1.,mp-803628_processed.cif
+mp-8058.cif,Create a supercell with the size 2×4×1.,mp-8058_processed.cif
+mp-807001.cif,Create a supercell with the size 3X1X1.,mp-807001_processed.cif
+mp-818638.cif,Create a supercell with the size 1×2×3.,mp-818638_processed.cif
+mp-850260.cif,Create a supercell with the size 3*1*2.,mp-850260_processed.cif
+mp-850784.cif,Create a supercell with the size 3 by 1 by 2.,mp-850784_processed.cif
+mp-850942.cif,Create a supercell with the size 1X4X1.,mp-850942_processed.cif
+mp-861324.cif,Create a supercell with the size 1 by 3 by 1.,mp-861324_processed.cif
+mp-861689.cif,Create a supercell with the size 1×3×1.,mp-861689_processed.cif
+mp-863022.cif,Create a supercell with the size 1x1x4.,mp-863022_processed.cif
+mp-863365.cif,Create a supercell with the size 4X1X2.,mp-863365_processed.cif
+mp-863428.cif,Create a supercell with the size 2 by 3 by 1.,mp-863428_processed.cif
+mp-863754.cif,Create a supercell with the size 1 by 2 by 1.,mp-863754_processed.cif
+mp-865205.cif,Create a supercell with the size 1 by 2 by 4.,mp-865205_processed.cif
+mp-866298.cif,Create a supercell with the size 2*3*1.,mp-866298_processed.cif
+mp-866520.cif,Create a supercell with the size 1X3X1.,mp-866520_processed.cif
+mp-867606.cif,Create a supercell with the size 1×1×4.,mp-867606_processed.cif
+mp-881189.cif,Create a supercell with the size 1X2X2.,mp-881189_processed.cif
+mp-9275.cif,Create a supercell with the size 1*2*2.,mp-9275_processed.cif
+mp-9324.cif,Create a supercell with the size 2X1X1.,mp-9324_processed.cif
+mp-935710.cif,Create a supercell with the size 1*1*4.,mp-935710_processed.cif
+mp-9403.cif,Create a supercell with the size 4X1X2.,mp-9403_processed.cif
+mp-9417.cif,Create a supercell with the size 1 by 1 by 2.,mp-9417_processed.cif
+mp-978989.cif,Create a supercell with the size 1 by 4 by 2.,mp-978989_processed.cif
+mp-979264.cif,Create a supercell with the size 1X3X2.,mp-979264_processed.cif
+mp-982385.cif,Create a supercell with the size 1 by 1 by 2.,mp-982385_processed.cif
+mp-985468.cif,Create a supercell with the size 1×1×3.,mp-985468_processed.cif
+mp-991772.cif,Create a supercell with the size 4x1x1.,mp-991772_processed.cif
+mp-997585.cif,Create a supercell with the size 3*2*1.,mp-997585_processed.cif
+mp-998746.cif,Create a supercell with the size 1×1×3.,mp-998746_processed.cif

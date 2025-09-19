@@ -2,7 +2,7 @@ import h5py
 import os
 
 names = [
-    'change_atom_action',
+    # 'change_atom_action',
     # 'delete_around_atom_action', 
     # 'delete_below_atom_action', 
     # 'insert_between_atoms_action',
@@ -10,9 +10,10 @@ names = [
     # 'move_atom_action',
     # 'move_selected_atoms_action',
     # 'move_towards_atom_action',
-    'remove_atom_action',
+    # 'remove_atom_action',
     # 'rotate_around_atom_action',
-    'swap_atoms_action'
+    # 'swap_atoms_action',
+    'super_cell_action'
 ]
 
 for name in names:

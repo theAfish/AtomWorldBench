@@ -64,8 +64,8 @@ class AtomWorldEvaluator(BaseEvaluator):
             }
 
         # Parse structures for validation
-        output_structure = load_cif_file_from_string(row['output_cif'])
-        generated_structure = load_cif_file_from_string(generated_cif)
+        output_structure = load_cif_file_from_string(row['output_cif'], primitive=False)
+        generated_structure = load_cif_file_from_string(generated_cif, primitive=False)
 
         if generated_structure is None:
             logging.info("Invalid generated structure")
@@ -94,7 +94,7 @@ class AtomWorldEvaluator(BaseEvaluator):
             }
 
         # Match structures
-        rmsd, max_diff = match_structures(output_structure, generated_structure)
+        rmsd, max_diff = match_structures(output_structure, generated_structure, primitive_cell=False)
         if rmsd == -1:
             logging.info("Structures do not match")
             stats['num_invalid_cif'] += 1
