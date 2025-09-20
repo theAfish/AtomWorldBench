@@ -1,0 +1,21 @@
+{
+  "model": "o3",
+  "action": "delete_below_atom_action",
+  "total": 50,
+  "correct": 18,
+  "wrong": 32,
+  "error_rate": 0.64,
+  "relabelled_from_wrong_to_correct": 0,
+  "rmsd_stats": {
+    "mean": 1.9554545346896911e-16,
+    "max": 6.425184870562843e-16,
+    "min": 4.746252200477218e-17,
+    "median": 1.4394316791069297e-16
+  },
+  "max_diff_stats": {
+    "mean": 3.572263058832432e-16,
+    "max": 1.3156065167828345e-15,
+    "min": 4.746252200477218e-17,
+    "median": 2.4136469977682453e-16
+  }
+}

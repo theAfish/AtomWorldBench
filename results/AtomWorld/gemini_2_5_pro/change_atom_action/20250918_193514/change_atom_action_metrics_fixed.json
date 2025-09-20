@@ -1,0 +1,21 @@
+{
+  "model": "gemini_2_5_pro",
+  "action": "change_atom_action",
+  "total": 50,
+  "correct": 47,
+  "wrong": 3,
+  "error_rate": 0.06,
+  "relabelled_from_wrong_to_correct": 0,
+  "rmsd_stats": {
+    "mean": 1.6310501812615935e-07,
+    "max": 2.236689368552936e-06,
+    "min": 0.0,
+    "median": 2.4029229231714947e-16
+  },
+  "max_diff_stats": {
+    "mean": 1.9962492263129762e-07,
+    "max": 2.652486106076561e-06,
+    "min": 0.0,
+    "median": 5.441127235097075e-16
+  }
+}

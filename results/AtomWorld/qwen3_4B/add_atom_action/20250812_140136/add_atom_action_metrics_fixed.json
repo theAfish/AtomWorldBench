@@ -1,0 +1,21 @@
+{
+  "model": "qwen3_4B",
+  "action": "add_atom_action",
+  "total": 250,
+  "correct": 140,
+  "wrong": 110,
+  "error_rate": 0.44,
+  "relabelled_from_wrong_to_correct": 6,
+  "rmsd_stats": {
+    "mean": 0.034046775555930504,
+    "max": 0.171569940650812,
+    "min": 8.041325592047781e-33,
+    "median": 0.0096499080254288
+  },
+  "max_diff_stats": {
+    "mean": 0.14840887235109831,
+    "max": 0.6862797625446052,
+    "min": 1.313142970406727e-32,
+    "median": 0.061584103184829
+  }
+}

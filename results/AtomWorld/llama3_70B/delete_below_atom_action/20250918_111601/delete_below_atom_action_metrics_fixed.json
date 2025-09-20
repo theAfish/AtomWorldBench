@@ -1,0 +1,21 @@
+{
+  "model": "llama3_70b",
+  "action": "delete_below_atom_action",
+  "total": 50,
+  "correct": 12,
+  "wrong": 38,
+  "error_rate": 0.76,
+  "relabelled_from_wrong_to_correct": 1,
+  "rmsd_stats": {
+    "mean": 1.716172178084611e-07,
+    "max": 1.8877893935213377e-06,
+    "min": 6.196480205780599e-17,
+    "median": 1.9326391953972364e-16
+  },
+  "max_diff_stats": {
+    "mean": 2.1062656969549097e-07,
+    "max": 2.3168922620406685e-06,
+    "min": 6.927875480678652e-17,
+    "median": 4.679993253108236e-16
+  }
+}
