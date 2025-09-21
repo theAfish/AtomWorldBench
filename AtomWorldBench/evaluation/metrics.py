@@ -78,14 +78,38 @@ def check_atom_counts(struct1, struct2):
 #     max_diff = np.max(np.linalg.norm(diff, axis=1))
 #     return rmsd, max_diff
 
-def match_structures(struct1, struct2):
+def match_structures(struct1, struct2, primitive_cell=False, stol=0.5, **kwargs):
     """
     Match two structures using StructureMatcher.
     """
-    matcher = StructureMatcher(primitive_cell=False, stol=0.5)
+    matcher = StructureMatcher(primitive_cell=primitive_cell, stol=stol, **kwargs)
     if matcher.fit(struct1, struct2):
         rmsd, max_dist = matcher.get_rms_dist(struct1, struct2)
         return rmsd, max_dist
     else:
         logging.info("Structures do NOT match within tolerances.")
         return -1, -1
+
+
+def check_partially_occupied_sites(struct):
+    """
+    Check if a structure has partially occupied sites.
+    Returns True if any site is partially occupied, False otherwise.
+    """
+    for site in struct.sites:
+        for occu in site.species.values():
+            if occu < 1.0:
+                return True
+    return False
+
+
+def check_atoms_too_close(struct, threshold=0.5):
+    """
+    Check if any two atoms in the structure are closer than the given threshold (in Angstroms).
+    Returns True if any pair is too close, False otherwise.
+    """
+    dists = struct.distance_matrix
+    np.fill_diagonal(dists, np.inf)
+    if np.any(dists < threshold):
+        return True
+    return False

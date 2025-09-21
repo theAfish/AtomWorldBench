@@ -1,4 +1,4 @@
-## Atom World Bench
+# Atom World Bench
 
 Testing LLMs' ability on operating 3D atomic structures.
 
@@ -15,7 +15,7 @@ The `-e` stands for "editable", meaning the package is linked to your local proj
 
 If you want to run the benchmark for your own model, please add your model in `src/models/` folder and corresponding parameters in `config/models.yaml`.
 
-# Run the benchmark
+### Run the benchmark
 
 ```
 python ./src/scripts/run_benchmark.py -m [model_name] -a [action_name] -b [batch_size] -n [num_batch]
@@ -42,12 +42,12 @@ python ./src/scripts/run_benchmark.py -m [model_name] -a [action_name] -b [batch
 
 `num_batch` is the number of batches for test.
 
-# Analyze the results
+### Analyze the results
 
 Please run the `./src/scripts/analyze_results.py`
 
 
-# How to construct your own data with mp-api
+### How to construct your own data with mp-api
 
 Firstly, run the `src/scripts/download_random_mp_data.py` to obtain random structures from the Materials Project. You can DIY the code to selectively download desired structures according to the mp-api's document.
 

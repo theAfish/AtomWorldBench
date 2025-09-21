@@ -1,0 +1,31 @@
+# generated using pymatgen
+data_BaGe3Pt
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.59964744
+_cell_length_b   4.59964723
+_cell_length_c   6.08849761
+_cell_angle_alpha   112.19853074
+_cell_angle_beta   112.19852844
+_cell_angle_gamma   90.04224809
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   BaGe3Pt
+_chemical_formula_sum   'Ba1 Ge3 Pt1'
+_cell_volume   108.86763422
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ba  Ba0  1  1.00027676  1.00027676  1.00038945  1.0
+  Ge  Ge1  1  0.75357420  0.25405835  0.50775173  1.0
+  Ge  Ge2  1  0.25405835  0.75357420  0.50775173  1.0
+  Ge  Ge3  1  0.39935327  0.39935327  0.79838204  1.0
+  Pt  Pt4  1  0.64843843  0.64843843  0.29712406  1.0

@@ -1,0 +1,782 @@
+input_cif_name,generated_cif,generated_output
+mp-160_sg_166_formula_B.cif,"# Modified from elemental boron to increase bulk modulus
+data_B10C2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.04245687
+_cell_length_b   5.04245727
+_cell_length_c   5.04245777
+_cell_angle_alpha   58.11864518
+_cell_angle_beta   58.11864725
+_cell_angle_gamma   58.11862732
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   B10C2
+_chemical_formula_sum   B10 C2
+_cell_volume   86.74916330
+_cell_formula_units_Z   12
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  C  C0   1  0.00997004  0.65428512  0.00997004  1.0
+  B  B1   1  0.00997004  0.00997004  0.65428512  1.0
+  B  B2   1  0.65428512  0.00997004  0.00997004  1.0
+  B  B3   1  0.34571488  0.99002996  0.99002996  1.0
+  B  B4   1  0.99002996  0.34571488  0.99002996  1.0
+  B  B5   1  0.99002996  0.99002996  0.34571488  1.0
+  C  C6   1  0.22056557  0.63163483  0.22056557  1.0
+  B  B7   1  0.22056557  0.22056557  0.63163483  1.0
+  B  B8   1  0.63163483  0.22056557  0.22056557  1.0
+  B  B9   1  0.36836517  0.77943443  0.77943443  1.0
+  B  B10  1  0.77943443  0.36836517  0.77943443  1.0
+  B  B11  1  0.77943443  0.77943443  0.36836517  1.0","Below, carbon is substituted for boron at two icosahedral-framework sites (labels 0 and 6).  
+Boron carbide (B10C2) is markedly stiffer than elemental boron because the shorter, stronger B–C covalent bonds contract the local network and increase resistance to volume change, thereby raising the bulk modulus.
+
+<cif>
+# Modified from elemental boron to increase bulk modulus
+data_B10C2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.04245687
+_cell_length_b   5.04245727
+_cell_length_c   5.04245777
+_cell_angle_alpha   58.11864518
+_cell_angle_beta   58.11864725
+_cell_angle_gamma   58.11862732
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   B10C2
+_chemical_formula_sum   B10 C2
+_cell_volume   86.74916330
+_cell_formula_units_Z   12
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  C  C0   1  0.00997004  0.65428512  0.00997004  1.0
+  B  B1   1  0.00997004  0.00997004  0.65428512  1.0
+  B  B2   1  0.65428512  0.00997004  0.00997004  1.0
+  B  B3   1  0.34571488  0.99002996  0.99002996  1.0
+  B  B4   1  0.99002996  0.34571488  0.99002996  1.0
+  B  B5   1  0.99002996  0.99002996  0.34571488  1.0
+  C  C6   1  0.22056557  0.63163483  0.22056557  1.0
+  B  B7   1  0.22056557  0.22056557  0.63163483  1.0
+  B  B8   1  0.63163483  0.22056557  0.22056557  1.0
+  B  B9   1  0.36836517  0.77943443  0.77943443  1.0
+  B  B10  1  0.77943443  0.36836517  0.77943443  1.0
+  B  B11  1  0.77943443  0.77943443  0.36836517  1.0
+</cif>"
+mp-239_sg_113_formula_BaS3.cif,"# Modified to increase bulk modulus: Ba → Sr and 5 % lattice contraction
+data_SrS3
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.00521092
+_cell_length_b   6.60435730
+_cell_length_c   6.60435730
+_cell_angle_alpha   90.00000000
+_cell_angle_beta    90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   SrS3
+_chemical_formula_sum   'Sr2 S6'
+_cell_volume   174.56700000
+_cell_formula_units_Z   2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Sr  Sr0  1  -0.00000000  0.50000000  0.50000000  1.0
+  Sr  Sr1  1  -0.00000000 -0.00000000  0.00000000  1.0
+  S   S2   1   0.47518716  0.82212087  0.32212087  1.0
+  S   S3   1   0.52481284  0.32212087  0.17787913  1.0
+  S   S4   1   0.21150960 -0.00000000  0.50000000  1.0
+  S   S5   1   0.78849040  0.50000000  0.00000000  1.0
+  S   S6   1   0.47518716  0.17787913  0.67787913  1.0
+  S   S7   1   0.52481284  0.67787913  0.82212087  1.0","To improve the bulk modulus we want a denser, stiffer crystal lattice.  
+The very large Ba²⁺ ions in BaS₃ make the structure relatively open and compressible.  
+Replacing Ba²⁺ with the significantly smaller Sr²⁺ ions shortens the Sr–S bonds, stiffens the framework and raises the bulk modulus.  
+We further mimic the chemical pressure created by Sr substitution with a small (≈5 %) uniform lattice contraction.  
+No internal coordinate relaxation is applied; the fractional positions remain the same.
+
+The resulting modifications:
+1. Element substitution: Ba → Sr (100 %).
+2. Lattice-parameter reduction by 5 % to reflect the smaller A-site cation and enhance density.
+
+The new CIF is given below.
+
+<cif>
+# Modified to increase bulk modulus: Ba → Sr and 5 % lattice contraction
+data_SrS3
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.00521092
+_cell_length_b   6.60435730
+_cell_length_c   6.60435730
+_cell_angle_alpha   90.00000000
+_cell_angle_beta    90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   SrS3
+_chemical_formula_sum   'Sr2 S6'
+_cell_volume   174.56700000
+_cell_formula_units_Z   2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Sr  Sr0  1  -0.00000000  0.50000000  0.50000000  1.0
+  Sr  Sr1  1  -0.00000000 -0.00000000  0.00000000  1.0
+  S   S2   1   0.47518716  0.82212087  0.32212087  1.0
+  S   S3   1   0.52481284  0.32212087  0.17787913  1.0
+  S   S4   1   0.21150960 -0.00000000  0.50000000  1.0
+  S   S5   1   0.78849040  0.50000000  0.00000000  1.0
+  S   S6   1   0.47518716  0.17787913  0.67787913  1.0
+  S   S7   1   0.52481284  0.67787913  0.82212087  1.0
+</cif>
+"
+mp-288_sg_131_formula_PtS.cif,"# Modified to reduce bulk modulus via element substitution (Pt → Pd)   
+# and a 5 % isotropic lattice expansion to weaken inter-atomic bonding.
+
+data_PdS_reduced_bulkmod
+_symmetry_space_group_name_H-M   'P 1'
+_symmetry_Int_Tables_number      1
+
+_cell_length_a   3.66918482
+_cell_length_b   3.66918482
+_cell_length_c   6.42210858
+_cell_angle_alpha   90.00000000
+_cell_angle_beta    90.00000000
+_cell_angle_gamma   90.00000000
+_cell_volume        86.49700000
+_cell_formula_units_Z   2
+
+_chemical_formula_structural   PdS
+_chemical_formula_sum          'Pd2 S2'
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Pd  Pd0  1  0.50000000  0.00000000  0.50000000  1.0
+  Pd  Pd1  1  0.00000000  0.50000000  0.00000000  1.0
+  S   S2   1  0.00000000  0.00000000  0.75000000  1.0
+  S   S3   1  0.00000000  0.00000000  0.25000000  1.0","<cif>
+# Modified to reduce bulk modulus via element substitution (Pt → Pd)   
+# and a 5 % isotropic lattice expansion to weaken inter-atomic bonding.
+
+data_PdS_reduced_bulkmod
+_symmetry_space_group_name_H-M   'P 1'
+_symmetry_Int_Tables_number      1
+
+_cell_length_a   3.66918482
+_cell_length_b   3.66918482
+_cell_length_c   6.42210858
+_cell_angle_alpha   90.00000000
+_cell_angle_beta    90.00000000
+_cell_angle_gamma   90.00000000
+_cell_volume        86.49700000
+_cell_formula_units_Z   2
+
+_chemical_formula_structural   PdS
+_chemical_formula_sum          'Pd2 S2'
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Pd  Pd0  1  0.50000000  0.00000000  0.50000000  1.0
+  Pd  Pd1  1  0.00000000  0.50000000  0.00000000  1.0
+  S   S2   1  0.00000000  0.00000000  0.75000000  1.0
+  S   S3   1  0.00000000  0.00000000  0.25000000  1.0
+</cif>"
+mp-306_sg_152_formula_B2O3.cif,"# Modified CIF aimed at increasing bulk modulus by
+# (1) partial substitution of B³⁺ with the stiffer, higher-valence–electron Al³⁺
+# (2) a 2 % uniform lattice compression to raise density
+data_AlB_O3
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.25066827
+_cell_length_b   4.25066951
+_cell_length_c   8.14284307
+_cell_angle_alpha   90.00000000
+_cell_angle_beta    90.00000000
+_cell_angle_gamma   120.00001084
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   AlB O3
+_chemical_formula_sum          'Al3 B3 O9'
+_cell_volume                   127.425
+_cell_formula_units_Z          3
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Al  Al0   1  0.10014870  0.27065547  0.89931969  1.0
+  B   B1    1  0.17050877  0.89985130  0.56598569  1.0
+  Al  Al2   1  0.72934453  0.82949123  0.23265269  1.0
+  B   B3    1  0.56654681  0.50382586  0.68267751  1.0
+  Al  Al4   1  0.93727805  0.43345319  0.34934451  1.0
+  B   B5    1  0.49617414  0.06272195  0.01601151  1.0
+  O   O6    1  0.48233896  0.21679708  0.58562766  1.0
+  O   O7    1  0.78320292  0.26554188  0.91896166  1.0
+  O   O8    1  0.73445812  0.51766104  0.25229466  1.0
+  O   O9    1  0.33336984  0.51095125  0.79100187  1.0
+  O   O10   1  0.17758141  0.66663016  0.45766887  1.0
+  O   O11   1  0.48904875  0.82241859  0.12433487  1.0
+  O   O12   1  0.88348663  0.81565118  0.66303728  1.0
+  O   O13   1  0.93216255  0.11651337  0.32970428  1.0
+  O   O14   1  0.18434882  0.06783745  0.99637128  1.0","<cif>
+# Modified CIF aimed at increasing bulk modulus by
+# (1) partial substitution of B³⁺ with the stiffer, higher-valence–electron Al³⁺
+# (2) a 2 % uniform lattice compression to raise density
+data_AlB_O3
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.25066827
+_cell_length_b   4.25066951
+_cell_length_c   8.14284307
+_cell_angle_alpha   90.00000000
+_cell_angle_beta    90.00000000
+_cell_angle_gamma   120.00001084
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   AlB O3
+_chemical_formula_sum          'Al3 B3 O9'
+_cell_volume                   127.425
+_cell_formula_units_Z          3
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Al  Al0   1  0.10014870  0.27065547  0.89931969  1.0
+  B   B1    1  0.17050877  0.89985130  0.56598569  1.0
+  Al  Al2   1  0.72934453  0.82949123  0.23265269  1.0
+  B   B3    1  0.56654681  0.50382586  0.68267751  1.0
+  Al  Al4   1  0.93727805  0.43345319  0.34934451  1.0
+  B   B5    1  0.49617414  0.06272195  0.01601151  1.0
+  O   O6    1  0.48233896  0.21679708  0.58562766  1.0
+  O   O7    1  0.78320292  0.26554188  0.91896166  1.0
+  O   O8    1  0.73445812  0.51766104  0.25229466  1.0
+  O   O9    1  0.33336984  0.51095125  0.79100187  1.0
+  O   O10   1  0.17758141  0.66663016  0.45766887  1.0
+  O   O11   1  0.48904875  0.82241859  0.12433487  1.0
+  O   O12   1  0.88348663  0.81565118  0.66303728  1.0
+  O   O13   1  0.93216255  0.11651337  0.32970428  1.0
+  O   O14   1  0.18434882  0.06783745  0.99637128  1.0
+</cif>"
+mp-361_sg_224_formula_Cu2O.cif,"# compressed cuprite – higher bulk modulus version
+data_Cu2O_compressed
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.16176534
+_cell_length_b   4.16176534
+_cell_length_c   4.16176534
+_cell_angle_alpha   90.00000000
+_cell_angle_beta    90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Cu2O
+_chemical_formula_sum   'Cu4 O2'
+_cell_volume   72.086909
+_cell_formula_units_Z   2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Cu  Cu0  1  0.50000000  0.50000000  -0.00000000  1.0
+  Cu  Cu1  1  -0.00000000  0.50000000  0.50000000  1.0
+  Cu  Cu2  1  0.50000000  -0.00000000  0.50000000  1.0
+  Cu  Cu3  1  0.00000000  0.00000000  0.00000000  1.0
+  O   O4   1  0.75000000  0.75000000  0.75000000  1.0
+  O   O5   1  0.25000000  0.25000000  0.25000000  1.0","Below is the uniformly-compressed Cu₂O CIF.  
+All three lattice parameters were reduced by 2 %, leading to a ~6 % decrease in cell volume.  
+This hydrostatic pre-compression mimics the effect of an epitaxial or high-pressure environment, effectively increasing the stiffness of inter-atomic bonds and, hence, the bulk modulus.
+
+<cif>
+# compressed cuprite – higher bulk modulus version
+data_Cu2O_compressed
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.16176534
+_cell_length_b   4.16176534
+_cell_length_c   4.16176534
+_cell_angle_alpha   90.00000000
+_cell_angle_beta    90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Cu2O
+_chemical_formula_sum   'Cu4 O2'
+_cell_volume   72.086909
+_cell_formula_units_Z   2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Cu  Cu0  1  0.50000000  0.50000000  -0.00000000  1.0
+  Cu  Cu1  1  -0.00000000  0.50000000  0.50000000  1.0
+  Cu  Cu2  1  0.50000000  -0.00000000  0.50000000  1.0
+  Cu  Cu3  1  0.00000000  0.00000000  0.00000000  1.0
+  O   O4   1  0.75000000  0.75000000  0.75000000  1.0
+  O   O5   1  0.25000000  0.25000000  0.25000000  1.0
+</cif>"
+mp-468_sg_167_formula_AlF3.cif,"# FeF3 with contracted lattice to enhance bulk modulus
+data_FeF3
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   8.33551915
+_cell_length_b   6.64480058
+_cell_length_c   4.76673626
+_cell_angle_alpha   135.84411518
+_cell_angle_beta    150.95003080
+_cell_angle_gamma   34.84540193
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   FeF3
+_chemical_formula_sum   'Fe2 F6'
+_cell_volume   73.25940978
+_cell_formula_units_Z   2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Fe  Fe0  1  0.49991311  0.75013768   0.00011922  1.0
+  Fe  Fe1  1  0.49998650  0.24996728  -0.00016565  1.0
+  F   F2   1  0.41281156 -0.00027007   0.82516300  1.0
+  F   F3   1  0.00001468  0.91197287   0.41178250  1.0
+  F   F4   1  0.41180985  0.08818844   0.41163447  1.0
+  F   F5   1  0.58763630  0.50026991   0.17574064  1.0
+  F   F6   1  0.00004140  0.58739818   0.58782109  1.0
+  F   F7   1  0.58778759  0.41233672   0.58790473  1.0","The bulk modulus of ionic compounds such as AlF₃ is governed mainly by (i) the strength and number density of metal-fluorine bonds and (ii) the crystal density.  Replacing Al³⁺ with a heavier, still-trivalent but slightly smaller cation that forms stronger M–F bonds increases both bond stiffness and packing density.  FeF₃ satisfies these requirements and is experimentally known to be significantly less compressible than AlF₃.  
+
+To realise this, we perform:
+
+1. Element Substitution: Al → Fe (maintains charge balance and stoichiometry MF₃).  
+2. Lattice Parameter Adjustment: isotropically contract all lattice parameters by 5 % to reflect the smaller Fe–F bond length, increasing density and hence bulk modulus.
+
+No change in fractional coordinates is needed; the original Al sites are simply occupied by Fe.
+
+The modified CIF is given below.
+
+<cif>
+# FeF3 with contracted lattice to enhance bulk modulus
+data_FeF3
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   8.33551915
+_cell_length_b   6.64480058
+_cell_length_c   4.76673626
+_cell_angle_alpha   135.84411518
+_cell_angle_beta    150.95003080
+_cell_angle_gamma   34.84540193
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   FeF3
+_chemical_formula_sum   'Fe2 F6'
+_cell_volume   73.25940978
+_cell_formula_units_Z   2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Fe  Fe0  1  0.49991311  0.75013768   0.00011922  1.0
+  Fe  Fe1  1  0.49998650  0.24996728  -0.00016565  1.0
+  F   F2   1  0.41281156 -0.00027007   0.82516300  1.0
+  F   F3   1  0.00001468  0.91197287   0.41178250  1.0
+  F   F4   1  0.41180985  0.08818844   0.41163447  1.0
+  F   F5   1  0.58763630  0.50026991   0.17574064  1.0
+  F   F6   1  0.00004140  0.58739818   0.58782109  1.0
+  F   F7   1  0.58778759  0.41233672   0.58790473  1.0
+</cif>"
+mp-470_sg_136_formula_GeO2.cif,"# modified to decrease the bulk modulus – 5 % isotropic lattice expansion
+data_GeO2
+_symmetry_space_group_name_H-M   'P 1'
+
+_cell_length_a   3.02034005
+_cell_length_b   4.63304557
+_cell_length_c   4.63304557
+_cell_angle_alpha   90.00000000
+_cell_angle_beta    90.00000000
+_cell_angle_gamma   90.00000000
+
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   GeO2
+_chemical_formula_sum          'Ge2 O4'
+_cell_volume   64.83192091
+_cell_formula_units_Z   2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ge  Ge0  1  0.50000000  0.50000000  0.50000000  1.0
+  Ge  Ge1  1  0.00000000  0.00000000  0.00000000  1.0
+   O  O2  1 -0.00000000  0.69422923  0.69422923  1.0
+   O  O3  1  0.50000000  0.80577077  0.19422923  1.0
+   O  O4  1  0.00000000  0.30577077  0.30577077  1.0
+   O  O5  1  0.50000000  0.19422923  0.80577077  1.0","The bulk modulus is closely related to the strength and density of bonding within the crystal.  One straightforward way to soften (lower) the bulk modulus is to reduce the crystal density by uniformly expanding the lattice while keeping the same bonding topology.  A 5 % isotropic expansion will appreciably lengthen every Ge–O bond, making the structure more compressible and therefore lowering the bulk modulus.
+
+Below is the CIF file with all three lattice parameters expanded by 5 %.  Fractional coordinates, occupancies, symmetry, and chemistry are unchanged, ensuring the modification is limited solely to the lattice dimensions.
+
+<cif>
+# modified to decrease the bulk modulus – 5 % isotropic lattice expansion
+data_GeO2
+_symmetry_space_group_name_H-M   'P 1'
+
+_cell_length_a   3.02034005
+_cell_length_b   4.63304557
+_cell_length_c   4.63304557
+_cell_angle_alpha   90.00000000
+_cell_angle_beta    90.00000000
+_cell_angle_gamma   90.00000000
+
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   GeO2
+_chemical_formula_sum          'Ge2 O4'
+_cell_volume   64.83192091
+_cell_formula_units_Z   2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ge  Ge0  1  0.50000000  0.50000000  0.50000000  1.0
+  Ge  Ge1  1  0.00000000  0.00000000  0.00000000  1.0
+   O  O2  1 -0.00000000  0.69422923  0.69422923  1.0
+   O  O3  1  0.50000000  0.80577077  0.19422923  1.0
+   O  O4  1  0.00000000  0.30577077  0.30577077  1.0
+   O  O5  1  0.50000000  0.19422923  0.80577077  1.0
+</cif>"
+mp-471_sg_98_formula_CdAs2.cif,"# Modified CIF to enhance bulk modulus by substituting Cd with smaller, stiffer Zn and contracting the lattice (~3 %)
+data_ZnAs2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.58386566
+_cell_length_b   5.97070898
+_cell_length_c   5.97070843
+_cell_angle_alpha   81.52656947
+_cell_angle_beta    67.42683261
+_cell_angle_gamma   67.42683613
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   ZnAs2
+_chemical_formula_sum   'Zn2 As4'
+_cell_volume   139.370
+_cell_formula_units_Z   2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Zn  Zn0  1  0.25000000  0.50000000  0.50000000  1.0
+  Zn  Zn1  1  0.00000000  -0.00000000  -0.00000000  1.0
+  As  As2  1  0.68670692  0.18829308  0.68829308  1.0
+  As  As3  1  0.62500000  0.81170692  0.68829308  1.0
+  As  As4  1  0.56329308  0.81170692  0.31170692  1.0
+  As  As5  1  0.12500000  0.18829308  0.31170692  1.0","<cif>
+# Modified CIF to enhance bulk modulus by substituting Cd with smaller, stiffer Zn and contracting the lattice (~3 %)
+data_ZnAs2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.58386566
+_cell_length_b   5.97070898
+_cell_length_c   5.97070843
+_cell_angle_alpha   81.52656947
+_cell_angle_beta    67.42683261
+_cell_angle_gamma   67.42683613
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   ZnAs2
+_chemical_formula_sum   'Zn2 As4'
+_cell_volume   139.370
+_cell_formula_units_Z   2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Zn  Zn0  1  0.25000000  0.50000000  0.50000000  1.0
+  Zn  Zn1  1  0.00000000  -0.00000000  -0.00000000  1.0
+  As  As2  1  0.68670692  0.18829308  0.68829308  1.0
+  As  As3  1  0.62500000  0.81170692  0.68829308  1.0
+  As  As4  1  0.56329308  0.81170692  0.31170692  1.0
+  As  As5  1  0.12500000  0.18829308  0.31170692  1.0
+</cif>"
+mp-539_sg_9_formula_Ga2S3.cif,"# modified from original Ga2S3 to soften lattice (target: lower bulk modulus)
+
+data_In2S3
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.77799230
+_cell_length_b   6.80042050
+_cell_length_c   7.40611136
+_cell_angle_alpha   116.53502820
+_cell_angle_beta    90.00000000
+_cell_angle_gamma   119.89095037
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   In2S3
+_chemical_formula_sum   'In4 S6'
+_cell_volume   253.74550100
+_cell_formula_units_Z   2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  In  In0  1  0.13653814  0.40574596  0.61964728  1.0
+  In  In1  1  0.26920781  0.40574596  0.11964728  1.0
+  In  In2  1  0.44718999  0.08814768  0.62905923  1.0
+  In  In3  1  0.64095870  0.08814768  0.12905923  1.0
+  S   S4   1  0.42851516  0.67989794  0.50284171  1.0
+  S   S5   1  0.25138278  0.67989794  0.00284171  1.0
+  S   S6   1  0.76053466  0.34699161  0.51185829  1.0
+  S   S7   1  0.58645796  0.34699161  0.01185829  1.0
+  S   S8   1  0.91099758  0.00121681  0.98559649  1.0
+  S   S9   1  0.09021723  0.00121681  0.48559649  1.0","Below is a modified CIF that should lower the bulk modulus by replacing the relatively small, strongly-bonding Ga³⁺ cations with the larger, more polarizable In³⁺ cations, and by slightly expanding the lattice (≈5 % in each direction) to further weaken bond strengths.
+
+<cif>
+# modified from original Ga2S3 to soften lattice (target: lower bulk modulus)
+
+data_In2S3
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.77799230
+_cell_length_b   6.80042050
+_cell_length_c   7.40611136
+_cell_angle_alpha   116.53502820
+_cell_angle_beta    90.00000000
+_cell_angle_gamma   119.89095037
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   In2S3
+_chemical_formula_sum   'In4 S6'
+_cell_volume   253.74550100
+_cell_formula_units_Z   2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  In  In0  1  0.13653814  0.40574596  0.61964728  1.0
+  In  In1  1  0.26920781  0.40574596  0.11964728  1.0
+  In  In2  1  0.44718999  0.08814768  0.62905923  1.0
+  In  In3  1  0.64095870  0.08814768  0.12905923  1.0
+  S   S4   1  0.42851516  0.67989794  0.50284171  1.0
+  S   S5   1  0.25138278  0.67989794  0.00284171  1.0
+  S   S6   1  0.76053466  0.34699161  0.51185829  1.0
+  S   S7   1  0.58645796  0.34699161  0.01185829  1.0
+  S   S8   1  0.91099758  0.00121681  0.98559649  1.0
+  S   S9   1  0.09021723  0.00121681  0.48559649  1.0
+</cif>"
+mp-661_sg_186_formula_AlN.cif,"# Modified from AlN to wurtzite BN to increase bulk modulus
+data_BN
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   2.55000000
+_cell_length_b   2.55000000
+_cell_length_c   4.20000000
+_cell_angle_alpha   90.00000000
+_cell_angle_beta    90.00000000
+_cell_angle_gamma  119.99999712
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   BN
+_chemical_formula_sum   'B2 N2'
+_cell_volume   23.66500000
+_cell_formula_units_Z   2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  B   B0  1  0.66666700  0.33333300  0.49928700  1.0
+  B   B1  1  0.33333300  0.66666700  0.99928700  1.0
+  N   N2  1  0.66666700  0.33333300  0.88071300  1.0
+  N   N3  1  0.33333300  0.66666700  0.38071300  1.0","Below is a wurtzite-BN variant obtained by substituting the two Al atoms with B and shrinking the lattice parameters to values experimentally reported for w-BN (~a = 2.55 Å, c = 4.20 Å).  The much stronger and shorter B–N bonds and the reduced cell volume both act to raise the bulk modulus relative to AlN.
+
+<cif>
+# Modified from AlN to wurtzite BN to increase bulk modulus
+data_BN
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   2.55000000
+_cell_length_b   2.55000000
+_cell_length_c   4.20000000
+_cell_angle_alpha   90.00000000
+_cell_angle_beta    90.00000000
+_cell_angle_gamma  119.99999712
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   BN
+_chemical_formula_sum   'B2 N2'
+_cell_volume   23.66500000
+_cell_formula_units_Z   2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  B   B0  1  0.66666700  0.33333300  0.49928700  1.0
+  B   B1  1  0.33333300  0.66666700  0.99928700  1.0
+  N   N2  1  0.66666700  0.33333300  0.88071300  1.0
+  N   N3  1  0.33333300  0.66666700  0.38071300  1.0
+</cif>"

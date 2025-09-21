@@ -1,0 +1,167 @@
+input_cif_name,generated_output,wrong_type
+mp-160_sg_166_formula_B.cif,"The given CIF file represents α-boron (rhombohedral boron), which has a complex structure with B12 icosahedral clusters. Boron is a semiconductor with a band gap around 2 eV. To increase the band gap, we need to reduce orbital overlap and increase localization. Element substitution with carbon is effective as carbon has higher electronegativity and can form stronger, more localized bonds, increasing the band gap.
+
+**Modification Strategy:**
+- **Element Substitution:** Replace all boron atoms with carbon atoms. This creates a hypothetical carbon structure with the same topology as α-boron. Carbon has a higher electronegativity (2.55 vs 2.04 for boron) and forms stronger, more directional bonds, which typically leads to larger band gaps due to reduced orbital overlap and increased bond strength.
+
+**Modified CIF Content:**
+```cif
+data_C
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.04245687
+_cell_length_b   5.04245727
+_cell_length_c   5.04245777
+_cell_angle_alpha   58.11864518
+_cell_angle_beta   58.11864725
+_cell_angle_gamma   58.11862732
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   C
+_chemical_formula_sum   C12
+_cell_volume   86.74916330
+_cell_formula_units_Z   12
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  C  C0  1  0.00997004  0.65428512  0.00997004  1.0
+  C  C1  1  0.00997004  0.00997004  0.65428512  1.0
+  C  C2  1  0.65428512  0.00997004  0.00997004  1.0
+  C  C3  1  0.34571488  0.99002996  0.99002996  1.0
+  C  C4  1  0.99002996  0.34571488  0.99002996  1.0
+  C  C5  1  0.99002996  0.99002996  0.34571488  1.0
+  C  C6  1  0.22056557  0.63163483  0.22056557  1.0
+  C  C7  1  0.22056557  0.22056557  0.63163483  1.0
+  C  C8  1  0.63163483  0.22056557  0.22056557  1.0
+  C  C9  1  0.36836517  0.77943443  0.77943443  1.0
+  C  C10  1  0.77943443  0.36836517  0.77943443  1.0
+  C  C11  1  0.77943443  0.77943443  0.36836517  1.0
+```
+
+**Note:** This creates a hypothetical carbon polymorph with the α-boron structure. The band gap is expected to be larger than that of α-boron due to carbon's higher electronegativity and stronger bonding, which reduces electronic delocalization.",OutputFormatError
+mp-306_sg_152_formula_B2O3.cif,"Analyzing the given B2O3 CIF file and the goal of decreasing the band gap:
+
+Key structural features and composition influencing band gap:
+1. B2O3 is a wide band gap semiconductor (~3-4 eV) due to its covalent bonding network.
+2. The structure consists of BO3 triangles forming a boroxol ring network.
+3. Band gap is primarily determined by the B-O bonding and the overall network connectivity.
+
+Proposed modification:
+Element substitution - Replace some oxygen atoms with sulfur. Sulfur has lower electronegativity and larger atomic size, which will introduce states in the band gap and reduce the overall gap. Specifically, substituting O with S at sites O6, O7, and O8 (the oxygen atoms in the boroxol rings) will most effectively modify the electronic structure.
+
+Modified CIF content:
+
+<cif>
+# generated using pymatgen
+# Modified: Partial S substitution for O to decrease band gap
+data_B2O3-xSx
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.33741660
+_cell_length_b   4.33741787
+_cell_length_c   8.30902354
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   120.00001084
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   B2O2.7S0.3
+_chemical_formula_sum   'B6 O8.1 S0.9'
+_cell_volume   135.37640458
+_cell_formula_units_Z   3
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  B  B0  1  0.10014870  0.27065547  0.89931969  1.0
+  B  B1  1  0.17050877  0.89985130  0.56598569  1.0
+  B  B2  1  0.72934453  0.82949123  0.23265269  1.0
+  B  B3  1  0.56654681  0.50382586  0.68267751  1.0
+  B  B4  1  0.93727805  0.43345319  0.34934451  1.0
+  B  B5  1  0.49617414  0.06272195  0.01601151  1.0
+  S  S6  1  0.48233896  0.21679708  0.58562766  0.3
+  O  O6  1  0.48233896  0.21679708  0.58562766  0.7
+  S  S7  1  0.78320292  0.26554188  0.91896166  0.3
+  O  O7  1  0.78320292  0.26554188  0.91896166  0.7
+  S  S8  1  0.73445812  0.51766104  0.25229466  0.3
+  O  O8  1  0.73445812  0.51766104  0.25229466  0.7
+  O  O9  1  0.33336984  0.51095125  0.79100187  1.0
+  O  O10  1  0.17758141  0.66663016  0.45766887  1.0
+  O  O11  1  0.48904875  0.82241859  0.12433487  1.0
+  O  O12  1  0.88348663  0.81565118  0.66303728  1.0
+  O  O13  1  0.93216255  0.11651337  0.32970428  1.0
+  O  O14  1  0.18434882  0.06783745  0.99637128  1.0
+</cif>",PartialOccupancyError
+mp-468_sg_167_formula_AlF3.cif,"Analyzing the given AlF3 CIF file and the goal to decrease the band gap:
+
+**Key Analysis:**
+1. AlF3 is a wide band gap insulator (typically ~10 eV) with ionic character.
+2. Band gap reduction strategies:
+   - Element substitution: Replace F with less electronegative anions to reduce ionicity
+   - Introduce elements with more diffuse orbitals for better orbital overlap
+   - Create defect states within the gap
+
+**Proposed Modification:**
+Partial oxygen substitution for fluorine (F → O) to:
+- Reduce ionicity (O is less electronegative than F)
+- Introduce intermediate energy levels from O 2p orbitals
+- Maintain structural stability while reducing band gap
+
+Modified CIF with 25% oxygen substitution (statistical replacement):
+
+<cif>
+# generated using pymatgen
+# Modified: 25% O substitution for F to reduce band gap
+data_AlF2.25O0.75
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   8.77423069
+_cell_length_b   6.99452693
+_cell_length_c   5.01761712
+_cell_angle_alpha   135.84411518
+_cell_angle_beta   150.95003080
+_cell_angle_gamma   34.84540193
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   AlF2.25O0.75
+_chemical_formula_sum   'Al2 F4.5 O1.5'
+_cell_volume   85.43418366
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Al  Al0  1  0.49991311  0.75013768  0.00011922  1.0
+  Al  Al1  1  0.49998650  0.24996728  -0.00016565  1.0
+  F  F2  1  0.41281156  -0.00027007  0.82516300  0.75
+  O  O2  1  0.41281156  -0.00027007  0.82516300  0.25
+  F  F3  1  0.00001468  0.91197287  0.41178250  0.75
+  O  O3  1  0.00001468  0.91197287  0.41178250  0.25
+  F  F4  1  0.41180985  0.08818844  0.41163447  0.75
+  O  O4  1  0.41180985  0.08818844  0.41163447  0.25
+  F  F5  1  0.58763630  0.50026991  0.17574064  0.75
+  O  O5  1  0.58763630  0.50026991  0.17574064  0.25
+  F  F6  1  0.00004140  0.58739818  0.58782109  0.75
+  O  O6  1  0.00004140  0.58739818  0.58782109  0.25
+  F  F7  1  0.58778759  0.41233672  0.58790473  0.75
+  O  O7  1  0.58778759  0.41233672  0.58790473  0.25
+</cif>",PartialOccupancyError
