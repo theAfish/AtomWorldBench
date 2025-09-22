@@ -85,6 +85,7 @@ class BaseMotif(ABC):
             cls,
             atoms: Atoms,
             seed: Optional[int] = None,
+            **kwargs,
     ) -> 'BaseMotif':
         """Detect a random motif from the given atoms.
 
