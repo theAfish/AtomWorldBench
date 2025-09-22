@@ -1,11 +1,43 @@
 from AtomWorldBench.utils.coord_utils import (
     check_coordinates_shape,
+    check_lattice_matrix_shape,
     check_integer_translation,
     find_coordinate_subset_indices,
 )
 
 import numpy as np
 import numpy.testing as npt
+
+
+def test_check_lattice_matrix():
+    # Test valid 3x3 matrix
+    arr = np.array([[1.0, 0.0, 0.0],
+                    [0.0, 1.0, 0.0],
+                    [0.0, 0.0, 1.0]])
+    result = check_lattice_matrix_shape(arr, "lattice")
+    npt.assert_array_equal(result, arr)
+
+    # Test invalid shape
+    arr_invalid = np.array([[1.0, 0.0],
+                            [0.0, 1.0]])
+    try:
+        check_lattice_matrix_shape(arr_invalid, "lattice")
+    except ValueError as e:
+        assert str(e) == (
+            "lattice expected 2D array with shape (3, 3), got shape (2, 2)"
+        )
+
+    # Test None.
+    result = check_lattice_matrix_shape(
+        None, "lattice", allow_none=True
+    )
+    assert result is None
+    try:
+        check_lattice_matrix_shape(
+            None, "lattice", allow_none=False
+        )
+    except ValueError as e:
+        assert str(e) == "lattice cannot be None."
 
 
 def test_check_coordinates_shape():

@@ -4,6 +4,37 @@ import numpy as np
 from numpy.typing import ArrayLike
 
 
+def check_lattice_matrix_shape(
+        matrix: ArrayLike,
+        name: Optional[str] = None,
+        allow_none: bool = True,
+) -> Union[np.ndarray, None]:
+    """Check if the shape of the lattice matrix is 3*3.
+
+    Returns np.ndarray if the shape matches, otherwise throws an error.
+    Args:
+        matrix (ArrayLike): The fractional coordinates to check.
+        name (Optional[str]): Optional name for the coordinates, used in error messages.
+        allow_none (bool): If True, allows None as a valid input. Default is True.
+    Returns:
+        np.ndarray | None: The input coordinates as a numpy array if the shape is valid and
+            is not None, or None if allow_none is True and coord is None, otherwise raises
+            an error.
+    """
+    if matrix is None:
+        if allow_none:
+            return None
+        raise ValueError(f"{name} cannot be None.")
+    matrix = np.asarray(matrix, dtype=float)
+    name = name or "lattice matrix"
+    if matrix.shape != (3, 3):
+        raise ValueError(
+            f"{name} expected 2D array with shape (3, 3),"
+            f" got shape {matrix.shape}"
+        )
+    return matrix
+
+
 def check_coordinates_shape(
         coord: ArrayLike,
         name: Optional[str] = None,

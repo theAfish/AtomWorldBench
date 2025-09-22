@@ -1,7 +1,7 @@
-from .base import BaseMotifAction
+from .base import BaseStructureAction
 from ....common.registry import derived_class_factory
 
-def motif_action_factory(
+def structure_action_factory(
         action_name: str,
         *args,
         **kwargs):
@@ -14,6 +14,6 @@ def motif_action_factory(
         *args: Positional arguments to pass to the action's constructor.
         **kwargs: Keyword arguments to pass to the action's constructor.
     Returns:
-        BaseMotifAction: An instance of the requested action type.
+        BaseStructureAction: An instance of the requested action type.
     """
-    return derived_class_factory(action_name, BaseMotifAction, *args, **kwargs)
+    return derived_class_factory(action_name, BaseStructureAction, *args, **kwargs)
