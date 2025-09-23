@@ -1,0 +1,12 @@
+2025-09-23 09:52:53,044 - AtomWorldEvaluator - INFO - Starting evaluation with 50 samples in batches of 50
+2025-09-23 09:52:53,049 - AtomWorldEvaluator - DEBUG - Processing batch 1 of 1
+2025-09-23 10:29:11,280 - AtomWorldEvaluator - INFO - Evaluation completed
+2025-09-23 10:29:11,281 - AtomWorldEvaluator - INFO - summary: {'total_samples': 50, 'success_count': 13, 'error_count': 37, 'success_rate': 0.26, 'error_types': {'OutputFormatError': {'count': 12, 'percentage': 0.32432432432432434}, 'StructureMismatch': {'count': 13, 'percentage': 0.35135135135135137}, 'CIFParsingError': {'count': 11, 'percentage': 0.2972972972972973}, 'AtomCountMismatch': {'count': 1, 'percentage': 0.02702702702702703}}} - statistics: {'rmsd_mean': np.float64(0.02613107026325631), 'rmsd_median': np.float64(6.99278503620992e-07), 'rmsd_max': np.float64(0.17546004816247496), 'rmsd_min': np.float64(3.997983042855988e-16), 'max_diff_mean': np.float64(0.058505353517881185), 'max_diff_median': np.float64(2.521284501178128e-06), 'max_diff_max': np.float64(0.3733709746340103), 'max_diff_min': np.float64(9.281622393240027e-16)}
+2025-09-23 10:29:11,284 - AtomWorldEvaluator - INFO - Saved metrics to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/AtomWorld/qwen3_32B/super_cell_action/20250923_095251/metrics.json
+2025-09-23 10:29:11,297 - AtomWorldEvaluator - INFO - Evaluation results saved to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/AtomWorld/qwen3_32B/super_cell_action/20250923_095251/evaluation_results.csv
+2025-09-23 10:29:11,324 - AtomWorldEvaluator - INFO - Failed cases saved to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/AtomWorld/qwen3_32B/super_cell_action/20250923_095251/evaluation_wrongs.csv
+2025-09-23 10:29:11,324 - AtomWorldEvaluator - INFO - 
+======== Evaluation Summary ========
+2025-09-23 10:29:11,325 - AtomWorldEvaluator - INFO - Total inputs: 1000
+2025-09-23 10:29:11,325 - AtomWorldEvaluator - INFO - num_unreadable_out: 12
+2025-09-23 10:29:11,325 - AtomWorldEvaluator - INFO - num_invalid_cif: 25
