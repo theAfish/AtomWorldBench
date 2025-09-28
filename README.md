@@ -3,16 +3,6 @@
 Testing LLMs' ability on operating 3D atomic structures.
 
 
-## Installation for dev
-
-```
-pip install -e .
-```
-
-# Atom World Bench
-
-Testing LLMs' ability on operating 3D atomic structures.
-
 ---
 
 ## Table of Contents
@@ -20,10 +10,11 @@ Testing LLMs' ability on operating 3D atomic structures.
 - [Installation](#installation)
 - [Usage](#usage)
   - [Run the Benchmark](#run-the-benchmark)
+    - [Available Benchmarks](#available-benchmarks)
+    - [Available Actions](#available-actions)
   - [Analyze the Results](#analyze-the-results)
   - [Construct Your Own Data](#construct-your-own-data-with-mp-api)
-- [Available Benchmarks](#available-benchmarks)
-- [Available Actions](#available-actions)
+
 
 ---
 
