@@ -100,8 +100,8 @@ def test_insert_atom_actions():
     insert_between_action = InsertBetweenAtomsAction(atoms, 0, 1, 'O', 0.4)
     result = insert_between_action.execute()
 
-    out_dir = _ensure_outputs_dir()
-    ase.io.write(os.path.join(out_dir, 'Li6PS5Cl_insert_between.cif'), result)
+    # out_dir = _ensure_outputs_dir()
+    # ase.io.write(os.path.join(out_dir, 'Li6PS5Cl_insert_between.cif'), result)
 
     assert len(result) == len(atoms) + 1
 
@@ -116,8 +116,8 @@ def test_delete_below():
     delete_below_action = DeleteBelowAtomAction(atoms, 10)
     result = delete_below_action.execute()
 
-    out_dir = _ensure_outputs_dir()
-    ase.io.write(os.path.join(out_dir, 'Li6PS5Cl_delete_below.cif'), result)
+    # out_dir = _ensure_outputs_dir()
+    # ase.io.write(os.path.join(out_dir, 'Li6PS5Cl_delete_below.cif'), result)
 
     assert len(result) < len(atoms)  # Atoms should be removed
 
@@ -132,8 +132,8 @@ def test_delete_around():
     delete_around_action = DeleteAroundAtomAction(atoms, 6, 3.0)
     result = delete_around_action.execute()
 
-    out_dir = _ensure_outputs_dir()
-    ase.io.write(os.path.join(out_dir, 'Li6PS5Cl_delete_around.cif'), result)
+    # out_dir = _ensure_outputs_dir()
+    # ase.io.write(os.path.join(out_dir, 'Li6PS5Cl_delete_around.cif'), result)
 
     assert len(result) < len(atoms)  # Atoms should be removed around the specified atom
 
@@ -148,7 +148,7 @@ def test_move_around():
     move_around_action = MoveAroundAtomAction(atoms, 6, 8.0, np.array([12.0, 0.0, 0.0]))
     result = move_around_action.execute()
 
-    out_dir = _ensure_outputs_dir()
-    ase.io.write(os.path.join(out_dir, 'Li6PS5Cl_move_around.cif'), result)
+    # out_dir = _ensure_outputs_dir()
+    # ase.io.write(os.path.join(out_dir, 'Li6PS5Cl_move_around.cif'), result)
 
     assert len(result) == len(atoms)  # Number of atoms should remain the same
