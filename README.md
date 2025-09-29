@@ -2,6 +2,13 @@
 
 Testing LLMs' ability on operating 3D atomic structures.
 
+<p align="center">
+  <img src="docs/img/main1.png" width="50%">
+</p>
+
+
+> *"Forget the messy details, I just need a model that can play Lego with atoms."* ⚛️🤖
+
 
 ---
 
@@ -152,3 +159,6 @@ Contributions are welcome! Please open an issue or submit a pull request for any
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Citation
+(to be updated)
