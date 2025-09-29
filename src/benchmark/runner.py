@@ -8,6 +8,9 @@ from perceptual.evaluator.cif_repair_evaluator import CIFRepairEvaluator
 from point_world.evaluator import PointWorldEvaluator
 from perceptual.utils.dataloader import load_cif_gen_data, load_data
 from .config import BenchmarkConfig
+import importlib.util
+import sys
+from pathlib import Path
 
 class BenchmarkRunner:
     """Factory class for creating and running different types of benchmarks"""
@@ -98,3 +101,54 @@ class BenchmarkRunner:
             num_batch=self.config.num_batch,
             restart_from_index=self.config.restart_from_index if self.config.restart_from_index else 0
         )
+        # Optionally generate max_dist histogram after evaluation for supported benchmarks
+        if getattr(self.config, "plot", False):
+            # Only supported for atomworld, pointworld, cifgen
+            if self.config.benchmark_type not in ("atomworld", "pointworld", "cifgen"):
+                print(f"Plotting not supported for benchmark type: {self.config.benchmark_type}")
+                return
+
+            model_name = self.config.model_id
+            action_name = self.config.action if self.config.action else None
+            # For cifgen, reuse model_id as action placeholder
+            if self.config.benchmark_type == "cifgen":
+                action_name = None
+
+            results_base = self.config.results_dir
+
+            # Prefer direct import of the helper API
+            try:
+                # ensure src is importable
+                if str(Path(__file__).parent.parent) not in sys.path:
+                    sys.path.append(str(Path(__file__).parent.parent))
+                from scripts.analyze_results import generate_max_dist_plot
+
+                out_path = generate_max_dist_plot(
+                    model_name=model_name,
+                    action_name=action_name,
+                    results_base=results_base,
+                    out_name=None,
+                    show=False,
+                    quiet=True,
+                )
+                print(f"Saved plot to {out_path}")
+            except Exception:
+                # Fallback: load module by path and call the programmatic API
+                try:
+                    scripts_dir = Path(__file__).parent.parent / "scripts"
+                    analyze_path = scripts_dir / "analyze_results.py"
+                    spec = importlib.util.spec_from_file_location("analyze_results", str(analyze_path))
+                    analyze_mod = importlib.util.module_from_spec(spec)
+                    sys.modules[spec.name] = analyze_mod
+                    spec.loader.exec_module(analyze_mod)  # type: ignore
+                    out_path = analyze_mod.generate_max_dist_plot(
+                        model_name=model_name,
+                        action_name=action_name,
+                        results_base=results_base,
+                        out_name=None,
+                        show=False,
+                        quiet=True,
+                    )
+                    print(f"Saved plot to {out_path}")
+                except Exception as e:
+                    print(f"Failed to generate plot: {e}")

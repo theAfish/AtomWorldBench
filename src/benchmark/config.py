@@ -22,6 +22,7 @@ class BenchmarkConfig:
 
     # Optional benchmark-specific configurations
     action: Optional[str] = None  # Required for AtomWorld and PointWorld
+    plot: bool = False  # Whether to generate the max_dist plot after evaluation
     
     @property
     def results_dir(self) -> Path:
@@ -44,6 +45,7 @@ class BenchmarkConfig:
             config_name=args.get('config', 'models'),
             results_folder=args.get('results_folder'),
             restart_from_index=args.get('restart_from_index', 0),
+            plot=args.get('plot', False),
             benchmark_type=args['benchmark_type'],
             action=args.get('action'),
         )

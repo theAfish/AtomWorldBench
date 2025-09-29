@@ -73,6 +73,11 @@ class BenchmarkArgumentParser:
             default=0,
             help="Index to restart from (for long runs that were interrupted)"
         )
+        parser.add_argument(
+            "--plot",
+            action="store_true",
+            help="Generate histogram after evaluation (for atomworld, pointworld, cifgen)"
+        )
         
         # Action argument (only used by some benchmark types)
         parser.add_argument(

@@ -88,8 +88,9 @@ class PointWorldEvaluator(BaseEvaluator):
             }
 
         matched_distances = self.match_points(points_true, points_pred)
-        mean_error = matched_distances.mean()
-        max_error = matched_distances.max()
+        # Use RMSD (root-mean-square deviation) and max difference to match AtomWorldEvaluator
+        rmsd = float(np.sqrt(np.mean(np.square(matched_distances))))
+        max_diff = float(matched_distances.max())
 
         return {
             'is_error': False,
@@ -97,14 +98,35 @@ class PointWorldEvaluator(BaseEvaluator):
             'action_prompt': row['action_prompt'],
             'generated_state_after': points_pred.tolist(),
             'target_state_after': row['state_after'],
-            'mean_error': mean_error,
-            'max_error': max_error,
+            'rmsd': rmsd,
+            'max_diff': max_diff,
             'generated_output': generated_output
         }
 
     def _log_success_metrics(self, result: Dict) -> None:
         """Log metrics for successful generations."""
-        print(f"Mean Error: {result['mean_error']}, Max Error: {result['max_error']}")
+        # Align messaging with AtomWorldEvaluator
+        print(f"RMSD: {result['rmsd']}, Max Diff: {result['max_diff']}")
+
+
+    def _calculate_result_statistics(self, results):
+        """
+        Calculate statistical metrics from successful results.
+        """
+        rmsd_values = [res['rmsd'] for res in results if not res['is_error']]
+        max_diff_values = [res['max_diff'] for res in results if not res['is_error']]
+        
+        stats = {
+            'rmsd_mean': sum(rmsd_values) / len(rmsd_values) if rmsd_values else None,
+            'rmsd_median': sorted(rmsd_values)[len(rmsd_values)//2] if rmsd_values else None,
+            'rmsd_max': max(rmsd_values) if rmsd_values else None,
+            'rmsd_min': min(rmsd_values) if rmsd_values else None,
+            'max_diff_mean': sum(max_diff_values) / len(max_diff_values) if max_diff_values else None,
+            'max_diff_median': sorted(max_diff_values)[len(max_diff_values)//2] if max_diff_values else None,
+            'max_diff_max': max(max_diff_values) if max_diff_values else None,
+            'max_diff_min': min(max_diff_values) if max_diff_values else None,
+        }
+        return stats
 
     def _print_summary(self, stats: Dict) -> None:
         """Print evaluation summary."""
@@ -115,9 +137,9 @@ class PointWorldEvaluator(BaseEvaluator):
         if 'results' in stats:
             results = [r for r in stats['results'] if not r.get('is_error', False)]
             if results:
-                avg_max_error = np.mean([r['max_error'] for r in results])
-                avg_mean_error = np.mean([r['mean_error'] for r in results])
-                print(f"Average Max Error: {avg_max_error}, Average Mean Error: {avg_mean_error}")
+                avg_max_diff = np.mean([r['max_diff'] for r in results])
+                avg_rmsd = np.mean([r['rmsd'] for r in results])
+                print(f"Average Max Diff: {avg_max_diff}, Average RMSD: {avg_rmsd}")
             else:
                 print("No successful results to compute average errors")
 
