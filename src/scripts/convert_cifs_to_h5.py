@@ -11,12 +11,13 @@ names = [
     # 'move_selected_atoms_action',
     # 'move_towards_atom_action',
     # 'remove_atom_action',
-    'rotate_around_atom_action',
-    # 'swap_atoms_action'
+    # 'rotate_around_atom_action',
+    # 'swap_atoms_action',
+    'super_cell_action'
 ]
 
 for name in names:
-    cif_folder = f'D:/Codes/AtomWorld/src/data/raw_data/output_cifs/{name}'
+    cif_folder = f'D:/Codes/AtomWorld/src/data/_raw_data/output_cifs/{name}'
     cif_files_list = [os.path.join(cif_folder, f) for f in os.listdir(cif_folder) if f.lower().endswith('.cif')]
 
     hdf5_output_path = f'{name}.hdf5'

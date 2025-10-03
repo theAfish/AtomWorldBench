@@ -1,0 +1,12 @@
+2025-09-19 16:48:33,835 - CIFRepairEvaluator - INFO - Starting evaluation with 22 samples in batches of 22
+2025-09-19 16:48:33,836 - CIFRepairEvaluator - INFO - Resuming from index 20
+2025-09-19 16:48:33,838 - CIFRepairEvaluator - DEBUG - Processing batch 1 of 1
+2025-09-19 16:53:26,380 - CIFRepairEvaluator - INFO - Evaluation completed
+2025-09-19 16:53:26,380 - CIFRepairEvaluator - INFO - summary: {'total_samples': 2, 'success_count': 0, 'error_count': 2, 'success_rate': 0.0, 'error_types': {'CIFParsingError': {'count': 2, 'percentage': 1.0}}} - statistics: {}
+2025-09-19 16:53:26,382 - CIFRepairEvaluator - INFO - Saved metrics to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/CifRepair/qwen3_14B/20250919_164833/metrics.json
+2025-09-19 16:53:26,387 - CIFRepairEvaluator - INFO - Failed cases saved to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/CifRepair/qwen3_14B/20250919_164833/evaluation_wrongs.csv
+2025-09-19 16:53:26,387 - CIFRepairEvaluator - INFO - 
+======== Evaluation Summary ========
+2025-09-19 16:53:26,387 - CIFRepairEvaluator - INFO - Total inputs: 22
+2025-09-19 16:53:26,387 - CIFRepairEvaluator - INFO - num_unreadable_out: 0
+2025-09-19 16:53:26,387 - CIFRepairEvaluator - INFO - num_invalid_cif: 2

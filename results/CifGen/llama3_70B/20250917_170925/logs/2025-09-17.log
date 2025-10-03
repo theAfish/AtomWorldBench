@@ -1,0 +1,11 @@
+2025-09-17 17:09:26,661 - CIFGenEvaluator - INFO - Starting evaluation with 20 samples in batches of 20
+2025-09-17 17:09:26,665 - CIFGenEvaluator - DEBUG - Processing batch 1 of 1
+2025-09-17 17:32:43,063 - CIFGenEvaluator - INFO - Evaluation completed
+2025-09-17 17:32:43,063 - CIFGenEvaluator - INFO - summary: {'total_samples': 20, 'success_count': 0, 'error_count': 20, 'success_rate': 0.0, 'error_types': {'CIFParsingError': {'count': 19, 'percentage': 0.95}, 'OutputFormatError': {'count': 1, 'percentage': 0.05}}} - statistics: {}
+2025-09-17 17:32:43,065 - CIFGenEvaluator - INFO - Saved metrics to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/CifGen/llama3_70B/20250917_170925/metrics.json
+2025-09-17 17:32:43,071 - CIFGenEvaluator - INFO - Failed cases saved to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/CifGen/llama3_70B/20250917_170925/evaluation_wrongs.csv
+2025-09-17 17:32:43,071 - CIFGenEvaluator - INFO - 
+======== Evaluation Summary ========
+2025-09-17 17:32:43,071 - CIFGenEvaluator - INFO - Total inputs: 20
+2025-09-17 17:32:43,071 - CIFGenEvaluator - INFO - num_unreadable_out: 1
+2025-09-17 17:32:43,072 - CIFGenEvaluator - INFO - num_invalid_cif: 19

@@ -40,7 +40,7 @@ def cif_gen_prompt(
         "You are a materials science expert.",
         "Please generate some simple and standard structures in the CIF format according to the requirements.",
         "You must strictly follow the CIF format specifications.",
-        "Since the symmetry-related information can be complex, you can write the CIF file with P1 symmetry when necessary.",
+        "Since the symmetry-related information can be complex, please write the CIF file with P1 symmetry.",
         "Please ensure the output is a correct CIF file.",
         "Return the fixed CIF content within <cif> and </cif> tags.\n",
         "Requirements:\n",

@@ -1,0 +1,12 @@
+2025-09-23 09:50:22,060 - AtomWorldEvaluator - INFO - Starting evaluation with 50 samples in batches of 50
+2025-09-23 09:50:22,066 - AtomWorldEvaluator - DEBUG - Processing batch 1 of 1
+2025-09-23 10:22:19,623 - AtomWorldEvaluator - INFO - Evaluation completed
+2025-09-23 10:22:19,624 - AtomWorldEvaluator - INFO - summary: {'total_samples': 50, 'success_count': 2, 'error_count': 48, 'success_rate': 0.04, 'error_types': {'CIFParsingError': {'count': 38, 'percentage': 0.7916666666666666}, 'AtomCountMismatch': {'count': 8, 'percentage': 0.16666666666666666}, 'StructureMismatch': {'count': 1, 'percentage': 0.020833333333333332}, 'OutputFormatError': {'count': 1, 'percentage': 0.020833333333333332}}} - statistics: {'rmsd_mean': np.float64(0.22658217901064268), 'rmsd_median': np.float64(0.45316384123214204), 'rmsd_max': np.float64(0.45316384123214204), 'rmsd_min': np.float64(5.167891433104987e-07), 'max_diff_mean': np.float64(0.2265822542020291), 'max_diff_median': np.float64(0.4531638412321428), 'max_diff_max': np.float64(0.4531638412321428), 'max_diff_min': np.float64(6.671719153534382e-07)}
+2025-09-23 10:22:19,627 - AtomWorldEvaluator - INFO - Saved metrics to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/AtomWorld/llama3_70B/super_cell_action/20250923_095020/metrics.json
+2025-09-23 10:22:19,632 - AtomWorldEvaluator - INFO - Evaluation results saved to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/AtomWorld/llama3_70B/super_cell_action/20250923_095020/evaluation_results.csv
+2025-09-23 10:22:19,650 - AtomWorldEvaluator - INFO - Failed cases saved to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/AtomWorld/llama3_70B/super_cell_action/20250923_095020/evaluation_wrongs.csv
+2025-09-23 10:22:19,650 - AtomWorldEvaluator - INFO - 
+======== Evaluation Summary ========
+2025-09-23 10:22:19,650 - AtomWorldEvaluator - INFO - Total inputs: 1000
+2025-09-23 10:22:19,650 - AtomWorldEvaluator - INFO - num_unreadable_out: 1
+2025-09-23 10:22:19,650 - AtomWorldEvaluator - INFO - num_invalid_cif: 47

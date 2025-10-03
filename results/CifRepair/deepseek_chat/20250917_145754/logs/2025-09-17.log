@@ -1,0 +1,12 @@
+2025-09-17 14:57:54,208 - CIFRepairEvaluator - INFO - Starting evaluation with 22 samples in batches of 24
+2025-09-17 14:57:54,212 - CIFRepairEvaluator - DEBUG - Processing batch 1 of all
+2025-09-17 14:59:19,302 - CIFRepairEvaluator - INFO - Evaluation completed
+2025-09-17 14:59:19,302 - CIFRepairEvaluator - INFO - summary: {'total_samples': 22, 'success_count': 20, 'error_count': 2, 'success_rate': 0.9090909090909091, 'error_types': {'StructureMismatch': {'count': 1, 'percentage': 0.5}, 'CIFParsingError': {'count': 1, 'percentage': 0.5}}} - statistics: {}
+2025-09-17 14:59:19,311 - CIFRepairEvaluator - INFO - Saved metrics to D:\Codes\AtomWorld\results\CifRepair\deepseek_chat\20250917_145754\metrics.json
+2025-09-17 14:59:19,319 - CIFRepairEvaluator - INFO - Evaluation results saved to D:\Codes\AtomWorld\results\CifRepair\deepseek_chat\20250917_145754\evaluation_results.csv
+2025-09-17 14:59:19,322 - CIFRepairEvaluator - INFO - Failed cases saved to D:\Codes\AtomWorld\results\CifRepair\deepseek_chat\20250917_145754\evaluation_wrongs.csv
+2025-09-17 14:59:19,322 - CIFRepairEvaluator - INFO - 
+======== Evaluation Summary ========
+2025-09-17 14:59:19,322 - CIFRepairEvaluator - INFO - Total inputs: 22
+2025-09-17 14:59:19,322 - CIFRepairEvaluator - INFO - num_unreadable_out: 0
+2025-09-17 14:59:19,323 - CIFRepairEvaluator - INFO - num_invalid_cif: 2

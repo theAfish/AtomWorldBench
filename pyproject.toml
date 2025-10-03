@@ -3,20 +3,27 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "atom_world_bench"
+name = "atom_world"
 version = "0.1.0"
-description = "AtomWorldBench package"
-authors = [{name = "Tau Lyu, Fengyu, Alex"}]
+description = "AtomWorld package"
+authors = [{name = "Taoyuze Lv, Alex, Fengyu Xie"}]
 dependencies = [
     "numpy",
-    "ase",
-    "pymatgen",
-    "openai",
-    "h5py",
+    "ase ==3.25.0",
+    "pymatgen ==2025.6.14",
+    "openai >=1.90.0",
+    "h5py >=3.14.0",
     "pandas",
-    "matplotlib",
-    "seaborn",
+    "matplotlib >=3.10.3",
+    "seaborn >=0.13.2",
     "transformers",
     "sentencepiece",
-    "torch"
+    "torch",
+    "tqdm",
+    "ray",
+    "packaging",
+    "scipy",
+    "mp-api",
+    "pytest",
+    "pyyaml",
 ]

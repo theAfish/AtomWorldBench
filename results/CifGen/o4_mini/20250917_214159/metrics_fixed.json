@@ -1,0 +1,21 @@
+{
+  "model": "o4_mini",
+  "folder": "20250917_214159",
+  "total": 10,
+  "correct": 8,
+  "wrong": 2,
+  "error_rate": 0.2,
+  "relabelled_from_wrong_to_correct": 0,
+  "rmsd_stats": {
+    "mean": 0.0001870598661886994,
+    "max": 0.0014964789295092,
+    "min": 0.0,
+    "median": 0.0
+  },
+  "max_diff_stats": {
+    "mean": 0.000229100611757813,
+    "max": 0.0018328048940621,
+    "min": 0.0,
+    "median": 0.0
+  }
+}

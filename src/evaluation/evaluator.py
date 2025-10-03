@@ -1,22 +1,13 @@
+from evaluation.base_evaluator import BaseEvaluator
 from models.base_model import BaseModel
-import os
-import pandas as pd
 from utils.dataloader import load_data
 from utils.extract_data import extract_from_string
 from prompts.cif_action_prompt import cif_action_prompt
 from evaluation.metrics import load_cif_file_from_string, check_atom_counts, match_structures
-from tqdm import tqdm
+from typing import Dict, Any
 import logging
-import time
 
-logging.captureWarnings(True)
-logging.basicConfig(
-    filename='run.log',
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
-)
-
-class Evaluator:
+class AtomWorldEvaluator(BaseEvaluator):
     def __init__(
             self, 
             model: BaseModel,
@@ -25,131 +16,147 @@ class Evaluator:
             results_folder: str = "results"
     ):
         """
-        Initialize the Evaluator with the data folder and optional action name.
+        Initialize the AtomWorld Evaluator.
         """
-        self.model = model
         self.data_folder = data_folder
         self.action_name = action_name
-        self.data = load_data(data_folder, action_name)
-        self.results_folder = results_folder
+        data = load_data(data_folder, action_name)
+        super().__init__(model=model, results_folder=results_folder, data=data)
 
-    def evaluate(self, batch_size: int = 8, num_batch: int = -1):
+    def _initialize_stats(self) -> Dict:
+        """Initialize statistics tracking."""
+        return {
+            'num_unreadable_out': 0,
+            'num_invalid_cif': 0,
+            'results': [] 
+        }
+
+    def _create_prompt(self, row: Any) -> str:
+        """Create a prompt from the data row."""
+        if row['input_cif'] is None:
+            raise ValueError("input_cif is None")
+            
+        return cif_action_prompt(
+            input_cif=row['input_cif'],
+            action_prompt=row['action_prompt'],
+            output_format="cif"
+        )
+
+    def _process_single_output(
+        self,
+        row: Any,
+        generated_output: str,
+        stats: Dict
+    ) -> Dict:
+        """Process a single generated output."""
+        # Extract CIF from output
+        generated_cif = extract_from_string(generated_output, format="cif")
+        if generated_cif is None:
+            logging.info("Invalid generated output")
+            stats['num_unreadable_out'] += 1
+            return {
+                'is_error': True,
+                'input_cif': row['input_cif'],
+                'action_prompt': row['action_prompt'],
+                'generated_output': generated_output,
+                'target_cif': row['output_cif'],
+                'wrong_type': "OutputFormatError"
+            }
+
+        # Parse structures for validation
+        output_structure = load_cif_file_from_string(row['output_cif'], primitive=False)
+        generated_structure = load_cif_file_from_string(generated_cif, primitive=False)
+
+        if generated_structure is None:
+            logging.info("Invalid generated structure")
+            stats['num_invalid_cif'] += 1
+            return {
+                'is_error': True,
+                'input_cif': row['input_cif'],
+                'action_prompt': row['action_prompt'],
+                'generated_output': generated_output,
+                'target_cif': row['output_cif'],
+                'wrong_type': "CIFParsingError"
+            }
+
+        # Check atom counts
+        atom_counts_match = check_atom_counts(output_structure, generated_structure)
+        if not atom_counts_match:
+            logging.info("Atom counts do not match")
+            stats['num_invalid_cif'] += 1
+            return {
+                'is_error': True,
+                'input_cif': row['input_cif'],
+                'action_prompt': row['action_prompt'],
+                'generated_output': generated_cif,
+                'target_cif': row['output_cif'],
+                'wrong_type': "AtomCountMismatch"
+            }
+
+        # Match structures
+        rmsd, max_diff = match_structures(output_structure, generated_structure, primitive_cell=False)
+        if rmsd == -1:
+            logging.info("Structures do not match")
+            stats['num_invalid_cif'] += 1
+            return {
+                'is_error': True,
+                'input_cif': row['input_cif'],
+                'action_prompt': row['action_prompt'],
+                'generated_output': generated_output,
+                'target_cif': row['output_cif'],
+                'wrong_type': "StructureMismatch"
+            }
+
+        # Success case
+        return {
+            'is_error': False,
+            'input_cif': row['input_cif'],
+            'action_prompt': row['action_prompt'],
+            'generated_cif': generated_cif,
+            'target_cif': row['output_cif'],
+            'rmsd': rmsd,
+            'max_diff': max_diff,
+            'generated_output': generated_output
+        }
+
+    def _log_success_metrics(self, result: Dict) -> None:
+        """Log metrics for successful generations."""
+        print(f"RMSD: {result['rmsd']}, Max Diff: {result['max_diff']}")
+
+    def _calculate_result_statistics(self, results):
         """
-        Evaluate the model on the provided data in batches.
+        Calculate statistical metrics from successful results.
         """
-        results = []
-        wrongs = []
-        num_unreadable_out = 0
-        num_invalid_cif = 0
-
-        prompts = []
-        rows = []
-        batch_count = 0
-        for i, row in tqdm(self.data.iterrows(), total=len(self.data), desc="LLM Calling"):
-            input_cif = row['input_cif']
-            action_prompt = row['action_prompt']
-            output_cif = row['output_cif']
-
-            # check if the input_cif is empty
-            if input_cif is None:
-                raise ValueError(f"input_cif is None at row {i}")
-
-            prompt = cif_action_prompt(
-                input_cif=input_cif,
-                action_prompt=action_prompt,
-                output_format="cif"
-            )
-            prompts.append(prompt)
-            rows.append(row)
-
-            # Process in batches
-            if len(prompts) == batch_size or i == len(self.data) - 1:
-                # Generate responses in batch
-                generated_outputs = self.model.generate_batch(prompts)
-                for j, generated_output in enumerate(generated_outputs):
-                    row = rows[j]
-                    generated_cif = extract_from_string(generated_output, format="cif")
-                    if generated_cif is None:
-                        logging.info(f"Invalid generated output for index {i - len(prompts) + 1 + j}")
-                        num_unreadable_out += 1
-                        wrongs.append({
-                            "input_cif": row['input_cif'],
-                            "action_prompt": row['action_prompt'],
-                            "generated_output": generated_output,
-                            "target_cif": row['output_cif'],
-                        })
-                        continue
-
-                    input_structure = load_cif_file_from_string(row['input_cif'])
-                    output_structure = load_cif_file_from_string(row['output_cif'])
-                    generated_structure = load_cif_file_from_string(generated_cif)
-
-                    if generated_structure is None:
-                        logging.info(f"Invalid generated structure for index {i - len(prompts) + 1 + j}")
-                        num_invalid_cif += 1
-                        wrongs.append({
-                            "input_cif": row['input_cif'],
-                            "action_prompt": row['action_prompt'],
-                            "generated_output": generated_output,
-                            "target_cif": row['output_cif'],
-                        })
-                        continue
-
-                    atom_counts_match = check_atom_counts(output_structure, generated_structure)
-                    if not atom_counts_match:
-                        logging.info(f"Atom counts do not match for index {i - len(prompts) + 1 + j}")
-                        num_invalid_cif += 1
-                        wrongs.append({
-                            "input_cif": row['input_cif'],
-                            "action_prompt": row['action_prompt'],
-                            "generated_output": generated_cif,
-                            "target_cif": row['output_cif'],
-                        })
-                        continue
-
-                    rmsd, max_diff = match_structures(output_structure, generated_structure)
-                    if rmsd == -1:
-                        logging.info(f"Structures do not match for index {i - len(prompts) + 1 + j}")
-                        num_invalid_cif += 1
-                        wrongs.append({
-                            "input_cif": row['input_cif'],
-                            "action_prompt": row['action_prompt'],
-                            "generated_output": generated_output,
-                            "target_cif": row['output_cif'],
-                        })
-                        continue
-
-                    results.append({
-                        "input_cif": row['input_cif'],
-                        "action_prompt": row['action_prompt'],
-                        "generated_cif": generated_cif,
-                        "target_cif": row['output_cif'],
-                        "rmsd": rmsd,
-                        "max_diff": max_diff,
-                    })
-                    print(f"RMSD: {rmsd}, Max Diff: {max_diff}")
-
-                prompts = []
-                rows = []
-                batch_count += 1
-
-                # Stop if num_batch is reached
-                if num_batch > 0 and batch_count >= num_batch:
-                    break
-
-        # Print summary of evaluation
-        print(f"Evaluation completed. Total inputs: {len(self.data)}, ")
-        print(f"Unreadable outputs: {num_unreadable_out}, Invalid CIFs: {num_invalid_cif}")
-
-        # Save results to a DataFrame and then to a CSV file
-        os.makedirs(self.results_folder, exist_ok=True)
+        rmsd_values = [res['rmsd'] for res in results if not res['is_error']]
+        max_diff_values = [res['max_diff'] for res in results if not res['is_error']]
         
-        results_df = pd.DataFrame(results)
-        results_csv_path = os.path.join(self.results_folder, f"{self.action_name}_evaluation_results.csv")
-        results_df.to_csv(results_csv_path, index=False)
-        print(f"Evaluation results saved to {results_csv_path}")
+        stats = {
+            'rmsd_mean': sum(rmsd_values) / len(rmsd_values) if rmsd_values else None,
+            'rmsd_median': sorted(rmsd_values)[len(rmsd_values)//2] if rmsd_values else None,
+            'rmsd_max': max(rmsd_values) if rmsd_values else None,
+            'rmsd_min': min(rmsd_values) if rmsd_values else None,
+            'max_diff_mean': sum(max_diff_values) / len(max_diff_values) if max_diff_values else None,
+            'max_diff_median': sorted(max_diff_values)[len(max_diff_values)//2] if max_diff_values else None,
+            'max_diff_max': max(max_diff_values) if max_diff_values else None,
+            'max_diff_min': min(max_diff_values) if max_diff_values else None,
+        }
+        return stats
 
-        # Save wrongs to a DataFrame and then to a CSV file
-        wrongs_df = pd.DataFrame(wrongs)
-        wrongs_csv_path = os.path.join(self.results_folder, f"{self.action_name}_evaluation_wrongs.csv")
-        wrongs_df.to_csv(wrongs_csv_path, index=False)
+    def _print_summary(self, stats: Dict) -> None:
+        """Print evaluation summary."""
+        print(f"Evaluation completed. Total inputs: {len(self.data)}")
+        print(f"Unreadable outputs: {stats['num_unreadable_out']}, Invalid CIFs: {stats['num_invalid_cif']}")
+        
+        # Calculate average metrics from successful results
+        results = stats.get('results', [])
+        if results:
+            valid_results = [r for r in results if not r.get('is_error', False)]
+            if valid_results:
+                avg_rmsd = sum(r['rmsd'] for r in valid_results) / len(valid_results)
+                avg_max_diff = sum(r['max_diff'] for r in valid_results) / len(valid_results)
+                print(f"Successful results: {len(valid_results)}")
+                print(f"Average RMSD: {avg_rmsd}, Average Max Diff: {avg_max_diff}")
+            else:
+                print("No successful results to compute averages")
+        else:
+            print("No results found in stats")
