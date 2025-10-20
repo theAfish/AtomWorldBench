@@ -1,0 +1,21 @@
+{
+  "model": "o4_mini",
+  "action": "insert_between_atoms_action",
+  "total": 250,
+  "correct": 118,
+  "wrong": 132,
+  "error_rate": 0.528,
+  "relabelled_from_wrong_to_correct": 0,
+  "rmsd_stats": {
+    "mean": 0.03415173760591946,
+    "max": 0.2237443803207356,
+    "min": 9.205038859636011e-06,
+    "median": 0.00118030801941625
+  },
+  "max_diff_stats": {
+    "mean": 0.15007375559044459,
+    "max": 0.816804353137391,
+    "min": 3.565096220456239e-05,
+    "median": 0.00478149354125585
+  }
+}

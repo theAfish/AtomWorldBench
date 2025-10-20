@@ -1,6 +1,44 @@
 import os
 import pandas as pd
 from scripts.load_data_from_h5 import load_cifs_from_hdf5
+from pymatgen.io.cif import CifParser
+import logging
+
+
+def load_cif_file(cif_file, primitive=True):
+    """
+    Load a CIF file and return the first structure.
+    If the file is not valid, return None.
+    """
+    try:
+        parser = CifParser(cif_file)
+        structures = parser.parse_structures(primitive=primitive)
+        if structures:
+            return structures[0]
+        else:
+            logging.info(f"No structures found in {cif_file}.")
+            return None
+    except Exception as e:
+        logging.info(f"Error loading CIF file {cif_file}: {e}")
+        return None
+
+def load_cif_file_from_string(cif_string, primitive=True):
+    """
+    Load a CIF file from a string and return the first structure.
+    If the string is not valid, return None.
+    """
+    try:
+        parser = CifParser.from_str(cif_string)
+        structures = parser.parse_structures(primitive=primitive)
+        if structures:
+            return structures[0]
+        else:
+            logging.info("No structures found in the CIF string.")
+            return None
+    except Exception as e:
+        logging.info(f"Error loading CIF from string: {e}")
+        return None
+
 
 def load_data(data_folder, action_name=None):
     """

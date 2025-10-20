@@ -1,0 +1,21 @@
+{
+  "model": "qwen3_32B",
+  "action": "add_atom_action",
+  "total": 250,
+  "correct": 204,
+  "wrong": 46,
+  "error_rate": 0.184,
+  "relabelled_from_wrong_to_correct": 9,
+  "rmsd_stats": {
+    "mean": 0.007372097666064482,
+    "max": 0.1761584404375641,
+    "min": 8.041325592047781e-33,
+    "median": 0.0002297303521475
+  },
+  "max_diff_stats": {
+    "mean": 0.03520191970651194,
+    "max": 0.7046337617502564,
+    "min": 1.313142970406727e-32,
+    "median": 0.0011375202387297
+  }
+}

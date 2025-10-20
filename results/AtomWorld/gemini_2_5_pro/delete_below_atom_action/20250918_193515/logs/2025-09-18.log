@@ -1,0 +1,21 @@
+2025-09-18 19:35:16,201 - AtomWorldEvaluator - INFO - Starting evaluation with 50 samples in batches of 5
+2025-09-18 19:35:16,204 - AtomWorldEvaluator - DEBUG - Processing batch 1 of 10
+2025-09-18 19:36:38,018 - AtomWorldEvaluator - DEBUG - Processing batch 2 of 10
+2025-09-18 19:37:30,253 - AtomWorldEvaluator - DEBUG - Processing batch 3 of 10
+2025-09-18 19:38:27,230 - AtomWorldEvaluator - DEBUG - Processing batch 4 of 10
+2025-09-18 19:39:22,777 - AtomWorldEvaluator - DEBUG - Processing batch 5 of 10
+2025-09-18 19:40:18,395 - AtomWorldEvaluator - DEBUG - Processing batch 6 of 10
+2025-09-18 19:41:14,824 - AtomWorldEvaluator - DEBUG - Processing batch 7 of 10
+2025-09-18 19:42:02,873 - AtomWorldEvaluator - DEBUG - Processing batch 8 of 10
+2025-09-18 19:43:08,164 - AtomWorldEvaluator - DEBUG - Processing batch 9 of 10
+2025-09-18 19:44:30,434 - AtomWorldEvaluator - DEBUG - Processing batch 10 of 10
+2025-09-18 19:45:47,093 - AtomWorldEvaluator - INFO - Evaluation completed
+2025-09-18 19:45:47,093 - AtomWorldEvaluator - INFO - summary: {'total_samples': 50, 'success_count': 16, 'error_count': 34, 'success_rate': 0.32, 'error_types': {'AtomCountMismatch': {'count': 21, 'percentage': 0.6176470588235294}, 'OutputFormatError': {'count': 11, 'percentage': 0.3235294117647059}, 'CIFParsingError': {'count': 2, 'percentage': 0.058823529411764705}}} - statistics: {'rmsd_mean': np.float64(3.389915807774536e-08), 'rmsd_median': np.float64(1.5699253700998593e-16), 'rmsd_max': np.float64(5.423865262312965e-07), 'rmsd_min': np.float64(0.0), 'max_diff_mean': np.float64(7.580082176081316e-08), 'max_diff_median': np.float64(2.8850327670009603e-16), 'max_diff_max': np.float64(1.2128131427891843e-06), 'max_diff_min': np.float64(0.0)}
+2025-09-18 19:45:47,096 - AtomWorldEvaluator - INFO - Saved metrics to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/AtomWorld/gemini_2_5_pro/delete_below_atom_action/20250918_193515/metrics.json
+2025-09-18 19:45:47,106 - AtomWorldEvaluator - INFO - Evaluation results saved to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/AtomWorld/gemini_2_5_pro/delete_below_atom_action/20250918_193515/evaluation_results.csv
+2025-09-18 19:45:47,111 - AtomWorldEvaluator - INFO - Failed cases saved to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/AtomWorld/gemini_2_5_pro/delete_below_atom_action/20250918_193515/evaluation_wrongs.csv
+2025-09-18 19:45:47,111 - AtomWorldEvaluator - INFO - 
+======== Evaluation Summary ========
+2025-09-18 19:45:47,111 - AtomWorldEvaluator - INFO - Total inputs: 999
+2025-09-18 19:45:47,111 - AtomWorldEvaluator - INFO - num_unreadable_out: 11
+2025-09-18 19:45:47,111 - AtomWorldEvaluator - INFO - num_invalid_cif: 23

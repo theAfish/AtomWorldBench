@@ -1,0 +1,21 @@
+{
+  "model": "llama3_70b",
+  "action": "swap_atoms_action",
+  "total": 50,
+  "correct": 16,
+  "wrong": 34,
+  "error_rate": 0.68,
+  "relabelled_from_wrong_to_correct": 1,
+  "rmsd_stats": {
+    "mean": 0.002104568740839961,
+    "max": 0.0315640992987288,
+    "min": 0.0,
+    "median": 2.909836220905426e-16
+  },
+  "max_diff_stats": {
+    "mean": 0.003430660360081596,
+    "max": 0.0514554433845544,
+    "min": 0.0,
+    "median": 6.625542473173169e-16
+  }
+}

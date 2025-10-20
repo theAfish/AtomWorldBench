@@ -1,0 +1,21 @@
+{
+  "model": "deepseek_chat",
+  "folder": "20250917_143546",
+  "total": 20,
+  "correct": 14,
+  "wrong": 6,
+  "error_rate": 0.3,
+  "relabelled_from_wrong_to_correct": 0,
+  "rmsd_stats": {
+    "mean": 0.020429939142325975,
+    "max": 0.2836403713947272,
+    "min": 0.0,
+    "median": 2.2047245873824632e-17
+  },
+  "max_diff_stats": {
+    "mean": 0.03529949491226859,
+    "max": 0.4912795343333736,
+    "min": 0.0,
+    "median": 2.2047245873824635e-17
+  }
+}

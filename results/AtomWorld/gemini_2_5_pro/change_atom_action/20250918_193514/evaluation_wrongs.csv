@@ -1,0 +1,388 @@
+is_error,input_cif,action_prompt,generated_output,target_cif,wrong_type
+True,"# generated using pymatgen
+data_LiMg14Zn
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.32435267
+_cell_length_b   6.34051792
+_cell_length_c   10.15608974
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   120.08459417
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   LiMg14Zn
+_chemical_formula_sum   'Li1 Mg14 Zn1'
+_cell_volume   352.39289220
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Li  Li0  1  0.16465482  0.83232691  0.12500000  1
+  Mg  Mg1  1  0.16776354  0.33388127  0.62500000  1
+  Mg  Mg2  1  0.16793737  0.83396819  0.62500000  1
+  Mg  Mg3  1  0.66937456  0.33703579  0.12500000  1
+  Mg  Mg4  1  0.66582678  0.33270714  0.62500000  1
+  Mg  Mg5  1  0.66937456  0.83233777  0.12500000  1
+  Mg  Mg6  1  0.66582678  0.83311865  0.62500000  1
+  Mg  Mg7  1  0.32915115  0.16656697  0.36768643  1
+  Mg  Mg8  1  0.32915115  0.16656697  0.88231357  1
+  Mg  Mg9  1  0.32915115  0.66258518  0.36768643  1
+  Mg  Mg10  1  0.32915115  0.66258518  0.88231357  1
+  Mg  Mg11  1  0.83727838  0.16863969  0.36978368  1
+  Mg  Mg12  1  0.83727838  0.16863969  0.88021632  1
+  Mg  Mg13  1  0.83436570  0.66718335  0.37514166  1
+  Mg  Mg14  1  0.83436570  0.66718335  0.87485834  1
+  Zn  Zn15  1  0.16934880  0.33467390  0.12500000  1
+",Change the atom at index 4 into Sm in the cif file. The indices of atoms are started from 0.,"```cif
+# generated using pymatgen
+data_LiMg13SmZn
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.32435267
+_cell_length_b   6.34051792
+_cell_length_c   10.15608974
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   120.08459417
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   LiMg13SmZn
+_chemical_formula_sum   'Li1 Mg13 Sm1 Zn1'
+_cell_volume   352.39289220
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Li  Li0  1  0.16465482  0.83232691  0.12500000  1
+  Mg  Mg1  1  0.16776354  0.33388127  0.62500000  1
+  Mg  Mg2  1  0.16793737  0.83396819  0.62500000  1
+  Mg  Mg3  1  0.66937456  0.33703579  0.12500000  1
+  Sm  Sm4  1  0.66582678  0.33270714  0.62500000  1
+  Mg  Mg5  1  0.66937456  0.83233777  0.12500000  1
+  Mg  Mg6  1  0.66582678  0.83311865  0.62500000  1
+  Mg  Mg7  1  0.32915115  0.16656697  0.36768643  1
+  Mg  Mg8  1  0.32915115  0.16656697  0.88231357  1
+  Mg  Mg9  1  0.32915115  0.66258518  0.36768643  1
+  Mg  Mg10  1  0.32915115  0.66258518  0.88231357  1
+  Mg  Mg11  1  0.83727838  0.16863969  0.36978368  1
+  Mg  Mg12  1  0.83727838  0.16863969  0.88021632  1
+  Mg  Mg13  1  0.83436570  0.66718335  0.37514166  1
+  Mg  Mg14  1  0.83436570  0.66718335  0.87485834  1
+  Zn  Zn15  1  0.16934880  0.33467390  0.12500000  1
+```","data_image0
+_chemical_formula_structural       LiMg3SmMg10Zn
+_chemical_formula_sum              ""Li1 Mg13 Sm1 Zn1""
+_cell_length_a       6.32435267
+_cell_length_b       6.34051792
+_cell_length_c       10.15608974
+_cell_angle_alpha    90.0
+_cell_angle_beta     90.0
+_cell_angle_gamma    120.08459416999999
+
+_space_group_name_H-M_alt    ""P 1""
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Li  Li1       1.0  0.16465481999999995  0.83232691  0.125  1.0000
+  Mg  Mg1       1.0  0.16776354  0.33388127  0.625  1.0000
+  Mg  Mg2       1.0  0.16793737  0.83396819  0.625  1.0000
+  Mg  Mg3       1.0  0.66937456  0.33703579  0.125  1.0000
+  Sm  Sm1       1.0  0.66582678  0.33270714  0.625  1.0000
+  Mg  Mg4       1.0  0.66937456  0.83233777  0.125  1.0000
+  Mg  Mg5       1.0  0.66582678  0.83311865  0.625  1.0000
+  Mg  Mg6       1.0  0.32915115  0.16656697  0.36768643  1.0000
+  Mg  Mg7       1.0  0.32915115  0.16656697  0.8823135699999999  1.0000
+  Mg  Mg8       1.0  0.32915115  0.66258518  0.36768643  1.0000
+  Mg  Mg9       1.0  0.32915115  0.66258518  0.8823135699999999  1.0000
+  Mg  Mg10      1.0  0.83727838  0.16863969  0.36978368  1.0000
+  Mg  Mg11      1.0  0.83727838  0.16863969  0.8802163200000002  1.0000
+  Mg  Mg12      1.0  0.8343657  0.66718335  0.37514166  1.0000
+  Mg  Mg13      1.0  0.8343657  0.66718335  0.8748583400000001  1.0000
+  Zn  Zn1       1.0  0.1693488  0.3346739  0.125  1.0000
+",OutputFormatError
+True,"# generated using pymatgen
+data_Mg2VN3
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.72470112
+_cell_length_b   5.79942676
+_cell_length_c   5.04314691
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   120.43273715
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Mg2VN3
+_chemical_formula_sum   'Mg4 V2 N6'
+_cell_volume   144.36430078
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Mg  Mg0  1  0.33004881  0.33065254  0.47661723  1
+  Mg  Mg1  1  0.66995119  0.00060373  0.47661723  1
+  Mg  Mg2  1  0.66995119  0.66934746  0.97661723  1
+  Mg  Mg3  1  0.33004881  0.99939627  0.97661723  1
+  V  V4  1  0.00000000  0.66376462  0.48207808  1
+  V  V5  1  1.00000000  0.33623538  0.98207808  1
+  N  N6  1  0.29779726  0.33246560  0.89428712  1
+  N  N7  1  0.70220274  0.03466734  0.89428712  1
+  N  N8  1  0.70220274  0.66753440  0.39428712  1
+  N  N9  1  0.29779726  0.96533266  0.39428712  1
+  N  N10  1  1.00000000  0.63668009  0.84811522  1
+  N  N11  1  0.00000000  0.36331991  0.34811522  1
+",Change the atom at index 10 into Cn in the cif file. The indices of atoms are started from 0.,"```cif
+# generated using pymatgen
+data_Mg4V2N5Cn
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.72470112
+_cell_length_b   5.79942676
+_cell_length_c   5.04314691
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   120.43273715
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Mg4V2N5Cn
+_chemical_formula_sum   'Cn1 Mg4 N5 V2'
+_cell_volume   144.36430078
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Mg  Mg0  1  0.33004881  0.33065254  0.47661723  1
+  Mg  Mg1  1  0.66995119  0.00060373  0.47661723  1
+  Mg  Mg2  1  0.66995119  0.66934746  0.97661723  1
+  Mg  Mg3  1  0.33004881  0.99939627  0.97661723  1
+  V  V4  1  0.00000000  0.66376462  0.48207808  1
+  V  V5  1  1.00000000  0.33623538  0.98207808  1
+  N  N6  1  0.29779726  0.33246560  0.89428712  1
+  N  N7  1  0.70220274  0.03466734  0.89428712  1
+  N  N8  1  0.70220274  0.66753440  0.39428712  1
+  N  N9  1  0.29779726  0.96533266  0.39428712  1
+  Cn  Cn10  1  1.00000000  0.63668009  0.84811522  1
+  N  N11  1  0.00000000  0.36331991  0.34811522  1
+```","data_image0
+_chemical_formula_structural       Mg4V2N4CnN
+_chemical_formula_sum              ""Mg4 V2 N5 Cn1""
+_cell_length_a       5.72470112
+_cell_length_b       5.79942676
+_cell_length_c       5.04314691
+_cell_angle_alpha    90.0
+_cell_angle_beta     90.0
+_cell_angle_gamma    120.43273715
+
+_space_group_name_H-M_alt    ""P 1""
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Mg  Mg1       1.0  0.33004881  0.33065254  0.47661722999999995  1.0000
+  Mg  Mg2       1.0  0.66995119  0.00060373  0.47661722999999995  1.0000
+  Mg  Mg3       1.0  0.66995119  0.66934746  0.97661723  1.0000
+  Mg  Mg4       1.0  0.33004881  0.99939627  0.97661723  1.0000
+  V   V1        1.0  0.0  0.66376462  0.48207807999999996  1.0000
+  V   V2        1.0  0.9999999999999998  0.33623538  0.9820780799999999  1.0000
+  N   N1        1.0  0.29779726  0.3324656  0.89428712  1.0000
+  N   N2        1.0  0.70220274  0.03466734  0.89428712  1.0000
+  N   N3        1.0  0.70220274  0.6675344  0.39428712  1.0000
+  N   N4        1.0  0.2977972599999999  0.96533266  0.39428712  1.0000
+  Cn  Cn1       1.0  0.9999999999999998  0.63668009  0.84811522  1.0000
+  N   N5        1.0  0.0  0.36331991  0.34811522  1.0000
+",OutputFormatError
+True,"# generated using pymatgen
+data_W3O8
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.85316700
+_cell_length_b   5.07225600
+_cell_length_c   10.84266188
+_cell_angle_alpha   62.75643741
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   W3O8
+_chemical_formula_sum   'W6 O16'
+_cell_volume   286.19580069
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  W  W0  1  0.65527100  0.50000000  0.75000000  1
+  W  W1  1  0.34472900  0.50000000  0.25000000  1
+  W  W2  1  0.83057200  0.75956900  0.00601100  1
+  W  W3  1  0.83057200  0.24043100  0.49398900  1
+  W  W4  1  0.16942800  0.24043100  0.99398900  1
+  W  W5  1  0.16942800  0.75956900  0.50601100  1
+  O  O6  1  0.65562100  0.95429500  0.63159900  1
+  O  O7  1  0.65562100  0.04570500  0.86840100  1
+  O  O8  1  0.34437900  0.04570500  0.36840100  1
+  O  O9  1  0.34437900  0.95429500  0.13159900  1
+  O  O10  1  0.10967000  0.47698600  0.10505300  1
+  O  O11  1  0.10967000  0.52301400  0.39494700  1
+  O  O12  1  0.89033000  0.52301400  0.89494700  1
+  O  O13  1  0.89033000  0.47698600  0.60505300  1
+  O  O14  1  0.39745100  0.51629700  0.61803700  1
+  O  O15  1  0.39745100  0.48370300  0.88196300  1
+  O  O16  1  0.60254900  0.48370300  0.38196300  1
+  O  O17  1  0.60254900  0.51629700  0.11803700  1
+  O  O18  1  0.10630100  0.95793100  0.60875300  1
+  O  O19  1  0.89369900  0.04206900  0.39124700  1
+  O  O20  1  0.10630100  0.04206900  0.89124700  1
+  O  O21  1  0.89369900  0.95793100  0.10875300  1
+",Change the atom at index 10 into Fr in the cif file. The indices of atoms are started from 0.,"```cif
+# generated using pymatgen
+data_W3O8
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.85316700
+_cell_length_b   5.07225600
+_cell_length_c   10.84266188
+_cell_angle_alpha   62.75643741
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   FrO15W6
+_chemical_formula_sum   'Fr1 O15 W6'
+_cell_volume   286.19580069
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  W  W0  1  0.65527100  0.50000000  0.75000000  1
+  W  W1  1  0.34472900  0.50000000  0.25000000  1
+  W  W2  1  0.83057200  0.75956900  0.00601100  1
+  W  W3  1  0.83057200  0.24043100  0.49398900  1
+  W  W4  1  0.16942800  0.24043100  0.99398900  1
+  W  W5  1  0.16942800  0.75956900  0.50601100  1
+  O  O6  1  0.65562100  0.95429500  0.63159900  1
+  O  O7  1  0.65562100  0.04570500  0.86840100  1
+  O  O8  1  0.34437900  0.04570500  0.36840100  1
+  O  O9  1  0.34437900  0.95429500  0.13159900  1
+  Fr  Fr10  1  0.10967000  0.47698600  0.10505300  1
+  O  O11  1  0.10967000  0.52301400  0.39494700  1
+  O  O12  1  0.89033000  0.52301400  0.89494700  1
+  O  O13  1  0.89033000  0.47698600  0.60505300  1
+  O  O14  1  0.39745100  0.51629700  0.61803700  1
+  O  O15  1  0.39745100  0.48370300  0.88196300  1
+  O  O16  1  0.60254900  0.48370300  0.38196300  1
+  O  O17  1  0.60254900  0.51629700  0.11803700  1
+  O  O18  1  0.10630100  0.95793100  0.60875300  1
+  O  O19  1  0.89369900  0.04206900  0.39124700  1
+  O  O20  1  0.10630100  0.04206900  0.89124700  1
+  O  O21  1  0.89369900  0.95793100  0.10875300  1
+```","data_image0
+_chemical_formula_structural       W6O4FrO11
+_chemical_formula_sum              ""W6 O15 Fr1""
+_cell_length_a       5.853167
+_cell_length_b       5.072256
+_cell_length_c       10.84266188
+_cell_angle_alpha    62.75643741
+_cell_angle_beta     90.0
+_cell_angle_gamma    90.0
+
+_space_group_name_H-M_alt    ""P 1""
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  W   W1        1.0  0.655271  0.5000000000000001  0.75  1.0000
+  W   W2        1.0  0.344729  0.5  0.25  1.0000
+  W   W3        1.0  0.830572  0.759569  0.006011  1.0000
+  W   W4        1.0  0.830572  0.240431  0.493989  1.0000
+  W   W5        1.0  0.16942799999999997  0.240431  0.993989  1.0000
+  W   W6        1.0  0.16942799999999997  0.7595690000000002  0.506011  1.0000
+  O   O1        1.0  0.6556209999999999  0.954295  0.631599  1.0000
+  O   O2        1.0  0.6556209999999999  0.04570499999999998  0.868401  1.0000
+  O   O3        1.0  0.344379  0.04570499999999998  0.368401  1.0000
+  O   O4        1.0  0.344379  0.954295  0.131599  1.0000
+  Fr  Fr1       1.0  0.10966999999999998  0.4769859999999999  0.10505300000000001  1.0000
+  O   O5        1.0  0.10966999999999998  0.5230140000000001  0.394947  1.0000
+  O   O6        1.0  0.89033  0.5230139999999998  0.894947  1.0000
+  O   O7        1.0  0.89033  0.476986  0.605053  1.0000
+  O   O8        1.0  0.397451  0.516297  0.618037  1.0000
+  O   O9        1.0  0.397451  0.4837030000000001  0.881963  1.0000
+  O   O10       1.0  0.6025489999999999  0.4837030000000001  0.381963  1.0000
+  O   O11       1.0  0.6025489999999999  0.516297  0.11803700000000002  1.0000
+  O   O12       1.0  0.10630099999999998  0.9579309999999999  0.608753  1.0000
+  O   O13       1.0  0.893699  0.04206899999999998  0.391247  1.0000
+  O   O14       1.0  0.10630099999999998  0.042069000000000106  0.891247  1.0000
+  O   O15       1.0  0.893699  0.9579309999999999  0.10875300000000002  1.0000
+",OutputFormatError

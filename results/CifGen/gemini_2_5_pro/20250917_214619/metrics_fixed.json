@@ -1,0 +1,21 @@
+{
+  "model": "gemini_2_5_pro",
+  "folder": "20250917_214619",
+  "total": 10,
+  "correct": 10,
+  "wrong": 0,
+  "error_rate": 0.0,
+  "relabelled_from_wrong_to_correct": 0,
+  "rmsd_stats": {
+    "mean": 0.0001649604971120223,
+    "max": 0.0016496049711196,
+    "min": 0.0,
+    "median": 3.517112598101296e-17
+  },
+  "max_diff_stats": {
+    "mean": 0.0002020345228201732,
+    "max": 0.0020203452282011,
+    "min": 0.0,
+    "median": 3.5171125981012964e-17
+  }
+}

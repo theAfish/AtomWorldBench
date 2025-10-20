@@ -3,18 +3,21 @@ deepseek_chat:
   model_name: deepseek-chat 
   api_key: ${DEEPSEEK_API_KEY} 
   base_url: https://api.deepseek.com/v1
+  temperature: 1.0
 
 deepseek_reasoner:
   class: OpenAIModel 
   model_name: deepseek-reasoner 
   api_key: ${DEEPSEEK_API_KEY} 
   base_url: https://api.deepseek.com/v1 
+  temperature: 1.0
 
 gpt_4o:
   class: OpenAIModel
   model_name: gpt-4o
   api_key: ${OPENAI_API_KEY}
   base_url: https://api.openai.com/v1 
+  temperature: 1.0
 
 azure_openai_example:
   class: AzureOpenAIModel
@@ -22,6 +25,18 @@ azure_openai_example:
   api_key: ${OPENAI_API_KEY}
   api_version: ${AZURE_OPENAI_API_VERSION}
   azure_endpoint: ${AZURE_ENDPOINT}
+  temperature: 1.0
+
+
+grok_4_offline:
+  class: OpenAIModel
+  model_name: grok-4
+  api_key: ${XAI_API_KEY}
+  base_url: https://api.x.ai/v1
+  temperature: 1.0 
+  # search_parameters:
+  #   mode: "off"
+  
 
 naturelm:
   class: vllmModel
