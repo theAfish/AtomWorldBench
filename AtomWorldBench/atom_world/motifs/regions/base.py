@@ -58,6 +58,12 @@ class BaseRegionMotif(BaseMotif, ABC):
         """
         pass
 
+    @property
+    def indices(self) -> list[int]:
+        """Return the indices of sites in this region within the parent atoms."""
+        indices, _ = self._get_site_indices_offsets_in_atoms()
+        return indices
+
     def get_atoms(self) -> Atoms:
         """Return an atoms object including all sites in this region."""
         if self._atoms_subset is None:

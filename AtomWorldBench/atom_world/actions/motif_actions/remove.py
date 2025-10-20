@@ -31,7 +31,7 @@ class RemoveMotifAction(BaseMotifAction):
         """Initialize the RemoveMotifAction with fractional coordinates and cutoff.
 
         Only has "default" mode, which does not require any additional parameters
-        than operated_motif and operated_atoms.
+        than operated_motif.
         Args:
             operated_motif (BaseMotif): The motif to be removed.
         """

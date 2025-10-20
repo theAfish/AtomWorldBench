@@ -1,7 +1,6 @@
 from typing import Optional
 
 from ase import Atoms
-import numpy as np
 
 from .base import BaseStructureAction
 from ....common.registry import register
@@ -38,6 +37,7 @@ class ChangeElementAction(BaseStructureAction):
                 The chemical symbol of the element to replace with. If None, the action
                 will remove all atoms of from_element. Optional.
         """
+        self.operated_atoms = None
         self.from_element = None
         self.to_element = None
         super().__init__(

@@ -117,6 +117,7 @@ class LatticeTransformAction(BaseStructureAction):
                 If provided, these parameters will replace the current lattice parameters.
                 Default is None.
         """
+        self.operated_atoms = None
         self.transformation_matrix = None
         self.size_scale_factor = None
         self.set_to_lattice_matrix = None

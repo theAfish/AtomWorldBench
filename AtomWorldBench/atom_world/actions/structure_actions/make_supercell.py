@@ -54,6 +54,7 @@ class MakeSupercellAction(BaseStructureAction):
                 along each lattice vector. If a length-3 vector is provided,
                 it is interpreted as a diagonal matrix. Required.
         """
+        self.operated_atoms = None
         self.supercell_matrix = None
         super().__init__(
             operated_atoms=operated_atoms,
