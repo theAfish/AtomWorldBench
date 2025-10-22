@@ -129,6 +129,7 @@ class TranslateAction(BaseMotifAction):
 
     def __post_init__(self):
         """Post-initialization to ensure the action is valid."""
+        self.__check_operated_motif_in_atoms()
         self.__check_operated_motif_compatibility()
         self.__check_relative_motif_in_atoms()
 

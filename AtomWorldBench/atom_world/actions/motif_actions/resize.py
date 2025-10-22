@@ -110,6 +110,7 @@ class ResizeMotifAction(BaseMotifAction):
 
     def __post_init__(self):
         """Post-initialization to validate parameters."""
+        self.__check_operated_motif_in_atoms()
         self.__check_operated_motif_compatibility()
 
     def _get_resized_positions(self, motif):

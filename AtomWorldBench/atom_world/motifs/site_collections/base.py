@@ -32,24 +32,29 @@ class BaseSiteCollectionMotif(BaseMotif, ABC):
 
     def __init__(
             self,
-            in_atoms: Atoms,
-            indices: List[int],
+            in_atoms: Optional[Atoms] = None,
+            indices: Optional[List[int]] = None,
             offsets: Optional[ArrayLike] = None,
+            atoms: Optional[Atoms] = None,
             name: Optional[str] = None,
             allow_translation_equivalence: Optional[bool] = None,
     ):
         """A Motif is an ASE Atoms comprising a subset of atoms in original ase.Atoms.
 
         Args:
-            in_atoms (Atoms): The ASE Atoms object to create the motif from.
+            in_atoms (Atoms, optional): The ASE Atoms object to create the motif from.
                 Notice: this object will always be wrapped at init if not already!
                 All cell offsets will be computed relative to the wrapped positions.
-            indices (list of int): Original indices from structure.
+            indices (list of int, optional): Original indices from structure.
                 Indices should always be provided, as the motif belongs to a specific structure.
             offsets (ArrayLike, optional): The cell offsets for each atom in the motif.
                 Cell offsets are the integer part of the fractional coordinates in the form of
                 triplets (i, j, k) representing their unwrapped location in periodic images.
                 If None, will assume all zeros.
+            atoms (Atoms, optional): An ASE Atoms object representing the motif.
+                When none of in_atoms, indices, offsets are provided, and atoms is provided,
+                will create a motif directly from atoms. In this case, the motif can only be
+                added in the AddMotifAction.
             name (str, optional): Human-readable motif name. Optional.
              If None, will generate a default name.
             allow_translation_equivalence (bool):
@@ -59,17 +64,34 @@ class BaseSiteCollectionMotif(BaseMotif, ABC):
         """
         # Wraps atom after super init.
         BaseMotif.__init__(self, in_atoms, name=name)
+
+        if in_atoms is None and indices is None and offsets is None and atoms is not None:
+            self._is_additive = True
+        elif in_atoms is not None and indices is not None:
+            self._is_additive = False
+        else:
+            raise ValueError(
+                "Must provide either (in_atoms and indices) to define a motif from"
+                " an existing structure, or provide atoms only to define an additive motif."
+            )
+
         self._indices = indices
-        self._offsets = (
-            np.array(offsets, dtype=int) if offsets is not None
-            else np.zeros((len(indices), 3), dtype=int)
-        )
+        if not self._is_additive:
+            self._offsets = (
+                np.array(offsets, dtype=int) if offsets is not None
+                else np.zeros((len(indices), 3), dtype=int)
+            )
+        else:
+            self._offsets = None
 
         if allow_translation_equivalence is None:
             allow_translation_equivalence = ALLOW_TRANSLATION_EQUIVALENCE
         self.allow_translation_equivalence = allow_translation_equivalence
 
-        self._atoms = self.get_atoms()
+        if atoms is None:
+            self._atoms = self.get_atoms()
+        else:
+            self._atoms = atoms
 
         # Post init checks. Can be overridden by subclasses.
         self.__post_init__()
@@ -151,13 +173,12 @@ class BaseSiteCollectionMotif(BaseMotif, ABC):
     @property
     def species_strings(self) -> List[str]:
         """Get the species of the motif."""
-        self_atoms = self.get_atoms()
         return [
             get_species_string(el, int(c))
             for el, c in
             zip(
-                self_atoms.get_chemical_symbols(),
-                self_atoms.get_initial_charges()
+                self.get_atoms().get_chemical_symbols(),
+                self.get_atoms().get_initial_charges()
             )
         ]
 
@@ -174,7 +195,7 @@ class BaseSiteCollectionMotif(BaseMotif, ABC):
                 If False, return in Cartesian coordinates. Default is False.
         """
         cart_centroid = np.mean(self.cart_coords, axis=0)
-        cell = self._atoms.cell.complete()
+        cell = self.get_atoms().cell.complete()
         if fractional:
             return cart_centroid @ np.linalg.inv(cell)
         else:
@@ -198,7 +219,6 @@ class BaseSiteCollectionMotif(BaseMotif, ABC):
     def describe(
             self,
             style: str = "coord",
-            is_addition: bool = False,
             coord_fractional: bool = False,
             precision: int = DEFAULT_FLOAT_TO_STRING_PRECISION,
     ) -> str:
@@ -206,8 +226,6 @@ class BaseSiteCollectionMotif(BaseMotif, ABC):
 
         Args:
             style (str): The style of description. Default is "coord".
-            is_addition (bool): If True, the description is for an addition action.
-                This affects how the description is formatted. Default is False.
             coord_fractional (bool): If True, use fractional coordinates in the description.
                 If False, use Cartesian coordinates. Default is False.
             precision (int): The precision for floating-point numbers in the description.
@@ -217,7 +235,7 @@ class BaseSiteCollectionMotif(BaseMotif, ABC):
         style = style.lower()
 
         # addition of a single site motif, return the name directly.
-        if len(self) == 1 and is_addition:
+        if len(self) == 1 and self._is_additive:
             return self.name
         else:
             if style == "coord":

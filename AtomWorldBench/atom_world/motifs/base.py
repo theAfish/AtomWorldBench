@@ -2,6 +2,7 @@
 from abc import ABC, abstractmethod
 from typing import Optional
 from numpy import ndarray
+import numpy as np
 
 from ase import Atoms
 
@@ -20,15 +21,16 @@ class BaseMotif(ABC):
 
     def __init__(
             self,
-            in_atoms: Atoms,
+            in_atoms: Optional[Atoms] = None,
             name: Optional[str] = None
     ):
         """Initialize the motif with an optional name.
 
         Args:
-            in_atoms (Atoms): An ASE Atoms object that this motif belongs to.
+            in_atoms (Atoms, optional): An ASE Atoms object that this motif belongs to.
                 Notice: this object will always be wrapped at init if not already!
                 All cell offsets will be computed relative to the wrapped positions.
+                When not provided, the motif can only be added in the AddMotifAction.
             name (str, optional): The name of the motif.
                 If None, a default name will be generated and set.
         """
@@ -36,8 +38,11 @@ class BaseMotif(ABC):
         # As at the initialization, the attributes required to compute
         # the default name are not set yet.
         # Wrap the atoms if not already.
-        in_atoms_cp = in_atoms.copy()
-        in_atoms_cp.wrap()
+        if in_atoms is not None:
+            in_atoms_cp = in_atoms.copy()
+            in_atoms_cp.wrap()
+        else:
+            in_atoms_cp = None
         self.in_atoms = in_atoms_cp  # Avoid affecting the original atoms.
         self._name = name
         self._atoms = None  # Subset of in_atoms that belongs to this motif.

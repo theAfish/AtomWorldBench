@@ -68,6 +68,17 @@ class BaseMotifAction(MultiModeInitMixin, ABC):
         """
         raise NotImplementedError
 
+    def __check_operated_motif_in_atoms(self):
+        """Check if the operated motif is present in the provided atoms.
+
+        Use in __post_init__ when needed.
+        """
+        if self.operated_motif.in_atoms is None:
+            raise ValueError(
+                f"Operated motif {self.operated_motif.name} must be"
+                f" attached to an Atoms object!"
+            )
+
     def __check_relative_motif_in_atoms(self):
         """Check if the relative motif is present in the provided atoms.
 
@@ -90,6 +101,18 @@ class BaseMotifAction(MultiModeInitMixin, ABC):
                 f"Action '{self.action_name}' is not allowed for the operated motif"
                 f" {self.operated_motif.__class__.__name__}."
             )
+
+    def __check_relative_motif_compatibility(self):
+        """Check if the relative motif is compatible with the action.
+
+        Should be used in __post__init__.
+        """
+        if self.relative_to_motif is not None:
+            if self.action_name in self.relative_to_motif.forbidden_actions:
+                raise ValueError(
+                    f"Action '{self.action_name}' is not allowed for the relative motif"
+                    f" {self.relative_to_motif.__class__.__name__}."
+                )
 
     @abstractmethod
     def execute(self) -> Atoms:
