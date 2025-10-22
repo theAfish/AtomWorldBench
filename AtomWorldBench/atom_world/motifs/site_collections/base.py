@@ -8,6 +8,7 @@ from collections import Counter
 import copy
 
 import numpy as np
+from numpy import ndarray
 from numpy.typing import ArrayLike
 from ase import Atoms
 
@@ -58,7 +59,6 @@ class BaseSiteCollectionMotif(BaseMotif, ABC):
         """
         # Wraps atom after super init.
         BaseMotif.__init__(self, in_atoms, name=name)
-        self._atoms = None
         self._offsets = None
         self.indices = indices
         self.cell_offsets = (
@@ -131,20 +131,15 @@ class BaseSiteCollectionMotif(BaseMotif, ABC):
         # Resetting offsets should update the internal atoms attribute.
         self._atoms = self.get_atoms()
 
-    def get_atoms(self) -> Atoms:
-        """Get the ASE Atoms object corresponding to this motif.
+    def _get_site_indices_offsets_in_atoms(self) -> tuple[list[int], ndarray]:
+        """Get the indices and periodic offsets of sites in this motif within the parent atoms.
 
         Returns:
-            Atoms: An ASE Atoms object with the same properties as this motif.
+            indices (list[int]): A list of indices of sites in this motif within the parent atoms.
+            offsets (ndarray): A 2D array of shape (n, 3) representing the cell offsets
+                for each atom in the motif.
         """
-        subset = self.in_atoms[self.indices].copy()
-        cell = self.in_atoms.cell.complete()
-        positions_orig = subset.get_positions(wrap=False)
-        positions_update = positions_orig + np.dot(
-            self.cell_offsets, cell
-        ) if self.cell_offsets is not None else positions_orig
-        subset.set_positions(positions_update)
-        return subset
+        return self.indices, self.cell_offsets
 
 
     @property
@@ -164,16 +159,6 @@ class BaseSiteCollectionMotif(BaseMotif, ABC):
     def composition(self):
         """Get the composition of the motif."""
         return Counter(self.species_strings)
-
-    @property
-    def frac_coords(self) -> np.ndarray:
-        """Get the unwrapped fractional coordinates of the motif."""
-        return self._atoms.get_scaled_positions(wrap=False)
-
-    @property
-    def cart_coords(self) -> np.ndarray:
-        """Get the unwrapped Cartesian coordinates of the motif."""
-        return self._atoms.get_positions(wrap=False)
 
     def get_centroid(self, fractional=False) -> np.ndarray:
         """Get the centroid of the motif.

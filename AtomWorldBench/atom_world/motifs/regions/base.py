@@ -43,42 +43,24 @@ class BaseRegionMotif(BaseMotif, ABC):
         """
         BaseMotif.__init__(self, in_atoms, name=name)
         self.symbols = symbols
-        self._atoms_subset = None
-
-    @abstractmethod
-    def _get_site_indices_offsets_in_atoms(self) -> tuple[list[int], ndarray]:
-        """Get the indices and periodic offsets of sites in this region within the parent atoms.
-
-        Must be implemented by subclasses.
-        Returns:
-            indices (list[int]): A list of indices of sites in this region within the parent atoms.
-            offsets (list[ndarray]): A list of periodic offsets for each site in this region relative
-                to the parent atoms.get_positions(wrap=False).
-                Each offset is a numpy array of shape (3,).
-        """
-        pass
+        self._indices = None
+        self._offsets = None
+        # In regions, indices and offsets are not directly settable.
+        # In principle, the region boundaries should never be changed directly.
 
     @property
     def indices(self) -> list[int]:
         """Return the indices of sites in this region within the parent atoms."""
-        indices, _ = self._get_site_indices_offsets_in_atoms()
-        return indices
-
-    def get_atoms(self) -> Atoms:
-        """Return an atoms object including all sites in this region."""
-        if self._atoms_subset is None:
-            indices, offsets = self._get_site_indices_offsets_in_atoms()
-            self._atoms_subset = self.in_atoms[indices]
-            # Apply offsets to positions.
-            positions_orig = self._atoms_subset.get_positions(wrap=False)
-            positions_new = positions_orig + offsets @ self.in_atoms.cell.complete()
-            self._atoms_subset.set_positions(positions_new)
-        return self._atoms_subset
+        if self._indices is None:
+            indices, _ = self._get_site_indices_offsets_in_atoms()
+            self._indices = indices
+        return self._indices
 
     @property
-    def cart_coords(self) -> ndarray:
-        return self.get_atoms().get_positions(wrap=False)
+    def cell_offsets(self) -> ndarray:
+        """Return the cell offsets of sites in this region within the parent atoms."""
+        if self._offsets is None:
+            _, cell_offsets = self._get_site_indices_offsets_in_atoms()
+            self._offsets = cell_offsets
+        return self._offsets
 
-    @property
-    def frac_coords(self) -> ndarray:
-        return self.get_atoms().get_scaled_positions(wrap=False)

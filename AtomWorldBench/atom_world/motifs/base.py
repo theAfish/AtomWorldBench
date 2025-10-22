@@ -1,6 +1,7 @@
 """Define base motif class."""
 from abc import ABC, abstractmethod
 from typing import Optional
+from numpy import ndarray
 
 from ase import Atoms
 
@@ -39,6 +40,7 @@ class BaseMotif(ABC):
         in_atoms_cp.wrap()
         self.in_atoms = in_atoms_cp  # Avoid affecting the original atoms.
         self._name = name
+        self._atoms = None  # Subset of in_atoms that belongs to this motif.
 
     @abstractmethod
     def _get_default_name(self) -> str:
@@ -68,16 +70,36 @@ class BaseMotif(ABC):
         pass
 
     @abstractmethod
-    def get_atoms(self) -> Atoms:
-        """Return the ASE Atoms object representing the motif.
+    def _get_site_indices_offsets_in_atoms(self) -> tuple[list[int], ndarray]:
+        """Get the indices and periodic offsets of sites in this region within the parent atoms.
 
-        This method should return an Atoms object that contains only the atoms
-        that are part of the motif.
+        Must be implemented by subclasses.
         Returns:
-            Atoms: An ASE Atoms object containing only the atoms in the motif.
+            indices (list[int]): A list of indices of sites in this region within the parent atoms.
+            offsets (list[ndarray]): A list of periodic offsets for each site in this region relative
+                to the parent atoms.get_positions(wrap=False).
+                Each offset is a numpy array of shape (3,).
         """
         pass
 
+    def get_atoms(self) -> Atoms:
+        """Return an atoms object including all sites in this region."""
+        if self._atoms is None:
+            indices, offsets = self._get_site_indices_offsets_in_atoms()
+            self._atoms = self.in_atoms[indices]
+            # Apply offsets to positions.
+            positions_orig = self._atoms.get_positions(wrap=False)
+            positions_new = positions_orig + offsets @ self.in_atoms.cell.complete()
+            self._atoms.set_positions(positions_new)
+        return self._atoms
+
+    @property
+    def cart_coords(self) -> ndarray:
+        return self.get_atoms().get_positions(wrap=False)
+
+    @property
+    def frac_coords(self) -> ndarray:
+        return self.get_atoms().get_scaled_positions(wrap=False)
 
     @classmethod
     @abstractmethod

@@ -35,6 +35,7 @@ class BoxRegionMotif(BaseRegionMotif):
             zmax: Optional[float] = None,
             boundary_fractional: bool = True,
             tol: float = 1e-6,
+            symbols: Optional[list[str]] = None,
     ):
         """Initialize the box region motif.
 
@@ -57,6 +58,8 @@ class BoxRegionMotif(BaseRegionMotif):
             boundary_fractional (bool): Whether the provided boundaries are in fractional coordinates.
                 If False, the boundaries are in cartesian coordinates.
             tol (float): Tolerance for boundary inclusion. Default is 1e-6.
+            symbols (list[str], optional): A list of chemical symbols that this motif includes.
+                Other elements will not be selected as part of this motif.
         """
         BaseRegionMotif.__init__(self, in_atoms)
         self.boundary_fractional = boundary_fractional
@@ -86,7 +89,6 @@ class BoxRegionMotif(BaseRegionMotif):
             zmin = self.zmin
             zmax = self.zmax
         else:
-            cart_coords = self.in_atoms.get_positions(wrap=True)
             cell = self.in_atoms.cell.complete()
             frac_coords = self.in_atoms.get_scaled_positions(wrap=True)
             xmin = None if self.xmin is None\
@@ -118,6 +120,8 @@ class BoxRegionMotif(BaseRegionMotif):
         filt = (xmin - self.tol <= frac_coords[:, 0] <= xmax + self.tol) & \
                (ymin - self.tol <= frac_coords[:, 1] <= ymax + self.tol) & \
                (zmin - self.tol <= frac_coords[:, 2] <= zmax + self.tol)
+        if self.symbols is not None:
+            filt &= (np.isin(self.in_atoms.get_chemical_symbols(), self.symbols))
         indices = np.where(filt)[0].tolist()
         offsets = np.zeros((len(indices), 3), dtype=int)
         return indices, offsets
@@ -164,15 +168,18 @@ class BoxRegionMotif(BaseRegionMotif):
     def detect_random_one(
             cls,
             atoms: Atoms,
+            randomize_symbols: bool = False,
             seed: Optional[int] = None,
-            **kwargs,
     ) -> "BoxRegionMotif":
         """Detect a random box region motif within the given atoms.
 
         Args:
             atoms (Atoms): The atoms to detect the box region motif from.
+            randomize_symbols (bool): If True, the symbols of the atoms in the motif will be
+                randomly chosen from the symbols of the atoms in the provided Atoms object.
+                If False, the symbols will be set to None, meaning all atoms in the region
+                will be included regardless of their symbols. Defaults to False.
             seed (Optional[int]): Random seed for reproducibility. Default is None.
-            **kwargs: Additional keyword arguments for BoxRegionMotif initialization.
 
         Returns:
             BoxRegionMotif: A randomly detected box region motif.
@@ -194,6 +201,14 @@ class BoxRegionMotif(BaseRegionMotif):
         y_max = rng.uniform(y_min or 0, 1) if y_has_max else None
         z_min = rng.uniform(0, 1) if z_has_min else None
         z_max = rng.uniform(z_min or 0, 1) if z_has_max else None
+
+        if randomize_symbols:
+            unique_symbols = list(set(atoms.get_chemical_symbols()))
+            n_symbols = rng.integers(1, len(unique_symbols) + 1)
+            symbols = rng.choice(unique_symbols, size=n_symbols, replace=False).tolist()
+        else:
+            symbols = None
+
         return cls(
             in_atoms=atoms,
             xmin=x_min,
@@ -202,5 +217,6 @@ class BoxRegionMotif(BaseRegionMotif):
             ymax=y_max,
             zmin=z_min,
             zmax=z_max,
+            symbols=symbols,
             boundary_fractional=True,  # Always use fractional boundary.
         )
