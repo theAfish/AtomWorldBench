@@ -5,6 +5,25 @@ from ase import Atoms
 from AtomWorldBench.atom_world.motifs.regions.sphere import SphereRegionMotif
 
 
+def test_registry():
+    """Test that SphereRegionMotif is registered correctly."""
+    from AtomWorldBench.atom_world.motifs.regions.base import BaseRegionMotif
+    from AtomWorldBench.atom_world.motifs.base import BaseMotif
+    from AtomWorldBench.common.registry import get_registered
+
+    region_classes = get_registered(BaseRegionMotif)
+    motif_classes = get_registered(BaseMotif)
+
+    assert "sphere" in region_classes
+    assert "sphere" in motif_classes
+    assert region_classes["sphere"] is SphereRegionMotif
+    assert motif_classes["sphere"] is SphereRegionMotif
+
+    assert "sphere-region" in region_classes
+    assert "sphere-region" in motif_classes
+    assert region_classes["sphere-region"] is SphereRegionMotif
+    assert motif_classes["sphere-region"] is SphereRegionMotif
+
 # Test input validations and error handling.
 def test_invalid_radius_negative(orig_atoms):
     """Test that negative radius raises ValueError."""
@@ -315,7 +334,7 @@ def test_default_name(sphere_motif):
     """Test that default name is generated correctly."""
     default_name = sphere_motif._get_default_name()
     assert isinstance(default_name, str)
-    assert default_name == "SphereRegionMotif"
+    assert default_name == "a sphere region"
 
 
 def test_forbidden_actions(sphere_motif):

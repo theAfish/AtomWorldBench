@@ -59,9 +59,8 @@ class BaseSiteCollectionMotif(BaseMotif, ABC):
         """
         # Wraps atom after super init.
         BaseMotif.__init__(self, in_atoms, name=name)
-        self._offsets = None
-        self.indices = indices
-        self.cell_offsets = (
+        self._indices = indices
+        self._offsets = (
             np.array(offsets, dtype=int) if offsets is not None
             else np.zeros((len(indices), 3), dtype=int)
         )
@@ -100,12 +99,17 @@ class BaseSiteCollectionMotif(BaseMotif, ABC):
 
     @indices.setter
     def indices(self, value: List[int]):
-        """Set the indices of the atoms in the `in_atoms` that correspond to this motif."""
+        """Set the indices of the atoms in the `in_atoms` that correspond to this motif.
+
+        Not to be called at init, only for modifying existing motif.
+        Args:
+            value (List[int]): A list of integers representing the indices.
+        """
         if not all(isinstance(i, int) for i in value):
             raise ValueError("Indices must be a list of integers.")
         self._indices = value
         # Resetting indices should update the internal atoms attribute.
-        self._atoms = self.get_atoms()
+        self._atoms = None
 
     @cell_offsets.setter
     def cell_offsets(self, value: ArrayLike):
@@ -113,6 +117,8 @@ class BaseSiteCollectionMotif(BaseMotif, ABC):
 
         Cell offsets are the integer part of the fractional coordinates in the form of
          triplets (i, j, k) representing their unwrapped location in periodic images.
+
+        Not to be called at init, only for modifying existing motif.
         Args:
             value (ArrayLike): A 2D array of shape (n, 3) representing the cell offsets.
                 Must be the same length as indices.
@@ -129,7 +135,7 @@ class BaseSiteCollectionMotif(BaseMotif, ABC):
             )
         self._offsets = value
         # Resetting offsets should update the internal atoms attribute.
-        self._atoms = self.get_atoms()
+        self._atoms = None
 
     def _get_site_indices_offsets_in_atoms(self) -> tuple[list[int], ndarray]:
         """Get the indices and periodic offsets of sites in this motif within the parent atoms.

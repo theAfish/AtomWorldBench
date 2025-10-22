@@ -160,7 +160,7 @@ class SphereRegionMotif(BaseRegionMotif, MultiModeInitMixin):
 
     def _get_default_name(self) -> str:
         # Not used, just to satisfy the abstract method requirement.
-        return self.__class__.__name__
+        return "a sphere region"
 
     def describe(
             self,
