@@ -28,10 +28,6 @@ class BondMotif(ClusterMotif):
     length.
     """
 
-    forbidden_actions = [
-        "add-motif", "remove-motif", "replace-motif", "rotate-motif", "translate-motif"
-    ]
-
     def __init__(
             self,
             in_atoms: Atoms,
@@ -60,11 +56,12 @@ class BondMotif(ClusterMotif):
                 Default is not given, then will use the global setting ALLOW_TRANSLATION_EQUIVALENCE.
         """
         super().__init__(
-            in_atoms,
-            indices,
-            offsets,
-            name,
-            allow_translation_equivalence,
+            in_atoms=in_atoms,
+            indices=indices,
+            offsets=offsets,
+            atoms=None,
+            name=name,
+            allow_translation_equivalence=allow_translation_equivalence,
         )
 
     def __post_init__(self):

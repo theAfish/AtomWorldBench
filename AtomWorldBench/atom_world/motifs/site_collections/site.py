@@ -16,28 +16,33 @@ class SiteMotif(BaseSiteCollectionMotif):
 
     Can be either an atom or an ionic species in a crystal structure.
     """
-    forbidden_actions = ["resize-motif"]
 
     def __init__(
             self,
-            in_atoms: Atoms,
-            indices: List[int],
+            in_atoms: Optional[Atoms] = None,
+            indices: Optional[List[int]] = None,
             offsets: Optional[ArrayLike] = None,
+            atoms: Optional[Atoms] = None,
             name: Optional[str] = None,
             allow_translation_equivalence: Optional[bool] = None,
     ):
         """SiteMotif constructor.
 
         Args:
-            in_atoms (Atoms): The ASE Atoms object to create the motif from.
+            in_atoms (Atoms, optional): The ASE Atoms object to create the motif from.
                 Notice: this object will always be wrapped at init if not already!
                 All cell offsets will be computed relative to the wrapped positions.
-            indices (list of int): Original indices from structure.
+            indices (list of int, optional): Original indices from structure.
                 Indices should always be provided, as the motif belongs to a specific structure.
+                Must be of length 1.
             offsets (ArrayLike, optional): The cell offsets for each atom in the motif.
                 Cell offsets are the integer part of the fractional coordinates in the form of
                 triplets (i, j, k) representing their unwrapped location in periodic images.
-                If None, will assume all zeros.
+                If None, will assume all zeros. Must be of length 1.
+            atoms (Atoms, optional): An ASE Atoms object representing the motif.
+                When none of in_atoms, indices, offsets are provided, and atoms is provided,
+                will create a motif directly from atoms. In this case, the motif can only be
+                added in the AddMotifAction. Must be of length 1.
             name (str, optional): Human-readable motif name. Optional.
              If None, will generate a default name.
             allow_translation_equivalence (bool):
@@ -45,12 +50,14 @@ class SiteMotif(BaseSiteCollectionMotif):
                 if they are related by an integer translation.
                 Default is not given, then will use the global setting ALLOW_TRANSLATION_EQUIVALENCE.
         """
-        super().__init__(
-            in_atoms,
-            indices,
-            offsets,
-            name,
-            allow_translation_equivalence,
+        BaseSiteCollectionMotif.__init__(
+            self,
+            in_atoms=in_atoms,
+            indices=indices,
+            offsets=offsets,
+            atoms=atoms,
+            name=name,
+            allow_translation_equivalence=allow_translation_equivalence,
         )
 
     def __post_init__(self):

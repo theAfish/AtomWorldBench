@@ -1,21 +1,25 @@
 """Swap two motifs."""
 from typing import Optional
-import inspect
-
 from ase import Atoms
-import numpy as np
 
 from .base import BaseMotifAction
 from ...motifs.base import BaseMotif
 
 from ....common.registry import register
 
+from .utils import _must_be_non_bond_site_collection_motif
 
+
+@register(BaseMotifAction, ["swap-motif"])
 class SwapMotifAction(BaseMotifAction):
     """Action to swap two motifs in the structure.
 
     This action swaps motifs in the structure based on their fractional coordinates.
     """
+    kwargs_formatting_functions = {
+        "operated_motif": _must_be_non_bond_site_collection_motif,
+        "relative_to_motif": _must_be_non_bond_site_collection_motif,
+    }
     mode_definitions = {
         "_excluded": ["operated_motif", "relative_to_motif"],
         "default": {},
@@ -47,9 +51,8 @@ class SwapMotifAction(BaseMotifAction):
         """Post-initialization to ensure the action is valid."""
         self.__check_operated_motif_in_atoms()
         self.__check_relative_motif_in_atoms()
-        self.__check_operated_motif_compatibility()
-        # Need to check relative motif compatibility as well.
-        self.__check_relative_motif_compatibility()
+        if self.operated_motif == self.relative_to_motif:
+            raise ValueError("The two motifs to swap must be different.")
 
     def execute(self) -> Atoms:
         """Execute the action to swap the two motifs in the structure.
@@ -117,6 +120,7 @@ class SwapMotifAction(BaseMotifAction):
         )
         if len(self.operated_motif) > 1 or len(self.relative_to_motif) > 1:
             description += (
+                " swap by translating to each other's centroid, such that"
                 " the internal configuration and relative position to centroid"
                 " within each motif should remain unchanged."
             )

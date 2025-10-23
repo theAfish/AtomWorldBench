@@ -7,6 +7,8 @@ import numpy as np
 
 from .base import BaseMotifAction
 from ...motifs.base import BaseMotif
+from ...motifs.site_collections.base import BaseSiteCollectionMotif
+from ...motifs.regions.base import BaseRegionMotif
 
 from ....utils.atoms_utils import merge_atoms
 from ....common.globals import DEFAULT_FLOAT_TO_STRING_PRECISION
@@ -14,10 +16,33 @@ from ....common.globals import DEFAULT_FLOAT_TO_STRING_PRECISION
 from ....common.registry import register
 
 
+def _check_operated_motif_compatibility(m, mode_flag):
+    """Check if the operated motif is compatible with ResizeMotifAction."""
+
+    if "relative_to_centroid" in mode_flag:
+        if not hasattr(m, "get_centroid"):
+            raise ValueError(
+                "operated_motif must have get_centroid method for"
+                " relative_to_centroid mode."
+            )
+        if hasattr(m, "__len__") and len(m) < 2:
+            raise ValueError("operated_motif must have at least 2 atoms"
+                             " to be resizable relative to its centroid.")
+    if "to_radius" in mode_flag:
+        if not hasattr(m, "get_radius"):
+            raise ValueError(
+                "operated_motif must have get_radius method for to_radius mode."
+            )
+    return m
+
+
 # Can only be called "resize-motif" as "resize" may conflict with ResizeStructureAction.
 @register(BaseMotifAction, ["resize-motif"])
 class ResizeMotifAction(BaseMotifAction):
     """Resize a motif by changing the motif's radius with respect to its centroid or a node."""
+    kwargs_formatting_functions = {
+        "operated_motif": _check_operated_motif_compatibility,
+    }
     mode_definitions = {
         # Parameters that are always required.
         "_excluded": ["operated_motif"],
@@ -111,7 +136,6 @@ class ResizeMotifAction(BaseMotifAction):
     def __post_init__(self):
         """Post-initialization to validate parameters."""
         self.__check_operated_motif_in_atoms()
-        self.__check_operated_motif_compatibility()
 
     def _get_resized_positions(self, motif):
         """Get position of the resized motif."""
@@ -170,7 +194,7 @@ class ResizeMotifAction(BaseMotifAction):
             precision (int): The number of decimal places to format numerical values in
                 the action.
                 Note that the precision in the description of the operated motif
-                is controlled by `motif_desc_kwargs`, not by this parameter!
+                is overwritten by this parameter.
             motif_desc_kwargs (Optional[dict]): Additional keyword arguments for the
                 motif.describe method.
         Returns:
@@ -180,11 +204,14 @@ class ResizeMotifAction(BaseMotifAction):
 
         # Update motif description kwargs. Prevent using addition mode.
         motif_desc_params = inspect.signature(self.operated_motif.describe).parameters
-        if "is_addition" in motif_desc_params:
-            motif_desc_kwargs["is_addition"] = False
+        if "precision" in motif_desc_params:
+            motif_desc_kwargs["precision"] = precision
 
-        is_pair = len(self.operated_motif) == 2
-        size_word = "length" if is_pair == 2 else "radius"
+        is_pair = (
+                isinstance(self.operated_motif, BaseSiteCollectionMotif) and
+                len(self.operated_motif) == 2
+        )
+        size_word = "length" if is_pair else "radius"
         if "relative_to_centroid" in self.mode_flag:
             relative_word = "its centroid"
         elif "relative_to_node_index" in self.mode_flag:
@@ -194,7 +221,7 @@ class ResizeMotifAction(BaseMotifAction):
         else:
             raise NotImplementedError(f"Invalid mode_flag: {self.mode_flag}.")
 
-        is_region = "RegionMotif" in self.operated_motif.__class__.__name__
+        is_region = isinstance(self.operated_motif, BaseRegionMotif)
 
         if "scale_by" in self.mode_flag:
             scale_word = f"by a scale factor of {self.scale_by:.{precision}f}"
@@ -204,7 +231,7 @@ class ResizeMotifAction(BaseMotifAction):
                 scale_word = f"to {self.to_radius:.{precision}f} angstroms"
             else:
                 scale_word = f"to a {size_word} of {self.to_radius:.{precision}f} angstroms"
-            is_enlarge = (self.to_radius > self.operated_motif.radius)
+            is_enlarge = (self.to_radius > self.operated_motif.get_radius())
         else:
             raise NotImplementedError(f"Invalid mode_flag: {self.mode_flag}.")
 
@@ -228,7 +255,7 @@ class ResizeMotifAction(BaseMotifAction):
         if is_region:
             return (
                 f"move [{self.operated_motif.describe(**motif_desc_kwargs)}]"
-                f" {op_word} the region center, such that their distances to the region center"
+                f" {op_word} {relative_word}, such that their distances to {relative_word}"
                 f" are changed {scale_word}."
                 f" update atom coordinates only, do not change their order in structure."
             )

@@ -8,11 +8,14 @@ from numpy.typing import ArrayLike
 
 from .base import BaseMotifAction
 from ...motifs.base import BaseMotif
+from ...motifs.site_collections.base import BaseSiteCollectionMotif
 from ....utils.description_utils import describe_arraylike
 from ....utils.coord_utils import check_coordinates_shape
 
 from ....common.globals import DEFAULT_FLOAT_TO_STRING_PRECISION
 from ....common.registry import register
+
+from .utils import _must_be_non_bond_site_collection_motif
 
 
 def _check_relative_shift(x):
@@ -23,10 +26,15 @@ def _check_relative_shift(x):
             x, "relative_shift", expected_1d=True, allow_none=True
         )
 
-def _check_relative_to_motif(motif):
-    if motif is not None and not hasattr(motif, "get_centroid"):
-        raise ValueError("relative_to_motif must support get_centroid method.")
-
+def _check_relative_motif_compatibility(m, mode_flag):
+    """Check if the relative motif is compatible with the action."""
+    if mode_flag == "relative_to_motif_centroid":
+        if not hasattr(m, "get_centroid"):
+            raise ValueError(
+                "Relative to motif must support get_centroid method"
+                " in relative_to_motif_centroid mode."
+            )
+    return m
 
 @register(BaseMotifAction, ["add", "add-motif"])
 class AddMotifAction(BaseMotifAction):
@@ -45,12 +53,13 @@ class AddMotifAction(BaseMotifAction):
                 x, "relative_to_position", expected_1d=True, allow_none=True
             ),
         "relative_shift": _check_relative_shift,
-        "relative_to_motif": _check_relative_to_motif,
+        "operated_motif": _must_be_non_bond_site_collection_motif,
+        "relative_to_motif": _check_relative_motif_compatibility,
     }
     mode_definitions = {
         # Operated_motif and operated_atoms are always required.
         # position_fractional doesn't need to be checked.
-        "_excluded": ["position_fractional", "operated_motif"],
+        "_excluded": ["position_fractional", "operated_motif", "operated_atoms"],
         "absolute": {"at_position": None},
         "relative_to_position": {
             "relative_to_position": None,
@@ -79,7 +88,7 @@ class AddMotifAction(BaseMotifAction):
         },
         "relative_to_pair_motif": {
             "relative_to_motif": (
-                lambda m: len(m) == 2,
+                lambda m: isinstance(m, BaseSiteCollectionMotif) and len(m) == 2,
                 "Only pair motifs are allowed for relative_to_pair_motif mode."
             ),
             "relative_shift": (
@@ -97,9 +106,13 @@ class AddMotifAction(BaseMotifAction):
             ),
         }
     }
+
+    # Deprecate BaseAction's operated_atoms property.
+    operated_atoms = None
     def __init__(
             self,
             operated_motif: BaseMotif,
+            operated_atoms: Atoms,
             relative_to_motif: Optional[BaseMotif] = None,
             at_position: Optional[ArrayLike] = None,
             relative_to_position: Optional[ArrayLike] = None,
@@ -130,6 +143,7 @@ class AddMotifAction(BaseMotifAction):
                 No other parameters should be given except position_fractional.
         Args:
             operated_motif (BaseMotif): The motif to be added to the structure.
+            operated_atoms (Atoms): The Atoms object that the motif is added to.
             relative_to_motif (BaseMotif): The motif to which the operated motif is added
                 relative to.
             at_position (ArrayLike, optional): The position where the motif is added.
@@ -151,6 +165,7 @@ class AddMotifAction(BaseMotifAction):
         """
         # Just for Linting purpose.
         self.position_fractional = None
+        self.operated_atoms = None
         self.at_position = None
         self.relative_to_position = None
         self.relative_to_motif = None
@@ -159,6 +174,7 @@ class AddMotifAction(BaseMotifAction):
         self.relative_atom_index = None
         super().__init__(
             operated_motif=operated_motif,
+            operated_atoms=operated_atoms,
             relative_to_motif=relative_to_motif,
             at_position=at_position,
             relative_to_position=relative_to_position,
@@ -169,8 +185,7 @@ class AddMotifAction(BaseMotifAction):
         )
 
     def __post_init__(self):
-        # AddAction does not need to check operated_motif existence in atoms.
-        self.__check_operated_motif_compatibility()
+        # AddAction does not need to check operated_motif existence in operated_atoms.
         self.__check_relative_motif_in_atoms()
 
     def _compute_insert_cart_position(self, atoms: Atoms):
@@ -188,11 +203,11 @@ class AddMotifAction(BaseMotifAction):
             return pos
         # Compute relative to motif.
         elif self.mode_flag == "relative_to_pair_motif":
-                # Get the position of the atom in the relative motif.
-                centroid = self.relative_to_motif.get_positions(wrap=False)[self.relative_atom_index]
-                ref_position = self.relative_to_motif.get_positions(wrap=False)[1 - self.relative_atom_index]
-                bond_norm_vec = (ref_position - centroid) / np.linalg.norm(ref_position - centroid)
-                relative_shift = self.relative_shift * bond_norm_vec
+            # Get the position of the atom in the relative motif.
+            centroid = self.relative_to_motif.cart_coords[self.relative_atom_index]
+            ref_position = self.relative_to_motif.cart_coords[1 - self.relative_atom_index]
+            bond_norm_vec = (ref_position - centroid) / np.linalg.norm(ref_position - centroid)
+            relative_shift = self.relative_shift * bond_norm_vec
         # Insert at distance to relative motif centroid.
         elif self.mode_flag == "relative_to_motif_centroid":
             centroid = self.relative_to_motif.get_centroid(
@@ -233,8 +248,8 @@ class AddMotifAction(BaseMotifAction):
             precision (int): The precision for formatting numerical values in the description
                 in decimals. Default is set in `globals.py`, typically 4.
                 Note that the precision in the description of the operated motif and the
-                relative motif is controlled by the `motif_desc_kwargs` and
-                `relative_motif_desc_kwargs` parameters, respectively, not by this parameter!
+                relative motif in the `motif_desc_kwargs` and `relative_motif_desc_kwargs`
+                 parameters will be overwritten by this parameter!
             motif_desc_kwargs (dict, optional): Additional keyword arguments for the motif
                 description. See motif.describe() for available options.
             relative_motif_desc_kwargs (dict, optional): Additional keyword arguments for
@@ -254,10 +269,10 @@ class AddMotifAction(BaseMotifAction):
         ).parameters if self.relative_to_motif is not None else {}
         # Use addition mode as site motif needs different short description.
         # when being added.
-        if "is_addition" in motif_desc_params:
-            motif_desc_kwargs["is_addition"] = True
-        if "is_addition" in relative_motif_desc_params:
-            relative_motif_desc_kwargs["is_addition"] = False
+        if "precision" in motif_desc_params:
+            motif_desc_kwargs["precision"] = precision
+        if "precision" in relative_motif_desc_params:
+            relative_motif_desc_kwargs["precision"] = precision
 
         if self.position_fractional:
             coord_word = "fractional coordinates"

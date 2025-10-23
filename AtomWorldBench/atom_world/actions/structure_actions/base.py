@@ -1,4 +1,4 @@
-"""Defines the base class for actions in the atom world."""
+"""Defines the base class for structure-wise operations in the atom world."""
 from abc import ABC, abstractmethod
 import re
 

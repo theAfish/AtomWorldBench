@@ -15,6 +15,8 @@ from ....utils.description_utils import describe_arraylike
 from ....common.globals import DEFAULT_FLOAT_TO_STRING_PRECISION
 from ....common.registry import register
 
+from .utils import _must_be_non_bond_site_collection_motif
+
 
 # Can only be called "translate-motif" as "translate" may conflict with TranslateStructureAction.
 @register(BaseMotifAction, ["translate-motif"])
@@ -33,6 +35,8 @@ class TranslateAction(BaseMotifAction):
             lambda x: check_coordinates_shape(
                 x, "translation_vector", expected_1d=True, allow_none=True
             ),
+        "operated_motif": _must_be_non_bond_site_collection_motif,
+        "relative_to_motif": _must_be_non_bond_site_collection_motif,
     }
     mode_definitions = {
         # operated_motif, operated_atoms and translation_vector are always required.
@@ -130,7 +134,6 @@ class TranslateAction(BaseMotifAction):
     def __post_init__(self):
         """Post-initialization to ensure the action is valid."""
         self.__check_operated_motif_in_atoms()
-        self.__check_operated_motif_compatibility()
         self.__check_relative_motif_in_atoms()
 
     def _get_translation_vector(self) -> ArrayLike:
@@ -200,8 +203,7 @@ class TranslateAction(BaseMotifAction):
             precision (int): The precision for formatting numerical values in the description in decimals.
                 Default is set in `globals.py`, typically 4.
                 Note that the precision in the description of the operated motif and the
-                relative motif is controlled by the `motif_desc_kwargs` and
-                `relative_motif_desc_kwargs` parameters, respectively, not by this parameter!
+                relative motif will be overwritten by this parameter.
             motif_desc_kwargs (dict, optional): Additional keyword arguments for the motif description.
             relative_motif_desc_kwargs (dict, optional): Additional keyword arguments for the relative
                 motif description.
@@ -218,10 +220,10 @@ class TranslateAction(BaseMotifAction):
             self.relative_to_motif.describe
         ).parameters if self.relative_to_motif is not None else {}
         # Never use addition mode for rotation.
-        if "is_addition" in motif_desc_params:
-            motif_desc_kwargs["is_addition"] = False
-        if "is_addition" in relative_motif_desc_params:
-            relative_motif_desc_kwargs["is_addition"] = False
+        if "precision" in motif_desc_params:
+            motif_desc_kwargs["precision"] = precision
+        if "precision" in relative_motif_desc_params:
+            relative_motif_desc_kwargs["precision"] = precision
 
         if self.position_fractional:
             coord_word = "fractional coordinates"
@@ -254,7 +256,7 @@ class TranslateAction(BaseMotifAction):
                 f"translate [{self.operated_motif.describe(**motif_desc_kwargs)}]"
                 f" so as to relocate its centroid at {coord_word}"
                 f" {describe_arraylike(self.translation_vector, precision=precision)}"
-                f" shifted from the centroid of"
+                f" away from the centroid of"
                 f" [{self.relative_to_motif.describe(**relative_motif_desc_kwargs)}]."
                 + " " + common_instruction
             )

@@ -86,8 +86,9 @@ class ChangeElementAction(BaseStructureAction):
         """
         if self.mode_flag == "replace_element":
             return (
-                f"replace all atoms of element '{self.from_element}' "
-                f"with element '{self.to_element}'."
+                f"replace all atoms of element {self.from_element} "
+                f"with element {self.to_element}."
             )
         else:
-            return f"remove all atoms of element '{self.from_element}'."
+            return (f"remove all atoms of element {self.from_element}"
+                    f" without affecting the order of other atoms.")

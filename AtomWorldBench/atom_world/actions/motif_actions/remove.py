@@ -1,14 +1,31 @@
 """Actions to remove atoms."""
 from typing import Optional
-import inspect
 
 import numpy as np
 from ase import Atoms
 
 from .base import BaseMotifAction
 from ...motifs.base import BaseMotif
+from ...motifs.site_collections.bond import BondMotif
 
 from ....common.registry import register
+
+
+def _check_operated_motif_compatibility(m):
+    """Check if the operated motif is compatible with the action.
+
+    Raises:
+        ValueError: If the operated motif does not have indices.
+    """
+    if m.indices is None or len(m.indices) == 0:
+        raise ValueError(
+            "The operated motif must have indices to be removed from the structure."
+        )
+    if isinstance(m, BondMotif):
+        raise ValueError(
+            "BondMotif cannot be removed directly."
+            " Please remove the pair cluster forming the bond instead."
+        )
 
 
 @register(BaseMotifAction, ["remove", "remove-motif"])
@@ -19,6 +36,9 @@ class RemoveMotifAction(BaseMotifAction):
     """
     # Only absolute allowed (specify the motif to remove directly). No parameters needed
     # for init.
+    kwargs_formatting_functions = {
+        "operated_motif": _check_operated_motif_compatibility,
+    }
     mode_definitions = {
         "_excluded": ["operated_motif"],
         "default": {},
@@ -43,7 +63,6 @@ class RemoveMotifAction(BaseMotifAction):
     def __post_init__(self):
         """Post-initialization to ensure the action is valid."""
         self.__check_operated_motif_in_atoms()
-        self.__check_operated_motif_compatibility()
 
     def execute(self) -> Atoms:
         """Execute the action to remove the motif from the structure.
@@ -77,11 +96,6 @@ class RemoveMotifAction(BaseMotifAction):
         Returns:
             str: A description of the action.
         """
-        # Update motif description kwargs. Prevent using addition mode.
-        motif_desc_params = inspect.signature(self.operated_motif.describe).parameters
-        if "is_addition" in motif_desc_params:
-            motif_desc_kwargs["is_addition"] = False
-
         return (
             f"remove [{self.operated_motif.describe(**motif_desc_kwargs)}] from the structure."
             f" Do not change the order of remaining atoms in structure."

@@ -1,6 +1,5 @@
 """Implements replace action."""
 from typing import Optional
-import inspect
 
 from ase import Atoms
 import numpy as np
@@ -9,6 +8,8 @@ from .base import BaseMotifAction
 from ...motifs.base import BaseMotif
 
 from ....common.registry import register
+from .utils import _must_be_non_bond_site_collection_motif
+
 
 
 @register(BaseMotif, ["replace", "replace-motif"])
@@ -17,6 +18,11 @@ class ReplaceMotifAction(BaseMotifAction):
 
     This action replaces motifs in the structure based on their fractional coordinates.
     """
+    kwargs_formatting_functions = {
+        # Use the same operated motif compatibility check as in AddMotifAction.
+        "operated_motif": _must_be_non_bond_site_collection_motif,
+        "relative_to_motif": _must_be_non_bond_site_collection_motif,
+    }
     mode_definitions = {
         "_excluded": ["operated_motif", "relative_to_motif"],
         "default": {},
@@ -44,8 +50,6 @@ class ReplaceMotifAction(BaseMotifAction):
 
     def __post_init__(self):
         """Post-initialization to ensure the action is valid."""
-        self.__check_operated_motif_in_atoms()
-        self.__check_operated_motif_compatibility()
         self.__check_relative_motif_in_atoms()
 
     def execute(self) -> Atoms:
@@ -53,6 +57,9 @@ class ReplaceMotifAction(BaseMotifAction):
 
         Removes the motif defined by `self.relative_to_motif` from the structure, and
         append `motif` to the remaining atoms. The order of the remaining atoms is preserved.
+
+        The newly added atoms will be translated such that their centroid matches the centroid
+        of the removed motif.
 
         Returns:
             Atoms: The modified structure with the motif replaced.
@@ -65,9 +72,13 @@ class ReplaceMotifAction(BaseMotifAction):
             remove_indices,
             assume_unique=True
         ).tolist()
+        centroid = self.replaced_motif.get_centroid(fractional=False)
+        displacement = centroid - self.operated_motif.get_centroid(fractional=False)
+        operated_motif_atoms = self.operated_motif.get_atoms()
+        operated_motif_atoms.translate(displacement)
         # Preserve the order of remaining atoms.
         atoms_cp = self.operated_atoms[np.sort(remaining_indices)]
-        atoms_cp += self.operated_motif.get_atoms()
+        atoms_cp += operated_motif_atoms
 
         return atoms_cp
 
@@ -89,22 +100,23 @@ class ReplaceMotifAction(BaseMotifAction):
         motif_desc_kwargs = motif_desc_kwargs or {}
         relative_motif_desc_kwargs = relative_motif_desc_kwargs or {}
 
-        # Update motif description kwargs.
-        motif_desc_params = inspect.signature(self.operated_motif.describe).parameters
-        relative_motif_desc_params = inspect.signature(
-            self.relative_to_motif.describe
-        ).parameters if self.relative_to_motif is not None else {}
-        # Use addition mode as site motif needs different short description.
-        # when being added.
-        if "is_addition" in motif_desc_params:
-            motif_desc_kwargs["is_addition"] = True
-        if "is_addition" in relative_motif_desc_params:
-            relative_motif_desc_kwargs["is_addition"] = False
-
-        return (
+        desc = (
             f"replace [{self.replaced_motif.describe(**relative_motif_desc_kwargs)}]"
             f" with [{self.operated_motif.describe(**motif_desc_kwargs)}]."
+        )
+        if len(self.operated_motif) > 1:
+            if len(self.replaced_motif) == 1:
+                cent_word = "the position of the removed atom"
+
+            else:
+                cent_word = "the centroid of the removed atoms"
+            desc += (
+                " place the new atoms such that their centroid matches"
+                f" {cent_word}."
+            )
+        desc += (
             f" do not change the order of other unaffected atoms,"
             f" and the newly added atoms should be appended to the end of"
             f" the structure in the order as described."
         )
+        return desc

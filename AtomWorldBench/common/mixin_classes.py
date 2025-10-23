@@ -481,6 +481,7 @@ class MultiModeInitMixin(ABC):
 
             try:
                 sig = inspect.signature(fn)
+                # Reserve mode_flag as a tunable keyword.
                 if "mode_flag" in sig.parameters:
                     formatted = fn(value, mode_flag=self.mode_flag)
                 else:

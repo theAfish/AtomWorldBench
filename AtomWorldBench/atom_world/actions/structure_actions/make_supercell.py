@@ -83,7 +83,9 @@ class MakeSupercellAction(BaseStructureAction):
                 A textual description of the supercell creation action.
         """
         description = (
-            f"create a supercell by expanding the original structure using the "
-            f"supercell matrix {describe_arraylike(self.supercell_matrix, precision=0)}."
+            f"create a supercell by expanding the original structure using the"
+            f" supercell matrix {describe_arraylike(self.supercell_matrix, precision=0)}."
+            f" use cell-major convention for ordering the generated atoms in supercell"
+            f" (i.e., first over all the atoms in cell1 and then move to cell2, etc.)."
         )  # Describe as integer.
         return description

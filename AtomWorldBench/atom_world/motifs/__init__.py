@@ -4,7 +4,6 @@ from .base import BaseMotif
 
 
 # TODO: polyhedra, etc.
-# TODO: Add a type of motif that allows selecting all atoms of a certain element.
 def motif_factory(
         motif_name: str,
         *args,

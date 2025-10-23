@@ -66,9 +66,9 @@ class BaseSiteCollectionMotif(BaseMotif, ABC):
         BaseMotif.__init__(self, in_atoms, name=name)
 
         if in_atoms is None and indices is None and offsets is None and atoms is not None:
-            self._is_additive = True
+            self.is_additive = True
         elif in_atoms is not None and indices is not None:
-            self._is_additive = False
+            self.is_additive = False
         else:
             raise ValueError(
                 "Must provide either (in_atoms and indices) to define a motif from"
@@ -76,7 +76,7 @@ class BaseSiteCollectionMotif(BaseMotif, ABC):
             )
 
         self._indices = indices
-        if not self._is_additive:
+        if not self.is_additive:
             self._offsets = (
                 np.array(offsets, dtype=int) if offsets is not None
                 else np.zeros((len(indices), 3), dtype=int)
@@ -234,8 +234,11 @@ class BaseSiteCollectionMotif(BaseMotif, ABC):
         """
         style = style.lower()
 
+        if self.is_additive:
+            style = "coord"  # Force coord style for additive motifs.
+
         # addition of a single site motif, return the name directly.
-        if len(self) == 1 and self._is_additive:
+        if len(self) == 1 and self.is_additive:
             return self.name
         else:
             if style == "coord":
@@ -295,28 +298,34 @@ class BaseSiteCollectionMotif(BaseMotif, ABC):
             raise ValueError("Can only extend motifs from the same original structure.")
         # Do not call setters as get_atoms() will be called at the end.
          # This is to avoid multiple calls to get_atoms().
-        self._indices = self.indices + other.indices
-        self._offsets = np.vstack((self.cell_offsets, other.cell_offsets))
-        self._atoms = self.get_atoms()
+        if self.is_additive and other.is_additive:
+            self._indices = None
+            self._offsets = None
+            self._atoms = self._atoms + other._atoms
+        else:
+            self._indices = self.indices + other.indices
+            self._offsets = np.vstack((self.cell_offsets, other.cell_offsets))
+            self._atoms = self.get_atoms()
         # Post init checks to avoid invalid addition, for example, adding cluster to site.
         self.__post_init__()
         # Reset name to default to avoid conflicts with the original motif name.
         self.name = None
 
 
-    def copy(self):
+    def copy(self) -> "BaseSiteCollectionMotif":
         """Return a copy of the motif."""
         return self.__class__(
-            in_atoms=self.in_atoms.copy(),
+            in_atoms=copy.deepcopy(self.in_atoms),
             indices=copy.deepcopy(self.indices),
             offsets=copy.deepcopy(self.cell_offsets),
+            atoms=copy.deepcopy(self._atoms),
             name=self.name,
             allow_translation_equivalence=self.allow_translation_equivalence,
         )
 
     def __len__(self) -> int:
         """Return the number of atoms in the motif."""
-        return len(self.indices)
+        return len(self.get_atoms())
 
     def __getitem__(self, i):
         """Return a subset of the motif."""
@@ -324,13 +333,19 @@ class BaseSiteCollectionMotif(BaseMotif, ABC):
             idx = [i]  # Force list.
         else:
             idx = i
-        indices = np.array(self.indices, dtype=int)[idx].tolist()
-        offsets = self.cell_offsets[idx]
+        if not self.is_additive:
+            indices = np.array(self.indices, dtype=int)[idx].tolist()
+            offsets = self.cell_offsets[idx]
+        else:
+            indices = None
+            offsets = None
+        atoms = self.get_atoms()[idx]
         return self.__class__(
-            self.in_atoms.copy(),
+            copy.deepcopy(self.in_atoms),
             name=None, # Reset name to default to avoid conflicts with the original motif name.
             indices=indices,
             offsets=offsets,
+            atoms=atoms,
             allow_translation_equivalence=self.allow_translation_equivalence
         )
 
@@ -343,6 +358,8 @@ class BaseSiteCollectionMotif(BaseMotif, ABC):
         # Must be the same class to compare.
         if not isinstance(other, self.__class__):
             return False
+        if self.is_additive and other.is_additive:
+            return self.get_atoms() == other.get_atoms()
         # Must be from the same original structure.
         if not self.in_atoms == other.in_atoms:
             return False

@@ -9,6 +9,8 @@ from scipy.spatial.transform import Rotation
 
 from .base import BaseMotifAction
 from ...motifs.base import BaseMotif
+from ...motifs.site_collections.base import BaseSiteCollectionMotif
+from ...motifs.site_collections.bond import BondMotif
 
 from ....utils.coord_utils import check_coordinates_shape
 from ....utils.description_utils import describe_arraylike
@@ -27,6 +29,33 @@ def _check_rotation_axis_vector(r):
         return None
     return r / np.linalg.norm(r)
 
+def _check_operated_motif_compatibility(m, mode_flag):
+    """Check if the operated motif is compatible for rotation."""
+    if isinstance(m, BondMotif):
+        raise ValueError("Bond motifs are not allowed as operated motifs for rotation.")
+    if "self" in mode_flag:
+        if not hasattr(m, "get_centroid"):
+            raise ValueError(
+                "Operated motif must support centroid calculation for self-relative rotation."
+            )
+        if isinstance(m, BaseSiteCollectionMotif) and len(m) < 2:
+            raise ValueError(
+                "Operated site collection motifs must have at least two sites"
+                " for self-relative rotation to be meaningful."
+            )
+    return m
+
+def _check_relative_motif_compatibility(m, mode_flag):
+    """Check if the relative motif is compatible for rotation."""
+    if m is None:
+        return m
+    if "motif" in mode_flag:
+        if not hasattr(m, "get_centroid"):
+            raise ValueError(
+                "Relative motif must support centroid calculation for motif-relative rotation."
+            )
+    return m
+
 
 # Can only be called "rotate-motif" as "rotate" may conflict with RotateStructureAction.
 @register(BaseMotifAction, ["rotate-motif"])
@@ -43,6 +72,8 @@ class RotateMotifAction(BaseMotifAction):
         "relative_to_position": lambda x: check_coordinates_shape(
             x, "relative_to_position", expected_1d=True, allow_none=True
         ),
+        "operated_motif": _check_operated_motif_compatibility,
+        "relative_to_motif": _check_relative_motif_compatibility,
     }
     mode_definitions = {
         # operated_motif and operated_atoms are always required.
@@ -65,6 +96,17 @@ class RotateMotifAction(BaseMotifAction):
             "relative_style": (
                 lambda s: s == "self",
                 "Relative style must be self for euler_relative_to_self mode."
+            ),
+        },
+        "axis_relative_to_self":{
+            "rotation_axis_vector": None,
+            "rotation_axis_angle": (
+                lambda x: isinstance(x, (int, float)),
+                "Rotation axis angle must be a number in degrees.",
+            ),
+            "relative_style": (
+                lambda s: s == "self",
+                "Relative style must be self for axis_relative_to_self mode."
             ),
         },
         "axis_relative_to_position": {
@@ -93,7 +135,7 @@ class RotateMotifAction(BaseMotifAction):
                 "Rotation axis angle must be a number in degrees.",
             ),
             "relative_to_motif": (
-                lambda m: len(m) == 2,
+                lambda m: isinstance(m, BaseSiteCollectionMotif) and len(m) == 2,
                 "Only pair motifs are allowed for axis_relative_pair_motif mode."
             ),
             "relative_axis_origin_index": (
@@ -124,7 +166,7 @@ class RotateMotifAction(BaseMotifAction):
         """Initialize the RotateMotifAction with a relative motif and style.
 
        `operated_motif` and `operated_atoms` are always required.
-        For the test of parameters, currently, allows 6 modes of operation:
+        For the test of parameters, currently, allows 7 modes of operation:
             1, `euler_relative_to_position`: Perform a rotation using Euler angles
                 around a specified center position. In this mode, provide `euler_angles`,
                 `relative_to_position`. No other parameters should be given except
@@ -137,16 +179,20 @@ class RotateMotifAction(BaseMotifAction):
                 around the centroid of the provided motif in the `execute` method itself.
                 In this mode, provide `euler_angles`, and set `relative_style`=="self".
                 No other parameters should be given except `position_fractional`.
-            4, `axis_relative_to_position`: Perform a rotation around a specified rotation
+            4, `axis_relative_to_self`: Perform a rotation around a specified rotation
+                axis vector and the centroid of the provided motif in the `execute` method itself.
+                In this mode, provide `rotation_axis_vector`, `rotation_axis_angle`,
+                and set `relative_style`=="self".
+            5, `axis_relative_to_position`: Perform a rotation around a specified rotation
                 axis vector and a specified center position. In this mode, provide
                 `rotation_axis_vector`, `rotation_axis_angle`, and `relative_to_position`.
                 No other parameters should be given except `position_fractional`.
-            5, `axis_relative_to_regular_motif`: Perform a rotation around a specified
+            6, `axis_relative_to_regular_motif`: Perform a rotation around a specified
                 rotation axis vector and a specified motif's centroid. In this mode,
                 provide `rotation_axis_vector`, `rotation_axis_angle`, `relative_to_motif`,
                 and `relative_style`=="centroid_distance".
                 No other parameters should be given except `position_fractional`.
-            6, `axis_relative_to_pair_motif`: Perform a rotation around a specified
+            7, `axis_relative_to_pair_motif`: Perform a rotation around a specified
                 pair motif's direction vector (pointing from the origin atom to the other atom)
                 and the pair motif's centroid as the rotation center. In this mode,
                 provide `rotation_axis_angle`, `relative_to_motif`, `relative_axis_origin_index`,
@@ -208,13 +254,7 @@ class RotateMotifAction(BaseMotifAction):
     def __post_init__(self):
         """Post-initialization to validate parameters."""
         self.__check_operated_motif_in_atoms()
-        self.__check_operated_motif_compatibility()
         self.__check_relative_motif_in_atoms()
-        if "self" in self.mode_flag:
-            if len(self.operated_motif) == 1:
-                raise ValueError(
-                    "Cannot use self-relative rotation with a point motif."
-                )
 
     def _get_rotation_center(self):
         """Helper function to get the rotation center based on the mode.
@@ -231,7 +271,7 @@ class RotateMotifAction(BaseMotifAction):
             "axis_relative_to_pair_motif",
         ):
             position = self.relative_to_motif.get_centroid(fractional=False)
-        elif self.mode_flag == "euler_relative_to_self":
+        elif self.mode_flag in ["euler_relative_to_self", "axis_relative_to_self"]:
             position = self.operated_motif.get_centroid(fractional=False)
         else:
             raise ValueError(
@@ -247,6 +287,7 @@ class RotateMotifAction(BaseMotifAction):
         if self.mode_flag in (
             "axis_relative_to_position",
             "axis_relative_to_regular_motif",
+            "axis_relative_to_self",
         ):
             return self.rotation_axis_vector
         elif self.mode_flag == "axis_relative_to_pair_motif":
@@ -286,6 +327,7 @@ class RotateMotifAction(BaseMotifAction):
             new_motif_positions = rotation.apply(motif_atoms.positions - center) + center
             motif_atoms.set_positions(new_motif_positions)
         elif self.mode_flag in (
+                "axis_relative_to_self",
                 "axis_relative_to_position",
                 "axis_relative_to_regular_motif",
                 "axis_relative_to_pair_motif",
@@ -318,8 +360,7 @@ class RotateMotifAction(BaseMotifAction):
             precision (int): The precision for formatting numerical values in the description in decimals.
                 Default is set in `globals.py`, typically 4.
                 Note that the precision in the description of the operated motif and the
-                relative motif is controlled by the `motif_desc_kwargs` and
-                `relative_motif_desc_kwargs` parameters, respectively, not by this parameter!
+                relative motif will be overwritten by this parameter.
             motif_desc_kwargs (dict, optional): Additional keyword arguments for the motif description.
             relative_motif_desc_kwargs (dict, optional): Additional keyword arguments for the relative
                 motif description.
@@ -335,11 +376,10 @@ class RotateMotifAction(BaseMotifAction):
         relative_motif_desc_params = inspect.signature(
             self.relative_to_motif.describe
         ).parameters if self.relative_to_motif is not None else {}
-        # Never use addition mode for rotation.
-        if "is_addition" in motif_desc_params:
-            motif_desc_kwargs["is_addition"] = False
-        if "is_addition" in relative_motif_desc_params:
-            relative_motif_desc_kwargs["is_addition"] = False
+        if "precision" in motif_desc_params:
+            motif_desc_kwargs["precision"] = False
+        if "precision" in relative_motif_desc_params:
+            relative_motif_desc_kwargs["precision"] = False
 
         if self.position_fractional:
             coord_word = "fractional coordinates"
@@ -367,7 +407,7 @@ class RotateMotifAction(BaseMotifAction):
                 f" in the structure by euler angles (Z-X-Z intrinsic convention,"
                 f" active rotation, counter-clockwise direction) in"
                 f" {describe_arraylike(self.euler_angles, precision=precision)} degrees,"
-                f" using the centroid of"
+                f" around the centroid of"
                 f" [{self.relative_to_motif.describe(**relative_motif_desc_kwargs)}]"
                 f" as the rotation center."
                 + " " + common_instruction
@@ -378,7 +418,17 @@ class RotateMotifAction(BaseMotifAction):
                 f" in the structure by euler angles (Z-X-Z intrinsic convention,"
                 f" active rotation, counter-clockwise direction) in"
                 f" {describe_arraylike(self.euler_angles, precision=precision)} degrees,"
-                f" using its own centroid as the rotation center."
+                f" around its own centroid as the rotation center."
+                + " " + common_instruction
+            )
+        elif self.mode_flag == "axis_relative_to_self":
+            return (
+                f"rotate [{self.operated_motif.describe(**motif_desc_kwargs)}]"
+                f" in the structure by {self.rotation_axis_angle:.{precision}f}"
+                f" degrees counter-clockwise around a rotation axis"
+                f" defined by the cartesian vector"
+                f" {describe_arraylike(self.rotation_axis_vector, precision=precision)}"
+                f" around its own centroid as the rotation center."
                 + " " + common_instruction
             )
         elif self.mode_flag == "axis_relative_to_position":
@@ -388,7 +438,7 @@ class RotateMotifAction(BaseMotifAction):
                 f" degrees counter-clockwise around a rotation axis"
                 f" defined by the cartesian vector"
                 f" {describe_arraylike(self.rotation_axis_vector, precision=precision)}"
-                f" and a rotation center in {coord_word}"
+                f" around a rotation center in {coord_word}"
                 f" {describe_arraylike(self.relative_to_position, precision=precision)}."
                 + " " + common_instruction
             )
@@ -399,7 +449,7 @@ class RotateMotifAction(BaseMotifAction):
                 f" degrees counter-clockwise around a rotation axis"
                 f" defined by the cartesian vector"
                 f" {describe_arraylike(self.rotation_axis_vector, precision=precision)}"
-                f" and using the centroid of"
+                f" around the centroid of"
                 f" [{self.relative_to_motif.describe(**relative_motif_desc_kwargs)}]"
                 f" as the rotation center."
                 + " " + common_instruction
@@ -413,7 +463,7 @@ class RotateMotifAction(BaseMotifAction):
                 f" [{self.relative_to_motif.describe(**relative_motif_desc_kwargs)}],"
                 f" pointing from the atom"
                 f" with index {self.relative_to_motif.indices[self.relative_axis_origin_index]}"
-                f" to the other atom, and using the centroid of the axis pair"
+                f" to the other atom, around the centroid of the axis pair"
                 f" as the rotation center."
                 + " " + common_instruction
             )

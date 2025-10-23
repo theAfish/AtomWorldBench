@@ -51,8 +51,6 @@ class SphereRegionMotif(BaseRegionMotif, MultiModeInitMixin):
         },
     }
 
-    # Can perform resize, rotate or remove.
-    forbidden_actions = ["replace-motif", "add-motif", "translate-motif"]
     def __init__(
             self,
             in_atoms: Atoms,
@@ -144,6 +142,15 @@ class SphereRegionMotif(BaseRegionMotif, MultiModeInitMixin):
             return cart_centroid @ np.linalg.inv(self.in_atoms.cell.complete())
         else:
             return cart_centroid
+
+    def get_radius(self) -> float:
+        """Get the radius of the spherical region motif.
+
+        Reserved socket for ResizeMotifAction and similar actions.
+        Returns:
+            float: The radius of the spherical region motif in angstroms.
+        """
+        return self.radius
 
     def _get_site_indices_offsets_in_atoms(self) -> tuple[list[int], ndarray]:
         """Return the subset of atoms included in the spherical region motif.

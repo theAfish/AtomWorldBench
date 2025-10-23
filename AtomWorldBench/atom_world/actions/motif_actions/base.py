@@ -64,7 +64,9 @@ class BaseMotifAction(MultiModeInitMixin, ABC):
     def __post_init__(self):
         """Check compatibility of the action with operated motif, relative_motif and atoms.
 
-        Must be implemented in subclasses.
+        Reserved to perform checks whose behavior cannot solely rely on mode_flag, but also
+        require other class attributes.
+        Must be implemented in every subclass.
         """
         raise NotImplementedError
 
@@ -89,29 +91,6 @@ class BaseMotifAction(MultiModeInitMixin, ABC):
                 raise ValueError(
                     f"Relative motif {self.relative_to_motif.name} must be"
                     f" attached to the same Atoms object as the operated motif!"
-                )
-
-    def __check_operated_motif_compatibility(self):
-        """Check if the operated motif is compatible with the action.
-
-        Should be used in __post__init__.
-        """
-        if self.action_name in self.operated_motif.forbidden_actions:
-            raise ValueError(
-                f"Action '{self.action_name}' is not allowed for the operated motif"
-                f" {self.operated_motif.__class__.__name__}."
-            )
-
-    def __check_relative_motif_compatibility(self):
-        """Check if the relative motif is compatible with the action.
-
-        Should be used in __post__init__.
-        """
-        if self.relative_to_motif is not None:
-            if self.action_name in self.relative_to_motif.forbidden_actions:
-                raise ValueError(
-                    f"Action '{self.action_name}' is not allowed for the relative motif"
-                    f" {self.relative_to_motif.__class__.__name__}."
                 )
 
     @abstractmethod

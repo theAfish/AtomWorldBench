@@ -12,12 +12,7 @@ class BaseMotif(ABC):
 
     Used to define an operable region, geometric element, or sub-collection
     of sites in a system.
-
-    Class Attributes:
-        forbidden_actions (list): A list of action class names that are not
-            allowed to operate on this motif. We only use black-listing for now.
     """
-    forbidden_actions = []
 
     def __init__(
             self,
