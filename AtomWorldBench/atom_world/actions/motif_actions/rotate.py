@@ -64,7 +64,7 @@ class RotateMotifAction(BaseMotifAction):
 
     Notice: this operation only allows relative style.
     """
-    kwargs_formating_functions = {
+    kwargs_formatting_functions = {
         "euler_angles": lambda x: check_coordinates_shape(
             x, "euler_angles", expected_1d=True, allow_none=True
         ),
@@ -253,8 +253,8 @@ class RotateMotifAction(BaseMotifAction):
 
     def __post_init__(self):
         """Post-initialization to validate parameters."""
-        self.__check_operated_motif_in_atoms()
-        self.__check_relative_motif_in_atoms()
+        self._check_operated_motif_in_atoms()
+        self._check_relative_motif_in_atoms()
 
     def _get_rotation_center(self):
         """Helper function to get the rotation center based on the mode.

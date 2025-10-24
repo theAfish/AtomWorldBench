@@ -22,7 +22,7 @@ from .utils import _must_be_non_bond_site_collection_motif
 @register(BaseMotifAction, ["translate-motif"])
 class TranslateAction(BaseMotifAction):
     """Action to translate a motif in the structure."""
-    kwargs_formating_functions = {
+    kwargs_formatting_functions = {
         "to_position":
             lambda x: check_coordinates_shape(
                 x, "to_position", expected_1d=True, allow_none=True
@@ -133,8 +133,8 @@ class TranslateAction(BaseMotifAction):
 
     def __post_init__(self):
         """Post-initialization to ensure the action is valid."""
-        self.__check_operated_motif_in_atoms()
-        self.__check_relative_motif_in_atoms()
+        self._check_operated_motif_in_atoms()
+        self._check_relative_motif_in_atoms()
 
     def _get_translation_vector(self) -> ArrayLike:
         """Get the translation vector based on the action parameters."""

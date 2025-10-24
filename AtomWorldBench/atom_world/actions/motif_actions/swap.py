@@ -49,8 +49,8 @@ class SwapMotifAction(BaseMotifAction):
 
     def __post_init__(self):
         """Post-initialization to ensure the action is valid."""
-        self.__check_operated_motif_in_atoms()
-        self.__check_relative_motif_in_atoms()
+        self._check_operated_motif_in_atoms()
+        self._check_relative_motif_in_atoms()
         if self.operated_motif == self.relative_to_motif:
             raise ValueError("The two motifs to swap must be different.")
 

@@ -30,7 +30,7 @@ class MakeSupercellAction(BaseStructureAction):
     This action expands the input structure by replicating it along its lattice
     vectors according to the specified size scale factors.
     """
-    kwargs_formating_functions = {
+    kwargs_formatting_functions = {
         "supercell_matrix": _check_supercell_matrix,
     }
 

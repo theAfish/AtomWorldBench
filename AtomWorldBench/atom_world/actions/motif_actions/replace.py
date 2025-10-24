@@ -50,7 +50,7 @@ class ReplaceMotifAction(BaseMotifAction):
 
     def __post_init__(self):
         """Post-initialization to ensure the action is valid."""
-        self.__check_relative_motif_in_atoms()
+        self._check_relative_motif_in_atoms()
 
     def execute(self) -> Atoms:
         """Execute the action to replace the motif in the structure.
@@ -64,7 +64,7 @@ class ReplaceMotifAction(BaseMotifAction):
         Returns:
             Atoms: The modified structure with the motif replaced.
         """
-        # __check_relative_motif_in_atoms() in __post_init__ guarantees that
+        # _check_relative_motif_in_atoms() in __post_init__ guarantees that
         # the motif to be replaced is in the atoms and has indices.
         remove_indices = self.replaced_motif.indices
         remaining_indices = np.setdiff1d(

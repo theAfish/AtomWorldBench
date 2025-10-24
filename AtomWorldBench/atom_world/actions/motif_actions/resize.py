@@ -135,7 +135,7 @@ class ResizeMotifAction(BaseMotifAction):
 
     def __post_init__(self):
         """Post-initialization to validate parameters."""
-        self.__check_operated_motif_in_atoms()
+        self._check_operated_motif_in_atoms()
 
     def _get_resized_positions(self, motif):
         """Get position of the resized motif."""
@@ -165,7 +165,7 @@ class ResizeMotifAction(BaseMotifAction):
             Atoms: The modified structure with the resized motif.
         """
         # Get motif indices in the structure.
-        # __check_operated_motif_in_atoms has been called in __post_init__,
+        # _check_operated_motif_in_atoms has been called in __post_init__,
         # so the indices are guaranteed to be valid.
         indices = self.operated_motif.indices
 

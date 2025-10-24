@@ -43,7 +43,7 @@ class AddMotifAction(BaseMotifAction):
     This action defines how to add a motif to a given structure, including the
     description of the action and the execution logic.
     """
-    kwargs_formating_functions = {
+    kwargs_formatting_functions = {
         "at_position":
             lambda x: check_coordinates_shape(
                 x, "at_position", expected_1d=True, allow_none=True
@@ -186,7 +186,7 @@ class AddMotifAction(BaseMotifAction):
 
     def __post_init__(self):
         # AddAction does not need to check operated_motif existence in operated_atoms.
-        self.__check_relative_motif_in_atoms()
+        self._check_relative_motif_in_atoms()
 
     def _compute_insert_cart_position(self, atoms: Atoms):
         """Get inserted cartesian position based on style."""

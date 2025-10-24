@@ -56,7 +56,7 @@ class LatticeTransformAction(BaseStructureAction):
     a specified transformation matrix. The transformation can include scaling,
     rotation, or shear operations, any transformation that changes the lattice matrix.
     """
-    kwargs_formating_functions = {
+    kwargs_formatting_functions = {
         "transformation_matrix": lambda x: check_lattice_matrix_shape(
             x, "transformation_matrix", allow_none=True
         ),

@@ -62,7 +62,7 @@ class RemoveMotifAction(BaseMotifAction):
 
     def __post_init__(self):
         """Post-initialization to ensure the action is valid."""
-        self.__check_operated_motif_in_atoms()
+        self._check_operated_motif_in_atoms()
 
     def execute(self) -> Atoms:
         """Execute the action to remove the motif from the structure.
@@ -73,7 +73,7 @@ class RemoveMotifAction(BaseMotifAction):
             Atoms: The modified structure with the motif removed.
         """
         # Remove the motif by its indices.
-        # __check_operated_motif_in_atoms() in __post_init()
+        # _check_operated_motif_in_atoms() in __post_init()
         # ensures that the motif is in the atoms and
         # has indices.
         indices = self.operated_motif.indices

@@ -70,7 +70,7 @@ class BaseMotifAction(MultiModeInitMixin, ABC):
         """
         raise NotImplementedError
 
-    def __check_operated_motif_in_atoms(self):
+    def _check_operated_motif_in_atoms(self):
         """Check if the operated motif is present in the provided atoms.
 
         Use in __post_init__ when needed.
@@ -81,7 +81,7 @@ class BaseMotifAction(MultiModeInitMixin, ABC):
                 f" attached to an Atoms object!"
             )
 
-    def __check_relative_motif_in_atoms(self):
+    def _check_relative_motif_in_atoms(self):
         """Check if the relative motif is present in the provided atoms.
 
         Use in __post_init__ when needed.
