@@ -52,6 +52,9 @@ def test_post_init(simple_atoms):
     with pytest.raises(ValueError, match="SiteMotif must contain exactly one site"):
         SiteMotif(simple_atoms, indices=[0, 1])
 
+    with pytest.raises(ValueError, match="SiteMotif must contain exactly one site"):
+        SiteMotif(atoms=simple_atoms[[0, 1]])
+
     # Invalid case: zero sites
     with pytest.raises(ValueError, match="SiteMotif must contain exactly one site"):
         SiteMotif(simple_atoms, indices=[])
@@ -74,17 +77,26 @@ def test_default_name(simple_atoms):
     assert motif3.name == expected_name3
 
 
-def test_forbidden_actions(simple_atoms):
-    """Test that forbidden actions are correctly set."""
-    motif = SiteMotif(simple_atoms, indices=[0])
-    assert "resize-motif" in motif.forbidden_actions
-
-
 def test_detect_random_one(simple_atoms):
     """Test random site motif detection."""
+    # Non-additive mode
     motif = SiteMotif.detect_random_one(simple_atoms, seed=42)
     assert isinstance(motif, SiteMotif)
     assert len(motif) == 1
     assert motif.indices[0] in [0, 1]  # Should be one of the two atoms
     npt.assert_array_equal(motif.cell_offsets, np.array([[0, 0, 0]]))
     # No offsets in site autodetect case.
+
+    # Additive mode.
+    motif_additive = SiteMotif.detect_random_one(
+        simple_atoms,
+        seed=42,
+        additive_mode=True,
+        additive_mode_allowed_symbols=["Na"]
+    )
+    assert isinstance(motif_additive, SiteMotif)
+    assert len(motif_additive) == 1
+    assert motif_additive.get_atoms()[0].symbol == "Na"
+    assert motif_additive.is_additive == True
+    npt.assert_allclose(motif_additive.cart_coords, 0)
+    npt.assert_allclose(motif_additive.get_centroid(fractional=False), 0)

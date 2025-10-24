@@ -37,21 +37,13 @@ def simple_atoms():
     return atoms
 
 
-def test_forbidden_actions(simple_atoms):
-    """Test that forbidden actions are correctly set."""
-    motif = BondMotif(simple_atoms, indices=[0, 1])
-    expected_forbidden = [
-        "add-motif", "remove-motif", "replace-motif", "rotate-motif", "translate-motif"
-    ]
-    assert set(motif.forbidden_actions) == set(expected_forbidden)
-
-
 def test_post_init(simple_atoms):
     """Test that BondMotif raises ValueError if not exactly two sites."""
 
     # Valid case
     motif = BondMotif(simple_atoms, indices=[0, 1])
     assert len(motif) == 2
+    assert motif.is_additive == False
 
     # Invalid case: more than two sites
     with pytest.raises(ValueError, match="BondMotif must contain exactly two sites"):

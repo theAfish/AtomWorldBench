@@ -149,8 +149,9 @@ class ClusterMotif(BaseSiteCollectionMotif):
             for i in range(len(self))
         ]
 
+
     @classmethod
-    def detect_random_one(
+    def _detect_one_non_additive(
             cls,
             atoms: Atoms,
             cluster_size: int = 3,
@@ -162,26 +163,7 @@ class ClusterMotif(BaseSiteCollectionMotif):
     ) -> 'ClusterMotif':
         """Detect a random cluster motif from the given Atoms object.
 
-        Args:
-            atoms (Atoms): The Atoms object from which to detect the cluster.
-                Notice: this object will always be wrapped at init if not already!
-                All cell offsets will be computed relative to the wrapped positions.
-            cluster_size (int): The desired size of the cluster. Defaults to 3.
-            max_cluster_radius (float): Maximum allowable radius of the cluster.
-                Defaults to 3.0.
-            n_attempts (int): Number of attempts to find a valid cluster. Defaults to 10.
-            randomize_symbols (bool): If True, the symbols of the atoms in the motif will be
-                randomly chosen from the symbols of the atoms in the provided Atoms object.
-                If False, the symbols will be set to None, meaning all atoms in the region
-                will be included regardless of their symbols.
-                Defaults to False.
-            seed (Optional[int]): Random seed for reproducibility. Defaults to None.
-            allow_translation_equivalence (Optional[bool]): If True, the motif can be considered
-                equivalent to another motif if they are related by an integer translation.
-                Default is not given, then will use the global setting ALLOW_TRANSLATION_EQUIVALENCE.
-
-        Returns:
-            ClusterMotif: A ClusterMotif instance representing the detected cluster.
+        Used when not in additive mode.
         """
         atoms.wrap()
         rng = np.random.default_rng(seed)
@@ -245,3 +227,133 @@ class ClusterMotif(BaseSiteCollectionMotif):
             f" within radius {max_cluster_radius} in {n_attempts} attempts."
             f" Please check the structure and cutoff parameters."
         )
+
+    @classmethod
+    def _detect_one_additive(
+            cls,
+            atoms: Atoms,
+            allowed_symbols: List[str],
+            cluster_size: int = 3,
+            max_cluster_radius: float = 3.0,
+            seed: Optional[int] = None,
+    ) -> 'ClusterMotif':
+        """Build a random additive cluster motif.
+
+        Used when in additive mode.
+        """
+        rng = np.random.default_rng(seed)
+        selected_symbols = rng.choice(
+            allowed_symbols, size=cluster_size, replace=True
+        ).tolist()
+        # Generate random positions within a sphere of radius max_cluster_radius.
+        positions = [np.array([0.0, 0.0, 0.0])]
+        while len(positions) < cluster_size:
+            # Draw a random point uniformly within a sphere.
+            r = rng.uniform(0, max_cluster_radius)
+            theta = rng.uniform(0, np.pi)
+            phi = rng.uniform(0, 2 * np.pi)
+            dx = np.array(
+                [r * np.sin(theta) * np.cos(phi), r * np.sin(theta) * np.sin(phi), r * np.cos(theta)]
+            )
+            x = positions[-1] + dx
+            # Check if the new position is within the max_cluster_radius from all previous points.
+            if all(np.linalg.norm(x - pos) <= max_cluster_radius for pos in positions):
+                positions.append(x)
+        positions = np.array(positions)
+
+        # Create a dummy Atoms object to hold the cluster motif.
+        # The cell copies from atoms. Typically,
+        # cell does not matter, only centroid matters.
+        cluster_atoms = Atoms(
+            symbols=selected_symbols,
+            positions=positions.tolist(),
+            cell=atoms.cell,
+            pbc=atoms.pbc,
+        )
+
+        # Initialize as additive.
+        return cls(
+            in_atoms=None,
+            indices=None,
+            offsets=None,
+            atoms=cluster_atoms,
+            name=None,
+            allow_translation_equivalence=None,
+        )
+
+    @classmethod
+    def detect_random_one(
+            cls,
+            atoms: Atoms,
+            additive_mode: bool = False,
+            additive_mode_allowed_symbols: Optional[List[str]] = None,
+            cluster_size: int = 3,
+            max_cluster_radius: float = 3.0,
+            n_attempts: int = 10,
+            randomize_symbols: bool = False,
+            seed: Optional[int] = None,
+            allow_translation_equivalence: Optional[bool] = None,
+    ) -> 'ClusterMotif':
+        """Detect a random cluster motif from the given Atoms object.
+
+        Args:
+            atoms (Atoms): The Atoms object from which to detect the cluster.
+                Notice: this object will always be wrapped at init if not already!
+                All cell offsets will be computed relative to the wrapped positions.
+            additive_mode (bool): If True, the detected motif will be in additive mode,
+                meaning it is not tied to specific atoms in the structure.
+                Instead, it represents a generic cluster that can be placed anywhere.
+                If False, the motif will be tied to specific atoms in the provided Atoms object.
+                Defaults to False.
+            additive_mode_allowed_symbols (Optional[List[str]]): When in additive mode,
+                the list of allowed chemical symbols for the atoms in the cluster motif.
+                If None, all chemical symbols from the provided Atoms object will be used,
+                or choose random symbols if randomize_symbols is True.
+                This parameter is ignored when not in additive mode.
+            cluster_size (int): The desired size of the cluster. Defaults to 3.
+            max_cluster_radius (float): Maximum allowable radius of the cluster.
+                Defaults to 3.0.
+            n_attempts (int): Number of attempts to find a valid cluster. Defaults to 10.
+            randomize_symbols (bool): If True, the symbols of the atoms in the motif will be
+                randomly chosen from the symbols of the atoms in the provided Atoms object.
+                If False, the symbols will be set to None, meaning all atoms in the region
+                will be included regardless of their symbols.
+                Defaults to False.
+            seed (Optional[int]): Random seed for reproducibility. Defaults to None.
+            allow_translation_equivalence (Optional[bool]): If True, the motif can be considered
+                equivalent to another motif if they are related by an integer translation.
+                Default is not given, then will use the global setting ALLOW_TRANSLATION_EQUIVALENCE.
+
+        Returns:
+            ClusterMotif: A ClusterMotif instance representing the detected cluster.
+        """
+        if additive_mode:
+            if additive_mode_allowed_symbols is None:
+                rng = np.random.default_rng(seed)
+                all_symbols = list(set(atoms.get_chemical_symbols()))
+                if randomize_symbols:
+                    num_symbols = int(rng.integers(1, len(all_symbols) + 1))
+                    allowed_symbols = rng.choice(
+                        all_symbols, size=num_symbols, replace=False
+                    ).tolist()
+                else:
+                    allowed_symbols = all_symbols
+            else:
+                allowed_symbols = additive_mode_allowed_symbols
+            return cls._detect_one_additive(
+                atoms,
+                allowed_symbols=allowed_symbols,
+                cluster_size=cluster_size,
+                max_cluster_radius=max_cluster_radius,
+                seed=seed,
+            )
+        else:
+            return cls._detect_one_non_additive(
+                atoms,
+                cluster_size=cluster_size,
+                max_cluster_radius=max_cluster_radius,
+                n_attempts=n_attempts,
+                randomize_symbols=randomize_symbols,
+                seed=seed,
+                allow_translation_equivalence=allow_translation_equivalence,
+            )

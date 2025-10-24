@@ -126,6 +126,8 @@ class BondMotif(ClusterMotif):
             max_cluster_radius=max_cluster_radius,
             n_attempts=n_attempts,
             randomize_symbols=randomize_symbols,
-            seed=seed
+            seed=seed,
+            additive_mode=False,
+            allow_translation_equivalence=allow_translation_equivalence,
         )
         return cls.from_cluster_motif(cluster)

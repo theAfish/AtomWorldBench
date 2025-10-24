@@ -91,6 +91,45 @@ def test_init_without_offsets(simple_atoms):
         indices=[0, 1]
     )
     npt.assert_allclose(cluster.cart_coords, simple_atoms.get_positions()[[0, 1]])
+    assert not cluster.is_additive
+
+
+def test_init_additive(simple_atoms):
+    """Test initialization in is_additive mode."""
+    atoms_cp = simple_atoms.copy()
+    atoms_cp.wrap()
+    cluster = ClusterMotif(
+        atoms=atoms_cp[[0, 1]]
+    )
+    assert cluster.is_additive
+    assert cluster.get_atoms() == atoms_cp[[0, 1]]
+    assert cluster.indices is None
+    assert cluster.cell_offsets is None
+    npt.assert_allclose(cluster.cart_coords, atoms_cp.get_positions(wrap=False)[[0, 1]])
+    npt.assert_allclose(cluster.frac_coords, atoms_cp.get_scaled_positions(wrap=False)[[0, 1]])
+
+
+
+def test_init_invalid(simple_atoms):
+    with pytest.raises(ValueError, match="Must provide either"):
+        _ = ClusterMotif()
+    with pytest.raises(ValueError, match="Must provide either"):
+        _ = ClusterMotif(
+            in_atoms=simple_atoms
+        )
+    with pytest.raises(ValueError, match="Must provide either"):
+        _ = ClusterMotif(
+            in_atoms=simple_atoms,
+            indices=[0, 1],
+            atoms=simple_atoms[[0, 1]]
+        )
+    with pytest.raises(ValueError, match="Must provide either"):
+        _ = ClusterMotif(
+            in_atoms=simple_atoms,
+            offsets=[0, 1, 2],
+            atoms=simple_atoms[[0, 1]]
+        )
+
 
 def test_species_strings(simple_atoms):
     """Test species_strings property."""
@@ -108,6 +147,13 @@ def test_composition(simple_atoms):
     )
     expected = Counter({"Na+": 1, "Cl-": 1})
     assert cluster.composition == expected
+
+    cluster = ClusterMotif(
+        atoms=simple_atoms[[0, 1]]
+    )
+    expected = Counter({"Na+": 1, "Cl-": 1})
+    assert cluster.composition == expected
+
 
 def test_coordinates_properties(simple_atoms):
     """Test frac_coords, cart_coords, and cell_offsets properties."""
@@ -196,6 +242,7 @@ def test_indices_property(simple_atoms):
     )
     assert cluster.indices == [1, 0]
 
+
 def test_update_indices_offsets(simple_atoms):
     """Test updating indices and offsets."""
     cluster = ClusterMotif(
@@ -254,6 +301,15 @@ def test_update_indices_offsets(simple_atoms):
     with pytest.raises(ValueError, match="Cell offsets must have the same length as indices."):
         cluster.cell_offsets = [[0, 0, 0]]
 
+    # Additive mode motifs will never accept any updates. Would only clear its _atoms attribute.
+    additive_cluster = ClusterMotif(
+        atoms=simple_atoms[[0, 1]]
+    )
+    additive_cluster.indices = [0, 1]  # Should set _atoms to None.
+    assert additive_cluster._atoms is None
+    with pytest.raises(TypeError):  # Nonetype is not subscriptable
+        _ = additive_cluster.get_atoms()
+
 
 def test_describe_coord_style(simple_atoms):
     """Test describe method with coordinate style."""
@@ -288,6 +344,14 @@ def test_describe_index_style(simple_atoms):
     desc_offsets = cluster.describe(style="index")
     assert "and offsets" in desc_offsets.lower()
     assert "((1, 0, 0), (0, -1, 0))" in desc_offsets
+
+    cluster_additive = ClusterMotif(
+        atoms=simple_atoms[[0, 1]]
+    )
+
+    # In additive mode, forced to use coordinate style.
+    desc_additive = cluster_additive.describe(style="index", coord_fractional=False)
+    assert "cartesian" in desc_additive.lower()
 
 
 def test_describe_invalid_style(simple_atoms):
@@ -365,6 +429,21 @@ def test_extend_and_add(simple_atoms):
     ):
         _ = site2 + cluster1
 
+    # Two additive clusters can be combined.
+    additive1 = ClusterMotif(
+        atoms=simple_atoms[[0]]
+    )
+    additive2 = ClusterMotif(
+        atoms=simple_atoms[[1]]
+    )
+    combined_additive = additive1 + additive2
+    assert len(combined_additive) == 2
+    assert combined_additive.is_additive
+
+    # One additive and one non-additive cannot be combined.
+    with pytest.raises(ValueError, match="Can only extend motifs from the same original structure."):
+        _ = additive2 + cluster1
+
 
 def test_extend_atoms_mismatch(simple_atoms, complex_atoms):
     """Test extend with mismatched indices."""
@@ -388,7 +467,7 @@ def test_copy(simple_atoms):
         indices=[0, 1],
         name="original"
     )
-
+    assert not original.is_additive
     copy_cluster = original.copy()
     assert copy_cluster == original
     assert copy_cluster is not original
@@ -397,6 +476,15 @@ def test_copy(simple_atoms):
     assert copy_cluster.in_atoms == original.in_atoms
     assert copy_cluster.name == original.name
     npt.assert_allclose(copy_cluster.cart_coords, original.cart_coords)
+
+    # Copy of additive cluster
+    additive_original = ClusterMotif(
+        atoms=simple_atoms[[0, 1]],
+        name="additive_original"
+    )
+    additive_copy = additive_original.copy()
+    assert additive_copy == additive_original
+    assert additive_copy.is_additive
 
 
 def test_getitem(complex_atoms):
@@ -420,6 +508,16 @@ def test_getitem(complex_atoms):
     assert sub_cluster.indices == [1]
 
     assert cluster[[0, 1]] == cluster # Fancy indexing returns identical cluster
+
+    # Get item from additive cluster
+    additive_cluster = ClusterMotif(
+        atoms=complex_atoms[[0, 1]],
+        name="additive_original"
+    )
+    sub_additive = additive_cluster[1]
+    assert isinstance(sub_additive, ClusterMotif)
+    assert len(sub_additive) == 1
+    assert sub_additive.is_additive
 
 
 def test_equality(simple_atoms, complex_atoms):

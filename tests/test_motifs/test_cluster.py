@@ -120,7 +120,9 @@ def test_default_names():
     assert "quadruplet" in cluster4._get_default_name()
 
     # Large cluster
-    atoms_large = Atoms("H" * 10, positions=np.random.rand(10, 3), cell=cell, pbc=True)
+    atoms_large = Atoms(
+        "H" * 10, positions=np.random.rand(10, 3).tolist(), cell=cell, pbc=True
+    )
     cluster_large = ClusterMotif(in_atoms=atoms_large, indices=list(range(10)))
     assert "10-sites cluster" in cluster_large._get_default_name()
 
@@ -343,19 +345,178 @@ def test_edge_cases(simple_atoms):
 
 def test_describe_addition_mode(simple_atoms):
     """Test describe method in addition mode."""
+    additive_cluster = ClusterMotif(
+        atoms=simple_atoms[[0]],
+    )
+
+    # Single site in addition mode should return just the name
+    desc = additive_cluster.describe(style="coord")
+    assert desc == additive_cluster.name
+
+    # Multi-site should still use full description
     single_cluster = ClusterMotif(
         in_atoms=simple_atoms,
         indices=[0]
     )
+    desc_single = single_cluster.describe(style="coord")
+    assert "coordinates" in desc_single
 
-    # Single site in addition mode should return just the name
-    desc = single_cluster.describe(style="coord", is_addition=True)
-    assert desc == single_cluster.name
 
-    # Multi-site should still use full description
-    multi_cluster = ClusterMotif(
-        in_atoms=simple_atoms,
-        indices=[0, 1]
+# Add these new tests to test_cluster.py
+
+def test_detect_random_one_additive_mode(simple_atoms):
+    """Test random cluster detection in additive mode."""
+    cluster = ClusterMotif.detect_random_one(
+        simple_atoms,
+        additive_mode=True,
+        cluster_size=3,
+        max_cluster_radius=2.5,
+        seed=42
     )
-    desc_multi = multi_cluster.describe(style="coord", is_addition=True)
-    assert "coordinates" in desc_multi
+
+    # Verify additive mode properties
+    assert cluster.is_additive is True
+    assert cluster.indices is None
+    assert cluster.cell_offsets is None
+    assert cluster._atoms is not None
+    assert len(cluster) == 3
+
+    # Verify radius constraint
+    assert cluster.radius <= 2.5
+
+    # Verify atoms object properties
+    assert len(cluster.get_atoms()) == 3
+    assert cluster.get_atoms().cell is not None
+    npt.assert_allclose(cluster.get_atoms().cell.complete(), simple_atoms.cell.complete())
+
+
+def test_detect_random_one_additive_with_allowed_symbols(simple_atoms):
+    """Test additive mode with specific allowed symbols."""
+    allowed_symbols = ['Na', 'Cl']
+    cluster = ClusterMotif.detect_random_one(
+        simple_atoms,
+        additive_mode=True,
+        additive_mode_allowed_symbols=allowed_symbols,
+        cluster_size=4,
+        max_cluster_radius=3.0,
+        seed=42
+    )
+
+    # Verify all symbols are from allowed list
+    symbols = cluster.get_atoms().get_chemical_symbols()
+    assert all(s in allowed_symbols for s in symbols)
+    assert len(symbols) == 4
+
+
+def test_detect_random_one_additive_randomize_symbols(simple_atoms):
+    """Test additive mode with randomized symbols."""
+    cluster = ClusterMotif.detect_random_one(
+        simple_atoms,
+        additive_mode=True,
+        cluster_size=3,
+        randomize_symbols=True,
+        seed=42
+    )
+
+    # Verify cluster properties
+    assert cluster.is_additive is True
+    assert len(cluster) == 3
+
+    # Verify symbols come from original atoms
+    original_symbols = set(simple_atoms.get_chemical_symbols())
+    cluster_symbols = set(cluster.get_atoms().get_chemical_symbols())
+    assert cluster_symbols.issubset(original_symbols)
+
+
+def test_detect_random_one_additive_positions_within_sphere(simple_atoms):
+    """Test that additive mode generates positions within the specified radius."""
+    max_radius = 4.0
+    cluster = ClusterMotif.detect_random_one(
+        simple_atoms,
+        additive_mode=True,
+        cluster_size=3,
+        max_cluster_radius=max_radius,
+        seed=42
+    )
+
+    # Calculate all pairwise distances
+    positions = cluster.get_atoms().get_positions()
+    for i in range(len(positions)):
+        for j in range(i + 1, len(positions)):
+            distance = np.linalg.norm(positions[i] - positions[j])
+            assert distance <= max_radius, f"Distance {distance} exceeds max_radius {max_radius}"
+
+
+def test_detect_random_one_non_additive_vs_additive(simple_atoms):
+    """Test that non-additive and additive modes produce different results."""
+    # Non-additive mode
+    non_additive = ClusterMotif.detect_random_one(
+        simple_atoms,
+        additive_mode=False,
+        cluster_size=2,
+        max_cluster_radius=3.0,
+        seed=42
+    )
+
+    # Additive mode
+    additive = ClusterMotif.detect_random_one(
+        simple_atoms,
+        additive_mode=True,
+        cluster_size=2,
+        seed=42
+    )
+
+    # Verify different properties
+    assert non_additive.is_additive is False
+    assert additive.is_additive is True
+    assert non_additive.indices is not None
+    assert additive.indices is None
+    assert non_additive.in_atoms is not None
+    assert additive.in_atoms is None
+
+
+def test_additive_cluster_describe(simple_atoms):
+    """Test describe method for additive clusters."""
+    cluster = ClusterMotif.detect_random_one(
+        simple_atoms,
+        additive_mode=True,
+        cluster_size=2,
+        seed=42
+    )
+
+    # Additive clusters should force coord style
+    desc = cluster.describe(style="index")  # Should be overridden to coord
+    assert "coordinates" in desc.lower() or cluster.name in desc
+
+    # Single atom additive should return name only
+    single_cluster = cluster[0]
+    desc_single = single_cluster.describe(style="coord")
+    assert desc_single == single_cluster.name
+
+
+def test_additive_cluster_operations(simple_atoms):
+    """Test that additive clusters can be copied and extended."""
+    cluster1 = ClusterMotif.detect_random_one(
+        simple_atoms,
+        additive_mode=True,
+        cluster_size=2,
+        seed=42
+    )
+
+    cluster2 = ClusterMotif.detect_random_one(
+        simple_atoms,
+        additive_mode=True,
+        cluster_size=2,
+        seed=43
+    )
+
+    # Test copy
+    cluster_copy = cluster1.copy()
+    assert cluster_copy.is_additive is True
+    assert len(cluster_copy) == len(cluster1)
+
+    # Test extend with another additive cluster
+    original_len = len(cluster1)
+    cluster1.extend(cluster2)
+    assert len(cluster1) == original_len + len(cluster2)
+    assert cluster1.is_additive is True

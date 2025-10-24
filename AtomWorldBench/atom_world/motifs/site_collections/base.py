@@ -54,20 +54,21 @@ class BaseSiteCollectionMotif(BaseMotif, ABC):
             atoms (Atoms, optional): An ASE Atoms object representing the motif.
                 When none of in_atoms, indices, offsets are provided, and atoms is provided,
                 will create a motif directly from atoms. In this case, the motif can only be
-                added in the AddMotifAction.
+                added in the AddMotifAction (additive mode).
             name (str, optional): Human-readable motif name. Optional.
              If None, will generate a default name.
             allow_translation_equivalence (bool):
                 If True, the motif can be considered equivalent to another motif
                 if they are related by an integer translation.
                 Default is not given, then will use the global setting ALLOW_TRANSLATION_EQUIVALENCE.
+                Does not matter for additive motifs.
         """
         # Wraps atom after super init.
         BaseMotif.__init__(self, in_atoms, name=name)
 
         if in_atoms is None and indices is None and offsets is None and atoms is not None:
             self.is_additive = True
-        elif in_atoms is not None and indices is not None:
+        elif in_atoms is not None and indices is not None and atoms is None:
             self.is_additive = False
         else:
             raise ValueError(
@@ -305,7 +306,7 @@ class BaseSiteCollectionMotif(BaseMotif, ABC):
         else:
             self._indices = self.indices + other.indices
             self._offsets = np.vstack((self.cell_offsets, other.cell_offsets))
-            self._atoms = self.get_atoms()
+            self._atoms = None  # Reset atoms to force re-computation.
         # Post init checks to avoid invalid addition, for example, adding cluster to site.
         self.__post_init__()
         # Reset name to default to avoid conflicts with the original motif name.
@@ -318,7 +319,7 @@ class BaseSiteCollectionMotif(BaseMotif, ABC):
             in_atoms=copy.deepcopy(self.in_atoms),
             indices=copy.deepcopy(self.indices),
             offsets=copy.deepcopy(self.cell_offsets),
-            atoms=copy.deepcopy(self._atoms),
+            atoms=(copy.deepcopy(self._atoms) if self.is_additive else None),
             name=self.name,
             allow_translation_equivalence=self.allow_translation_equivalence,
         )
@@ -333,15 +334,17 @@ class BaseSiteCollectionMotif(BaseMotif, ABC):
             idx = [i]  # Force list.
         else:
             idx = i
-        if not self.is_additive:
-            indices = np.array(self.indices, dtype=int)[idx].tolist()
-            offsets = self.cell_offsets[idx]
-        else:
+        if self.is_additive:
             indices = None
             offsets = None
-        atoms = self.get_atoms()[idx]
+            atoms = self.get_atoms()[idx]
+        else:
+            indices = np.array(self.indices, dtype=int)[idx].tolist()
+            offsets = self.cell_offsets[idx]
+            atoms = None  # Force re-computation in the new motif.
+
         return self.__class__(
-            copy.deepcopy(self.in_atoms),
+            in_atoms=copy.deepcopy(self.in_atoms),
             name=None, # Reset name to default to avoid conflicts with the original motif name.
             indices=indices,
             offsets=offsets,

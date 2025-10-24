@@ -73,7 +73,13 @@ class SiteMotif(BaseSiteCollectionMotif):
             return f"a species {self.species_strings[0]}"
 
     @classmethod
-    def detect_random_one(cls, atoms: Atoms, seed: Optional[int] = None) -> 'SiteMotif':
+    def detect_random_one(
+            cls,
+            atoms: Atoms,
+            seed: Optional[int] = None,
+            additive_mode: bool = False,
+            additive_mode_allowed_symbols: Optional[List[str]] = None,
+    ) -> 'SiteMotif':
         """Detect a random site motif from the given atoms.
 
         Args:
@@ -81,12 +87,31 @@ class SiteMotif(BaseSiteCollectionMotif):
                 Notice: this object will always be wrapped at init if not already!
                 All cell offsets will be computed relative to the wrapped positions.
             seed (Optional[int]): Random seed for reproducibility. Default is None.
+            additive_mode (bool): If True, only consider atoms with symbols in
+                additive_mode_allowed_symbols. Default is False.
+            additive_mode_allowed_symbols (Optional[List[str]]):
+                List of allowed atomic symbols when additive_mode is True.
+                If None, all symbols are allowed.
         Returns:
             SiteMotif: A single site motif detected from the atoms.
         """
         rng = np.random.default_rng(seed)
-        rand_idx = int(rng.integers(0, len(atoms)))
-        return SiteMotif(
-            atoms,
-            indices=[rand_idx]
-        )
+        if not additive_mode:
+            rand_idx = int(rng.integers(0, len(atoms)))
+            return SiteMotif(
+                atoms,
+                indices=[rand_idx]
+            )
+        else:
+            if additive_mode_allowed_symbols is None:
+                allowed_symbols = set(atoms.get_chemical_symbols())
+            else:
+                allowed_symbols = set(additive_mode_allowed_symbols)
+            symbol = rng.choice(list(allowed_symbols))
+            return SiteMotif(
+                atoms=Atoms(
+                    symbols=[symbol],
+                    positions=[(0.0, 0.0, 0.0)],
+                    cell=atoms.cell.complete(),
+                )
+            )
