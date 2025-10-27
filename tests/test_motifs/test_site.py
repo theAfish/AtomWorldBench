@@ -76,6 +76,11 @@ def test_default_name(simple_atoms):
     expected_name3 = "an atom Na"
     assert motif3.name == expected_name3
 
+    # Test name in additive mode.
+    motif_additive = SiteMotif(
+        atoms=Atoms(symbols=["K"], positions=[(0, 0, 0)]),
+    )
+    assert motif_additive.name == "an atom K"
 
 def test_detect_random_one(simple_atoms):
     """Test random site motif detection."""

@@ -51,6 +51,11 @@ class ReplaceMotifAction(BaseMotifAction):
     def __post_init__(self):
         """Post-initialization to ensure the action is valid."""
         self._check_relative_motif_in_atoms()
+        # Operated motif must be in is_additive mode.
+        if not self.operated_motif.is_additive:
+            raise ValueError(
+                "Inserted must be in is_additive mode."
+            )
 
     def execute(self) -> Atoms:
         """Execute the action to replace the motif in the structure.

@@ -67,7 +67,7 @@ class SiteMotif(BaseSiteCollectionMotif):
 
     def _get_default_name(self) -> str:
         """Generate a default name for the motif based on its species and coordinates."""
-        if self.in_atoms.get_initial_charges()[self.indices[0]] == 0:
+        if self.get_atoms().get_initial_charges()[0] == 0:
             return f"an atom {self.species_strings[0]}"
         else:
             return f"a species {self.species_strings[0]}"

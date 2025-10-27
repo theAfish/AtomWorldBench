@@ -34,6 +34,11 @@ def _check_relative_motif_compatibility(m, mode_flag):
                 "Relative to motif must support get_centroid method"
                 " in relative_to_motif_centroid mode."
             )
+    if mode_flag == "relative_to_pair_motif":
+        if not (isinstance(m, BaseSiteCollectionMotif) and len(m) == 2):
+            raise ValueError(
+                "Only pair motifs are allowed for relative_to_pair_motif mode."
+            )
     return m
 
 @register(BaseMotifAction, ["add", "add-motif"])
@@ -63,23 +68,11 @@ class AddMotifAction(BaseMotifAction):
         "absolute": {"at_position": None},
         "relative_to_position": {
             "relative_to_position": None,
-            "relative_shift": (
-                lambda x: check_coordinates_shape(
-                    x, "relative_shift", expected_1d=True, allow_none=False
-                ),
-                "Relative shift must be a 1D array of 3 components for"
-                " relative_to_position mode."
-            ),
+            "relative_shift": None,  # Shape will be checked later.
         },
         "relative_to_motif_centroid": {
             "relative_to_motif": None,
-            "relative_shift": (
-                lambda x: check_coordinates_shape(
-                    x, "relative_shift", expected_1d=True, allow_none=False
-                ),
-                "Relative shift must be a 1D array of 3 components for"
-                " relative_to_motif_centroid mode."
-            ),
+            "relative_shift": None,
             "relative_style": (
                 lambda s: s  == "centroid_distance",
                 "Relative style must be centroid_distance for"
@@ -187,6 +180,9 @@ class AddMotifAction(BaseMotifAction):
     def __post_init__(self):
         # AddAction does not need to check operated_motif existence in operated_atoms.
         self._check_relative_motif_in_atoms()
+        # Operated motif must be in additive mode.
+        if not self.operated_motif.is_additive:
+            raise ValueError("Inserted motif must be in additive mode.")
 
     def _compute_insert_cart_position(self, atoms: Atoms):
         """Get inserted cartesian position based on style."""
@@ -311,7 +307,7 @@ class AddMotifAction(BaseMotifAction):
                 f" with its centroid located on the line between"
                 f" atoms in [{rel_motif.describe(**relative_motif_desc_kwargs)}], at"
                 f" {self.relative_shift:.{precision}f} angstroms away from the atom indexed"
-                f" {rel_motif.indices[self.relative_atom_index]}."
+                f" {rel_motif.indices[self.relative_atom_index]} (in the original structure)."
                 + " " + common_instruction
             )
         if self.mode_flag == "relative_to_motif_centroid":
