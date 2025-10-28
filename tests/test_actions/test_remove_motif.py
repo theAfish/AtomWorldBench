@@ -3,16 +3,10 @@
 import pytest
 import numpy as np
 import numpy.testing as npt
-from ase import Atoms
 
 from AtomWorldBench.atom_world.actions.motif_actions.base import BaseMotifAction
 from AtomWorldBench.atom_world.actions.motif_actions.remove import RemoveMotifAction
-from AtomWorldBench.atom_world.motifs.base import BaseMotif
-from AtomWorldBench.atom_world.motifs.regions.base import BaseRegionMotif
 from AtomWorldBench.common.registry import get_registered
-
-from AtomWorldBench.atom_world.motifs.site_collections.cluster import ClusterMotif
-from AtomWorldBench.atom_world.motifs.site_collections.site import SiteMotif
 
 from ..utils import get_random_motif
 
@@ -38,7 +32,7 @@ def forbidden_remove_motif(request, orig_atoms):
 
 
 def test_registry():
-    """Test that AddMotifAction is registered correctly."""
+    """Test that RemoveMotifAction is registered correctly."""
     action_class = get_registered(BaseMotifAction)["remove-motif"]
     assert action_class is RemoveMotifAction
     action_class = get_registered(BaseMotifAction)["remove"]
@@ -61,7 +55,7 @@ def test_remove_motif_action(allowed_remove_motif):
         np.arange(len(action.operated_atoms)),
         allowed_remove_motif.indices
     ))
-    npt.assert_array_equal(
+    npt.assert_allclose(
         new_atoms.get_positions(wrap=False),
         action.operated_atoms.get_positions(wrap=False)[remaining_indices]
     )

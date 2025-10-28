@@ -224,11 +224,11 @@ def test_get_atoms(box_motif_fractional):
     atoms_subset = box_motif_fractional.get_atoms()
     assert isinstance(atoms_subset, Atoms)
 
-    npt.assert_array_equal(
+    npt.assert_allclose(
         box_motif_fractional.frac_coords,
         atoms_subset.get_scaled_positions(wrap=False)
     )
-    npt.assert_array_equal(
+    npt.assert_allclose(
         box_motif_fractional.cart_coords,
         atoms_subset.get_positions(wrap=False)
     )

@@ -12,7 +12,7 @@ from .utils import _must_be_non_bond_site_collection_motif
 
 
 
-@register(BaseMotif, ["replace", "replace-motif"])
+@register(BaseMotifAction, ["replace", "replace-motif"])
 class ReplaceMotifAction(BaseMotifAction):
     """Action to replace a motif in the structure.
 
@@ -24,7 +24,7 @@ class ReplaceMotifAction(BaseMotifAction):
         "relative_to_motif": _must_be_non_bond_site_collection_motif,
     }
     mode_definitions = {
-        "_excluded": ["operated_motif", "relative_to_motif"],
+        "_excluded": ["operated_motif", "relative_to_motif", "operated_atoms"],
         "default": {},
     }
 
@@ -48,13 +48,22 @@ class ReplaceMotifAction(BaseMotifAction):
         )
         self.replaced_motif = self.relative_to_motif  # Make an alias for clarity.
 
+    # Deprecate BaseMotifAction.operated_atoms property.
+    @property
+    def operated_atoms(self) -> Atoms:
+        """Return the Atoms object associated with the operated motif."""
+        return self.relative_to_motif.in_atoms
+
     def __post_init__(self):
         """Post-initialization to ensure the action is valid."""
-        self._check_relative_motif_in_atoms()
         # Operated motif must be in is_additive mode.
         if not self.operated_motif.is_additive:
             raise ValueError(
-                "Inserted must be in is_additive mode."
+                "Inserted motif must be in is_additive mode."
+            )
+        if self.relative_to_motif.is_additive:
+            raise ValueError(
+                "The motif to be replaced must NOT be in is_additive mode."
             )
 
     def execute(self) -> Atoms:

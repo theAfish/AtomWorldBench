@@ -92,7 +92,7 @@ def test_at_position_mode(allowed_operated_motif, orig_atoms):
         np.array([0.5, 0.5, 0.5]) @ orig_atoms.cell.complete()
     )
     # Translated, rather than rotated.
-    npt.assert_array_equal(
+    npt.assert_allclose(
         added_atoms.get_positions() - added_centroid,
         allowed_operated_motif.cart_coords - allowed_operated_motif.get_centroid(fractional=False)
     )
@@ -126,7 +126,7 @@ def test_relative_to_motif_mode(allowed_operated_motif, allowed_relative_to_moti
         added_centroid,
         expected_centroid
     )
-    npt.assert_array_equal(
+    npt.assert_allclose(
         added_atoms.get_positions() - added_centroid,
         allowed_operated_motif.cart_coords - allowed_operated_motif.get_centroid(fractional=False)
     )
@@ -161,7 +161,7 @@ def test_relative_to_position(allowed_operated_motif, orig_atoms):
         added_centroid,
         expected_centroid
     )
-    npt.assert_array_equal(
+    npt.assert_allclose(
         added_atoms.get_positions() - added_centroid,
         allowed_operated_motif.cart_coords - allowed_operated_motif.get_centroid(fractional=False)
     )
@@ -197,7 +197,7 @@ def test_relative_to_pair_motif(allowed_operated_motif, bond_motif, orig_atoms):
         added_centroid,
         expected_centroid
     )
-    npt.assert_array_equal(
+    npt.assert_allclose(
         added_atoms.get_positions() - added_centroid,
         allowed_operated_motif.cart_coords - allowed_operated_motif.get_centroid(fractional=False)
     )

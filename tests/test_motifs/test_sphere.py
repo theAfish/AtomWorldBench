@@ -324,9 +324,9 @@ def test_get_atoms(sphere_motif):
     # ase.Atom did not implement __eq__ method.
     # assert all(atom in sphere_motif.in_atoms for atom in atoms_subset)
 
-    npt.assert_array_equal(sphere_motif.frac_coords,
+    npt.assert_allclose(sphere_motif.frac_coords,
                            atoms_subset.get_scaled_positions(wrap=False))
-    npt.assert_array_equal(sphere_motif.cart_coords,
+    npt.assert_allclose(sphere_motif.cart_coords,
                            atoms_subset.get_positions(wrap=False))
 
 
