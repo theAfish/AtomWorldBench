@@ -152,6 +152,7 @@ class MultiModeInitMixin(ABC):
           def format_param(value, *, mode_flag: Optional[str] = None) -> Any
       If your callable accepts the keyword-only argument `mode_flag`, it will be passed.
       Otherwise, it will be called as `callable(value)`.
+      This callable must return an object, not simply true/false or None.
 
     Attribute behavior
     ------------------

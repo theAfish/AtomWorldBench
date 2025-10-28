@@ -7,19 +7,13 @@ from ase import Atoms
 
 from AtomWorldBench.atom_world.actions.motif_actions.base import BaseMotifAction
 from AtomWorldBench.atom_world.actions.motif_actions.add import AddMotifAction
-from AtomWorldBench.atom_world.motifs.base import BaseMotif
 from AtomWorldBench.atom_world.motifs.regions.base import BaseRegionMotif
 from AtomWorldBench.common.registry import get_registered
 
 from AtomWorldBench.atom_world.motifs.site_collections.cluster import ClusterMotif
 from AtomWorldBench.atom_world.motifs.site_collections.site import SiteMotif
 
-
-def get_random_motif(class_alias, atoms, seed=42, **kwargs):
-    """Helper function to get a random motif of a given class alias."""
-    motif_class = get_registered(BaseMotif)[class_alias]
-    assert issubclass(motif_class, BaseMotif)
-    return motif_class.detect_random_one(atoms, seed=seed, **kwargs)
+from ..utils import get_random_motif
 
 
 @pytest.fixture(

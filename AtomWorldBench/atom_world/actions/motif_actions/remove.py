@@ -26,6 +26,7 @@ def _check_operated_motif_compatibility(m):
             "BondMotif cannot be removed directly."
             " Please remove the pair cluster forming the bond instead."
         )
+    return m
 
 
 @register(BaseMotifAction, ["remove", "remove-motif"])
@@ -76,7 +77,8 @@ class RemoveMotifAction(BaseMotifAction):
         # _check_operated_motif_in_atoms() in __post_init()
         # ensures that the motif is in the atoms and
         # has indices.
-        indices = self.operated_motif.indices
+        # Notice: region indices can duplicate, so must deduplicate first.
+        indices = np.unique(self.operated_motif.indices)
         remaining_indices = np.setdiff1d(
             np.arange(len(self.operated_atoms), dtype=int),
             indices, assume_unique=True
@@ -96,7 +98,8 @@ class RemoveMotifAction(BaseMotifAction):
         Returns:
             str: A description of the action.
         """
+        motif_desc_kwargs = motif_desc_kwargs or {}
         return (
             f"remove [{self.operated_motif.describe(**motif_desc_kwargs)}] from the structure."
-            f" Do not change the order of remaining atoms in structure."
+            f" do not change the order of remaining atoms in structure."
         )
