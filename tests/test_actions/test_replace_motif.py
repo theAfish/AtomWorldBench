@@ -11,7 +11,6 @@ from AtomWorldBench.common.registry import get_registered
 from ..utils import get_random_motif
 
 
-# All types of motifs can be removed.
 @pytest.fixture(params=["cluster", "site"])
 def allowed_remove_motif(request, orig_atoms):
     motif_class_alias = request.param

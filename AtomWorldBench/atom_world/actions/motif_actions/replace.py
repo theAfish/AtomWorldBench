@@ -129,8 +129,8 @@ class ReplaceMotifAction(BaseMotifAction):
                 f" {cent_word}."
             )
         desc += (
-            f" do not change the order of other unaffected atoms,"
-            f" and the newly added atoms should be appended to the end of"
-            f" the structure in the order as described."
+            " do not change the order of other unaffected atoms,"
+            " and the newly added atoms should be appended to the end of"
+            " the structure in the order as described."
         )
         return desc

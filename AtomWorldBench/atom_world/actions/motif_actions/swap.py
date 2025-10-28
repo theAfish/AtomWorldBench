@@ -10,7 +10,7 @@ from ....common.registry import register
 from .utils import _must_be_non_bond_site_collection_motif
 
 
-@register(BaseMotifAction, ["swap-motif"])
+@register(BaseMotifAction, ["swap", "swap-motif"])
 class SwapMotifAction(BaseMotifAction):
     """Action to swap two motifs in the structure.
 
@@ -51,8 +51,9 @@ class SwapMotifAction(BaseMotifAction):
         """Post-initialization to ensure the action is valid."""
         self._check_operated_motif_in_atoms()
         self._check_relative_motif_in_atoms()
-        if self.operated_motif == self.relative_to_motif:
-            raise ValueError("The two motifs to swap must be different.")
+        # Disjoint check.
+        if len(set(self.operated_motif.indices) & set(self.relative_to_motif.indices)) > 0:
+            raise ValueError("The two motifs to swap must not share any atoms.")
 
     def execute(self) -> Atoms:
         """Execute the action to swap the two motifs in the structure.
@@ -69,16 +70,16 @@ class SwapMotifAction(BaseMotifAction):
         motif_b_positions = self.relative_to_motif.cart_coords
 
         # Calculate centroids
-        centroid_a = self.operated_motif.get_centroid()
-        centroid_b = self.relative_to_motif.get_centroid()
+        centroid_a = self.operated_motif.get_centroid(fractional=False)
+        centroid_b = self.relative_to_motif.get_centroid(fractional=False)
 
         # Calculate relative positions
         relative_a = motif_a_positions - centroid_a
         relative_b = motif_b_positions - centroid_b
 
         # Swap positions
-        new_motif_a_positions = relative_b + centroid_a
-        new_motif_b_positions = relative_a + centroid_b
+        new_motif_a_positions = relative_a + centroid_b
+        new_motif_b_positions = relative_b + centroid_a
 
         atom_positions = atoms.get_positions(wrap=False).copy()
         motif_a_indices = self.operated_motif.indices
@@ -86,9 +87,8 @@ class SwapMotifAction(BaseMotifAction):
         atom_positions[motif_a_indices] = new_motif_a_positions
         atom_positions[motif_b_indices] = new_motif_b_positions
 
-        # Update atom positions
+        # Update atom positions. NOT wrapped!
         atoms.set_positions(atom_positions)
-        atoms.wrap()
 
         return atoms
 
