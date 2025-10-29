@@ -25,19 +25,26 @@ def _check_operated_motif_compatibility(m, mode_flag):
                 "operated_motif must have get_centroid method for"
                 " relative_to_centroid mode."
             )
-        if hasattr(m, "__len__") and len(m) < 2:
-            raise ValueError("operated_motif must have at least 2 atoms"
-                             " to be resizable relative to its centroid.")
+    if hasattr(m, "__len__") and len(m) < 2:
+        raise ValueError("operated_motif must have at least 2 atoms"
+                         " to be resizable.")
     if "to_radius" in mode_flag:
-        if not hasattr(m, "get_radius"):
+        if not hasattr(m, "radius"):
             raise ValueError(
-                "operated_motif must have get_radius method for to_radius mode."
+                "operated_motif must have radius attribute for to_radius mode."
+            )
+    # Node index mode does not support region motifs.
+    if "relative_to_node_index" in mode_flag:
+        if isinstance(m, BaseRegionMotif):
+            raise ValueError(
+                "operated_motif cannot be a region motif for"
+                " relative_to_node_index mode."
             )
     return m
 
 
 # Can only be called "resize-motif" as "resize" may conflict with ResizeStructureAction.
-@register(BaseMotifAction, ["resize-motif"])
+@register(BaseMotifAction, ["resize", "resize-motif"])
 class ResizeMotifAction(BaseMotifAction):
     """Resize a motif by changing the motif's radius with respect to its centroid or a node."""
     kwargs_formatting_functions = {
@@ -51,12 +58,7 @@ class ResizeMotifAction(BaseMotifAction):
             {
                 "name_template": "relative_to_{relative_to}_{size_mode}",
                 "relative_to":{
-                    "centroid": {
-                        "relative_to_centroid": (
-                            lambda x: x is True,
-                            "relative_to_centroid must be True for relative_to_centroid mode."
-                        ),
-                    },
+                    "centroid": {},  # Does not need extra parameters.
                     "node_index": {
                         "relative_to_node_index": (
                             lambda x: isinstance(x, int) and x >= 0,
@@ -86,7 +88,6 @@ class ResizeMotifAction(BaseMotifAction):
     def __init__(
             self,
             operated_motif: BaseMotif,
-            relative_to_centroid: Optional[bool] = None,
             relative_to_node_index: Optional[int] = None,
             scale_by: Optional[float] = None,
             to_radius: Optional[float] = None,
@@ -97,7 +98,7 @@ class ResizeMotifAction(BaseMotifAction):
         For the rest of parameters, currently, allows 4 modes of operation:
             1, "relative_to_centroid_scale_by":
                 resize the motif relative to its centroid by a scale factor.
-                In this mode, `relative_to_centroid` and `scale_by` are required.
+                In this mode, only `scale_by` is required.
                 No other parameters are allowed.
             2, "relative_to_node_index_scale_by":
                 resize the motif relative to a node by a scale factor.
@@ -105,7 +106,7 @@ class ResizeMotifAction(BaseMotifAction):
                 No other parameters are allowed.
             3, "relative_to_centroid_to_radius":
                 resize the motif relative to its centroid to a specific radius.
-                In this mode, `relative_to_centroid` and `to_radius` are required.
+                In this mode, only `to_radius` is required.
                 No other parameters are allowed.
             4, "relative_to_node_index_to_radius":
                 resize the motif relative to a node to a specific radius.
@@ -114,8 +115,6 @@ class ResizeMotifAction(BaseMotifAction):
 
         Args:
             operated_motif (BaseMotif): The motif to be resized.
-            relative_to_centroid (Optional[bool]): If True, resize the motif relative to its
-                centroid.
             relative_to_node_index (Optional[int]): The index of the node to resize relative to.
             scale_by (Optional[float]): Scale factor to apply to the motif's radius.
             to_radius (Optional[float]): The new radius for the motif. Unit is Angstroms.
@@ -127,7 +126,6 @@ class ResizeMotifAction(BaseMotifAction):
         super().__init__(
             operated_motif=operated_motif,
             relative_to_motif=None, # Does not need a relative motif.
-            relative_to_centroid=relative_to_centroid,
             relative_to_node_index=relative_to_node_index,
             scale_by=scale_by,
             to_radius=to_radius,
@@ -149,7 +147,7 @@ class ResizeMotifAction(BaseMotifAction):
         if "scale_by" in self.mode_flag:
             scale = self.scale_by
         elif "to_radius" in self.mode_flag:
-            scale = self.to_radius / motif.get_radius(fractional=False)
+            scale = self.to_radius / motif.radius
         else:
             raise NotImplementedError(f"Invalid mode_flag: {self.mode_flag}.")
 
@@ -173,7 +171,7 @@ class ResizeMotifAction(BaseMotifAction):
             np.arange(len(self.operated_atoms), dtype=int),
             indices, assume_unique=True
         )).tolist()
-        motif_atoms = self.operated_motif.get_atoms()
+        motif_atoms = self.operated_motif.get_atoms().copy()
         motif_atoms.set_positions(
             self._get_resized_positions(self.operated_motif)
         )
@@ -231,7 +229,7 @@ class ResizeMotifAction(BaseMotifAction):
                 scale_word = f"to {self.to_radius:.{precision}f} angstroms"
             else:
                 scale_word = f"to a {size_word} of {self.to_radius:.{precision}f} angstroms"
-            is_enlarge = (self.to_radius > self.operated_motif.get_radius())
+            is_enlarge = (self.to_radius > self.operated_motif.radius)
         else:
             raise NotImplementedError(f"Invalid mode_flag: {self.mode_flag}.")
 
@@ -262,6 +260,6 @@ class ResizeMotifAction(BaseMotifAction):
         else:
             return (
                 f"{op_word} [{self.operated_motif.describe(**motif_desc_kwargs)}]"
-                f" {scale_word} relative to {relative_word}."
+                f" {scale_word} by moving its atoms relative to {relative_word}."
                 f" update atom coordinates only, do not change their order in structure."
             )

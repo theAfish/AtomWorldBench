@@ -2,6 +2,7 @@
 from typing import Optional
 
 from ase import Atoms
+from ase.geometry.cell import unit_vector
 from numpy.typing import ArrayLike
 import numpy as np
 import inspect
@@ -18,9 +19,23 @@ from ....common.registry import register
 from .utils import _must_be_non_bond_site_collection_motif
 
 
+def _check_translation_vector(v, mode_flag):
+    if mode_flag == "relative_to_self":
+        v = check_coordinates_shape(
+                v, "relative_to_position", expected_1d=True, allow_none=True
+            )
+    elif mode_flag in ["relative_to_motif", "relative_to_position"]:
+        if not isinstance(v, (int, float)):
+            raise ValueError(
+                "translation_vector must be a scalar distance when"
+                f" mode_flag is {mode_flag}."
+            )
+    return v
+
+
 # Can only be called "translate-motif" as "translate" may conflict with TranslateStructureAction.
-@register(BaseMotifAction, ["translate-motif"])
-class TranslateAction(BaseMotifAction):
+@register(BaseMotifAction, ["translate", "translate-motif"])
+class TranslateMotifAction(BaseMotifAction):
     """Action to translate a motif in the structure."""
     kwargs_formatting_functions = {
         "to_position":
@@ -31,10 +46,7 @@ class TranslateAction(BaseMotifAction):
             lambda x: check_coordinates_shape(
                 x, "relative_to_position", expected_1d=True, allow_none=True
             ),
-        "translation_vector":
-            lambda x: check_coordinates_shape(
-                x, "translation_vector", expected_1d=True, allow_none=True
-            ),
+        "translation_vector": _check_translation_vector,
         "operated_motif": _must_be_non_bond_site_collection_motif,
         "relative_to_motif": _must_be_non_bond_site_collection_motif,
     }
@@ -52,17 +64,9 @@ class TranslateAction(BaseMotifAction):
         },
         "relative_to_motif": {
             "relative_to_motif": None,
-            "relative_style": (
-                lambda s: s == "centroid_distance",
-                "relative_style must be centroid_distance for relative_to_motif translation mode."
-            ),
             "translation_vector": None,
         },
         "relative_to_self": {
-            "relative_style": (
-                lambda s: s == "self",
-                "relative_style must be self for relative_to_self translation mode."
-            ),
             "translation_vector": None,
         }
     }
@@ -74,9 +78,8 @@ class TranslateAction(BaseMotifAction):
             relative_to_motif: Optional[BaseMotif] = None,
             to_position: Optional[ArrayLike] = None,
             relative_to_position: Optional[ArrayLike] = None,
-            translation_vector: Optional[ArrayLike] = None,
+            translation_vector: Optional[ArrayLike|int|float] = None,
             position_fractional: bool = False,
-            relative_style: str = None,
     ):
         """Initialize the TranslateMotifAction with a relative motif and style.
 
@@ -88,14 +91,22 @@ class TranslateAction(BaseMotifAction):
             2, "relative_to_position": translation to a position relative to a specified
                 position. In this mode, `relative_to_position` and `translation_vector`
                 are required. No other parameters are allowed except `position_fractional`.
+                In this mode, the translation_vector must be a scalar distance, positive or
+                negative, indicating the distance to move away from or towards the
+                reference position along the line connecting the motif centroid and the
+                reference position.
             3, "relative_to_motif": translation to a position relative to a specified motif.
-                In this mode, `relative_to_motif`, `translation_vector` and
-                `relative_style` == "centroid_distance" are required.
+                In this mode, `relative_to_motif` and `translation_vector` are required.
                 No other parameters are allowed except `position_fractional`.
+                In this mode, the translation_vector must be a scalar distance, positive or
+                negative, indicating the distance to move away from or towards the
+                reference motif along the line connecting the motif centroid and the
+                reference motif centroid.
             4, "relative_to_self": direct translation of the provided motif to the
                 `execute` method by a translation vector. No need for relative reference
                 position or motif. In this mode, `self_relative` and `translation_vector`
                 are required. No other parameters are allowed except `position_fractional`.
+                In this mode, the translation_vector is a full 3D vector.
 
         Args:
             operated_motif (BaseMotif): The motif to be translated.
@@ -103,18 +114,19 @@ class TranslateAction(BaseMotifAction):
                 Turns on the absolute mode of the action.
             relative_to_position (ArrayLike, optional): The position to translate
                 the motif relative to.
-            translation_vector (ArrayLike, optional): The vector by which to translate
-                the motif with respect to the `relative_to_position` or relative motif.
+            translation_vector (ArrayLike or int or float, optional): The vector by which to translate
+                the motif.
+                In "relative_to_self" mode, this is a full 3D vector.
+                In "relative_to_position" and "relative_to_motif" modes, this is a scalar distance,
+                positive or negative, indicating the distance to move away from or towards the
+                reference position or motif along the line connecting the motif centroid and the
+                reference position or motif centroid. In these modes, unit is angstroms.
             position_fractional (bool, optional): If True, the positions and translation
                 vector are in fractional coordinates. If False, they are in Cartesian
                 coordinates. This will also affect the description style of the action.
                 Default is False.
             relative_to_motif (BaseMotif, optional): A motif that the action is taken
                 relative to. This can be used to define the context of the action.
-            relative_style (str, optional): The style to determine relative action.
-                For example, an action can be relative to a motif's centroid in distance.
-                See `allowed_relative_styles` for the list of allowed styles. If None,
-                will use the first style in `allowed_relative_styles`.
         """
         # Just for linting.
         self.to_position = None
@@ -128,13 +140,36 @@ class TranslateAction(BaseMotifAction):
             relative_to_position=relative_to_position,
             translation_vector=translation_vector,
             position_fractional=position_fractional,
-            relative_style=relative_style,
         )
 
     def __post_init__(self):
         """Post-initialization to ensure the action is valid."""
         self._check_operated_motif_in_atoms()
         self._check_relative_motif_in_atoms()
+        # Check centroid not overlapping for relative_to_motif mode.
+        if self.relative_to_motif is not None:
+            operated_centroid = self.operated_motif.get_centroid(fractional=False)
+            relative_centroid = self.relative_to_motif.get_centroid(fractional=False)
+            if np.allclose(operated_centroid, relative_centroid):
+                raise ValueError(
+                    "The centroids of the operated motif and the relative motif are"
+                    " at the same position."
+                    " Cannot determine translation direction."
+                )
+        # Relative position can not be the same as operated motif centroid.
+        if self.relative_to_position is not None:
+            operated_centroid = self.operated_motif.get_centroid(fractional=False)
+            relative_position = (
+                self.relative_to_position
+                @ self.operated_atoms.cell.complete()
+                if self.position_fractional else self.relative_to_position
+            )
+            if np.allclose(operated_centroid, relative_position):
+                raise ValueError(
+                    "The centroid of the operated motif and the relative position are"
+                    " at the same position."
+                    " Cannot determine translation direction."
+                )
 
     def _get_translation_vector(self) -> ArrayLike:
         """Get the translation vector based on the action parameters."""
@@ -145,18 +180,18 @@ class TranslateAction(BaseMotifAction):
             )
 
         if self.mode_flag == "relative_to_motif":
-            return (
-                    self.relative_to_motif.get_centroid(fractional=self.position_fractional)
-                    + self.translation_vector
-                    - self.operated_motif.get_centroid(fractional=self.position_fractional)
-            )
+            relative_centroid = self.relative_to_motif.get_centroid(fractional=False)
+            operated_centroid = self.operated_motif.get_centroid(fractional=False)
+            direction_vector = relative_centroid - operated_centroid
+            unit = direction_vector / np.linalg.norm(direction_vector)
+            return -unit * self.translation_vector  # Positive: away from relative motif.
 
         if self.mode_flag == "relative_to_position":
-            return (
-                    self.relative_to_position
-                    + self.translation_vector
-                    - self.operated_motif.get_centroid(fractional=self.position_fractional)
-            )
+            relative_centroid = self.relative_to_position
+            operated_centroid = self.operated_motif.get_centroid(fractional=False)
+            direction_vector = relative_centroid - operated_centroid
+            unit = direction_vector / np.linalg.norm(direction_vector)
+            return -unit * self.translation_vector  # Positive: away from relative motif.
 
         if self.mode_flag == "relative_to_self":
             return self.translation_vector
@@ -243,20 +278,20 @@ class TranslateAction(BaseMotifAction):
                     + " " + common_instruction
             )
         if self.mode_flag == "relative_to_position":
+            move_word = "away from" if self.translation_vector >= 0 else "towards"
             return (
                 f"translate [{self.operated_motif.describe(**motif_desc_kwargs)}]"
-                f" so as to relocate its centroid at {coord_word}"
-                f" {describe_arraylike(self.translation_vector, precision=precision)}"
-                f" shifted from a reference point at {coord_word}"
+                f" so as to move its centroid {self.translation_vector:.{precision}f}"
+                f" angstroms {move_word} a reference point at {coord_word}"
                 f" {describe_arraylike(self.relative_to_position, precision=precision)}."
                 + " " + common_instruction
             )
         if self.mode_flag == "relative_to_motif":
+            move_word = "away from" if self.translation_vector >= 0 else "towards"
             return (
                 f"translate [{self.operated_motif.describe(**motif_desc_kwargs)}]"
-                f" so as to relocate its centroid at {coord_word}"
-                f" {describe_arraylike(self.translation_vector, precision=precision)}"
-                f" away from the centroid of"
+                f" so as to move its centroid {self.translation_vector:.{precision}f}"
+                f" angstroms {move_word} the centroid of"
                 f" [{self.relative_to_motif.describe(**relative_motif_desc_kwargs)}]."
                 + " " + common_instruction
             )
