@@ -1,4 +1,4 @@
-"""Comprehensive test suite for AddMotifAction."""
+"""Comprehensive test suite for ResizeMotifAction."""
 
 import pytest
 import numpy as np

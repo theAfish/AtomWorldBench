@@ -2,7 +2,6 @@
 from typing import Optional
 
 from ase import Atoms
-from ase.geometry.cell import unit_vector
 from numpy.typing import ArrayLike
 import numpy as np
 import inspect
@@ -156,6 +155,14 @@ class TranslateMotifAction(BaseMotifAction):
                     " at the same position."
                     " Cannot determine translation direction."
                 )
+            distance = np.linalg.norm(operated_centroid - relative_centroid)
+            if self.translation_vector < 0 and abs(self.translation_vector) > distance:
+                raise ValueError(
+                    "The translation distance to move inward"
+                    " is larger than the distance between"
+                    " the operated motif and the relative motif."
+                    " This will cause overshoot."
+                )
         # Relative position can not be the same as operated motif centroid.
         if self.relative_to_position is not None:
             operated_centroid = self.operated_motif.get_centroid(fractional=False)
@@ -166,17 +173,32 @@ class TranslateMotifAction(BaseMotifAction):
             )
             if np.allclose(operated_centroid, relative_position):
                 raise ValueError(
-                    "The centroid of the operated motif and the relative position are"
+                    "The centroid of the operated motif and the reference point are"
                     " at the same position."
                     " Cannot determine translation direction."
                 )
+            distance = np.linalg.norm(operated_centroid - relative_position)
+            if self.translation_vector < 0 and abs(self.translation_vector) > distance:
+                raise ValueError(
+                    "The translation distance to move inward"
+                    " is larger than the distance between"
+                    " the operated motif and the reference point."
+                    " This will cause overshoot."
+                )
+
 
     def _get_translation_vector(self) -> ArrayLike:
-        """Get the translation vector based on the action parameters."""
+        """Get the translation vector based on the action parameters.
+
+        Always return cartesian coordinates.
+        """
         if self.mode_flag == "absolute":
+            to_position = self.to_position if not self.position_fractional else (
+                self.to_position @ self.operated_atoms.cell.complete()
+            )
             return (
-                    self.to_position -
-                    self.operated_motif.get_centroid(fractional=self.position_fractional)
+                    to_position -
+                    self.operated_motif.get_centroid(fractional=False)
             )
 
         if self.mode_flag == "relative_to_motif":
@@ -187,14 +209,22 @@ class TranslateMotifAction(BaseMotifAction):
             return -unit * self.translation_vector  # Positive: away from relative motif.
 
         if self.mode_flag == "relative_to_position":
-            relative_centroid = self.relative_to_position
+            if not self.position_fractional:
+                relative_centroid = self.relative_to_position
+            else:
+                relative_centroid = (
+                    self.relative_to_position
+                    @ self.operated_atoms.cell.complete()
+                )
             operated_centroid = self.operated_motif.get_centroid(fractional=False)
             direction_vector = relative_centroid - operated_centroid
             unit = direction_vector / np.linalg.norm(direction_vector)
             return -unit * self.translation_vector  # Positive: away from relative motif.
 
         if self.mode_flag == "relative_to_self":
-            return self.translation_vector
+            return self.translation_vector if not self.position_fractional else (
+                self.translation_vector @ self.operated_atoms.cell.complete()
+            )
 
         raise NotImplementedError(f"Invalid mode_flag: {self.mode_flag}.")
 
@@ -208,8 +238,6 @@ class TranslateMotifAction(BaseMotifAction):
         """
         # Atoms.translate only accepts Cartesian coordinates, so we need to convert.
         translation_vector = self._get_translation_vector()
-        if self.position_fractional:
-            translation_vector = translation_vector @ self.operated_atoms.cell.complete()
 
         ## Remove the motif from the structure, then add translated motif back.
         # __post_init__ ensures that the motif is in the atoms and has indices.
@@ -217,7 +245,7 @@ class TranslateMotifAction(BaseMotifAction):
         other_indices = np.sort(np.setdiff1d(
             np.arange(len(self.operated_atoms), dtype=int), indices, assume_unique=True
         )).tolist()
-        motif_atoms = self.operated_motif.get_atoms()
+        motif_atoms = self.operated_motif.get_atoms().copy()
         motif_atoms.translate(translation_vector)
         return merge_atoms(
             [self.operated_atoms[other_indices], motif_atoms],
@@ -267,7 +295,7 @@ class TranslateMotifAction(BaseMotifAction):
 
         # A common instruction to prevent shuffling indices.
         common_instruction = (
-            "update atom coordinates only, do not change their order in structure."
+            "update atom positions only, do not change their order in structure."
         )
 
         if self.mode_flag == "absolute":

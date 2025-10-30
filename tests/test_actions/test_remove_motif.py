@@ -21,6 +21,7 @@ def allowed_remove_motif(request, orig_atoms):
     # Not in additive mode.
     motif = get_random_motif(motif_class_alias, orig_atoms, seed=123, **motif_kwargs)
     assert not hasattr(motif, "is_additive") or not motif.is_additive
+    assert len(motif.indices) > 0
     return motif
 
 
