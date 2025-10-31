@@ -88,7 +88,7 @@ class ReplaceMotifAction(BaseMotifAction):
         ).tolist()
         centroid = self.replaced_motif.get_centroid(fractional=False)
         displacement = centroid - self.operated_motif.get_centroid(fractional=False)
-        operated_motif_atoms = self.operated_motif.get_atoms()
+        operated_motif_atoms = self.operated_motif.get_atoms().copy()
         operated_motif_atoms.translate(displacement)
         # Preserve the order of remaining atoms.
         atoms_cp = self.operated_atoms[np.sort(remaining_indices)]

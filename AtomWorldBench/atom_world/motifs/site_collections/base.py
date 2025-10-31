@@ -219,7 +219,7 @@ class BaseSiteCollectionMotif(BaseMotif, ABC):
 
     def describe(
             self,
-            style: str = "coord",
+            style: str = "index",  # Use index as default style for site collection.
             coord_fractional: bool = False,
             precision: int = DEFAULT_FLOAT_TO_STRING_PRECISION,
     ) -> str:

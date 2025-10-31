@@ -10,6 +10,7 @@ from scipy.spatial.transform import Rotation
 from .base import BaseMotifAction
 from ...motifs.base import BaseMotif
 from ...motifs.site_collections.base import BaseSiteCollectionMotif
+from ...motifs.regions.base import BaseRegionMotif
 from ...motifs.site_collections.bond import BondMotif
 
 from ....utils.coord_utils import check_coordinates_shape
@@ -43,22 +44,24 @@ def _check_operated_motif_compatibility(m, mode_flag):
                 "Operated site collection motifs must have at least two sites"
                 " for self-relative rotation to be meaningful."
             )
+    if isinstance(m, BaseRegionMotif):
+        if not "self" in mode_flag:
+            raise ValueError(
+                "Region motifs can only be used as operated motifs in self-relative rotation."
+            )
     return m
 
-def _check_relative_motif_compatibility(m, mode_flag):
+def _check_relative_motif_compatibility(m):
     """Check if the relative motif is compatible for rotation."""
     if m is None:
         return m
-    if "motif" in mode_flag:
-        if not hasattr(m, "get_centroid"):
-            raise ValueError(
-                "Relative motif must support centroid calculation for motif-relative rotation."
-            )
+    if isinstance(m, BaseRegionMotif):
+        raise ValueError("Region motifs are not allowed as relative motifs for rotation.")
     return m
 
 
 # Can only be called "rotate-motif" as "rotate" may conflict with RotateStructureAction.
-@register(BaseMotifAction, ["rotate-motif"])
+@register(BaseMotifAction, ["rotate", "rotate-motif"])
 class RotateMotifAction(BaseMotifAction):
     """Action to rotate a motif in the structure.
 
@@ -136,7 +139,7 @@ class RotateMotifAction(BaseMotifAction):
             ),
             "relative_to_motif": (
                 lambda m: isinstance(m, BaseSiteCollectionMotif) and len(m) == 2,
-                "Only pair motifs are allowed for axis_relative_pair_motif mode."
+                "Only pair site-collection motifs are allowed for axis_relative_pair_motif mode."
             ),
             "relative_axis_origin_index": (
                 lambda i: i in [0, 1],
@@ -212,6 +215,7 @@ class RotateMotifAction(BaseMotifAction):
             rotation_axis_vector (Optional[ArrayLike]):
                 Vector defining the rotation axis. Rotation will be computed from
                 Rodriguez' rotation formula. Must be a 1D array-like of length 3.
+                This is not affected by `position_fractional`, always in cartesian metric.
             rotation_axis_angle (Optional[float]):
                 Angle of counter-clockwise rotation around the rotation axis in degrees.
             relative_to_position (Optional[ArrayLike]):
@@ -255,6 +259,37 @@ class RotateMotifAction(BaseMotifAction):
         """Post-initialization to validate parameters."""
         self._check_operated_motif_in_atoms()
         self._check_relative_motif_in_atoms()
+        # Prevent single-site motifs from rotating around their own centroid.
+        if "relative_to_position" in self.mode_flag:
+            operated_centroid = self.operated_motif.get_centroid(fractional=False)
+            ref_centroid = (
+                self.relative_to_position @ self.operated_atoms.cell.complete()
+                if self.position_fractional else self.relative_to_position
+            )
+            if (
+                    np.allclose(operated_centroid, ref_centroid, atol=1e-8)
+                    and len(self.operated_motif) == 1
+            ):
+                raise ValueError(
+                    "Rotation center position cannot be the same"
+                    " as the operated motif's centroid, when the"
+                    " operated motif has only one atom."
+                )
+        if (
+                ("relative_to_regular_motif" in self.mode_flag)
+                or ("relative_to_pair_motif" in self.mode_flag)
+        ):
+            operated_centroid = self.operated_motif.get_centroid(fractional=False)
+            ref_centroid = self.relative_to_motif.get_centroid(fractional=False)
+            if (
+                    np.allclose(operated_centroid, ref_centroid, atol=1e-8)
+                    and len(self.operated_motif) == 1
+            ):
+                raise ValueError(
+                    "Rotation center motif's centroid cannot be the same as"
+                    " the operated motif's centroid, when the operated motif"
+                    " has only one atom."
+                )
 
     def _get_rotation_center(self):
         """Helper function to get the rotation center based on the mode.
@@ -298,7 +333,7 @@ class RotateMotifAction(BaseMotifAction):
             return vec
         else:
             raise ValueError(
-                f"Mode {self.mode_flag} not allowed in rotation center."
+                f"Mode {self.mode_flag} not allowed for rotation axis."
             )
 
     def execute(self) -> Atoms:
@@ -314,7 +349,7 @@ class RotateMotifAction(BaseMotifAction):
         )).tolist()
 
         center = self._get_rotation_center()
-        motif_atoms = self.operated_motif.get_atoms()
+        motif_atoms = self.operated_motif.get_atoms().copy()
         if self.mode_flag in (
                 "euler_relative_to_position",
                 "euler_relative_to_motif",
@@ -324,7 +359,9 @@ class RotateMotifAction(BaseMotifAction):
             rotation = Rotation.from_euler(
                 seq="ZXZ", angles=[alpha, beta, gamma], degrees=True
             )
-            new_motif_positions = rotation.apply(motif_atoms.positions - center) + center
+            new_motif_positions = rotation.apply(
+                motif_atoms.get_positions(wrap=False).copy() - center
+            ) + center
             motif_atoms.set_positions(new_motif_positions)
         elif self.mode_flag in (
                 "axis_relative_to_self",
@@ -377,9 +414,9 @@ class RotateMotifAction(BaseMotifAction):
             self.relative_to_motif.describe
         ).parameters if self.relative_to_motif is not None else {}
         if "precision" in motif_desc_params:
-            motif_desc_kwargs["precision"] = False
+            motif_desc_kwargs["precision"] = precision
         if "precision" in relative_motif_desc_params:
-            relative_motif_desc_kwargs["precision"] = False
+            relative_motif_desc_kwargs["precision"] = precision
 
         if self.position_fractional:
             coord_word = "fractional coordinates"
@@ -459,7 +496,7 @@ class RotateMotifAction(BaseMotifAction):
             return (
                 f"rotate [{self.operated_motif.describe(**motif_desc_kwargs)}]"
                 f" in the structure by {self.rotation_axis_angle:.{precision}f}"
-                f" degrees around a rotation axis defined by the line of"
+                f" degrees counter-clockwise around a rotation axis defined by the line of"
                 f" [{self.relative_to_motif.describe(**relative_motif_desc_kwargs)}],"
                 f" pointing from the atom"
                 f" with index {self.relative_to_motif.indices[self.relative_axis_origin_index]}"
