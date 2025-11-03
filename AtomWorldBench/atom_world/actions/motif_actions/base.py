@@ -50,16 +50,6 @@ class BaseMotifAction(MultiModeInitMixin, ABC):
         """Return the Atoms object associated with the operated motif."""
         return self.operated_motif.in_atoms
 
-    @property
-    def action_name(self) -> str:
-        """Return the name of the action."""
-        cls_name = self.__class__.__name__
-        # Extract the action name from the class name
-        match = re.match(r"([A-Za-z][A-Za-z0-9_]*)Action$", cls_name)
-        if not match:
-            raise ValueError(f"Cannot infer action name from class name '{cls_name}'")
-        return match.group(1).lower()
-
     @abstractmethod
     def __post_init__(self):
         """Check compatibility of the action with operated motif, relative_motif and atoms.

@@ -12,6 +12,12 @@ class ChangeElementAction(BaseStructureAction):
 
     This action replaces all occurrences of a specified element in the input
     structure with another specified element.
+
+    Allows two modes of operation:
+    1. "replace_element": Replace all atoms of 'from_element' with 'to_element'.
+        Provide both 'from_element' and 'to_element'.
+    2. "remove_element": Remove all atoms of 'from_element' from the structure.
+        Provide only 'from_element'; 'to_element' should be omitted.
     """
 
     mode_definitions = {
@@ -87,7 +93,7 @@ class ChangeElementAction(BaseStructureAction):
         if self.mode_flag == "replace_element":
             return (
                 f"replace all atoms of element {self.from_element} "
-                f"with element {self.to_element}."
+                f"with {self.to_element}."
             )
         else:
             return (f"remove all atoms of element {self.from_element}"

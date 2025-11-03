@@ -14,7 +14,7 @@ from ....utils.description_utils import describe_arraylike
 
 def _check_lattice_parameters(parameters: Optional[Sequence] = None):
     if parameters is not None:
-        if not (isinstance(parameters, (list, tuple)) and len(parameters) == 6):
+        if not (isinstance(parameters, (list, tuple, np.ndarray)) and len(parameters) == 6):
             raise ValueError(
                 "set_to_lattice_parameters must be a list or tuple of length 6."
             )
@@ -28,7 +28,7 @@ def _check_lattice_parameters(parameters: Optional[Sequence] = None):
 
 def _check_size_scale_factor(factor: Optional[float | Sequence] = None):
     if factor is not None:
-        if isinstance(factor, (list, tuple)):
+        if isinstance(factor, (list, tuple, np.ndarray)):
             if len(factor) != 3:
                 raise ValueError(
                     "If size_scale_factor is a sequence, it must have length 3."
@@ -138,7 +138,7 @@ class LatticeTransformAction(BaseStructureAction):
     def cell(self) -> Cell:
         """Return the cell of the new atoms."""
         if self.mode_flag == "by_matrix":
-            return Cell(self.transformation_matrix @ self.operated_atoms.cell.array)
+            return Cell(self.transformation_matrix @ self.operated_atoms.cell.complete())
         elif self.mode_flag == "by_size_scale_factor":
             if isinstance(self.size_scale_factor, np.ndarray):
                 return Cell(np.diag(self.size_scale_factor) @ self.operated_atoms.cell.array)
@@ -147,7 +147,17 @@ class LatticeTransformAction(BaseStructureAction):
         elif self.mode_flag == "to_lattice_matrix":
             return Cell(self.set_to_lattice_matrix)
         elif self.mode_flag == "to_lattice_parameters":
-            return Cell.fromcellpar(self.set_to_lattice_parameters)
+            orig_vec_a = self.operated_atoms.cell.complete()[0]
+            orig_vec_b = self.operated_atoms.cell.complete()[1]
+            ab_norm_vec = np.cross(orig_vec_a, orig_vec_b)
+            ab_norm_vec = ab_norm_vec / np.linalg.norm(ab_norm_vec)
+            orig_unit_a = orig_vec_a / np.linalg.norm(orig_vec_a)
+            # Fix a and ab plane normal direction to avoid arbitrary rotation.
+            return Cell.fromcellpar(
+                self.set_to_lattice_parameters,
+                ab_normal=ab_norm_vec,
+                a_direction=orig_unit_a
+            )
         else:
             raise NotImplementedError(f"Invalid mode_flag: {self.mode_flag}")
 
@@ -178,8 +188,9 @@ class LatticeTransformAction(BaseStructureAction):
                 self.transformation_matrix, precision=precision
             )
             desc = (
-                f"transform the current by the matrix {matrix_str} such that the new"
-                f" lattice is obtained by multiplying this matrix with the current lattice."
+                f"deform the current lattice by the matrix {matrix_str}"
+                " suppose the original lattice matrix is L_old, then the new lattice"
+                " matrix L_new = transformation_matrix @ L_old."
             )
         elif self.mode_flag == "by_size_scale_factor":
             if isinstance(self.size_scale_factor, np.ndarray):
@@ -188,18 +199,23 @@ class LatticeTransformAction(BaseStructureAction):
                 )
                 desc = (
                     f"scale the current lattice by factors of {factor_str} along the"
-                    f" a, b, and c lattice vectors respectively."
+                    " a, b, and c lattice vectors."
                 )
             else:
                 desc = (
-                    f"uniformly scale the current lattice by a factor of"
+                    f"uniformly scale the current lattice vectors by a factor of"
                     f" {self.size_scale_factor:.{precision}f}."
                 )
+            desc += " do not rotate or shear the lattice."
         elif self.mode_flag == "to_lattice_matrix":
             matrix_str = describe_arraylike(
                 self.set_to_lattice_matrix, precision=precision
             )
-            desc = f"set the lattice directly to the matrix {matrix_str}."
+            desc = (
+                f"set the lattice directly to the matrix {matrix_str}."
+                " the matrix rows correspond to the new lattice vectors a, b, and c,"
+                " respectively."
+            )
         elif self.mode_flag == "to_lattice_parameters":
             params_str = describe_arraylike(
                 self.set_to_lattice_parameters, precision=precision
@@ -208,6 +224,9 @@ class LatticeTransformAction(BaseStructureAction):
                 f"reset the lattice matrix such that its lattice vector lengths and angles"
                 f" (a, b, c, alpha, beta, gamma) ="
                 f" {params_str}."
+                " the new lattice vector a should be aligned with the original"
+                " lattice vector a, and the normal vector of the ab plane should be"
+                " aligned with that of the original ab plane."
             )
         else:
             raise NotImplementedError(f"Invalid mode_flag: {self.mode_flag}")
@@ -216,10 +235,5 @@ class LatticeTransformAction(BaseStructureAction):
             " note that the atomic positions should be scaled accordingly so that"
             " their fractional coordinates are unchanged."
         )
-        if "matrix" in self.mode_flag:
-            desc += (
-                " the rows of lattice matrix represent the a, b, c"
-                " lattice vectors, respectively."
-            )
 
         return desc

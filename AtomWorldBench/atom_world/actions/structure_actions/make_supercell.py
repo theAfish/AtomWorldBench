@@ -15,10 +15,17 @@ def _check_supercell_matrix(
     ) -> Optional[np.ndarray]:
     if supercell_matrix is not None:
         supercell_matrix = np.array(supercell_matrix)
-        if supercell_matrix.shape != (3, 3) or supercell_matrix.shape != (3, ):
+        if supercell_matrix.shape != (3, 3) and supercell_matrix.shape != (3, ):
             raise ValueError("supercell_matrix must be a 3x3 matrix or a length-3 vector.")
         if not np.all(np.equal(np.mod(supercell_matrix, 1), 0)):
             raise ValueError("All elements of supercell_matrix must be integers.")
+        # Supercell matrix determinant must not be zero.
+        if supercell_matrix.shape == (3, 3):
+            if np.linalg.det(supercell_matrix) == 0:
+                raise ValueError("supercell_matrix must have a non-zero determinant.")
+        else:
+            if np.any(supercell_matrix == 0):
+                raise ValueError("supercell_matrix must have a non-zero determinant.")
         supercell_matrix = supercell_matrix.astype(int)
     return supercell_matrix
 
@@ -82,8 +89,9 @@ class MakeSupercellAction(BaseStructureAction):
             str:
                 A textual description of the supercell creation action.
         """
+        diagonal = "diagonal" if self.supercell_matrix.shape == (3, ) else ""
         description = (
-            f"create a supercell by expanding the original structure using the"
+            f"create a supercell by expanding the original structure using the {diagonal}"
             f" supercell matrix {describe_arraylike(self.supercell_matrix, precision=0)}."
             f" use cell-major convention for ordering the generated atoms in supercell"
             f" (i.e., first over all the atoms in cell1 and then move to cell2, etc.)."
