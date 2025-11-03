@@ -1,4 +1,5 @@
 """Test functions of mixin classes."""
+import numpy as np
 
 from AtomWorldBench.common.mixin_classes import MultiModeInitMixin
 
@@ -560,3 +561,106 @@ def test_complex_combinations():
     # Test validation failures
     with pytest.raises(ValueError, match="No mode detected"):
         ComplexComboClass(radius=-1, max_area=200)  # circle with negative radius - impossible
+
+
+def test_mode_probabilities():
+    """Test select_random_mode method."""
+
+    class RandomModeClass(MultiModeInitMixin):
+        mode_definitions = {
+            "_excluded": [],
+            "mode1": {"param1": None},
+            "mode2": {"param2": None},
+            "_combinations": [
+                {
+                    "sec1": {
+                        "optA": {"param3": None},
+                        "optB": {"param4": None}
+                    },
+                    "sec2": {
+                        "optC": {"param5": None},
+                        "optD": {"param6": None}
+                    },
+                }
+            ]
+        }
+        # Mode probabilities not set, expect uniform distribution.
+
+    assert RandomModeClass._flattened_mode_definitions == {
+            "_excluded": [],
+            "mode1": {"param1": None},
+            "mode2": {"param2": None},
+            "optA_optC": {"param3": None, "param5": None},
+            "optB_optC": {"param4": None, "param5": None},
+            "optA_optD": {"param3": None, "param6": None},
+            "optB_optD": {"param4": None, "param6": None},
+        }
+
+    assert RandomModeClass.mode_probabilities == {
+        "mode1": 1/6,
+        "mode2": 1/6,
+        "optA_optC": 1/6,
+        "optB_optC": 1/6,
+        "optA_optD": 1/6,
+        "optB_optD": 1/6,
+    }
+    for _ in range(200):
+        selected_mode = RandomModeClass.get_random_mode()
+        assert selected_mode in RandomModeClass._flattened_mode_definitions.keys()
+
+    # Test custom mode probabilities
+    class WeightedRandomModeClass(MultiModeInitMixin):
+        mode_definitions = {
+            "_excluded": [],
+            "mode1": {"param1": None},
+            "mode2": {"param2": None},
+        }
+        mode_probabilities = {
+            "mode1": 0.6,
+            "mode2": 0.2,
+        }
+    # Check probability normalization
+    actual_weights = WeightedRandomModeClass.mode_probabilities
+    assert set(actual_weights.keys()) == {"mode1", "mode2"}
+    assert np.isclose(actual_weights["mode1"], 0.75)  # 0.6 / (0.6 + 0.2)
+    assert np.isclose(actual_weights["mode2"], 0.25)  # 0.2 / (0.6 + 0.2)
+
+
+def test_invalid_mode_probabilities():
+    """Test invalid mode_probabilities definitions."""
+
+    # Test unknown mode in mode_probabilities
+    with pytest.raises(ValueError, match="contains unknown mode name 'unknown_mode'"):
+        class BadProbClass1(MultiModeInitMixin):
+            mode_definitions = {
+                "_excluded": [],
+                "mode1": {"param1": None}
+            }
+            mode_probabilities = {
+                "unknown_mode": 0.5
+            }
+
+    # Test invalid mode name starting with '_'.
+    with pytest.raises(ValueError, match="contains invalid mode name '_invalid_mode'"):
+        class BadProbClass2(MultiModeInitMixin):
+            mode_definitions = {
+                "_excluded": [],
+                "mode1": {"param1": None},
+            }
+            mode_probabilities = {
+                "_invalid_mode": 0.5,
+                "mode1": 0.5,
+            }
+
+    # Test negative probabilities.
+    with pytest.raises(ValueError, match="must be a non-negative number"):
+        class BadProbClass3(MultiModeInitMixin):
+            mode_definitions = {
+                "_excluded": [],
+                "mode1": {"param1": None},
+                "mode2": {"param2": None},
+            }
+            mode_probabilities = {
+                "mode1": -0.2,
+                "mode2": 1.2,
+            }

@@ -1,6 +1,7 @@
 """Defines the base class for structure-wise operations in the atom world."""
 from abc import ABC, abstractmethod
 import re
+from typing import Optional
 
 from ase import Atoms
 
@@ -21,7 +22,6 @@ class BaseStructureAction(MultiModeInitMixin, ABC):
     See documentation for AtomWorldBench.mixin_classes for more details on how to
     implement actions.
     """
-
     def __init__(
             self,
             operated_atoms: Atoms,
@@ -57,4 +57,22 @@ class BaseStructureAction(MultiModeInitMixin, ABC):
     @abstractmethod
     def describe(self, **kwargs) -> str:
         """Generate a description of the action to be performed on the structure."""
+        pass
+
+    @classmethod
+    @abstractmethod
+    def get_random_one(
+            cls,
+            operated_atoms: Atoms,
+            seed: Optional[int] = None,
+    ):
+        """Generate a random mode for the action.
+
+        Must be implemented in subclasses.
+        Args:
+            operated_atoms (Atoms):
+                The Atoms object that this action operates on.
+            seed (Optional[int], optional):
+                Random seed for reproducibility. Defaults to None.
+        """
         pass

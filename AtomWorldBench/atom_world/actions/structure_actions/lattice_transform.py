@@ -74,6 +74,14 @@ class LatticeTransformAction(BaseStructureAction):
         "to_lattice_matrix": {"set_to_lattice_matrix": None},
         "to_lattice_parameters": {"set_to_lattice_parameters": None},
     }
+
+    mode_probabilities = {
+        "by_matrix": 0.2,
+        "by_size_scale_factor": 0.4,  # Prefer scaling transformations more often.
+        "to_lattice_matrix": 0.2,
+        "to_lattice_parameters": 0.2,
+    }
+
     def __init__(
             self,
             operated_atoms: Atoms,
@@ -237,3 +245,59 @@ class LatticeTransformAction(BaseStructureAction):
         )
 
         return desc
+
+    @classmethod
+    def get_random_one(
+            cls,
+            operated_atoms: Atoms,
+            seed: Optional[int] = None,
+    ) -> "LatticeTransformAction":
+        """Generate a random LatticeTransformAction instance.
+
+        Args:
+            operated_atoms (Atoms):
+                The Atoms object that this action operates on.
+            seed (int, optional):
+                Seed for random number generator for reproducibility. Optional.
+                Will also influence the choice of mode.
+
+        Returns:
+            LatticeTransformAction:
+                A randomly generated LatticeTransformAction instance.
+        """
+        rng = np.random.default_rng(seed)
+
+        chosen_mode = cls.get_random_mode(seed)
+        if chosen_mode == "by_matrix":
+            # Apply a small random deformation to the identity matrix.
+            random_matrix = np.eye(3) + rng.normal(size=(3, 3)) * 0.1
+            return cls(
+                operated_atoms=operated_atoms,
+                transformation_matrix=random_matrix,
+            )
+        elif chosen_mode == "by_size_scale_factor":
+            if rng.random() < 0.5:
+                # Uniform scaling
+                scale_factor = float(rng.uniform(0.5, 1.5))
+            else:                # Anisotropic scaling
+                scale_factor = rng.uniform(0.5, 1.5, size=3).tolist()
+            return cls(
+                operated_atoms=operated_atoms,
+                size_scale_factor=scale_factor,
+            )
+        elif chosen_mode == "to_lattice_matrix":
+            deformation_matrix = np.eye(3) + rng.normal(size=(3, 3)) * 0.1
+            random_matrix = deformation_matrix @ operated_atoms.cell.complete()
+            return cls(
+                operated_atoms=operated_atoms,
+                set_to_lattice_matrix=random_matrix,
+            )
+        elif chosen_mode == "to_lattice_parameters":
+            a, b, c = rng.uniform(2.0, 10.0, size=3).tolist()
+            alpha, beta, gamma = rng.uniform(30.0, 120.0, size=3).tolist()
+            return cls(
+                operated_atoms=operated_atoms,
+                set_to_lattice_parameters=[a, b, c, alpha, beta, gamma],
+            )
+        else:
+            raise ValueError(f"Invalid mode: {chosen_mode}")

@@ -1,6 +1,7 @@
 from typing import Optional
 
 from ase import Atoms
+import numpy as np
 
 from .base import BaseStructureAction
 from ....common.registry import register
@@ -98,3 +99,47 @@ class ChangeElementAction(BaseStructureAction):
         else:
             return (f"remove all atoms of element {self.from_element}"
                     f" without affecting the order of other atoms.")
+
+    @classmethod
+    def get_random_one(
+            cls,
+            operated_atoms: Atoms,
+            seed: Optional[int] = None,
+    ) -> "ChangeElementAction":
+        """Generate a random ChangeElementAction instance.
+
+        Args:
+            operated_atoms (Atoms):
+                The Atoms object that this action operates on.
+            seed (int, optional):
+                Seed for random number generator for reproducibility. Optional.
+                Will also influence the choice of mode.
+
+        Returns:
+            ChangeElementAction:
+                A randomly generated ChangeElementAction instance.
+        """
+        rng = np.random.default_rng(seed)
+
+        unique_elements = set(operated_atoms.get_chemical_symbols())
+        from_element = rng.choice(list(unique_elements))
+
+        # Choose a mode based on mode_probabilities.
+        chosen_mode = cls.get_random_mode(seed)
+        if chosen_mode == "replace_element":
+            # Replace element
+            possible_to_elements = unique_elements - {from_element}
+            to_element = rng.choice(list(possible_to_elements))
+            return cls(
+                operated_atoms=operated_atoms,
+                from_element=from_element,
+                to_element=to_element,
+            )
+        elif chosen_mode == "remove_element":
+            # Remove element
+            return cls(
+                operated_atoms=operated_atoms,
+                from_element=from_element,
+            )
+        else:
+            raise ValueError(f"Invalid mode: {chosen_mode}")

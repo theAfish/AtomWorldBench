@@ -97,3 +97,41 @@ class MakeSupercellAction(BaseStructureAction):
             f" (i.e., first over all the atoms in cell1 and then move to cell2, etc.)."
         )  # Describe as integer.
         return description
+
+    @classmethod
+    def get_random_one(
+            cls,
+            operated_atoms: Atoms,
+            seed: Optional[int] = None,
+    ):
+        """Generate a random MakeSupercellAction instance.
+
+        Args:
+            operated_atoms (Atoms):
+                The Atoms object that this action operates on.
+            seed (int, optional):
+                An optional random seed for reproducibility.
+
+        Returns:
+            MakeSupercellAction:
+                A randomly generated MakeSupercellAction instance.
+        """
+        rng = np.random.default_rng(seed)
+        # Randomly choose scale factors between 2 and 4 for each lattice vector.
+        if rng.random() < 0.5:
+            # Diagonal supercell matrix.
+            scale_factors = rng.integers(2, 5, size=3)
+            return cls(
+                operated_atoms=operated_atoms,
+                supercell_matrix=scale_factors,
+            )
+        else:
+            # Upper triangular supercell matrix. This guarantees a non-zero determinant.
+            scale_factors = rng.integers(2, 5, size=(3, 3))
+            scale_factors[1, 0] = 0
+            scale_factors[2, 0] = 0
+            scale_factors[2, 1] = 0
+            return cls(
+                operated_atoms=operated_atoms,
+                supercell_matrix=scale_factors,
+            )

@@ -5,8 +5,9 @@ from __future__ import annotations
 import inspect
 import itertools
 from abc import ABC
-from typing import Any, Union, Callable, Sequence, Mapping
+from typing import Any, Union, Callable, Sequence, Mapping, Optional
 
+import numpy as np
 
 # ---- Type aliases -----------------------------------------------------------
 
@@ -213,6 +214,8 @@ class MultiModeInitMixin(ABC):
     kwargs_formatting_functions: Mapping[str, Callable[..., Any]] = {}
     # Avoid providing an implicit empty mode like {"default": {}}
     mode_definitions: ModeDefinitions = {"_excluded": []}
+    # Probabilities for selecting each mode.
+    mode_probabilities: Mapping[str, float] = {}
 
     # Internal cache of the flattened, validation-ready mode table for this class.
     # This is computed at class definition time in __init_subclass__.
@@ -364,6 +367,35 @@ class MultiModeInitMixin(ABC):
         cls._flattened_mode_definitions.update(explicit_modes)
         cls._flattened_mode_definitions.update(flattened_from_combos)
 
+        # Build mode_probabilities if not already provided.
+        if not cls.mode_probabilities:
+            valid_modes = [
+                mode_name
+                for mode_name in cls._flattened_mode_definitions.keys()
+                if not mode_name.startswith("_")
+            ]
+            uniform_prob = 1.0 / len(valid_modes) if valid_modes else 0.0
+            cls.mode_probabilities = {mode_name: uniform_prob for mode_name in valid_modes}
+        else:
+            # Validate provided probabilities
+            for mode_name, prob in cls.mode_probabilities.items():
+                if mode_name.startswith("_"):
+                    raise ValueError(
+                        f"{cls.__name__}.mode_probabilities contains invalid mode name '{mode_name}'."
+                    )
+                if mode_name not in cls._flattened_mode_definitions:
+                    raise ValueError(
+                        f"{cls.__name__}.mode_probabilities contains unknown mode name '{mode_name}'."
+                    )
+                if not isinstance(prob, (int, float)) or prob < 0.0:
+                    raise ValueError(
+                        f"{cls.__name__}.mode_probabilities['{mode_name}'] must be a non-negative number."
+                    )
+            # Normalize probabilities
+            total_prob = sum(cls.mode_probabilities.values())
+            for mode_name in cls.mode_probabilities:
+                cls.mode_probabilities[mode_name] /= total_prob
+
     # ---- Make mode_flag immutable after initialization -----------------------
     def __setattr__(self, name: str, value: Any) -> None:
         if name == "_mode_flag" and getattr(self, "_mode_flag", None) is not None:
@@ -495,3 +527,26 @@ class MultiModeInitMixin(ABC):
                 )
 
             setattr(self, key, formatted)
+
+    @classmethod
+    def get_random_mode(
+            cls,
+            seed: Optional[int] = None,
+    ):
+        """Randomly select a mode name based on mode_probabilities.
+
+        This is used in random sampling of actions or other classes.
+        Args:
+            seed (Optional[int]):
+                Random seed for reproducibility. Default is None.
+
+        Returns:
+            str:
+                The selected mode name.
+        """
+        rng = np.random.default_rng(seed)
+
+        return rng.choice(
+            list(cls.mode_probabilities.keys()),
+            p=list(cls.mode_probabilities.values())
+        )
