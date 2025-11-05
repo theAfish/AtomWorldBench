@@ -235,10 +235,10 @@ class SphereRegionMotif(BaseRegionMotif, MultiModeInitMixin):
             # the shortest cell vector length.
             cell_lengths = atoms.cell.lengths()
             min_cell_length = np.min(cell_lengths)
-            if min_cell_length <= 2.0:
-                radius = 2.0
+            if min_cell_length / 2.0 <= 3.0:
+                radius = 3.0
             else:
-                radius = rng.uniform(2.0, min_cell_length / 2.0)
+                radius = rng.uniform(3.0, min_cell_length / 2.0)
 
         if randomize_symbols:
             all_symbols = list(set(atoms.get_chemical_symbols()))

@@ -8,6 +8,8 @@ from ase import Atoms
 from AtomWorldBench.atom_world.actions.motif_actions.base import BaseMotifAction
 from AtomWorldBench.atom_world.actions.motif_actions.add import AddMotifAction
 from AtomWorldBench.atom_world.motifs.regions.base import BaseRegionMotif
+from AtomWorldBench.atom_world.motifs.site_collections.base import BaseSiteCollectionMotif
+from AtomWorldBench.atom_world.motifs.site_collections.bond import BondMotif
 from AtomWorldBench.common.registry import get_registered
 
 from AtomWorldBench.atom_world.motifs.site_collections.cluster import ClusterMotif
@@ -45,7 +47,9 @@ def allowed_relative_to_motif(request, orig_atoms):
 )
 def bond_motif(request, orig_atoms):
     """Fixture to provide a bond motif."""
-    return get_random_motif(request.param, orig_atoms, cluster_size=2)
+    if request.param == "cluster":
+        return get_random_motif(request.param, orig_atoms, cluster_size=2)
+    return get_random_motif(request.param, orig_atoms)
 
 
 def test_registry():
@@ -456,3 +460,55 @@ def test_none_for_optional_param_raises_error(allowed_operated_motif, orig_atoms
             at_position=None,
             position_fractional=True
         )
+
+# ---- Test get random one ----
+def test_get_random_one(orig_atoms):
+    """Test the detect_random_one method."""
+    all_appeared_modes = []
+    for _ in range(200):
+        action = AddMotifAction.get_random_one(
+            operated_atoms=orig_atoms,
+            seed=None,
+        )
+        assert isinstance(action, AddMotifAction)
+        all_appeared_modes.append(action.mode_flag)
+
+        # Check operated motif.
+        assert not isinstance(action.operated_motif, BaseRegionMotif)
+        assert not isinstance(action.operated_motif, BondMotif)
+        assert action.operated_motif.is_additive is True
+
+        # Mode specific checks.
+        if action.mode_flag == "relative_to_motif_centroid":
+            assert getattr(action, "relative_to_motif", None) is not None
+            assert isinstance(action.relative_to_motif, BaseSiteCollectionMotif)
+            assert not action.relative_to_motif.is_additive
+            assert getattr(action, "relative_shift", None) is not None
+            assert action.relative_style == "centroid_distance"
+
+        if action.mode_flag == "relative_to_pair_motif":
+            assert getattr(action, "relative_to_motif", None) is not None
+            assert isinstance(action.relative_to_motif, (BondMotif, ClusterMotif))
+            assert len(action.relative_to_motif) == 2
+            assert not action.relative_to_motif.is_additive
+            assert getattr(action, "relative_shift", None) is not None
+            assert isinstance(action.relative_shift, (int, float))
+            assert action.relative_style == "position_in_line"
+            assert getattr(action, "relative_atom_index", None) in [0, 1]
+
+        if action.mode_flag == "relative_to_position":
+            assert getattr(action, "relative_to_position", None) is not None
+            assert len(action.relative_to_position) == 3
+            assert getattr(action, "relative_shift", None) is not None
+            assert len(action.relative_to_position) == 3
+
+        if action.mode_flag == "absolute":
+            assert getattr(action, "at_position", None) is not None
+            assert len(action.at_position) == 3
+
+    # Check that all modes have appeared.
+    expected_modes = set(
+        k for k in AddMotifAction._flattened_mode_definitions.keys()
+        if not k.startswith("_")
+    )
+    assert set(all_appeared_modes) == expected_modes

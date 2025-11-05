@@ -131,14 +131,14 @@ class BoxRegionMotif(BaseRegionMotif):
             str: A description of the box region motif.
         """
         def _get_directional_condition(prec, d="x"):
-            min = getattr(self, f"{d}min")
-            max = getattr(self, f"{d}max")
-            if (min is not None) and (max is not None):
-                return f"{min:.{prec}f} ≤ {d} ≤ {max:.{prec}f}"
-            elif min is not None:
-                return f"{d} ≥ {min:.{prec}f}"
-            elif max is not None:
-                return f"{d} ≤ {max:.{prec}f}"
+            rmin = getattr(self, f"{d}min")
+            rmax = getattr(self, f"{d}max")
+            if (rmin is not None) and (rmax is not None):
+                return f"{rmin:.{prec}f} ≤ {d} ≤ {rmax:.{prec}f}"
+            elif rmin is not None:
+                return f"{d} ≥ {rmin:.{prec}f}"
+            elif rmax is not None:
+                return f"{d} ≤ {rmax:.{prec}f}"
             else:
                 return None
 
@@ -179,6 +179,8 @@ class BoxRegionMotif(BaseRegionMotif):
             BoxRegionMotif: A randomly detected box region motif.
         """
         atoms.wrap()
+        if len(atoms) == 0:
+            raise ValueError("Cannot detect a box region motif from an empty Atoms object.")
         rng = np.random.default_rng(seed)
         # Randomly determine whether each direction has min and/or max
         def random_boundary():
@@ -193,13 +195,40 @@ class BoxRegionMotif(BaseRegionMotif):
             x_has_min, x_has_max = True, True
             y_has_min, y_has_max = True, True
             z_has_min, z_has_max = True, True
-        # Randomly select min and max for each dimension
-        x_min = rng.uniform(0, 0.4) if x_has_min else None
-        x_max = rng.uniform(x_min + 0.2 if x_has_min else 0, 1) if x_has_max else None
-        y_min = rng.uniform(0, 0.4) if y_has_min else None
-        y_max = rng.uniform(y_min + 0.2 if y_has_min else 0, 1) if y_has_max else None
-        z_min = rng.uniform(0, 0.4) if z_has_min else None
-        z_max = rng.uniform(z_min + 0.2 if z_has_min else 0, 1) if z_has_max else None
+
+        # Get a random box within the cell that guarantees at least one atom in it.
+        scaled_positions = atoms.get_scaled_positions(wrap=True)
+        dists_to_center = np.linalg.norm(
+            scaled_positions - 0.5, axis=1
+        )
+        weights_to_center = np.exp(-5.0 * dists_to_center)
+        # Choose a random point to build box around (this will guarantee non-empty box)
+        center_index = rng.choice(len(atoms), p=weights_to_center / weights_to_center.sum())
+        center = scaled_positions[center_index]
+        # Define box limits.
+        def get_limit(center_coord, has_min, has_max):
+            min_upper = max(0, center_coord - 0.05)
+            if min_upper == 0:
+                min_lim = 0
+            else:
+                min_lim = rng.uniform(0.0, min_upper)
+            max_lower = min(1.0, center_coord + 0.05)
+            if max_lower == 1.0:
+                max_lim = 1.0
+            else:
+                max_lim = rng.uniform(max_lower, 1.0)
+            if has_min and has_max:
+                return min_lim, max_lim
+            elif has_min:
+                return min_lim, None
+            elif has_max:
+                return None, max_lim
+            else:
+                return None, None
+
+        x_min, x_max = get_limit(center[0], x_has_min, x_has_max)
+        y_min, y_max = get_limit(center[1], y_has_min, y_has_max)
+        z_min, z_max = get_limit(center[2], z_has_min, z_has_max)
 
         if randomize_symbols:
             unique_symbols = list(set(atoms.get_chemical_symbols()))

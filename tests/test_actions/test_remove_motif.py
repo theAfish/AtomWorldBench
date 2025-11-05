@@ -6,6 +6,7 @@ import numpy.testing as npt
 
 from AtomWorldBench.atom_world.actions.motif_actions.base import BaseMotifAction
 from AtomWorldBench.atom_world.actions.motif_actions.remove import RemoveMotifAction
+from AtomWorldBench.atom_world.motifs.regions.sphere import SphereRegionMotif
 from AtomWorldBench.common.registry import get_registered
 
 from AtomWorldBench.atom_world.actions.motif_actions.utils import get_random_motif
@@ -76,5 +77,25 @@ def test_remove_motif_action_forbidden(forbidden_remove_motif):
     with pytest.raises(ValueError, match="cannot be removed directly"):
         RemoveMotifAction(operated_motif=forbidden_remove_motif)
 
+def test_get_random_one(orig_atoms):
+    """Test the get_random_one class method of RemoveMotifAction."""
+    all_appeared_operated_motifs = set()
+    center_around_index_appeared = False
+    center_around_coordinates_appeared = False
+    for _ in range(200):
+        action = RemoveMotifAction.get_random_one(operated_atoms=orig_atoms, seed=None)
+        assert isinstance(action, RemoveMotifAction)
+        assert action.mode_flag == "default"
+        assert action.operated_atoms == orig_atoms
+        all_appeared_operated_motifs.add(action.operated_motif.__class__.__name__)
+        if isinstance(action.operated_motif, SphereRegionMotif):
+            if action.operated_motif.mode_flag == "center_around_atom_index":
+                center_around_index_appeared = True
+            elif action.operated_motif.mode_flag == "center_around_coordinates":
+                center_around_coordinates_appeared = True
 
-
+    # Check that multiple types of motifs have been used.
+    expected_motif_types = {"ClusterMotif", "SiteMotif", "BoxRegionMotif", "SphereRegionMotif"}
+    assert expected_motif_types == all_appeared_operated_motifs
+    assert center_around_index_appeared
+    assert center_around_coordinates_appeared

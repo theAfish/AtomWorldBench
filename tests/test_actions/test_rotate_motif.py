@@ -700,6 +700,12 @@ def allowed_relative_to_pair_motif_operated_motif(request, orig_atoms):
 @pytest.fixture(params=["bond", "cluster"])
 def allowed_relative_to_pair_motif_relative_motif(request, orig_atoms):
     # Allowed relative pair motifs in relative to pair motif mode.
+    if request.param == "bond":
+        return get_random_motif(
+            class_alias=request.param,
+            atoms=orig_atoms,
+            seed=161718,
+        )
     return get_random_motif(
         class_alias=request.param,
         atoms=orig_atoms,

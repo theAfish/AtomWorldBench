@@ -82,6 +82,7 @@ def test_get_site_indices_test_atoms_fractional(box_motif_fractional):
     assert isinstance(indices, list)
     assert all(isinstance(idx, (int, np.integer)) for idx in indices)
     assert all(0 <= idx < len(oatoms) for idx in indices)
+    assert len(indices) > 0
 
     # Verify atoms are within boundaries
     frac_coords = oatoms.get_scaled_positions(wrap=True)[indices]
@@ -99,6 +100,7 @@ def test_get_site_indices_partial_boundaries(box_motif_partial_boundaries):
     """Test site indices with only partial boundaries defined."""
     indices, offsets = box_motif_partial_boundaries._get_site_indices_offsets_in_atoms()
     assert isinstance(indices, list)
+    assert len(indices) > 0
 
     # Verify only specified boundaries are enforced
     frac_coords = box_motif_partial_boundaries.in_atoms.get_scaled_positions(wrap=True)[indices]
@@ -155,17 +157,14 @@ def test_describe_partial_symbols(box_motif_partial_symbols):
 
 def test_detect_random_default(test_atoms):
     """Test default random detection."""
-    for _ in range(20):
+    for _ in range(100):
         motif = BoxRegionMotif.detect_random_one(test_atoms)
         assert isinstance(motif, BoxRegionMotif)
         assert motif.symbols is None
-        assert 0.0 - 1e-6 <= motif.xmin <= 0.4 + 1e-6
-        assert 0.0 - 1e-6 <= motif.ymin <= 0.4 + 1e-6
-        assert 0.0 - 1e-6 <= motif.zmin <= 0.4 + 1e-6
+        assert len(motif.indices) > 0  # Non-empty selection.
 
-        assert motif.xmax - motif.xmin >= 0.2 - 1e-6
-        assert motif.ymax - motif.ymin >= 0.2 - 1e-6
-        assert motif.zmax - motif.zmin >= 0.2 - 1e-6
+    with pytest.raises(ValueError, match="Cannot detect a box region motif from an empty Atoms object."):
+        BoxRegionMotif.detect_random_one(Atoms())
 
 def test_detect_random_with_boundaries(test_atoms):
     """Test random detection with specified boundary ranges."""

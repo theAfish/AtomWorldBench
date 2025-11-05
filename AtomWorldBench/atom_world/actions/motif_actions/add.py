@@ -409,8 +409,6 @@ class AddMotifAction(BaseMotifAction):
             if class_alias == "cluster":
                 cluster_size = rng.integers(2, 5)  # Random cluster size between 2 and 5.
                 relative_motif_kwargs["cluster_size"] = cluster_size
-            elif class_alias == "bond":
-                relative_motif_kwargs["cluster_size"] = 2
 
             if class_alias != "site":
                 relative_motif_kwargs["max_cluster_radius"] = 4.0  # Limit cluster radius to 4.0 Å.

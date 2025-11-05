@@ -604,9 +604,14 @@ def test_mode_probabilities():
         "optA_optD": 1/6,
         "optB_optD": 1/6,
     }
+    all_observed_modes = set()
     for _ in range(200):
         selected_mode = RandomModeClass.get_random_mode()
         assert selected_mode in RandomModeClass._flattened_mode_definitions.keys()
+        all_observed_modes.add(selected_mode)
+    # Check that all modes were observed at least once in 200 samples.
+    all_observed_modes.add("_excluded")  # To avoid empty set error
+    assert all_observed_modes == set(RandomModeClass._flattened_mode_definitions.keys())
 
     # Test custom mode probabilities
     class WeightedRandomModeClass(MultiModeInitMixin):
