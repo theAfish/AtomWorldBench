@@ -6,6 +6,7 @@ from ase import Atoms
 import numpy as np
 
 from .base import BaseMotifAction
+from .utils import get_random_motif
 from ...motifs.base import BaseMotif
 from ...motifs.site_collections.base import BaseSiteCollectionMotif
 from ...motifs.regions.base import BaseRegionMotif
@@ -116,6 +117,8 @@ class ResizeMotifAction(BaseMotifAction):
         Args:
             operated_motif (BaseMotif): The motif to be resized.
             relative_to_node_index (Optional[int]): The index of the node to resize relative to.
+                Notice: this is the index in the motif, not in the whole structure. The description
+                will use the index in the whole structure for clarity, though.
             scale_by (Optional[float]): Scale factor to apply to the motif's radius.
             to_radius (Optional[float]): The new radius for the motif. Unit is Angstroms.
         """
@@ -263,3 +266,73 @@ class ResizeMotifAction(BaseMotifAction):
                 f" {scale_word} by moving its atoms relative to {relative_word}."
                 f" update atom coordinates only, do not change their order in structure."
             )
+
+    @classmethod
+    def get_random_one(
+            cls,
+            operated_atoms: Atoms,
+            seed: Optional[int] = None,
+        ) -> 'ResizeMotifAction':
+        """Get a random ResizeMotifAction.
+
+        Args:
+            operated_atoms (Atoms): The atoms to operate on.
+            seed (Optional[int]): Random seed for reproducibility.
+        Returns:
+            ResizeMotifAction: A random ResizeMotifAction instance.
+        """
+        rng = np.random.default_rng(seed)
+
+        # Pick a random motif for operation.
+        class_alias = rng.choice(
+            ["bond", "cluster", "sphere"]
+        )
+        operated_motif_kwargs = {
+            "class_alias": class_alias,
+            "atoms": operated_atoms,
+            "seed": seed,
+        }
+        if class_alias == "cluster":
+            operated_motif_kwargs["cluster_size"] = rng.integers(2, 5)
+            operated_motif_kwargs["cluster_radius"] = 4.0
+        elif class_alias == "bond":
+            operated_motif_kwargs["cluster_radius"] = 4.0
+        elif class_alias == "sphere":
+            motif_style = rng.choice(
+                ["center_around_atom_index", "center_around_coordinates"],
+                p = [0.3, 0.7], # Prefer coordinates to avoid always picking existing atoms.
+            )
+            operated_motif_kwargs["style"] = motif_style
+
+        operated_motif = get_random_motif(**operated_motif_kwargs)
+
+        kwargs = {
+            "operated_motif": operated_motif,
+        }
+
+        # Randomly choose relative mode.
+        if class_alias != "sphere":
+            relative_style = rng.choice(
+                ["relative_to_centroid", "relative_to_node_index"],
+                p = [0.6, 0.4], # Prefer centroid to avoid always picking existing atoms.
+            )
+            if relative_style == "relative_to_node_index":
+                relative_to_node_index = rng.integers(0, len(operated_motif))
+                kwargs["relative_to_node_index"] = relative_to_node_index
+
+        # Randomly choose size mode.
+        size_style = rng.choice(
+            ["scale_by", "to_radius"],
+            p = [0.6, 0.5], # Emphasize scale_by to avoid too small or too large sizes.
+        )
+        if size_style == "scale_by":
+            scale_by = rng.uniform(0.8, 1.2)
+            kwargs["scale_by"] = scale_by
+        elif size_style == "to_radius":
+            to_radius = rng.uniform(
+                operated_motif.radius * 0.8,
+                operated_motif.radius * 1.2
+            )
+            kwargs["to_radius"] = to_radius
+
+        return cls(**kwargs)

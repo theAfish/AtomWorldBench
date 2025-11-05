@@ -8,7 +8,7 @@ from AtomWorldBench.atom_world.actions.motif_actions.base import BaseMotifAction
 from AtomWorldBench.atom_world.actions.motif_actions.remove import RemoveMotifAction
 from AtomWorldBench.common.registry import get_registered
 
-from ..utils import get_random_motif
+from AtomWorldBench.atom_world.actions.motif_actions.utils import get_random_motif
 
 
 # All types of motifs can be removed.

@@ -5,6 +5,8 @@ import numpy as np
 from ase import Atoms
 
 from .base import BaseMotifAction
+from .utils import get_random_motif
+
 from ...motifs.base import BaseMotif
 from ...motifs.site_collections.bond import BondMotif
 
@@ -102,4 +104,45 @@ class RemoveMotifAction(BaseMotifAction):
         return (
             f"remove [{self.operated_motif.describe(**motif_desc_kwargs)}] from the structure."
             f" do not change the order of remaining atoms in structure."
+        )
+
+    @classmethod
+    def get_random_one(
+            cls,
+            operated_atoms: Atoms,
+            seed: Optional[int] = None,
+    ):
+        """Get a random instance of RemoveMotifAction.
+
+        Args:
+            operated_atoms (Atoms): The atoms to operate on.
+            seed (Optional[int]): Random seed for reproducibility.
+
+        Returns:
+            RemoveMotifAction: A random instance of RemoveMotifAction.
+        """
+        rng = np.random.default_rng(seed)
+        class_alias = rng.choice(
+            ["site", "cluster", "sphere", "box"]
+        )
+        operated_motif_kwargs = {
+            "class_alias": class_alias,
+            "atoms": operated_atoms,
+            "seed": seed,
+        }
+        if class_alias == "sphere":
+            motif_style = rng.choice(
+                ["center_around_atom_index", "center_around_coordinates"],
+                p = [0.3, 0.7], # Prefer coordinates to avoid always picking existing atoms.
+            )
+            operated_motif_kwargs["style"] = motif_style
+        elif class_alias == "cluster":
+            cluster_size = rng.integers(2, 5)
+            operated_motif_kwargs["cluster_size"] = cluster_size
+            operated_motif_kwargs["max_cluster_radius"] = 4.0
+
+        operated_motif = get_random_motif(**operated_motif_kwargs)
+
+        return cls(
+            operated_motif=operated_motif,
         )

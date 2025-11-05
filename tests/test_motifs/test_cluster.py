@@ -18,7 +18,7 @@ from AtomWorldBench.atom_world.motifs.site_collections.site import (
 # -----------------------------
 # Fixtures
 # -----------------------------
-def test_resigstry():
+def test_registry():
     """Test that ClusterMotif is registered in the motif registry."""
     from AtomWorldBench.atom_world.motifs.site_collections.cluster import ClusterMotif
     from AtomWorldBench.atom_world.motifs.site_collections.base import BaseSiteCollectionMotif
@@ -224,6 +224,37 @@ def test_detect_random_one_radius_filter(monkeypatch, simple_atoms):
                 simple_atoms, cluster_size=2, max_cluster_radius=3.0, seed=42, n_attempts=10
             )
 
+
+def test_detect_random_one_with_excluded_indices():
+    """Test random cluster detection with excluded indices."""
+    # Not using monkeypatch, test in a real atoms.
+    atom = Atoms(
+        "HHHH",
+        positions=[(0, 0, 0), (0.5, 0, 0), (1.0, 0, 0), (1.5, 0, 0)],
+        cell=np.eye(3) * 2,
+        pbc=True
+    )
+    atom.set_initial_charges([0, 0, 0, 0])
+
+    # Exclude index 1
+    detected_possible_indices = []
+    seed = 42
+    for _ in range(10):
+        cluster = ClusterMotif.detect_random_one(
+            atom,
+            cluster_size=2,
+            max_cluster_radius=4.0,
+            excluded_site_indices=[1],
+            seed=seed,
+            n_attempts=10
+        )
+        seed += 1
+        # Check 1 not in cluster indices.
+        assert 1 not in cluster.indices
+        detected_possible_indices.append(sorted(cluster.indices))
+    # Ensure we detect more than one unique combination.
+    assert len(set(tuple(x) for x in detected_possible_indices)) > 1
+
 # -----------------------------
 # Tests for detect_neighbor_sites_around_site_index
 # -----------------------------
@@ -423,7 +454,8 @@ def test_detect_random_one_additive_randomize_symbols(simple_atoms):
     assert len(cluster) == 3
 
     # Verify symbols come from original atoms
-    original_symbols = set(simple_atoms.get_chemical_symbols())
+    from ase.data import chemical_symbols
+    original_symbols = set(chemical_symbols)
     cluster_symbols = set(cluster.get_atoms().get_chemical_symbols())
     assert cluster_symbols.issubset(original_symbols)
 

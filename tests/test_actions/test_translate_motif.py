@@ -10,7 +10,7 @@ from AtomWorldBench.atom_world.motifs.site_collections.base import BaseSiteColle
 from AtomWorldBench.atom_world.motifs.site_collections.bond import BondMotif
 from AtomWorldBench.common.registry import get_registered
 
-from ..utils import get_random_motif
+from AtomWorldBench.atom_world.actions.motif_actions.utils import get_random_motif
 
 
 def test_registry():

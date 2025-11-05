@@ -8,7 +8,7 @@ from AtomWorldBench.atom_world.actions.motif_actions.base import BaseMotifAction
 from AtomWorldBench.atom_world.actions.motif_actions.replace import ReplaceMotifAction
 from AtomWorldBench.common.registry import get_registered
 
-from ..utils import get_random_motif
+from AtomWorldBench.atom_world.actions.motif_actions.utils import get_random_motif
 
 
 @pytest.fixture(params=["cluster", "site"])

@@ -96,7 +96,6 @@ class BondMotif(ClusterMotif):
             n_attempts: int = 10,
             randomize_symbols: bool = False,
             seed: Optional[int] = None,
-            cluster_size: int = 2,
             allow_translation_equivalence: bool = ALLOW_TRANSLATION_EQUIVALENCE,
     ) -> "BondMotif":
         """Detect a random bond motif from the given atoms.
@@ -112,8 +111,6 @@ class BondMotif(ClusterMotif):
                 will be included regardless of their symbols.
                 Defaults to False.
             seed (Optional[int]): Random seed for reproducibility. Defaults to None.
-            cluster_size (int): The desired size of the cluster.
-                No effect for BondMotif, as it is always 2.
             allow_translation_equivalence (bool): Whether to consider translation equivalence
                 when detecting the cluster. Defaults to the global setting.
 

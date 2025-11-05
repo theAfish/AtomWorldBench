@@ -1,7 +1,9 @@
 """Motif comprising multiple atoms."""
 from typing import List, Optional
+from copy import deepcopy
 
 from ase import Atoms
+from ase.data import chemical_symbols
 import numpy as np
 from numpy.typing import ArrayLike
 
@@ -160,6 +162,7 @@ class ClusterMotif(BaseSiteCollectionMotif):
             randomize_symbols: bool = False,
             seed: Optional[int] = None,
             allow_translation_equivalence: Optional[bool] = None,
+            excluded_site_indices: Optional[List[int]] = None,
     ) -> 'ClusterMotif':
         """Detect a random cluster motif from the given Atoms object.
 
@@ -176,6 +179,7 @@ class ClusterMotif(BaseSiteCollectionMotif):
         else:
             symbols = None
 
+        excluded_site_indices = excluded_site_indices or []
 
         def _filter_neighbors(
                 existing_cluster,
@@ -187,13 +191,17 @@ class ClusterMotif(BaseSiteCollectionMotif):
                 site for site in neighbor_site_motifs
                 if (
                         site not in existing_cluster.site_motifs and
-                        (existing_cluster + site).radius <= max_cluster_radius
+                        (existing_cluster + site).radius <= max_cluster_radius and
+                        site.indices[0] not in excluded_site_indices  # Exclude specified indices.
                 )
             ]
 
         def _detect_attempt(a) -> ClusterMotif | None:
             # Perform a single detection attempt.
-            rand_idx = int(rng.integers(0, len(a)))
+            allowed_indices = (
+                list(set(range(len(a))) - set(excluded_site_indices))
+            ) if excluded_site_indices else list(range(len(a)))
+            rand_idx = int(rng.choice(allowed_indices))
             rand_indices = [rand_idx]
             c = ClusterMotif(
                 a, indices=[rand_idx], allow_translation_equivalence=allow_translation_equivalence
@@ -293,6 +301,7 @@ class ClusterMotif(BaseSiteCollectionMotif):
             randomize_symbols: bool = False,
             seed: Optional[int] = None,
             allow_translation_equivalence: Optional[bool] = None,
+            excluded_site_indices: Optional[List[int]] = None,
     ) -> 'ClusterMotif':
         """Detect a random cluster motif from the given Atoms object.
 
@@ -307,8 +316,8 @@ class ClusterMotif(BaseSiteCollectionMotif):
                 Defaults to False.
             additive_mode_allowed_symbols (Optional[List[str]]): When in additive mode,
                 the list of allowed chemical symbols for the atoms in the cluster motif.
-                If None, all chemical symbols from the provided Atoms object will be used,
-                or choose random symbols if randomize_symbols is True.
+                If None, all chemical symbols from the periodic table will be considered,
+                or choose random element symbol if randomize_symbols is True.
                 This parameter is ignored when not in additive mode.
             cluster_size (int): The desired size of the cluster. Defaults to 3.
             max_cluster_radius (float): Maximum allowable radius of the cluster.
@@ -323,6 +332,9 @@ class ClusterMotif(BaseSiteCollectionMotif):
             allow_translation_equivalence (Optional[bool]): If True, the motif can be considered
                 equivalent to another motif if they are related by an integer translation.
                 Default is not given, then will use the global setting ALLOW_TRANSLATION_EQUIVALENCE.
+            excluded_site_indices (Optional[List[int]]): List of site indices to exclude from selection.
+                Used to prevent overlap, if already generated motifs, should not be selected again.
+                Default is None.
 
         Returns:
             ClusterMotif: A ClusterMotif instance representing the detected cluster.
@@ -330,7 +342,7 @@ class ClusterMotif(BaseSiteCollectionMotif):
         if additive_mode:
             if additive_mode_allowed_symbols is None:
                 rng = np.random.default_rng(seed)
-                all_symbols = list(set(atoms.get_chemical_symbols()))
+                all_symbols = deepcopy(chemical_symbols)
                 if randomize_symbols:
                     num_symbols = int(rng.integers(1, len(all_symbols) + 1))
                     allowed_symbols = rng.choice(
@@ -356,4 +368,5 @@ class ClusterMotif(BaseSiteCollectionMotif):
                 randomize_symbols=randomize_symbols,
                 seed=seed,
                 allow_translation_equivalence=allow_translation_equivalence,
+                excluded_site_indices=excluded_site_indices,
             )

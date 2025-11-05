@@ -13,7 +13,7 @@ from AtomWorldBench.common.registry import get_registered
 from AtomWorldBench.atom_world.motifs.site_collections.cluster import ClusterMotif
 from AtomWorldBench.atom_world.motifs.site_collections.site import SiteMotif
 
-from ..utils import get_random_motif
+from AtomWorldBench.atom_world.actions.motif_actions.utils import get_random_motif
 
 
 @pytest.fixture(
@@ -33,7 +33,7 @@ def allowed_operated_motif(request, orig_atoms):
 
 
 @pytest.fixture(
-    params=["cluster", "site", "sphere", "bond"]
+    params=["cluster", "site", "bond"]
 )
 def allowed_relative_to_motif(request, orig_atoms):
     """Fixture to provide allowed relative_to motifs."""

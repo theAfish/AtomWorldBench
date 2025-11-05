@@ -5,6 +5,7 @@ from ase import Atoms
 import numpy as np
 
 from .base import BaseMotifAction
+from .utils import get_random_motif
 from ...motifs.base import BaseMotif
 
 from ....common.registry import register
@@ -134,3 +135,56 @@ class ReplaceMotifAction(BaseMotifAction):
             " the structure in the order as described."
         )
         return desc
+
+    @classmethod
+    def get_random_one(
+            cls,
+            operated_atoms: Atoms,
+            seed: Optional[int] = None,
+    ):
+        """Get a random ReplaceMotifAction instance.
+
+        Args:
+            operated_atoms (Atoms):
+                The atoms to operate on.
+            seed (Optional[int]):
+                Random seed for reproducibility. If None, a random seed is used.
+
+        Returns:
+            ReplaceMotifAction: A random instance of ReplaceMotifAction.
+        """
+        rng = np.random.default_rng(seed)
+        class_alias = rng.choice(
+            ["site", "cluster"]
+        )
+
+        operated_motif_kwargs = {
+            "additive_mode": True,  # Must use additive mode.
+            "class_alias": class_alias,
+            "atoms": operated_atoms,
+            "seed": seed,
+        }
+        if class_alias == "cluster":
+            operated_motif_kwargs["cluster_size"] = rng.integers(2, 5)
+            operated_motif_kwargs["cluster_radius"] = 4.0
+
+        operated_motif = get_random_motif(**operated_motif_kwargs)
+
+        class_alias2 = rng.choice(
+            ["site", "cluster"]
+        )
+        replaced_motif_kwargs = {
+            "additive_mode": False,  # Must NOT use additive mode.
+            "class_alias": class_alias2,
+            "atoms": operated_atoms,
+            "seed": seed,
+        }
+        if class_alias == "cluster":
+            operated_motif_kwargs["cluster_size"] = rng.integers(2, 5)
+            operated_motif_kwargs["cluster_radius"] = 4.0
+        replaced_motif = get_random_motif(**replaced_motif_kwargs)
+
+        return cls(
+            operated_motif=operated_motif,
+            relative_to_motif=replaced_motif,
+        )

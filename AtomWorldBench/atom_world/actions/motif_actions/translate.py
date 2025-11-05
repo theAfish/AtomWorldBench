@@ -7,6 +7,7 @@ import numpy as np
 import inspect
 
 from .base import BaseMotifAction
+from .utils import get_random_motif
 from ...motifs.base import BaseMotif
 
 from ....utils.coord_utils import check_coordinates_shape
@@ -332,3 +333,137 @@ class TranslateMotifAction(BaseMotifAction):
             )
         else:
             raise NotImplementedError(f"Invalid mode_flag: {self.mode_flag}")
+
+    @classmethod
+    def get_random_one(
+            cls,
+            operated_atoms: Atoms,
+            seed: Optional[int] = None,
+    ) -> "TranslateMotifAction":
+        """Generate a random TranslateMotifAction for testing.
+
+        Randomly selects a non-bond site collection motif from the operated_atoms,
+        and generates random parameters for translation.
+        Args:
+            operated_atoms (Atoms): The atoms to operate on.
+            seed (Optional[int]): Random seed for reproducibility.
+        Returns:
+            TranslateMotifAction: A random instance of TranslateMotifAction.
+        """
+        rng = np.random.default_rng(seed)
+
+        # Randomly select a non-bond site collection motif.
+        class_alias = rng.choice(
+            ["site", "cluster"]
+        )
+        operated_motif_kwargs = {
+            "class_alias": class_alias,
+            "atoms": operated_atoms,
+            "seed": seed,
+        }
+        if class_alias == "cluster":
+            cluster_size = rng.integers(2, 5)
+            operated_motif_kwargs["cluster_size"] = cluster_size
+            operated_motif_kwargs["max_cluster_radius"] = 4.0
+
+        operated_motif = get_random_motif(**operated_motif_kwargs)
+
+        # Randomly select a mode.
+        mode = cls.get_random_mode(seed)
+
+        use_fractional = rng.choice([True, False])
+        kwargs = {
+            "operated_motif": operated_motif,
+            "position_fractional": use_fractional,
+        }
+
+        if mode == "absolute":
+            to_fractional = rng.uniform(
+                low=0.0, high=1.0, size=(3,)
+            )
+            if use_fractional:
+                kwargs["to_position"] = to_fractional
+            else:
+                kwargs["to_position"] = to_fractional @ operated_atoms.cell.complete()
+
+        elif mode == "relative_to_position":
+            relative_to_fractional = rng.uniform(
+                low=0.0, high=1.0, size=(3,)
+            )
+            relative_to_cartesian = (relative_to_fractional
+                @ operated_atoms.cell.complete()
+            )
+            operated_motif_centroid = operated_motif.get_centroid(fractional=False)
+            distance = np.linalg.norm(
+                operated_motif_centroid - relative_to_cartesian
+            )
+            if distance < 1e-4:
+                relative_to_fractional += 0.01  # Shift to prevent overlap.
+                distance = np.linalg.norm(
+                    operated_motif_centroid - relative_to_cartesian
+                )
+            # Ensure translation distance does not exceed distance to avoid overshoot.
+            max_translation_distance = distance * 0.9
+            translation_distance = float(rng.uniform(1e-5, max_translation_distance))
+            if use_fractional:
+                kwargs["relative_to_position"] = relative_to_fractional
+            else:
+                kwargs["relative_to_position"] = relative_to_cartesian
+            kwargs["translation_vector"] = translation_distance
+
+        elif mode == "relative_to_motif":
+            # Generate another random motif for relative_to_motif.
+            relative_class_alias = rng.choice(
+                ["site", "cluster"]
+            )
+            relative_motif_kwargs = {
+                "class_alias": relative_class_alias,
+                "atoms": operated_atoms,
+                "seed": seed + 1 if seed is not None else seed,  # Prevent overlap.
+            }
+            if relative_class_alias == "cluster":
+                relative_motif_kwargs["cluster_size"] = rng.integers(2, 5)
+                relative_motif_kwargs["max_cluster_radius"] = 4.0
+            operated_motif_centroid = operated_motif.get_centroid(fractional=False)
+            # Generate until not overlapping.
+            relative_motif = get_random_motif(**relative_motif_kwargs)
+            relative_to_motif_centroid = relative_motif.get_centroid(fractional=False)
+            n_try = 0
+            while np.allclose(
+                    operated_motif_centroid,
+                    relative_to_motif_centroid,
+                    atol=1e-4,
+            ) and n_try < 20:
+                relative_motif_kwargs["seed"] += 1
+                relative_motif = get_random_motif(**relative_motif_kwargs)
+                relative_to_motif_centroid = relative_motif.get_centroid(fractional=False)
+            if n_try >= 20:
+                raise ValueError(
+                    "Failed to generate a non-overlapping relative motif"
+                    " after 20 attempts. Please check the operated_atoms provided."
+                )
+            kwargs["relative_to_motif"] = relative_motif
+            distance = np.linalg.norm(
+                operated_motif_centroid - relative_to_motif_centroid
+            )
+            # Ensure translation distance does not exceed distance to avoid overshoot.
+            max_translation_distance = distance * 0.9
+            translation_distance = float(rng.uniform(1e-5, max_translation_distance))
+            kwargs["translation_vector"] = translation_distance
+
+        elif mode == "relative_to_self":
+            translation_vector_fractional = rng.uniform(
+                low=-0.5, high=0.5, size=(3,)
+            )
+            if use_fractional:
+                kwargs["translation_vector"] = translation_vector_fractional
+            else:
+                kwargs["translation_vector"] = (
+                    translation_vector_fractional
+                    @ operated_atoms.cell.complete()
+                )
+
+        else:
+            raise NotImplementedError(f"Invalid mode: {mode}.")
+
+        return cls(**kwargs)

@@ -14,7 +14,7 @@ from AtomWorldBench.common.registry import get_registered
 from AtomWorldBench.atom_world.motifs.site_collections.cluster import ClusterMotif
 from AtomWorldBench.atom_world.motifs.site_collections.site import SiteMotif
 
-from ..utils import get_random_motif
+from AtomWorldBench.atom_world.actions.motif_actions.utils import get_random_motif
 
 
 def test_registry():

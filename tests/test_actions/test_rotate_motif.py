@@ -13,7 +13,7 @@ from AtomWorldBench.atom_world.motifs.regions.box import BoxRegionMotif
 from AtomWorldBench.atom_world.motifs.regions.sphere import SphereRegionMotif
 from AtomWorldBench.common.registry import get_registered
 
-from ..utils import get_random_motif
+from AtomWorldBench.atom_world.actions.motif_actions.utils import get_random_motif
 
 
 def test_registry():

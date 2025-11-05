@@ -1,6 +1,7 @@
 from typing import Optional, List
 
 from ase import Atoms
+from ase.data import chemical_symbols
 import numpy as np
 from numpy.typing import ArrayLike
 
@@ -79,6 +80,7 @@ class SiteMotif(BaseSiteCollectionMotif):
             seed: Optional[int] = None,
             additive_mode: bool = False,
             additive_mode_allowed_symbols: Optional[List[str]] = None,
+            excluded_site_indices: Optional[List[int]] = None,
     ) -> 'SiteMotif':
         """Detect a random site motif from the given atoms.
 
@@ -92,19 +94,28 @@ class SiteMotif(BaseSiteCollectionMotif):
             additive_mode_allowed_symbols (Optional[List[str]]):
                 List of allowed atomic symbols when additive_mode is True.
                 If None, all symbols are allowed.
+            excluded_site_indices (Optional[List[int]]):
+                List of site indices to exclude from selection. Used to prevent
+                overlap, if already generated motifs, should not be selected again.
+                Default is None.
         Returns:
             SiteMotif: A single site motif detected from the atoms.
         """
         rng = np.random.default_rng(seed)
         if not additive_mode:
-            rand_idx = int(rng.integers(0, len(atoms)))
+            allowed_indices = (
+                list(set(range(len(atoms))) - set(excluded_site_indices))
+                if excluded_site_indices is not None else
+                list(range(len(atoms)))
+            )
+            rand_idx = int(rng.choice(allowed_indices))
             return SiteMotif(
                 atoms,
                 indices=[rand_idx]
             )
         else:
             if additive_mode_allowed_symbols is None:
-                allowed_symbols = set(atoms.get_chemical_symbols())
+                allowed_symbols = chemical_symbols  # Any valid element now allowed.
             else:
                 allowed_symbols = set(additive_mode_allowed_symbols)
             symbol = rng.choice(list(allowed_symbols))

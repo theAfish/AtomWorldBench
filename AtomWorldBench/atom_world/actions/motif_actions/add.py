@@ -7,6 +7,7 @@ from ase import Atoms
 from numpy.typing import ArrayLike
 
 from .base import BaseMotifAction
+from .utils import get_random_motif
 from ...motifs.base import BaseMotif
 from ...motifs.site_collections.base import BaseSiteCollectionMotif
 from ....utils.description_utils import describe_arraylike
@@ -29,10 +30,10 @@ def _check_relative_shift(x):
 def _check_relative_motif_compatibility(m, mode_flag):
     """Check if the relative motif is compatible with the action."""
     if mode_flag == "relative_to_motif_centroid":
-        if not hasattr(m, "get_centroid"):
+        if not isinstance(m, BaseSiteCollectionMotif):
             raise ValueError(
-                "Relative to motif must support get_centroid method"
-                " in relative_to_motif_centroid mode."
+                "Relative to motif must be a site collection motif for"
+                " relative_to_motif_centroid mode."
             )
     if mode_flag == "relative_to_pair_motif":
         if not (isinstance(m, BaseSiteCollectionMotif) and len(m) == 2):
@@ -99,6 +100,12 @@ class AddMotifAction(BaseMotifAction):
             ),
         }
     }
+    mode_probabilities = {
+        "absolute": 0.3,
+        "relative_to_position": 0.2,
+        "relative_to_motif_centroid": 0.2,
+        "relative_to_pair_motif": 0.3,
+    }
 
     # Deprecate BaseAction's operated_atoms property.
     operated_atoms = None
@@ -131,7 +138,8 @@ class AddMotifAction(BaseMotifAction):
                 position_fractional. Relative motif can be any motif that supports centroid
                 relative style.
             4, `relative_to_pair_motif`: Add the motif on a pair motif's line. In this
-                mode, provide `relative_to_motif`, `relative_shift` (as a float distance),
+                mode, provide `relative_to_motif`, `relative_shift` (as a float distance
+                in angstroms),
                 `relative_style` == "position_in_line", and `relative_atom_index`.
                 No other parameters should be given except position_fractional.
         Args:
@@ -320,3 +328,125 @@ class AddMotifAction(BaseMotifAction):
             )
         else:
             raise NotImplementedError(f"Invalid mode_flag: {self.mode_flag}")
+
+    @classmethod
+    def get_random_one(
+            cls,
+            operated_atoms: Atoms,
+            seed: Optional[int] = None,
+    ) -> "AddMotifAction":
+        """Get a random AddMotifAction instance for the given operated motif.
+
+        Args:
+            operated_atoms (Atoms): The Atoms object that the motif is added to.
+            seed (int, optional): Random seed for reproducibility. Default is None.
+        Returns:
+            AddMotifAction: A random instance of AddMotifAction.
+        """
+        rng = np.random.default_rng(seed)
+        # Randomly select an additive motif to add.
+        added_motif_probabilities = {
+            "site": 0.5,
+            "cluster": 0.5
+        }
+        class_alias = rng.choice(
+            list(added_motif_probabilities.keys()),
+            p=list(added_motif_probabilities.values())
+        )
+        operated_motif_kwargs = {
+            "additive_mode": True,  # Always use additive mode.
+            "class_alias": class_alias,
+            "atoms": operated_atoms,
+            "seed": seed,
+        }
+        # Choose a random cluster size if cluster motif is selected.
+        if class_alias == "cluster":
+            cluster_size = rng.integers(2, 5)  # Random cluster size between 2 and 5.
+            operated_motif_kwargs["cluster_size"] = cluster_size
+        operated_motif = get_random_motif(**operated_motif_kwargs)
+
+        # Randomly select a mode based on probabilities.
+        mode_flag = cls.get_random_mode(seed)
+
+        kwargs = {
+            "operated_motif": operated_motif,
+            "operated_atoms": operated_atoms,
+        }
+
+        # randomize whether to use fractional coordinates
+        use_fractional = rng.choice([True, False])
+
+        if mode_flag == "absolute":
+            if use_fractional:
+                at_position = rng.uniform(size=3)  # Fractional position.
+            else:
+                cell = operated_atoms.cell.complete()
+                at_position = rng.uniform(size=3) @ cell  # Cartesian position.
+            kwargs["at_position"] = at_position
+            kwargs["position_fractional"] = use_fractional
+        elif mode_flag == "relative_to_position":
+            if use_fractional:
+                relative_to_position = rng.uniform(size=3)  # Fractional position.
+                relative_shift = rng.uniform(-0.2, 0.2, size=3)  # Fractional shift.
+            else:
+                cell = operated_atoms.cell.complete()
+                relative_to_position = rng.uniform(size=3) @ cell  # Cartesian position.
+                relative_shift = rng.uniform(-0.2, 0.2, size=3) @ cell  # Cartesian shift.
+            kwargs["relative_to_position"] = relative_to_position
+            kwargs["relative_shift"] = relative_shift
+            kwargs["position_fractional"] = use_fractional
+        elif mode_flag == "relative_to_motif_centroid":
+            # Randomly choose one motif class type.
+            class_alias = rng.choice(
+                ["site", "cluster", "bond"]
+            )
+            relative_motif_kwargs = {
+                # Never use additive mode.
+                "class_alias": class_alias,
+                "atoms": operated_atoms,
+                "seed": seed,
+            }
+            if class_alias == "cluster":
+                cluster_size = rng.integers(2, 5)  # Random cluster size between 2 and 5.
+                relative_motif_kwargs["cluster_size"] = cluster_size
+            elif class_alias == "bond":
+                relative_motif_kwargs["cluster_size"] = 2
+
+            if class_alias != "site":
+                relative_motif_kwargs["max_cluster_radius"] = 4.0  # Limit cluster radius to 4.0 Å.
+            relative_to_motif = get_random_motif(**relative_motif_kwargs)
+            if use_fractional:
+                relative_shift = rng.uniform(-0.2, 0.2, size=3)  # Fractional shift.
+            else:
+                cell = operated_atoms.cell.complete()
+                relative_shift = rng.uniform(-0.2, 0.2, size=3) @ cell  # Cartesian shift.
+            kwargs["relative_to_motif"] = relative_to_motif
+            kwargs["relative_shift"] = relative_shift
+            kwargs["relative_style"] = "centroid_distance"
+            kwargs["position_fractional"] = use_fractional
+        elif mode_flag == "relative_to_pair_motif":
+            # Randomly choose one motif class type.
+            class_alias = rng.choice(
+                ["cluster", "bond"]
+            )
+            relative_motif_kwargs = {
+                # Never use additive mode.
+                "class_alias": class_alias,
+                "atoms": operated_atoms,
+                "seed": seed,
+                "max_cluster_radius": 4.0,  # Limit cluster radius to 4.0 Å.
+            }
+            if class_alias == "cluster":
+                relative_motif_kwargs["cluster_size"] = 2  # Pair cluster.
+
+            relative_to_motif = get_random_motif(**relative_motif_kwargs)
+            relative_shift = rng.uniform(0.5, 3.0)  # Distance in angstroms.
+            relative_atom_index = rng.choice([0, 1])
+            kwargs["relative_to_motif"] = relative_to_motif
+            kwargs["relative_shift"] = relative_shift
+            kwargs["relative_style"] = "position_in_line"
+            kwargs["relative_atom_index"] = relative_atom_index
+        else:
+            raise NotImplementedError(f"Invalid mode_flag: {mode_flag}")
+
+        return cls(**kwargs)

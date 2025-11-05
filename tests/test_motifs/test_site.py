@@ -105,3 +105,12 @@ def test_detect_random_one(simple_atoms):
     assert motif_additive.is_additive == True
     npt.assert_allclose(motif_additive.cart_coords, 0)
     npt.assert_allclose(motif_additive.get_centroid(fractional=False), 0)
+
+    # Test a case where excluded_site_indices is used.
+    for _ in range(5):
+        motif_excluded = SiteMotif.detect_random_one(
+            simple_atoms,
+            seed=42,
+            excluded_site_indices=[0]
+        )
+        assert motif_excluded.indices[0] == 1  # Only index 1 should be selectable.

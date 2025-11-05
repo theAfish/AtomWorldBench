@@ -8,6 +8,7 @@ from numpy.typing import ArrayLike
 from scipy.spatial.transform import Rotation
 
 from .base import BaseMotifAction
+from .utils import get_random_motif
 from ...motifs.base import BaseMotif
 from ...motifs.site_collections.base import BaseSiteCollectionMotif
 from ...motifs.regions.base import BaseRegionMotif
@@ -151,6 +152,15 @@ class RotateMotifAction(BaseMotifAction):
                 "Relative style must be rotation_axis for axis_relative_to_pair_motif mode."
             )
         }
+    }
+    mode_probabilities = {
+        "euler_relative_to_position": 0.1,
+        "euler_relative_to_motif": 0.1,
+        "euler_relative_to_self": 0.1,
+        "axis_relative_to_self": 0.2,
+        "axis_relative_to_position": 0.2,
+        "axis_relative_to_regular_motif": 0.1,
+        "axis_relative_to_pair_motif": 0.2,
     }
 
     def __init__(
@@ -506,3 +516,174 @@ class RotateMotifAction(BaseMotifAction):
             )
         else:
             raise NotImplementedError(f"Invalid mode_flag: {self.mode_flag}")
+
+    # python
+    @classmethod
+    def get_random_one(
+            cls,
+            operated_atoms: Atoms,
+            seed: Optional[int] = None,
+    ):
+        """Get a random instance of RotateMotifAction with compatibility checks.
+
+        Ensures the chosen operated_motif is compatible with the randomly selected mode,
+        e.g. modes containing "self" get a multi-site operated motif (cluster).
+        """
+        rng = np.random.default_rng(seed)
+
+        # Pick mode first so we can produce compatible motifs/params.
+        mode_flag = cls.get_random_mode(seed)
+
+        # Choose operated_motif in a mode-aware way:
+        if "self" in mode_flag:
+            # For self-relative modes require motifs that support centroid and are multi-site.
+            operated_class_alias = rng.choice(["cluster", "sphere"])
+        else:
+            # For other modes allow site/cluster/sphere as before (avoid bond as operated motif).
+            operated_class_alias = rng.choice(["site", "cluster"])
+        operated_motif_kwargs = {
+            "class_alias": operated_class_alias,
+            "atoms": operated_atoms,
+            "seed": seed,
+        }
+        if operated_class_alias == "cluster":
+            operated_motif_kwargs["cluster_size"] = rng.integers(2, 5)
+            operated_motif_kwargs["max_cluster_radius"] = 4.0
+        if operated_class_alias == "sphere":
+            motif_style = rng.choice(
+                ["center_around_atom_index", "center_around_coordinates"],
+                p=[0.3, 0.7],
+            )
+            operated_motif_kwargs["style"] = motif_style
+
+        operated_motif = get_random_motif(**operated_motif_kwargs)
+        kwargs = {
+            "operated_motif": operated_motif
+        }
+
+        # Rotation parameters per mode.
+        if mode_flag in (
+                "euler_relative_to_position",
+                "euler_relative_to_motif",
+                "euler_relative_to_self",
+        ):
+            kwargs["euler_angles"] = rng.uniform(0, 180, size=3)
+        elif mode_flag in (
+                "axis_relative_to_self",
+                "axis_relative_to_position",
+                "axis_relative_to_regular_motif",
+        ):
+            rotation_axis_vector = rng.normal(size=3)
+            rotation_axis_vector /= np.linalg.norm(rotation_axis_vector)
+            rotation_axis_angle = float(rng.uniform(0, 180))
+            kwargs["rotation_axis_vector"] = rotation_axis_vector
+            kwargs["rotation_axis_angle"] = rotation_axis_angle
+        elif mode_flag == "axis_relative_to_pair_motif":
+            rotation_axis_angle = float(rng.uniform(0, 180))
+            kwargs["rotation_axis_angle"] = rotation_axis_angle
+
+        # Position-related params.
+        if mode_flag in ("euler_relative_to_position", "axis_relative_to_position"):
+            use_fractional = bool(rng.choice([True, False]))
+            relative_to_fractional = rng.uniform(size=3)
+            if len(operated_motif) == 1:
+                relative_to_motif_centroid_fractional = operated_motif.get_centroid(
+                    fractional=True
+                )
+                # Prevent overlap.
+                if np.allclose(
+                        relative_to_fractional,
+                        relative_to_motif_centroid_fractional,
+                        atol=1e-4,
+                ):
+                    relative_to_fractional += np.array([0.01, 0.01, 0.01])
+            if use_fractional:
+                kwargs["relative_to_position"] = relative_to_fractional
+            else:
+                cell = operated_atoms.cell.complete()
+                relative_to_position = relative_to_fractional @ cell
+                kwargs["relative_to_position"] = relative_to_position
+            kwargs["position_fractional"] = use_fractional
+
+        # Relative motif for centroid-based or pair-axis modes.
+        if mode_flag in (
+                "euler_relative_to_motif",
+                "axis_relative_to_regular_motif",
+        ):
+            relative_class_alias = rng.choice(["site", "cluster", "bond"])
+            relative_motif_kwargs = {
+                "class_alias": relative_class_alias,
+                "atoms": operated_atoms,
+                "seed": seed + 1 if seed is not None else seed,  # Prevent overlap.
+            }
+            if relative_class_alias == "cluster":
+                relative_motif_kwargs["cluster_size"] = rng.integers(2, 5)
+                relative_motif_kwargs["max_cluster_radius"] = 4.0
+            operated_motif_centroid = operated_motif.get_centroid(fractional=False)
+            # Generate until not overlapping.
+            relative_motif = get_random_motif(**relative_motif_kwargs)
+            relative_to_motif_centroid = relative_motif.get_centroid(fractional=False)
+            n_try = 0
+            while np.allclose(
+                    operated_motif_centroid,
+                    relative_to_motif_centroid,
+                    atol=1e-4,
+            ) and len(operated_motif) == 1 and n_try < 20:
+                relative_motif_kwargs["seed"] += 1
+                relative_motif = get_random_motif(**relative_motif_kwargs)
+                relative_to_motif_centroid = relative_motif.get_centroid(fractional=False)
+            if n_try >= 20:
+                raise ValueError(
+                    "Failed to generate a non-overlapping relative motif"
+                    " after 20 attempts. Please check the operated_atoms provided."
+                )
+            kwargs["relative_to_motif"] = relative_motif
+        elif mode_flag == "axis_relative_to_pair_motif":
+            # Need a pair motif (bond or cluster size 2)
+            relative_class_alias = rng.choice(["bond", "cluster"])
+            relative_motif_kwargs = {
+                "class_alias": relative_class_alias,
+                "atoms": operated_atoms,
+                "seed": seed,
+            }
+            if relative_class_alias == "cluster":
+                relative_motif_kwargs["cluster_size"] = 2
+                relative_motif_kwargs["max_cluster_radius"] = 4.0
+            else:
+                relative_motif_kwargs["max_cluster_radius"] = 4.0
+            operated_motif_centroid = operated_motif.get_centroid(fractional=False)
+            # Generate until not overlapping.
+            relative_motif = get_random_motif(**relative_motif_kwargs)
+            relative_to_motif_centroid = relative_motif.get_centroid(fractional=False)
+            n_try = 0
+            while np.allclose(
+                    operated_motif_centroid,
+                    relative_to_motif_centroid,
+                    atol=1e-8,
+            ) and len(operated_motif) == 1 and n_try < 20:
+                relative_motif_kwargs["seed"] += 1
+                relative_motif = get_random_motif(**relative_motif_kwargs)
+                relative_to_motif_centroid = relative_motif.get_centroid(fractional=False)
+            if n_try >= 20:
+                raise ValueError(
+                    "Failed to generate a non-overlapping relative motif"
+                    " after 20 attempts. Please check the operated_atoms provided."
+                )
+            kwargs["relative_to_motif"] = relative_motif
+            kwargs["relative_axis_origin_index"] = int(rng.choice([0, 1]))
+
+        # Determine relative_style when needed.
+        if mode_flag in (
+                "euler_relative_to_motif",
+                "axis_relative_to_regular_motif",
+        ):
+            kwargs["relative_style"] = "centroid_distance"
+        elif mode_flag in (
+                "euler_relative_to_self",
+                "axis_relative_to_self",
+        ):
+            kwargs["relative_style"] = "self"
+        elif mode_flag == "axis_relative_to_pair_motif":
+            kwargs["relative_style"] = "rotation_axis"
+
+        return cls(**kwargs)

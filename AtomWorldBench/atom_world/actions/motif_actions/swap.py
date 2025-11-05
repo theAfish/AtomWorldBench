@@ -1,8 +1,10 @@
 """Swap two motifs."""
 from typing import Optional
 from ase import Atoms
+import numpy as np
 
 from .base import BaseMotifAction
+from .utils import get_random_motif
 from ...motifs.base import BaseMotif
 
 from ....common.registry import register
@@ -125,3 +127,54 @@ class SwapMotifAction(BaseMotifAction):
                 " within each motif should remain unchanged."
             )
         return description
+
+    @classmethod
+    def get_random_one(
+            cls,
+            operated_atoms: Atoms,
+            seed: Optional[int] = None,
+    ):
+        """Get a random instance of SwapMotifAction.
+
+        Args:
+            operated_atoms (Atoms): The structure in which to swap motifs.
+            seed (Optional[int]): Random seed for reproducibility.
+
+        Returns:
+            SwapMotifAction: A random instance of SwapMotifAction.
+        """
+
+        rng = np.random.default_rng(seed)
+
+        # Detect two random non-bond site collection motifs
+        class_alias1 = rng.choice(
+            ["site", "cluster"]
+        )
+        motif_1_kwargs = {
+            "class_alias": class_alias1,
+            "atoms": operated_atoms,
+            "seed": seed,
+        }
+        if class_alias1 == "cluster":
+            # Use smaller cluster size to prevent overlap issues.
+            motif_1_kwargs["min_size"] = rng.integers(2, 4)
+            motif_1_kwargs["max_cluster_radius"] = 4.0
+        motif_a = get_random_motif(**motif_1_kwargs)
+        class_alias2 = rng.choice(
+            ["site", "cluster"]
+        )
+        motif_2_kwargs = {
+            "class_alias": class_alias2,
+            "atoms": operated_atoms,
+            "seed": seed + 1 if seed is not None else None,
+            "excluded_site_indices": motif_a.indices,
+        }
+        if class_alias2 == "cluster":
+            motif_2_kwargs["min_size"] = rng.integers(2, 4)
+            motif_2_kwargs["max_cluster_radius"] = 4.0
+        motif_b = get_random_motif(**motif_2_kwargs)
+
+        return cls(
+            operated_motif=motif_a,
+            relative_to_motif=motif_b,
+        )
