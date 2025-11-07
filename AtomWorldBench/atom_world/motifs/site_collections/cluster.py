@@ -158,7 +158,7 @@ class ClusterMotif(BaseSiteCollectionMotif):
             atoms: Atoms,
             cluster_size: int = 3,
             max_cluster_radius: float = 3.0,
-            n_attempts: int = 10,
+            n_attempts: int = 50,
             randomize_symbols: bool = False,
             seed: Optional[int] = None,
             allow_translation_equivalence: Optional[bool] = None,
@@ -297,7 +297,7 @@ class ClusterMotif(BaseSiteCollectionMotif):
             additive_mode_allowed_symbols: Optional[List[str]] = None,
             cluster_size: int = 3,
             max_cluster_radius: float = 3.0,
-            n_attempts: int = 10,
+            n_attempts: int = 50,
             randomize_symbols: bool = False,
             seed: Optional[int] = None,
             allow_translation_equivalence: Optional[bool] = None,
@@ -322,7 +322,7 @@ class ClusterMotif(BaseSiteCollectionMotif):
             cluster_size (int): The desired size of the cluster. Defaults to 3.
             max_cluster_radius (float): Maximum allowable radius of the cluster.
                 Defaults to 3.0.
-            n_attempts (int): Number of attempts to find a valid cluster. Defaults to 10.
+            n_attempts (int): Number of attempts to find a valid cluster. Defaults to 50.
             randomize_symbols (bool): If True, the symbols of the atoms in the motif will be
                 randomly chosen from the symbols of the atoms in the provided Atoms object.
                 If False, the symbols will be set to None, meaning all atoms in the region

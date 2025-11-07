@@ -203,6 +203,29 @@ def test_detect_random_one_with_symbols(mock_detect, simple_atoms):
     assert mock_detect.call_count > 0
 
 
+def test_random_one_from_orig_atoms(orig_atoms):
+    all_detected_indices = set()
+    for _ in range(200):
+        rng = np.random.default_rng(None)
+        size = int(rng.integers(2, 5))
+        cluster = ClusterMotif.detect_random_one(
+            orig_atoms,
+            cluster_size=size,
+            max_cluster_radius=4.0,
+            seed=None
+        )
+        assert len(cluster) == size
+        assert cluster.radius <= 4.0
+        all_detected_indices.add(tuple(sorted(cluster.indices)))
+    assert len(all_detected_indices) > 1  # Ensure multiple unique clusters detected
+    all_detected_lengths = set(len(indices) for indices in all_detected_indices)
+    assert all_detected_lengths == {2, 3, 4}
+    assert len(all_detected_indices) > 3  # Ensure multiple unique clusters detected
+    # print(len(all_detected_indices))
+    # print(all_detected_indices)
+    # assert False # Temporary fail to inspect output
+
+
 def test_detect_random_one_radius_filter(monkeypatch, simple_atoms):
     """Test that clusters exceeding max radius are filtered out."""
     mock_site = MagicMock(spec=SiteMotif)

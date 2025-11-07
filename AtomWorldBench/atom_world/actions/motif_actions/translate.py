@@ -403,13 +403,14 @@ class TranslateMotifAction(BaseMotifAction):
                     operated_motif_centroid - relative_to_cartesian
                 )
             # Ensure translation distance does not exceed distance to avoid overshoot.
-            max_translation_distance = distance * 0.9
+            max_translation_distance = float(distance) * 0.9
             translation_distance = float(rng.uniform(1e-5, max_translation_distance))
             if use_fractional:
                 kwargs["relative_to_position"] = relative_to_fractional
             else:
                 kwargs["relative_to_position"] = relative_to_cartesian
-            kwargs["translation_vector"] = translation_distance
+            sign = float(rng.choice([-1, 1]))
+            kwargs["translation_vector"] = sign * translation_distance
 
         elif mode == "relative_to_motif":
             # Generate another random motif for relative_to_motif.
@@ -434,7 +435,12 @@ class TranslateMotifAction(BaseMotifAction):
                     relative_to_motif_centroid,
                     atol=1e-4,
             ) and n_try < 20:
-                relative_motif_kwargs["seed"] += 1
+                relative_motif_kwargs["seed"]  = (
+                    relative_motif_kwargs["seed"] + 1
+                    if relative_motif_kwargs["seed"] is not None
+                    else None
+                )
+                n_try += 1
                 relative_motif = get_random_motif(**relative_motif_kwargs)
                 relative_to_motif_centroid = relative_motif.get_centroid(fractional=False)
             if n_try >= 20:
@@ -447,9 +453,10 @@ class TranslateMotifAction(BaseMotifAction):
                 operated_motif_centroid - relative_to_motif_centroid
             )
             # Ensure translation distance does not exceed distance to avoid overshoot.
-            max_translation_distance = distance * 0.9
+            max_translation_distance = float(distance) * 0.9
             translation_distance = float(rng.uniform(1e-5, max_translation_distance))
-            kwargs["translation_vector"] = translation_distance
+            sign = float(rng.choice([-1, 1]))
+            kwargs["translation_vector"] = sign * translation_distance
 
         elif mode == "relative_to_self":
             translation_vector_fractional = rng.uniform(

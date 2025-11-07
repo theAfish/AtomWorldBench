@@ -222,3 +222,17 @@ def test_init_overlapping_motifs(overlapping_motif_pair):
             operated_motif=motif1,
             relative_to_motif=motif2,
         )
+
+
+def test_get_random_one(orig_atoms):
+    for _ in range(100):
+        action = SwapMotifAction.get_random_one(orig_atoms, seed=None)
+        assert isinstance(action, SwapMotifAction)
+        assert isinstance(action.operated_motif, (ClusterMotif, SiteMotif))
+        assert isinstance(action.relative_to_motif, (ClusterMotif, SiteMotif))
+        # Ensure that the two motifs do not overlap.
+        overlap = np.intersect1d(
+            action.operated_motif.indices,
+            action.relative_to_motif.indices
+        )
+        assert len(overlap) == 0

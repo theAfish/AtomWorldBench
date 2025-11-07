@@ -9,6 +9,7 @@ from AtomWorldBench.atom_world.actions.motif_actions.base import BaseMotifAction
 from AtomWorldBench.atom_world.actions.motif_actions.rotate import RotateMotifAction
 from AtomWorldBench.atom_world.motifs.site_collections.bond import BondMotif
 from AtomWorldBench.atom_world.motifs.site_collections.site import SiteMotif
+from AtomWorldBench.atom_world.motifs.site_collections.cluster import ClusterMotif
 from AtomWorldBench.atom_world.motifs.regions.box import BoxRegionMotif
 from AtomWorldBench.atom_world.motifs.regions.sphere import SphereRegionMotif
 from AtomWorldBench.common.registry import get_registered
@@ -898,3 +899,66 @@ def test_relative_to_pair_motif_invalid_rotation_angle(
             relative_style="rotation_axis",
             relative_axis_origin_index=0,
 )
+
+
+def test_get_random_one(orig_atoms):
+    all_appeared_modes = set()
+    all_appeared_sphere_modes = set()
+    all_appeared_fractional_states = set()
+    # Run multiple times to cover all random motifs.
+    for _ in range(200):
+        action = RotateMotifAction.get_random_one(orig_atoms)
+        operated_motif = action.operated_motif
+        if "self" in action.mode_flag:
+            assert isinstance(operated_motif, (ClusterMotif, SphereRegionMotif))
+            if isinstance(operated_motif, SphereRegionMotif):
+                all_appeared_sphere_modes.add(operated_motif.mode_flag)
+        else:
+            assert isinstance(operated_motif, (ClusterMotif, SiteMotif))
+
+        if "euler" in action.mode_flag:
+            assert action.euler_angles is not None
+            assert action.rotation_axis_vector is None
+            assert action.rotation_axis_angle is None
+            assert np.all(action.euler_angles >= -180) and np.all(action.euler_angles <= 180)
+        elif "axis" in action.mode_flag:
+            assert action.rotation_axis_vector is not None or action.mode_flag == "axis_relative_to_pair_motif"
+            assert action.rotation_axis_angle is not None
+            assert action.euler_angles is None
+            if action.rotation_axis_vector is not None:
+                norm = np.linalg.norm(action.rotation_axis_vector)
+                npt.assert_allclose(norm, 1.0)
+            assert -180 <= action.rotation_axis_angle <= 180
+
+        if "position" in action.mode_flag:
+            assert action.relative_to_position is not None
+            if action.position_fractional:
+                all_appeared_fractional_states.add(True)
+            else:
+                all_appeared_fractional_states.add(False)
+        elif "motif" in action.mode_flag:
+            assert action.relative_to_motif is not None
+            if "pair_motif" in action.mode_flag:
+                assert action.relative_style == "rotation_axis"
+                assert action.relative_axis_origin_index in [0, 1]
+            else:
+                assert action.relative_style == "centroid_distance"
+
+        all_appeared_modes.add(action.mode_flag)
+
+    expected_modes = {
+        "euler_relative_to_position",
+        "euler_relative_to_motif",
+        "euler_relative_to_self",
+        "axis_relative_to_self",
+        "axis_relative_to_position",
+        "axis_relative_to_regular_motif",
+        "axis_relative_to_pair_motif",
+    }
+    assert all_appeared_modes == expected_modes
+    expected_sphere_modes = {
+        "center_around_atom_index",
+        "center_around_coordinates",
+    }
+    assert all_appeared_sphere_modes == expected_sphere_modes
+    assert all_appeared_fractional_states == {True, False}

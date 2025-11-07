@@ -7,6 +7,9 @@ import numpy.testing as npt
 from AtomWorldBench.atom_world.actions.motif_actions.base import BaseMotifAction
 from AtomWorldBench.atom_world.actions.motif_actions.translate import TranslateMotifAction
 from AtomWorldBench.atom_world.motifs.site_collections.base import BaseSiteCollectionMotif
+from AtomWorldBench.atom_world.motifs.site_collections.site import SiteMotif
+from AtomWorldBench.atom_world.motifs.site_collections.cluster import ClusterMotif
+
 from AtomWorldBench.atom_world.motifs.site_collections.bond import BondMotif
 from AtomWorldBench.common.registry import get_registered
 
@@ -412,3 +415,76 @@ def test_relative_to_position_too_long_inward(allowed_operated_motif):
             position_fractional=False,
             translation_vector=-10000.0
         )
+
+
+def test_get_random_one(orig_atoms):
+    all_appeared_modes = set()
+    all_appeared_fractional_flags = set()
+    all_appeared_translation_signs = set()
+    all_detected_motif_indices = set()
+    # _ = ClusterMotif.detect_random_one(orig_atoms, cluster_size=4, max_cluster_radius=4.0, seed=None)
+    for _ in range(200):
+        action = TranslateMotifAction.get_random_one(orig_atoms, seed=None)
+        assert isinstance(action, TranslateMotifAction)
+        mode = action.mode_flag
+        operated_motif = action.operated_motif
+        assert isinstance(operated_motif, (SiteMotif, ClusterMotif))
+        all_detected_motif_indices.add(tuple(sorted(operated_motif.indices)))
+        assert len(operated_motif) >= 1
+        assert len(operated_motif) < 5
+        assert operated_motif.radius <= 4.0
+        if mode == "absolute":
+            to_position = action.to_position
+            assert to_position.shape == (3,)
+            position_fractional = action.position_fractional
+            all_appeared_fractional_flags.add(position_fractional)
+        elif mode == "relative_to_motif":
+            relative_to_motif = action.relative_to_motif
+            assert isinstance(relative_to_motif, (SiteMotif, ClusterMotif))
+            translation_vector = action.translation_vector
+            distance = np.linalg.norm(
+                relative_to_motif.get_centroid(fractional=False)
+                - operated_motif.get_centroid(fractional=False)
+            )
+            assert abs(translation_vector) < distance
+            all_appeared_translation_signs.add(int(np.sign(translation_vector)))
+            assert isinstance(translation_vector, (float, int))
+        elif mode == "relative_to_position":
+            relative_to_position = action.relative_to_position
+            assert relative_to_position.shape == (3,)
+            position_fractional = action.position_fractional
+            if position_fractional:
+                relative_to_position = relative_to_position @ operated_motif.in_atoms.cell.complete()
+            all_appeared_fractional_flags.add(position_fractional)
+            translation_vector = action.translation_vector
+            motif_center = operated_motif.get_centroid(fractional=False)
+            distance = np.linalg.norm(
+                relative_to_position - motif_center
+            )
+            assert abs(translation_vector) < distance
+            all_appeared_translation_signs.add(int(np.sign(translation_vector)))
+            assert isinstance(translation_vector, (float, int))
+        elif mode == "relative_to_self":
+            translation_vector = action.translation_vector
+            assert isinstance(translation_vector, np.ndarray)
+            assert translation_vector.shape == (3,)
+            assert action.relative_to_motif is None
+            assert action.relative_to_position is None
+        else:
+            raise AssertionError(f"Unknown mode: {mode}")
+        all_appeared_modes.add(mode)
+    expected_modes = {
+        "absolute",
+        "relative_to_motif",
+        "relative_to_position",
+        "relative_to_self",
+    }
+    assert all_appeared_modes == expected_modes
+    assert all_appeared_fractional_flags == {True, False}
+    assert all_appeared_translation_signs == {-1, 1}
+    all_detected_motif_lengths = set(len(indices) for indices in all_detected_motif_indices)
+    assert all_detected_motif_lengths.issubset({1, 2, 3, 4})
+    assert len(all_detected_motif_indices) > 4
+    # print(len(all_detected_motif_indices))
+    # print(sorted(list(all_detected_motif_indices)))
+    # assert False # Intentional fail to show detected motifs

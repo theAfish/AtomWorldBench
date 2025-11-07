@@ -6,6 +6,9 @@ import numpy.testing as npt
 
 from AtomWorldBench.atom_world.actions.motif_actions.base import BaseMotifAction
 from AtomWorldBench.atom_world.actions.motif_actions.replace import ReplaceMotifAction
+from AtomWorldBench.atom_world.motifs.site_collections.cluster import ClusterMotif
+from AtomWorldBench.atom_world.motifs.site_collections.site import SiteMotif
+
 from AtomWorldBench.common.registry import get_registered
 
 from AtomWorldBench.atom_world.actions.motif_actions.utils import get_random_motif
@@ -145,3 +148,19 @@ def test_replace_motif_action_remove_additive(allowed_added_motif, additive_remo
             operated_motif=allowed_added_motif,
             relative_to_motif=additive_remove_motif,
         )
+
+
+def test_get_random_one(orig_atoms):
+    """Test the get_random_one class method of ReplaceMotifAction."""
+    for _ in range(50):
+        action = ReplaceMotifAction.get_random_one(orig_atoms)
+        assert isinstance(action, ReplaceMotifAction)
+        assert action.operated_motif.is_additive
+        assert not action.replaced_motif.is_additive
+        assert action.mode_flag == "default"
+        assert isinstance(action.operated_motif, (ClusterMotif, SiteMotif))
+        assert isinstance(action.replaced_motif, (ClusterMotif, SiteMotif))
+        if isinstance(action.operated_motif, ClusterMotif):
+            assert action.operated_motif.radius <= 4.0  # Default radius
+        if isinstance(action.replaced_motif, ClusterMotif):
+            assert action.replaced_motif.radius <= 4.0  # Default radius

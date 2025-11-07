@@ -567,7 +567,7 @@ class RotateMotifAction(BaseMotifAction):
                 "euler_relative_to_motif",
                 "euler_relative_to_self",
         ):
-            kwargs["euler_angles"] = rng.uniform(0, 180, size=3)
+            kwargs["euler_angles"] = rng.uniform(-180, 180, size=3)
         elif mode_flag in (
                 "axis_relative_to_self",
                 "axis_relative_to_position",
@@ -575,11 +575,11 @@ class RotateMotifAction(BaseMotifAction):
         ):
             rotation_axis_vector = rng.normal(size=3)
             rotation_axis_vector /= np.linalg.norm(rotation_axis_vector)
-            rotation_axis_angle = float(rng.uniform(0, 180))
+            rotation_axis_angle = float(rng.uniform(-180, 180))
             kwargs["rotation_axis_vector"] = rotation_axis_vector
             kwargs["rotation_axis_angle"] = rotation_axis_angle
         elif mode_flag == "axis_relative_to_pair_motif":
-            rotation_axis_angle = float(rng.uniform(0, 180))
+            rotation_axis_angle = float(rng.uniform(-180, 180))
             kwargs["rotation_axis_angle"] = rotation_axis_angle
 
         # Position-related params.
@@ -629,7 +629,12 @@ class RotateMotifAction(BaseMotifAction):
                     relative_to_motif_centroid,
                     atol=1e-4,
             ) and len(operated_motif) == 1 and n_try < 20:
-                relative_motif_kwargs["seed"] += 1
+                relative_motif_kwargs["seed"] = (
+                    relative_motif_kwargs["seed"] + 1
+                    if relative_motif_kwargs["seed"] is not None
+                    else None
+                )
+                n_try += 1
                 relative_motif = get_random_motif(**relative_motif_kwargs)
                 relative_to_motif_centroid = relative_motif.get_centroid(fractional=False)
             if n_try >= 20:
@@ -661,7 +666,12 @@ class RotateMotifAction(BaseMotifAction):
                     relative_to_motif_centroid,
                     atol=1e-8,
             ) and len(operated_motif) == 1 and n_try < 20:
-                relative_motif_kwargs["seed"] += 1
+                relative_motif_kwargs["seed"] = (
+                    relative_motif_kwargs["seed"] + 1
+                    if relative_motif_kwargs["seed"] is not None
+                    else None
+                )
+                n_try += 1
                 relative_motif = get_random_motif(**relative_motif_kwargs)
                 relative_to_motif_centroid = relative_motif.get_centroid(fractional=False)
             if n_try >= 20:

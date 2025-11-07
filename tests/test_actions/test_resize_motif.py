@@ -597,3 +597,32 @@ def test_operated_motif_not_in_atoms(orig_atoms):
             operated_motif=motif_additive,
             scale_by=1.2,
         )
+
+
+def test_get_random_one(orig_atoms):
+    all_appeared_modes = set()
+    for _ in range(200):
+        action = ResizeMotifAction.get_random_one(
+            operated_atoms=orig_atoms,
+            seed=None,
+        )
+        assert isinstance(action, ResizeMotifAction)
+        assert isinstance(action.operated_motif, (ClusterMotif, SphereRegionMotif, BondMotif))
+        all_appeared_modes.add(action.mode_flag)
+        # Sphere does not support relative_to_node_index.
+        if isinstance(action.operated_motif, SphereRegionMotif):
+            assert action.relative_to_node_index is None
+            assert "relative_to_node_index" not in action.mode_flag
+        if "scale_by" in action.mode_flag:
+            assert action.scale_by is not None
+            assert action.to_radius is None
+        if "to_radius" in action.mode_flag:
+            assert action.to_radius is not None
+            assert action.scale_by is None
+    expected_modes = {
+        "relative_to_centroid_scale_by",
+        "relative_to_centroid_to_radius",
+        "relative_to_node_index_scale_by",
+        "relative_to_node_index_to_radius",
+    }
+    assert all_appeared_modes == expected_modes

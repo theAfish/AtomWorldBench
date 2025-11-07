@@ -294,9 +294,9 @@ class ResizeMotifAction(BaseMotifAction):
         }
         if class_alias == "cluster":
             operated_motif_kwargs["cluster_size"] = rng.integers(2, 5)
-            operated_motif_kwargs["cluster_radius"] = 4.0
+            operated_motif_kwargs["max_cluster_radius"] = 4.0
         elif class_alias == "bond":
-            operated_motif_kwargs["cluster_radius"] = 4.0
+            operated_motif_kwargs["max_cluster_radius"] = 4.0
         elif class_alias == "sphere":
             motif_style = rng.choice(
                 ["center_around_atom_index", "center_around_coordinates"],
@@ -317,22 +317,22 @@ class ResizeMotifAction(BaseMotifAction):
                 p = [0.6, 0.4], # Prefer centroid to avoid always picking existing atoms.
             )
             if relative_style == "relative_to_node_index":
-                relative_to_node_index = rng.integers(0, len(operated_motif))
+                relative_to_node_index = int(rng.integers(0, len(operated_motif)))
                 kwargs["relative_to_node_index"] = relative_to_node_index
 
         # Randomly choose size mode.
         size_style = rng.choice(
             ["scale_by", "to_radius"],
-            p = [0.6, 0.5], # Emphasize scale_by to avoid too small or too large sizes.
+            p = [0.6, 0.4], # Emphasize scale_by to avoid too small or too large sizes.
         )
         if size_style == "scale_by":
-            scale_by = rng.uniform(0.8, 1.2)
+            scale_by = float(rng.uniform(0.8, 1.2))
             kwargs["scale_by"] = scale_by
         elif size_style == "to_radius":
-            to_radius = rng.uniform(
+            to_radius = float(rng.uniform(
                 operated_motif.radius * 0.8,
                 operated_motif.radius * 1.2
-            )
+            ))
             kwargs["to_radius"] = to_radius
 
         return cls(**kwargs)

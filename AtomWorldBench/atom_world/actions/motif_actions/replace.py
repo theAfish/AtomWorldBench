@@ -166,7 +166,7 @@ class ReplaceMotifAction(BaseMotifAction):
         }
         if class_alias == "cluster":
             operated_motif_kwargs["cluster_size"] = rng.integers(2, 5)
-            operated_motif_kwargs["cluster_radius"] = 4.0
+            operated_motif_kwargs["max_cluster_radius"] = 4.0
 
         operated_motif = get_random_motif(**operated_motif_kwargs)
 
@@ -181,7 +181,7 @@ class ReplaceMotifAction(BaseMotifAction):
         }
         if class_alias == "cluster":
             operated_motif_kwargs["cluster_size"] = rng.integers(2, 5)
-            operated_motif_kwargs["cluster_radius"] = 4.0
+            operated_motif_kwargs["max_cluster_radius"] = 4.0
         replaced_motif = get_random_motif(**replaced_motif_kwargs)
 
         return cls(

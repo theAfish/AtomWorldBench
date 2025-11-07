@@ -439,7 +439,7 @@ class AddMotifAction(BaseMotifAction):
 
             relative_to_motif = get_random_motif(**relative_motif_kwargs)
             relative_shift = rng.uniform(0.5, 3.0)  # Distance in angstroms.
-            relative_atom_index = rng.choice([0, 1])
+            relative_atom_index = int(rng.choice([0, 1]))
             kwargs["relative_to_motif"] = relative_to_motif
             kwargs["relative_shift"] = relative_shift
             kwargs["relative_style"] = "position_in_line"
