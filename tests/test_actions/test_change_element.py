@@ -1,4 +1,5 @@
 """Comprehensive test suite for ChangeElementAction."""
+from ase.data import chemical_symbols
 
 import pytest
 import numpy as np
@@ -103,3 +104,27 @@ def test_only_to_element_provided(orig_atoms):
             operated_atoms=orig_atoms,
             to_element=to_element,
         )
+
+
+def test_get_random_one(orig_atoms):
+    """Test the get_random_one class method."""
+    all_appeared_modes = set()
+    all_appeared_to_elements = set()
+    for _ in range(100):
+        action = ChangeElementAction.get_random_one(operated_atoms=orig_atoms)
+        assert isinstance(action, ChangeElementAction)
+        assert action.operated_atoms == orig_atoms
+        all_elements = set(orig_atoms.get_chemical_symbols())
+        assert action.from_element in all_elements
+        if action.mode_flag == "replace_element":
+            assert action.to_element is not None
+            assert action.to_element != action.from_element
+            assert action.to_element in chemical_symbols
+            all_appeared_to_elements.add(action.to_element)
+        else:
+            assert action.to_element is None
+        all_appeared_modes.add(action.mode_flag)
+
+    expected_modes = {"replace_element", "remove_element"}
+    assert all_appeared_modes == expected_modes
+    assert len(all_appeared_to_elements) > 1  # Ensure variety in to_elements

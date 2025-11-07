@@ -464,23 +464,24 @@ def test_detect_random_one_additive_with_allowed_symbols(simple_atoms):
 
 def test_detect_random_one_additive_randomize_symbols(simple_atoms):
     """Test additive mode with randomized symbols."""
-    cluster = ClusterMotif.detect_random_one(
-        simple_atoms,
-        additive_mode=True,
-        cluster_size=3,
-        randomize_symbols=True,
-        seed=42
-    )
+    for _ in range(100):
+        cluster = ClusterMotif.detect_random_one(
+            simple_atoms,
+            additive_mode=True,
+            cluster_size=3,
+            randomize_symbols=True,
+        )
 
-    # Verify cluster properties
-    assert cluster.is_additive is True
-    assert len(cluster) == 3
+        # Verify cluster properties
+        assert cluster.is_additive is True
+        assert len(cluster) == 3
 
-    # Verify symbols come from original atoms
-    from ase.data import chemical_symbols
-    original_symbols = set(chemical_symbols)
-    cluster_symbols = set(cluster.get_atoms().get_chemical_symbols())
-    assert cluster_symbols.issubset(original_symbols)
+        # Verify symbols come from original atoms
+        from ase.data import chemical_symbols
+        original_symbols = set(chemical_symbols)
+        cluster_symbols = set(cluster.get_atoms().get_chemical_symbols())
+        assert cluster_symbols.issubset(original_symbols)
+        assert "X" not in cluster_symbols  # No dummy atoms
 
 
 def test_detect_random_one_additive_positions_within_sphere(simple_atoms):

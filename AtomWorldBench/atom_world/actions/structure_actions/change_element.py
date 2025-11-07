@@ -1,6 +1,7 @@
 from typing import Optional
 
 from ase import Atoms
+from ase.data import chemical_symbols
 import numpy as np
 
 from .base import BaseStructureAction
@@ -122,14 +123,15 @@ class ChangeElementAction(BaseStructureAction):
         rng = np.random.default_rng(seed)
 
         unique_elements = set(operated_atoms.get_chemical_symbols())
-        from_element = rng.choice(list(unique_elements))
+        all_elements = set(chemical_symbols[1:])  # Exclude the first entry which is ''
+        from_element = str(rng.choice(list(unique_elements)))
 
         # Choose a mode based on mode_probabilities.
         chosen_mode = cls.get_random_mode(seed)
         if chosen_mode == "replace_element":
             # Replace element
-            possible_to_elements = unique_elements - {from_element}
-            to_element = rng.choice(list(possible_to_elements))
+            possible_to_elements = all_elements - {from_element}
+            to_element = str(rng.choice(list(possible_to_elements)))
             return cls(
                 operated_atoms=operated_atoms,
                 from_element=from_element,

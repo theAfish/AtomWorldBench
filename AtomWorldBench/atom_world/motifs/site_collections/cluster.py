@@ -342,7 +342,7 @@ class ClusterMotif(BaseSiteCollectionMotif):
         if additive_mode:
             if additive_mode_allowed_symbols is None:
                 rng = np.random.default_rng(seed)
-                all_symbols = deepcopy(chemical_symbols)
+                all_symbols = deepcopy(chemical_symbols[1:])  # Exclude the first entry which is ''
                 if randomize_symbols:
                     num_symbols = int(rng.integers(1, len(all_symbols) + 1))
                     allowed_symbols = rng.choice(

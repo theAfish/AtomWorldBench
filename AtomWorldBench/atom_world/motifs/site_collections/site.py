@@ -115,10 +115,10 @@ class SiteMotif(BaseSiteCollectionMotif):
             )
         else:
             if additive_mode_allowed_symbols is None:
-                allowed_symbols = chemical_symbols  # Any valid element now allowed.
+                allowed_symbols = chemical_symbols[1:]  # Any valid element now allowed.
             else:
                 allowed_symbols = set(additive_mode_allowed_symbols)
-            symbol = rng.choice(list(allowed_symbols))
+            symbol = str(rng.choice(list(allowed_symbols)))
             return SiteMotif(
                 atoms=Atoms(
                     symbols=[symbol],
