@@ -86,3 +86,26 @@ def test_invalid_supercell_matrix(orig_atoms):
             operated_atoms=orig_atoms,
             supercell_matrix=supercell_matrix,
         )
+
+
+def test_get_random_one(orig_atoms):
+    """Test getting a random MakeSupercellAction."""
+    all_appeared_scale_modes = set()
+    for _ in range(100):
+        action = MakeSupercellAction.get_random_one(operated_atoms=orig_atoms)
+        assert action.mode_flag == "default"
+        assert action.supercell_matrix is not None
+        if action.supercell_matrix.shape == (3,):
+            scale_mode = "diagonal"
+            assert action.supercell_matrix.dtype == int
+        else:
+            scale_mode = "full"
+            # Assert upper-triangular.
+            assert action.supercell_matrix[1, 0] == 0
+            assert action.supercell_matrix[2, 0] == 0
+            assert action.supercell_matrix[2, 1] == 0
+            # Assert dtype is int.
+            assert action.supercell_matrix.dtype == int
+        all_appeared_scale_modes.add(scale_mode)
+    assert "diagonal" in all_appeared_scale_modes
+    assert "full" in all_appeared_scale_modes

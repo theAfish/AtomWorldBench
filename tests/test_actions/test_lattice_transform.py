@@ -218,3 +218,32 @@ def test_lattice_transform_invalid_scale_factor(orig_atoms_cell_rotated):
             operated_atoms=orig_atoms_cell_rotated,
             size_scale_factor="large",
         )
+
+
+def test_get_random_one(orig_atoms):
+    """Test the get_random_one method for generating random lattice transformations."""
+    all_appeared_modes = set()
+    all_appeared_size_factor_types = set()
+    for _ in range(100):
+        action = LatticeTransformAction.get_random_one(operated_atoms=orig_atoms)
+        assert isinstance(action, LatticeTransformAction)
+        mode = action.mode_flag
+        if mode == "by_matrix":
+            assert action.transformation_matrix is not None
+        elif mode == "to_lattice_matrix":
+            assert action.set_to_lattice_matrix is not None
+        elif mode == "by_size_scale_factor":
+            assert action.size_scale_factor is not None
+            if isinstance(action.size_scale_factor, (list, tuple, np.ndarray)):
+                all_appeared_size_factor_types.add("vector")
+            else:
+                all_appeared_size_factor_types.add("number")
+        elif mode == "to_lattice_parameters":
+            assert action.set_to_lattice_parameters is not None
+        else:
+            pytest.fail(f"Unknown mode_flag: {mode}")
+        all_appeared_modes.add(mode)
+    expected_modes = {"by_matrix", "to_lattice_matrix", "by_size_scale_factor", "to_lattice_parameters"}
+    assert all_appeared_modes == expected_modes
+    assert "number" in all_appeared_size_factor_types
+    assert "vector" in all_appeared_size_factor_types
