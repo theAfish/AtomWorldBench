@@ -29,6 +29,8 @@ def _check_rotation_axis_vector(r):
     )
     if r is None:
         return None
+    if np.linalg.norm(r) < 1e-8:
+        raise ValueError("rotation_axis_vector cannot be a zero vector.")
     return r / np.linalg.norm(r)
 
 def _check_operated_motif_compatibility(m, mode_flag):
@@ -386,7 +388,7 @@ class RotateMotifAction(BaseMotifAction):
                 rotate_cell=False,
             )  # Rotate atoms only, do not rotate cell.
         else:
-            raise f"Invalid mode_flag: {self.mode_flag}."
+            raise NotImplementedError("Invalid mode_flag: {self.mode_flag}.")
 
         return merge_atoms(
             [self.operated_atoms[other_indices], motif_atoms],
@@ -442,7 +444,7 @@ class RotateMotifAction(BaseMotifAction):
             return (
                 f"rotate [{self.operated_motif.describe(**motif_desc_kwargs)}]"
                 f" in the structure by euler angles (Z-X-Z intrinsic convention,"
-                f" active rotation, counter-clockwise direction) in"
+                f" active rotation, right-hand counter-clockwise direction) in"
                 f" {describe_arraylike(self.euler_angles, precision=precision)} degrees"
                 f" around a center position in {coord_word}"
                 f" {describe_arraylike(self.relative_to_position, precision=precision)}."
@@ -452,7 +454,7 @@ class RotateMotifAction(BaseMotifAction):
             return (
                 f"rotate [{self.operated_motif.describe(**motif_desc_kwargs)}]"
                 f" in the structure by euler angles (Z-X-Z intrinsic convention,"
-                f" active rotation, counter-clockwise direction) in"
+                f" active rotation, right-hand counter-clockwise direction) in"
                 f" {describe_arraylike(self.euler_angles, precision=precision)} degrees,"
                 f" around the centroid of"
                 f" [{self.relative_to_motif.describe(**relative_motif_desc_kwargs)}]"
@@ -463,7 +465,7 @@ class RotateMotifAction(BaseMotifAction):
             return (
                 f"rotate [{self.operated_motif.describe(**motif_desc_kwargs)}]"
                 f" in the structure by euler angles (Z-X-Z intrinsic convention,"
-                f" active rotation, counter-clockwise direction) in"
+                f" active rotation, right-hand counter-clockwise direction) in"
                 f" {describe_arraylike(self.euler_angles, precision=precision)} degrees,"
                 f" around its own centroid as the rotation center."
                 + " " + common_instruction
@@ -472,7 +474,7 @@ class RotateMotifAction(BaseMotifAction):
             return (
                 f"rotate [{self.operated_motif.describe(**motif_desc_kwargs)}]"
                 f" in the structure by {self.rotation_axis_angle:.{precision}f}"
-                f" degrees counter-clockwise around a rotation axis"
+                f" degrees right-hand counter-clockwise around a rotation axis"
                 f" defined by the cartesian vector"
                 f" {describe_arraylike(self.rotation_axis_vector, precision=precision)}"
                 f" around its own centroid as the rotation center."
@@ -482,7 +484,7 @@ class RotateMotifAction(BaseMotifAction):
             return (
                 f"rotate [{self.operated_motif.describe(**motif_desc_kwargs)}]"
                 f" in the structure by {self.rotation_axis_angle:.{precision}f}"
-                f" degrees counter-clockwise around a rotation axis"
+                f" degrees right-hand counter-clockwise around a rotation axis"
                 f" defined by the cartesian vector"
                 f" {describe_arraylike(self.rotation_axis_vector, precision=precision)}"
                 f" around a rotation center in {coord_word}"
@@ -493,7 +495,7 @@ class RotateMotifAction(BaseMotifAction):
             return (
                 f"rotate [{self.operated_motif.describe(**motif_desc_kwargs)}]"
                 f" in the structure by {self.rotation_axis_angle:.{precision}f}"
-                f" degrees counter-clockwise around a rotation axis"
+                f" degrees right-hand counter-clockwise around a rotation axis"
                 f" defined by the cartesian vector"
                 f" {describe_arraylike(self.rotation_axis_vector, precision=precision)}"
                 f" around the centroid of"
@@ -506,7 +508,7 @@ class RotateMotifAction(BaseMotifAction):
             return (
                 f"rotate [{self.operated_motif.describe(**motif_desc_kwargs)}]"
                 f" in the structure by {self.rotation_axis_angle:.{precision}f}"
-                f" degrees counter-clockwise around a rotation axis defined by the line of"
+                f" degrees right-hand counter-clockwise around a rotation axis defined by the line of"
                 f" [{self.relative_to_motif.describe(**relative_motif_desc_kwargs)}],"
                 f" pointing from the atom"
                 f" with index {self.relative_to_motif.indices[self.relative_axis_origin_index]}"

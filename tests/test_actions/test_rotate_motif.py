@@ -74,7 +74,7 @@ def test_rotate_motif_euler_relative_self(allowed_relative_self_motif):
 
     desc = action.describe(precision=3)
     assert "in the structure by euler angles" in desc
-    assert "counter-clockwise" in desc
+    assert "right-hand counter-clockwise" in desc
     assert "(20.000, 30.000, 40.000) degrees" in desc
     assert "around its own centroid as the rotation center" in desc
 
@@ -122,7 +122,7 @@ def test_rotate_motif_axis_relative_to_self(allowed_relative_self_motif):
     assert motif.in_atoms.get_chemical_symbols() == new_atoms.get_chemical_symbols()
 
     desc = action.describe(precision=3)
-    assert "in the structure by 45.000 degrees counter-clockwise" in desc
+    assert "in the structure by 45.000 degrees right-hand counter-clockwise" in desc
     assert ("around a rotation axis defined by the cartesian"
             " vector (0.707, 0.707, 0.000)") in desc  # Already normalized.
     assert "around its own centroid as the rotation center" in desc
@@ -217,7 +217,7 @@ def test_rotate_motif_euler_relative_to_position_cartesian(
 
     desc = action.describe(precision=3)
     assert "in the structure by euler angles" in desc
-    assert "active rotation, counter-clockwise" in desc
+    assert "active rotation, right-hand counter-clockwise" in desc
     assert "(40.000, 52.000, -60.000) degrees" in desc
     assert ("around a center position in cartesian coordinates"
             " (-1.000, 1.000, 2.500)") in desc
@@ -265,7 +265,7 @@ def test_rotate_motif_euler_relative_to_position_fractional(
 
     desc = action.describe(precision=3)
     assert "in the structure by euler angles" in desc
-    assert "active rotation, counter-clockwise" in desc
+    assert "active rotation, right-hand counter-clockwise" in desc
     assert "(-30.000, 60.000, 90.000) degrees" in desc
     assert ("around a center position in fractional coordinates"
             " (0.200, 0.500, 0.750)") in desc
@@ -312,7 +312,7 @@ def test_rotate_motif_axis_relative_to_position_cartesian(
     assert motif.in_atoms.get_chemical_symbols() == new_atoms.get_chemical_symbols()
 
     desc = action.describe(precision=3)
-    assert "in the structure by -55.000 degrees counter-clockwise" in desc
+    assert "in the structure by -55.000 degrees right-hand counter-clockwise" in desc
     assert ("around a rotation axis defined by the cartesian"
             " vector (0.176, -0.440, 0.880)") in desc  # Already normalized.
     assert ("around a rotation center in cartesian coordinates"
@@ -363,7 +363,7 @@ def test_rotate_motif_axis_relative_to_position_fractional(
     assert motif.in_atoms.get_chemical_symbols() == new_atoms.get_chemical_symbols()
 
     desc = action.describe(precision=3)
-    assert "in the structure by 120.000 degrees counter-clockwise" in desc
+    assert "in the structure by 120.000 degrees right-hand counter-clockwise" in desc
     assert ("around a rotation axis defined by the cartesian"
             " vector (-0.707, 0.000, 0.707)") in desc  # Already normalized.
     assert ("around a rotation center in fractional coordinates"
@@ -454,6 +454,23 @@ def test_relative_to_position_overlap(
         assert action.mode_flag == "axis_relative_to_position"
 
 
+def test_axis_relative_to_position_invalid_rotation_vector(
+        allowed_relative_position_motif,
+):
+    """Test that zero rotation axis vector raises error."""
+    motif = allowed_relative_position_motif
+    with pytest.raises(
+            ValueError,
+            match="rotation_axis_vector cannot be a zero vector."
+    ):
+        RotateMotifAction(
+            operated_motif=motif,
+            rotation_axis_vector=[0, 0, 0],
+            rotation_axis_angle=30,
+            relative_to_position=[0.0, 0.0, 0.0],
+        )
+
+
 ### --- Relative to regular motif modes ---
 @pytest.fixture(params=["cluster", "site"])
 def allowed_relative_to_motif_operated_motif(request, orig_atoms):
@@ -517,7 +534,7 @@ def test_rotate_motif_euler_relative_to_motif(
 
     desc = action.describe(precision=3)
     assert "in the structure by euler angles" in desc
-    assert "counter-clockwise" in desc
+    assert "right-hand counter-clockwise" in desc
     assert "(25.000, -35.000, 45.000) degrees" in desc
     assert ("around the centroid of"
             f" [{relative_motif.describe()}] as the rotation center") in desc
@@ -571,7 +588,7 @@ def test_rotate_motif_axis_relative_to_motif(
     assert operated_motif.in_atoms.get_chemical_symbols() == new_atoms.get_chemical_symbols()
 
     desc = action.describe(precision=3)
-    assert "in the structure by 75.000 degrees counter-clockwise" in desc
+    assert "in the structure by 75.000 degrees right-hand counter-clockwise" in desc
     assert ("around a rotation axis defined by the cartesian"
             " vector (-0.408, 0.816, 0.408)") in desc  # Already normalized.
     assert ("around the centroid of"
@@ -764,7 +781,7 @@ def test_rotate_motif_axis_relative_to_pair_motif(
     assert operated_motif.in_atoms.get_chemical_symbols() == new_atoms.get_chemical_symbols()
 
     desc = action.describe(precision=3)
-    assert "in the structure by 90.000 degrees counter-clockwise" in desc
+    assert "in the structure by 90.000 degrees right-hand counter-clockwise" in desc
     assert "around a rotation axis defined by the line of" in desc
     idx1 = relative_motif.indices[1]
     assert f"pointing from the atom with index {idx1} to the other atom" in desc
