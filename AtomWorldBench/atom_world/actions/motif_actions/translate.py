@@ -352,6 +352,8 @@ class TranslateMotifAction(BaseMotifAction):
         """
         rng = np.random.default_rng(seed)
 
+        max_cluster_size = max(4, len(operated_atoms) - 1)
+
         # Randomly select a non-bond site collection motif.
         class_alias = rng.choice(
             ["site", "cluster"]
@@ -362,7 +364,7 @@ class TranslateMotifAction(BaseMotifAction):
             "seed": seed,
         }
         if class_alias == "cluster":
-            cluster_size = rng.integers(2, 5)
+            cluster_size = rng.integers(2, max_cluster_size + 1)
             operated_motif_kwargs["cluster_size"] = cluster_size
             operated_motif_kwargs["max_cluster_radius"] = 4.0
 
@@ -423,7 +425,7 @@ class TranslateMotifAction(BaseMotifAction):
                 "seed": seed + 1 if seed is not None else seed,  # Prevent overlap.
             }
             if relative_class_alias == "cluster":
-                relative_motif_kwargs["cluster_size"] = rng.integers(2, 5)
+                relative_motif_kwargs["cluster_size"] = rng.integers(2, max_cluster_size + 1)
                 relative_motif_kwargs["max_cluster_radius"] = 4.0
             operated_motif_centroid = operated_motif.get_centroid(fractional=False)
             # Generate until not overlapping.

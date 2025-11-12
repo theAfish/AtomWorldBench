@@ -122,6 +122,9 @@ class RemoveMotifAction(BaseMotifAction):
             RemoveMotifAction: A random instance of RemoveMotifAction.
         """
         rng = np.random.default_rng(seed)
+
+        max_cluster_size = max(4, len(operated_atoms) - 1)
+
         class_alias = rng.choice(
             ["site", "cluster", "sphere", "box"]
         )
@@ -137,7 +140,7 @@ class RemoveMotifAction(BaseMotifAction):
             )
             operated_motif_kwargs["style"] = motif_style
         elif class_alias == "cluster":
-            cluster_size = rng.integers(2, 5)
+            cluster_size = rng.integers(2, max_cluster_size + 1)
             operated_motif_kwargs["cluster_size"] = cluster_size
             operated_motif_kwargs["max_cluster_radius"] = 4.0
 

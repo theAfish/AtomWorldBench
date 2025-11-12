@@ -165,7 +165,7 @@ class ReplaceMotifAction(BaseMotifAction):
             "seed": seed,
         }
         if class_alias == "cluster":
-            operated_motif_kwargs["cluster_size"] = rng.integers(2, 5)
+            operated_motif_kwargs["cluster_size"] = rng.integers(2, len(operated_atoms))
             operated_motif_kwargs["max_cluster_radius"] = 4.0
 
         operated_motif = get_random_motif(**operated_motif_kwargs)

@@ -283,6 +283,8 @@ class ResizeMotifAction(BaseMotifAction):
         """
         rng = np.random.default_rng(seed)
 
+        max_cluster_size = max(4, len(operated_atoms) - 1)
+
         # Pick a random motif for operation.
         class_alias = rng.choice(
             ["bond", "cluster", "sphere"]
@@ -293,7 +295,7 @@ class ResizeMotifAction(BaseMotifAction):
             "seed": seed,
         }
         if class_alias == "cluster":
-            operated_motif_kwargs["cluster_size"] = rng.integers(2, 5)
+            operated_motif_kwargs["cluster_size"] = rng.integers(2, max_cluster_size + 1)
             operated_motif_kwargs["max_cluster_radius"] = 4.0
         elif class_alias == "bond":
             operated_motif_kwargs["max_cluster_radius"] = 4.0

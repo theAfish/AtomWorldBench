@@ -344,6 +344,9 @@ class AddMotifAction(BaseMotifAction):
             AddMotifAction: A random instance of AddMotifAction.
         """
         rng = np.random.default_rng(seed)
+
+        max_cluster_size = max(4, len(operated_atoms) - 1)
+
         # Randomly select an additive motif to add.
         added_motif_probabilities = {
             "site": 0.5,
@@ -361,7 +364,7 @@ class AddMotifAction(BaseMotifAction):
         }
         # Choose a random cluster size if cluster motif is selected.
         if class_alias == "cluster":
-            cluster_size = rng.integers(2, 5)  # Random cluster size between 2 and 5.
+            cluster_size = rng.integers(2, max_cluster_size + 1)  # Random cluster size between 2 and 5.
             operated_motif_kwargs["cluster_size"] = cluster_size
         operated_motif = get_random_motif(**operated_motif_kwargs)
 
@@ -407,7 +410,7 @@ class AddMotifAction(BaseMotifAction):
                 "seed": seed,
             }
             if class_alias == "cluster":
-                cluster_size = rng.integers(2, 5)  # Random cluster size between 2 and 5.
+                cluster_size = rng.integers(2, max_cluster_size + 1)  # Random cluster size between 2 and 5.
                 relative_motif_kwargs["cluster_size"] = cluster_size
 
             if class_alias != "site":

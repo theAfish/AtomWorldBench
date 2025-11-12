@@ -533,6 +533,10 @@ class RotateMotifAction(BaseMotifAction):
         """
         rng = np.random.default_rng(seed)
 
+        # some hyperparameters
+        max_cluster_radius = 4.0
+        max_cluster_size = max(4, len(operated_atoms) - 1)
+
         # Pick mode first so we can produce compatible motifs/params.
         mode_flag = cls.get_random_mode(seed)
 
@@ -549,8 +553,8 @@ class RotateMotifAction(BaseMotifAction):
             "seed": seed,
         }
         if operated_class_alias == "cluster":
-            operated_motif_kwargs["cluster_size"] = rng.integers(2, 5)
-            operated_motif_kwargs["max_cluster_radius"] = 4.0
+            operated_motif_kwargs["cluster_size"] = rng.integers(2, max_cluster_size + 1)
+            operated_motif_kwargs["max_cluster_radius"] = max_cluster_radius
         if operated_class_alias == "sphere":
             motif_style = rng.choice(
                 ["center_around_atom_index", "center_around_coordinates"],

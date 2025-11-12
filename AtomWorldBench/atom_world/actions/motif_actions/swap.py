@@ -146,6 +146,8 @@ class SwapMotifAction(BaseMotifAction):
 
         rng = np.random.default_rng(seed)
 
+        max_cluster_size = max(4, len(operated_atoms) - 1)
+
         # Detect two random non-bond site collection motifs
         class_alias1 = rng.choice(
             ["site", "cluster"]
@@ -157,7 +159,7 @@ class SwapMotifAction(BaseMotifAction):
         }
         if class_alias1 == "cluster":
             # Use smaller cluster size to prevent overlap issues.
-            motif_1_kwargs["cluster_size"] = rng.integers(2, 4)
+            motif_1_kwargs["cluster_size"] = rng.integers(2, max_cluster_size + 1)
             motif_1_kwargs["max_cluster_radius"] = 4.0
         motif_a = get_random_motif(**motif_1_kwargs)
         class_alias2 = rng.choice(
