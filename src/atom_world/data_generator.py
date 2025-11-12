@@ -152,7 +152,6 @@ class ActionInputGenerator:
         return kwargs
 
 
-
 class DataGenerator:
     def __init__(self, input_dir: str, output_dir: str):
         self.input_dir = input_dir
@@ -236,6 +235,6 @@ class _DataGenerator:
 
 
 if __name__ == "__main__":
-    all_actions = [SuperCellAction]
-    data_gen = _DataGenerator("input_cifs", "output_cifs")
+    all_actions = [InsertBetweenAtomsAction, MoveTowardsAtomAction]
+    data_gen = DataGenerator("input_cifs", "output_cifs")
     data_gen.generate_data(all_actions)

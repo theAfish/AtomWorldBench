@@ -3,8 +3,18 @@
 import numpy as np
 from ase import Atoms
 from ase.data import chemical_symbols
+import random
+from abc import ABC, abstractmethod
 
-class BaseAction:
+
+class BaseAction(ABC):
+    """Abstract base class for atom actions.
+
+    Subclasses must implement `random_initialize` and `execute`.
+    Concrete helpers like `change_atoms` and `__str__` are provided
+    to keep backward compatibility with existing code.
+    """
+
     def __init__(self, atoms: Atoms):
         self.atoms = atoms
 
@@ -12,8 +22,15 @@ class BaseAction:
         """Change the atoms object for this action."""
         self.atoms = atoms
 
+    # @abstractmethod
+    # def random_initialize(self):
+    #     """Randomly initialize action parameters (must be implemented by subclasses)."""
+    #     pass
+
+    @abstractmethod
     def execute(self):
-        raise NotImplementedError("This method should be overridden by subclasses.")
+        """Execute the action and return the modified Atoms object."""
+        pass
 
     def __str__(self):
         return f"{self.__class__.__name__} action on {len(self.atoms)} atoms."

@@ -4,7 +4,10 @@ from typing import Optional, List, Tuple, Union
 
 class CellAction(BaseAction):
     """Base class for actions that modify the simulation cell."""
-    pass
+    
+    def __init__(self):
+        super().__init__()
+
 
 
 class SuperCellAction(CellAction):
