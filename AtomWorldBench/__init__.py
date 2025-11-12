@@ -1,0 +1,1 @@
+from .utils import ase_patch  # Apply ASE patch for Atoms equality comparison.
