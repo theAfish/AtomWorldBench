@@ -535,7 +535,7 @@ class RotateMotifAction(BaseMotifAction):
 
         # some hyperparameters
         max_cluster_radius = 4.0
-        max_cluster_size = max(4, len(operated_atoms) - 1)
+        max_cluster_size = min(4, len(operated_atoms) - 1)
 
         # Pick mode first so we can produce compatible motifs/params.
         mode_flag = cls.get_random_mode(seed)

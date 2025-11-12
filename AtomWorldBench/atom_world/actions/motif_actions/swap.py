@@ -146,7 +146,7 @@ class SwapMotifAction(BaseMotifAction):
 
         rng = np.random.default_rng(seed)
 
-        max_cluster_size = max(4, len(operated_atoms) - 1)
+        max_cluster_size = min(4, len(operated_atoms) - 1)
 
         # Detect two random non-bond site collection motifs
         class_alias1 = rng.choice(
@@ -162,9 +162,14 @@ class SwapMotifAction(BaseMotifAction):
             motif_1_kwargs["cluster_size"] = rng.integers(2, max_cluster_size + 1)
             motif_1_kwargs["max_cluster_radius"] = 4.0
         motif_a = get_random_motif(**motif_1_kwargs)
-        class_alias2 = rng.choice(
-            ["site", "cluster"]
-        )
+        # check the max cluster size for motif 2, if is 1, then must be site motif
+        max_cluster_size_2 = len(operated_atoms) - len(motif_a)
+        if max_cluster_size_2 < 2:
+            class_alias2 = "site"
+        else:
+            class_alias2 = rng.choice(
+                ["site", "cluster"]
+            )
         motif_2_kwargs = {
             "class_alias": class_alias2,
             "atoms": operated_atoms,
@@ -172,7 +177,7 @@ class SwapMotifAction(BaseMotifAction):
             "excluded_site_indices": motif_a.indices,
         }
         if class_alias2 == "cluster":
-            motif_2_kwargs["cluster_size"] = rng.integers(2, 4)
+            motif_2_kwargs["cluster_size"] = rng.integers(2, max_cluster_size_2 + 1)
             motif_2_kwargs["max_cluster_radius"] = 4.0
         motif_b = get_random_motif(**motif_2_kwargs)
 

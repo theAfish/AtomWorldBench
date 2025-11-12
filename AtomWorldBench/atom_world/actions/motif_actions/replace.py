@@ -154,6 +154,9 @@ class ReplaceMotifAction(BaseMotifAction):
             ReplaceMotifAction: A random instance of ReplaceMotifAction.
         """
         rng = np.random.default_rng(seed)
+
+        max_cluster_size = min(4, len(operated_atoms) - 1)
+
         class_alias = rng.choice(
             ["site", "cluster"]
         )
@@ -165,7 +168,7 @@ class ReplaceMotifAction(BaseMotifAction):
             "seed": seed,
         }
         if class_alias == "cluster":
-            operated_motif_kwargs["cluster_size"] = rng.integers(2, len(operated_atoms))
+            operated_motif_kwargs["cluster_size"] = rng.integers(2, max_cluster_size + 1)
             operated_motif_kwargs["max_cluster_radius"] = 4.0
 
         operated_motif = get_random_motif(**operated_motif_kwargs)

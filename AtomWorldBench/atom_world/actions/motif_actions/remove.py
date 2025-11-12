@@ -123,7 +123,7 @@ class RemoveMotifAction(BaseMotifAction):
         """
         rng = np.random.default_rng(seed)
 
-        max_cluster_size = max(4, len(operated_atoms) - 1)
+        max_cluster_size = min(4, len(operated_atoms) - 1)
 
         class_alias = rng.choice(
             ["site", "cluster", "sphere", "box"]
