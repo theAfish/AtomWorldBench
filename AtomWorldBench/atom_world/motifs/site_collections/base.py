@@ -235,40 +235,46 @@ class BaseSiteCollectionMotif(BaseMotif, ABC):
         """
         style = style.lower()
 
+        other_notes = ""
+
         if self.is_additive:
             style = "coord"  # Force coord style for additive motifs.
 
         # addition of a single site motif, return the name directly.
         if len(self) == 1 and self.is_additive:
-            return self.name
+            return self.name, other_notes
         else:
             if style == "coord":
                 coord_word = "fractional" if coord_fractional else "cartesian"
                 coords = self.frac_coords if coord_fractional else self.cart_coords
                 coords_string = describe_arraylike(coords, precision=precision)
-                return (
+                desc_string = (
                     f"{self.name} with {coord_word} coordinates: "
                     f"{coords_string}"
                 )
+                return desc_string, other_notes
             elif style == "index":
                 indices_string = describe_arraylike(self.indices, precision=0)
                 if np.allclose(self.cell_offsets, 0):
                     # Notice: with this condition, you should always wrap atom coordinates
                     # to the unit cell before using detector to detect a motif.
-                    offset_string = "."
+                    offset_string = ""
                 else:
                     offset_string = (
-                        f" and offsets {describe_arraylike(self.cell_offsets, precision=0)}."
-                        f" offsets represents how many unit cells the atoms"
+                        f" and offsets {describe_arraylike(self.cell_offsets, precision=0)}"
+                    )
+                    other_notes = (
+                        f"Offsets represents how many unit cells the atoms"
                         f" are away from the origin unit cell"
                         f" (fractional coordinates between 0 and 1)"
                         f" in the direction"
                         f" of each lattice vector."
                     )
-                return (
+                desc_string = (
                     f"{self.name} at site indices: "
                     f"{indices_string}{offset_string}"
                 )
+                return desc_string, other_notes
             else:
                 raise NotImplementedError(
                     f"Description style '{style}' is not implemented for site collection motifs."

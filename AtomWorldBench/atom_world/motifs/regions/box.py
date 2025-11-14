@@ -130,6 +130,7 @@ class BoxRegionMotif(BaseRegionMotif):
         Returns:
             str: A description of the box region motif.
         """
+        other_notes = ""
         def _get_directional_condition(prec, d="x"):
             rmin = getattr(self, f"{d}min")
             rmax = getattr(self, f"{d}max")
@@ -152,7 +153,7 @@ class BoxRegionMotif(BaseRegionMotif):
             "all atoms" if self.symbols is None
             else f"all atoms with element symbols {self.symbols}"
         )
-        return f"{symbol_word} with fractional coordinates satisfying: {condition_str}."
+        return f"{symbol_word} with fractional coordinates satisfying: {condition_str}", other_notes
 
     @classmethod
     def detect_random_one(

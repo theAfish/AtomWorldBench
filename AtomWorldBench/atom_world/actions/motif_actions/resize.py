@@ -179,6 +179,7 @@ class ResizeMotifAction(BaseMotifAction):
             self._get_resized_positions(self.operated_motif)
         )
         # Merge with the original atoms to maintain other properties.
+        # TODO: debug for sphere motif resizing.
         return merge_atoms(
             [self.operated_atoms[other_indices], motif_atoms],
             [other_indices, indices]
@@ -244,27 +245,30 @@ class ResizeMotifAction(BaseMotifAction):
         else:
             if is_pair:
                 if is_enlarge:
-                    op_word = "elongate"
+                    op_word = "Elongate"
                 else:
-                    op_word = "shorten"
+                    op_word = "Shorten"
             else:
                 if is_enlarge:
-                    op_word = "enlarge"
+                    op_word = "Enlarge"
                 else:
-                    op_word = "shrink"
+                    op_word = "Shrink"
 
+        operated_motif_desc, other_notes = self.operated_motif.describe(**motif_desc_kwargs)
         if is_region:
             return (
-                f"move [{self.operated_motif.describe(**motif_desc_kwargs)}]"
+                f"Move {operated_motif_desc}"
                 f" {op_word} {relative_word}, such that their distances to {relative_word}"
                 f" are changed {scale_word}."
-                f" update atom coordinates only, do not change their order in structure."
+                f" {other_notes}"
+                f" Update atom coordinates only, do not change their order in structure."
             )
         else:
             return (
-                f"{op_word} [{self.operated_motif.describe(**motif_desc_kwargs)}]"
+                f"{op_word} {operated_motif_desc}"
                 f" {scale_word} by moving its atoms relative to {relative_word}."
-                f" update atom coordinates only, do not change their order in structure."
+                f" {other_notes}"
+                f" Update atom coordinates only, do not change their order in structure."
             )
 
     @classmethod

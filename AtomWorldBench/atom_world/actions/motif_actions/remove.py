@@ -101,8 +101,10 @@ class RemoveMotifAction(BaseMotifAction):
             str: A description of the action.
         """
         motif_desc_kwargs = motif_desc_kwargs or {}
+        operated_motif_desc, other_notes = self.operated_motif.describe(**motif_desc_kwargs)
         return (
-            f"remove [{self.operated_motif.describe(**motif_desc_kwargs)}] from the structure."
+            f"Remove {operated_motif_desc} from the structure."
+            f" {other_notes}"
             f" do not change the order of remaining atoms in structure."
         )
 

@@ -115,9 +115,17 @@ class ReplaceMotifAction(BaseMotifAction):
         motif_desc_kwargs = motif_desc_kwargs or {}
         relative_motif_desc_kwargs = relative_motif_desc_kwargs or {}
 
+        replaced_motif_desc, replaced_motif_other_notes = self.replaced_motif.describe(**relative_motif_desc_kwargs)
+        operated_motif_desc, operated_motif_other_notes = self.operated_motif.describe(**motif_desc_kwargs)
+
+        # if other notes are the same, keep only one:
+        if replaced_motif_other_notes == operated_motif_other_notes:
+            operated_motif_other_notes = ""
         desc = (
-            f"replace [{self.replaced_motif.describe(**relative_motif_desc_kwargs)}]"
-            f" with [{self.operated_motif.describe(**motif_desc_kwargs)}]."
+            f"Replace {replaced_motif_desc}"
+            f" with {operated_motif_desc}."
+            f" {replaced_motif_other_notes}"
+            f" {operated_motif_other_notes}"
         )
         if len(self.operated_motif) > 1:
             if len(self.replaced_motif) == 1:

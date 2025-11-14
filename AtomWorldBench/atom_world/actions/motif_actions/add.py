@@ -285,45 +285,60 @@ class AddMotifAction(BaseMotifAction):
 
         # Common instruction to guarantee order of addition.
         common_instruction = (
-            "newly added motif should be appended to the end of the structure,"
+            "Newly added motif should be appended to the end of the structure,"
             " in the order as described."
         )
 
         motif = self.operated_motif
         rel_motif = self.relative_to_motif
+
+        motif_desc, other_notes = motif.describe(**motif_desc_kwargs)
+
         if self.mode_flag == "absolute":
             return (
-                    f"add [{motif.describe(**motif_desc_kwargs)}] to the structure,"
+                    f"Add {motif_desc} to the structure,"
                     f" with its centroid located at {coord_word}"
                     f" {describe_arraylike(self.at_position, precision=precision)}."
+                    f"{other_notes}"
                     + " " + common_instruction
             )
         if self.mode_flag == "relative_to_position":
             return (
-                f"add [{motif.describe(**motif_desc_kwargs)}] to the structure,"
+                f"Add {motif_desc} to the structure,"
                 f" with its centroid shifted in {coord_word} by"
                 f" {describe_arraylike(self.relative_shift, precision=precision)} relative to a"
                 f" reference point at {coord_word}"
                 f" {describe_arraylike(self.relative_to_position, precision=precision)}."
+                f"{other_notes}"
                 + " " + common_instruction
             )
         if self.mode_flag == "relative_to_pair_motif":
             # Must use index description style for pair motifs.
             relative_motif_desc_kwargs.update({"style": "index"})
+            rel_motif_desc, rel_other_notes = rel_motif.describe(**relative_motif_desc_kwargs)
+            if other_notes == rel_other_notes:
+                rel_other_notes = ""
             return (
-                f"add [{motif.describe(**motif_desc_kwargs)}] to the structure,"
+                f"Add {motif_desc} to the structure,"
                 f" with its centroid located on the line between"
-                f" atoms in [{rel_motif.describe(**relative_motif_desc_kwargs)}], at"
+                f" atoms in {rel_motif_desc}, at"
                 f" {self.relative_shift:.{precision}f} angstroms away from the atom indexed"
                 f" {rel_motif.indices[self.relative_atom_index]} (in the original structure)."
+                f" {other_notes}"
+                f" {rel_other_notes}"
                 + " " + common_instruction
             )
         if self.mode_flag == "relative_to_motif_centroid":
+            rel_motif_desc, rel_other_notes = rel_motif.describe(**relative_motif_desc_kwargs)
+            if other_notes == rel_other_notes:
+                rel_other_notes = ""
             return (
-                f"add [{motif.describe(**motif_desc_kwargs)}] to the structure,"
+                f"Add {motif_desc} to the structure,"
                 f" with its centroid shifted in {coord_word} by"
                 f" {describe_arraylike(self.relative_shift, precision=precision)} relative to the"
-                f" centroid of [{rel_motif.describe(**relative_motif_desc_kwargs)}]."
+                f" centroid of {rel_motif_desc}."
+                f" {other_notes}"
+                f" {rel_other_notes}"
                 + " " + common_instruction
             )
         else:
@@ -345,7 +360,7 @@ class AddMotifAction(BaseMotifAction):
         """
         rng = np.random.default_rng(seed)
 
-        max_cluster_size = max(4, len(operated_atoms) - 1)
+        max_cluster_size = min(4, len(operated_atoms) - 1)
 
         # Randomly select an additive motif to add.
         added_motif_probabilities = {

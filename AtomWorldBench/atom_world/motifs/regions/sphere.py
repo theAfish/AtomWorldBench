@@ -172,6 +172,7 @@ class SphereRegionMotif(BaseRegionMotif, MultiModeInitMixin):
         Returns:
             str: A string description of the spherical region motif.
         """
+        other_notes = ""
         if self.mode_flag == "center_around_coordinates":
             coord_word = "fractional" if self.center_is_fractional else "cartesian"
             coord_string = describe_arraylike(self.center, precision=precision)
@@ -190,7 +191,7 @@ class SphereRegionMotif(BaseRegionMotif, MultiModeInitMixin):
         return (
             f"{symbol_word} in the spherical region centered at"
             f" {center_string} with radius {self.radius:.{precision}f} angstroms"
-        )
+        ), other_notes
 
     @classmethod
     def detect_random_one(
