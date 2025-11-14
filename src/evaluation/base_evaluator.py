@@ -35,10 +35,13 @@ class BaseEvaluator(ABC):
             log_dir=os.path.join(self.results_folder, "logs")
         )
 
-    def evaluate(self, batch_size: int = 8, num_batch: int = -1) -> None:
+    def evaluate(self, batch_size: int = 8, num_batch: int = -1, restart_from_index: int = 0) -> None:
         """
         Main evaluation loop with batch processing.
         """
+        if len(self.data) <= restart_from_index:
+            self.logger.warning("Restart index exceeds data length. No evaluation performed.")
+            return
         results = []
         wrongs = []
         stats = self._initialize_stats()
@@ -49,36 +52,31 @@ class BaseEvaluator(ABC):
         
         total = min(num_batch * batch_size, len(self.data)) if num_batch > 0 else len(self.data)
         self.logger.info(f"Starting evaluation with {total} samples in batches of {batch_size}")
+        if restart_from_index > 0:
+            self.logger.info(f"Resuming from index {restart_from_index}")
         
         for i, row in tqdm(self._get_data_iterator(), total=total, desc="LLM Calling"):
+            if i < restart_from_index:
+                continue
+            
             prompt = self._create_prompt(row)
             prompts.append(prompt)
             rows.append(row)
             
             if len(prompts) == batch_size or i == len(self.data) - 1:
-                self.logger.debug(f"Processing batch {batch_count + 1}")
+                self.logger.debug(f"Processing batch {batch_count + 1} of {num_batch if num_batch > 0 else 'all'}")
                 generated_outputs = self.model.generate_batch(prompts)
                 
-                batch_stats = {"success": 0, "error": 0}
                 for j, generated_output in enumerate(generated_outputs):
                     row = rows[j]
                     result = self._process_single_output(row, generated_output, stats)
                     
                     if result.get('is_error'):
                         wrongs.append(result)
-                        batch_stats["is_error"] += 1
                     else:
                         results.append(result)
                         stats['results'].append(result)
-                        batch_stats["success"] += 1
                         self._log_success_metrics(result)
-                
-                self.logger.log_metrics({
-                    "batch": batch_count + 1,
-                    "total_processed": (batch_count + 1) * batch_size,
-                    "batch_success_rate": batch_stats["success"] / len(generated_outputs),
-                    **batch_stats
-                })
                 
                 prompts = []
                 rows = []
@@ -89,13 +87,29 @@ class BaseEvaluator(ABC):
         
         # Log final statistics
         self.logger.info("Evaluation completed")
-        success_rate = len(results) / (len(results) + len(wrongs))
-        self.logger.log_metrics({
-            "total_samples": total,
-            "successful_samples": len(results),
-            "error_samples": len(wrongs),
-            "overall_success_rate": success_rate
-        })
+        
+        # Calculate overall statistics
+        total_processed = len(results) + len(wrongs)
+        success_rate = len(results) / total_processed if total_processed > 0 else 0
+        
+        # Calculate error type distribution
+        error_types = self._categorize_errors(wrongs)
+        
+        # Gather any statistical metrics from the results
+        result_metrics = self._calculate_result_statistics(results) if results else {}
+        
+        # Log overall metrics with statistical information
+        final_metrics = {
+            "summary": {
+                "total_samples": total_processed,
+                "success_count": len(results),
+                "error_count": len(wrongs),
+                "success_rate": success_rate,
+                "error_types": error_types
+            },
+            "statistics": result_metrics
+        }
+        self.logger.log_metrics(final_metrics)
         
         self._save_results(results, wrongs, stats)
 
@@ -158,6 +172,50 @@ class BaseEvaluator(ABC):
         # Print summary through logger
         self._log_summary(stats)
 
+    def _calculate_result_statistics(self, results: List[Dict]) -> Dict:
+        """
+        Calculate statistical metrics from successful results.
+        Override this method in child classes to add domain-specific statistics.
+        
+        Args:
+            results: List of successful evaluation results
+            
+        Returns:
+            Dictionary containing statistical metrics
+        """
+        return {}
+    
+    def _categorize_errors(self, wrongs: List[Dict]) -> Dict[str, Dict[str, Union[int, float]]]:
+        """
+        Categorize and count different types of errors.
+        
+        Args:
+            wrongs: List of failed evaluation results
+            
+        Returns:
+            Dictionary containing error type counts and percentages
+        """
+        if not wrongs:
+            return {}
+            
+        # Count error types
+        error_counts = {}
+        for wrong in wrongs:
+            error_type = wrong.get('wrong_type', 'unknown')
+            error_counts[error_type] = error_counts.get(error_type, 0) + 1
+        
+        # Calculate percentages
+        total_errors = len(wrongs)
+        error_stats = {}
+        
+        for error_type, count in error_counts.items():
+            error_stats[error_type] = {
+                "count": count,
+                "percentage": count / total_errors
+            }
+            
+        return error_stats
+    
     def _log_summary(self, stats: Dict) -> None:
         """Log evaluation summary. Override for custom statistics."""
         self.logger.info("\n======== Evaluation Summary ========")

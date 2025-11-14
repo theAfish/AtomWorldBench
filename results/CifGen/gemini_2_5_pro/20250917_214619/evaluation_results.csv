@@ -1,0 +1,881 @@
+is_error,reference_cif,generated_cif,rmsd,max_diff,generated_output
+False,"# generated using pymatgen
+data_Na2O
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.48498174
+_cell_length_b   5.48498174
+_cell_length_c   5.48498174
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Na2O
+_chemical_formula_sum   'Na8 O4'
+_cell_volume   165.01581106
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Na  Na0  1  0.25000000  0.75000000  0.75000000  1.0
+  Na  Na1  1  0.75000000  0.25000000  0.25000000  1.0
+  Na  Na2  1  0.25000000  0.25000000  0.25000000  1.0
+  Na  Na3  1  0.75000000  0.75000000  0.75000000  1.0
+  Na  Na4  1  0.75000000  0.75000000  0.25000000  1.0
+  Na  Na5  1  0.25000000  0.25000000  0.75000000  1.0
+  Na  Na6  1  0.75000000  0.25000000  0.75000000  1.0
+  Na  Na7  1  0.25000000  0.75000000  0.25000000  1.0
+  O  O8  1  0.00000000  0.00000000  0.00000000  1.0
+  O  O9  1  0.00000000  0.50000000  0.50000000  1.0
+  O  O10  1  0.50000000  0.00000000  0.50000000  1.0
+  O  O11  1  0.50000000  0.50000000  0.00000000  1.0
+","data_Na2O_antifluorite
+
+_chemical_formula_sum       'Na2 O'
+_chemical_name_common       'Sodium Oxide (anti-fluorite)'
+
+_cell_length_a              5.48498174
+_cell_length_b              5.48498174
+_cell_length_c              5.48498174
+_cell_angle_alpha           90.0000
+_cell_angle_beta            90.0000
+_cell_angle_gamma           90.0000
+
+_symmetry_space_group_name_H-M 'P 1'
+_symmetry_Int_Tables_number   1
+
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+O1  O  0.00000  0.00000  0.00000
+O2  O  0.50000  0.50000  0.00000
+O3  O  0.50000  0.00000  0.50000
+O4  O  0.00000  0.50000  0.50000
+Na1 Na 0.25000  0.25000  0.25000
+Na2 Na 0.25000  0.25000  0.75000
+Na3 Na 0.25000  0.75000  0.25000
+Na4 Na 0.25000  0.75000  0.75000
+Na5 Na 0.75000  0.25000  0.25000
+Na6 Na 0.75000  0.25000  0.75000
+Na7 Na 0.75000  0.75000  0.25000
+Na8 Na 0.75000  0.75000  0.75000",9.007003458812021e-17,9.890831410347428e-17,"<cif>
+data_Na2O_antifluorite
+
+_chemical_formula_sum       'Na2 O'
+_chemical_name_common       'Sodium Oxide (anti-fluorite)'
+
+_cell_length_a              5.48498174
+_cell_length_b              5.48498174
+_cell_length_c              5.48498174
+_cell_angle_alpha           90.0000
+_cell_angle_beta            90.0000
+_cell_angle_gamma           90.0000
+
+_symmetry_space_group_name_H-M 'P 1'
+_symmetry_Int_Tables_number   1
+
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+O1  O  0.00000  0.00000  0.00000
+O2  O  0.50000  0.50000  0.00000
+O3  O  0.50000  0.00000  0.50000
+O4  O  0.00000  0.50000  0.50000
+Na1 Na 0.25000  0.25000  0.25000
+Na2 Na 0.25000  0.25000  0.75000
+Na3 Na 0.25000  0.75000  0.25000
+Na4 Na 0.25000  0.75000  0.75000
+Na5 Na 0.75000  0.25000  0.25000
+Na6 Na 0.75000  0.25000  0.75000
+Na7 Na 0.75000  0.75000  0.25000
+Na8 Na 0.75000  0.75000  0.75000
+</cif>"
+False,"# generated using pymatgen
+data_MgSe
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.46744704
+_cell_length_b   5.46744704
+_cell_length_c   5.46744704
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   MgSe
+_chemical_formula_sum   'Mg4 Se4'
+_cell_volume   163.43826935
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Mg  Mg0  1  0.00000000  0.00000000  0.00000000  1.0
+  Mg  Mg1  1  0.00000000  0.50000000  0.50000000  1.0
+  Mg  Mg2  1  0.50000000  0.00000000  0.50000000  1.0
+  Mg  Mg3  1  0.50000000  0.50000000  0.00000000  1.0
+  Se  Se4  1  0.50000000  0.00000000  0.00000000  1.0
+  Se  Se5  1  0.50000000  0.50000000  0.50000000  1.0
+  Se  Se6  1  0.00000000  0.00000000  0.50000000  1.0
+  Se  Se7  1  0.00000000  0.50000000  0.00000000  1.0
+","data_MgSe_rocksalt
+_cell_length_a                        5.46744704
+_cell_length_b                        5.46744704
+_cell_length_c                        5.46744704
+_cell_angle_alpha                     90.0000
+_cell_angle_beta                      90.0000
+_cell_angle_gamma                     90.0000
+
+_symmetry_space_group_name_H-M    'P 1'
+_symmetry_Int_Tables_number       1
+
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  Mg1  Mg  0.00000  0.00000  0.00000
+  Mg2  Mg  0.50000  0.50000  0.00000
+  Mg3  Mg  0.50000  0.00000  0.50000
+  Mg4  Mg  0.00000  0.50000  0.50000
+  Se1  Se  0.50000  0.50000  0.50000
+  Se2  Se  0.50000  0.00000  0.00000
+  Se3  Se  0.00000  0.50000  0.00000
+  Se4  Se  0.00000  0.00000  0.50000",7.034225196202592e-17,7.034225196202593e-17,"<cif>
+data_MgSe_rocksalt
+_cell_length_a                        5.46744704
+_cell_length_b                        5.46744704
+_cell_length_c                        5.46744704
+_cell_angle_alpha                     90.0000
+_cell_angle_beta                      90.0000
+_cell_angle_gamma                     90.0000
+
+_symmetry_space_group_name_H-M    'P 1'
+_symmetry_Int_Tables_number       1
+
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  Mg1  Mg  0.00000  0.00000  0.00000
+  Mg2  Mg  0.50000  0.50000  0.00000
+  Mg3  Mg  0.50000  0.00000  0.50000
+  Mg4  Mg  0.00000  0.50000  0.50000
+  Se1  Se  0.50000  0.50000  0.50000
+  Se2  Se  0.50000  0.00000  0.00000
+  Se3  Se  0.00000  0.50000  0.00000
+  Se4  Se  0.00000  0.00000  0.50000
+</cif>"
+False,"# generated using pymatgen
+data_Mg
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.17202329
+_cell_length_b   3.17202329
+_cell_length_c   5.14120490
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   120.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Mg
+_chemical_formula_sum   Mg2
+_cell_volume   44.79899582
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Mg  Mg0  1  0.33333333  0.66666667  0.25000000  1.0
+  Mg  Mg1  1  0.66666667  0.33333333  0.75000000  1.0
+","data_Mg_hcp_P1
+
+_cell_length_a                         3.17202329
+_cell_length_b                         3.17202329
+_cell_length_c                         5.1412049
+_cell_angle_alpha                      90.0000
+_cell_angle_beta                       90.0000
+_cell_angle_gamma                      120.0000
+
+_symmetry_space_group_name_H-M         'P 1'
+_symmetry_Int_Tables_number            1
+
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  Mg1  Mg  0.00000  0.00000  0.00000
+  Mg2  Mg  0.33333  0.66667  0.50000",1.5753998263888744e-16,1.5753998263888744e-16,"As a materials science expert, I will generate the requested CIF file for Mg with a hexagonal close-packed (hcp) structure.
+
+The hcp structure has a hexagonal unit cell with two atoms in its conventional basis. For a P1 symmetry representation, we explicitly list both atoms. The lattice is defined by parameters `a = b`, `c`, and angles `α = β = 90°`, `γ = 120°`. The atomic positions for the conventional cell are at (0, 0, 0) and (1/3, 2/3, 1/2).
+
+Here is the correctly formatted CIF file based on your requirements.
+
+<cif>
+data_Mg_hcp_P1
+
+_cell_length_a                         3.17202329
+_cell_length_b                         3.17202329
+_cell_length_c                         5.1412049
+_cell_angle_alpha                      90.0000
+_cell_angle_beta                       90.0000
+_cell_angle_gamma                      120.0000
+
+_symmetry_space_group_name_H-M         'P 1'
+_symmetry_Int_Tables_number            1
+
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  Mg1  Mg  0.00000  0.00000  0.00000
+  Mg2  Mg  0.33333  0.66667  0.50000
+</cif>"
+False,"# generated using pymatgen
+data_Si
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.44370237
+_cell_length_b   5.44370237
+_cell_length_c   5.44370237
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Si
+_chemical_formula_sum   Si8
+_cell_volume   161.31810713
+_cell_formula_units_Z   8
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Si  Si0  1  0.75000000  0.75000000  0.25000000  1.0
+  Si  Si1  1  0.00000000  0.50000000  0.50000000  1.0
+  Si  Si2  1  0.75000000  0.25000000  0.75000000  1.0
+  Si  Si3  1  0.00000000  0.00000000  0.00000000  1.0
+  Si  Si4  1  0.25000000  0.75000000  0.75000000  1.0
+  Si  Si5  1  0.50000000  0.50000000  0.00000000  1.0
+  Si  Si6  1  0.25000000  0.25000000  0.25000000  1.0
+  Si  Si7  1  0.50000000  0.00000000  0.50000000  1.0
+","# CIF file generated for Si (Diamond Structure)
+# As requested, using P1 symmetry and explicitly listing all atoms.
+
+data_Si_diamond_P1
+
+_cell_length_a                        5.44370237
+_cell_length_b                        5.44370237
+_cell_length_c                        5.44370237
+_cell_angle_alpha                     90.0000
+_cell_angle_beta                      90.0000
+_cell_angle_gamma                     90.0000
+
+_symmetry_space_group_name_H-M        'P 1'
+_symmetry_Int_Tables_number           1
+
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  Si1   Si   0.00000   0.00000   0.00000
+  Si2   Si   0.50000   0.50000   0.00000
+  Si3   Si   0.50000   0.00000   0.50000
+  Si4   Si   0.00000   0.50000   0.50000
+  Si5   Si   0.25000   0.25000   0.25000
+  Si6   Si   0.75000   0.75000   0.25000
+  Si7   Si   0.75000   0.25000   0.75000
+  Si8   Si   0.25000   0.75000   0.75000",3.052388906453183e-16,3.052388906453183e-16,"<cif>
+# CIF file generated for Si (Diamond Structure)
+# As requested, using P1 symmetry and explicitly listing all atoms.
+
+data_Si_diamond_P1
+
+_cell_length_a                        5.44370237
+_cell_length_b                        5.44370237
+_cell_length_c                        5.44370237
+_cell_angle_alpha                     90.0000
+_cell_angle_beta                      90.0000
+_cell_angle_gamma                     90.0000
+
+_symmetry_space_group_name_H-M        'P 1'
+_symmetry_Int_Tables_number           1
+
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  Si1   Si   0.00000   0.00000   0.00000
+  Si2   Si   0.50000   0.50000   0.00000
+  Si3   Si   0.50000   0.00000   0.50000
+  Si4   Si   0.00000   0.50000   0.50000
+  Si5   Si   0.25000   0.25000   0.25000
+  Si6   Si   0.75000   0.75000   0.25000
+  Si7   Si   0.75000   0.25000   0.75000
+  Si8   Si   0.25000   0.75000   0.75000
+</cif>"
+False,"# generated using pymatgen
+data_TiO2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.59983732
+_cell_length_b   4.59983732
+_cell_length_c   2.95921356
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   TiO2
+_chemical_formula_sum   'Ti2 O4'
+_cell_volume   62.61253008
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ti  Ti0  1  0.50000000  0.50000000  0.00000000  1.0
+  Ti  Ti1  1  0.00000000  0.00000000  0.50000000  1.0
+  O  O2  1  0.69567869  0.69567869  0.50000000  1.0
+  O  O3  1  0.19567869  0.80432131  0.00000000  1.0
+  O  O4  1  0.80432131  0.19567869  0.00000000  1.0
+  O  O5  1  0.30432131  0.30432131  0.50000000  1.0
+","data_TiO2_rutile_P1
+#
+# Created by a materials science expert AI.
+# Structure: TiO2 (Rutile)
+# Symmetry: P1 (as requested)
+#
+# --- CRYSTAL DATA ---
+#
+_cell_length_a                          4.59983732
+_cell_length_b                          4.59983732
+_cell_length_c                          2.95921356
+_cell_angle_alpha                       90.0000
+_cell_angle_beta                        90.0000
+_cell_angle_gamma                       90.0000
+#
+_symmetry_space_group_name_H-M          'P 1'
+_symmetry_Int_Tables_number             1
+#
+_chemical_formula_sum                   'Ti2 O4'
+_chemical_name_systematic               'Titanium Dioxide'
+_chemical_name_common                   'Rutile'
+#
+# --- ATOMIC COORDINATES ---
+#
+# The conventional rutile cell (Space Group P4_2/mnm, No. 136) contains
+# 2 Ti and 4 O atoms. For P1 symmetry, all atoms are listed explicitly.
+# The internal parameter u for Oxygen is chosen as a standard value of 0.305.
+#
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  Ti1   Ti   0.00000   0.00000   0.00000
+  Ti2   Ti   0.50000   0.50000   0.50000
+  O1    O    0.30500   0.30500   0.00000
+  O2    O    0.69500   0.69500   0.00000
+  O3    O    0.80500   0.19500   0.50000
+  O4    O    0.19500   0.80500   0.50000
+#
+# --- END OF CIF ---
+#",0.0016496049711196576,0.002020345228201147,"<cif>
+data_TiO2_rutile_P1
+#
+# Created by a materials science expert AI.
+# Structure: TiO2 (Rutile)
+# Symmetry: P1 (as requested)
+#
+# --- CRYSTAL DATA ---
+#
+_cell_length_a                          4.59983732
+_cell_length_b                          4.59983732
+_cell_length_c                          2.95921356
+_cell_angle_alpha                       90.0000
+_cell_angle_beta                        90.0000
+_cell_angle_gamma                       90.0000
+#
+_symmetry_space_group_name_H-M          'P 1'
+_symmetry_Int_Tables_number             1
+#
+_chemical_formula_sum                   'Ti2 O4'
+_chemical_name_systematic               'Titanium Dioxide'
+_chemical_name_common                   'Rutile'
+#
+# --- ATOMIC COORDINATES ---
+#
+# The conventional rutile cell (Space Group P4_2/mnm, No. 136) contains
+# 2 Ti and 4 O atoms. For P1 symmetry, all atoms are listed explicitly.
+# The internal parameter u for Oxygen is chosen as a standard value of 0.305.
+#
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  Ti1   Ti   0.00000   0.00000   0.00000
+  Ti2   Ti   0.50000   0.50000   0.50000
+  O1    O    0.30500   0.30500   0.00000
+  O2    O    0.69500   0.69500   0.00000
+  O3    O    0.80500   0.19500   0.50000
+  O4    O    0.19500   0.80500   0.50000
+#
+# --- END OF CIF ---
+#
+</cif>"
+False,"# generated using pymatgen
+data_Sb
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.08334361
+_cell_length_b   3.08334361
+_cell_length_c   3.08334361
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Sb
+_chemical_formula_sum   Sb1
+_cell_volume   29.31337180
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Sb  Sb0  1  0.00000000  0.00000000  0.00000000  1.0
+","data_Sb_sc
+_cell_length_a                         3.08334361
+_cell_length_b                         3.08334361
+_cell_length_c                         3.08334361
+_cell_angle_alpha                      90.0000
+_cell_angle_beta                       90.0000
+_cell_angle_gamma                      90.0000
+
+_symmetry_space_group_name_H-M         'P 1'
+_symmetry_Int_Tables_number            1
+
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_occupancy
+Sb1   Sb   0.00000   0.00000   0.00000   1.0",0.0,0.0,"<cif>
+data_Sb_sc
+_cell_length_a                         3.08334361
+_cell_length_b                         3.08334361
+_cell_length_c                         3.08334361
+_cell_angle_alpha                      90.0000
+_cell_angle_beta                       90.0000
+_cell_angle_gamma                      90.0000
+
+_symmetry_space_group_name_H-M         'P 1'
+_symmetry_Int_Tables_number            1
+
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_occupancy
+Sb1   Sb   0.00000   0.00000   0.00000   1.0
+</cif>"
+False,"# generated using pymatgen
+data_Cu
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.57743067
+_cell_length_b   3.57743067
+_cell_length_c   3.57743067
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Cu
+_chemical_formula_sum   Cu4
+_cell_volume   45.78399420
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Cu  Cu0  1  0.00000000  0.00000000  0.00000000  1.0
+  Cu  Cu1  1  0.00000000  0.50000000  0.50000000  1.0
+  Cu  Cu2  1  0.50000000  0.00000000  0.50000000  1.0
+  Cu  Cu3  1  0.50000000  0.50000000  0.00000000  1.0
+","data_Cu_fcc
+#__________________________________________________________________________
+#
+# Created by a materials science expert
+#
+# Data for Cu (Copper) in the fcc structure
+#__________________________________________________________________________
+
+_chemical_name_systematic          'Copper'
+_chemical_formula_sum              'Cu'
+_cell_formula_units_Z              4
+
+_cell_length_a                     3.57743067
+_cell_length_b                     3.57743067
+_cell_length_c                     3.57743067
+_cell_angle_alpha                  90.00
+_cell_angle_beta                   90.00
+_cell_angle_gamma                  90.00
+
+_symmetry_space_group_name_H-M     'P 1'
+_symmetry_Int_Tables_number        1
+
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Cu1   Cu   0.00000   0.00000   0.00000   1.0
+  Cu2   Cu   0.50000   0.50000   0.00000   1.0
+  Cu3   Cu   0.50000   0.00000   0.50000   1.0
+  Cu4   Cu   0.00000   0.50000   0.50000   1.0",0.0,0.0,"<cif>
+data_Cu_fcc
+#__________________________________________________________________________
+#
+# Created by a materials science expert
+#
+# Data for Cu (Copper) in the fcc structure
+#__________________________________________________________________________
+
+_chemical_name_systematic          'Copper'
+_chemical_formula_sum              'Cu'
+_cell_formula_units_Z              4
+
+_cell_length_a                     3.57743067
+_cell_length_b                     3.57743067
+_cell_length_c                     3.57743067
+_cell_angle_alpha                  90.00
+_cell_angle_beta                   90.00
+_cell_angle_gamma                  90.00
+
+_symmetry_space_group_name_H-M     'P 1'
+_symmetry_Int_Tables_number        1
+
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Cu1   Cu   0.00000   0.00000   0.00000   1.0
+  Cu2   Cu   0.50000   0.50000   0.00000   1.0
+  Cu3   Cu   0.50000   0.00000   0.50000   1.0
+  Cu4   Cu   0.00000   0.50000   0.50000   1.0
+</cif>"
+False,"# generated using pymatgen
+data_LaFeO3
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.95717700
+_cell_length_b   3.95717700
+_cell_length_c   3.95717700
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   LaFeO3
+_chemical_formula_sum   'La1 Fe1 O3'
+_cell_volume   61.96642318
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  La  La0  1  0.00000000  0.00000000  0.00000000  1.0
+  Fe  Fe1  1  0.50000000  0.50000000  0.50000000  1.0
+  O  O2  1  0.50000000  0.50000000  0.00000000  1.0
+  O  O3  1  0.50000000  0.00000000  0.50000000  1.0
+  O  O4  1  0.00000000  0.50000000  0.50000000  1.0
+","data_LaFeO3
+_cell_length_a 3.957177
+_cell_length_b 3.957177
+_cell_length_c 3.957177
+_cell_angle_alpha 90.0000
+_cell_angle_beta 90.0000
+_cell_angle_gamma 90.0000
+
+_symmetry_space_group_name_H-M 'P 1'
+_symmetry_int_tables_number 1
+
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+La1 La 0.00000 0.00000 0.00000
+Fe1 Fe 0.50000 0.50000 0.50000
+O1  O  0.50000 0.50000 0.00000
+O2  O  0.50000 0.00000 0.50000
+O3  O  0.00000 0.50000 0.50000",0.0,0.0,"<cif>
+data_LaFeO3
+_cell_length_a 3.957177
+_cell_length_b 3.957177
+_cell_length_c 3.957177
+_cell_angle_alpha 90.0000
+_cell_angle_beta 90.0000
+_cell_angle_gamma 90.0000
+
+_symmetry_space_group_name_H-M 'P 1'
+_symmetry_int_tables_number 1
+
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+La1 La 0.00000 0.00000 0.00000
+Fe1 Fe 0.50000 0.50000 0.50000
+O1  O  0.50000 0.50000 0.00000
+O2  O  0.50000 0.00000 0.50000
+O3  O  0.00000 0.50000 0.50000
+</cif>"
+False,"# generated using pymatgen
+data_W
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.17031556
+_cell_length_b   3.17031556
+_cell_length_c   3.17031556
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   W
+_chemical_formula_sum   W2
+_cell_volume   31.86452704
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  W  W0  1  0.00000000  0.00000000  0.00000000  1.0
+  W  W1  1  0.50000000  0.50000000  0.50000000  1.0
+","data_W_bcc_P1
+
+_cell_length_a                         3.17031556
+_cell_length_b                         3.17031556
+_cell_length_c                         3.17031556
+_cell_angle_alpha                      90.0000
+_cell_angle_beta                       90.0000
+_cell_angle_gamma                      90.0000
+
+_symmetry_space_group_name_H-M         'P 1'
+_symmetry_Int_Tables_number            1
+
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  W1  W  0.00000  0.00000  0.00000
+  W2  W  0.50000  0.50000  0.50000",0.0,0.0,"<cif>
+data_W_bcc_P1
+
+_cell_length_a                         3.17031556
+_cell_length_b                         3.17031556
+_cell_length_c                         3.17031556
+_cell_angle_alpha                      90.0000
+_cell_angle_beta                       90.0000
+_cell_angle_gamma                      90.0000
+
+_symmetry_space_group_name_H-M         'P 1'
+_symmetry_Int_Tables_number            1
+
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  W1  W  0.00000  0.00000  0.00000
+  W2  W  0.50000  0.50000  0.50000
+</cif>"
+False,"# generated using pymatgen
+data_Ar
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.36315985
+_cell_length_b   5.36315985
+_cell_length_c   5.36315985
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Ar
+_chemical_formula_sum   Ar4
+_cell_volume   154.26316026
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ar  Ar0  1  0.00000000  0.00000000  0.00000000  1.0
+  Ar  Ar1  1  0.00000000  0.50000000  0.50000000  1.0
+  Ar  Ar2  1  0.50000000  0.00000000  0.50000000  1.0
+  Ar  Ar3  1  0.50000000  0.50000000  0.00000000  1.0
+","data_Ar_fcc_P1
+#
+# CIF file for Argon (Ar) with a face-centered cubic (fcc) structure.
+# The structure is described using the P1 space group, so all atoms
+# in the conventional cell are listed explicitly.
+#
+# Lattice constant a = 5.36315985 Angstrom
+#
+
+# --- CRYSTAL DATA ---
+_cell_length_a                         5.36315985
+_cell_length_b                         5.36315985
+_cell_length_c                         5.36315985
+_cell_angle_alpha                      90.0000
+_cell_angle_beta                       90.0000
+_cell_angle_gamma                      90.0000
+
+# --- SYMMETRY DATA ---
+_symmetry_space_group_name_H-M         'P 1'
+_symmetry_Int_Tables_number            1
+
+# --- ATOMIC COORDINATES ---
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  Ar1  Ar  0.00000  0.00000  0.00000
+  Ar2  Ar  0.50000  0.50000  0.00000
+  Ar3  Ar  0.50000  0.00000  0.50000
+  Ar4  Ar  0.00000  0.50000  0.50000",0.0,0.0,"<cif>
+data_Ar_fcc_P1
+#
+# CIF file for Argon (Ar) with a face-centered cubic (fcc) structure.
+# The structure is described using the P1 space group, so all atoms
+# in the conventional cell are listed explicitly.
+#
+# Lattice constant a = 5.36315985 Angstrom
+#
+
+# --- CRYSTAL DATA ---
+_cell_length_a                         5.36315985
+_cell_length_b                         5.36315985
+_cell_length_c                         5.36315985
+_cell_angle_alpha                      90.0000
+_cell_angle_beta                       90.0000
+_cell_angle_gamma                      90.0000
+
+# --- SYMMETRY DATA ---
+_symmetry_space_group_name_H-M         'P 1'
+_symmetry_Int_Tables_number            1
+
+# --- ATOMIC COORDINATES ---
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  Ar1  Ar  0.00000  0.00000  0.00000
+  Ar2  Ar  0.50000  0.50000  0.00000
+  Ar3  Ar  0.50000  0.00000  0.50000
+  Ar4  Ar  0.00000  0.50000  0.50000
+</cif>"

@@ -9,7 +9,7 @@ build/
 
 _raw_data/
 debug/
-tests/
+# tests/
 local.models.yaml
 
 run.log

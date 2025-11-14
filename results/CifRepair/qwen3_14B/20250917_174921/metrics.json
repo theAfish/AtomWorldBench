@@ -1,0 +1,19 @@
+{
+  "summary": {
+    "total_samples": 20,
+    "success_count": 13,
+    "error_count": 7,
+    "success_rate": 0.65,
+    "error_types": {
+      "CIFParsingError": {
+        "count": 6,
+        "percentage": 0.8571428571428571
+      },
+      "AtomCountMismatch": {
+        "count": 1,
+        "percentage": 0.14285714285714285
+      }
+    }
+  },
+  "statistics": {}
+}

@@ -1,0 +1,21 @@
+2025-09-18 19:35:15,758 - AtomWorldEvaluator - INFO - Starting evaluation with 50 samples in batches of 5
+2025-09-18 19:35:15,761 - AtomWorldEvaluator - DEBUG - Processing batch 1 of 10
+2025-09-18 19:37:19,529 - AtomWorldEvaluator - DEBUG - Processing batch 2 of 10
+2025-09-18 19:38:16,745 - AtomWorldEvaluator - DEBUG - Processing batch 3 of 10
+2025-09-18 19:38:50,651 - AtomWorldEvaluator - DEBUG - Processing batch 4 of 10
+2025-09-18 19:39:30,200 - AtomWorldEvaluator - DEBUG - Processing batch 5 of 10
+2025-09-18 19:40:15,727 - AtomWorldEvaluator - DEBUG - Processing batch 6 of 10
+2025-09-18 19:40:56,565 - AtomWorldEvaluator - DEBUG - Processing batch 7 of 10
+2025-09-18 19:41:46,880 - AtomWorldEvaluator - DEBUG - Processing batch 8 of 10
+2025-09-18 19:42:51,505 - AtomWorldEvaluator - DEBUG - Processing batch 9 of 10
+2025-09-18 19:44:11,646 - AtomWorldEvaluator - DEBUG - Processing batch 10 of 10
+2025-09-18 19:45:21,819 - AtomWorldEvaluator - INFO - Evaluation completed
+2025-09-18 19:45:21,820 - AtomWorldEvaluator - INFO - summary: {'total_samples': 50, 'success_count': 46, 'error_count': 4, 'success_rate': 0.92, 'error_types': {'OutputFormatError': {'count': 4, 'percentage': 1.0}}} - statistics: {'rmsd_mean': np.float64(5.3467399994972726e-05), 'rmsd_median': np.float64(2.5650669412605335e-16), 'rmsd_max': np.float64(0.002452438351240369), 'rmsd_min': np.float64(0.0), 'max_diff_mean': np.float64(0.00013381716305596142), 'max_diff_median': np.float64(6.152478074171239e-16), 'max_diff_max': np.float64(0.006144802851142216), 'max_diff_min': np.float64(0.0)}
+2025-09-18 19:45:21,823 - AtomWorldEvaluator - INFO - Saved metrics to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/AtomWorld/gemini_2_5_pro/remove_atom_action/20250918_193515/metrics.json
+2025-09-18 19:45:21,837 - AtomWorldEvaluator - INFO - Evaluation results saved to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/AtomWorld/gemini_2_5_pro/remove_atom_action/20250918_193515/evaluation_results.csv
+2025-09-18 19:45:21,840 - AtomWorldEvaluator - INFO - Failed cases saved to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/AtomWorld/gemini_2_5_pro/remove_atom_action/20250918_193515/evaluation_wrongs.csv
+2025-09-18 19:45:21,840 - AtomWorldEvaluator - INFO - 
+======== Evaluation Summary ========
+2025-09-18 19:45:21,840 - AtomWorldEvaluator - INFO - Total inputs: 1000
+2025-09-18 19:45:21,840 - AtomWorldEvaluator - INFO - num_unreadable_out: 4
+2025-09-18 19:45:21,840 - AtomWorldEvaluator - INFO - num_invalid_cif: 0

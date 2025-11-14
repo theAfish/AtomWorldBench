@@ -1,0 +1,42 @@
+# generated using pymatgen
+data_CaMg14Ga
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.42119116
+_cell_length_b   6.42119063
+_cell_length_c   10.47650274
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   120.00000275
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   CaMg14Ga
+_chemical_formula_sum   'Ca1 Mg14 Ga1'
+_cell_volume   374.09173454
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ca  Ca0  1  0.16666700  0.33333300  0.12500000  1
+  Mg  Mg1  1  0.17276721  0.83638310  0.12500000  1
+  Mg  Mg2  1  0.16426532  0.83213216  0.62500000  1
+  Mg  Mg3  1  0.66361690  0.32723279  0.12500000  1
+  Mg  Mg4  1  0.66786784  0.33573468  0.62500000  1
+  Mg  Mg5  1  0.66361690  0.83638310  0.12500000  1
+  Mg  Mg6  1  0.66786784  0.83213216  0.62500000  1
+  Mg  Mg7  1  0.33336688  0.16663312  0.38210862  1
+  Mg  Mg8  1  0.33336688  0.16663312  0.86789138  1
+  Mg  Mg9  1  0.33336688  0.66673476  0.38210862  1
+  Mg  Mg10  1  0.33336688  0.66673476  0.86789138  1
+  Mg  Mg11  1  0.83326524  0.16663312  0.38210862  1
+  Mg  Mg12  1  0.83326524  0.16663312  0.86789138  1
+  Mg  Mg13  1  0.83333300  0.66666700  0.37107122  1
+  Mg  Mg14  1  0.83333300  0.66666700  0.87892878  1
+  Ga  Ga15  1  0.16666700  0.33333300  0.62500000  1

@@ -1,0 +1,12 @@
+2025-09-23 09:53:45,708 - AtomWorldEvaluator - INFO - Starting evaluation with 50 samples in batches of 50
+2025-09-23 09:53:45,713 - AtomWorldEvaluator - DEBUG - Processing batch 1 of 1
+2025-09-23 10:15:53,345 - AtomWorldEvaluator - INFO - Evaluation completed
+2025-09-23 10:15:53,345 - AtomWorldEvaluator - INFO - summary: {'total_samples': 50, 'success_count': 11, 'error_count': 39, 'success_rate': 0.22, 'error_types': {'CIFParsingError': {'count': 23, 'percentage': 0.5897435897435898}, 'OutputFormatError': {'count': 9, 'percentage': 0.23076923076923078}, 'StructureMismatch': {'count': 4, 'percentage': 0.10256410256410256}, 'AtomCountMismatch': {'count': 3, 'percentage': 0.07692307692307693}}} - statistics: {'rmsd_mean': np.float64(0.1064448016517019), 'rmsd_median': np.float64(0.0029179144168455504), 'rmsd_max': np.float64(0.45316384123214204), 'rmsd_min': np.float64(6.07418063146174e-16), 'max_diff_mean': np.float64(0.14920560724411736), 'max_diff_median': np.float64(0.008253108284294184), 'max_diff_max': np.float64(0.45316384123214276), 'max_diff_min': np.float64(1.3649936092839037e-15)}
+2025-09-23 10:15:53,347 - AtomWorldEvaluator - INFO - Saved metrics to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/AtomWorld/qwen3_14B/super_cell_action/20250923_095344/metrics.json
+2025-09-23 10:15:53,359 - AtomWorldEvaluator - INFO - Evaluation results saved to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/AtomWorld/qwen3_14B/super_cell_action/20250923_095344/evaluation_results.csv
+2025-09-23 10:15:53,389 - AtomWorldEvaluator - INFO - Failed cases saved to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/AtomWorld/qwen3_14B/super_cell_action/20250923_095344/evaluation_wrongs.csv
+2025-09-23 10:15:53,389 - AtomWorldEvaluator - INFO - 
+======== Evaluation Summary ========
+2025-09-23 10:15:53,390 - AtomWorldEvaluator - INFO - Total inputs: 1000
+2025-09-23 10:15:53,390 - AtomWorldEvaluator - INFO - num_unreadable_out: 9
+2025-09-23 10:15:53,390 - AtomWorldEvaluator - INFO - num_invalid_cif: 30

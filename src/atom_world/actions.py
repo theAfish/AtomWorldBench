@@ -46,7 +46,7 @@ class RemoveAtomAction(BaseAction):
             raise IndexError("Index out of bounds for atom removal.")
         
     def __str__(self):
-        return f"Remove the atom at index {self.index} from the cif file."
+        return f"Remove the atom at index {self.index} from the cif file. The indices of atoms are started from 0."
     
 class MoveAtomAction(BaseAction):
     def __init__(self, atoms: Atoms, index: int, d_pos: np.ndarray):
@@ -78,7 +78,7 @@ class ChangeAtomAction(BaseAction):
             raise IndexError("Index out of bounds for atom modification.")
         
     def __str__(self):
-        return f"Change the atom at index {self.index} into {self.new_symbol} in the cif file."
+        return f"Change the atom at index {self.index} into {self.new_symbol} in the cif file. The indices of atoms are started from 0."
 
 # double atom actions
 class SwapAtomsAction(BaseAction):
@@ -97,7 +97,7 @@ class SwapAtomsAction(BaseAction):
             raise IndexError("Index out of bounds for atom swapping.")
         
     def __str__(self):
-        return f"Swap atoms at indices {self.index1} and {self.index2} in the cif file."
+        return f"Swap atoms at indices {self.index1} and {self.index2} in the cif file. The indices of atoms are started from 0."
     
 class InsertBetweenAtomsAction(BaseAction):
     def __init__(self, atoms: Atoms, index1: int, index2: int, symbol: str, distance_ratio: float):
@@ -165,7 +165,7 @@ class DeleteBelowAtomAction(BaseAction):
             raise ValueError("No atoms below the specified atom to delete.")
         
     def __str__(self):
-        return f"Delete all atoms whose coordinate is below the atom at index {self.index} in the cif file." + (" Including itself." if self.include_self else " Excluding itself.")
+        return f"Delete all atoms whose z coordinate is lower than the atom at index {self.index} in the cif file." + (" Including itself" if self.include_self else " Excluding itself") + " and atoms with the same z coordinate."
     
 class DeleteAroundAtomAction(BaseAction):
     def __init__(self, atoms: Atoms, index: int, radius: float):

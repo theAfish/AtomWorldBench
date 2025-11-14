@@ -1,0 +1,21 @@
+{
+  "model": "deepseek_chat",
+  "action": "super_cell_action",
+  "total": 50,
+  "correct": 20,
+  "wrong": 30,
+  "error_rate": 0.6,
+  "relabelled_from_wrong_to_correct": 0,
+  "rmsd_stats": {
+    "mean": 0.0328012595704938,
+    "max": 0.453163841232142,
+    "min": 1.5934405913968516e-16,
+    "median": 2.193773151304932e-06
+  },
+  "max_diff_stats": {
+    "mean": 0.035551065631991466,
+    "max": 0.4531638412321428,
+    "min": 4.2428531955795005e-16,
+    "median": 2.2694304514425483e-06
+  }
+}

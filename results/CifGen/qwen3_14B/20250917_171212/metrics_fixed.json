@@ -1,0 +1,21 @@
+{
+  "model": "qwen3_14B",
+  "folder": "20250917_171212",
+  "total": 20,
+  "correct": 11,
+  "wrong": 9,
+  "error_rate": 0.45,
+  "relabelled_from_wrong_to_correct": 1,
+  "rmsd_stats": {
+    "mean": 0.025785488308611593,
+    "max": 0.2836403713947272,
+    "min": 0.0,
+    "median": 0.0
+  },
+  "max_diff_stats": {
+    "mean": 0.04466177584848853,
+    "max": 0.4912795343333735,
+    "min": 0.0,
+    "median": 0.0
+  }
+}
