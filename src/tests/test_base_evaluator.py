@@ -104,6 +104,44 @@ class TestBaseEvaluator:
             assert mock_log_metrics.called
             assert mock_save_results.called
 
+    def test_repeat_adds_frame_metadata(self):
+        """Ensure repeat loops create frame/repeat columns in outputs."""
+        evaluator = TestableEvaluator(
+            model=self.mock_model,
+            results_folder=self.temp_dir,
+            data=self.test_data
+        )
+
+        with patch.object(evaluator.logger, 'log_metrics'), \
+             patch.object(evaluator, '_save_results') as mock_save_results:
+            evaluator.evaluate(batch_size=2, repeat=2)
+            assert mock_save_results.called
+            saved_results = mock_save_results.call_args[0][0]
+            assert len(saved_results) == len(self.test_data) * 2
+            assert all('frame_index' in res for res in saved_results)
+            assert all('repeat_index' in res for res in saved_results)
+            assert set(res['frame_index'] for res in saved_results) == {0, 1, 2}
+            assert set(res['repeat_index'] for res in saved_results) == {0, 1}
+
+    def test_num_batch_limits_frames_not_repeats(self):
+        """num_batch should cap unique frames even when repeats expand prompts."""
+        extended_data = [f"item{i}" for i in range(6)]
+        evaluator = TestableEvaluator(
+            model=self.mock_model,
+            results_folder=self.temp_dir,
+            data=extended_data
+        )
+
+        with patch.object(evaluator.logger, 'log_metrics'), \
+             patch.object(evaluator, '_save_results') as mock_save_results:
+            evaluator.evaluate(batch_size=2, num_batch=2, repeat=2)
+            assert mock_save_results.called
+            saved_results = mock_save_results.call_args[0][0]
+
+        assert len(saved_results) == 8  # 4 frames * repeat 2
+        assert set(res['frame_index'] for res in saved_results) == {0, 1, 2, 3}
+        assert set(res['repeat_index'] for res in saved_results) == {0, 1}
+
     def test_get_data_iterator_with_list(self):
         """Test _get_data_iterator with list."""
         evaluator = TestableEvaluator(
