@@ -1,0 +1,2741 @@
+is_error,broken_cif,generated_cif,fixed_cif,rmsd,max_diff,generated_output
+False,"# generated using pymatgen
+data_H2O
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.32660432
+_cell_length_b   7.52601076
+_cell_length_c   7.06770668
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   H2O
+_chemical_formula_sum   'H16 O8'
+_cell_volume   230.13916436
+_cell_formula_units_Z   8
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_type_symbol
+ _atom_type_oxidation_number
+  H+  1.0
+  O2-  -2.0
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_z
+ _atom_site_occupancy
+  H+  H0  1  0.50000000  0.16396926  0.29929821  1
+  H+  H1  1  0.00000000  0.33603074  0.79929821  1
+  H+  H2  1  0.50000000  0.03953027  0.48354168  1
+  H+  H3  1  0.00000000  0.46046973  0.98354168  1
+  H+  H4  1  0.18499514  0.26787625  0.51708756  1
+  H+  H5  1  0.81500486  0.26787625  0.51708756  1
+  H+  H6  1  0.31500486  0.23212376  0.01708756  1
+  H+  H7  1  0.68499515  0.23212376  0.01708756  1
+  H+  H8  1  0.00000000  0.66396926  0.29929821  1
+  H+  H9  1  0.50000000  0.83603074  0.79929821  1
+  H+  H10  1  0.00000000  0.53953027  0.48354168  1
+  H+  H11  1  0.50000000  0.96046973  0.98354168  1
+  H+  H12  1  0.68499515  0.76787625  0.51708756  1
+  H+  H13  1  0.31500486  0.76787625  0.51708756  1
+  H+  H14  1  0.81500486  0.73212375  0.01708756  1
+  H+  H15  1  0.18499515  0.73212375  0.01708756  1
+  O2-  O16  1  0.50000000  0.16533729  0.44018801  1
+  O2-  O17  1  0.00000000  0.33466271  0.94018801  1
+  O2-  O18  1  0.00000000  0.33248137  0.56479997  1
+  O2-  O19  1  0.50000000  0.16751863  0.06479997  1
+  O2-  O20  1  0.00000000  0.66533729  0.44018801  1
+  O2-  O21  1  0.50000000  0.83466271  0.94018801  1
+  O2-  O22  1  0.50000000  0.83248137  0.56479997  1
+  O2-  O23  1  0.00000000  0.66751863  0.06479997  1","# Corrected CIF file
+data_H2O
+_symmetry_space_group_name_H-M       'P 1'
+_symmetry_Int_Tables_number          1
+
+_cell_length_a                       4.32660432
+_cell_length_b                       7.52601076
+_cell_length_c                       7.06770668
+_cell_angle_alpha                    90.00000000
+_cell_angle_beta                     90.00000000
+_cell_angle_gamma                    90.00000000
+_cell_volume                         230.13916436
+
+_chemical_formula_structural         H2O
+_chemical_formula_sum                'H16 O8'
+_cell_formula_units_Z                8
+
+loop_
+  _symmetry_equiv_pos_site_id
+  _symmetry_equiv_pos_as_xyz
+   1  'x, y, z'
+
+loop_
+  _atom_type_symbol
+  _atom_type_oxidation_number
+   H+    1.0
+   O2-  -2.0
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+   H+   H0   1   0.50000000   0.16396926   0.29929821   1
+   H+   H1   1   0.00000000   0.33603074   0.79929821   1
+   H+   H2   1   0.50000000   0.03953027   0.48354168   1
+   H+   H3   1   0.00000000   0.46046973   0.98354168   1
+   H+   H4   1   0.18499514   0.26787625   0.51708756   1
+   H+   H5   1   0.81500486   0.26787625   0.51708756   1
+   H+   H6   1   0.31500486   0.23212376   0.01708756   1
+   H+   H7   1   0.68499515   0.23212376   0.01708756   1
+   H+   H8   1   0.00000000   0.66396926   0.29929821   1
+   H+   H9   1   0.50000000   0.83603074   0.79929821   1
+   H+   H10  1   0.00000000   0.53953027   0.48354168   1
+   H+   H11  1   0.50000000   0.96046973   0.98354168   1
+   H+   H12  1   0.68499515   0.76787625   0.51708756   1
+   H+   H13  1   0.31500486   0.76787625   0.51708756   1
+   H+   H14  1   0.81500486   0.73212375   0.01708756   1
+   H+   H15  1   0.18499515   0.73212375   0.01708756   1
+   O2-  O16  1   0.50000000   0.16533729   0.44018801   1
+   O2-  O17  1   0.00000000   0.33466271   0.94018801   1
+   O2-  O18  1   0.00000000   0.33248137   0.56479997   1
+   O2-  O19  1   0.50000000   0.16751863   0.06479997   1
+   O2-  O20  1   0.00000000   0.66533729   0.44018801   1
+   O2-  O21  1   0.50000000   0.83466271   0.94018801   1
+   O2-  O22  1   0.50000000   0.83248137   0.56479997   1
+   O2-  O23  1   0.00000000   0.66751863   0.06479997   1","# generated using pymatgen
+data_H2O
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.32660432
+_cell_length_b   7.52601076
+_cell_length_c   7.06770668
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   H2O
+_chemical_formula_sum   'H16 O8'
+_cell_volume   230.13916436
+_cell_formula_units_Z   8
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_type_symbol
+ _atom_type_oxidation_number
+  H+  1.0
+  O2-  -2.0
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  H+  H0  1  0.50000000  0.16396926  0.29929821  1
+  H+  H1  1  0.00000000  0.33603074  0.79929821  1
+  H+  H2  1  0.50000000  0.03953027  0.48354168  1
+  H+  H3  1  0.00000000  0.46046973  0.98354168  1
+  H+  H4  1  0.18499514  0.26787625  0.51708756  1
+  H+  H5  1  0.81500486  0.26787625  0.51708756  1
+  H+  H6  1  0.31500486  0.23212376  0.01708756  1
+  H+  H7  1  0.68499515  0.23212376  0.01708756  1
+  H+  H8  1  0.00000000  0.66396926  0.29929821  1
+  H+  H9  1  0.50000000  0.83603074  0.79929821  1
+  H+  H10  1  0.00000000  0.53953027  0.48354168  1
+  H+  H11  1  0.50000000  0.96046973  0.98354168  1
+  H+  H12  1  0.68499515  0.76787625  0.51708756  1
+  H+  H13  1  0.31500486  0.76787625  0.51708756  1
+  H+  H14  1  0.81500486  0.73212375  0.01708756  1
+  H+  H15  1  0.18499515  0.73212375  0.01708756  1
+  O2-  O16  1  0.50000000  0.16533729  0.44018801  1
+  O2-  O17  1  0.00000000  0.33466271  0.94018801  1
+  O2-  O18  1  0.00000000  0.33248137  0.56479997  1
+  O2-  O19  1  0.50000000  0.16751863  0.06479997  1
+  O2-  O20  1  0.00000000  0.66533729  0.44018801  1
+  O2-  O21  1  0.50000000  0.83466271  0.94018801  1
+  O2-  O22  1  0.50000000  0.83248137  0.56479997  1
+  O2-  O23  1  0.00000000  0.66751863  0.06479997  1
+",1.14105038726616e-08,1.9306069735751244e-08,"<cif>
+# Corrected CIF file
+data_H2O
+_symmetry_space_group_name_H-M       'P 1'
+_symmetry_Int_Tables_number          1
+
+_cell_length_a                       4.32660432
+_cell_length_b                       7.52601076
+_cell_length_c                       7.06770668
+_cell_angle_alpha                    90.00000000
+_cell_angle_beta                     90.00000000
+_cell_angle_gamma                    90.00000000
+_cell_volume                         230.13916436
+
+_chemical_formula_structural         H2O
+_chemical_formula_sum                'H16 O8'
+_cell_formula_units_Z                8
+
+loop_
+  _symmetry_equiv_pos_site_id
+  _symmetry_equiv_pos_as_xyz
+   1  'x, y, z'
+
+loop_
+  _atom_type_symbol
+  _atom_type_oxidation_number
+   H+    1.0
+   O2-  -2.0
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+   H+   H0   1   0.50000000   0.16396926   0.29929821   1
+   H+   H1   1   0.00000000   0.33603074   0.79929821   1
+   H+   H2   1   0.50000000   0.03953027   0.48354168   1
+   H+   H3   1   0.00000000   0.46046973   0.98354168   1
+   H+   H4   1   0.18499514   0.26787625   0.51708756   1
+   H+   H5   1   0.81500486   0.26787625   0.51708756   1
+   H+   H6   1   0.31500486   0.23212376   0.01708756   1
+   H+   H7   1   0.68499515   0.23212376   0.01708756   1
+   H+   H8   1   0.00000000   0.66396926   0.29929821   1
+   H+   H9   1   0.50000000   0.83603074   0.79929821   1
+   H+   H10  1   0.00000000   0.53953027   0.48354168   1
+   H+   H11  1   0.50000000   0.96046973   0.98354168   1
+   H+   H12  1   0.68499515   0.76787625   0.51708756   1
+   H+   H13  1   0.31500486   0.76787625   0.51708756   1
+   H+   H14  1   0.81500486   0.73212375   0.01708756   1
+   H+   H15  1   0.18499515   0.73212375   0.01708756   1
+   O2-  O16  1   0.50000000   0.16533729   0.44018801   1
+   O2-  O17  1   0.00000000   0.33466271   0.94018801   1
+   O2-  O18  1   0.00000000   0.33248137   0.56479997   1
+   O2-  O19  1   0.50000000   0.16751863   0.06479997   1
+   O2-  O20  1   0.00000000   0.66533729   0.44018801   1
+   O2-  O21  1   0.50000000   0.83466271   0.94018801   1
+   O2-  O22  1   0.50000000   0.83248137   0.56479997   1
+   O2-  O23  1   0.00000000   0.66751863   0.06479997   1
+</cif>
+"
+False,"# generated using pymatgen
+data_H2O
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.32660432
+_cell_length_b   7.52601076
+_cell_length_c   7.06770668
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   H2O
+_chemical_formula_sum   'H16 O8'
+_cell_volume   230.13916436
+_cell_formula_units_Z   8
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_type_symbol
+ _atom_type_oxidation_number
+  H+  1.0
+  O2-  -2.0
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_occupancy
+  H+  H0  1  0.50000000  0.16396926  0.29929821  1
+  H+  H1  1  0.00000000  0.33603074  0.79929821  1
+  H+  H2  1  0.50000000  0.03953027  0.48354168  1
+  H+  H3  1  0.00000000  0.46046973  0.98354168  1
+  H+  H4  1  0.18499514  0.26787625  0.51708756  1
+  H+  H5  1  0.81500486  0.26787625  0.51708756  1
+  H+  H6  1  0.31500486  0.23212376  0.01708756  1
+  H+  H7  1  0.68499515  0.23212376  0.01708756  1
+  H+  H8  1  0.00000000  0.66396926  0.29929821  1
+  H+  H9  1  0.50000000  0.83603074  0.79929821  1
+  H+  H10  1  0.00000000  0.53953027  0.48354168  1
+  H+  H11  1  0.50000000  0.96046973  0.98354168  1
+  H+  H12  1  0.68499515  0.76787625  0.51708756  1
+  H+  H13  1  0.31500486  0.76787625  0.51708756  1
+  H+  H14  1  0.81500486  0.73212375  0.01708756  1
+  H+  H15  1  0.18499515  0.73212375  0.01708756  1
+  O2-  O16  1  0.50000000  0.16533729  0.44018801  1
+  O2-  O17  1  0.00000000  0.33466271  0.94018801  1
+  O2-  O18  1  0.00000000  0.33248137  0.56479997  1
+  O2-  O19  1  0.50000000  0.16751863  0.06479997  1
+  O2-  O20  1  0.00000000  0.66533729  0.44018801  1
+  O2-  O21  1  0.50000000  0.83466271  0.94018801  1
+  O2-  O22  1  0.50000000  0.83248137  0.56479997  1
+  O2-  O23  1  0.00000000  0.66751863  0.06479997  1","# corrected CIF file
+data_H2O
+_symmetry_space_group_name_H-M          'P 1'
+_symmetry_Int_Tables_number             1
+
+_cell_length_a                          4.32660432
+_cell_length_b                          7.52601076
+_cell_length_c                          7.06770668
+_cell_angle_alpha                       90.00000000
+_cell_angle_beta                        90.00000000
+_cell_angle_gamma                       90.00000000
+_cell_volume                            230.13916436
+_cell_formula_units_Z                   8
+
+_chemical_formula_structural            'H2O'
+_chemical_formula_sum                   'H16 O8'
+
+loop_
+  _symmetry_equiv_pos_site_id
+  _symmetry_equiv_pos_as_xyz
+   1  'x, y, z'
+
+loop_
+  _atom_type_symbol
+  _atom_type_oxidation_number
+   H   1.0
+   O  -2.0
+
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+   H0   H   1   0.50000000   0.16396926   0.29929821   1
+   H1   H   1   0.00000000   0.33603074   0.79929821   1
+   H2   H   1   0.50000000   0.03953027   0.48354168   1
+   H3   H   1   0.00000000   0.46046973   0.98354168   1
+   H4   H   1   0.18499514   0.26787625   0.51708756   1
+   H5   H   1   0.81500486   0.26787625   0.51708756   1
+   H6   H   1   0.31500486   0.23212376   0.01708756   1
+   H7   H   1   0.68499515   0.23212376   0.01708756   1
+   H8   H   1   0.00000000   0.66396926   0.29929821   1
+   H9   H   1   0.50000000   0.83603074   0.79929821   1
+   H10  H   1   0.00000000   0.53953027   0.48354168   1
+   H11  H   1   0.50000000   0.96046973   0.98354168   1
+   H12  H   1   0.68499515   0.76787625   0.51708756   1
+   H13  H   1   0.31500486   0.76787625   0.51708756   1
+   H14  H   1   0.81500486   0.73212375   0.01708756   1
+   H15  H   1   0.18499515   0.73212375   0.01708756   1
+   O16  O   1   0.50000000   0.16533729   0.44018801   1
+   O17  O   1   0.00000000   0.33466271   0.94018801   1
+   O18  O   1   0.00000000   0.33248137   0.56479997   1
+   O19  O   1   0.50000000   0.16751863   0.06479997   1
+   O20  O   1   0.00000000   0.66533729   0.44018801   1
+   O21  O   1   0.50000000   0.83466271   0.94018801   1
+   O22  O   1   0.50000000   0.83248137   0.56479997   1
+   O23  O   1   0.00000000   0.66751863   0.06479997   1","# generated using pymatgen
+data_H2O
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.32660432
+_cell_length_b   7.52601076
+_cell_length_c   7.06770668
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   H2O
+_chemical_formula_sum   'H16 O8'
+_cell_volume   230.13916436
+_cell_formula_units_Z   8
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_type_symbol
+ _atom_type_oxidation_number
+  H+  1.0
+  O2-  -2.0
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  H+  H0  1  0.50000000  0.16396926  0.29929821  1
+  H+  H1  1  0.00000000  0.33603074  0.79929821  1
+  H+  H2  1  0.50000000  0.03953027  0.48354168  1
+  H+  H3  1  0.00000000  0.46046973  0.98354168  1
+  H+  H4  1  0.18499514  0.26787625  0.51708756  1
+  H+  H5  1  0.81500486  0.26787625  0.51708756  1
+  H+  H6  1  0.31500486  0.23212376  0.01708756  1
+  H+  H7  1  0.68499515  0.23212376  0.01708756  1
+  H+  H8  1  0.00000000  0.66396926  0.29929821  1
+  H+  H9  1  0.50000000  0.83603074  0.79929821  1
+  H+  H10  1  0.00000000  0.53953027  0.48354168  1
+  H+  H11  1  0.50000000  0.96046973  0.98354168  1
+  H+  H12  1  0.68499515  0.76787625  0.51708756  1
+  H+  H13  1  0.31500486  0.76787625  0.51708756  1
+  H+  H14  1  0.81500486  0.73212375  0.01708756  1
+  H+  H15  1  0.18499515  0.73212375  0.01708756  1
+  O2-  O16  1  0.50000000  0.16533729  0.44018801  1
+  O2-  O17  1  0.00000000  0.33466271  0.94018801  1
+  O2-  O18  1  0.00000000  0.33248137  0.56479997  1
+  O2-  O19  1  0.50000000  0.16751863  0.06479997  1
+  O2-  O20  1  0.00000000  0.66533729  0.44018801  1
+  O2-  O21  1  0.50000000  0.83466271  0.94018801  1
+  O2-  O22  1  0.50000000  0.83248137  0.56479997  1
+  O2-  O23  1  0.00000000  0.66751863  0.06479997  1
+",1.14105038726616e-08,1.9306069735751244e-08,"<cif>
+# corrected CIF file
+data_H2O
+_symmetry_space_group_name_H-M          'P 1'
+_symmetry_Int_Tables_number             1
+
+_cell_length_a                          4.32660432
+_cell_length_b                          7.52601076
+_cell_length_c                          7.06770668
+_cell_angle_alpha                       90.00000000
+_cell_angle_beta                        90.00000000
+_cell_angle_gamma                       90.00000000
+_cell_volume                            230.13916436
+_cell_formula_units_Z                   8
+
+_chemical_formula_structural            'H2O'
+_chemical_formula_sum                   'H16 O8'
+
+loop_
+  _symmetry_equiv_pos_site_id
+  _symmetry_equiv_pos_as_xyz
+   1  'x, y, z'
+
+loop_
+  _atom_type_symbol
+  _atom_type_oxidation_number
+   H   1.0
+   O  -2.0
+
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+   H0   H   1   0.50000000   0.16396926   0.29929821   1
+   H1   H   1   0.00000000   0.33603074   0.79929821   1
+   H2   H   1   0.50000000   0.03953027   0.48354168   1
+   H3   H   1   0.00000000   0.46046973   0.98354168   1
+   H4   H   1   0.18499514   0.26787625   0.51708756   1
+   H5   H   1   0.81500486   0.26787625   0.51708756   1
+   H6   H   1   0.31500486   0.23212376   0.01708756   1
+   H7   H   1   0.68499515   0.23212376   0.01708756   1
+   H8   H   1   0.00000000   0.66396926   0.29929821   1
+   H9   H   1   0.50000000   0.83603074   0.79929821   1
+   H10  H   1   0.00000000   0.53953027   0.48354168   1
+   H11  H   1   0.50000000   0.96046973   0.98354168   1
+   H12  H   1   0.68499515   0.76787625   0.51708756   1
+   H13  H   1   0.31500486   0.76787625   0.51708756   1
+   H14  H   1   0.81500486   0.73212375   0.01708756   1
+   H15  H   1   0.18499515   0.73212375   0.01708756   1
+   O16  O   1   0.50000000   0.16533729   0.44018801   1
+   O17  O   1   0.00000000   0.33466271   0.94018801   1
+   O18  O   1   0.00000000   0.33248137   0.56479997   1
+   O19  O   1   0.50000000   0.16751863   0.06479997   1
+   O20  O   1   0.00000000   0.66533729   0.44018801   1
+   O21  O   1   0.50000000   0.83466271   0.94018801   1
+   O22  O   1   0.50000000   0.83248137   0.56479997   1
+   O23  O   1   0.00000000   0.66751863   0.06479997   1
+</cif>
+"
+False,"# generated using pymatgen
+data_H2O
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.32660432
+_cell_length_b   7.52601076
+_cell_length_c   7.06770668
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   H2O
+_chemical_formula_sum   'H16 O8'
+_cell_volume   230.13916436
+_cell_formula_units_Z   8
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_type_symbol
+ _atom_type_oxidation_number
+  H+  1.0
+  O2-  -2.0
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+  H+  H0  1  0.50000000  0.16396926  0.29929821  1
+  H+  H1  1  0.00000000  0.33603074  0.79929821  1
+  H+  H2  1  0.50000000  0.03953027  0.48354168  1
+  H+  H3  1  0.00000000  0.46046973  0.98354168  1
+  H+  H4  1  0.18499514  0.26787625  0.51708756  1
+  H+  H5  1  0.81500486  0.26787625  0.51708756  1
+  H+  H6  1  0.31500486  0.23212376  0.01708756  1
+  H+  H7  1  0.68499515  0.23212376  0.01708756  1
+  H+  H8  1  0.00000000  0.66396926  0.29929821  1
+  H+  H9  1  0.50000000  0.83603074  0.79929821  1
+  H+  H10  1  0.00000000  0.53953027  0.48354168  1
+  H+  H11  1  0.50000000  0.96046973  0.98354168  1
+  H+  H12  1  0.68499515  0.76787625  0.51708756  1
+  H+  H13  1  0.31500486  0.76787625  0.51708756  1
+  H+  H14  1  0.81500486  0.73212375  0.01708756  1
+  H+  H15  1  0.18499515  0.73212375  0.01708756  1
+  O2-  O16  1  0.50000000  0.16533729  0.44018801  1
+  O2-  O17  1  0.00000000  0.33466271  0.94018801  1
+  O2-  O18  1  0.00000000  0.33248137  0.56479997  1
+  O2-  O19  1  0.50000000  0.16751863  0.06479997  1
+  O2-  O20  1  0.00000000  0.66533729  0.44018801  1
+  O2-  O21  1  0.50000000  0.83466271  0.94018801  1
+  O2-  O22  1  0.50000000  0.83248137  0.56479997  1
+  O2-  O23  1  0.00000000  0.66751863  0.06479997  1","# Fixed CIF file
+data_H2O
+#
+_symmetry_space_group_name_H-M      'P 1'
+_symmetry_Int_Tables_number         1
+#
+_cell_length_a                      4.32660432
+_cell_length_b                      7.52601076
+_cell_length_c                      7.06770668
+_cell_angle_alpha                   90.00000000
+_cell_angle_beta                    90.00000000
+_cell_angle_gamma                   90.00000000
+_cell_volume                        230.13916436
+_cell_formula_units_Z               8
+#
+_chemical_formula_structural        H2O
+_chemical_formula_sum               'H16 O8'
+#
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+   1  'x, y, z'
+#
+loop_
+ _atom_type_symbol
+ _atom_type_oxidation_number
+  H   1.0
+  O  -2.0
+#
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  H  H0   1   0.50000000   0.16396926   0.29929821   1
+  H  H1   1   0.00000000   0.33603074   0.79929821   1
+  H  H2   1   0.50000000   0.03953027   0.48354168   1
+  H  H3   1   0.00000000   0.46046973   0.98354168   1
+  H  H4   1   0.18499514   0.26787625   0.51708756   1
+  H  H5   1   0.81500486   0.26787625   0.51708756   1
+  H  H6   1   0.31500486   0.23212376   0.01708756   1
+  H  H7   1   0.68499515   0.23212376   0.01708756   1
+  H  H8   1   0.00000000   0.66396926   0.29929821   1
+  H  H9   1   0.50000000   0.83603074   0.79929821   1
+  H  H10  1   0.00000000   0.53953027   0.48354168   1
+  H  H11  1   0.50000000   0.96046973   0.98354168   1
+  H  H12  1   0.68499515   0.76787625   0.51708756   1
+  H  H13  1   0.31500486   0.76787625   0.51708756   1
+  H  H14  1   0.81500486   0.73212375   0.01708756   1
+  H  H15  1   0.18499515   0.73212375   0.01708756   1
+  O  O16  1   0.50000000   0.16533729   0.44018801   1
+  O  O17  1   0.00000000   0.33466271   0.94018801   1
+  O  O18  1   0.00000000   0.33248137   0.56479997   1
+  O  O19  1   0.50000000   0.16751863   0.06479997   1
+  O  O20  1   0.00000000   0.66533729   0.44018801   1
+  O  O21  1   0.50000000   0.83466271   0.94018801   1
+  O  O22  1   0.50000000   0.83248137   0.56479997   1
+  O  O23  1   0.00000000   0.66751863   0.06479997   1
+#","# generated using pymatgen
+data_H2O
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.32660432
+_cell_length_b   7.52601076
+_cell_length_c   7.06770668
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   H2O
+_chemical_formula_sum   'H16 O8'
+_cell_volume   230.13916436
+_cell_formula_units_Z   8
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_type_symbol
+ _atom_type_oxidation_number
+  H+  1.0
+  O2-  -2.0
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  H+  H0  1  0.50000000  0.16396926  0.29929821  1
+  H+  H1  1  0.00000000  0.33603074  0.79929821  1
+  H+  H2  1  0.50000000  0.03953027  0.48354168  1
+  H+  H3  1  0.00000000  0.46046973  0.98354168  1
+  H+  H4  1  0.18499514  0.26787625  0.51708756  1
+  H+  H5  1  0.81500486  0.26787625  0.51708756  1
+  H+  H6  1  0.31500486  0.23212376  0.01708756  1
+  H+  H7  1  0.68499515  0.23212376  0.01708756  1
+  H+  H8  1  0.00000000  0.66396926  0.29929821  1
+  H+  H9  1  0.50000000  0.83603074  0.79929821  1
+  H+  H10  1  0.00000000  0.53953027  0.48354168  1
+  H+  H11  1  0.50000000  0.96046973  0.98354168  1
+  H+  H12  1  0.68499515  0.76787625  0.51708756  1
+  H+  H13  1  0.31500486  0.76787625  0.51708756  1
+  H+  H14  1  0.81500486  0.73212375  0.01708756  1
+  H+  H15  1  0.18499515  0.73212375  0.01708756  1
+  O2-  O16  1  0.50000000  0.16533729  0.44018801  1
+  O2-  O17  1  0.00000000  0.33466271  0.94018801  1
+  O2-  O18  1  0.00000000  0.33248137  0.56479997  1
+  O2-  O19  1  0.50000000  0.16751863  0.06479997  1
+  O2-  O20  1  0.00000000  0.66533729  0.44018801  1
+  O2-  O21  1  0.50000000  0.83466271  0.94018801  1
+  O2-  O22  1  0.50000000  0.83248137  0.56479997  1
+  O2-  O23  1  0.00000000  0.66751863  0.06479997  1
+",1.14105038726616e-08,1.9306069735751244e-08,"<cif>
+# Fixed CIF file
+data_H2O
+#
+_symmetry_space_group_name_H-M      'P 1'
+_symmetry_Int_Tables_number         1
+#
+_cell_length_a                      4.32660432
+_cell_length_b                      7.52601076
+_cell_length_c                      7.06770668
+_cell_angle_alpha                   90.00000000
+_cell_angle_beta                    90.00000000
+_cell_angle_gamma                   90.00000000
+_cell_volume                        230.13916436
+_cell_formula_units_Z               8
+#
+_chemical_formula_structural        H2O
+_chemical_formula_sum               'H16 O8'
+#
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+   1  'x, y, z'
+#
+loop_
+ _atom_type_symbol
+ _atom_type_oxidation_number
+  H   1.0
+  O  -2.0
+#
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  H  H0   1   0.50000000   0.16396926   0.29929821   1
+  H  H1   1   0.00000000   0.33603074   0.79929821   1
+  H  H2   1   0.50000000   0.03953027   0.48354168   1
+  H  H3   1   0.00000000   0.46046973   0.98354168   1
+  H  H4   1   0.18499514   0.26787625   0.51708756   1
+  H  H5   1   0.81500486   0.26787625   0.51708756   1
+  H  H6   1   0.31500486   0.23212376   0.01708756   1
+  H  H7   1   0.68499515   0.23212376   0.01708756   1
+  H  H8   1   0.00000000   0.66396926   0.29929821   1
+  H  H9   1   0.50000000   0.83603074   0.79929821   1
+  H  H10  1   0.00000000   0.53953027   0.48354168   1
+  H  H11  1   0.50000000   0.96046973   0.98354168   1
+  H  H12  1   0.68499515   0.76787625   0.51708756   1
+  H  H13  1   0.31500486   0.76787625   0.51708756   1
+  H  H14  1   0.81500486   0.73212375   0.01708756   1
+  H  H15  1   0.18499515   0.73212375   0.01708756   1
+  O  O16  1   0.50000000   0.16533729   0.44018801   1
+  O  O17  1   0.00000000   0.33466271   0.94018801   1
+  O  O18  1   0.00000000   0.33248137   0.56479997   1
+  O  O19  1   0.50000000   0.16751863   0.06479997   1
+  O  O20  1   0.00000000   0.66533729   0.44018801   1
+  O  O21  1   0.50000000   0.83466271   0.94018801   1
+  O  O22  1   0.50000000   0.83248137   0.56479997   1
+  O  O23  1   0.00000000   0.66751863   0.06479997   1
+#
+</cif>
+"
+False,"# generated using pymatgen
+data_H2O
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_u   4.32660432
+_cell_length_v   7.52601076
+_cell_length_w   7.06770668
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   H2O
+_chemical_formula_sum   'H16 O8'
+_cell_volume   230.13916436
+_cell_formula_units_Z   8
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_type_symbol
+ _atom_type_oxidation_number
+  H+  1.0
+  O2-  -2.0
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  H+  H0  1  0.50000000  0.16396926  0.29929821  1
+  H+  H1  1  0.00000000  0.33603074  0.79929821  1
+  H+  H2  1  0.50000000  0.03953027  0.48354168  1
+  H+  H3  1  0.00000000  0.46046973  0.98354168  1
+  H+  H4  1  0.18499514  0.26787625  0.51708756  1
+  H+  H5  1  0.81500486  0.26787625  0.51708756  1
+  H+  H6  1  0.31500486  0.23212376  0.01708756  1
+  H+  H7  1  0.68499515  0.23212376  0.01708756  1
+  H+  H8  1  0.00000000  0.66396926  0.29929821  1
+  H+  H9  1  0.50000000  0.83603074  0.79929821  1
+  H+  H10  1  0.00000000  0.53953027  0.48354168  1
+  H+  H11  1  0.50000000  0.96046973  0.98354168  1
+  H+  H12  1  0.68499515  0.76787625  0.51708756  1
+  H+  H13  1  0.31500486  0.76787625  0.51708756  1
+  H+  H14  1  0.81500486  0.73212375  0.01708756  1
+  H+  H15  1  0.18499515  0.73212375  0.01708756  1
+  O2-  O16  1  0.50000000  0.16533729  0.44018801  1
+  O2-  O17  1  0.00000000  0.33466271  0.94018801  1
+  O2-  O18  1  0.00000000  0.33248137  0.56479997  1
+  O2-  O19  1  0.50000000  0.16751863  0.06479997  1
+  O2-  O20  1  0.00000000  0.66533729  0.44018801  1
+  O2-  O21  1  0.50000000  0.83466271  0.94018801  1
+  O2-  O22  1  0.50000000  0.83248137  0.56479997  1
+  O2-  O23  1  0.00000000  0.66751863  0.06479997  1
+","# generated using pymatgen – corrected to conform to CIF conventions
+data_H2O
+_symmetry_space_group_name_H-M      'P 1'
+_symmetry_Int_Tables_number         1
+
+# Unit–cell parameters
+_cell_length_a                      4.32660432
+_cell_length_b                      7.52601076
+_cell_length_c                      7.06770668
+_cell_angle_alpha                   90.00000000
+_cell_angle_beta                    90.00000000
+_cell_angle_gamma                   90.00000000
+_cell_volume                        230.13916436
+
+# Composition
+_chemical_formula_structural        'H2O'
+_chemical_formula_sum               'H16 O8'
+_cell_formula_units_Z               8
+
+######################################################################
+# Symmetry operations (only the identity for P1)
+######################################################################
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+ 1   'x, y, z'
+
+######################################################################
+# Atom types
+######################################################################
+loop_
+ _atom_type_symbol
+ _atom_type_oxidation_number
+  H   1
+  O  -2
+
+######################################################################
+# Atomic positions
+######################################################################
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  H   H0   1   0.50000000   0.16396926   0.29929821   1
+  H   H1   1   0.00000000   0.33603074   0.79929821   1
+  H   H2   1   0.50000000   0.03953027   0.48354168   1
+  H   H3   1   0.00000000   0.46046973   0.98354168   1
+  H   H4   1   0.18499514   0.26787625   0.51708756   1
+  H   H5   1   0.81500486   0.26787625   0.51708756   1
+  H   H6   1   0.31500486   0.23212376   0.01708756   1
+  H   H7   1   0.68499515   0.23212376   0.01708756   1
+  H   H8   1   0.00000000   0.66396926   0.29929821   1
+  H   H9   1   0.50000000   0.83603074   0.79929821   1
+  H   H10  1   0.00000000   0.53953027   0.48354168   1
+  H   H11  1   0.50000000   0.96046973   0.98354168   1
+  H   H12  1   0.68499515   0.76787625   0.51708756   1
+  H   H13  1   0.31500486   0.76787625   0.51708756   1
+  H   H14  1   0.81500486   0.73212375   0.01708756   1
+  H   H15  1   0.18499515   0.73212375   0.01708756   1
+  O   O16  1   0.50000000   0.16533729   0.44018801   1
+  O   O17  1   0.00000000   0.33466271   0.94018801   1
+  O   O18  1   0.00000000   0.33248137   0.56479997   1
+  O   O19  1   0.50000000   0.16751863   0.06479997   1
+  O   O20  1   0.00000000   0.66533729   0.44018801   1
+  O   O21  1   0.50000000   0.83466271   0.94018801   1
+  O   O22  1   0.50000000   0.83248137   0.56479997   1
+  O   O23  1   0.00000000   0.66751863   0.06479997   1","# generated using pymatgen
+data_H2O
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.32660432
+_cell_length_b   7.52601076
+_cell_length_c   7.06770668
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   H2O
+_chemical_formula_sum   'H16 O8'
+_cell_volume   230.13916436
+_cell_formula_units_Z   8
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_type_symbol
+ _atom_type_oxidation_number
+  H+  1.0
+  O2-  -2.0
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  H+  H0  1  0.50000000  0.16396926  0.29929821  1
+  H+  H1  1  0.00000000  0.33603074  0.79929821  1
+  H+  H2  1  0.50000000  0.03953027  0.48354168  1
+  H+  H3  1  0.00000000  0.46046973  0.98354168  1
+  H+  H4  1  0.18499514  0.26787625  0.51708756  1
+  H+  H5  1  0.81500486  0.26787625  0.51708756  1
+  H+  H6  1  0.31500486  0.23212376  0.01708756  1
+  H+  H7  1  0.68499515  0.23212376  0.01708756  1
+  H+  H8  1  0.00000000  0.66396926  0.29929821  1
+  H+  H9  1  0.50000000  0.83603074  0.79929821  1
+  H+  H10  1  0.00000000  0.53953027  0.48354168  1
+  H+  H11  1  0.50000000  0.96046973  0.98354168  1
+  H+  H12  1  0.68499515  0.76787625  0.51708756  1
+  H+  H13  1  0.31500486  0.76787625  0.51708756  1
+  H+  H14  1  0.81500486  0.73212375  0.01708756  1
+  H+  H15  1  0.18499515  0.73212375  0.01708756  1
+  O2-  O16  1  0.50000000  0.16533729  0.44018801  1
+  O2-  O17  1  0.00000000  0.33466271  0.94018801  1
+  O2-  O18  1  0.00000000  0.33248137  0.56479997  1
+  O2-  O19  1  0.50000000  0.16751863  0.06479997  1
+  O2-  O20  1  0.00000000  0.66533729  0.44018801  1
+  O2-  O21  1  0.50000000  0.83466271  0.94018801  1
+  O2-  O22  1  0.50000000  0.83248137  0.56479997  1
+  O2-  O23  1  0.00000000  0.66751863  0.06479997  1
+",1.14105038726616e-08,1.9306069735751244e-08,"<cif>
+# generated using pymatgen – corrected to conform to CIF conventions
+data_H2O
+_symmetry_space_group_name_H-M      'P 1'
+_symmetry_Int_Tables_number         1
+
+# Unit–cell parameters
+_cell_length_a                      4.32660432
+_cell_length_b                      7.52601076
+_cell_length_c                      7.06770668
+_cell_angle_alpha                   90.00000000
+_cell_angle_beta                    90.00000000
+_cell_angle_gamma                   90.00000000
+_cell_volume                        230.13916436
+
+# Composition
+_chemical_formula_structural        'H2O'
+_chemical_formula_sum               'H16 O8'
+_cell_formula_units_Z               8
+
+######################################################################
+# Symmetry operations (only the identity for P1)
+######################################################################
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+ 1   'x, y, z'
+
+######################################################################
+# Atom types
+######################################################################
+loop_
+ _atom_type_symbol
+ _atom_type_oxidation_number
+  H   1
+  O  -2
+
+######################################################################
+# Atomic positions
+######################################################################
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  H   H0   1   0.50000000   0.16396926   0.29929821   1
+  H   H1   1   0.00000000   0.33603074   0.79929821   1
+  H   H2   1   0.50000000   0.03953027   0.48354168   1
+  H   H3   1   0.00000000   0.46046973   0.98354168   1
+  H   H4   1   0.18499514   0.26787625   0.51708756   1
+  H   H5   1   0.81500486   0.26787625   0.51708756   1
+  H   H6   1   0.31500486   0.23212376   0.01708756   1
+  H   H7   1   0.68499515   0.23212376   0.01708756   1
+  H   H8   1   0.00000000   0.66396926   0.29929821   1
+  H   H9   1   0.50000000   0.83603074   0.79929821   1
+  H   H10  1   0.00000000   0.53953027   0.48354168   1
+  H   H11  1   0.50000000   0.96046973   0.98354168   1
+  H   H12  1   0.68499515   0.76787625   0.51708756   1
+  H   H13  1   0.31500486   0.76787625   0.51708756   1
+  H   H14  1   0.81500486   0.73212375   0.01708756   1
+  H   H15  1   0.18499515   0.73212375   0.01708756   1
+  O   O16  1   0.50000000   0.16533729   0.44018801   1
+  O   O17  1   0.00000000   0.33466271   0.94018801   1
+  O   O18  1   0.00000000   0.33248137   0.56479997   1
+  O   O19  1   0.50000000   0.16751863   0.06479997   1
+  O   O20  1   0.00000000   0.66533729   0.44018801   1
+  O   O21  1   0.50000000   0.83466271   0.94018801   1
+  O   O22  1   0.50000000   0.83248137   0.56479997   1
+  O   O23  1   0.00000000   0.66751863   0.06479997   1
+</cif>
+"
+False,"# generated using pymatgen
+data_H2O
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_i   4.32660432
+_cell_length_j   7.52601076
+_cell_length_k   7.06770668
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   H2O
+_chemical_formula_sum   'H16 O8'
+_cell_volume   230.13916436
+_cell_formula_units_Z   8
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_type_symbol
+ _atom_type_oxidation_number
+  H+  1.0
+  O2-  -2.0
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  H+  H0  1  0.50000000  0.16396926  0.29929821  1
+  H+  H1  1  0.00000000  0.33603074  0.79929821  1
+  H+  H2  1  0.50000000  0.03953027  0.48354168  1
+  H+  H3  1  0.00000000  0.46046973  0.98354168  1
+  H+  H4  1  0.18499514  0.26787625  0.51708756  1
+  H+  H5  1  0.81500486  0.26787625  0.51708756  1
+  H+  H6  1  0.31500486  0.23212376  0.01708756  1
+  H+  H7  1  0.68499515  0.23212376  0.01708756  1
+  H+  H8  1  0.00000000  0.66396926  0.29929821  1
+  H+  H9  1  0.50000000  0.83603074  0.79929821  1
+  H+  H10  1  0.00000000  0.53953027  0.48354168  1
+  H+  H11  1  0.50000000  0.96046973  0.98354168  1
+  H+  H12  1  0.68499515  0.76787625  0.51708756  1
+  H+  H13  1  0.31500486  0.76787625  0.51708756  1
+  H+  H14  1  0.81500486  0.73212375  0.01708756  1
+  H+  H15  1  0.18499515  0.73212375  0.01708756  1
+  O2-  O16  1  0.50000000  0.16533729  0.44018801  1
+  O2-  O17  1  0.00000000  0.33466271  0.94018801  1
+  O2-  O18  1  0.00000000  0.33248137  0.56479997  1
+  O2-  O19  1  0.50000000  0.16751863  0.06479997  1
+  O2-  O20  1  0.00000000  0.66533729  0.44018801  1
+  O2-  O21  1  0.50000000  0.83466271  0.94018801  1
+  O2-  O22  1  0.50000000  0.83248137  0.56479997  1
+  O2-  O23  1  0.00000000  0.66751863  0.06479997  1
+","data_H2O
+_audit_creation_method          'Corrected by AI CIF operation assistant'
+
+# --------------------------------------------------------------------------
+# Crystal system and unit cell parameters
+# --------------------------------------------------------------------------
+_symmetry_space_group_name_H-M  'P 1'
+_symmetry_Int_Tables_number      1
+
+_cell_length_a                  4.32660432
+_cell_length_b                  7.52601076
+_cell_length_c                  7.06770668
+_cell_angle_alpha               90.00000000
+_cell_angle_beta                90.00000000
+_cell_angle_gamma               90.00000000
+_cell_volume                    230.13916436
+_cell_formula_units_Z           8
+
+# --------------------------------------------------------------------------
+# Chemical information
+# --------------------------------------------------------------------------
+_chemical_formula_structural    'H2O'
+_chemical_formula_sum           'H16 O8'
+
+# --------------------------------------------------------------------------
+# Symmetry operations  (P1 only identity is required)
+# --------------------------------------------------------------------------
+loop_
+ _space_group_symop_id
+ _space_group_symop_operation_xyz
+   1   'x, y, z'
+
+# --------------------------------------------------------------------------
+# Atom type information
+# --------------------------------------------------------------------------
+loop_
+ _atom_type_symbol
+ _atom_type_oxidation_number
+   H   1
+   O  -2
+
+# --------------------------------------------------------------------------
+# Atomic positions
+# --------------------------------------------------------------------------
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  H  H0   1  0.50000000  0.16396926  0.29929821  1
+  H  H1   1  0.00000000  0.33603074  0.79929821  1
+  H  H2   1  0.50000000  0.03953027  0.48354168  1
+  H  H3   1  0.00000000  0.46046973  0.98354168  1
+  H  H4   1  0.18499514  0.26787625  0.51708756  1
+  H  H5   1  0.81500486  0.26787625  0.51708756  1
+  H  H6   1  0.31500486  0.23212376  0.01708756  1
+  H  H7   1  0.68499515  0.23212376  0.01708756  1
+  H  H8   1  0.00000000  0.66396926  0.29929821  1
+  H  H9   1  0.50000000  0.83603074  0.79929821  1
+  H  H10  1  0.00000000  0.53953027  0.48354168  1
+  H  H11  1  0.50000000  0.96046973  0.98354168  1
+  H  H12  1  0.68499515  0.76787625  0.51708756  1
+  H  H13  1  0.31500486  0.76787625  0.51708756  1
+  H  H14  1  0.81500486  0.73212375  0.01708756  1
+  H  H15  1  0.18499515  0.73212375  0.01708756  1
+  O  O16  1  0.50000000  0.16533729  0.44018801  1
+  O  O17  1  0.00000000  0.33466271  0.94018801  1
+  O  O18  1  0.00000000  0.33248137  0.56479997  1
+  O  O19  1  0.50000000  0.16751863  0.06479997  1
+  O  O20  1  0.00000000  0.66533729  0.44018801  1
+  O  O21  1  0.50000000  0.83466271  0.94018801  1
+  O  O22  1  0.50000000  0.83248137  0.56479997  1
+  O  O23  1  0.00000000  0.66751863  0.06479997  1","# generated using pymatgen
+data_H2O
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.32660432
+_cell_length_b   7.52601076
+_cell_length_c   7.06770668
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   H2O
+_chemical_formula_sum   'H16 O8'
+_cell_volume   230.13916436
+_cell_formula_units_Z   8
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_type_symbol
+ _atom_type_oxidation_number
+  H+  1.0
+  O2-  -2.0
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  H+  H0  1  0.50000000  0.16396926  0.29929821  1
+  H+  H1  1  0.00000000  0.33603074  0.79929821  1
+  H+  H2  1  0.50000000  0.03953027  0.48354168  1
+  H+  H3  1  0.00000000  0.46046973  0.98354168  1
+  H+  H4  1  0.18499514  0.26787625  0.51708756  1
+  H+  H5  1  0.81500486  0.26787625  0.51708756  1
+  H+  H6  1  0.31500486  0.23212376  0.01708756  1
+  H+  H7  1  0.68499515  0.23212376  0.01708756  1
+  H+  H8  1  0.00000000  0.66396926  0.29929821  1
+  H+  H9  1  0.50000000  0.83603074  0.79929821  1
+  H+  H10  1  0.00000000  0.53953027  0.48354168  1
+  H+  H11  1  0.50000000  0.96046973  0.98354168  1
+  H+  H12  1  0.68499515  0.76787625  0.51708756  1
+  H+  H13  1  0.31500486  0.76787625  0.51708756  1
+  H+  H14  1  0.81500486  0.73212375  0.01708756  1
+  H+  H15  1  0.18499515  0.73212375  0.01708756  1
+  O2-  O16  1  0.50000000  0.16533729  0.44018801  1
+  O2-  O17  1  0.00000000  0.33466271  0.94018801  1
+  O2-  O18  1  0.00000000  0.33248137  0.56479997  1
+  O2-  O19  1  0.50000000  0.16751863  0.06479997  1
+  O2-  O20  1  0.00000000  0.66533729  0.44018801  1
+  O2-  O21  1  0.50000000  0.83466271  0.94018801  1
+  O2-  O22  1  0.50000000  0.83248137  0.56479997  1
+  O2-  O23  1  0.00000000  0.66751863  0.06479997  1
+",1.14105038726616e-08,1.9306069735751244e-08,"<cif>
+data_H2O
+_audit_creation_method          'Corrected by AI CIF operation assistant'
+
+# --------------------------------------------------------------------------
+# Crystal system and unit cell parameters
+# --------------------------------------------------------------------------
+_symmetry_space_group_name_H-M  'P 1'
+_symmetry_Int_Tables_number      1
+
+_cell_length_a                  4.32660432
+_cell_length_b                  7.52601076
+_cell_length_c                  7.06770668
+_cell_angle_alpha               90.00000000
+_cell_angle_beta                90.00000000
+_cell_angle_gamma               90.00000000
+_cell_volume                    230.13916436
+_cell_formula_units_Z           8
+
+# --------------------------------------------------------------------------
+# Chemical information
+# --------------------------------------------------------------------------
+_chemical_formula_structural    'H2O'
+_chemical_formula_sum           'H16 O8'
+
+# --------------------------------------------------------------------------
+# Symmetry operations  (P1 only identity is required)
+# --------------------------------------------------------------------------
+loop_
+ _space_group_symop_id
+ _space_group_symop_operation_xyz
+   1   'x, y, z'
+
+# --------------------------------------------------------------------------
+# Atom type information
+# --------------------------------------------------------------------------
+loop_
+ _atom_type_symbol
+ _atom_type_oxidation_number
+   H   1
+   O  -2
+
+# --------------------------------------------------------------------------
+# Atomic positions
+# --------------------------------------------------------------------------
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  H  H0   1  0.50000000  0.16396926  0.29929821  1
+  H  H1   1  0.00000000  0.33603074  0.79929821  1
+  H  H2   1  0.50000000  0.03953027  0.48354168  1
+  H  H3   1  0.00000000  0.46046973  0.98354168  1
+  H  H4   1  0.18499514  0.26787625  0.51708756  1
+  H  H5   1  0.81500486  0.26787625  0.51708756  1
+  H  H6   1  0.31500486  0.23212376  0.01708756  1
+  H  H7   1  0.68499515  0.23212376  0.01708756  1
+  H  H8   1  0.00000000  0.66396926  0.29929821  1
+  H  H9   1  0.50000000  0.83603074  0.79929821  1
+  H  H10  1  0.00000000  0.53953027  0.48354168  1
+  H  H11  1  0.50000000  0.96046973  0.98354168  1
+  H  H12  1  0.68499515  0.76787625  0.51708756  1
+  H  H13  1  0.31500486  0.76787625  0.51708756  1
+  H  H14  1  0.81500486  0.73212375  0.01708756  1
+  H  H15  1  0.18499515  0.73212375  0.01708756  1
+  O  O16  1  0.50000000  0.16533729  0.44018801  1
+  O  O17  1  0.00000000  0.33466271  0.94018801  1
+  O  O18  1  0.00000000  0.33248137  0.56479997  1
+  O  O19  1  0.50000000  0.16751863  0.06479997  1
+  O  O20  1  0.00000000  0.66533729  0.44018801  1
+  O  O21  1  0.50000000  0.83466271  0.94018801  1
+  O  O22  1  0.50000000  0.83248137  0.56479997  1
+  O  O23  1  0.00000000  0.66751863  0.06479997  1
+</cif>
+"
+False,"# generated using pymatgen
+data_H2O
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.32660432
+_cell_length_b   7.52601076
+_cell_length_c   7.06770668
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   H2O
+_chemical_formula_sum   'H16 O8'
+_cell_volume   230.13916436
+_cell_formula_units_Z   8
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_type_symbol
+ _atom_type_oxidation_number
+  H+  1.0
+  O2-  -2.0
+loop_
+ _atom_type_symbol
+ _atom_label
+ _atom_symmetry_multiplicity
+ _atom_fract_x
+ _atom_fract_y
+ _atom_fract_z
+ _atom_occupancy
+  H+  H0  1  0.50000000  0.16396926  0.29929821  1
+  H+  H1  1  0.00000000  0.33603074  0.79929821  1
+  H+  H2  1  0.50000000  0.03953027  0.48354168  1
+  H+  H3  1  0.00000000  0.46046973  0.98354168  1
+  H+  H4  1  0.18499514  0.26787625  0.51708756  1
+  H+  H5  1  0.81500486  0.26787625  0.51708756  1
+  H+  H6  1  0.31500486  0.23212376  0.01708756  1
+  H+  H7  1  0.68499515  0.23212376  0.01708756  1
+  H+  H8  1  0.00000000  0.66396926  0.29929821  1
+  H+  H9  1  0.50000000  0.83603074  0.79929821  1
+  H+  H10  1  0.00000000  0.53953027  0.48354168  1
+  H+  H11  1  0.50000000  0.96046973  0.98354168  1
+  H+  H12  1  0.68499515  0.76787625  0.51708756  1
+  H+  H13  1  0.31500486  0.76787625  0.51708756  1
+  H+  H14  1  0.81500486  0.73212375  0.01708756  1
+  H+  H15  1  0.18499515  0.73212375  0.01708756  1
+  O2-  O16  1  0.50000000  0.16533729  0.44018801  1
+  O2-  O17  1  0.00000000  0.33466271  0.94018801  1
+  O2-  O18  1  0.00000000  0.33248137  0.56479997  1
+  O2-  O19  1  0.50000000  0.16751863  0.06479997  1
+  O2-  O20  1  0.00000000  0.66533729  0.44018801  1
+  O2-  O21  1  0.50000000  0.83466271  0.94018801  1
+  O2-  O22  1  0.50000000  0.83248137  0.56479997  1
+  O2-  O23  1  0.00000000  0.66751863  0.06479997  1
+","data_H2O
+#======================================================================
+# Basic crystallographic information
+#======================================================================
+_symmetry_space_group_name_H-M        'P 1'
+_symmetry_Int_Tables_number            1
+
+_cell_length_a                         4.32660432
+_cell_length_b                         7.52601076
+_cell_length_c                         7.06770668
+_cell_angle_alpha                      90.00000000
+_cell_angle_beta                       90.00000000
+_cell_angle_gamma                      90.00000000
+_cell_volume                           230.13916436
+
+_chemical_formula_structural           'H2O'
+_chemical_formula_sum                  'H16 O8'
+_cell_formula_units_Z                  8
+
+#----------------------------------------------------------------------
+# Symmetry operations (only the identity for P1)
+#----------------------------------------------------------------------
+loop_
+  _symmetry_equiv_pos_site_id
+  _symmetry_equiv_pos_as_xyz
+   1  'x, y, z'
+
+#----------------------------------------------------------------------
+# Atom types
+#----------------------------------------------------------------------
+loop_
+  _atom_type_symbol
+  _atom_type_oxidation_number
+   H   1
+   O  -2
+
+#----------------------------------------------------------------------
+# Atomic coordinates
+#----------------------------------------------------------------------
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+   H   H0   1   0.50000000   0.16396926   0.29929821   1.0
+   H   H1   1   0.00000000   0.33603074   0.79929821   1.0
+   H   H2   1   0.50000000   0.03953027   0.48354168   1.0
+   H   H3   1   0.00000000   0.46046973   0.98354168   1.0
+   H   H4   1   0.18499514   0.26787625   0.51708756   1.0
+   H   H5   1   0.81500486   0.26787625   0.51708756   1.0
+   H   H6   1   0.31500486   0.23212376   0.01708756   1.0
+   H   H7   1   0.68499515   0.23212376   0.01708756   1.0
+   H   H8   1   0.00000000   0.66396926   0.29929821   1.0
+   H   H9   1   0.50000000   0.83603074   0.79929821   1.0
+   H   H10  1   0.00000000   0.53953027   0.48354168   1.0
+   H   H11  1   0.50000000   0.96046973   0.98354168   1.0
+   H   H12  1   0.68499515   0.76787625   0.51708756   1.0
+   H   H13  1   0.31500486   0.76787625   0.51708756   1.0
+   H   H14  1   0.81500486   0.73212375   0.01708756   1.0
+   H   H15  1   0.18499515   0.73212375   0.01708756   1.0
+   O   O16  1   0.50000000   0.16533729   0.44018801   1.0
+   O   O17  1   0.00000000   0.33466271   0.94018801   1.0
+   O   O18  1   0.00000000   0.33248137   0.56479997   1.0
+   O   O19  1   0.50000000   0.16751863   0.06479997   1.0
+   O   O20  1   0.00000000   0.66533729   0.44018801   1.0
+   O   O21  1   0.50000000   0.83466271   0.94018801   1.0
+   O   O22  1   0.50000000   0.83248137   0.56479997   1.0
+   O   O23  1   0.00000000   0.66751863   0.06479997   1.0","# generated using pymatgen
+data_H2O
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.32660432
+_cell_length_b   7.52601076
+_cell_length_c   7.06770668
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   H2O
+_chemical_formula_sum   'H16 O8'
+_cell_volume   230.13916436
+_cell_formula_units_Z   8
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_type_symbol
+ _atom_type_oxidation_number
+  H+  1.0
+  O2-  -2.0
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  H+  H0  1  0.50000000  0.16396926  0.29929821  1
+  H+  H1  1  0.00000000  0.33603074  0.79929821  1
+  H+  H2  1  0.50000000  0.03953027  0.48354168  1
+  H+  H3  1  0.00000000  0.46046973  0.98354168  1
+  H+  H4  1  0.18499514  0.26787625  0.51708756  1
+  H+  H5  1  0.81500486  0.26787625  0.51708756  1
+  H+  H6  1  0.31500486  0.23212376  0.01708756  1
+  H+  H7  1  0.68499515  0.23212376  0.01708756  1
+  H+  H8  1  0.00000000  0.66396926  0.29929821  1
+  H+  H9  1  0.50000000  0.83603074  0.79929821  1
+  H+  H10  1  0.00000000  0.53953027  0.48354168  1
+  H+  H11  1  0.50000000  0.96046973  0.98354168  1
+  H+  H12  1  0.68499515  0.76787625  0.51708756  1
+  H+  H13  1  0.31500486  0.76787625  0.51708756  1
+  H+  H14  1  0.81500486  0.73212375  0.01708756  1
+  H+  H15  1  0.18499515  0.73212375  0.01708756  1
+  O2-  O16  1  0.50000000  0.16533729  0.44018801  1
+  O2-  O17  1  0.00000000  0.33466271  0.94018801  1
+  O2-  O18  1  0.00000000  0.33248137  0.56479997  1
+  O2-  O19  1  0.50000000  0.16751863  0.06479997  1
+  O2-  O20  1  0.00000000  0.66533729  0.44018801  1
+  O2-  O21  1  0.50000000  0.83466271  0.94018801  1
+  O2-  O22  1  0.50000000  0.83248137  0.56479997  1
+  O2-  O23  1  0.00000000  0.66751863  0.06479997  1
+",1.14105038726616e-08,1.9306069735751244e-08,"<cif>
+data_H2O
+#======================================================================
+# Basic crystallographic information
+#======================================================================
+_symmetry_space_group_name_H-M        'P 1'
+_symmetry_Int_Tables_number            1
+
+_cell_length_a                         4.32660432
+_cell_length_b                         7.52601076
+_cell_length_c                         7.06770668
+_cell_angle_alpha                      90.00000000
+_cell_angle_beta                       90.00000000
+_cell_angle_gamma                      90.00000000
+_cell_volume                           230.13916436
+
+_chemical_formula_structural           'H2O'
+_chemical_formula_sum                  'H16 O8'
+_cell_formula_units_Z                  8
+
+#----------------------------------------------------------------------
+# Symmetry operations (only the identity for P1)
+#----------------------------------------------------------------------
+loop_
+  _symmetry_equiv_pos_site_id
+  _symmetry_equiv_pos_as_xyz
+   1  'x, y, z'
+
+#----------------------------------------------------------------------
+# Atom types
+#----------------------------------------------------------------------
+loop_
+  _atom_type_symbol
+  _atom_type_oxidation_number
+   H   1
+   O  -2
+
+#----------------------------------------------------------------------
+# Atomic coordinates
+#----------------------------------------------------------------------
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+   H   H0   1   0.50000000   0.16396926   0.29929821   1.0
+   H   H1   1   0.00000000   0.33603074   0.79929821   1.0
+   H   H2   1   0.50000000   0.03953027   0.48354168   1.0
+   H   H3   1   0.00000000   0.46046973   0.98354168   1.0
+   H   H4   1   0.18499514   0.26787625   0.51708756   1.0
+   H   H5   1   0.81500486   0.26787625   0.51708756   1.0
+   H   H6   1   0.31500486   0.23212376   0.01708756   1.0
+   H   H7   1   0.68499515   0.23212376   0.01708756   1.0
+   H   H8   1   0.00000000   0.66396926   0.29929821   1.0
+   H   H9   1   0.50000000   0.83603074   0.79929821   1.0
+   H   H10  1   0.00000000   0.53953027   0.48354168   1.0
+   H   H11  1   0.50000000   0.96046973   0.98354168   1.0
+   H   H12  1   0.68499515   0.76787625   0.51708756   1.0
+   H   H13  1   0.31500486   0.76787625   0.51708756   1.0
+   H   H14  1   0.81500486   0.73212375   0.01708756   1.0
+   H   H15  1   0.18499515   0.73212375   0.01708756   1.0
+   O   O16  1   0.50000000   0.16533729   0.44018801   1.0
+   O   O17  1   0.00000000   0.33466271   0.94018801   1.0
+   O   O18  1   0.00000000   0.33248137   0.56479997   1.0
+   O   O19  1   0.50000000   0.16751863   0.06479997   1.0
+   O   O20  1   0.00000000   0.66533729   0.44018801   1.0
+   O   O21  1   0.50000000   0.83466271   0.94018801   1.0
+   O   O22  1   0.50000000   0.83248137   0.56479997   1.0
+   O   O23  1   0.00000000   0.66751863   0.06479997   1.0
+</cif>
+"
+False,"# generated using pymatgen
+data_H2O
+_symmetry_space_group_name_H-M   'P 1'
+_cell_a   4.32660432
+_cell_b   7.52601076
+_cell_c   7.06770668
+_cell_alpha   90.00000000
+_cell_beta   90.00000000
+_cell_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   H2O
+_chemical_formula_sum   'H16 O8'
+_cell_volume   230.13916436
+_cell_formula_units_Z   8
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_type_symbol
+ _atom_type_oxidation_number
+  H+  1.0
+  O2-  -2.0
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  H+  H0  1  0.50000000  0.16396926  0.29929821  1
+  H+  H1  1  0.00000000  0.33603074  0.79929821  1
+  H+  H2  1  0.50000000  0.03953027  0.48354168  1
+  H+  H3  1  0.00000000  0.46046973  0.98354168  1
+  H+  H4  1  0.18499514  0.26787625  0.51708756  1
+  H+  H5  1  0.81500486  0.26787625  0.51708756  1
+  H+  H6  1  0.31500486  0.23212376  0.01708756  1
+  H+  H7  1  0.68499515  0.23212376  0.01708756  1
+  H+  H8  1  0.00000000  0.66396926  0.29929821  1
+  H+  H9  1  0.50000000  0.83603074  0.79929821  1
+  H+  H10  1  0.00000000  0.53953027  0.48354168  1
+  H+  H11  1  0.50000000  0.96046973  0.98354168  1
+  H+  H12  1  0.68499515  0.76787625  0.51708756  1
+  H+  H13  1  0.31500486  0.76787625  0.51708756  1
+  H+  H14  1  0.81500486  0.73212375  0.01708756  1
+  H+  H15  1  0.18499515  0.73212375  0.01708756  1
+  O2-  O16  1  0.50000000  0.16533729  0.44018801  1
+  O2-  O17  1  0.00000000  0.33466271  0.94018801  1
+  O2-  O18  1  0.00000000  0.33248137  0.56479997  1
+  O2-  O19  1  0.50000000  0.16751863  0.06479997  1
+  O2-  O20  1  0.00000000  0.66533729  0.44018801  1
+  O2-  O21  1  0.50000000  0.83466271  0.94018801  1
+  O2-  O22  1  0.50000000  0.83248137  0.56479997  1
+  O2-  O23  1  0.00000000  0.66751863  0.06479997  1
+","# Corrected CIF file
+data_H2O
+_audit_creation_method        'AI assistant correction'
+
+# -----------------------------------------------------------------
+# Crystal properties
+# -----------------------------------------------------------------
+_symmetry_space_group_name_H-M    'P 1'
+_symmetry_Int_Tables_number       1
+
+_cell_length_a                    4.32660432
+_cell_length_b                    7.52601076
+_cell_length_c                    7.06770668
+_cell_angle_alpha                 90.00000000
+_cell_angle_beta                  90.00000000
+_cell_angle_gamma                 90.00000000
+_cell_volume                      230.13916436
+_cell_formula_units_Z             8
+
+# -----------------------------------------------------------------
+# Chemical formula
+# -----------------------------------------------------------------
+_chemical_formula_structural      'H2 O'
+_chemical_formula_sum             'H16 O8'
+
+# -----------------------------------------------------------------
+# Symmetry operations
+# -----------------------------------------------------------------
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+1  'x, y, z'
+
+# -----------------------------------------------------------------
+# Atom types
+# -----------------------------------------------------------------
+loop_
+_atom_type_symbol
+_atom_type_oxidation_number
+H   1.0
+O  -2.0
+
+# -----------------------------------------------------------------
+# Atomic positions
+# -----------------------------------------------------------------
+loop_
+_atom_site_type_symbol
+_atom_site_label
+_atom_site_symmetry_multiplicity
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_occupancy
+H  H0   1   0.50000000   0.16396926   0.29929821   1
+H  H1   1   0.00000000   0.33603074   0.79929821   1
+H  H2   1   0.50000000   0.03953027   0.48354168   1
+H  H3   1   0.00000000   0.46046973   0.98354168   1
+H  H4   1   0.18499514   0.26787625   0.51708756   1
+H  H5   1   0.81500486   0.26787625   0.51708756   1
+H  H6   1   0.31500486   0.23212376   0.01708756   1
+H  H7   1   0.68499515   0.23212376   0.01708756   1
+H  H8   1   0.00000000   0.66396926   0.29929821   1
+H  H9   1   0.50000000   0.83603074   0.79929821   1
+H  H10  1   0.00000000   0.53953027   0.48354168   1
+H  H11  1   0.50000000   0.96046973   0.98354168   1
+H  H12  1   0.68499515   0.76787625   0.51708756   1
+H  H13  1   0.31500486   0.76787625   0.51708756   1
+H  H14  1   0.81500486   0.73212375   0.01708756   1
+H  H15  1   0.18499515   0.73212375   0.01708756   1
+O  O16  1   0.50000000   0.16533729   0.44018801   1
+O  O17  1   0.00000000   0.33466271   0.94018801   1
+O  O18  1   0.00000000   0.33248137   0.56479997   1
+O  O19  1   0.50000000   0.16751863   0.06479997   1
+O  O20  1   0.00000000   0.66533729   0.44018801   1
+O  O21  1   0.50000000   0.83466271   0.94018801   1
+O  O22  1   0.50000000   0.83248137   0.56479997   1
+O  O23  1   0.00000000   0.66751863   0.06479997   1","# generated using pymatgen
+data_H2O
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.32660432
+_cell_length_b   7.52601076
+_cell_length_c   7.06770668
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   H2O
+_chemical_formula_sum   'H16 O8'
+_cell_volume   230.13916436
+_cell_formula_units_Z   8
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_type_symbol
+ _atom_type_oxidation_number
+  H+  1.0
+  O2-  -2.0
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  H+  H0  1  0.50000000  0.16396926  0.29929821  1
+  H+  H1  1  0.00000000  0.33603074  0.79929821  1
+  H+  H2  1  0.50000000  0.03953027  0.48354168  1
+  H+  H3  1  0.00000000  0.46046973  0.98354168  1
+  H+  H4  1  0.18499514  0.26787625  0.51708756  1
+  H+  H5  1  0.81500486  0.26787625  0.51708756  1
+  H+  H6  1  0.31500486  0.23212376  0.01708756  1
+  H+  H7  1  0.68499515  0.23212376  0.01708756  1
+  H+  H8  1  0.00000000  0.66396926  0.29929821  1
+  H+  H9  1  0.50000000  0.83603074  0.79929821  1
+  H+  H10  1  0.00000000  0.53953027  0.48354168  1
+  H+  H11  1  0.50000000  0.96046973  0.98354168  1
+  H+  H12  1  0.68499515  0.76787625  0.51708756  1
+  H+  H13  1  0.31500486  0.76787625  0.51708756  1
+  H+  H14  1  0.81500486  0.73212375  0.01708756  1
+  H+  H15  1  0.18499515  0.73212375  0.01708756  1
+  O2-  O16  1  0.50000000  0.16533729  0.44018801  1
+  O2-  O17  1  0.00000000  0.33466271  0.94018801  1
+  O2-  O18  1  0.00000000  0.33248137  0.56479997  1
+  O2-  O19  1  0.50000000  0.16751863  0.06479997  1
+  O2-  O20  1  0.00000000  0.66533729  0.44018801  1
+  O2-  O21  1  0.50000000  0.83466271  0.94018801  1
+  O2-  O22  1  0.50000000  0.83248137  0.56479997  1
+  O2-  O23  1  0.00000000  0.66751863  0.06479997  1
+",1.14105038726616e-08,1.9306069735751244e-08,"<cif>
+# Corrected CIF file
+data_H2O
+_audit_creation_method        'AI assistant correction'
+
+# -----------------------------------------------------------------
+# Crystal properties
+# -----------------------------------------------------------------
+_symmetry_space_group_name_H-M    'P 1'
+_symmetry_Int_Tables_number       1
+
+_cell_length_a                    4.32660432
+_cell_length_b                    7.52601076
+_cell_length_c                    7.06770668
+_cell_angle_alpha                 90.00000000
+_cell_angle_beta                  90.00000000
+_cell_angle_gamma                 90.00000000
+_cell_volume                      230.13916436
+_cell_formula_units_Z             8
+
+# -----------------------------------------------------------------
+# Chemical formula
+# -----------------------------------------------------------------
+_chemical_formula_structural      'H2 O'
+_chemical_formula_sum             'H16 O8'
+
+# -----------------------------------------------------------------
+# Symmetry operations
+# -----------------------------------------------------------------
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+1  'x, y, z'
+
+# -----------------------------------------------------------------
+# Atom types
+# -----------------------------------------------------------------
+loop_
+_atom_type_symbol
+_atom_type_oxidation_number
+H   1.0
+O  -2.0
+
+# -----------------------------------------------------------------
+# Atomic positions
+# -----------------------------------------------------------------
+loop_
+_atom_site_type_symbol
+_atom_site_label
+_atom_site_symmetry_multiplicity
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_occupancy
+H  H0   1   0.50000000   0.16396926   0.29929821   1
+H  H1   1   0.00000000   0.33603074   0.79929821   1
+H  H2   1   0.50000000   0.03953027   0.48354168   1
+H  H3   1   0.00000000   0.46046973   0.98354168   1
+H  H4   1   0.18499514   0.26787625   0.51708756   1
+H  H5   1   0.81500486   0.26787625   0.51708756   1
+H  H6   1   0.31500486   0.23212376   0.01708756   1
+H  H7   1   0.68499515   0.23212376   0.01708756   1
+H  H8   1   0.00000000   0.66396926   0.29929821   1
+H  H9   1   0.50000000   0.83603074   0.79929821   1
+H  H10  1   0.00000000   0.53953027   0.48354168   1
+H  H11  1   0.50000000   0.96046973   0.98354168   1
+H  H12  1   0.68499515   0.76787625   0.51708756   1
+H  H13  1   0.31500486   0.76787625   0.51708756   1
+H  H14  1   0.81500486   0.73212375   0.01708756   1
+H  H15  1   0.18499515   0.73212375   0.01708756   1
+O  O16  1   0.50000000   0.16533729   0.44018801   1
+O  O17  1   0.00000000   0.33466271   0.94018801   1
+O  O18  1   0.00000000   0.33248137   0.56479997   1
+O  O19  1   0.50000000   0.16751863   0.06479997   1
+O  O20  1   0.00000000   0.66533729   0.44018801   1
+O  O21  1   0.50000000   0.83466271   0.94018801   1
+O  O22  1   0.50000000   0.83248137   0.56479997   1
+O  O23  1   0.00000000   0.66751863   0.06479997   1
+</cif>
+"
+False,"# generated using pymatgen
+data_H2O
+_symmetry_space_group_name_H-M   'P 1'
+_lattice_length_a   4.32660432
+_lattice_length_b   7.52601076
+_lattice_length_c   7.06770668
+_lattice_angle_alpha   90.00000000
+_lattice_angle_beta   90.00000000
+_lattice_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   H2O
+_chemical_formula_sum   'H16 O8'
+_lattice_volume   230.13916436
+_lattice_formula_units_Z   8
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_type_symbol
+ _atom_type_oxidation_number
+  H+  1.0
+  O2-  -2.0
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  H+  H0  1  0.50000000  0.16396926  0.29929821  1
+  H+  H1  1  0.00000000  0.33603074  0.79929821  1
+  H+  H2  1  0.50000000  0.03953027  0.48354168  1
+  H+  H3  1  0.00000000  0.46046973  0.98354168  1
+  H+  H4  1  0.18499514  0.26787625  0.51708756  1
+  H+  H5  1  0.81500486  0.26787625  0.51708756  1
+  H+  H6  1  0.31500486  0.23212376  0.01708756  1
+  H+  H7  1  0.68499515  0.23212376  0.01708756  1
+  H+  H8  1  0.00000000  0.66396926  0.29929821  1
+  H+  H9  1  0.50000000  0.83603074  0.79929821  1
+  H+  H10  1  0.00000000  0.53953027  0.48354168  1
+  H+  H11  1  0.50000000  0.96046973  0.98354168  1
+  H+  H12  1  0.68499515  0.76787625  0.51708756  1
+  H+  H13  1  0.31500486  0.76787625  0.51708756  1
+  H+  H14  1  0.81500486  0.73212375  0.01708756  1
+  H+  H15  1  0.18499515  0.73212375  0.01708756  1
+  O2-  O16  1  0.50000000  0.16533729  0.44018801  1
+  O2-  O17  1  0.00000000  0.33466271  0.94018801  1
+  O2-  O18  1  0.00000000  0.33248137  0.56479997  1
+  O2-  O19  1  0.50000000  0.16751863  0.06479997  1
+  O2-  O20  1  0.00000000  0.66533729  0.44018801  1
+  O2-  O21  1  0.50000000  0.83466271  0.94018801  1
+  O2-  O22  1  0.50000000  0.83248137  0.56479997  1
+  O2-  O23  1  0.00000000  0.66751863  0.06479997  1
+","data_H2O
+#
+# Crystal and symmetry information
+#
+_symmetry_space_group_name_H-M         'P 1'
+_symmetry_Int_Tables_number            1
+#
+# Unit-cell parameters
+#
+_cell_length_a                         4.32660432
+_cell_length_b                         7.52601076
+_cell_length_c                         7.06770668
+_cell_angle_alpha                      90.00000000
+_cell_angle_beta                       90.00000000
+_cell_angle_gamma                      90.00000000
+_cell_volume                           230.13916436
+_cell_formula_units_Z                  8
+#
+# Chemical formula
+#
+_chemical_formula_structural           H2O
+_chemical_formula_sum                  'H16 O8'
+#
+# Symmetry operations
+#
+loop_
+  _space_group_symop_id
+  _space_group_symop_operation_xyz
+    1  'x, y, z'
+#
+# Atom-type information
+#
+loop_
+  _atom_type_symbol
+  _atom_type_oxidation_number
+    H   1
+    O  -2
+#
+# Atomic coordinates and occupancies
+#
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+    H0   H   1   0.50000000   0.16396926   0.29929821   1
+    H1   H   1   0.00000000   0.33603074   0.79929821   1
+    H2   H   1   0.50000000   0.03953027   0.48354168   1
+    H3   H   1   0.00000000   0.46046973   0.98354168   1
+    H4   H   1   0.18499514   0.26787625   0.51708756   1
+    H5   H   1   0.81500486   0.26787625   0.51708756   1
+    H6   H   1   0.31500486   0.23212376   0.01708756   1
+    H7   H   1   0.68499515   0.23212376   0.01708756   1
+    H8   H   1   0.00000000   0.66396926   0.29929821   1
+    H9   H   1   0.50000000   0.83603074   0.79929821   1
+    H10  H   1   0.00000000   0.53953027   0.48354168   1
+    H11  H   1   0.50000000   0.96046973   0.98354168   1
+    H12  H   1   0.68499515   0.76787625   0.51708756   1
+    H13  H   1   0.31500486   0.76787625   0.51708756   1
+    H14  H   1   0.81500486   0.73212375   0.01708756   1
+    H15  H   1   0.18499515   0.73212375   0.01708756   1
+    O16  O   1   0.50000000   0.16533729   0.44018801   1
+    O17  O   1   0.00000000   0.33466271   0.94018801   1
+    O18  O   1   0.00000000   0.33248137   0.56479997   1
+    O19  O   1   0.50000000   0.16751863   0.06479997   1
+    O20  O   1   0.00000000   0.66533729   0.44018801   1
+    O21  O   1   0.50000000   0.83466271   0.94018801   1
+    O22  O   1   0.50000000   0.83248137   0.56479997   1
+    O23  O   1   0.00000000   0.66751863   0.06479997   1","# generated using pymatgen
+data_H2O
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.32660432
+_cell_length_b   7.52601076
+_cell_length_c   7.06770668
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   H2O
+_chemical_formula_sum   'H16 O8'
+_cell_volume   230.13916436
+_cell_formula_units_Z   8
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_type_symbol
+ _atom_type_oxidation_number
+  H+  1.0
+  O2-  -2.0
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  H+  H0  1  0.50000000  0.16396926  0.29929821  1
+  H+  H1  1  0.00000000  0.33603074  0.79929821  1
+  H+  H2  1  0.50000000  0.03953027  0.48354168  1
+  H+  H3  1  0.00000000  0.46046973  0.98354168  1
+  H+  H4  1  0.18499514  0.26787625  0.51708756  1
+  H+  H5  1  0.81500486  0.26787625  0.51708756  1
+  H+  H6  1  0.31500486  0.23212376  0.01708756  1
+  H+  H7  1  0.68499515  0.23212376  0.01708756  1
+  H+  H8  1  0.00000000  0.66396926  0.29929821  1
+  H+  H9  1  0.50000000  0.83603074  0.79929821  1
+  H+  H10  1  0.00000000  0.53953027  0.48354168  1
+  H+  H11  1  0.50000000  0.96046973  0.98354168  1
+  H+  H12  1  0.68499515  0.76787625  0.51708756  1
+  H+  H13  1  0.31500486  0.76787625  0.51708756  1
+  H+  H14  1  0.81500486  0.73212375  0.01708756  1
+  H+  H15  1  0.18499515  0.73212375  0.01708756  1
+  O2-  O16  1  0.50000000  0.16533729  0.44018801  1
+  O2-  O17  1  0.00000000  0.33466271  0.94018801  1
+  O2-  O18  1  0.00000000  0.33248137  0.56479997  1
+  O2-  O19  1  0.50000000  0.16751863  0.06479997  1
+  O2-  O20  1  0.00000000  0.66533729  0.44018801  1
+  O2-  O21  1  0.50000000  0.83466271  0.94018801  1
+  O2-  O22  1  0.50000000  0.83248137  0.56479997  1
+  O2-  O23  1  0.00000000  0.66751863  0.06479997  1
+",1.14105038726616e-08,1.9306069735751244e-08,"<cif>
+data_H2O
+#
+# Crystal and symmetry information
+#
+_symmetry_space_group_name_H-M         'P 1'
+_symmetry_Int_Tables_number            1
+#
+# Unit-cell parameters
+#
+_cell_length_a                         4.32660432
+_cell_length_b                         7.52601076
+_cell_length_c                         7.06770668
+_cell_angle_alpha                      90.00000000
+_cell_angle_beta                       90.00000000
+_cell_angle_gamma                      90.00000000
+_cell_volume                           230.13916436
+_cell_formula_units_Z                  8
+#
+# Chemical formula
+#
+_chemical_formula_structural           H2O
+_chemical_formula_sum                  'H16 O8'
+#
+# Symmetry operations
+#
+loop_
+  _space_group_symop_id
+  _space_group_symop_operation_xyz
+    1  'x, y, z'
+#
+# Atom-type information
+#
+loop_
+  _atom_type_symbol
+  _atom_type_oxidation_number
+    H   1
+    O  -2
+#
+# Atomic coordinates and occupancies
+#
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+    H0   H   1   0.50000000   0.16396926   0.29929821   1
+    H1   H   1   0.00000000   0.33603074   0.79929821   1
+    H2   H   1   0.50000000   0.03953027   0.48354168   1
+    H3   H   1   0.00000000   0.46046973   0.98354168   1
+    H4   H   1   0.18499514   0.26787625   0.51708756   1
+    H5   H   1   0.81500486   0.26787625   0.51708756   1
+    H6   H   1   0.31500486   0.23212376   0.01708756   1
+    H7   H   1   0.68499515   0.23212376   0.01708756   1
+    H8   H   1   0.00000000   0.66396926   0.29929821   1
+    H9   H   1   0.50000000   0.83603074   0.79929821   1
+    H10  H   1   0.00000000   0.53953027   0.48354168   1
+    H11  H   1   0.50000000   0.96046973   0.98354168   1
+    H12  H   1   0.68499515   0.76787625   0.51708756   1
+    H13  H   1   0.31500486   0.76787625   0.51708756   1
+    H14  H   1   0.81500486   0.73212375   0.01708756   1
+    H15  H   1   0.18499515   0.73212375   0.01708756   1
+    O16  O   1   0.50000000   0.16533729   0.44018801   1
+    O17  O   1   0.00000000   0.33466271   0.94018801   1
+    O18  O   1   0.00000000   0.33248137   0.56479997   1
+    O19  O   1   0.50000000   0.16751863   0.06479997   1
+    O20  O   1   0.00000000   0.66533729   0.44018801   1
+    O21  O   1   0.50000000   0.83466271   0.94018801   1
+    O22  O   1   0.50000000   0.83248137   0.56479997   1
+    O23  O   1   0.00000000   0.66751863   0.06479997   1
+</cif>
+"
+False,"# generated using pymatgen
+data_H2O
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.32660432
+_cell_length_b   7.52601076
+_cell_length_c   7.06770668
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   H2O
+_chemical_formula_sum   'H16 O8'
+_cell_volume   230.13916436
+_cell_formula_units_Z   8
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_type_symbol
+ _atom_type_oxidation_number
+  H+  1.0
+  O2-  -2.0
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_frac_a
+ _atom_site_frac_b
+ _atom_site_frac_c
+ _atom_site_occupancy
+  H+  H0  1  0.50000000  0.16396926  0.29929821  1
+  H+  H1  1  0.00000000  0.33603074  0.79929821  1
+  H+  H2  1  0.50000000  0.03953027  0.48354168  1
+  H+  H3  1  0.00000000  0.46046973  0.98354168  1
+  H+  H4  1  0.18499514  0.26787625  0.51708756  1
+  H+  H5  1  0.81500486  0.26787625  0.51708756  1
+  H+  H6  1  0.31500486  0.23212376  0.01708756  1
+  H+  H7  1  0.68499515  0.23212376  0.01708756  1
+  H+  H8  1  0.00000000  0.66396926  0.29929821  1
+  H+  H9  1  0.50000000  0.83603074  0.79929821  1
+  H+  H10  1  0.00000000  0.53953027  0.48354168  1
+  H+  H11  1  0.50000000  0.96046973  0.98354168  1
+  H+  H12  1  0.68499515  0.76787625  0.51708756  1
+  H+  H13  1  0.31500486  0.76787625  0.51708756  1
+  H+  H14  1  0.81500486  0.73212375  0.01708756  1
+  H+  H15  1  0.18499515  0.73212375  0.01708756  1
+  O2-  O16  1  0.50000000  0.16533729  0.44018801  1
+  O2-  O17  1  0.00000000  0.33466271  0.94018801  1
+  O2-  O18  1  0.00000000  0.33248137  0.56479997  1
+  O2-  O19  1  0.50000000  0.16751863  0.06479997  1
+  O2-  O20  1  0.00000000  0.66533729  0.44018801  1
+  O2-  O21  1  0.50000000  0.83466271  0.94018801  1
+  O2-  O22  1  0.50000000  0.83248137  0.56479997  1
+  O2-  O23  1  0.00000000  0.66751863  0.06479997  1
+","data_H2O
+#
+# Lattice parameters
+#
+_symmetry_space_group_name_H-M        'P 1'
+_symmetry_Int_Tables_number            1
+
+_cell_length_a                        4.32660432
+_cell_length_b                        7.52601076
+_cell_length_c                        7.06770668
+_cell_angle_alpha                    90.00000000
+_cell_angle_beta                     90.00000000
+_cell_angle_gamma                    90.00000000
+_cell_volume                        230.13916436
+_cell_formula_units_Z                 8
+#
+# Chemical information
+#
+_chemical_formula_structural          'H2 O'
+_chemical_formula_sum                 'H16 O8'
+#
+# Symmetry operations
+#
+loop_
+  _symmetry_equiv_pos_site_id
+  _symmetry_equiv_pos_as_xyz
+   1  'x, y, z'
+#
+# Atom types
+#
+loop_
+  _atom_type_symbol
+  _atom_type_oxidation_number
+   H   1.0
+   O  -2.0
+#
+# Atomic positions
+#
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+   H  H0   1  0.50000000  0.16396926  0.29929821  1
+   H  H1   1  0.00000000  0.33603074  0.79929821  1
+   H  H2   1  0.50000000  0.03953027  0.48354168  1
+   H  H3   1  0.00000000  0.46046973  0.98354168  1
+   H  H4   1  0.18499514  0.26787625  0.51708756  1
+   H  H5   1  0.81500486  0.26787625  0.51708756  1
+   H  H6   1  0.31500486  0.23212376  0.01708756  1
+   H  H7   1  0.68499515  0.23212376  0.01708756  1
+   H  H8   1  0.00000000  0.66396926  0.29929821  1
+   H  H9   1  0.50000000  0.83603074  0.79929821  1
+   H  H10  1  0.00000000  0.53953027  0.48354168  1
+   H  H11  1  0.50000000  0.96046973  0.98354168  1
+   H  H12  1  0.68499515  0.76787625  0.51708756  1
+   H  H13  1  0.31500486  0.76787625  0.51708756  1
+   H  H14  1  0.81500486  0.73212375  0.01708756  1
+   H  H15  1  0.18499515  0.73212375  0.01708756  1
+   O  O16  1  0.50000000  0.16533729  0.44018801  1
+   O  O17  1  0.00000000  0.33466271  0.94018801  1
+   O  O18  1  0.00000000  0.33248137  0.56479997  1
+   O  O19  1  0.50000000  0.16751863  0.06479997  1
+   O  O20  1  0.00000000  0.66533729  0.44018801  1
+   O  O21  1  0.50000000  0.83466271  0.94018801  1
+   O  O22  1  0.50000000  0.83248137  0.56479997  1
+   O  O23  1  0.00000000  0.66751863  0.06479997  1
+#","# generated using pymatgen
+data_H2O
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.32660432
+_cell_length_b   7.52601076
+_cell_length_c   7.06770668
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   H2O
+_chemical_formula_sum   'H16 O8'
+_cell_volume   230.13916436
+_cell_formula_units_Z   8
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_type_symbol
+ _atom_type_oxidation_number
+  H+  1.0
+  O2-  -2.0
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  H+  H0  1  0.50000000  0.16396926  0.29929821  1
+  H+  H1  1  0.00000000  0.33603074  0.79929821  1
+  H+  H2  1  0.50000000  0.03953027  0.48354168  1
+  H+  H3  1  0.00000000  0.46046973  0.98354168  1
+  H+  H4  1  0.18499514  0.26787625  0.51708756  1
+  H+  H5  1  0.81500486  0.26787625  0.51708756  1
+  H+  H6  1  0.31500486  0.23212376  0.01708756  1
+  H+  H7  1  0.68499515  0.23212376  0.01708756  1
+  H+  H8  1  0.00000000  0.66396926  0.29929821  1
+  H+  H9  1  0.50000000  0.83603074  0.79929821  1
+  H+  H10  1  0.00000000  0.53953027  0.48354168  1
+  H+  H11  1  0.50000000  0.96046973  0.98354168  1
+  H+  H12  1  0.68499515  0.76787625  0.51708756  1
+  H+  H13  1  0.31500486  0.76787625  0.51708756  1
+  H+  H14  1  0.81500486  0.73212375  0.01708756  1
+  H+  H15  1  0.18499515  0.73212375  0.01708756  1
+  O2-  O16  1  0.50000000  0.16533729  0.44018801  1
+  O2-  O17  1  0.00000000  0.33466271  0.94018801  1
+  O2-  O18  1  0.00000000  0.33248137  0.56479997  1
+  O2-  O19  1  0.50000000  0.16751863  0.06479997  1
+  O2-  O20  1  0.00000000  0.66533729  0.44018801  1
+  O2-  O21  1  0.50000000  0.83466271  0.94018801  1
+  O2-  O22  1  0.50000000  0.83248137  0.56479997  1
+  O2-  O23  1  0.00000000  0.66751863  0.06479997  1
+",1.14105038726616e-08,1.9306069735751244e-08,"<cif>
+data_H2O
+#
+# Lattice parameters
+#
+_symmetry_space_group_name_H-M        'P 1'
+_symmetry_Int_Tables_number            1
+
+_cell_length_a                        4.32660432
+_cell_length_b                        7.52601076
+_cell_length_c                        7.06770668
+_cell_angle_alpha                    90.00000000
+_cell_angle_beta                     90.00000000
+_cell_angle_gamma                    90.00000000
+_cell_volume                        230.13916436
+_cell_formula_units_Z                 8
+#
+# Chemical information
+#
+_chemical_formula_structural          'H2 O'
+_chemical_formula_sum                 'H16 O8'
+#
+# Symmetry operations
+#
+loop_
+  _symmetry_equiv_pos_site_id
+  _symmetry_equiv_pos_as_xyz
+   1  'x, y, z'
+#
+# Atom types
+#
+loop_
+  _atom_type_symbol
+  _atom_type_oxidation_number
+   H   1.0
+   O  -2.0
+#
+# Atomic positions
+#
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+   H  H0   1  0.50000000  0.16396926  0.29929821  1
+   H  H1   1  0.00000000  0.33603074  0.79929821  1
+   H  H2   1  0.50000000  0.03953027  0.48354168  1
+   H  H3   1  0.00000000  0.46046973  0.98354168  1
+   H  H4   1  0.18499514  0.26787625  0.51708756  1
+   H  H5   1  0.81500486  0.26787625  0.51708756  1
+   H  H6   1  0.31500486  0.23212376  0.01708756  1
+   H  H7   1  0.68499515  0.23212376  0.01708756  1
+   H  H8   1  0.00000000  0.66396926  0.29929821  1
+   H  H9   1  0.50000000  0.83603074  0.79929821  1
+   H  H10  1  0.00000000  0.53953027  0.48354168  1
+   H  H11  1  0.50000000  0.96046973  0.98354168  1
+   H  H12  1  0.68499515  0.76787625  0.51708756  1
+   H  H13  1  0.31500486  0.76787625  0.51708756  1
+   H  H14  1  0.81500486  0.73212375  0.01708756  1
+   H  H15  1  0.18499515  0.73212375  0.01708756  1
+   O  O16  1  0.50000000  0.16533729  0.44018801  1
+   O  O17  1  0.00000000  0.33466271  0.94018801  1
+   O  O18  1  0.00000000  0.33248137  0.56479997  1
+   O  O19  1  0.50000000  0.16751863  0.06479997  1
+   O  O20  1  0.00000000  0.66533729  0.44018801  1
+   O  O21  1  0.50000000  0.83466271  0.94018801  1
+   O  O22  1  0.50000000  0.83248137  0.56479997  1
+   O  O23  1  0.00000000  0.66751863  0.06479997  1
+#
+</cif>
+"
+False,"# generated using pymatgen
+data_H2O
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.32660432
+_cell_length_b   7.52601076
+_cell_length_c   7.06770668
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   H2O
+_chemical_formula_sum   'H16 O8'
+_cell_volume   230.13916436
+_cell_formula_units_Z   8
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_type_symbol
+ _atom_type_oxidation_number
+  H+  1.0
+  O2-  -2.0
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_frac_u
+ _atom_site_frac_v
+ _atom_site_frac_w
+ _atom_site_occupancy
+  H+  H0  1  0.50000000  0.16396926  0.29929821  1
+  H+  H1  1  0.00000000  0.33603074  0.79929821  1
+  H+  H2  1  0.50000000  0.03953027  0.48354168  1
+  H+  H3  1  0.00000000  0.46046973  0.98354168  1
+  H+  H4  1  0.18499514  0.26787625  0.51708756  1
+  H+  H5  1  0.81500486  0.26787625  0.51708756  1
+  H+  H6  1  0.31500486  0.23212376  0.01708756  1
+  H+  H7  1  0.68499515  0.23212376  0.01708756  1
+  H+  H8  1  0.00000000  0.66396926  0.29929821  1
+  H+  H9  1  0.50000000  0.83603074  0.79929821  1
+  H+  H10  1  0.00000000  0.53953027  0.48354168  1
+  H+  H11  1  0.50000000  0.96046973  0.98354168  1
+  H+  H12  1  0.68499515  0.76787625  0.51708756  1
+  H+  H13  1  0.31500486  0.76787625  0.51708756  1
+  H+  H14  1  0.81500486  0.73212375  0.01708756  1
+  H+  H15  1  0.18499515  0.73212375  0.01708756  1
+  O2-  O16  1  0.50000000  0.16533729  0.44018801  1
+  O2-  O17  1  0.00000000  0.33466271  0.94018801  1
+  O2-  O18  1  0.00000000  0.33248137  0.56479997  1
+  O2-  O19  1  0.50000000  0.16751863  0.06479997  1
+  O2-  O20  1  0.00000000  0.66533729  0.44018801  1
+  O2-  O21  1  0.50000000  0.83466271  0.94018801  1
+  O2-  O22  1  0.50000000  0.83248137  0.56479997  1
+  O2-  O23  1  0.00000000  0.66751863  0.06479997  1
+","# fixed CIF file
+data_H2O
+_audit_creation_method          'repaired_by_AI_assistant'
+
+#-------------------------------------------------------------------------------
+#  Cell parameters and space-group information
+#-------------------------------------------------------------------------------
+_symmetry_space_group_name_H-M  'P 1'
+_symmetry_Int_Tables_number      1
+
+_cell_length_a                  4.32660432
+_cell_length_b                  7.52601076
+_cell_length_c                  7.06770668
+_cell_angle_alpha               90.00000000
+_cell_angle_beta                90.00000000
+_cell_angle_gamma               90.00000000
+_cell_volume                    230.13916436
+_cell_formula_units_Z           8
+
+#-------------------------------------------------------------------------------
+#  Chemical formulae
+#-------------------------------------------------------------------------------
+_chemical_formula_structural    H2O
+_chemical_formula_sum           'H16 O8'
+
+#-------------------------------------------------------------------------------
+#  Symmetry operators
+#-------------------------------------------------------------------------------
+loop_
+  _symmetry_equiv_pos_site_id
+  _symmetry_equiv_pos_as_xyz
+    1   'x, y, z'
+
+#-------------------------------------------------------------------------------
+#  Atom types
+#-------------------------------------------------------------------------------
+loop_
+  _atom_type_symbol
+  _atom_type_oxidation_number
+   H   1
+   O  -2
+
+#-------------------------------------------------------------------------------
+#  Atomic coordinates
+#-------------------------------------------------------------------------------
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+   H0   H   1   0.50000000  0.16396926  0.29929821  1
+   H1   H   1   0.00000000  0.33603074  0.79929821  1
+   H2   H   1   0.50000000  0.03953027  0.48354168  1
+   H3   H   1   0.00000000  0.46046973  0.98354168  1
+   H4   H   1   0.18499514  0.26787625  0.51708756  1
+   H5   H   1   0.81500486  0.26787625  0.51708756  1
+   H6   H   1   0.31500486  0.23212376  0.01708756  1
+   H7   H   1   0.68499515  0.23212376  0.01708756  1
+   H8   H   1   0.00000000  0.66396926  0.29929821  1
+   H9   H   1   0.50000000  0.83603074  0.79929821  1
+   H10  H   1   0.00000000  0.53953027  0.48354168  1
+   H11  H   1   0.50000000  0.96046973  0.98354168  1
+   H12  H   1   0.68499515  0.76787625  0.51708756  1
+   H13  H   1   0.31500486  0.76787625  0.51708756  1
+   H14  H   1   0.81500486  0.73212375  0.01708756  1
+   H15  H   1   0.18499515  0.73212375  0.01708756  1
+   O16  O   1   0.50000000  0.16533729  0.44018801  1
+   O17  O   1   0.00000000  0.33466271  0.94018801  1
+   O18  O   1   0.00000000  0.33248137  0.56479997  1
+   O19  O   1   0.50000000  0.16751863  0.06479997  1
+   O20  O   1   0.00000000  0.66533729  0.44018801  1
+   O21  O   1   0.50000000  0.83466271  0.94018801  1
+   O22  O   1   0.50000000  0.83248137  0.56479997  1
+   O23  O   1   0.00000000  0.66751863  0.06479997  1","# generated using pymatgen
+data_H2O
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.32660432
+_cell_length_b   7.52601076
+_cell_length_c   7.06770668
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   H2O
+_chemical_formula_sum   'H16 O8'
+_cell_volume   230.13916436
+_cell_formula_units_Z   8
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_type_symbol
+ _atom_type_oxidation_number
+  H+  1.0
+  O2-  -2.0
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  H+  H0  1  0.50000000  0.16396926  0.29929821  1
+  H+  H1  1  0.00000000  0.33603074  0.79929821  1
+  H+  H2  1  0.50000000  0.03953027  0.48354168  1
+  H+  H3  1  0.00000000  0.46046973  0.98354168  1
+  H+  H4  1  0.18499514  0.26787625  0.51708756  1
+  H+  H5  1  0.81500486  0.26787625  0.51708756  1
+  H+  H6  1  0.31500486  0.23212376  0.01708756  1
+  H+  H7  1  0.68499515  0.23212376  0.01708756  1
+  H+  H8  1  0.00000000  0.66396926  0.29929821  1
+  H+  H9  1  0.50000000  0.83603074  0.79929821  1
+  H+  H10  1  0.00000000  0.53953027  0.48354168  1
+  H+  H11  1  0.50000000  0.96046973  0.98354168  1
+  H+  H12  1  0.68499515  0.76787625  0.51708756  1
+  H+  H13  1  0.31500486  0.76787625  0.51708756  1
+  H+  H14  1  0.81500486  0.73212375  0.01708756  1
+  H+  H15  1  0.18499515  0.73212375  0.01708756  1
+  O2-  O16  1  0.50000000  0.16533729  0.44018801  1
+  O2-  O17  1  0.00000000  0.33466271  0.94018801  1
+  O2-  O18  1  0.00000000  0.33248137  0.56479997  1
+  O2-  O19  1  0.50000000  0.16751863  0.06479997  1
+  O2-  O20  1  0.00000000  0.66533729  0.44018801  1
+  O2-  O21  1  0.50000000  0.83466271  0.94018801  1
+  O2-  O22  1  0.50000000  0.83248137  0.56479997  1
+  O2-  O23  1  0.00000000  0.66751863  0.06479997  1
+",1.14105038726616e-08,1.9306069735751244e-08,"<cif>
+# fixed CIF file
+data_H2O
+_audit_creation_method          'repaired_by_AI_assistant'
+
+#-------------------------------------------------------------------------------
+#  Cell parameters and space-group information
+#-------------------------------------------------------------------------------
+_symmetry_space_group_name_H-M  'P 1'
+_symmetry_Int_Tables_number      1
+
+_cell_length_a                  4.32660432
+_cell_length_b                  7.52601076
+_cell_length_c                  7.06770668
+_cell_angle_alpha               90.00000000
+_cell_angle_beta                90.00000000
+_cell_angle_gamma               90.00000000
+_cell_volume                    230.13916436
+_cell_formula_units_Z           8
+
+#-------------------------------------------------------------------------------
+#  Chemical formulae
+#-------------------------------------------------------------------------------
+_chemical_formula_structural    H2O
+_chemical_formula_sum           'H16 O8'
+
+#-------------------------------------------------------------------------------
+#  Symmetry operators
+#-------------------------------------------------------------------------------
+loop_
+  _symmetry_equiv_pos_site_id
+  _symmetry_equiv_pos_as_xyz
+    1   'x, y, z'
+
+#-------------------------------------------------------------------------------
+#  Atom types
+#-------------------------------------------------------------------------------
+loop_
+  _atom_type_symbol
+  _atom_type_oxidation_number
+   H   1
+   O  -2
+
+#-------------------------------------------------------------------------------
+#  Atomic coordinates
+#-------------------------------------------------------------------------------
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+   H0   H   1   0.50000000  0.16396926  0.29929821  1
+   H1   H   1   0.00000000  0.33603074  0.79929821  1
+   H2   H   1   0.50000000  0.03953027  0.48354168  1
+   H3   H   1   0.00000000  0.46046973  0.98354168  1
+   H4   H   1   0.18499514  0.26787625  0.51708756  1
+   H5   H   1   0.81500486  0.26787625  0.51708756  1
+   H6   H   1   0.31500486  0.23212376  0.01708756  1
+   H7   H   1   0.68499515  0.23212376  0.01708756  1
+   H8   H   1   0.00000000  0.66396926  0.29929821  1
+   H9   H   1   0.50000000  0.83603074  0.79929821  1
+   H10  H   1   0.00000000  0.53953027  0.48354168  1
+   H11  H   1   0.50000000  0.96046973  0.98354168  1
+   H12  H   1   0.68499515  0.76787625  0.51708756  1
+   H13  H   1   0.31500486  0.76787625  0.51708756  1
+   H14  H   1   0.81500486  0.73212375  0.01708756  1
+   H15  H   1   0.18499515  0.73212375  0.01708756  1
+   O16  O   1   0.50000000  0.16533729  0.44018801  1
+   O17  O   1   0.00000000  0.33466271  0.94018801  1
+   O18  O   1   0.00000000  0.33248137  0.56479997  1
+   O19  O   1   0.50000000  0.16751863  0.06479997  1
+   O20  O   1   0.00000000  0.66533729  0.44018801  1
+   O21  O   1   0.50000000  0.83466271  0.94018801  1
+   O22  O   1   0.50000000  0.83248137  0.56479997  1
+   O23  O   1   0.00000000  0.66751863  0.06479997  1
+</cif>
+"
+False,"# generated using pymatgen
+data_H2O
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.32660432
+_cell_length_b   7.52601076
+_cell_length_c   7.06770668
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   H2O
+_chemical_formula_sum   'H16 O8'
+_cell_volume   230.13916436
+_cell_formula_units_Z   8
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_type_symbol
+ _atom_type_oxidation_number
+  H+  1.0
+  O2-  -2.0
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_frac_i
+ _atom_site_frac_j
+ _atom_site_frac_k
+ _atom_site_occupancy
+  H+  H0  1  0.50000000  0.16396926  0.29929821  1
+  H+  H1  1  0.00000000  0.33603074  0.79929821  1
+  H+  H2  1  0.50000000  0.03953027  0.48354168  1
+  H+  H3  1  0.00000000  0.46046973  0.98354168  1
+  H+  H4  1  0.18499514  0.26787625  0.51708756  1
+  H+  H5  1  0.81500486  0.26787625  0.51708756  1
+  H+  H6  1  0.31500486  0.23212376  0.01708756  1
+  H+  H7  1  0.68499515  0.23212376  0.01708756  1
+  H+  H8  1  0.00000000  0.66396926  0.29929821  1
+  H+  H9  1  0.50000000  0.83603074  0.79929821  1
+  H+  H10  1  0.00000000  0.53953027  0.48354168  1
+  H+  H11  1  0.50000000  0.96046973  0.98354168  1
+  H+  H12  1  0.68499515  0.76787625  0.51708756  1
+  H+  H13  1  0.31500486  0.76787625  0.51708756  1
+  H+  H14  1  0.81500486  0.73212375  0.01708756  1
+  H+  H15  1  0.18499515  0.73212375  0.01708756  1
+  O2-  O16  1  0.50000000  0.16533729  0.44018801  1
+  O2-  O17  1  0.00000000  0.33466271  0.94018801  1
+  O2-  O18  1  0.00000000  0.33248137  0.56479997  1
+  O2-  O19  1  0.50000000  0.16751863  0.06479997  1
+  O2-  O20  1  0.00000000  0.66533729  0.44018801  1
+  O2-  O21  1  0.50000000  0.83466271  0.94018801  1
+  O2-  O22  1  0.50000000  0.83248137  0.56479997  1
+  O2-  O23  1  0.00000000  0.66751863  0.06479997  1
+","# fixed CIF file
+data_H2O
+_symmetry_space_group_name_H-M       'P 1'
+_symmetry_Int_Tables_number          1
+
+_cell_length_a                       4.32660432
+_cell_length_b                       7.52601076
+_cell_length_c                       7.06770668
+_cell_angle_alpha                    90.00000000
+_cell_angle_beta                     90.00000000
+_cell_angle_gamma                    90.00000000
+_cell_volume                         230.13916436
+
+_chemical_formula_structural         H2O
+_chemical_formula_sum                'H16 O8'
+_cell_formula_units_Z                8
+
+loop_
+  _symmetry_equiv_pos_site_id
+  _symmetry_equiv_pos_as_xyz
+   1  'x, y, z'
+
+loop_
+  _atom_type_symbol
+  _atom_type_oxidation_number
+   H+   1.0
+   O2- -2.0
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+   H+  H0   1   0.50000000   0.16396926   0.29929821   1
+   H+  H1   1   0.00000000   0.33603074   0.79929821   1
+   H+  H2   1   0.50000000   0.03953027   0.48354168   1
+   H+  H3   1   0.00000000   0.46046973   0.98354168   1
+   H+  H4   1   0.18499514   0.26787625   0.51708756   1
+   H+  H5   1   0.81500486   0.26787625   0.51708756   1
+   H+  H6   1   0.31500486   0.23212376   0.01708756   1
+   H+  H7   1   0.68499515   0.23212376   0.01708756   1
+   H+  H8   1   0.00000000   0.66396926   0.29929821   1
+   H+  H9   1   0.50000000   0.83603074   0.79929821   1
+   H+  H10  1   0.00000000   0.53953027   0.48354168   1
+   H+  H11  1   0.50000000   0.96046973   0.98354168   1
+   H+  H12  1   0.68499515   0.76787625   0.51708756   1
+   H+  H13  1   0.31500486   0.76787625   0.51708756   1
+   H+  H14  1   0.81500486   0.73212375   0.01708756   1
+   H+  H15  1   0.18499515   0.73212375   0.01708756   1
+   O2- O16  1   0.50000000   0.16533729   0.44018801   1
+   O2- O17  1   0.00000000   0.33466271   0.94018801   1
+   O2- O18  1   0.00000000   0.33248137   0.56479997   1
+   O2- O19  1   0.50000000   0.16751863   0.06479997   1
+   O2- O20  1   0.00000000   0.66533729   0.44018801   1
+   O2- O21  1   0.50000000   0.83466271   0.94018801   1
+   O2- O22  1   0.50000000   0.83248137   0.56479997   1
+   O2- O23  1   0.00000000   0.66751863   0.06479997   1","# generated using pymatgen
+data_H2O
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.32660432
+_cell_length_b   7.52601076
+_cell_length_c   7.06770668
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   H2O
+_chemical_formula_sum   'H16 O8'
+_cell_volume   230.13916436
+_cell_formula_units_Z   8
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_type_symbol
+ _atom_type_oxidation_number
+  H+  1.0
+  O2-  -2.0
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  H+  H0  1  0.50000000  0.16396926  0.29929821  1
+  H+  H1  1  0.00000000  0.33603074  0.79929821  1
+  H+  H2  1  0.50000000  0.03953027  0.48354168  1
+  H+  H3  1  0.00000000  0.46046973  0.98354168  1
+  H+  H4  1  0.18499514  0.26787625  0.51708756  1
+  H+  H5  1  0.81500486  0.26787625  0.51708756  1
+  H+  H6  1  0.31500486  0.23212376  0.01708756  1
+  H+  H7  1  0.68499515  0.23212376  0.01708756  1
+  H+  H8  1  0.00000000  0.66396926  0.29929821  1
+  H+  H9  1  0.50000000  0.83603074  0.79929821  1
+  H+  H10  1  0.00000000  0.53953027  0.48354168  1
+  H+  H11  1  0.50000000  0.96046973  0.98354168  1
+  H+  H12  1  0.68499515  0.76787625  0.51708756  1
+  H+  H13  1  0.31500486  0.76787625  0.51708756  1
+  H+  H14  1  0.81500486  0.73212375  0.01708756  1
+  H+  H15  1  0.18499515  0.73212375  0.01708756  1
+  O2-  O16  1  0.50000000  0.16533729  0.44018801  1
+  O2-  O17  1  0.00000000  0.33466271  0.94018801  1
+  O2-  O18  1  0.00000000  0.33248137  0.56479997  1
+  O2-  O19  1  0.50000000  0.16751863  0.06479997  1
+  O2-  O20  1  0.00000000  0.66533729  0.44018801  1
+  O2-  O21  1  0.50000000  0.83466271  0.94018801  1
+  O2-  O22  1  0.50000000  0.83248137  0.56479997  1
+  O2-  O23  1  0.00000000  0.66751863  0.06479997  1
+",1.14105038726616e-08,1.9306069735751244e-08,"<cif>
+# fixed CIF file
+data_H2O
+_symmetry_space_group_name_H-M       'P 1'
+_symmetry_Int_Tables_number          1
+
+_cell_length_a                       4.32660432
+_cell_length_b                       7.52601076
+_cell_length_c                       7.06770668
+_cell_angle_alpha                    90.00000000
+_cell_angle_beta                     90.00000000
+_cell_angle_gamma                    90.00000000
+_cell_volume                         230.13916436
+
+_chemical_formula_structural         H2O
+_chemical_formula_sum                'H16 O8'
+_cell_formula_units_Z                8
+
+loop_
+  _symmetry_equiv_pos_site_id
+  _symmetry_equiv_pos_as_xyz
+   1  'x, y, z'
+
+loop_
+  _atom_type_symbol
+  _atom_type_oxidation_number
+   H+   1.0
+   O2- -2.0
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+   H+  H0   1   0.50000000   0.16396926   0.29929821   1
+   H+  H1   1   0.00000000   0.33603074   0.79929821   1
+   H+  H2   1   0.50000000   0.03953027   0.48354168   1
+   H+  H3   1   0.00000000   0.46046973   0.98354168   1
+   H+  H4   1   0.18499514   0.26787625   0.51708756   1
+   H+  H5   1   0.81500486   0.26787625   0.51708756   1
+   H+  H6   1   0.31500486   0.23212376   0.01708756   1
+   H+  H7   1   0.68499515   0.23212376   0.01708756   1
+   H+  H8   1   0.00000000   0.66396926   0.29929821   1
+   H+  H9   1   0.50000000   0.83603074   0.79929821   1
+   H+  H10  1   0.00000000   0.53953027   0.48354168   1
+   H+  H11  1   0.50000000   0.96046973   0.98354168   1
+   H+  H12  1   0.68499515   0.76787625   0.51708756   1
+   H+  H13  1   0.31500486   0.76787625   0.51708756   1
+   H+  H14  1   0.81500486   0.73212375   0.01708756   1
+   H+  H15  1   0.18499515   0.73212375   0.01708756   1
+   O2- O16  1   0.50000000   0.16533729   0.44018801   1
+   O2- O17  1   0.00000000   0.33466271   0.94018801   1
+   O2- O18  1   0.00000000   0.33248137   0.56479997   1
+   O2- O19  1   0.50000000   0.16751863   0.06479997   1
+   O2- O20  1   0.00000000   0.66533729   0.44018801   1
+   O2- O21  1   0.50000000   0.83466271   0.94018801   1
+   O2- O22  1   0.50000000   0.83248137   0.56479997   1
+   O2- O23  1   0.00000000   0.66751863   0.06479997   1
+</cif>
+"

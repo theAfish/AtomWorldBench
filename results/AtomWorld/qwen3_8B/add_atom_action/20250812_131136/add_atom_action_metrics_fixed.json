@@ -1,0 +1,21 @@
+{
+  "model": "qwen3_8B",
+  "action": "add_atom_action",
+  "total": 250,
+  "correct": 193,
+  "wrong": 57,
+  "error_rate": 0.228,
+  "relabelled_from_wrong_to_correct": 18,
+  "rmsd_stats": {
+    "mean": 0.014234478737079032,
+    "max": 0.1732826164854705,
+    "min": 8.041325592047781e-33,
+    "median": 0.000899368060097
+  },
+  "max_diff_stats": {
+    "mean": 0.06632496882596757,
+    "max": 0.6732426045450606,
+    "min": 1.313142970406727e-32,
+    "median": 0.0041820404700986
+  }
+}

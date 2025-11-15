@@ -11,11 +11,13 @@ def load_model(config):
     model_class = config.get("class")
     if model_class == "OpenAIModel":
         api_key = os.path.expandvars(config.get("api_key", ""))
+        generation_params = {k: v for k, v in config.items() if
+                             k not in ["class", "model_name", "api_key", "base_url"]}
         model = OpenAIModel(
             model_name=config['model_name'],
             api_key=api_key,
             base_url=config.get('base_url'),
-            temperature=config.get('temperature', 1)
+            **generation_params
         )
     elif model_class == "AzureOpenAIModel":
         model_name = os.path.expandvars(config.get("model_name", ""))

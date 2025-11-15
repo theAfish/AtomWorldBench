@@ -1,0 +1,22 @@
+2025-09-18 19:24:16,441 - CIFGenEvaluator - INFO - Starting evaluation with 20 samples in batches of 1
+2025-09-18 19:24:16,442 - CIFGenEvaluator - INFO - Resuming from index 10
+2025-09-18 19:24:16,445 - CIFGenEvaluator - DEBUG - Processing batch 1 of 20
+2025-09-18 19:24:30,525 - CIFGenEvaluator - DEBUG - Processing batch 2 of 20
+2025-09-18 19:24:47,764 - CIFGenEvaluator - DEBUG - Processing batch 3 of 20
+2025-09-18 19:24:58,179 - CIFGenEvaluator - DEBUG - Processing batch 4 of 20
+2025-09-18 19:25:17,674 - CIFGenEvaluator - DEBUG - Processing batch 5 of 20
+2025-09-18 19:25:28,666 - CIFGenEvaluator - DEBUG - Processing batch 6 of 20
+2025-09-18 19:25:40,345 - CIFGenEvaluator - DEBUG - Processing batch 7 of 20
+2025-09-18 19:25:58,648 - CIFGenEvaluator - DEBUG - Processing batch 8 of 20
+2025-09-18 19:26:13,812 - CIFGenEvaluator - DEBUG - Processing batch 9 of 20
+2025-09-18 19:26:34,925 - CIFGenEvaluator - DEBUG - Processing batch 10 of 20
+2025-09-18 19:26:44,436 - CIFGenEvaluator - INFO - Evaluation completed
+2025-09-18 19:26:44,436 - CIFGenEvaluator - INFO - summary: {'total_samples': 10, 'success_count': 9, 'error_count': 1, 'success_rate': 0.9, 'error_types': {'StructureMismatch': {'count': 1, 'percentage': 1.0}}} - statistics: {'rmsd_mean': np.float64(0.03255291709392467), 'rmsd_median': np.float64(4.4094491747649263e-17), 'rmsd_max': np.float64(0.28364037139472714), 'rmsd_min': np.float64(0.0), 'max_diff_mean': np.float64(0.05585706760940606), 'max_diff_median': np.float64(4.409449174764927e-17), 'max_diff_max': np.float64(0.49127953433337346), 'max_diff_min': np.float64(0.0)}
+2025-09-18 19:26:44,439 - CIFGenEvaluator - INFO - Saved metrics to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/CifGen/o4_mini/20250918_192416/metrics.json
+2025-09-18 19:26:44,447 - CIFGenEvaluator - INFO - Evaluation results saved to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/CifGen/o4_mini/20250918_192416/evaluation_results.csv
+2025-09-18 19:26:44,450 - CIFGenEvaluator - INFO - Failed cases saved to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/CifGen/o4_mini/20250918_192416/evaluation_wrongs.csv
+2025-09-18 19:26:44,450 - CIFGenEvaluator - INFO - 
+======== Evaluation Summary ========
+2025-09-18 19:26:44,450 - CIFGenEvaluator - INFO - Total inputs: 20
+2025-09-18 19:26:44,450 - CIFGenEvaluator - INFO - num_unreadable_out: 0
+2025-09-18 19:26:44,450 - CIFGenEvaluator - INFO - num_invalid_cif: 1

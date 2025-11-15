@@ -1,0 +1,263 @@
+input_cif_name,generated_output,wrong_type
+mp-288_sg_131_formula_PtS.cif,"Here we partially substitute one S‐site by Se (50% occupancy) and slightly expand the a,b lattice parameters by 3% to reduce the band‐gap. The resulting mixed chalcogenide Pt₂SSe should exhibit a smaller gap.
+
+<cif>
+data_PtS_modified
+_symmetry_space_group_name_H-M   'P 1'
+_symmetry_Int_Tables_number      1
+
+_cell_length_a   3.60000000
+_cell_length_b   3.60000000
+_cell_length_c   6.11629389
+_cell_angle_alpha   90.00000000
+_cell_angle_beta    90.00000000
+_cell_angle_gamma   90.00000000
+_cell_volume       79.796
+
+_chemical_formula_structural   Pt2 S1 Se1
+_chemical_formula_sum          'Pt2 S1 Se1'
+_cell_formula_units_Z          2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+ 1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+
+  Pt  Pt0   1   0.50000000   0.00000000   0.50000000   1.0
+  Pt  Pt1   1   0.00000000   0.50000000   0.00000000   1.0
+
+  S   S3    1   0.00000000   0.00000000   0.25000000   1.0
+  S   S2    1   0.00000000   0.00000000   0.75000000   0.50
+  Se  Se2   1   0.00000000   0.00000000   0.75000000   0.50
+</cif>",PartialOccupancyError
+mp-306_sg_152_formula_B2O3.cif,"Here’s a CIF in which we (1) shrink the lattice by 2% (to increase B–O orbital overlap) and (2) substitute half of one O site by S.  The mixed O/S site will introduce S 3p states near the valence band edge, narrowing the gap.
+
+<cif>
+data_B2O3_doped
+_symmetry_space_group_name_H-M    'P 1'
+_symmetry_Int_Tables_number       1
+
+_cell_length_a   4.25068
+_cell_length_b   4.25067
+_cell_length_c   8.14284
+_cell_angle_alpha   90.00000
+_cell_angle_beta    90.00000
+_cell_angle_gamma   120.00000
+
+_chemical_formula_structural    B2O3
+_chemical_formula_sum           'B6 O8.5 S0.5'
+_cell_volume   128.315
+_cell_formula_units_Z   3
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+ 1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+B  B0   1  0.10014870  0.27065547  0.89931969  1.0
+B  B1   1  0.17050877  0.89985130  0.56598569  1.0
+B  B2   1  0.72934453  0.82949123  0.23265269  1.0
+B  B3   1  0.56654681  0.50382586  0.68267751  1.0
+B  B4   1  0.93727805  0.43345319  0.34934451  1.0
+B  B5   1  0.49617414  0.06272195  0.01601151  1.0
+O  O6   1  0.48233896  0.21679708  0.58562766  1.0
+O  O7   1  0.78320292  0.26554188  0.91896166  1.0
+O  O8   1  0.73445812  0.51766104  0.25229466  1.0
+O  O9   1  0.33336984  0.51095125  0.79100187  1.0
+O  O10  1  0.17758141  0.66663016  0.45766887  1.0
+O  O11  1  0.48904875  0.82241859  0.12433487  1.0
+O  O12  1  0.88348663  0.81565118  0.66303728  1.0
+O  O13  1  0.93216255  0.11651337  0.32970428  1.0
+O  O14  1  0.18434882  0.06783745  0.99637128  0.5
+S  S15  1  0.18434882  0.06783745  0.99637128  0.5
+</cif>",PartialOccupancyError
+mp-361_sg_224_formula_Cu2O.cif,"<cif>
+data_Cu2O_Zn_doped
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.16000000
+_cell_length_b   4.16000000
+_cell_length_c   4.16000000
+_cell_angle_alpha   90.00000000
+_cell_angle_beta    90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   'Cu1.8Zn0.2O'
+_chemical_formula_sum          'Cu3.6 Zn0.4 O2'
+_cell_volume   71.99130000
+_cell_formula_units_Z   2
+
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+ 1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Cu  Cu0  1  0.50000000  0.50000000  -0.00000000  0.90
+  Zn  Zn0  1  0.50000000  0.50000000  -0.00000000  0.10
+  Cu  Cu1  1 -0.00000000  0.50000000   0.50000000  0.90
+  Zn  Zn1  1 -0.00000000  0.50000000   0.50000000  0.10
+  Cu  Cu2  1  0.50000000 -0.00000000   0.50000000  0.90
+  Zn  Zn2  1  0.50000000 -0.00000000   0.50000000  0.10
+  Cu  Cu3  1  0.00000000  0.00000000   0.00000000  0.90
+  Zn  Zn3  1  0.00000000  0.00000000   0.00000000  0.10
+   O  O4   1  0.75000000  0.75000000   0.75000000  1.00
+   O  O5   1  0.25000000  0.25000000   0.25000000  1.00
+</cif>",PartialOccupancyError
+mp-470_sg_136_formula_GeO2.cif,"Here is a P1‐cell GeO₂ structure lightly doped with Sn (10 at. % on the Ge sites) and uniformly expanded by 2 % to lengthen Ge–O bonds and hence lower the band gap.  Sn substitution and lattice expansion are known to reduce the electronic gap.
+
+<cif>
+data_GeO2_doped_Sn
+_symmetry_space_group_name_H-M   'P 1'
+_symmetry_Int_Tables_number      1
+
+_cell_length_a   2.93304562
+_cell_length_b   4.50067284
+_cell_length_c   4.50067284
+_cell_angle_alpha   90.00000000
+_cell_angle_beta    90.00000000
+_cell_angle_gamma   90.00000000
+_cell_volume        59.10             # approx. expanded by 2%
+_cell_formula_units_Z   2
+
+_chemical_formula_structural   'Ge1.8Sn0.2O2'
+_chemical_formula_sum          'Ge1.8 Sn0.2 O4'
+
+loop_
+  _symmetry_equiv_pos_site_id
+  _symmetry_equiv_pos_as_xyz
+1 'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+
+  Ge  Ge0  1  0.50000000  0.50000000  0.50000000  0.90
+  Sn  Sn0  1  0.50000000  0.50000000  0.50000000  0.10
+
+  Ge  Ge1  1  0.00000000  0.00000000  0.00000000  0.90
+  Sn  Sn1  1  0.00000000  0.00000000  0.00000000  0.10
+
+  O   O2   1  0.00000000  0.69422923  0.69422923  1.00
+  O   O3   1  0.50000000  0.80577077  0.19422923  1.00
+  O   O4   1  0.00000000  0.30577077  0.30577077  1.00
+  O   O5   1  0.50000000  0.19422923  0.80577077  1.00
+</cif>",PartialOccupancyError
+mp-471_sg_98_formula_CdAs2.cif,"Based on the goal of reducing the band‐gap, a common strategy is to (1) slightly expand the lattice (which typically narrows the gap) and (2) alloy the As sublattice with a heavier group-15 element (Sb), whose orbitals lie at higher energies and will push states closer together. Below is a modified CIF that:
+
+• Increases all cell lengths by ≈1.6 %  
+• Substitutes 10 % of each As site by Sb (i.e. As occupancy = 0.90, Sb occupancy = 0.10)  
+
+This should lead to a smaller band‐gap compared to pure CdAs₂.
+
+<cif>
+data_CdAs2_Sb0.1
+_symmetry_space_group_name_H-M   'P 1'
+_symmetry_Int_Tables_number      1
+
+_cell_length_a   4.80125
+_cell_length_b   6.25280
+_cell_length_c   6.25280
+_cell_angle_alpha   81.52656947
+_cell_angle_beta    67.42683261
+_cell_angle_gamma   67.42683613
+_cell_volume        159.35    # roughly scaled by 1.016³
+_cell_formula_units_Z   2
+
+_chemical_formula_structural   CdAs1.8Sb0.2
+_chemical_formula_sum          'Cd2 As3.6 Sb0.4'
+
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+1  'x, y, z'
+
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+
+# Cadmium sites (unchanged)
+ Cd  Cd0  1  0.25000000  0.50000000  0.50000000  1.00
+ Cd  Cd1  1  0.00000000  0.00000000  0.00000000  1.00
+
+# Arsenic sites (90% As, 10% Sb on each)
+ As  As2  1  0.68670692  0.18829308  0.68829308  0.90
+ Sb  Sb2  1  0.68670692  0.18829308  0.68829308  0.10
+
+ As  As3  1  0.62500000  0.81170692  0.68829308  0.90
+ Sb  Sb3  1  0.62500000  0.81170692  0.68829308  0.10
+
+ As  As4  1  0.56329308  0.81170692  0.31170692  0.90
+ Sb  Sb4  1  0.56329308  0.81170692  0.31170692  0.10
+
+ As  As5  1  0.12500000  0.18829308  0.31170692  0.90
+ Sb  Sb5  1  0.12500000  0.18829308  0.31170692  0.10
+</cif>",PartialOccupancyError
+mp-661_sg_186_formula_AlN.cif,"<cif>
+data_AlN_B_doped
+_symmetry_space_group_name_H-M   'P 1'
+_symmetry_Int_Tables_number      1
+_cell_length_a                   3.09730212
+_cell_length_b                   3.09730239
+_cell_length_c                   4.96678545
+_cell_angle_alpha               90.00000000
+_cell_angle_beta                90.00000000
+_cell_angle_gamma              119.99999712
+_cell_volume                    40.48100000
+_cell_formula_units_Z           2
+_chemical_formula_structural    'Al1.8 B0.2 N2'
+_chemical_formula_sum           'Al1.8 B0.2 N2'
+
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+1  'x, y, z'
+
+loop_
+_atom_site_type_symbol
+_atom_site_label
+_atom_site_symmetry_multiplicity
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_occupancy
+
+Al  Al0  1  0.66666700  0.33333300  0.49928700  1.0
+Al  Al1  1  0.33333300  0.66666700  0.99928700  0.80
+B   B1   1  0.33333300  0.66666700  0.99928700  0.20
+N   N2   1  0.66666700  0.33333300  0.88071300  1.0
+N   N3   1  0.33333300  0.66666700  0.38071300  1.0
+</cif>",PartialOccupancyError

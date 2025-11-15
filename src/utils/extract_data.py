@@ -17,8 +17,8 @@ def extract_from_string(data: str, format: str = "cif") -> str:
     else:
         raise ValueError(f"Unsupported format: {format}")
 
-    start_index = data.find(start_tag)
-    end_index = data.find(end_tag, start_index)
+    start_index = data.rfind(start_tag)
+    end_index = data.rfind(end_tag, start_index)
 
     if start_index == -1 or end_index == -1:
         return None

@@ -3,12 +3,13 @@ node_modules/
 .venv/
 .pytest_cache/
 *.egg-info/
+*.pyc
 __pycache__/
 build/
 
 _raw_data/
 debug/
-tests/
+# tests/
 local.models.yaml
 
 run.log

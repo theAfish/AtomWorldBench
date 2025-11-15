@@ -1,0 +1,1538 @@
+input_cif,action_prompt,generated_cif,target_cif,rmsd,max_diff
+"# generated using pymatgen
+data_Mg14NbCu
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.29469896
+_cell_length_b   6.26323906
+_cell_length_c   9.92812979
+_cell_angle_alpha   89.99938641
+_cell_angle_beta   90.00080581
+_cell_angle_gamma   119.83385010
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Mg14NbCu
+_chemical_formula_sum   'Mg14 Nb1 Cu1'
+_cell_volume   339.54450833
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Mg  Mg0  1  0.16810778  0.33404424  0.62500068  1
+  Mg  Mg1  1  0.16927187  0.83463814  0.62499550  1
+  Mg  Mg2  1  0.66209034  0.33744955  0.12500013  1
+  Mg  Mg3  1  0.66542147  0.33201346  0.62500053  1
+  Mg  Mg4  1  0.66213015  0.82464549  0.12499904  1
+  Mg  Mg5  1  0.66545097  0.83341901  0.62499932  1
+  Mg  Mg6  1  0.32580564  0.16234113  0.36227337  1
+  Mg  Mg7  1  0.32581530  0.16234411  0.88772021  1
+  Mg  Mg8  1  0.32580604  0.66347435  0.36228113  1
+  Mg  Mg9  1  0.32581329  0.66348386  0.88771195  1
+  Mg  Mg10  1  0.84382411  0.17192563  0.36385713  1
+  Mg  Mg11  1  0.84384280  0.17193867  0.88617533  1
+  Mg  Mg12  1  0.84345976  0.67173675  0.37221632  1
+  Mg  Mg13  1  0.84346528  0.67173770  0.87777307  1
+  Nb  Nb14  1  0.15732632  0.82861036  0.12499695  1
+  Cu  Cu15  1  0.17236889  0.33619755  0.12499935  1
+",Rotate all surrounding atoms within 3.331235449986973 angstrom of the center atom at index 7 by 190.80550623712563 degree around the axis [0. 1. 0.] in the cif file. The rotation should following the right-hand rule.,"data_Mg14NbCu
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.29469896
+_cell_length_b   6.26323906
+_cell_length_c   9.92812979
+_cell_angle_alpha   89.99938641
+_cell_angle_beta   90.00080581
+_cell_angle_gamma   119.83385010
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Mg14NbCu
+_chemical_formula_sum   'Mg14 Nb1 Cu1'
+_cell_volume   339.54450833
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Mg  Mg0  1  0.16810778  0.33404424  0.62500068  1
+  Mg  Mg1  1  0.16927187  0.83463814  0.62499550  1
+  Mg  Mg2  1  0.66209034  0.33744955  0.12500013  1
+  Mg  Mg3  1  0.66542147  0.33201346  0.62500053  1
+  Mg  Mg4  1  0.66213015  0.82464549  0.12499904  1
+  Mg  Mg5  1  0.66545097  0.83341901  0.62499932  1
+  Mg  Mg6  1  0.32580564  0.16234113  0.36227337  1
+  Mg  Mg7  1  0.32581530  0.16234411  0.88772021  1
+  Mg  Mg8  1  0.32580604  0.66347435  0.36228113  1
+  Mg  Mg9  1  0.32581329  0.66348386  0.88771195  1
+  Mg  Mg10  1  0.84382411  0.17192563  0.36385713  1
+  Mg  Mg11  1  0.84384280  0.17193867  0.88617533  1
+  Mg  Mg12  1  0.84345976  0.67173675  0.37221632  1
+  Mg  Mg13  1  0.84346528  0.67173770  0.87777307  1
+  Nb  Nb14  1  0.15732632  0.82861036  0.12499695  1
+  Cu  Cu15  1  0.17236889  0.33619755  0.12499935  1","data_image0
+_chemical_formula_structural       Mg14NbCu
+_chemical_formula_sum              ""Mg14 Nb1 Cu1""
+_cell_length_a       6.29469896
+_cell_length_b       6.263239059999999
+_cell_length_c       9.928129790000002
+_cell_angle_alpha    89.99938641
+_cell_angle_beta     90.00080581
+_cell_angle_gamma    119.8338501
+
+_space_group_name_H-M_alt    ""P 1""
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Mg  Mg1       1.0  0.7268839203378061  0.33404039293085075  0.11693388189147669  1.0000
+  Mg  Mg2       1.0  0.21693603702138065  0.8346345221073724  0.08762339552713994  1.0000
+  Mg  Mg3       1.0  0.3928441077220981  0.33743749431558934  0.6665870376072862  1.0000
+  Mg  Mg4       1.0  0.2363964603810805  0.332009149712289  0.17616650922228216  1.0000
+  Mg  Mg5       1.0  0.66213015  0.8246454900000001  0.12499904  1.0000
+  Mg  Mg6       1.0  0.6654509700000002  0.83341901  0.62499932  1.0000
+  Mg  Mg7       1.0  0.32580564  0.16234113  0.3622733700000001  1.0000
+  Mg  Mg8       1.0  0.32581530000000003  0.16234411  0.88772021  1.0000
+  Mg  Mg9       1.0  0.3258060400000001  0.66347435  0.36228113  1.0000
+  Mg  Mg10      1.0  0.8175493493468657  0.6634840904638954  0.8582420243006816  1.0000
+  Mg  Mg11      1.0  0.8438241100000001  0.17192563  0.36385713000000003  1.0000
+  Mg  Mg12      1.0  0.8268451429902337  0.17193816892956915  0.9502483091608565  1.0000
+  Mg  Mg13      1.0  0.84345976  0.67173675  0.37221632  1.0000
+  Mg  Mg14      1.0  0.3201144610761267  0.6717372990020242  0.9290495640181254  1.0000
+  Nb  Nb1       1.0  0.37059619040695857  0.8285989994720673  0.5776926682965817  1.0000
+  Cu  Cu1       1.0  0.8726530975622776  0.33618594895179876  0.608450924569792  1.0000
+",0.2258984033621426,0.4072123044567566
+"# generated using pymatgen
+data_MgNi(PO3)4
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   7.25582571
+_cell_length_b   7.25582571
+_cell_length_c   10.02352066
+_cell_angle_alpha   67.12659797
+_cell_angle_beta   67.12659797
+_cell_angle_gamma   70.47774415
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   MgNi(PO3)4
+_chemical_formula_sum   'Mg2 Ni2 P8 O24'
+_cell_volume   437.43672631
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Mg  Mg0  1  0.95269400  0.04730600  0.75000000  1
+  Mg  Mg1  1  0.04730600  0.95269400  0.25000000  1
+  Ni  Ni2  1  0.50000000  0.00000000  0.00000000  1
+  Ni  Ni3  1  0.00000000  0.50000000  0.50000000  1
+  P  P4  1  0.31408000  0.29350500  0.69741000  1
+  P  P5  1  0.70649500  0.68592000  0.80259000  1
+  P  P6  1  0.68592000  0.70649500  0.30259000  1
+  P  P7  1  0.29350500  0.31408000  0.19741000  1
+  P  P8  1  0.73120400  0.25079600  0.47908200  1
+  P  P9  1  0.74920400  0.26879600  0.02091800  1
+  P  P10  1  0.26879600  0.74920400  0.52091800  1
+  P  P11  1  0.25079600  0.73120400  0.97908200  1
+  O  O12  1  0.31670800  0.53094300  0.65139200  1
+  O  O13  1  0.46905700  0.68329200  0.84860800  1
+  O  O14  1  0.68329200  0.46905700  0.34860800  1
+  O  O15  1  0.53094300  0.31670800  0.15139200  1
+  O  O16  1  0.50454000  0.20856100  0.56914900  1
+  O  O17  1  0.79143900  0.49546000  0.93085100  1
+  O  O18  1  0.49546000  0.79143900  0.43085100  1
+  O  O19  1  0.20856100  0.50454000  0.06914900  1
+  O  O20  1  0.34473300  0.19202200  0.84905900  1
+  O  O21  1  0.80797800  0.65526700  0.65094100  1
+  O  O22  1  0.65526700  0.80797800  0.15094100  1
+  O  O23  1  0.19202200  0.34473300  0.34905900  1
+  O  O24  1  0.12367300  0.28049600  0.67519400  1
+  O  O25  1  0.71950400  0.87632700  0.82480600  1
+  O  O26  1  0.87632700  0.71950400  0.32480600  1
+  O  O27  1  0.28049600  0.12367300  0.17519400  1
+  O  O28  1  0.81447500  0.28519000  0.58348700  1
+  O  O29  1  0.71481000  0.18552500  0.91651300  1
+  O  O30  1  0.18552500  0.71481000  0.41651300  1
+  O  O31  1  0.28519000  0.81447500  0.08348700  1
+  O  O32  1  0.84871200  0.08830400  0.40525600  1
+  O  O33  1  0.91169600  0.15128800  0.09474400  1
+  O  O34  1  0.15128800  0.91169600  0.59474400  1
+  O  O35  1  0.08830400  0.84871200  0.90525600  1
+",Rotate all surrounding atoms within 1.7945839743063403 angstrom of the center atom at index 31 by 46.57317779399282 degree around the axis [ 0. -1.  0.] in the cif file. The rotation should following the right-hand rule.,"data_MgNi(PO3)4
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   7.25582571
+_cell_length_b   7.25582571
+_cell_length_c   10.02352066
+_cell_angle_alpha   67.12659797
+_cell_angle_beta   67.12659797
+_cell_angle_gamma   70.47774415
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   MgNi(PO3)4
+_chemical_formula_sum   'Mg2 Ni2 P8 O24'
+_cell_volume   437.43672631
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Mg  Mg0  1  0.95269400  0.04730600  0.75000000  1
+  Mg  Mg1  1  0.04730600  0.95269400  0.25000000  1
+  Ni  Ni2  1  0.50000000  0.00000000  0.00000000  1
+  Ni  Ni3  1  0.00000000  0.50000000  0.50000000  1
+  P  P4  1  0.31408000  0.29350500  0.69741000  1
+  P  P5  1  0.70649500  0.68592000  0.80259000  1
+  P  P6  1  0.68592000  0.70649500  0.30259000  1
+  P  P7  1  0.29350500  0.31408000  0.19741000  1
+  P  P8  1  0.73120400  0.25079600  0.47908200  1
+  P  P9  1  0.74920400  0.26879600  0.02091800  1
+  P  P10  1  0.26879600  0.74920400  0.52091800  1
+  P  P11  1  0.25079600  0.73120400  0.97908200  1
+  O  O12  1  0.31670800  0.53094300  0.65139200  1
+  O  O13  1  0.46905700  0.68329200  0.84860800  1
+  O  O14  1  0.68329200  0.46905700  0.34860800  1
+  O  O15  1  0.53094300  0.31670800  0.15139200  1
+  O  O16  1  0.50454000  0.20856100  0.56914900  1
+  O  O17  1  0.79143900  0.49546000  0.93085100  1
+  O  O18  1  0.49546000  0.79143900  0.43085100  1
+  O  O19  1  0.20856100  0.50454000  0.06914900  1
+  O  O20  1  0.34473300  0.19202200  0.84905900  1
+  O  O21  1  0.80797800  0.65526700  0.65094100  1
+  O  O22  1  0.65526700  0.80797800  0.15094100  1
+  O  O23  1  0.19202200  0.34473300  0.34905900  1
+  O  O24  1  0.12367300  0.28049600  0.67519400  1
+  O  O25  1  0.71950400  0.87632700  0.82480600  1
+  O  O26  1  0.87632700  0.71950400  0.32480600  1
+  O  O27  1  0.28049600  0.12367300  0.17519400  1
+  O  O28  1  0.81447500  0.28519000  0.58348700  1
+  O  O29  1  0.71481000  0.18552500  0.91651300  1
+  O  O30  1  0.18552500  0.71481000  0.41651300  1
+  O  O31  1  0.28519000  0.81447500  0.08348700  1
+  O  O32  1  0.84871200  0.08830400  0.40525600  1
+  O  O33  1  0.91169600  0.15128800  0.09474400  1
+  O  O34  1  0.15128800  0.91169600  0.59474400  1
+  O  O35  1  0.08830400  0.84871200  0.90525600  1","data_image0
+_chemical_formula_structural       Mg2Ni2P8O24
+_chemical_formula_sum              ""Mg2 Ni2 P8 O24""
+_cell_length_a       7.25582571
+_cell_length_b       7.255825709999999
+_cell_length_c       10.02352066
+_cell_angle_alpha    67.12659796999999
+_cell_angle_beta     67.12659796999999
+_cell_angle_gamma    70.47774415
+
+_space_group_name_H-M_alt    ""P 1""
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Mg  Mg1       1.0  0.952694  0.04730599999999997  0.75  1.0000
+  Mg  Mg2       1.0  0.04730599999999992  0.9526940000000003  0.25  1.0000
+  Ni  Ni1       1.0  0.5  0.0  0.0  1.0000
+  Ni  Ni2       1.0  3.06022517353206e-17  0.49999999999999994  0.5  1.0000
+  P   P1        1.0  0.31407999999999997  0.293505  0.69741  1.0000
+  P   P2        1.0  0.706495  0.6859200000000001  0.80259  1.0000
+  P   P3        1.0  0.68592  0.7064950000000002  0.30259  1.0000
+  P   P4        1.0  0.293505  0.31408000000000014  0.19741000000000003  1.0000
+  P   P5        1.0  0.731204  0.250796  0.47908200000000006  1.0000
+  P   P6        1.0  0.749204  0.268796  0.020918  1.0000
+  P   P7        1.0  0.268796  0.749204  0.520918  1.0000
+  P   P8        1.0  0.34161487660470213  0.7431461186874814  0.9494098030409283  1.0000
+  O   O1        1.0  0.31670800000000005  0.530943  0.651392  1.0000
+  O   O2        1.0  0.4690569999999998  0.6832919999999999  0.8486080000000003  1.0000
+  O   O3        1.0  0.683292  0.46905700000000017  0.348608  1.0000
+  O   O4        1.0  0.5309430000000002  0.316708  0.151392  1.0000
+  O   O5        1.0  0.5045400000000004  0.208561  0.569149  1.0000
+  O   O6        1.0  0.791439  0.49546  0.9308510000000001  1.0000
+  O   O7        1.0  0.4954599999999999  0.7914390000000002  0.4308510000000001  1.0000
+  O   O8        1.0  0.20856099999999994  0.5045400000000001  0.069149  1.0000
+  O   O9        1.0  0.3447329999999999  0.1920220000000001  0.849059  1.0000
+  O   O10       1.0  0.8079779999999998  0.6552669999999999  0.6509410000000002  1.0000
+  O   O11       1.0  0.655267  0.8079780000000001  0.150941  1.0000
+  O   O12       1.0  0.19202199999999997  0.344733  0.349059  1.0000
+  O   O13       1.0  0.12367299999999994  0.28049599999999997  0.6751940000000001  1.0000
+  O   O14       1.0  0.7195039999999999  0.8763270000000003  0.824806  1.0000
+  O   O15       1.0  0.8763269999999997  0.7195040000000003  0.324806  1.0000
+  O   O16       1.0  0.280496  0.12367300000000005  0.175194  1.0000
+  O   O17       1.0  0.8144750000000002  0.2851900000000001  0.583487  1.0000
+  O   O18       1.0  0.7148099999999998  0.185525  0.916513  1.0000
+  O   O19       1.0  0.18552499999999994  0.7148100000000002  0.416513  1.0000
+  O   O20       1.0  0.28518999999999994  0.8144750000000002  0.08348700000000003  1.0000
+  O   O21       1.0  0.848712  0.088304  0.405256  1.0000
+  O   O22       1.0  0.911696  0.15128799999999998  0.09474400000000002  1.0000
+  O   O23       1.0  0.151288  0.911696  0.594744  1.0000
+  O   O24       1.0  0.08830399999999979  0.8487120000000002  0.9052560000000002  1.0000
+",0.0449805658466968,0.266108616238024
+"# generated using pymatgen
+data_Sm2CdGe2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   7.42078490
+_cell_length_b   7.42078490
+_cell_length_c   4.27440503
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Sm2CdGe2
+_chemical_formula_sum   'Sm4 Cd2 Ge4'
+_cell_volume   235.38314364
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Sm  Sm0  1  0.67942218  0.17942218  0.50000000  1
+  Sm  Sm1  1  0.32057782  0.82057782  0.50000000  1
+  Sm  Sm2  1  0.17942218  0.32057782  0.50000000  1
+  Sm  Sm3  1  0.82057782  0.67942218  0.50000000  1
+  Cd  Cd4  1  0.50000000  0.50000000  0.00000000  1
+  Cd  Cd5  1  -0.00000000  -0.00000000  0.00000000  1
+  Ge  Ge6  1  0.11961691  0.61961691  0.00000000  1
+  Ge  Ge7  1  0.88038309  0.38038309  -0.00000000  1
+  Ge  Ge8  1  0.61961691  0.88038309  0.00000000  1
+  Ge  Ge9  1  0.38038309  0.11961691  -0.00000000  1
+",Rotate all surrounding atoms within 3.6140181676648244 angstrom of the center atom at index 5 by 185.19700059129008 degree around the axis [0. 0. 1.] in the cif file. The rotation should following the right-hand rule.,"data_Sm2CdGe2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   7.42078490
+_cell_length_b   7.42078490
+_cell_length_c   4.27440503
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Sm2CdGe2
+_chemical_formula_sum   'Sm4 Cd2 Ge4'
+_cell_volume   235.38314364
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Sm  Sm0  1  -0.6606  -0.2395  0.5000  1
+  Sm  Sm1  1  -0.2462  -0.8462  0.5000  1
+  Sm  Sm2  1  -0.1502  -0.3354  0.5000  1
+  Sm  Sm3  1  -0.7569  -0.7498  0.5000  1
+  Cd  Cd4  1  0.5000  0.5000  0.0000  1
+  Cd  Cd5  1  -0.0000  -0.0000  0.0000  1
+  Ge  Ge6  1  -0.0638  -0.6276  0.0000  1
+  Ge  Ge7  1  -0.8436  -0.4575  0.0000  1
+  Ge  Ge8  1  -0.5383  -0.9329  0.0000  1
+  Ge  Ge9  1  -0.3682  -0.1531  0.0000  1","data_image0
+_chemical_formula_structural       Sm4Cd2Ge4
+_chemical_formula_sum              ""Sm4 Cd2 Ge4""
+_cell_length_a       7.4207849
+_cell_length_b       7.4207849
+_cell_length_c       4.27440503
+_cell_angle_alpha    90.0
+_cell_angle_beta     90.0
+_cell_angle_gamma    90.0
+
+_space_group_name_H-M_alt    ""P 1""
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Sm  Sm1       1.0  0.3396229693022532  0.7597730350715561  0.5000000000000001  1.0000
+  Sm  Sm2       1.0  0.7550683348368261  0.1537573771356705  0.5000000000000001  1.0000
+  Sm  Sm3       1.0  0.8503534810374823  0.6644878888708998  0.5000000000000001  1.0000
+  Sm  Sm4       1.0  0.2443378231015968  0.24904252333632693  0.5000000000000001  1.0000
+  Cd  Cd1       1.0  0.5  0.5  0.0  1.0000
+  Cd  Cd2       1.0  0.0  0.0  0.0  1.0000
+  Ge  Ge1       1.0  0.93699999418795  0.3720952941858312  0.0  1.0000
+  Ge  Ge2       1.0  0.15769130995112912  0.5414351180213955  0.0  1.0000
+  Ge  Ge3       1.0  0.4626757401517574  0.06711086398520294  0.0  1.0000
+  Ge  Ge4       1.0  0.6320155639873217  0.8464195482220237  0.0  1.0000
+",0.001703661777212,0.0024974306818153
+"# generated using pymatgen
+data_Er2Ga8Fe
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.24627400
+_cell_length_b   4.24627400
+_cell_length_c   11.04320600
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Er2Ga8Fe
+_chemical_formula_sum   'Er2 Ga8 Fe1'
+_cell_volume   199.11831231
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Er  Er0  1  0.00000000  0.00000000  0.69585900  1
+  Er  Er1  1  0.00000000  0.00000000  0.30414100  1
+  Ga  Ga2  1  0.50000000  0.00000000  0.88494800  1
+  Ga  Ga3  1  0.00000000  0.50000000  0.88494800  1
+  Ga  Ga4  1  0.50000000  0.00000000  0.11505200  1
+  Ga  Ga5  1  0.00000000  0.50000000  0.11505200  1
+  Ga  Ga6  1  0.50000000  0.00000000  0.50000000  1
+  Ga  Ga7  1  0.00000000  0.50000000  0.50000000  1
+  Ga  Ga8  1  0.50000000  0.50000000  0.69905800  1
+  Ga  Ga9  1  0.50000000  0.50000000  0.30094200  1
+  Fe  Fe10  1  0.00000000  0.00000000  0.00000000  1
+",Rotate all surrounding atoms within 3.9482940376626754 angstrom of the center atom at index 9 by 67.22831066655753 degree around the axis [0. 0. 1.] in the cif file. The rotation should following the right-hand rule.,"data_Er2Ga8Fe
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.24627400
+_cell_length_b   4.24627400
+_cell_length_c   11.04320600
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Er2Ga8Fe
+_chemical_formula_sum   'Er2 Ga8 Fe1'
+_cell_volume   199.11831231
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Er  Er0  1  0.00000000  0.00000000  0.69585900  1
+  Er  Er1  1  0.00000000  0.00000000  0.30414100  1
+  Ga  Ga2  1  0.50000000  0.00000000  0.88494800  1
+  Ga  Ga3  1  0.00000000  0.50000000  0.88494800  1
+  Ga  Ga4  1  0.50000000  0.00000000  0.11505200  1
+  Ga  Ga5  1  0.00000000  0.50000000  0.11505200  1
+  Ga  Ga6  1  0.19565842  0.46012471  0.50000000  1
+  Ga  Ga7  1  -0.46012471  0.19565842  0.50000000  1
+  Ga  Ga8  1  0.50000000  0.50000000  0.69905800  1
+  Ga  Ga9  1  0.50000000  0.50000000  0.30094200  1
+  Fe  Fe10  1  0.00000000  0.00000000  0.00000000  1","data_image0
+_chemical_formula_structural       Er2Ga8Fe
+_chemical_formula_sum              ""Er2 Ga8 Fe1""
+_cell_length_a       4.246274
+_cell_length_b       4.246274
+_cell_length_c       11.043206
+_cell_angle_alpha    90.0
+_cell_angle_beta     90.0
+_cell_angle_gamma    90.0
+
+_space_group_name_H-M_alt    ""P 1""
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Er  Er1       1.0  0.0  0.0  0.6958590000000001  1.0000
+  Er  Er2       1.0  0.7674972413485944  0.8454427252937358  0.304141  1.0000
+  Ga  Ga1       1.0  0.5  0.0  0.884948  1.0000
+  Ga  Ga2       1.0  0.0  0.5  0.884948  1.0000
+  Ga  Ga3       1.0  0.9610272580274293  0.30646998332116515  0.11505200000000003  1.0000
+  Ga  Ga4       1.0  0.30646998332116515  0.038972741972570696  0.11505200000000003  1.0000
+  Ga  Ga5       1.0  0.9610272580274293  0.30646998332116515  0.5  1.0000
+  Ga  Ga6       1.0  0.30646998332116515  0.038972741972570696  0.5  1.0000
+  Ga  Ga7       1.0  0.5  0.5  0.699058  1.0000
+  Ga  Ga8       1.0  0.5  0.5  0.300942  1.0000
+  Fe  Fe1       1.0  0.0  0.0  0.0  1.0000
+",0.2169316658280409,0.3578047478427237
+"# generated using pymatgen
+data_CeAsS
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.00476495
+_cell_length_b   3.95217410
+_cell_length_c   17.44481405
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   CeAsS
+_chemical_formula_sum   'Ce4 As4 S4'
+_cell_volume   276.10828827
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ce  Ce0  1  0.73740501  0.25000000  0.85398370  1
+  Ce  Ce1  1  0.76259499  0.25000000  0.35398370  1
+  Ce  Ce2  1  0.26259499  0.75000000  0.14601630  1
+  Ce  Ce3  1  0.23740501  0.75000000  0.64601630  1
+  As  As4  1  0.70391688  0.75000000  0.50203189  1
+  As  As5  1  0.79608312  0.75000000  0.00203189  1
+  As  As6  1  0.29608312  0.25000000  0.49796811  1
+  As  As7  1  0.20391688  0.25000000  -0.00203189  1
+  S  S8  1  0.74354542  0.25000000  0.68543232  1
+  S  S9  1  0.75645458  0.25000000  0.18543232  1
+  S  S10  1  0.25645458  0.75000000  0.31456768  1
+  S  S11  1  0.24354542  0.75000000  0.81456768  1
+",Rotate all surrounding atoms within 3.454341546907316 angstrom of the center atom at index 10 by 66.3380406839508 degree around the axis [-1.  0.  0.] in the cif file. The rotation should following the right-hand rule.,"data_CeAsS
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.00476495
+_cell_length_b   3.95217410
+_cell_length_c   17.44481405
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   CeAsS
+_chemical_formula_sum   'Ce4 As4 S4'
+_cell_volume   276.10828827
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ce  Ce0  1  0.73740501  0.25000000  0.85398370  1
+  Ce  Ce1  1  0.76259499  0.70698600  0.43400000  1
+  Ce  Ce2  1  0.26259499  0.07012000  0.24640000  1
+  Ce  Ce3  1  0.23740501  0.75000000  0.64601630  1
+  As  As4  1  0.70391688  0.75000000  0.50203189  1
+  As  As5  1  0.79608312  0.75000000  0.00203189  1
+  As  As6  1  0.29608312  0.25000000  0.49796811  1
+  As  As7  1  0.20391688  0.25000000  -0.00203189  1
+  S  S8  1  0.74354542  0.25000000  0.68543232  1
+  S  S9  1  0.75645458  0.25000000  0.18543232  1
+  S  S10  1  0.25645458  0.75000000  0.31456768  1
+  S  S11  1  0.24354542  0.75000000  0.81456768  1","data_image0
+_chemical_formula_structural       Ce4As4S4
+_chemical_formula_sum              ""Ce4 As4 S4""
+_cell_length_a       4.00476495
+_cell_length_b       3.9521741
+_cell_length_c       17.44481405
+_cell_angle_alpha    90.0
+_cell_angle_beta     90.0
+_cell_angle_gamma    90.0
+
+_space_group_name_H-M_alt    ""P 1""
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ce  Ce1       1.0  0.73740501  0.25  0.8539837  1.0000
+  Ce  Ce2       1.0  0.76259499  0.7086848636212458  0.43414013368524407  1.0000
+  Ce  Ce3       1.0  0.26259499  0.06856486542390974  0.24692131171063791  1.0000
+  Ce  Ce4       1.0  0.23740501  0.75  0.6460163  1.0000
+  As  As1       1.0  0.70391688  0.75  0.50203189  1.0000
+  As  As2       1.0  0.79608312  0.75  0.00203189  1.0000
+  As  As3       1.0  0.29608312  0.25  0.49796811  1.0000
+  As  As4       1.0  0.20391688000000005  0.25  0.99796811  1.0000
+  S   S1        1.0  0.7435454200000002  0.25  0.68543232  1.0000
+  S   S2        1.0  0.75645458  0.25  0.18543232  1.0000
+  S   S3        1.0  0.2564545800000001  0.75  0.31456768  1.0000
+  S   S4        1.0  0.24354542  0.75  0.81456768  1.0000
+",0.0012854773055351,0.0035940977046012
+"# generated using pymatgen
+data_TaRh2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.01400363
+_cell_length_b   5.47646884
+_cell_length_c   8.22014410
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   TaRh2
+_chemical_formula_sum   'Ta4 Rh8'
+_cell_volume   180.69985859
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ta  Ta0  1  0.75000000  0.16393746  0.60273190  1
+  Ta  Ta1  1  0.75000000  0.66393746  0.89726810  1
+  Ta  Ta2  1  0.25000000  0.83605017  0.39727085  1
+  Ta  Ta3  1  0.25000000  0.33605017  0.10272915  1
+  Rh  Rh4  1  0.75000000  0.14733375  0.92624983  1
+  Rh  Rh5  1  0.75000000  0.64733375  0.57375017  1
+  Rh  Rh6  1  0.25000000  0.85266182  0.07385057  1
+  Rh  Rh7  1  0.25000000  0.35266182  0.42614943  1
+  Rh  Rh8  1  0.75000000  0.08753737  0.26819965  1
+  Rh  Rh9  1  0.75000000  0.58753737  0.23180035  1
+  Rh  Rh10  1  0.25000000  0.91247843  0.73179251  1
+  Rh  Rh11  1  0.25000000  0.41247843  0.76820749  1
+",Rotate all surrounding atoms within 2.96661063193936 angstrom of the center atom at index 5 by 311.6177411258137 degree around the axis [0. 0. 1.] in the cif file. The rotation should following the right-hand rule.,"data_TaRh2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.01400363
+_cell_length_b   5.47646884
+_cell_length_c   8.22014410
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   TaRh2
+_chemical_formula_sum   'Ta4 Rh8'
+_cell_volume   180.69985859
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ta  Ta0  1  0.62070000  -0.45170000  0.60273190  1
+  Ta  Ta1  1  0.99450000  -0.11980000  0.89726810  1
+  Ta  Ta2  1  0.79080000  0.36840000  0.39727085  1
+  Ta  Ta3  1  0.25000000  0.33605017  0.10272915  1
+  Rh  Rh4  1  0.75000000  0.14733375  0.92624983  1
+  Rh  Rh5  1  0.75000000  0.64733375  0.57375017  1
+  Rh  Rh6  1  0.25000000  0.85266182  0.07385057  1
+  Rh  Rh7  1  0.42960000  0.04740000  0.42614943  1
+  Rh  Rh8  1  0.75000000  0.08753737  0.26819965  1
+  Rh  Rh9  1  0.93760000  -0.17040000  0.23180035  1
+  Rh  Rh10  1  0.84810000  0.41850000  0.73179251  1
+  Rh  Rh11  1  0.47450000  0.08730000  0.76820749  1","data_image0
+_chemical_formula_structural       Ta4Rh8
+_chemical_formula_sum              ""Ta4 Rh8""
+_cell_length_a       4.01400363
+_cell_length_b       5.47646884
+_cell_length_c       8.2201441
+_cell_angle_alpha    90.0
+_cell_angle_beta     90.0
+_cell_angle_gamma    90.0
+
+_space_group_name_H-M_alt    ""P 1""
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Ta  Ta1       1.0  0.2569498505682496  0.32628236743358446  0.6027318999999998  1.0000
+  Ta  Ta2       1.0  0.766935301047969  0.658361232340073  0.8972681  1.0000
+  Ta  Ta3       1.0  0.6104063920267513  0.04664693221820615  0.39727085  1.0000
+  Ta  Ta4       1.0  0.25  0.33605017  0.10272915  1.0000
+  Rh  Rh1       1.0  0.75  0.14733375  0.9262498299999998  1.0000
+  Rh  Rh2       1.0  0.75  0.64733375  0.57375017  1.0000
+  Rh  Rh3       1.0  0.25  0.85266182  0.07385056999999999  1.0000
+  Rh  Rh4       1.0  0.11736434116395447  0.7256008230641653  0.42614943  1.0000
+  Rh  Rh5       1.0  0.75  0.08753737  0.26819965  1.0000
+  Rh  Rh6       1.0  0.6890094324172868  0.6076195220081659  0.23180035  1.0000
+  Rh  Rh7       1.0  0.6883609932377134  0.09740735187336202  0.73179251  1.0000
+  Rh  Rh8       1.0  0.17837554275799392  0.7653284869668736  0.7682074899999998  1.0000
+",0.3782500425897004,0.5088190506451895
+"# generated using pymatgen
+data_NdSbSe
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.21639574
+_cell_length_b   4.22560286
+_cell_length_c   18.33838904
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   NdSbSe
+_chemical_formula_sum   'Nd4 Sb4 Se4'
+_cell_volume   326.73166471
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Nd  Nd0  1  0.75000000  0.23441948  0.85206102  1
+  Nd  Nd1  1  0.75000000  0.26558052  0.35206102  1
+  Nd  Nd2  1  0.25000000  0.76558052  0.14793898  1
+  Nd  Nd3  1  0.25000000  0.73441948  0.64793898  1
+  Sb  Sb4  1  0.25000000  0.23383814  0.50067160  1
+  Sb  Sb5  1  0.25000000  0.26616186  0.00067160  1
+  Sb  Sb6  1  0.75000000  0.76616186  0.49932840  1
+  Sb  Sb7  1  0.75000000  0.73383814  0.99932840  1
+  Se  Se8  1  0.75000000  0.23601904  0.68660183  1
+  Se  Se9  1  0.75000000  0.26398096  0.18660183  1
+  Se  Se10  1  0.25000000  0.76398096  0.31339817  1
+  Se  Se11  1  0.25000000  0.73601904  0.81339817  1
+",Rotate all surrounding atoms within 3.1805959757876145 angstrom of the center atom at index 1 by 126.62247845015146 degree around the axis [ 0.  0. -1.] in the cif file. The rotation should following the right-hand rule.,"data_NdSbSe
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.21639574
+_cell_length_b   4.22560286
+_cell_length_c   18.33838904
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   NdSbSe
+_chemical_formula_sum   'Nd4 Sb4 Se4'
+_cell_volume   326.73166471
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Nd  Nd0  1  0.75000000  0.23441948  0.85206102  1
+  Nd  Nd1  1  0.75000000  0.26558052  0.35206102  1
+  Nd  Nd2  1  0.25000000  0.76558052  0.14793898  1
+  Nd  Nd3  1  0.25000000  0.73441948  0.64793898  1
+  Sb  Sb4  1  0.25000000  0.23383814  0.50067160  1
+  Sb  Sb5  1  0.25000000  0.26616186  0.00067160  1
+  Sb  Sb6  1  0.75000000  0.76616186  0.49932840  1
+  Sb  Sb7  1  0.75000000  0.73383814  0.99932840  1
+  Se  Se8  1  0.75000000  0.23601904  0.68660183  1
+  Se  Se9  1  -0.23600000  -0.75700000  0.18660183  1
+  Se  Se10  1  0.46400000  -0.65700000  0.31339817  1
+  Se  Se11  1  0.25000000  0.73601904  0.81339817  1","data_image0
+_chemical_formula_structural       Nd4Sb4Se4
+_chemical_formula_sum              ""Nd4 Sb4 Se4""
+_cell_length_a       4.21639574
+_cell_length_b       4.22560286
+_cell_length_c       18.33838904
+_cell_angle_alpha    90.0
+_cell_angle_beta     90.0
+_cell_angle_gamma    90.0
+
+_space_group_name_H-M_alt    ""P 1""
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Nd  Nd1       1.0  0.7500000000000002  0.23441948  0.85206102  1.0000
+  Nd  Nd2       1.0  0.7500000000000002  0.26558052  0.35206102  1.0000
+  Nd  Nd3       1.0  0.25  0.76558052  0.14793898  1.0000
+  Nd  Nd4       1.0  0.25  0.73441948  0.64793898  1.0000
+  Sb  Sb1       1.0  0.25  0.23383814  0.5006716  1.0000
+  Sb  Sb2       1.0  0.25  0.26616186  0.0006716  1.0000
+  Sb  Sb3       1.0  0.7500000000000002  0.76616186  0.49932839999999995  1.0000
+  Sb  Sb4       1.0  0.7500000000000002  0.73383814  0.9993283999999999  1.0000
+  Se  Se1       1.0  0.7500000000000002  0.23601904  0.68660183  1.0000
+  Se  Se2       1.0  0.7487134162122295  0.26653472119098043  0.18660182999999997  1.0000
+  Se  Se3       1.0  0.44915134250166355  0.3686822049195523  0.31339817  1.0000
+  Se  Se4       1.0  0.25  0.73601904  0.81339817  1.0000
+",0.0151086086438246,0.0348973823643699
+"# generated using pymatgen
+data_RbInTe3O8
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.87332700
+_cell_length_b   7.75314168
+_cell_length_c   11.34230044
+_cell_angle_alpha   100.59785988
+_cell_angle_beta   89.41498925
+_cell_angle_gamma   109.50938536
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   RbInTe3O8
+_chemical_formula_sum   'Rb2 In2 Te6 O16'
+_cell_volume   477.80202530
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Rb  Rb0  1  0.83907800  0.11930300  0.16688500  1
+  Rb  Rb1  1  0.16092200  0.88069700  0.83311500  1
+  In  In2  1  0.50000000  0.50000000  0.00000000  1
+  In  In3  1  0.00000000  0.50000000  0.50000000  1
+  Te  Te4  1  0.22216300  0.99209900  0.41882700  1
+  Te  Te5  1  0.77783700  0.00790100  0.58117300  1
+  Te  Te6  1  0.06983100  0.67722500  0.14955200  1
+  Te  Te7  1  0.93016900  0.32277500  0.85044800  1
+  Te  Te8  1  0.51652300  0.52602900  0.33529300  1
+  Te  Te9  1  0.48347700  0.47397100  0.66470700  1
+  O  O10  1  0.18613000  0.73890800  0.41668400  1
+  O  O11  1  0.81387000  0.26109200  0.58331600  1
+  O  O12  1  0.23997600  0.93262500  0.23009500  1
+  O  O13  1  0.76002400  0.06737500  0.76990500  1
+  O  O14  1  0.88762100  0.96922700  0.39614700  1
+  O  O15  1  0.11237900  0.03077300  0.60385300  1
+  O  O16  1  0.27039800  0.67903300  0.01710200  1
+  O  O17  1  0.72960200  0.32096700  0.98289800  1
+  O  O18  1  0.82266100  0.73586800  0.07700300  1
+  O  O19  1  0.17733900  0.26413200  0.92299700  1
+  O  O20  1  0.39010400  0.42626200  0.17417400  1
+  O  O21  1  0.60989600  0.57373800  0.82582600  1
+  O  O22  1  0.24872200  0.37001200  0.40734200  1
+  O  O23  1  0.75127800  0.62998800  0.59265800  1
+  O  O24  1  0.73017700  0.39055900  0.34520900  1
+  O  O25  1  0.26982300  0.60944100  0.65479100  1
+",Rotate all surrounding atoms within 1.9944361582528574 angstrom of the center atom at index 15 by 49.45964071286247 degree around the axis [1. 0. 0.] in the cif file. The rotation should following the right-hand rule.,"data_RbInTe3O8
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.87332700
+_cell_length_b   7.75314168
+_cell_length_c   11.34230044
+_cell_angle_alpha   100.59785988
+_cell_angle_beta   89.41498925
+_cell_angle_gamma   109.50938536
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   RbInTe3O8
+_chemical_formula_sum   'Rb2 In2 Te6 O16'
+_cell_volume   477.80202530
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Rb  Rb0  1  0.83907800  0.11930300  0.16688500  1
+  Rb  Rb1  1  0.16092200  0.88069700  0.83311500  1
+  In  In2  1  0.50000000  0.50000000  0.00000000  1
+  In  In3  1  0.00000000  0.50000000  0.50000000  1
+  Te  Te4  1  0.22216300  0.99209900  0.41882700  1
+  Te  Te5  1  0.77783700  0.00790100  0.58117300  1
+  Te  Te6  1  0.06983100  0.67722500  0.14955200  1
+  Te  Te7  1  0.93016900  0.32277500  0.85044800  1
+  Te  Te8  1  0.51652300  0.52602900  0.33529300  1
+  Te  Te9  1  0.48347700  0.47397100  0.66470700  1
+  O  O10  1  0.18613000  0.73890800  0.41668400  1
+  O  O11  1  0.81387000  0.26109200  0.58331600  1
+  O  O12  1  0.23997600  0.93262500  0.23009500  1
+  O  O13  1  0.76002400  0.06737500  0.76990500  1
+  O  O14  1  0.88762100  0.96922700  0.39614700  1
+  O  O15  1  0.11237900  0.03077300  0.60385300  1
+  O  O16  1  0.27039800  0.67903300  0.01710200  1
+  O  O17  1  0.72960200  0.32096700  0.98289800  1
+  O  O18  1  0.82266100  0.73586800  0.07700300  1
+  O  O19  1  0.17733900  0.26413200  0.92299700  1
+  O  O20  1  0.39010400  0.42626200  0.17417400  1
+  O  O21  1  0.60989600  0.57373800  0.82582600  1
+  O  O22  1  0.24872200  0.37001200  0.40734200  1
+  O  O23  1  0.75127800  0.62998800  0.59265800  1
+  O  O24  1  0.73017700  0.39055900  0.34520900  1
+  O  O25  1  0.26982300  0.60944100  0.65479100  1","data_image0
+_chemical_formula_structural       Rb2In2Te6O16
+_chemical_formula_sum              ""Rb2 In2 Te6 O16""
+_cell_length_a       5.873327
+_cell_length_b       7.75314168
+_cell_length_c       11.342300439999999
+_cell_angle_alpha    100.59785988000002
+_cell_angle_beta     89.41498925
+_cell_angle_gamma    109.50938536
+
+_space_group_name_H-M_alt    ""P 1""
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Rb  Rb1       1.0  0.839078  0.119303  0.166885  1.0000
+  Rb  Rb2       1.0  0.16092200000000012  0.8806970000000001  0.8331150000000002  1.0000
+  In  In1       1.0  0.5  0.5  0.0  1.0000
+  In  In2       1.0  0.0  0.5  0.5  1.0000
+  Te  Te1       1.0  0.22216300000000017  0.9920990000000003  0.41882700000000006  1.0000
+  Te  Te2       1.0  0.791887887065627  0.03976845120364463  0.5810634364670729  1.0000
+  Te  Te3       1.0  0.06983100000000003  0.677225  0.149552  1.0000
+  Te  Te4       1.0  0.9301690000000002  0.322775  0.8504479999999999  1.0000
+  Te  Te5       1.0  0.516523  0.526029  0.335293  1.0000
+  Te  Te6       1.0  0.4834770000000001  0.473971  0.664707  1.0000
+  O   O1        1.0  0.1861300000000001  0.7389080000000002  0.416684  1.0000
+  O   O2        1.0  0.8138700000000001  0.2610920000000001  0.583316  1.0000
+  O   O3        1.0  0.239976  0.932625  0.23009499999999997  1.0000
+  O   O4        1.0  0.7600240000000001  0.06737500000000006  0.7699050000000001  1.0000
+  O   O5        1.0  0.8876210000000001  0.969227  0.396147  1.0000
+  O   O6        1.0  0.112379  0.030773  0.603853  1.0000
+  O   O7        1.0  0.27039800000000014  0.6790330000000002  0.017102  1.0000
+  O   O8        1.0  0.729602  0.320967  0.9828980000000002  1.0000
+  O   O9        1.0  0.822661  0.735868  0.077003  1.0000
+  O   O10       1.0  0.17733900000000002  0.264132  0.922997  1.0000
+  O   O11       1.0  0.39010400000000006  0.4262620000000001  0.174174  1.0000
+  O   O12       1.0  0.6098960000000001  0.5737380000000002  0.8258260000000001  1.0000
+  O   O13       1.0  0.248722  0.370012  0.407342  1.0000
+  O   O14       1.0  0.7512780000000001  0.629988  0.592658  1.0000
+  O   O15       1.0  0.730177  0.3905590000000001  0.345209  1.0000
+  O   O16       1.0  0.2698230000000001  0.6094410000000002  0.654791  1.0000
+",0.0169889947248144,0.0849449736240721
+"# generated using pymatgen
+data_AlH10C3N
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.96179199
+_cell_length_b   10.73915600
+_cell_length_c   10.37560348
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   100.98640560
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   AlH10C3N
+_chemical_formula_sum   'Al4 H40 C12 N4'
+_cell_volume   652.11911434
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Al  Al0  1  0.22302400  0.55135300  0.52318900  1
+  Al  Al1  1  0.72302400  0.94864700  0.02318900  1
+  Al  Al2  1  0.77697600  0.44864700  0.47681100  1
+  Al  Al3  1  0.27697600  0.05135300  0.97681100  1
+  H  H4  1  0.42955900  0.46893500  0.60366400  1
+  H  H5  1  0.92955900  0.03106500  0.10366400  1
+  H  H6  1  0.57044100  0.53106500  0.39633600  1
+  H  H7  1  0.07044100  0.96893500  0.89633600  1
+  H  H8  1  0.25505300  0.69489900  0.48774300  1
+  H  H9  1  0.75505300  0.80510100  0.98774300  1
+  H  H10  1  0.74494700  0.30510100  0.51225700  1
+  H  H11  1  0.24494700  0.19489900  0.01225700  1
+  H  H12  1  0.19745700  0.28532100  0.44389000  1
+  H  H13  1  0.69745700  0.21467900  0.94389000  1
+  H  H14  1  0.80254300  0.71467900  0.55611000  1
+  H  H15  1  0.30254300  0.78532100  0.05611000  1
+  H  H16  1  0.26412300  0.34505300  0.29529400  1
+  H  H17  1  0.76412300  0.15494700  0.79529400  1
+  H  H18  1  0.73587700  0.65494700  0.70470600  1
+  H  H19  1  0.23587700  0.84505300  0.20470600  1
+  H  H20  1  0.99573700  0.27274400  0.29475800  1
+  H  H21  1  0.49573700  0.22725600  0.79475800  1
+  H  H22  1  0.00426300  0.72725600  0.70524200  1
+  H  H23  1  0.50426300  0.77274400  0.20524200  1
+  H  H24  1  0.13886900  0.54733900  0.21946600  1
+  H  H25  1  0.63886900  0.95266100  0.71946600  1
+  H  H26  1  0.86113100  0.45266100  0.78053400  1
+  H  H27  1  0.36113100  0.04733900  0.28053400  1
+  H  H28  1  0.91319200  0.62123500  0.27874200  1
+  H  H29  1  0.41319200  0.87876500  0.77874200  1
+  H  H30  1  0.08680800  0.37876500  0.72125800  1
+  H  H31  1  0.58680800  0.12123500  0.22125800  1
+  H  H32  1  0.76834000  0.53827500  0.06262600  1
+  H  H33  1  0.26834000  0.96172500  0.56262600  1
+  H  H34  1  0.23166000  0.46172500  0.93737400  1
+  H  H35  1  0.73166000  0.03827500  0.43737400  1
+  H  H36  1  0.64420300  0.44789000  0.17482200  1
+  H  H37  1  0.14420300  0.05211000  0.67482200  1
+  H  H38  1  0.35579700  0.55211000  0.82517800  1
+  H  H39  1  0.85579700  0.94789000  0.32517800  1
+  H  H40  1  0.87221600  0.38606700  0.10550900  1
+  H  H41  1  0.37221600  0.11393300  0.60550900  1
+  H  H42  1  0.12778400  0.61393300  0.89449100  1
+  H  H43  1  0.62778400  0.88606700  0.39449100  1
+  C  C44  1  0.12699700  0.33325100  0.35205200  1
+  C  C45  1  0.62699700  0.16674900  0.85205200  1
+  C  C46  1  0.87300300  0.66674900  0.64794800  1
+  C  C47  1  0.37300300  0.83325100  0.14794800  1
+  C  C48  1  0.97829100  0.53005400  0.25456200  1
+  C  C49  1  0.47829100  0.96994600  0.75456200  1
+  C  C50  1  0.02170900  0.46994600  0.74543800  1
+  C  C51  1  0.52170900  0.03005400  0.24543800  1
+  C  C52  1  0.80586600  0.47083400  0.14400600  1
+  C  C53  1  0.30586600  0.02916600  0.64400600  1
+  C  C54  1  0.19413400  0.52916600  0.85599400  1
+  C  C55  1  0.69413400  0.97083400  0.35599400  1
+  N  N56  1  0.03337600  0.45653000  0.37878100  1
+  N  N57  1  0.53337600  0.04347000  0.87878100  1
+  N  N58  1  0.96662400  0.54347000  0.62121900  1
+  N  N59  1  0.46662400  0.95653000  0.12121900  1
+",Rotate all surrounding atoms within 1.626098156617557 angstrom of the center atom at index 21 by 292.84994703671305 degree around the axis [1. 0. 0.] in the cif file. The rotation should following the right-hand rule.,"data_AlH10C3N
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.96179199
+_cell_length_b   10.73915600
+_cell_length_c   10.37560348
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   100.98640560
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   AlH10C3N
+_chemical_formula_sum   'Al4 H40 C12 N4'
+_cell_volume   652.11911434
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Al  Al0  1  0.22302400  0.55135300  0.52318900  1
+  Al  Al1  1  0.72302400  0.94864700  0.02318900  1
+  Al  Al2  1  0.77697600  0.44864700  0.47681100  1
+  Al  Al3  1  0.27697600  0.05135300  0.97681100  1
+  H  H4  1  0.42955900  0.46893500  0.60366400  1
+  H  H5  1  0.92955900  0.03106500  0.10366400  1
+  H  H6  1  0.57044100  0.53106500  0.39633600  1
+  H  H7  1  0.07044100  0.96893500  0.89633600  1
+  H  H8  1  0.25505300  0.69489900  0.48774300  1
+  H  H9  1  0.75505300  0.80510100  0.98774300  1
+  H  H10  1  0.74494700  0.30510100  0.51225700  1
+  H  H11  1  0.24494700  0.19489900  0.01225700  1
+  H  H12  1  0.19745700  0.28532100  0.44389000  1
+  H  H13  1  0.69745700  0.21467900  0.94389000  1
+  H  H14  1  0.80254300  0.71467900  0.55611000  1
+  H  H15  1  0.30254300  0.78532100  0.05611000  1
+  H  H16  1  0.26412300  0.34505300  0.29529400  1
+  H  H17  1  0.76412300  0.15494700  0.79529400  1
+  H  H18  1  0.73587700  0.65494700  0.70470600  1
+  H  H19  1  0.23587700  0.84505300  0.20470600  1
+  H  H20  1  0.99573702  0.27274400  0.29475800  1
+  H  H21  1  0.49573702  0.22725600  0.79475800  1
+  H  H22  1  0.00426298  0.72725600  0.70524200  1
+  H  H23  1  0.50426298  0.77274400  0.20524200  1
+  H  H24  1  0.13886900  0.54733900  0.21946600  1
+  H  H25  1  0.63886900  0.95266100  0.71946600  1
+  H  H26  1  0.86113100  0.45266100  0.78053400  1
+  H  H27  1  0.36113100  0.04733900  0.28053400  1
+  H  H28  1  0.91319200  0.62123500  0.27874200  1
+  H  H29  1  0.41319200  0.87876500  0.77874200  1
+  H  H30  1  0.08680800  0.37876500  0.72125800  1
+  H  H31  1  0.58680800  0.12123500  0.22125800  1
+  H  H32  1  0.76834000  0.53827500  0.06262600  1
+  H  H33  1  0.26834000  0.96172500  0.56262600  1
+  H  H34  1  0.23166000  0.46172500  0.93737400  1
+  H  H35  1  0.73166000  0.03827500  0.43737400  1
+  H  H36  1  0.64420300  0.44789000  0.17482200  1
+  H  H37  1  0.14420300  0.05211000  0.67482200  1
+  H  H38  1  0.35579700  0.55211000  0.82517800  1
+  H  H39  1  0.85579700  0.94789000  0.32517800  1
+  H  H40  1  0.87221600  0.38606700  0.10550900  1
+  H  H41  1  0.37221600  0.11393300  0.60550900  1
+  H  H42  1  0.12778400  0.61393300  0.89449100  1
+  H  H43  1  0.62778400  0.88606700  0.39449100  1
+  C  C44  1  0.12699700  0.33325100  0.35205200  1
+  C  C45  1  0.62699700  0.16674900  0.85205200  1
+  C  C46  1  0.87300300  0.66674900  0.64794800  1
+  C  C47  1  0.37300300  0.83325100  0.14794800  1
+  C  C48  1  0.97829100  0.53005400  0.25456200  1
+  C  C49  1  0.47829100  0.96994600  0.75456200  1
+  C  C50  1  0.02170900  0.46994600  0.74543800  1
+  C  C51  1  0.52170900  0.03005400  0.24543800  1
+  C  C52  1  0.80586600  0.47083400  0.14400600  1
+  C  C53  1  0.30586600  0.02916600  0.64400600  1
+  C  C54  1  0.19413400  0.52916600  0.85599400  1
+  C  C55  1  0.69413400  0.97083400  0.35599400  1
+  N  N56  1  0.03337600  0.45653000  0.37878100  1
+  N  N57  1  0.53337600  0.04347000  0.87878100  1
+  N  N58  1  0.96662400  0.54347000  0.62121900  1
+  N  N59  1  0.46662400  0.95653000  0.12121900  1","data_image0
+_chemical_formula_structural       Al4H40C12N4
+_chemical_formula_sum              ""Al4 H40 C12 N4""
+_cell_length_a       5.96179199
+_cell_length_b       10.739156
+_cell_length_c       10.37560348
+_cell_angle_alpha    90.0
+_cell_angle_beta     100.98640559999998
+_cell_angle_gamma    90.0
+
+_space_group_name_H-M_alt    ""P 1""
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Al  Al1       1.0  0.22302399999999994  0.551353  0.523189  1.0000
+  Al  Al2       1.0  0.7230239999999999  0.948647  0.023189  1.0000
+  Al  Al3       1.0  0.776976  0.4486470000000001  0.476811  1.0000
+  Al  Al4       1.0  0.276976  0.05135300000000001  0.976811  1.0000
+  H   H1        1.0  0.42955899999999997  0.468935  0.603664  1.0000
+  H   H2        1.0  0.9295589999999998  0.031065  0.103664  1.0000
+  H   H3        1.0  0.570441  0.531065  0.396336  1.0000
+  H   H4        1.0  0.070441  0.9689350000000001  0.896336  1.0000
+  H   H5        1.0  0.2550529999999999  0.694899  0.487743  1.0000
+  H   H6        1.0  0.7550529999999998  0.8051010000000001  0.987743  1.0000
+  H   H7        1.0  0.744947  0.305101  0.512257  1.0000
+  H   H8        1.0  0.244947  0.19489899999999996  0.012256999999999999  1.0000
+  H   H9        1.0  0.197457  0.285321  0.44389  1.0000
+  H   H10       1.0  0.6974569999999999  0.214679  0.94389  1.0000
+  H   H11       1.0  0.802543  0.714679  0.55611  1.0000
+  H   H12       1.0  0.30254299999999995  0.7853210000000002  0.05610999999999999  1.0000
+  H   H13       1.0  0.26412299999999994  0.345053  0.295294  1.0000
+  H   H14       1.0  0.7641229999999998  0.154947  0.795294  1.0000
+  H   H15       1.0  0.735877  0.654947  0.704706  1.0000
+  H   H16       1.0  0.235877  0.845053  0.204706  1.0000
+  H   H17       1.0  0.9957369999999999  0.272744  0.294758  1.0000
+  H   H18       1.0  0.495737  0.22725599999999999  0.794758  1.0000
+  H   H19       1.0  0.0042630000000000055  0.727256  0.705242  1.0000
+  H   H20       1.0  0.504263  0.772744  0.205242  1.0000
+  H   H21       1.0  0.13886899999999996  0.547339  0.21946599999999997  1.0000
+  H   H22       1.0  0.638869  0.9526610000000001  0.719466  1.0000
+  H   H23       1.0  0.8611309999999998  0.4526609999999999  0.780534  1.0000
+  H   H24       1.0  0.3611309999999999  0.047339  0.280534  1.0000
+  H   H25       1.0  0.9131919999999998  0.621235  0.278742  1.0000
+  H   H26       1.0  0.4131919999999999  0.878765  0.778742  1.0000
+  H   H27       1.0  0.08680799999999995  0.3787650000000001  0.7212579999999998  1.0000
+  H   H28       1.0  0.586808  0.12123500000000001  0.22125799999999998  1.0000
+  H   H29       1.0  0.76834  0.538275  0.062626  1.0000
+  H   H30       1.0  0.26833999999999997  0.961725  0.562626  1.0000
+  H   H31       1.0  0.23165999999999998  0.461725  0.937374  1.0000
+  H   H32       1.0  0.7316599999999999  0.038275  0.43737400000000004  1.0000
+  H   H33       1.0  0.6442029999999999  0.44788999999999995  0.174822  1.0000
+  H   H34       1.0  0.14420299999999994  0.05211  0.674822  1.0000
+  H   H35       1.0  0.355797  0.55211  0.825178  1.0000
+  H   H36       1.0  0.855797  0.94789  0.325178  1.0000
+  H   H37       1.0  0.8722159999999999  0.38606700000000005  0.105509  1.0000
+  H   H38       1.0  0.3722159999999999  0.113933  0.605509  1.0000
+  H   H39       1.0  0.12778399999999998  0.613933  0.894491  1.0000
+  H   H40       1.0  0.627784  0.886067  0.3944909999999999  1.0000
+  C   C1        1.0  0.126997  0.333251  0.352052  1.0000
+  C   C2        1.0  0.6348722428568769  0.2538355676260808  0.875796280483559  1.0000
+  C   C3        1.0  0.8730029999999999  0.666749  0.647948  1.0000
+  C   C4        1.0  0.373003  0.833251  0.147948  1.0000
+  C   C5        1.0  0.9782909999999999  0.530054  0.254562  1.0000
+  C   C6        1.0  0.478291  0.9699460000000001  0.754562  1.0000
+  C   C7        1.0  0.021709000000000027  0.469946  0.745438  1.0000
+  C   C8        1.0  0.5217089999999999  0.030054  0.24543799999999996  1.0000
+  C   C9        1.0  0.8058659999999997  0.470834  0.144006  1.0000
+  C   C10       1.0  0.305866  0.029166000000000004  0.644006  1.0000
+  C   C11       1.0  0.194134  0.529166  0.855994  1.0000
+  C   C12       1.0  0.694134  0.9708340000000001  0.355994  1.0000
+  N   N1        1.0  0.033375999999999954  0.45653  0.3787809999999999  1.0000
+  N   N2        1.0  0.533376  0.04347  0.878781  1.0000
+  N   N3        1.0  0.9666239999999999  0.54347  0.621219  1.0000
+  N   N4        1.0  0.466624  0.9565300000000001  0.121219  1.0000
+",0.0558290275645421,0.4288308976850085
+"# generated using pymatgen
+data_SrMg30TiO32
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   8.62310106
+_cell_length_b   8.62310106
+_cell_length_c   8.62432280
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   SrMg30TiO32
+_chemical_formula_sum   'Sr1 Mg30 Ti1 O32'
+_cell_volume   641.28628991
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Sr  Sr0  1  0.00000000  0.00000000  0.50000000  1
+  Mg  Mg1  1  0.00000000  0.50000000  0.00000000  1
+  Mg  Mg2  1  0.00000000  0.50000000  0.50000000  1
+  Mg  Mg3  1  0.50000000  0.00000000  0.00000000  1
+  Mg  Mg4  1  0.50000000  0.00000000  0.50000000  1
+  Mg  Mg5  1  0.50000000  0.50000000  0.00000000  1
+  Mg  Mg6  1  0.50000000  0.50000000  0.50000000  1
+  Mg  Mg7  1  0.00000000  0.25738647  0.24651636  1
+  Mg  Mg8  1  0.00000000  0.25738647  0.75348364  1
+  Mg  Mg9  1  0.00000000  0.74261353  0.24651636  1
+  Mg  Mg10  1  0.00000000  0.74261353  0.75348364  1
+  Mg  Mg11  1  0.50000000  0.25095069  0.24944070  1
+  Mg  Mg12  1  0.50000000  0.25095069  0.75055930  1
+  Mg  Mg13  1  0.50000000  0.74904931  0.24944070  1
+  Mg  Mg14  1  0.50000000  0.74904931  0.75055930  1
+  Mg  Mg15  1  0.25738647  0.00000000  0.24651636  1
+  Mg  Mg16  1  0.25738647  0.00000000  0.75348364  1
+  Mg  Mg17  1  0.25095069  0.50000000  0.24944070  1
+  Mg  Mg18  1  0.25095069  0.50000000  0.75055930  1
+  Mg  Mg19  1  0.74261353  -0.00000000  0.24651636  1
+  Mg  Mg20  1  0.74261353  0.00000000  0.75348364  1
+  Mg  Mg21  1  0.74904931  0.50000000  0.24944070  1
+  Mg  Mg22  1  0.74904931  0.50000000  0.75055930  1
+  Mg  Mg23  1  0.25088938  0.25088938  0.00000000  1
+  Mg  Mg24  1  0.25533209  0.25533209  0.50000000  1
+  Mg  Mg25  1  0.25088938  0.74911062  0.00000000  1
+  Mg  Mg26  1  0.25533209  0.74466791  0.50000000  1
+  Mg  Mg27  1  0.74911062  0.25088938  0.00000000  1
+  Mg  Mg28  1  0.74466791  0.25533209  0.50000000  1
+  Mg  Mg29  1  0.74911062  0.74911062  0.00000000  1
+  Mg  Mg30  1  0.74466791  0.74466791  0.50000000  1
+  Ti  Ti31  1  0.00000000  0.00000000  0.00000000  1
+  O  O32  1  0.25713380  -0.00000000  0.00000000  1
+  O  O33  1  0.27047125  0.00000000  0.50000000  1
+  O  O34  1  0.25130881  0.50000000  0.00000000  1
+  O  O35  1  0.25397542  0.50000000  0.50000000  1
+  O  O36  1  0.74286620  0.00000000  0.00000000  1
+  O  O37  1  0.72952875  -0.00000000  0.50000000  1
+  O  O38  1  0.74869119  0.50000000  0.00000000  1
+  O  O39  1  0.74602458  0.50000000  0.50000000  1
+  O  O40  1  0.24951223  0.24951223  0.25011754  1
+  O  O41  1  0.24951223  0.24951223  0.74988246  1
+  O  O42  1  0.24951223  0.75048777  0.25011754  1
+  O  O43  1  0.24951223  0.75048777  0.74988246  1
+  O  O44  1  0.75048777  0.24951223  0.25011754  1
+  O  O45  1  0.75048777  0.24951223  0.74988246  1
+  O  O46  1  0.75048777  0.75048777  0.25011754  1
+  O  O47  1  0.75048777  0.75048777  0.74988246  1
+  O  O48  1  0.00000000  -0.00000000  0.23271176  1
+  O  O49  1  0.00000000  -0.00000000  0.76728824  1
+  O  O50  1  0.00000000  0.50000000  0.24633050  1
+  O  O51  1  0.00000000  0.50000000  0.75366950  1
+  O  O52  1  0.50000000  0.00000000  0.24633050  1
+  O  O53  1  0.50000000  0.00000000  0.75366950  1
+  O  O54  1  0.50000000  0.50000000  0.24910619  1
+  O  O55  1  0.50000000  0.50000000  0.75089381  1
+  O  O56  1  0.00000000  0.25713380  0.00000000  1
+  O  O57  1  0.00000000  0.27047125  0.50000000  1
+  O  O58  1  0.00000000  0.74286620  0.00000000  1
+  O  O59  1  0.00000000  0.72952875  0.50000000  1
+  O  O60  1  0.50000000  0.25130881  0.00000000  1
+  O  O61  1  0.50000000  0.25397542  0.50000000  1
+  O  O62  1  0.50000000  0.74869119  0.00000000  1
+  O  O63  1  0.50000000  0.74602458  0.50000000  1
+",Rotate all surrounding atoms within 3.8678270071140908 angstrom of the center atom at index 57 by 276.46026218328336 degree around the axis [0. 1. 0.] in the cif file. The rotation should following the right-hand rule.,"data_SrMg30TiO32
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   8.62310106
+_cell_length_b   8.62310106
+_cell_length_c   8.62432280
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   SrMg30TiO32
+_chemical_formula_sum   'Sr1 Mg30 Ti1 O32'
+_cell_volume   641.28628991
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Sr  Sr0  1  0.00000000  0.00000000  0.50000000  1
+  Mg  Mg1  1  0.00000000  0.50000000  0.00000000  1
+  Mg  Mg2  1  0.00000000  0.50000000  0.50000000  1
+  Mg  Mg3  1  0.50000000  0.00000000  0.00000000  1
+  Mg  Mg4  1  0.50000000  0.00000000  0.50000000  1
+  Mg  Mg5  1  0.50000000  0.50000000  0.00000000  1
+  Mg  Mg6  1  0.50000000  0.50000000  0.50000000  1
+  Mg  Mg7  1  0.00000000  0.25738647  0.24651636  1
+  Mg  Mg8  1  0.00000000  0.25738647  0.75348364  1
+  Mg  Mg9  1  0.00000000  0.74261353  0.24651636  1
+  Mg  Mg10  1  0.00000000  0.74261353  0.75348364  1
+  Mg  Mg11  1  0.50000000  0.25095069  0.24944070  1
+  Mg  Mg12  1  0.50000000  0.25095069  0.75055930  1
+  Mg  Mg13  1  0.50000000  0.74904931  0.24944070  1
+  Mg  Mg14  1  0.50000000  0.74904931  0.75055930  1
+  Mg  Mg15  1  0.25738647  0.00000000  0.24651636  1
+  Mg  Mg16  1  0.25738647  0.00000000  0.75348364  1
+  Mg  Mg17  1  0.25095069  0.50000000  0.24944070  1
+  Mg  Mg18  1  0.25095069  0.50000000  0.75055930  1
+  Mg  Mg19  1  0.74261353  -0.00000000  0.24651636  1
+  Mg  Mg20  1  0.74261353  0.00000000  0.75348364  1
+  Mg  Mg21  1  0.74904931  0.50000000  0.24944070  1
+  Mg  Mg22  1  0.74904931  0.50000000  0.75055930  1
+  Mg  Mg23  1  0.25088938  0.25088938  0.00000000  1
+  Mg  Mg24  1  0.25533209  0.25533209  0.50000000  1
+  Mg  Mg25  1  0.25088938  0.74911062  0.00000000  1
+  Mg  Mg26  1  0.25533209  0.74466791  0.50000000  1
+  Mg  Mg27  1  0.74911062  0.25088938  0.00000000  1
+  Mg  Mg28  1  0.74466791  0.25533209  0.50000000  1
+  Mg  Mg29  1  0.74911062  0.74911062  0.00000000  1
+  Mg  Mg30  1  0.74466791  0.74466791  0.50000000  1
+  Ti  Ti31  1  0.00000000  0.00000000  0.00000000  1
+  O  O32  1  0.25713380  -0.00000000  0.00000000  1
+  O  O33  1  0.27047125  0.00000000  0.50000000  1
+  O  O34  1  0.25130881  0.50000000  0.00000000  1
+  O  O35  1  0.25397542  0.50000000  0.50000000  1
+  O  O36  1  0.74286620  0.00000000  0.00000000  1
+  O  O37  1  0.72952875  -0.00000000  0.50000000  1
+  O  O38  1  0.74869119  0.50000000  0.00000000  1
+  O  O39  1  0.74602458  0.50000000  0.50000000  1
+  O  O40  1  0.24951223  0.24951223  0.25011754  1
+  O  O41  1  0.24951223  0.24951223  0.74988246  1
+  O  O42  1  0.24951223  0.75048777  0.25011754  1
+  O  O43  1  0.24951223  0.75048777  0.74988246  1
+  O  O44  1  0.75048777  0.24951223  0.25011754  1
+  O  O45  1  0.75048777  0.24951223  0.74988246  1
+  O  O46  1  0.75048777  0.75048777  0.25011754  1
+  O  O47  1  0.75048777  0.75048777  0.74988246  1
+  O  O48  1  0.00000000  -0.00000000  0.23271176  1
+  O  O49  1  0.00000000  -0.00000000  0.76728824  1
+  O  O50  1  0.00000000  0.50000000  0.24633050  1
+  O  O51  1  0.00000000  0.50000000  0.75366950  1
+  O  O52  1  0.50000000  0.00000000  0.24633050  1
+  O  O53  1  0.50000000  0.00000000  0.75366950  1
+  O  O54  1  0.50000000  0.50000000  0.24910619  1
+  O  O55  1  0.50000000  0.50000000  0.75089381  1
+  O  O56  1  0.00000000  0.25713380  0.00000000  1
+  O  O57  1  0.00000000  0.27047125  0.50000000  1
+  O  O58  1  0.00000000  0.74286620  0.00000000  1
+  O  O59  1  0.00000000  0.72952875  0.50000000  1
+  O  O60  1  0.50000000  0.25130881  0.00000000  1
+  O  O61  1  0.50000000  0.25397542  0.50000000  1
+  O  O62  1  0.50000000  0.74869119  0.00000000  1
+  O  O63  1  0.50000000  0.74602458  0.50000000  1","data_image0
+_chemical_formula_structural       SrMg30TiO32
+_chemical_formula_sum              ""Sr1 Mg30 Ti1 O32""
+_cell_length_a       8.62310106
+_cell_length_b       8.62310106
+_cell_length_c       8.6243228
+_cell_angle_alpha    90.0
+_cell_angle_beta     90.0
+_cell_angle_gamma    90.0
+
+_space_group_name_H-M_alt    ""P 1""
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Sr  Sr1       1.0  0.0  0.0  0.5  1.0000
+  Mg  Mg1       1.0  0.0  0.5  0.0  1.0000
+  Mg  Mg2       1.0  0.0  0.5  0.5  1.0000
+  Mg  Mg3       1.0  0.5  0.0  0.0  1.0000
+  Mg  Mg4       1.0  0.5  0.0  0.5  1.0000
+  Mg  Mg5       1.0  0.5  0.5  0.0  1.0000
+  Mg  Mg6       1.0  0.5  0.5  0.5  1.0000
+  Mg  Mg7       1.0  0.2519097377700726  0.25738647  0.47147951913507957  1.0000
+  Mg  Mg8       1.0  0.7480902622299275  0.25738647  0.5285204808649204  1.0000
+  Mg  Mg9       1.0  0.0  0.74261353  0.24651636  1.0000
+  Mg  Mg10      1.0  0.0  0.74261353  0.75348364  1.0000
+  Mg  Mg11      1.0  0.5  0.25095069  0.2494407  1.0000
+  Mg  Mg12      1.0  0.5  0.25095069  0.7505592999999999  1.0000
+  Mg  Mg13      1.0  0.5  0.74904931  0.2494407  1.0000
+  Mg  Mg14      1.0  0.5  0.74904931  0.7505592999999999  1.0000
+  Mg  Mg15      1.0  0.25738647  0.0  0.24651636  1.0000
+  Mg  Mg16      1.0  0.25738647  0.0  0.75348364  1.0000
+  Mg  Mg17      1.0  0.27723904355735357  0.5  0.7211304097175043  1.0000
+  Mg  Mg18      1.0  0.7792319330483445  0.5  0.7775133125445102  1.0000
+  Mg  Mg19      1.0  0.74261353  0.0  0.24651636  1.0000
+  Mg  Mg20      1.0  0.74261353  0.0  0.75348364  1.0000
+  Mg  Mg21      1.0  0.3332821560854571  0.5  0.21599605429965862  1.0000
+  Mg  Mg22      1.0  0.835275045576448  0.5  0.2723789571266644  1.0000
+  Mg  Mg23      1.0  0.25088938  0.25088938  0.0  1.0000
+  Mg  Mg24      1.0  0.028728457532979833  0.25533209  0.7536748230708984  1.0000
+  Mg  Mg25      1.0  0.25088938  0.74911062  0.0  1.0000
+  Mg  Mg26      1.0  0.25533209  0.74466791  0.5  1.0000
+  Mg  Mg27      1.0  0.74911062  0.25088938  0.0  1.0000
+  Mg  Mg28      1.0  0.08378563160082168  0.25533209  0.2398345437732703  1.0000
+  Mg  Mg29      1.0  0.74911062  0.74911062  0.0  1.0000
+  Mg  Mg30      1.0  0.74466791  0.74466791  0.5  1.0000
+  Ti  Ti1       1.0  0.0  0.0  0.0  1.0000
+  O   O1        1.0  0.2571338  0.0  0.0  1.0000
+  O   O2        1.0  0.03043182633063071  0.0  0.7687157203370508  1.0000
+  O   O3        1.0  0.25130881  0.5  0.0  1.0000
+  O   O4        1.0  0.028575813043674674  0.5  0.7523269587181818  1.0000
+  O   O5        1.0  0.7428662  0.0  0.0  1.0000
+  O   O6        1.0  0.0820822628031708  0.0  0.22479364650711808  1.0000
+  O   O7        1.0  0.74869119  0.5  0.0  1.0000
+  O   O8        1.0  0.08393827609012681  0.5  0.2411824081259868  1.0000
+  O   O9        1.0  0.2764045590998271  0.24951223  0.719777440269763  1.0000
+  O   O10       1.0  0.77974272347256  0.24951223  0.7760080350245901  1.0000
+  O   O11       1.0  0.24951223  0.75048777  0.25011754  1.0000
+  O   O12       1.0  0.24951223  0.75048777  0.74988246  1.0000
+  O   O13       1.0  0.3327713656612414  0.24951223  0.21750133181957865  1.0000
+  O   O14       1.0  0.8361095300339745  0.24951223  0.2737319265744058  1.0000
+  O   O15       1.0  0.75048777  0.75048777  0.25011754  1.0000
+  O   O16       1.0  0.75048777  0.75048777  0.74988246  1.0000
+  O   O17       1.0  0.2656286237937258  0.0  0.46992630714022304  1.0000
+  O   O18       1.0  0.7343713762062742  0.0  0.5300736928597769  1.0000
+  O   O19       1.0  0.252094443748975  0.5  0.47145860726647315  1.0000
+  O   O20       1.0  0.747905556251025  0.5  0.5285413927335268  1.0000
+  O   O21       1.0  0.5  0.0  0.2463305  1.0000
+  O   O22       1.0  0.5  0.0  0.7536695  1.0000
+  O   O23       1.0  0.5  0.5  0.24910619  1.0000
+  O   O24       1.0  0.5  0.5  0.7508938099999998  1.0000
+  O   O25       1.0  0.0  0.2571338  0.0  1.0000
+  O   O26       1.0  0.0  0.27047125  0.5  1.0000
+  O   O27       1.0  0.0  0.7428662  0.0  1.0000
+  O   O28       1.0  0.0  0.72952875  0.5  1.0000
+  O   O29       1.0  0.5  0.25130881  0.0  1.0000
+  O   O30       1.0  0.5  0.25397542  0.5  1.0000
+  O   O31       1.0  0.5  0.74869119  0.0  1.0000
+  O   O32       1.0  0.5  0.7460245799999999  0.5  1.0000
+",,

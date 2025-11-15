@@ -1,0 +1,12 @@
+2025-09-17 17:12:08,441 - CIFGenEvaluator - INFO - Starting evaluation with 20 samples in batches of 20
+2025-09-17 17:12:08,445 - CIFGenEvaluator - DEBUG - Processing batch 1 of 1
+2025-09-17 17:21:53,244 - CIFGenEvaluator - INFO - Evaluation completed
+2025-09-17 17:21:53,244 - CIFGenEvaluator - INFO - summary: {'total_samples': 20, 'success_count': 4, 'error_count': 16, 'success_rate': 0.2, 'error_types': {'CIFParsingError': {'count': 14, 'percentage': 0.875}, 'StructureMismatch': {'count': 1, 'percentage': 0.0625}, 'OutputFormatError': {'count': 1, 'percentage': 0.0625}}} - statistics: {'rmsd_mean': np.float64(3.938499565972186e-17), 'rmsd_median': np.float64(0.0), 'rmsd_max': np.float64(1.5753998263888744e-16), 'rmsd_min': np.float64(0.0), 'max_diff_mean': np.float64(3.938499565972186e-17), 'max_diff_median': np.float64(0.0), 'max_diff_max': np.float64(1.5753998263888744e-16), 'max_diff_min': np.float64(0.0)}
+2025-09-17 17:21:53,247 - CIFGenEvaluator - INFO - Saved metrics to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/CifGen/qwen3_8B/20250917_171208/metrics.json
+2025-09-17 17:21:53,254 - CIFGenEvaluator - INFO - Evaluation results saved to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/CifGen/qwen3_8B/20250917_171208/evaluation_results.csv
+2025-09-17 17:21:53,261 - CIFGenEvaluator - INFO - Failed cases saved to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/CifGen/qwen3_8B/20250917_171208/evaluation_wrongs.csv
+2025-09-17 17:21:53,261 - CIFGenEvaluator - INFO - 
+======== Evaluation Summary ========
+2025-09-17 17:21:53,261 - CIFGenEvaluator - INFO - Total inputs: 20
+2025-09-17 17:21:53,261 - CIFGenEvaluator - INFO - num_unreadable_out: 1
+2025-09-17 17:21:53,261 - CIFGenEvaluator - INFO - num_invalid_cif: 15

@@ -36,7 +36,7 @@ class OpenAIModel(BaseModel):
 
     def _call_api(self, messages: List[Dict[str, str]], **kwargs) -> str:
         """ private method to call OpenAI API with given messages and parameters."""
-        max_retries = 14
+        max_retries = 3
         backoff = 2  # seconds
         for attempt in range(max_retries):
             try:

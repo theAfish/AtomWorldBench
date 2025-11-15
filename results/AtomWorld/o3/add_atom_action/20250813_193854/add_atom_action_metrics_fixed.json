@@ -1,0 +1,21 @@
+{
+  "model": "o3",
+  "action": "add_atom_action",
+  "total": 250,
+  "correct": 200,
+  "wrong": 50,
+  "error_rate": 0.2,
+  "relabelled_from_wrong_to_correct": 0,
+  "rmsd_stats": {
+    "mean": 0.0003310396452936645,
+    "max": 0.0317280774573,
+    "min": 8.041325592047781e-33,
+    "median": 2.7033852694915714e-05
+  },
+  "max_diff_stats": {
+    "mean": 0.0015300581882160703,
+    "max": 0.1187155953862425,
+    "min": 1.313142970406727e-32,
+    "median": 0.00013277439361680002
+  }
+}

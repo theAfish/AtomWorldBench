@@ -1,22 +1,13 @@
-from models.base_model import BaseModel
-import os
-from typing import Union, List
+from evaluation.base_evaluator import BaseEvaluator
+from typing import Union, List, Dict, Any
 import pandas as pd
 from utils.extract_data import extract_from_string
 from evaluation.metrics import load_cif_file_from_string, match_structures
 from pymatgen.core.structure import Structure
-from tqdm import tqdm
+from models.base_model import BaseModel
 import logging
-import time
 
-logging.captureWarnings(True)
-logging.basicConfig(
-    filename='run.log',
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
-)
-
-class CIFGenEvaluator:
+class CIFGenEvaluator(BaseEvaluator):
     def __init__(
             self, 
             model: BaseModel,
@@ -24,118 +15,102 @@ class CIFGenEvaluator:
             results_folder: str = "results"
     ):
         """
-        Initialize the Evaluator with the data folder and optional action name.
+        Initialize the CIF Generation Evaluator.
         """
-        self.model = model
-        self.data = data
-        self.results_folder = results_folder
+        super().__init__(model=model, results_folder=results_folder, data=data)
+        if isinstance(self.data, pd.DataFrame):
+            self.data['cif'] = self.data['structure'].apply(lambda s: s.to(fmt="cif"))
+            
+    def _initialize_stats(self) -> Dict:
+        """Initialize statistics tracking."""
+        return {
+            'num_unreadable_out': 0,
+            'num_invalid_cif': 0,
+            'results': []  # Initialize results list
+        }
 
-    def evaluate(self, batch_size: int = 8, num_batch: int = -1):
+    def _create_prompt(self, row: Any) -> str:
+        """Create a prompt from the data row."""
+        return row['prompt']
+
+    def _process_single_output(
+        self,
+        row: Any,
+        generated_output: str,
+        stats: Dict
+    ) -> Dict:
+        """Process a single generated output."""
+        # Extract CIF from output
+        generated_cif = extract_from_string(generated_output, format="cif")
+        if generated_cif is None:
+            logging.info("Invalid generated output")
+            stats['num_unreadable_out'] += 1
+            return {
+                'is_error': True,
+                'reference_cif': row['cif'],
+                'generated_output': generated_output,
+                'wrong_type': "OutputFormatError"
+            }
+
+        # Parse generated structure
+        generated_structure = load_cif_file_from_string(generated_cif)
+        if generated_structure is None:
+            logging.info("Invalid generated structure")
+            stats['num_invalid_cif'] += 1
+            return {
+                'is_error': True,
+                'reference_cif': row['cif'],
+                'generated_output': generated_output,
+                'wrong_type': "CIFParsingError"
+            }
+
+        # Match structures
+        rmsd, max_diff = match_structures(row['structure'], generated_structure, primitive_cell=True, attempt_supercell=True)
+        if rmsd == -1:
+            logging.info("Structures do not match")
+            stats['num_invalid_cif'] += 1
+            return {
+                'is_error': True,
+                'reference_cif': row['cif'],
+                'generated_output': generated_output,
+                'wrong_type': "StructureMismatch"
+            }
+
+        # Success case
+        return {
+            'is_error': False,
+            'reference_cif': row['cif'],
+            'generated_cif': generated_cif,
+            'rmsd': rmsd,
+            'max_diff': max_diff,
+            'generated_output': generated_output
+        }
+    
+    def _calculate_result_statistics(self, results):
         """
-        Evaluate the model on the provided data in batches.
+        Calculate statistical metrics from successful results.
         """
-        self.data['cif'] = self.data['structure'].apply(lambda s: s.to(fmt="cif"))
-
-        results = []
-        wrongs = []
-        num_unreadable_out = 0
-        num_invalid_cif = 0
-
-        prompts = []
-        rows = []
-        batch_count = 0
-        total = min(num_batch * batch_size, len(self.data)) if num_batch > 0 else len(self.data)
-        for i, row in tqdm(self.data.iterrows(), total=total, desc="LLM Calling"):
-            # reference_structure = row['structure']
-            prompt = row['prompt']
-
-            # if reference_structure is None:
-            #     raise ValueError(f"No reference structure at row {i}")
-
-            prompts.append(prompt)
-            rows.append(row)
-
-            # Process in batches
-            if len(prompts) == batch_size or i == len(self.data) - 1:
-                # Generate responses in batch
-                generated_outputs = self.model.generate_batch(prompts)
-                for j, generated_output in enumerate(generated_outputs):
-                    row = rows[j]
-                    generated_cif = extract_from_string(generated_output, format="cif")
-                    if generated_cif is None:
-                        logging.info(f"Invalid generated output for index {i - len(prompts) + 1 + j}")
-                        num_unreadable_out += 1
-                        wrongs.append({
-                            "reference_cif": row['cif'],
-                            "generated_output": generated_output,
-                            "wrong_type": "OutputFormatError"
-                        })
-                        continue
-
-                    generated_structure = load_cif_file_from_string(generated_cif)
-
-                    if generated_structure is None:
-                        logging.info(f"Invalid generated structure for index {i - len(prompts) + 1 + j}")
-                        num_invalid_cif += 1
-                        wrongs.append({
-                            "reference_cif": row['cif'],
-                            "generated_output": generated_output,
-                            "wrong_type": "CIFParsingError"
-                        })
-                        continue
-
-                    # atom_counts_match = check_atom_counts(reference_structure, generated_structure)
-                    # if not atom_counts_match:
-                    #     logging.info(f"Atom counts do not match for index {i - len(prompts) + 1 + j}")
-                    #     num_invalid_cif += 1
-                    #     wrongs.append({
-                    #         "reference_cif": reference_cif,
-                    #         "generated_output": generated_output,
-                    #         "wrong_type": "AtomCountMismatch"
-                    #     })
-                    #     continue
-
-                    rmsd, max_diff = match_structures(row['structure'], generated_structure, primitive_cell=True, attempt_supercell=True)
-                    if rmsd == -1:
-                        logging.info(f"Structures do not match for index {i - len(prompts) + 1 + j}")
-                        num_invalid_cif += 1
-                        wrongs.append({
-                            "reference_cif": row['cif'],
-                            "generated_output": generated_output,
-                            "wrong_type": "StructureMismatch"
-                        })
-                        continue
-
-                    results.append({
-                        "reference_cif": row['cif'],
-                        "generated_cif": generated_cif,
-                        "rmsd": rmsd,
-                        "max_diff": max_diff,
-                        "generated_output": generated_output
-                    })
-                    print(f"RMSD: {rmsd}, Max Diff: {max_diff}")
-
-                prompts = []
-                rows = []
-                batch_count += 1
-
-                # Stop if num_batch is reached
-                if num_batch > 0 and batch_count >= num_batch:
-                    break
-
-        # Print summary of evaluation
-        print(f"Evaluation completed. Total inputs: {len(self.data)}, ")
-        print(f"Unreadable outputs: {num_unreadable_out}, Invalid CIFs: {num_invalid_cif}")
-
-        # Save results to a DataFrame and then to a CSV file
-        os.makedirs(self.results_folder, exist_ok=True)
+        rmsd_values = [res['rmsd'] for res in results if not res['is_error']]
+        max_diff_values = [res['max_diff'] for res in results if not res['is_error']]
         
-        results_df = pd.DataFrame(results)
-        results_csv_path = os.path.join(self.results_folder, f"evaluation_results.csv")
-        results_df.to_csv(results_csv_path, index=False)
-        print(f"Evaluation results saved to {results_csv_path}")
+        stats = {
+            'rmsd_mean': sum(rmsd_values) / len(rmsd_values) if rmsd_values else None,
+            'rmsd_median': sorted(rmsd_values)[len(rmsd_values)//2] if rmsd_values else None,
+            'rmsd_max': max(rmsd_values) if rmsd_values else None,
+            'rmsd_min': min(rmsd_values) if rmsd_values else None,
+            'max_diff_mean': sum(max_diff_values) / len(max_diff_values) if max_diff_values else None,
+            'max_diff_median': sorted(max_diff_values)[len(max_diff_values)//2] if max_diff_values else None,
+            'max_diff_max': max(max_diff_values) if max_diff_values else None,
+            'max_diff_min': min(max_diff_values) if max_diff_values else None,
+        }
+        return stats
 
-        # Save wrongs to a DataFrame and then to a CSV file
-        wrongs_df = pd.DataFrame(wrongs)
-        wrongs_csv_path = os.path.join(self.results_folder, f"evaluation_wrongs.csv")
-        wrongs_df.to_csv(wrongs_csv_path, index=False)
+    def _log_success_metrics(self, result: Dict) -> None:
+        """Log metrics for successful generations."""
+        print(f"RMSD: {result['rmsd']}, Max Diff: {result['max_diff']}")
+
+    def _print_summary(self, stats: Dict) -> None:
+        """Print evaluation summary."""
+        print(f"Evaluation completed. Total inputs: {len(self.data)}")
+        print(f"Unreadable outputs: {stats['num_unreadable_out']}")
+        print(f"Invalid CIFs: {stats['num_invalid_cif']}")

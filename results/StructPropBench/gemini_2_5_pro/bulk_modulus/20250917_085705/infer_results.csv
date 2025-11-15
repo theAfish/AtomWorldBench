@@ -1,0 +1,850 @@
+input_cif_name,generated_cif,generated_output
+mp-160_sg_166_formula_B.cif,"# CIF modified by Material Design Expert to increase bulk modulus
+# Modification: Substituted 2 B atoms with C and contracted the lattice
+data_B10C2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.94160773
+_cell_length_b   4.94160812
+_cell_length_c   4.94160861
+_cell_angle_alpha   58.11864518
+_cell_angle_beta   58.11864725
+_cell_angle_gamma   58.11862732
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   B10C2
+_chemical_formula_sum   'B10 C2'
+_cell_volume   81.63098059
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  B   B0   1  0.00997004  0.65428512  0.00997004  1.0
+  B   B1   1  0.00997004  0.00997004  0.65428512  1.0
+  C   C2   1  0.65428512  0.00997004  0.00997004  1.0
+  C   C3   1  0.34571488  0.99002996  0.99002996  1.0
+  B   B4   1  0.99002996  0.34571488  0.99002996  1.0
+  B   B5   1  0.99002996  0.99002996  0.34571488  1.0
+  B   B6   1  0.22056557  0.63163483  0.22056557  1.0
+  B   B7   1  0.22056557  0.22056557  0.63163483  1.0
+  B   B8   1  0.63163483  0.22056557  0.22056557  1.0
+  B   B9   1  0.36836517  0.77943443  0.77943443  1.0
+  B   B10  1  0.77943443  0.36836517  0.77943443  1.0
+  B   B11  1  0.77943443  0.77943443  0.36836517  1.0","An analysis of the provided CIF for alpha-rhombohedral boron reveals a structure composed of B12 icosahedra. The bulk modulus of a material is a measure of its resistance to compression and is primarily influenced by bond strength and atomic packing density. To increase the bulk modulus of this material, a combined strategy of element substitution and lattice parameter adjustment is employed.
+
+1.  **Element Substitution:** Carbon is selected to substitute some of the boron atoms. Carbon is isoelectronic with boron in some bonding environments, has a smaller atomic radius, and forms exceptionally strong covalent bonds. The substitution of boron with carbon is a well-established method for creating superhard materials (e.g., boron carbide, B₄C) with extremely high bulk moduli. Two boron atoms, B2 and B3, which are located at approximately opposite poles of the icosahedron, are replaced with carbon to maintain structural balance. This changes the chemical formula of the unit cell to B₁₀C₂.
+
+2.  **Lattice Parameter Adjustment:** The introduction of smaller, more strongly-bonding carbon atoms will cause a contraction of the crystal lattice. To reflect this physical reality, the lattice parameters (`a`, `b`, and `c`) are uniformly reduced by 2%. This reduction increases the atomic packing density and places the bonds under slight compression, both of which contribute to a higher bulk modulus. The cell volume is recalculated accordingly.
+
+This dual modification results in a new hypothetical B₁₀C₂ structure that is denser and features stronger internal bonding, leading to a significant increase in its bulk modulus compared to pure alpha-boron.
+
+<cif>
+# CIF modified by Material Design Expert to increase bulk modulus
+# Modification: Substituted 2 B atoms with C and contracted the lattice
+data_B10C2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.94160773
+_cell_length_b   4.94160812
+_cell_length_c   4.94160861
+_cell_angle_alpha   58.11864518
+_cell_angle_beta   58.11864725
+_cell_angle_gamma   58.11862732
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   B10C2
+_chemical_formula_sum   'B10 C2'
+_cell_volume   81.63098059
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  B   B0   1  0.00997004  0.65428512  0.00997004  1.0
+  B   B1   1  0.00997004  0.00997004  0.65428512  1.0
+  C   C2   1  0.65428512  0.00997004  0.00997004  1.0
+  C   C3   1  0.34571488  0.99002996  0.99002996  1.0
+  B   B4   1  0.99002996  0.34571488  0.99002996  1.0
+  B   B5   1  0.99002996  0.99002996  0.34571488  1.0
+  B   B6   1  0.22056557  0.63163483  0.22056557  1.0
+  B   B7   1  0.22056557  0.22056557  0.63163483  1.0
+  B   B8   1  0.63163483  0.22056557  0.22056557  1.0
+  B   B9   1  0.36836517  0.77943443  0.77943443  1.0
+  B   B10  1  0.77943443  0.36836517  0.77943443  1.0
+  B   B11  1  0.77943443  0.77943443  0.36836517  1.0
+</cif>"
+mp-239_sg_113_formula_BaS3.cif,"# Modified by a material design expert to increase bulk modulus.
+# Modification: Ba -> Ca substitution and lattice compression.
+data_CaS3_modified
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.005211
+_cell_length_b   6.604357
+_cell_length_c   6.604357
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   CaS3
+_chemical_formula_sum   'Ca2 S6'
+_cell_volume   174.697621
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ca  Ca0  1  -0.00000000  0.50000000  0.50000000  1.0
+  Ca  Ca1  1  -0.00000000  -0.00000000  0.00000000  1.0
+  S  S2  1  0.47518716  0.82212087  0.32212087  1.0
+  S  S3  1  0.52481284  0.32212087  0.17787913  1.0
+  S  S4  1  0.21150960  -0.00000000  0.50000000  1.0
+  S  S5  1  0.78849040  0.50000000  0.00000000  1.0
+  S  S6  1  0.47518716  0.17787913  0.67787913  1.0
+  S  S7  1  0.52481284  0.67787913  0.82212087  1.0","An analysis of the material BaS3 indicates that its bulk modulus is primarily influenced by the ionic bonds between the Ba²⁺ cations and the polysulfide S₃²⁻ anions, as well as the overall packing density of the structure. The bulk modulus, a measure of a material's resistance to compression, can be increased by strengthening these bonds and creating a more compact lattice.
+
+To achieve this, I will perform a combination of **Element Substitution** and **Lattice Parameter Adjustment**.
+
+1.  **Element Substitution**: I will replace Barium (Ba) with Calcium (Ca). The Ca²⁺ ion is significantly smaller than the Ba²⁺ ion (ionic radius ~1.00 Å vs. ~1.35 Å) but has the same +2 charge. This increase in charge density leads to stronger electrostatic interactions (ionic bonds) with the surrounding sulfur anions.
+2.  **Lattice Parameter Adjustment**: To accommodate the smaller Ca²⁺ cation and reflect the stronger bonding and more compact structure, I will isotropically reduce the lattice parameters by 5%. This decrease in cell volume directly corresponds to a stiffer, less compressible material.
+
+This combined modification results in a CaS₃ structure with shorter, stronger bonds and higher packing density, which will exhibit a significantly increased bulk modulus compared to the original BaS₃.
+
+<cif>
+# Modified by a material design expert to increase bulk modulus.
+# Modification: Ba -> Ca substitution and lattice compression.
+data_CaS3_modified
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.005211
+_cell_length_b   6.604357
+_cell_length_c   6.604357
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   CaS3
+_chemical_formula_sum   'Ca2 S6'
+_cell_volume   174.697621
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ca  Ca0  1  -0.00000000  0.50000000  0.50000000  1.0
+  Ca  Ca1  1  -0.00000000  -0.00000000  0.00000000  1.0
+  S  S2  1  0.47518716  0.82212087  0.32212087  1.0
+  S  S3  1  0.52481284  0.32212087  0.17787913  1.0
+  S  S4  1  0.21150960  -0.00000000  0.50000000  1.0
+  S  S5  1  0.78849040  0.50000000  0.00000000  1.0
+  S  S6  1  0.47518716  0.17787913  0.67787913  1.0
+  S  S7  1  0.52481284  0.67787913  0.82212087  1.0
+</cif>"
+mp-288_sg_131_formula_PtS.cif,"# generated using pymatgen, modified by material design expert to decrease bulk modulus
+data_PtS_expanded
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.66918482
+_cell_length_b   3.66918482
+_cell_length_c   6.42210858
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   PtS
+_chemical_formula_sum   'Pt2 S2'
+_cell_volume   86.47648366
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Pt  Pt0  1  0.50000000  -0.00000000  0.50000000  1.0
+  Pt  Pt1  1  0.00000000  0.50000000  0.00000000  1.0
+  S  S2  1  -0.00000000  -0.00000000  0.75000000  1.0
+  S  S3  1  0.00000000  0.00000000  0.25000000  1.0","An analysis of the material and the target property leads to the following modification strategy:
+
+**1. Analysis of Material and Target Property**
+
+*   **Material:** The provided CIF file describes Platinum Sulfide (PtS) in what appears to be the Cooperite structure, which has a tetragonal unit cell. The fundamental structural units are Pt atoms coordinated by S atoms.
+*   **Target Property:** The goal is to decrease the bulk modulus. The bulk modulus (K) is a measure of a material's resistance to uniform compression. A lower bulk modulus signifies a ""softer"" or more compressible material.
+*   **Structure-Property Relationship:** The bulk modulus is intrinsically linked to the strength of the chemical bonds and the density of the crystal structure. Weaker chemical bonds and larger interatomic distances generally result in a lower bulk modulus because the structure is easier to compress.
+
+**2. Proposed Modification**
+
+To decrease the bulk modulus, the most direct approach is to weaken the overall bonding within the crystal lattice. This can be achieved by increasing the interatomic distances. I will apply a **Lattice Parameter Adjustment** to expand the unit cell.
+
+*   **Modification:** I will increase the lattice parameters `_cell_length_a`, `_cell_length_b`, and `_cell_length_c` by 5%.
+*   **Justification:** This uniform expansion of the unit cell directly increases the distance between the Platinum and Sulfur atoms. Longer bonds are inherently weaker. A crystal lattice held together by weaker bonds requires less pressure to achieve a given volume reduction, which, by definition, corresponds to a lower bulk modulus. This modification effectively creates a less dense version of PtS, which is expected to be more compressible. The fractional coordinates of the atoms will be kept the same, meaning their relative positions within the scaled-up cell are preserved.
+
+**3. Modified CIF File**
+
+The following CIF file reflects a 5% expansion of all lattice parameters, which will lead to a decrease in the material's bulk modulus.
+
+<cif>
+# generated using pymatgen, modified by material design expert to decrease bulk modulus
+data_PtS_expanded
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.66918482
+_cell_length_b   3.66918482
+_cell_length_c   6.42210858
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   PtS
+_chemical_formula_sum   'Pt2 S2'
+_cell_volume   86.47648366
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Pt  Pt0  1  0.50000000  -0.00000000  0.50000000  1.0
+  Pt  Pt1  1  0.00000000  0.50000000  0.00000000  1.0
+  S  S2  1  -0.00000000  -0.00000000  0.75000000  1.0
+  S  S3  1  0.00000000  0.00000000  0.25000000  1.0
+</cif>"
+mp-306_sg_152_formula_B2O3.cif,"# CIF file modified by a Material Design Expert to increase bulk modulus.
+# Original: B2O3. Modified: B4Si2O9 (Borosilicate).
+# Modification Details:
+# 1. Element Substitution: Two Boron atoms (33%) were substituted with Silicon to
+#    increase network connectivity and rigidity (BO3 -> SiO4).
+# 2. Lattice Parameter Adjustment: Lattice vectors were scaled by 0.99 to reflect
+#    the expected densification from a more rigid atomic network.
+#
+data_B4Si2O9_HighModulus
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.29404243
+_cell_length_b   4.29404369
+_cell_length_c   8.22593330
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   120.00001084
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   B4Si2O9
+_chemical_formula_sum   'B4 Si2 O9'
+_cell_volume   131.35560640
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  B  B0   1  0.10014870  0.27065547  0.89931969  1.0
+  B  B1   1  0.17050877  0.89985130  0.56598569  1.0
+  B  B2   1  0.72934453  0.82949123  0.23265269  1.0
+  B  B3   1  0.56654681  0.50382586  0.68267751  1.0
+  Si Si4  1  0.93727805  0.43345319  0.34934451  1.0
+  Si Si5  1  0.49617414  0.06272195  0.01601151  1.0
+  O  O6   1  0.48233896  0.21679708  0.58562766  1.0
+  O  O7   1  0.78320292  0.26554188  0.91896166  1.0
+  O  O8   1  0.73445812  0.51766104  0.25229466  1.0
+  O  O9   1  0.33336984  0.51095125  0.79100187  1.0
+  O  O10  1  0.17758141  0.66663016  0.45766887  1.0
+  O  O11  1  0.48904875  0.82241859  0.12433487  1.0
+  O  O12  1  0.88348663  0.81565118  0.66303728  1.0
+  O  O13  1  0.93216255  0.11651337  0.32970428  1.0
+  O  O14  1  0.18434882  0.06783745  0.99637128  1.0","As a material design expert, I will modify the provided B2O3 structure to increase its bulk modulus.
+
+### Analysis and Rationale
+
+**Target Property:** Increase Bulk Modulus.
+
+**Key Structural Influences:** A material's bulk modulus (its resistance to uniform compression) is fundamentally governed by the strength of its chemical bonds and the density of its atomic packing. In the case of Boron Oxide (B2O3), the structure is a network of covalent B-O bonds. In its common forms, Boron is often three-coordinated, forming planar BO3 triangular units. While these units are strong, the overall network can be relatively open and flexible.
+
+**Design Strategy:** To increase the bulk modulus, I will enhance the three-dimensional connectivity and rigidity of the network. My strategy involves a combination of element substitution and a corresponding lattice adjustment:
+
+1.  **Element Substitution:** I will substitute a portion of the Boron (B) atoms with Silicon (Si). Silicon, unlike three-coordinated Boron, strongly favors a four-coordinated tetrahedral geometry (forming SiO4 units, as seen in quartz). By introducing Si into the B2O3 framework, we create SiO4 tetrahedra that act as rigid, 3D cross-linking points within the network. This increased connectivity disrupts the more open BO3 network, significantly increasing the material's overall stiffness and resistance to compression. I will substitute two of the six B atoms in the cell, resulting in a borosilicate compound with the formula B4Si2O9.
+
+2.  **Lattice Parameter Adjustment:** A more rigid and tightly bound network is expected to be denser than the original B2O3 structure. To reflect this physical reality, I will apply a 1% compressive strain to the unit cell by reducing all lattice parameters. This decrease in volume further contributes to a higher bulk modulus.
+
+This combined modification results in a new, intrinsically stiffer borosilicate material that is structurally optimized for a higher bulk modulus compared to the original B2O3.
+
+### Modified CIF File
+
+<cif>
+# CIF file modified by a Material Design Expert to increase bulk modulus.
+# Original: B2O3. Modified: B4Si2O9 (Borosilicate).
+# Modification Details:
+# 1. Element Substitution: Two Boron atoms (33%) were substituted with Silicon to
+#    increase network connectivity and rigidity (BO3 -> SiO4).
+# 2. Lattice Parameter Adjustment: Lattice vectors were scaled by 0.99 to reflect
+#    the expected densification from a more rigid atomic network.
+#
+data_B4Si2O9_HighModulus
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.29404243
+_cell_length_b   4.29404369
+_cell_length_c   8.22593330
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   120.00001084
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   B4Si2O9
+_chemical_formula_sum   'B4 Si2 O9'
+_cell_volume   131.35560640
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  B  B0   1  0.10014870  0.27065547  0.89931969  1.0
+  B  B1   1  0.17050877  0.89985130  0.56598569  1.0
+  B  B2   1  0.72934453  0.82949123  0.23265269  1.0
+  B  B3   1  0.56654681  0.50382586  0.68267751  1.0
+  Si Si4  1  0.93727805  0.43345319  0.34934451  1.0
+  Si Si5  1  0.49617414  0.06272195  0.01601151  1.0
+  O  O6   1  0.48233896  0.21679708  0.58562766  1.0
+  O  O7   1  0.78320292  0.26554188  0.91896166  1.0
+  O  O8   1  0.73445812  0.51766104  0.25229466  1.0
+  O  O9   1  0.33336984  0.51095125  0.79100187  1.0
+  O  O10  1  0.17758141  0.66663016  0.45766887  1.0
+  O  O11  1  0.48904875  0.82241859  0.12433487  1.0
+  O  O12  1  0.88348663  0.81565118  0.66303728  1.0
+  O  O13  1  0.93216255  0.11651337  0.32970428  1.0
+  O  O14  1  0.18434882  0.06783745  0.99637128  1.0
+</cif>"
+mp-361_sg_224_formula_Cu2O.cif,"# generated using pymatgen
+# modified to increase bulk modulus
+data_Cu2O_modified
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.16176533
+_cell_length_b   4.16176533
+_cell_length_c   4.16176533
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Cu2O
+_chemical_formula_sum   'Cu4 O2'
+_cell_volume   72.09139158
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Cu  Cu0  1  0.50000000  0.50000000  -0.00000000  1.0
+  Cu  Cu1  1  -0.00000000  0.50000000  0.50000000  1.0
+  Cu  Cu2  1  0.50000000  -0.00000000  0.50000000  1.0
+  Cu  Cu3  1  0.00000000  0.00000000  0.00000000  1.0
+  O  O4  1  0.75000000  0.75000000  0.75000000  1.0
+  O  O5  1  0.25000000  0.25000000  0.25000000  1.0","An analysis of the material properties of Cu₂O reveals that its bulk modulus, a measure of resistance to compression, is primarily determined by the strength and density of the Cu-O bonds within its crystal lattice. According to fundamental solid-state physics principles, the bulk modulus is inversely related to the unit cell volume. A more compact structure with shorter bond lengths leads to stronger interatomic repulsion, thus increasing the material's stiffness and bulk modulus.
+
+To achieve an increased bulk modulus, the most direct and effective modification is to reduce the lattice parameters of the unit cell. This simulates the effect of hydrostatic pressure, placing the material in a compressed state where it is inherently more resistant to further compression. This modification is physically sound and directly targets the structural parameter most closely linked to the bulk modulus.
+
+Therefore, I will apply a 2% compressive strain to the lattice by reducing the cell lengths `a`, `b`, and `c` from 4.24669932 Å to 4.16176533 Å. The `_cell_volume` will be updated accordingly. The fractional atomic coordinates remain unchanged as they are relative to the lattice vectors. This modification strengthens the interatomic interactions by decreasing bond distances, resulting in the desired increase in the bulk modulus.
+
+<cif>
+# generated using pymatgen
+# modified to increase bulk modulus
+data_Cu2O_modified
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.16176533
+_cell_length_b   4.16176533
+_cell_length_c   4.16176533
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Cu2O
+_chemical_formula_sum   'Cu4 O2'
+_cell_volume   72.09139158
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Cu  Cu0  1  0.50000000  0.50000000  -0.00000000  1.0
+  Cu  Cu1  1  -0.00000000  0.50000000  0.50000000  1.0
+  Cu  Cu2  1  0.50000000  -0.00000000  0.50000000  1.0
+  Cu  Cu3  1  0.00000000  0.00000000  0.00000000  1.0
+  O  O4  1  0.75000000  0.75000000  0.75000000  1.0
+  O  O5  1  0.25000000  0.25000000  0.25000000  1.0
+</cif>"
+mp-468_sg_167_formula_AlF3.cif,"# Data modified to increase bulk modulus.
+# Modification strategy:
+# 1. Element Substitution: Aluminum (Al) was substituted with Boron (B).
+#    The B-F bond is significantly shorter and stronger than the Al-F bond,
+#    which is a primary factor for increasing the bulk modulus.
+# 2. Lattice Parameter Adjustment: The lattice constants were scaled down by
+#    a factor of 0.78 to account for the smaller ionic radius of B and the
+#    shorter B-F bond length, leading to a denser, stiffer structure.
+data_BF3
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.843900
+_cell_length_b   5.455731
+_cell_length_c   3.913741
+_cell_angle_alpha   135.84411518
+_cell_angle_beta   150.95003080
+_cell_angle_gamma   34.84540193
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   BF3
+_chemical_formula_sum   'B2 F6'
+_cell_volume   40.543500
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  B  B0  1  0.49991311  0.75013768  0.00011922  1.0
+  B  B1  1  0.49998650  0.24996728  -0.00016565  1.0
+  F  F2  1  0.41281156  -0.00027007  0.82516300  1.0
+  F  F3  1  0.00001468  0.91197287  0.41178250  1.0
+  F  F4  1  0.41180985  0.08818844  0.41163447  1.0
+  F  F5  1  0.58763630  0.50026991  0.17574064  1.0
+  F  F6  1  0.00004140  0.58739818  0.58782109  1.0
+  F  F7  1  0.58778759  0.41233672  0.58790473  1.0","<cif>
+# Data modified to increase bulk modulus.
+# Modification strategy:
+# 1. Element Substitution: Aluminum (Al) was substituted with Boron (B).
+#    The B-F bond is significantly shorter and stronger than the Al-F bond,
+#    which is a primary factor for increasing the bulk modulus.
+# 2. Lattice Parameter Adjustment: The lattice constants were scaled down by
+#    a factor of 0.78 to account for the smaller ionic radius of B and the
+#    shorter B-F bond length, leading to a denser, stiffer structure.
+data_BF3
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.843900
+_cell_length_b   5.455731
+_cell_length_c   3.913741
+_cell_angle_alpha   135.84411518
+_cell_angle_beta   150.95003080
+_cell_angle_gamma   34.84540193
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   BF3
+_chemical_formula_sum   'B2 F6'
+_cell_volume   40.543500
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  B  B0  1  0.49991311  0.75013768  0.00011922  1.0
+  B  B1  1  0.49998650  0.24996728  -0.00016565  1.0
+  F  F2  1  0.41281156  -0.00027007  0.82516300  1.0
+  F  F3  1  0.00001468  0.91197287  0.41178250  1.0
+  F  F4  1  0.41180985  0.08818844  0.41163447  1.0
+  F  F5  1  0.58763630  0.50026991  0.17574064  1.0
+  F  F6  1  0.00004140  0.58739818  0.58782109  1.0
+  F  F7  1  0.58778759  0.41233672  0.58790473  1.0
+</cif>"
+mp-470_sg_136_formula_GeO2.cif,"# Modified by Material Design Expert to decrease bulk modulus
+# Modification: Substituted one Ge with a larger Sn atom and expanded the lattice.
+data_GeSnO2_modified
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.020340
+_cell_length_b   4.544800
+_cell_length_c   4.544800
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   GeSnO2
+_chemical_formula_sum   'Ge1 Sn1 O4'
+_cell_volume   62.333224
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ge  Ge0  1  0.50000000  0.50000000  0.50000000  1.0
+  Sn  Sn1  1  0.00000000  0.00000000  0.00000000  1.0
+  O  O2  1  -0.00000000  0.69422923  0.69422923  1.0
+  O  O3  1  0.50000000  0.80577077  0.19422923  1.0
+  O  O4  1  0.00000000  0.30577077  0.30577077  1.0
+  O  O5  1  0.50000000  0.19422923  0.80577077  1.0","An analysis of the provided CIF file for GeO2 reveals a rutile-type crystal structure. The bulk modulus of a material is intrinsically linked to its bond strength and atomic packing density. A lower bulk modulus corresponds to a more compressible material, which can be achieved by weakening the interatomic bonds or increasing the interatomic distances.
+
+**Analysis and Strategy:**
+
+1.  **Key Structural Features:** The material is Germanium Dioxide (GeO2) in a dense, rutile-type structure. The key features governing its bulk modulus are the strong, covalent Ge-O bonds and the efficient packing of the GeO₆ octahedra. The bulk modulus of rutile GeO2 is relatively high (~258 GPa).
+2.  **Target Property:** Decrease the bulk modulus.
+3.  **Proposed Modification:** To decrease the bulk modulus, I will perform a combination of **Element Substitution** and **Lattice Parameter Adjustment**.
+    *   **Element Substitution:** I will substitute Germanium (Ge) with a larger, isovalent atom from the same group in the periodic table: Tin (Sn). Sn is larger than Ge (ionic radius for 4+ charge: Sn⁴⁺ ≈ 69 pm, Ge⁴⁺ ≈ 53 pm) and forms weaker, more polarizable bonds with oxygen. This substitution will inherently lead to a softer, more compressible lattice. I will replace one of the two Ge atoms in the unit cell with an Sn atom, resulting in an ordered GeSnO₂ compound.
+    *   **Lattice Parameter Adjustment:** Corresponding to the substitution of a smaller atom (Ge) with a larger one (Sn), the unit cell volume must increase. I will expand the lattice parameters based on the expected increase from alloying GeO₂ with SnO₂. This expansion physically separates the atoms, lengthens the bonds, and directly contributes to a lower bulk modulus. I will apply an anisotropic expansion, increasing the shorter `a` axis by approximately 5% and the longer `b` and `c` axes by approximately 3% to reflect the larger size of the new atom.
+
+This combined modification creates a new, chemically plausible material (GeSnO₂) that is expected to have a significantly lower bulk modulus than the original GeO₂.
+
+<cif>
+# Modified by Material Design Expert to decrease bulk modulus
+# Modification: Substituted one Ge with a larger Sn atom and expanded the lattice.
+data_GeSnO2_modified
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.020340
+_cell_length_b   4.544800
+_cell_length_c   4.544800
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   GeSnO2
+_chemical_formula_sum   'Ge1 Sn1 O4'
+_cell_volume   62.333224
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ge  Ge0  1  0.50000000  0.50000000  0.50000000  1.0
+  Sn  Sn1  1  0.00000000  0.00000000  0.00000000  1.0
+  O  O2  1  -0.00000000  0.69422923  0.69422923  1.0
+  O  O3  1  0.50000000  0.80577077  0.19422923  1.0
+  O  O4  1  0.00000000  0.30577077  0.30577077  1.0
+  O  O5  1  0.50000000  0.19422923  0.80577077  1.0
+</cif>"
+mp-471_sg_98_formula_CdAs2.cif,"# CIF modified to increase bulk modulus.
+# Modification: Cd substituted with Zn and lattice contracted by 5%.
+data_ZnAs2_modified
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.48935297
+_cell_length_b   5.84760159
+_cell_length_c   5.84760104
+_cell_angle_alpha   81.52656947
+_cell_angle_beta   67.42683261
+_cell_angle_gamma   67.42683613
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   ZnAs2
+_chemical_formula_sum   'Zn2 As4'
+_cell_volume   130.86558190
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Zn  Zn0  1  0.25000000  0.50000000  0.50000000  1.0
+  Zn  Zn1  1  0.00000000  -0.00000000  -0.00000000  1.0
+  As  As2  1  0.68670692  0.18829308  0.68829308  1.0
+  As  As3  1  0.62500000  0.81170692  0.68829308  1.0
+  As  As4  1  0.56329308  0.81170692  0.31170692  1.0
+  As  As5  1  0.12500000  0.18829308  0.31170692  1.0","As a material design expert, I will modify the provided CIF file for CdAs2 to increase its bulk modulus.
+
+### Analysis and Strategy
+
+1.  **Target Property:** Bulk Modulus (K). The bulk modulus is a measure of a material's resistance to uniform compression. A higher bulk modulus indicates a stiffer, less compressible material. It is primarily determined by the strength of the chemical bonds and the density of the atomic packing.
+
+2.  **Key Structural Features:** The input material is Cadmium Arsenide (CdAs2). The key features influencing its bulk modulus are the Cd-As bonds and the overall crystal density. Cadmium is a relatively large and electropositive element, leading to bonds with significant ionic character that are less stiff than purely covalent bonds.
+
+3.  **Proposed Modification:** To increase the bulk modulus, I will implement a combined strategy of **Element Substitution** and **Lattice Parameter Adjustment**.
+
+    *   **Element Substitution:** I will replace Cadmium (Cd) with Zinc (Zn). Zinc is directly above Cadmium in Group 12 of the periodic table. It has a smaller atomic radius and is more electronegative, which leads to the formation of shorter, stronger, and more covalent bonds with Arsenic. Stronger bonds provide greater resistance to compression, directly increasing the bulk modulus.
+
+    *   **Lattice Parameter Adjustment:** The substitution of smaller Zn atoms for larger Cd atoms will naturally cause the crystal lattice to contract. To reflect this physical reality, I will decrease the lattice parameters by a reasonable amount (5%). This reduction in unit cell volume increases the packing density and shortens the interatomic distances, both of which contribute to a higher bulk modulus.
+
+This combined modification results in a new hypothetical structure, ZnAs2, which is expected to be significantly stiffer than the original CdAs2.
+
+### Modified CIF File
+
+<cif>
+# CIF modified to increase bulk modulus.
+# Modification: Cd substituted with Zn and lattice contracted by 5%.
+data_ZnAs2_modified
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.48935297
+_cell_length_b   5.84760159
+_cell_length_c   5.84760104
+_cell_angle_alpha   81.52656947
+_cell_angle_beta   67.42683261
+_cell_angle_gamma   67.42683613
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   ZnAs2
+_chemical_formula_sum   'Zn2 As4'
+_cell_volume   130.86558190
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Zn  Zn0  1  0.25000000  0.50000000  0.50000000  1.0
+  Zn  Zn1  1  0.00000000  -0.00000000  -0.00000000  1.0
+  As  As2  1  0.68670692  0.18829308  0.68829308  1.0
+  As  As3  1  0.62500000  0.81170692  0.68829308  1.0
+  As  As4  1  0.56329308  0.81170692  0.31170692  1.0
+  As  As5  1  0.12500000  0.18829308  0.31170692  1.0
+</cif>"
+mp-539_sg_9_formula_Ga2S3.cif,"# CIF modified to decrease the bulk modulus.
+# Modification: Substituted Ga with In and expanded the lattice.
+data_In2S3_modified
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   7.22985845
+_cell_length_b   7.25378186
+_cell_length_c   7.89985212
+_cell_angle_alpha   116.53502820
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   119.89095037
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   In2S3
+_chemical_formula_sum   'In4 S6'
+_cell_volume   307.82283020
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  In  In0  1  0.13653814  0.40574596  0.61964728  1.0
+  In  In1  1  0.26920781  0.40574596  0.11964728  1.0
+  In  In2  1  0.44718999  0.08814768  0.62905923  1.0
+  In  In3  1  0.64095870  0.08814768  0.12905923  1.0
+  S  S4  1  0.42851516  0.67989794  0.50284171  1.0
+  S  S5  1  0.25138278  0.67989794  0.00284171  1.0
+  S  S6  1  0.76053466  0.34699161  0.51185829  1.0
+  S  S7  1  0.58645796  0.34699161  0.01185829  1.0
+  S  S8  1  0.91099758  0.00121681  0.98559649  1.0
+  S  S9  1  0.09021723  0.00121681  0.48559649  1.0","An analysis of the material and the target property leads to the following conclusion.
+
+**Analysis:**
+
+1.  **Target Property:** The goal is to decrease the bulk modulus. The bulk modulus (K) is a measure of a material's resistance to compression. A lower bulk modulus indicates a ""softer,"" more compressible material.
+2.  **Key Structural Features:** The bulk modulus is primarily determined by the strength and length of the chemical bonds within the crystal lattice. In Ga₂S₃, the relevant bonds are the Ga-S bonds. Stronger, shorter bonds lead to a higher bulk modulus.
+3.  **Influential Elements:** Gallium (Ga) is a group 13 element, and Sulfur (S) is a group 16 element. The properties of these elements, such as atomic size and electronegativity, dictate the nature of the Ga-S bond.
+4.  **Strategy for Modification:** To decrease the bulk modulus, we must weaken the chemical bonds. This can be effectively achieved by replacing an element with a larger, heavier element from the same group. Substituting Gallium with Indium (In), which is below Ga in group 13, is an excellent strategy. Indium is larger and less electronegative than Gallium, resulting in longer and weaker In-S bonds compared to Ga-S bonds. This increased bond length and reduced bond strength will make the resulting material more compressible, thus lowering its bulk modulus.
+5.  **Proposed Modification:**
+    *   **Element Substitution:** All Gallium (Ga) atoms will be replaced with Indium (In) atoms.
+    *   **Lattice Parameter Adjustment:** To accommodate the larger Indium atoms and the consequently longer In-S bonds, the unit cell must be expanded. The lattice parameters (`_cell_length_a`, `_cell_length_b`, `_cell_length_c`) are isotropically increased by approximately 12%, reflecting the larger size of the In³⁺ ion compared to the Ga³⁺ ion. The fractional atomic coordinates remain unchanged, preserving the parent crystal structure.
+
+This modification transforms the material from Gallium Sulfide (Ga₂S₃) to Indium Sulfide (In₂S₃) with the same crystal structure, which is expected to have a significantly lower bulk modulus.
+
+<cif>
+# CIF modified to decrease the bulk modulus.
+# Modification: Substituted Ga with In and expanded the lattice.
+data_In2S3_modified
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   7.22985845
+_cell_length_b   7.25378186
+_cell_length_c   7.89985212
+_cell_angle_alpha   116.53502820
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   119.89095037
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   In2S3
+_chemical_formula_sum   'In4 S6'
+_cell_volume   307.82283020
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  In  In0  1  0.13653814  0.40574596  0.61964728  1.0
+  In  In1  1  0.26920781  0.40574596  0.11964728  1.0
+  In  In2  1  0.44718999  0.08814768  0.62905923  1.0
+  In  In3  1  0.64095870  0.08814768  0.12905923  1.0
+  S  S4  1  0.42851516  0.67989794  0.50284171  1.0
+  S  S5  1  0.25138278  0.67989794  0.00284171  1.0
+  S  S6  1  0.76053466  0.34699161  0.51185829  1.0
+  S  S7  1  0.58645796  0.34699161  0.01185829  1.0
+  S  S8  1  0.91099758  0.00121681  0.98559649  1.0
+  S  S9  1  0.09021723  0.00121681  0.48559649  1.0
+</cif>"
+mp-661_sg_186_formula_AlN.cif,"# CIF modified to increase bulk modulus by transforming AlN to w-BN
+data_BN_modified
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   2.55000000
+_cell_length_b   2.55000000
+_cell_length_c   4.20000000
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   120.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   BN
+_chemical_formula_sum   'B2 N2'
+_cell_volume   23.63356269
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  B  B0  1  0.66666700  0.33333300  0.49928700  1.0
+  B  B1  1  0.33333300  0.66666700  0.99928700  1.0
+  N  N2  1  0.66666700  0.33333300  0.88071300  1.0
+  N  N3  1  0.33333300  0.66666700  0.38071300  1.0","An analysis of the material and the target property leads to the following conclusion:
+
+**Analysis:**
+
+1.  **Material:** The provided CIF file describes Aluminum Nitride (AlN) in its wurtzite crystal structure. AlN is a wide-bandgap semiconductor known for its high thermal conductivity and hardness.
+2.  **Target Property:** The goal is to increase the bulk modulus. The bulk modulus is a measure of a material's resistance to compression. It is primarily determined by the strength and density of the atomic bonds. Stronger, shorter bonds in a densely packed structure lead to a higher bulk modulus.
+3.  **Key Structural Features:** The wurtzite structure of AlN consists of a tetrahedral bonding network. The bulk modulus is dictated by the strength of the Al-N bonds and the overall lattice parameters which define the bond lengths.
+
+**Proposed Modification:**
+
+To significantly increase the bulk modulus, the most effective strategy is to replace Aluminum with an element that forms even stronger and shorter bonds with Nitrogen. Boron (B) is an ideal candidate.
+
+*   **Modification Type:** Element Substitution (Al → B) combined with Lattice Parameter Adjustment.
+*   **Justification:** Boron is isoelectronic to Aluminum (both are in Group 13) but is significantly smaller and less metallic. The B-N bond is shorter and has a higher covalent character and strength than the Al-N bond. This substitution effectively transforms AlN into wurtzite Boron Nitride (w-BN), a material renowned for its extreme hardness and a bulk modulus (~385 GPa) that is nearly double that of AlN (~200 GPa). To accommodate the smaller Boron atoms and shorter B-N bonds, the lattice parameters must be reduced to reflect the experimental values for w-BN.
+
+This combined modification creates a new, chemically distinct material that is intrinsically more resistant to compression, thereby achieving the goal of a higher bulk modulus.
+
+<cif>
+# CIF modified to increase bulk modulus by transforming AlN to w-BN
+data_BN_modified
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   2.55000000
+_cell_length_b   2.55000000
+_cell_length_c   4.20000000
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   120.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   BN
+_chemical_formula_sum   'B2 N2'
+_cell_volume   23.63356269
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  B  B0  1  0.66666700  0.33333300  0.49928700  1.0
+  B  B1  1  0.33333300  0.66666700  0.99928700  1.0
+  N  N2  1  0.66666700  0.33333300  0.88071300  1.0
+  N  N3  1  0.33333300  0.66666700  0.38071300  1.0
+</cif>"
