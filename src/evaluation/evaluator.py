@@ -66,7 +66,10 @@ class AtomWorldEvaluator(BaseEvaluator):
             }
 
         # Parse structures for validation
-        output_structure = load_cif_file_from_string(row['output_cif'], primitive=False)
+        try:
+            output_structure = load_cif_file_from_string(row['output_cif'], primitive=False)
+        except Exception as e:
+            raise ValueError(f"Error loading target CIF: {e}")
         generated_structure = load_cif_file_from_string(generated_cif, primitive=False)
 
         if generated_structure is None:

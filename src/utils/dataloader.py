@@ -37,8 +37,6 @@ def load_cif_file_from_string(cif_string, primitive=True):
             return None
     except Exception as e:
         logging.info(f"Error loading CIF from string: {e}")
-        print("cif_string:", cif_string)
-        assert False, f"Error loading CIF from string: {e}"
         return None
 
 
