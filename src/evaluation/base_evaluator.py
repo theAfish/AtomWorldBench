@@ -83,7 +83,14 @@ class BaseEvaluator(ABC):
             )
             generated_outputs = self.model.generate_batch(prompts)
             for (frame_index, repeat_index, data_row), generated_output in zip(batch_metadata, generated_outputs):
-                result = self._process_single_output(data_row, generated_output, stats)
+                try:
+                    result = self._process_single_output(data_row, generated_output, stats)
+                except Exception as e:
+                    print("debugging xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
+                    print("frame_index:", frame_index)
+                    print("repeat_index:", repeat_index)
+                    print("data_row:", data_row)
+                    assert False, f"Error processing single output: {e}"
                 result['frame_index'] = frame_index
                 result['repeat_index'] = repeat_index
                 if result.get('is_error'):

@@ -12,7 +12,7 @@ def load_cif_file(cif_file, primitive=True):
     """
     try:
         parser = CifParser(cif_file)
-        structures = parser.parse_structures(primitive=primitive)
+        structures = parser.parse_structures(primitive=primitive, check_occu=False)
         if structures:
             return structures[0]
         else:
@@ -29,7 +29,7 @@ def load_cif_file_from_string(cif_string, primitive=True):
     """
     try:
         parser = CifParser.from_str(cif_string)
-        structures = parser.parse_structures(primitive=primitive)
+        structures = parser.parse_structures(primitive=primitive, check_occu=False)
         if structures:
             return structures[0]
         else:
@@ -37,6 +37,8 @@ def load_cif_file_from_string(cif_string, primitive=True):
             return None
     except Exception as e:
         logging.info(f"Error loading CIF from string: {e}")
+        print("cif_string:", cif_string)
+        assert False, f"Error loading CIF from string: {e}"
         return None
 
 

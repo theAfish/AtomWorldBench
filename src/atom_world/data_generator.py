@@ -272,21 +272,21 @@ if __name__ == "__main__":
 
     # for analysis data generation
     from scripts.convert_cifs_to_h5 import convert_cifs_to_h5
-    data_gen = DataGenerator("D:/AI/PythonProjects/AtomWorldBench/src/data/_raw_data/input4analysis", 
+    data_gen = DataGenerator("D:/AI/PythonProjects/AtomWorldBench/src/data/_raw_data/input4analysis/sg", 
                              "D:/AI/PythonProjects/AtomWorldBench/src/data/_raw_data/output4analysis")
     data_gen.generate_analysis_data(
         InsertBetweenAtomsAction,
-        action_kwargs={'index1': 3, 'index2': 5, 'distance_ratio': 0.5, 'symbol': 'H'},
-        analysis_name="natoms"
+        action_kwargs={'index1': 3, 'index2': 5, 'distance_ratio': 0.45, 'symbol': 'H'},
+        analysis_name="sg"
     )
 
     # Convert CIFs to HDF5
     convert_cifs_to_h5(
-        folder_path="D:/AI/PythonProjects/AtomWorldBench/src/data/_raw_data/input4analysis/",
-        hdf5_output_path="input_natoms.hdf5"
+        folder_path="D:/AI/PythonProjects/AtomWorldBench/src/data/_raw_data/input4analysis/sg",
+        hdf5_output_path="analysis_input_sg.hdf5"
     )
 
     convert_cifs_to_h5(
-        folder_path="D:/AI/PythonProjects/AtomWorldBench/src/data/_raw_data/output4analysis/insert_between_atoms_action_natoms/",
-        hdf5_output_path="insert_between_atoms_action_natoms.hdf5"
+        folder_path="D:/AI/PythonProjects/AtomWorldBench/src/data/_raw_data/output4analysis/insert_between_atoms_action_sg/",
+        hdf5_output_path="insert_between_atoms_action_sg.hdf5"
     )
