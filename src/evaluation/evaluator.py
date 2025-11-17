@@ -1,9 +1,13 @@
 from evaluation.base_evaluator import BaseEvaluator
 from models.base_model import BaseModel
-from utils.dataloader import load_data
+from utils.dataloader import load_data, load_cif_file_from_string
 from utils.extract_data import extract_from_string
 from prompts.cif_action_prompt import cif_action_prompt
-from evaluation.metrics import load_cif_file_from_string, check_atom_counts, match_structures
+from evaluation.metrics import (
+    check_atom_counts,
+    match_structures,
+    compute_exact_match_positional_metrics,
+)
 from typing import Dict, Any
 import logging
 
@@ -24,6 +28,7 @@ class AtomWorldEvaluator(BaseEvaluator):
         self.input_cifs_filename = input_cifs_filename
         data = load_data(data_folder, action_name, input_cifs=input_cifs_filename)
         super().__init__(model=model, results_folder=results_folder, data=data)
+        self._use_exact_match_metrics = self._should_use_exact_match_metrics()
 
     def _initialize_stats(self) -> Dict:
         """Initialize statistics tracking."""
@@ -99,7 +104,7 @@ class AtomWorldEvaluator(BaseEvaluator):
             }
 
         # Match structures
-        rmsd, max_diff = match_structures(output_structure, generated_structure, primitive_cell=False)
+        rmsd, max_diff = self._compute_structural_metrics(output_structure, generated_structure)
         if rmsd == -1:
             logging.info("Structures do not match")
             stats['num_invalid_cif'] += 1
@@ -127,6 +132,16 @@ class AtomWorldEvaluator(BaseEvaluator):
     def _log_success_metrics(self, result: Dict) -> None:
         """Log metrics for successful generations."""
         print(f"RMSD: {result['rmsd']}, Max Diff: {result['max_diff']}")
+
+    def _should_use_exact_match_metrics(self) -> bool:
+        """Determine if the move_all_action-specific metric should be used."""
+        return (self.action_name or "").lower() == "move_all_action"
+
+    def _compute_structural_metrics(self, target_structure, generated_structure):
+        """Compute (rmsd, max_diff) using the right metric for the configured action."""
+        if self._use_exact_match_metrics:
+            return compute_exact_match_positional_metrics(target_structure, generated_structure)
+        return match_structures(target_structure, generated_structure, primitive_cell=False)
 
     def _calculate_result_statistics(self, results):
         """
