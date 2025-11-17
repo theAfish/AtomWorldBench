@@ -270,25 +270,25 @@ class _DataGenerator:
 
 if __name__ == "__main__":
     # # for data generation
-    # all_actions = [MoveAllAction] #[SuperCellAction]
-    # data_gen = DataGenerator("input_cifs", "output_cifs")
-    # data_gen.generate_data(all_actions)
+    all_actions = [SwapAtomsAction] #[SuperCellAction]
+    data_gen = DataGenerator("input_cifs", "output_cifs")
+    data_gen.generate_data(all_actions)
 
-    # convert_cifs_to_h5(
-    #     folder_path="output_cifs/move_all_action",
-    #     hdf5_output_path="move_all_action.hdf5"
-    # )
+    convert_cifs_to_h5(
+        folder_path="output_cifs/swap_atoms_action/",
+        hdf5_output_path="swap_atoms_action.hdf5"
+    )
     
 
     # for analysis data generation
 
-    data_gen = DataGenerator("D:/Codes/AtomWorld/src/data/_raw_data/input_cifs", 
-                             "D:/Codes/AtomWorld/src/data/_raw_data/output4analysis")
-    data_gen.generate_analysis_data(
-        InsertBetweenAtomsAction,
-        action_kwargs={'index1': -2, 'index2': -1, 'distance_ratio': 0.45, 'symbol': 'H'},
-        analysis_name="late_pos"
-    )
+    # data_gen = DataGenerator("D:/Codes/AtomWorld/src/data/_raw_data/input_cifs", 
+    #                          "D:/Codes/AtomWorld/src/data/_raw_data/output4analysis")
+    # data_gen.generate_analysis_data(
+    #     InsertBetweenAtomsAction,
+    #     action_kwargs={'index1': -2, 'index2': -1, 'distance_ratio': 0.45, 'symbol': 'H'},
+    #     analysis_name="late_pos"
+    # )
 
     # Convert CIFs to HDF5
     # convert_cifs_to_h5(
@@ -296,7 +296,7 @@ if __name__ == "__main__":
     #     hdf5_output_path="analysis_input_pos.hdf5"
     # )
 
-    convert_cifs_to_h5(
-        folder_path="D:/Codes/AtomWorld/src/data/_raw_data/output4analysis/insert_between_atoms_action_late_pos/",
-        hdf5_output_path="insert_between_atoms_action_late_pos.hdf5"
-    )
+    # convert_cifs_to_h5(
+    #     folder_path="D:/Codes/AtomWorld/src/data/_raw_data/output4analysis/insert_between_atoms_action_late_pos/",
+    #     hdf5_output_path="insert_between_atoms_action_late_pos.hdf5"
+    # )

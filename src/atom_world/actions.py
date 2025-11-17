@@ -97,7 +97,8 @@ class SwapAtomsAction(BaseAction):
             raise IndexError("Index out of bounds for atom swapping.")
         
     def __str__(self):
-        return f"Swap atoms at indices {self.index1} and {self.index2} in the cif file. The indices of atoms are started from 0."
+        # return f"Swap atoms at indices {self.index1} and {self.index2} in the cif file. The indices of atoms are started from 0."
+        return f"Swap the spatial positions of atoms at indices {self.index1} and {self.index2} in the cif file. The indices of atoms are started from 0."
     
 class InsertBetweenAtomsAction(BaseAction):
     def __init__(self, atoms: Atoms, index1: int, index2: int, symbol: str, distance_ratio: float):
