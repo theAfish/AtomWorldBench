@@ -107,6 +107,9 @@ class InsertBetweenAtomsAction(BaseAction):
         self.symbol = symbol
         self.distance_ratio = distance_ratio
         self.distance = 0
+        # wrap indices to valid range
+        self.index1 = self.index1 % len(self.atoms)
+        self.index2 = self.index2 % len(self.atoms)
 
     def execute(self):
         if (0 <= self.index1 < len(self.atoms)) and (0 <= self.index2 < len(self.atoms)):
