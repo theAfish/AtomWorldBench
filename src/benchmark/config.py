@@ -15,6 +15,7 @@ class BenchmarkConfig:
     config_name: str
     results_folder: Optional[str]
     restart_from_index: Optional[int]
+    repeat: int = 1
     
     # Base directories with defaults
     config_dir: Path = Path(__file__).parent.parent / "config"
@@ -23,6 +24,8 @@ class BenchmarkConfig:
     # Optional benchmark-specific configurations
     action: Optional[str] = None  # Required for AtomWorld and PointWorld
     plot: bool = False  # Whether to generate the max_dist plot after evaluation
+    custom_data_path: Optional[Path] = None  # Override default dataset location
+    atomworld_input_cifs: Optional[str] = None  # Optional input_cifs filename override
     
     @property
     def results_dir(self) -> Path:
@@ -45,7 +48,10 @@ class BenchmarkConfig:
             config_name=args.get('config', 'models'),
             results_folder=args.get('results_folder'),
             restart_from_index=args.get('restart_from_index', 0),
+            repeat=args.get('repeat', 1),
             plot=args.get('plot', False),
             benchmark_type=args['benchmark_type'],
             action=args.get('action'),
+            custom_data_path=Path(args['data_path']).expanduser() if args.get('data_path') else None,
+            atomworld_input_cifs=args.get('input_cifs_file'),
         )

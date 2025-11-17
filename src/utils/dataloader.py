@@ -12,7 +12,7 @@ def load_cif_file(cif_file, primitive=True):
     """
     try:
         parser = CifParser(cif_file)
-        structures = parser.parse_structures(primitive=primitive)
+        structures = parser.parse_structures(primitive=primitive, check_occu=False)
         if structures:
             return structures[0]
         else:
@@ -29,7 +29,7 @@ def load_cif_file_from_string(cif_string, primitive=True):
     """
     try:
         parser = CifParser.from_str(cif_string)
-        structures = parser.parse_structures(primitive=primitive)
+        structures = parser.parse_structures(primitive=primitive, check_occu=False)
         if structures:
             return structures[0]
         else:
@@ -40,7 +40,7 @@ def load_cif_file_from_string(cif_string, primitive=True):
         return None
 
 
-def load_data(data_folder, action_name=None):
+def load_data(data_folder, action_name=None, input_cifs="input_cifs.hdf5"):
     """
     Loads data for training/analysis.
     Args:
@@ -50,7 +50,7 @@ def load_data(data_folder, action_name=None):
         pd.DataFrame with columns: input_cif, action_prompt, output_cif
     """
     # Load all input CIFs
-    input_cifs_path = os.path.join(data_folder, "input_cifs.hdf5")
+    input_cifs_path = os.path.join(data_folder, input_cifs)
     input_cifs = load_cifs_from_hdf5(input_cifs_path)
 
     # Find all action CSVs

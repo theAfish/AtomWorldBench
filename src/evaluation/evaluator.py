@@ -13,14 +13,16 @@ class AtomWorldEvaluator(BaseEvaluator):
             model: BaseModel,
             data_folder: str, 
             action_name: str = None,
-            results_folder: str = "results"
+            results_folder: str = "results",
+            input_cifs_filename: str = "input_cifs.hdf5",
     ):
         """
         Initialize the AtomWorld Evaluator.
         """
         self.data_folder = data_folder
         self.action_name = action_name
-        data = load_data(data_folder, action_name)
+        self.input_cifs_filename = input_cifs_filename
+        data = load_data(data_folder, action_name, input_cifs=input_cifs_filename)
         super().__init__(model=model, results_folder=results_folder, data=data)
 
     def _initialize_stats(self) -> Dict:
@@ -64,7 +66,10 @@ class AtomWorldEvaluator(BaseEvaluator):
             }
 
         # Parse structures for validation
-        output_structure = load_cif_file_from_string(row['output_cif'], primitive=False)
+        try:
+            output_structure = load_cif_file_from_string(row['output_cif'], primitive=False)
+        except Exception as e:
+            raise ValueError(f"Error loading target CIF: {e}")
         generated_structure = load_cif_file_from_string(generated_cif, primitive=False)
 
         if generated_structure is None:

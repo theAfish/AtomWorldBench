@@ -194,6 +194,35 @@ class DataGenerator:
                         continue
                     prompt = str(action)
                     writer.writerow([f"{name}.cif", prompt, f"{name}_processed.cif"])
+    
+    def generate_analysis_data(self, action_cls, action_kwargs, analysis_name="analysis"):
+        cif_files = [f for f in os.listdir(self.input_dir) if f.endswith('.cif')]
+        action_name = action_cls.__name__
+        
+        action_name = ''.join(['_' + c.lower() if c.isupper() else c for c in action_name]).lstrip('_') + f"_{analysis_name}"
+        action_folder = os.path.join(self.output_dir, action_name)
+        os.makedirs(action_folder, exist_ok=True)
+        csv_path = os.path.join(self.output_dir, f"{action_name}.csv")
+        with open(csv_path, "w", newline='', encoding="utf-8") as csvfile:
+            writer = csv.writer(csvfile)
+            writer.writerow(["input_cif", "action_prompt", "output_cif"])
+            for cif_file in cif_files:
+                input_path = os.path.join(self.input_dir, cif_file)
+                atoms = read(input_path)
+                kwargs = action_kwargs.copy()
+                kwargs['atoms'] = atoms
+                action = action_cls(**kwargs)
+                processed_atoms = action.execute()
+                name = os.path.splitext(cif_file)[0]
+                output_cif = os.path.join(action_folder, f"{name}_processed.cif")
+                try:
+                    write(output_cif, processed_atoms)
+                except Exception as e:
+                    print(f"Failed to write output CIF for {cif_file}: {e}")
+                    continue
+                prompt = str(action)
+                writer.writerow([f"{name}.cif", prompt, f"{name}_processed.cif"])
+
 
 
 class _DataGenerator:
@@ -236,6 +265,28 @@ class _DataGenerator:
 
 
 if __name__ == "__main__":
-    all_actions = [SuperCellAction]
-    data_gen = _DataGenerator("input_cifs", "output_cifs")
-    data_gen.generate_data(all_actions)
+    # for data generation
+    # all_actions = [SuperCellAction]
+    # data_gen = _DataGenerator("input_cifs", "output_cifs")
+    # data_gen.generate_data(all_actions)
+
+    # for analysis data generation
+    from scripts.convert_cifs_to_h5 import convert_cifs_to_h5
+    data_gen = DataGenerator("D:/AI/PythonProjects/AtomWorldBench/src/data/_raw_data/input4analysis/sg", 
+                             "D:/AI/PythonProjects/AtomWorldBench/src/data/_raw_data/output4analysis")
+    data_gen.generate_analysis_data(
+        InsertBetweenAtomsAction,
+        action_kwargs={'index1': 3, 'index2': 5, 'distance_ratio': 0.45, 'symbol': 'H'},
+        analysis_name="sg"
+    )
+
+    # Convert CIFs to HDF5
+    convert_cifs_to_h5(
+        folder_path="D:/AI/PythonProjects/AtomWorldBench/src/data/_raw_data/input4analysis/sg",
+        hdf5_output_path="analysis_input_sg.hdf5"
+    )
+
+    convert_cifs_to_h5(
+        folder_path="D:/AI/PythonProjects/AtomWorldBench/src/data/_raw_data/output4analysis/insert_between_atoms_action_sg/",
+        hdf5_output_path="insert_between_atoms_action_sg.hdf5"
+    )
