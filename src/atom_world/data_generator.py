@@ -13,6 +13,8 @@ import inspect
 import csv
 import traceback
 
+from scripts.convert_cifs_to_h5 import convert_cifs_to_h5
+
 # classification of actions
 single_atom_actions = [
     AddAtomAction, RemoveAtomAction, MoveAtomAction, ChangeAtomAction,
@@ -246,9 +248,11 @@ class _DataGenerator:
                 for cif_file in cif_files:
                     input_path = os.path.join(self.input_dir, cif_file)
                     atoms = read(input_path)
-                    action = action_cls()
+                    input_gen = ActionInputGenerator(atoms.copy())
                     try:
-                        processed_atoms = action.execute(atoms)
+                        kwargs = input_gen.generate_inputs_for_action(action_cls)
+                        action = action_cls(**kwargs)
+                        processed_atoms = action.execute()
                     except Exception as e:
                         print(f"Action {action_name} failed on {cif_file}: {e}")
                         traceback.print_exc()
@@ -266,27 +270,33 @@ class _DataGenerator:
 
 if __name__ == "__main__":
     # for data generation
-    # all_actions = [SuperCellAction]
-    # data_gen = _DataGenerator("input_cifs", "output_cifs")
-    # data_gen.generate_data(all_actions)
+    all_actions = [MoveAllAction] #[SuperCellAction]
+    data_gen = DataGenerator("input_cifs", "output_cifs")
+    data_gen.generate_data(all_actions)
+
+    convert_cifs_to_h5(
+        folder_path="output_cifs/move_all_action",
+        hdf5_output_path="move_all_action.hdf5"
+    )
+    
 
     # for analysis data generation
-    from scripts.convert_cifs_to_h5 import convert_cifs_to_h5
-    data_gen = DataGenerator("D:/AI/PythonProjects/AtomWorldBench/src/data/_raw_data/input4analysis/sg", 
-                             "D:/AI/PythonProjects/AtomWorldBench/src/data/_raw_data/output4analysis")
-    data_gen.generate_analysis_data(
-        InsertBetweenAtomsAction,
-        action_kwargs={'index1': 3, 'index2': 5, 'distance_ratio': 0.45, 'symbol': 'H'},
-        analysis_name="sg"
-    )
 
-    # Convert CIFs to HDF5
-    convert_cifs_to_h5(
-        folder_path="D:/AI/PythonProjects/AtomWorldBench/src/data/_raw_data/input4analysis/sg",
-        hdf5_output_path="analysis_input_sg.hdf5"
-    )
+    # data_gen = DataGenerator("D:/AI/PythonProjects/AtomWorldBench/src/data/_raw_data/input4analysis/sg", 
+    #                          "D:/AI/PythonProjects/AtomWorldBench/src/data/_raw_data/output4analysis")
+    # data_gen.generate_analysis_data(
+    #     InsertBetweenAtomsAction,
+    #     action_kwargs={'index1': 3, 'index2': 5, 'distance_ratio': 0.45, 'symbol': 'H'},
+    #     analysis_name="sg"
+    # )
 
-    convert_cifs_to_h5(
-        folder_path="D:/AI/PythonProjects/AtomWorldBench/src/data/_raw_data/output4analysis/insert_between_atoms_action_sg/",
-        hdf5_output_path="insert_between_atoms_action_sg.hdf5"
-    )
+    # # Convert CIFs to HDF5
+    # convert_cifs_to_h5(
+    #     folder_path="D:/AI/PythonProjects/AtomWorldBench/src/data/_raw_data/input4analysis/sg",
+    #     hdf5_output_path="analysis_input_sg.hdf5"
+    # )
+
+    # convert_cifs_to_h5(
+    #     folder_path="D:/AI/PythonProjects/AtomWorldBench/src/data/_raw_data/output4analysis/insert_between_atoms_action_sg/",
+    #     hdf5_output_path="insert_between_atoms_action_sg.hdf5"
+    # )

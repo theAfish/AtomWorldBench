@@ -38,6 +38,7 @@ def load_cif_file_from_string(cif_string, primitive=True):
     except Exception as e:
         logging.info(f"Error loading CIF from string: {e}")
         return None
+    
 
 
 def load_data(data_folder, action_name=None, input_cifs="input_cifs.hdf5"):

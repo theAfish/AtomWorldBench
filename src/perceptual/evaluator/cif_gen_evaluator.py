@@ -2,7 +2,8 @@ from evaluation.base_evaluator import BaseEvaluator
 from typing import Union, List, Dict, Any
 import pandas as pd
 from utils.extract_data import extract_from_string
-from evaluation.metrics import load_cif_file_from_string, match_structures
+from utils.dataloader import load_cif_file_from_string
+from evaluation.metrics import match_structures
 from pymatgen.core.structure import Structure
 from models.base_model import BaseModel
 import logging

@@ -278,3 +278,33 @@ class RotateWholeAction(BaseAction):
 
     def __str__(self):
         return f"Rotate the structure and cell by {self.angle} degree around the axis {self.axis} in the cif file. The rotation should following the right-hand rule."
+    
+
+class MoveAllAction(BaseAction):
+    def __init__(self, atoms: Atoms, d_pos: np.ndarray):
+        super().__init__(atoms)
+        self.d_pos = d_pos
+
+    def execute(self):
+        unwrapped_positions = self.atoms.get_positions(wrap=False)
+        self.atoms.set_positions(unwrapped_positions + self.d_pos)
+        return self.atoms
+
+    def __str__(self):
+        return f"Move the all the atoms in the structure by {self.d_pos} angstrom in the cif file. Do not need to consider periodic boundary conditions. Please keep the cell and the order of atoms unchanged."
+    
+
+if __name__ == "__main__":
+    atoms = Atoms("H2O", positions=[[0.1, 0, 0], [0.1, 0, 1], [1.1, 0, 0]], cell=[2, 2, 2], pbc=True)
+    atoms.write("original_water.cif", wrap=False)
+    mv_all = MoveAllAction(atoms, np.array([-0.2, 0., 0.]))
+    mv_all.execute()
+    print(atoms.positions)
+    # save to cif
+    atoms.write("moved_water.cif", wrap=False)
+
+    # load the cif file
+    from pymatgen.io.cif import CifParser
+    parser = CifParser("moved_water.cif")
+    structures = parser.parse_structures(primitive=False)
+    print(structures[0])
