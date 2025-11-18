@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+from typing import Union
 from models.openai_model import OpenAIModel
 from models.azure_openai_model import AzureOpenAIModel
 from models.huggingface_model import HuggingFaceModel
@@ -62,17 +63,20 @@ def load_model(config):
     return model
 
 
-def load_config(config_name: str) -> dict:
+def load_config(config_name: Union[str, Path]) -> dict:
     """
     Load configuration from a YAML file.
     
     Args:
-        config_name (str): Name of the configuration file (without .yaml extension).
+        config_name (str | Path): Name of the configuration file (with or without .yaml extension).
     
     Returns:
         dict: Configuration parameters.
     """
-    config_path = Path(f"{config_name}.yaml")
+    # Normalize to Path so callers can pass either str or Path
+    config_path = Path(config_name)
+    if config_path.suffix != '.yaml':
+        config_path = config_path.with_name(config_path.name + '.yaml')
     if not config_path.exists():
         raise FileNotFoundError(f"Configuration file {config_path} does not exist.")
     
