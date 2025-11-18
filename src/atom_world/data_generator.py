@@ -270,13 +270,13 @@ class _DataGenerator:
 
 if __name__ == "__main__":
     # # for data generation
-    all_actions = [SwapAtomsAction] #[SuperCellAction]
+    all_actions = [DeleteBelowAtomAction] #[SuperCellAction]
     data_gen = DataGenerator("input_cifs", "output_cifs")
     data_gen.generate_data(all_actions)
 
     convert_cifs_to_h5(
-        folder_path="output_cifs/swap_atoms_action/",
-        hdf5_output_path="swap_atoms_action.hdf5"
+        folder_path="output_cifs/delete_below_atom_action_bad/",
+        hdf5_output_path="delete_below_atom_action_bad.hdf5"
     )
     
 

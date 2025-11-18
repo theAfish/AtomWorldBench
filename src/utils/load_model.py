@@ -3,7 +3,10 @@ from pathlib import Path
 from models.openai_model import OpenAIModel
 from models.azure_openai_model import AzureOpenAIModel
 from models.huggingface_model import HuggingFaceModel
-from models.vllm_model import vllmModel
+try:
+    from models.vllm_model import vllmModel
+except ImportError:
+    pass
 import yaml
 
 
