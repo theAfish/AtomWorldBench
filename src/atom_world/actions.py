@@ -296,7 +296,7 @@ class MoveAllAction(BaseAction):
         return self.atoms
 
     def __str__(self):
-        return f"Move the all the atoms in the structure by {self.d_pos} angstrom in the cif file. Do not need to consider periodic boundary conditions. Please keep the cell and the order of atoms unchanged."
+        return f"Move all the atoms in the structure by {self.d_pos} angstrom in the cif file. Do not need to consider periodic boundary conditions. Please keep the cell and the order of atoms unchanged."
     
 
 if __name__ == "__main__":
