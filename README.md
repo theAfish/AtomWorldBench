@@ -140,6 +140,27 @@ Then run your own calculation pipelines. The results should be saved with the fo
 
 In the new codes, the results are saved in `./results/[BenchmarkType]/[ModelName]/[ActionName]/[Timestamp]/`. The `evaluation_results.csv` contains the correct results, and `evaluation_wrongs.csv` contains the incorrect ones. `metrics.json` contains the summary of the metrics. Every record now includes a `frame_index` (and `repeat_index`) column so you can group statistics per original dataset frame, especially when running with `--repeat > 1`.
 
+#### Evaluate JSON Results
+
+If you have results in a JSON format (e.g., collected from users or other sources) instead of running the full benchmark workflow, you can use the `evaluate_json_results.py` script to evaluate them.
+
+**Input Format:**
+The input JSON file should be a list of objects, where each object has the following fields:
+- `instruction`: The instruction given to the model.
+- `input`: The input CIF structure.
+- `output`: The target CIF structure (ground truth).
+- `response`: The model's generated response (containing the generated CIF).
+
+**Usage:**
+
+```bash
+python src/scripts/evaluate_json_results.py [input_file] --output_file [output_file]
+```
+
+**Arguments:**
+- `input_file`: Path to the input JSON file.
+- `--output_file`: Path to save the detailed evaluation results (JSON).
+- `--summary_file`: (Optional) Path to save the summary statistics (JSON). If not provided, a summary file will be created next to the output file.
 
 
 Plotting after evaluation
