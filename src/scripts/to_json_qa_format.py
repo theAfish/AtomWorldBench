@@ -14,10 +14,11 @@ action_names = [
     "swap_atoms_action",
     "super_cell_action",
     "rotate_around_atom_action",
+    "move_towards_atom_action",
 ]
 
 for action_name in action_names:
-    dataframs = load_data(data_folder="src/data", action_name=action_name)
+    dataframs = load_data(data_folder="src/data", action_name=action_name, precision=4)
     cif_csv_path = f"src/data/{action_name}.csv"
     cif_csv = pd.read_csv(cif_csv_path)
     # get the mp-ids from the csv (the input_cif is mp-id.cif)
