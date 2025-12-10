@@ -49,10 +49,12 @@ def load_model(config):
         )
     elif model_class == "vllmModel":
         model_name = config.get("model_name", None)
-        generation_params = {k: v for k, v in config.items() if k not in ["class", "model_name", "device", "use_pipeline"]}
+        lora_path = config.get("lora_path", None)
+        generation_params = {k: v for k, v in config.items() if k not in ["class", "model_name", "lora_path"]}
         
         model = vllmModel(
             model_name=model_name,
+            lora_path=lora_path,
             **generation_params
         )
     else:
