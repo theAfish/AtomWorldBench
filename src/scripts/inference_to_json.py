@@ -14,6 +14,11 @@ prompt_input = (
     "If a question does not make any sense, or is not factually coherent, explain why instead of answering something not correct. If you don't know the answer to a question, please don't share false information.\n"
     "<</SYS>> \n\n {instruction} \n{input} [/INST]"
 )
+prompt_input = (
+    "Below is an instruction that describes a task, paired with an input that provides further context.\n"
+    "Write a response that appropriately completes the request.\n\n"
+    "### Instruction:\n{instruction}\n### Input:\n{input}\n### Response:\n"
+)
 
 def _make_r_io_base(f, mode: str):
     if not isinstance(f, io.IOBase):
@@ -45,6 +50,8 @@ def run_inference(
     results_folder = f"{results_folder or RESULTS_DIR}/{model_id}/{timestamp}"
     
     list_data_dict = jload(test_path)
+    if "test" in list_data_dict:
+        list_data_dict = list_data_dict["test"]
     prompts = [
         prompt_input.format_map(example) for example in list_data_dict
     ]
