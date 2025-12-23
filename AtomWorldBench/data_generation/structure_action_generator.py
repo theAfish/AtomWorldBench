@@ -221,7 +221,7 @@ if __name__ == "__main__":
     
     generator.generate_and_save_per_action(
         output_dir=output_dir,
-        num_samples_per_action=100
+        num_samples_per_action=1000
     )
 
     # # load and print a sample

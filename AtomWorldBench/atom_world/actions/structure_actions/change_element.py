@@ -64,6 +64,15 @@ class ChangeElementAction(BaseStructureAction):
                 raise ValueError(
                     "to_element must be different from from_element."
                 )
+        else:
+            symbols = self.operated_atoms.get_chemical_symbols()
+            # Prevent producing an empty structure when every atom would be removed.
+            if self.mode_flag == "remove_element" and all(
+                    sym == self.from_element for sym in symbols):
+                raise ValueError(
+                    "Removing all atoms would leave an empty structure; "
+                    "choose a different element or use replace mode instead."
+                )
 
     def execute(self) -> Atoms:
         """Execute the ChangeElementAction.
@@ -128,6 +137,9 @@ class ChangeElementAction(BaseStructureAction):
 
         # Choose a mode based on mode_probabilities.
         chosen_mode = cls.get_random_mode(seed)
+        # Avoid generating an empty structure when all atoms share the same element.
+        if chosen_mode == "remove_element" and len(unique_elements) == 1:
+            chosen_mode = "replace_element"
         if chosen_mode == "replace_element":
             # Replace element
             possible_to_elements = all_elements - {from_element}

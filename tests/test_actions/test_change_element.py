@@ -1,4 +1,5 @@
 """Comprehensive test suite for ChangeElementAction."""
+from ase import Atoms
 from ase.data import chemical_symbols
 
 import pytest
@@ -72,6 +73,13 @@ def test_change_element_remove(orig_atoms):
                f"remove all atoms of element {from_element}"
                f" without affecting the order of other atoms"
     ) in desc
+
+
+def test_change_element_remove_all_atoms_rejected():
+    """Ensure we do not allow removal that empties the structure."""
+    atoms = Atoms('H2', positions=[[0, 0, 0], [0, 0, 1]])
+    with pytest.raises(ValueError, match="Removing all atoms would leave an empty structure"):
+        ChangeElementAction(operated_atoms=atoms, from_element='H')
 
 
 def test_change_element_from_not_in_atoms(orig_atoms):
