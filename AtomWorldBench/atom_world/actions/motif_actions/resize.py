@@ -226,9 +226,11 @@ class ResizeMotifAction(BaseMotifAction):
         is_region = isinstance(self.operated_motif, BaseRegionMotif)
 
         if "scale_by" in self.mode_flag:
+            target_quantity = "their distances"
             scale_word = f"by a scale factor of {self.scale_by:.{precision}f}"
             is_enlarge = (self.scale_by > 1)
         elif "to_radius" in self.mode_flag:
+            target_quantity = "the radius of the modified group of atoms"
             if is_region:
                 scale_word = f"to {self.to_radius:.{precision}f} angstroms"
             else:
@@ -258,7 +260,7 @@ class ResizeMotifAction(BaseMotifAction):
         if is_region:
             return (
                 f"Move {operated_motif_desc}"
-                f" {op_word} {relative_word}, such that their distances to {relative_word}"
+                f" linearly {op_word} {relative_word}, such that {target_quantity} to {relative_word}"
                 f" are changed {scale_word}."
                 f" {other_notes}"
                 f" Update atom coordinates only, do not change their order in structure."

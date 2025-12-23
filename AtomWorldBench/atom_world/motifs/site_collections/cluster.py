@@ -297,7 +297,7 @@ class ClusterMotif(BaseSiteCollectionMotif):
             additive_mode_allowed_symbols: Optional[List[str]] = None,
             cluster_size: int = 3,
             max_cluster_radius: float = 3.0,
-            n_attempts: int = 50,
+            n_attempts: int = 10,
             randomize_symbols: bool = False,
             seed: Optional[int] = None,
             allow_translation_equivalence: Optional[bool] = None,

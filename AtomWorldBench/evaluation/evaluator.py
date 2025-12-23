@@ -7,6 +7,14 @@ from evaluation.metrics import load_cif_file_from_string, check_atom_counts, mat
 from typing import Dict, Any
 import logging
 
+from warnings import deprecated
+
+# deprecated
+@deprecated(
+    reason="Use AtomWorldEvaluator in AtomWorldBench/evaluation/evaluator.py instead.",
+    version="v0.2.0",
+    action="ignore"
+)
 class AtomWorldEvaluator(BaseEvaluator):
     def __init__(
             self, 

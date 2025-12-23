@@ -23,6 +23,25 @@ def _check_radius(x: Union[int, float]) -> float:
         raise ValueError("The radius must be a positive number.")
     return float(x)
 
+def _get_inner_pbc_radius(atoms: Atoms) -> float:
+    """Get the maximum radius that fits within the cell considering PBC.
+
+    Args:
+        atoms (Atoms): The ASE Atoms object.
+
+    Returns:
+        float: The maximum acceptable radius that fits within the cell.
+    """
+    cell_mat = atoms.cell.complete()
+    vol = np.abs(np.linalg.det(cell_mat))
+    s_ab = np.linalg.norm(np.cross(cell_mat[0], cell_mat[1]))
+    s_bc = np.linalg.norm(np.cross(cell_mat[1], cell_mat[2]))
+    s_ca = np.linalg.norm(np.cross(cell_mat[2], cell_mat[0]))
+    h_a = vol / s_bc
+    h_b = vol / s_ca
+    h_c = vol / s_ab
+    return min(h_a, h_b, h_c) / 2.0
+
 # Design philosophy: Inherit from multimode object when initialization has multiple modes.
 # This allows us to have a single class that can be used in different ways,
 # such as by specifying a center coordinate or an index of an atom.
@@ -200,7 +219,8 @@ class SphereRegionMotif(BaseRegionMotif, MultiModeInitMixin):
             radius: Optional[float] = None,
             randomize_symbols: bool = False,
             style="center_around_atom_index",
-            seed: Optional[int] = None
+            seed: Optional[int] = None,
+            n_attempts: int = 50,
     ) -> 'SphereRegionMotif':
         """Detect a random spherical region motif from the given atoms.
 
@@ -224,6 +244,8 @@ class SphereRegionMotif(BaseRegionMotif, MultiModeInitMixin):
                 Defaults to "center_around_atom_index".
             seed (Optional[int]): Random seed for reproducibility.
                 If None, a random seed will be used.
+            n_attempts (int): Number of attempts to find a valid non-empty sphere when
+                style is "center_around_coordinates". Defaults to 50.
         Returns:
             SphereRegionMotif: A randomly generated spherical region motif.
         """
@@ -234,12 +256,22 @@ class SphereRegionMotif(BaseRegionMotif, MultiModeInitMixin):
         if radius is None:
             # Generate a random radius from 2 angstroms to half of
             # the shortest cell vector length.
-            cell_lengths = atoms.cell.lengths()
-            min_cell_length = np.min(cell_lengths)
-            if min_cell_length / 2.0 <= 3.0:
-                radius = 3.0
+            # cell_lengths = atoms.cell.lengths()
+            # min_cell_length = np.min(cell_lengths)
+            max_radius = _get_inner_pbc_radius(atoms)
+
+            if max_radius <= 1.5:
+                raise ValueError(
+                    f"The cell is too small to fit a suitable spherical region motif. The inner radius is {max_radius:.2f} angstroms."
+                )
             else:
-                radius = rng.uniform(3.0, min_cell_length / 2.0)
+                radius = rng.uniform(1.5, max_radius)
+
+            # avoid too small radius that cause overlap with periodic images
+            # if min_cell_length / 2.0 <= 3.0:
+            #     radius = 3.0
+            # else:
+            #     radius = rng.uniform(3.0, min_cell_length / 2.0)
 
         if randomize_symbols:
             all_symbols = list(set(atoms.get_chemical_symbols()))
@@ -261,8 +293,34 @@ class SphereRegionMotif(BaseRegionMotif, MultiModeInitMixin):
             )
         elif style == "center_around_coordinates":
             # Generate a random cartesian position within the cell box.
-            rand_frac = rng.random(3)
-            center = rand_frac @ atoms.cell.complete()
+            # Try multiple times to find a non-empty sphere
+            motif = None
+            for _ in range(n_attempts):
+                rand_frac = rng.random(3)
+                center = rand_frac @ atoms.cell.complete()
+                motif = cls(
+                    in_atoms=atoms,
+                    center=center,
+                    radius=radius,
+                    center_is_fractional=False,
+                    symbols=symbols
+                )
+                if len(motif.indices) > 0:
+                    return motif
+            
+            # Fallback: pick a random atom's position to ensure non-empty
+            if symbols:
+                # Filter atoms indices that match symbols
+                valid_indices = [i for i, s in enumerate(atoms.get_chemical_symbols()) if s in symbols]
+                if not valid_indices:
+                     # Should not happen given how symbols are chosen, but for safety
+                     valid_indices = range(len(atoms))
+                center_id = rng.choice(valid_indices)
+            else:
+                center_id = int(rng.integers(0, len(atoms)))
+            
+            center = atoms.get_positions()[center_id]
+            
             return cls(
                 in_atoms=atoms,
                 center=center,

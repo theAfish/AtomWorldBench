@@ -113,12 +113,15 @@ class SwapMotifAction(BaseMotifAction):
         """
         motif_a_kwargs = describe_motif_a_kwargs or {}
         motif_b_kwargs = describe_motif_b_kwargs or {}
-        desc_a = self.operated_motif.describe(**motif_a_kwargs)
-        desc_b = self.relative_to_motif.describe(**motif_b_kwargs)
+        desc_a, info_a = self.operated_motif.describe(**motif_a_kwargs)
+        desc_b, info_b = self.relative_to_motif.describe(**motif_b_kwargs)
+        if info_b == info_a:
+            info_b = ''
 
         description = (
-            f"swap the position of [{desc_a}] with the position of [{desc_b}] "
+            f"swap the position of {desc_a} with the position of {desc_b} "
             f"in the structure."
+            f" {info_a} {info_b}"
         )
         if len(self.operated_motif) > 1 or len(self.relative_to_motif) > 1:
             description += (
@@ -163,7 +166,7 @@ class SwapMotifAction(BaseMotifAction):
             motif_1_kwargs["max_cluster_radius"] = 4.0
         motif_a = get_random_motif(**motif_1_kwargs)
         # check the max cluster size for motif 2, if is 1, then must be site motif
-        max_cluster_size_2 = len(operated_atoms) - len(motif_a)
+        max_cluster_size_2 = min(4, len(operated_atoms) - len(motif_a))
         if max_cluster_size_2 < 2:
             class_alias2 = "site"
         else:

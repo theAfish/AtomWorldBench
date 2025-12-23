@@ -299,34 +299,43 @@ class TranslateMotifAction(BaseMotifAction):
             "update atom positions only, do not change their order in structure."
         )
 
+        desc_op, info_op = self.operated_motif.describe(**motif_desc_kwargs)
+        if self.relative_to_motif:
+            desc_re, info_re = self.relative_to_motif.describe(**relative_motif_desc_kwargs)
+            if info_re == info_op:
+                info_re = ''
+
         if self.mode_flag == "absolute":
             return (
-                    f"translate [{self.operated_motif.describe(**motif_desc_kwargs)}]"
+                    f"translate [{desc_op}]"
                     f" so as to relocate its centroid at {coord_word}"
                     f" {describe_arraylike(self.to_position, precision=precision)}."
+                    f" {info_op}"
                     + " " + common_instruction
             )
         if self.mode_flag == "relative_to_position":
             move_word = "away from" if self.translation_vector >= 0 else "towards"
             return (
-                f"translate [{self.operated_motif.describe(**motif_desc_kwargs)}]"
+                f"translate {desc_op}"
                 f" so as to move its centroid {self.translation_vector:.{precision}f}"
                 f" angstroms {move_word} a reference point at {coord_word}"
                 f" {describe_arraylike(self.relative_to_position, precision=precision)}."
+                f" {info_op}"
                 + " " + common_instruction
             )
         if self.mode_flag == "relative_to_motif":
             move_word = "away from" if self.translation_vector >= 0 else "towards"
             return (
-                f"translate [{self.operated_motif.describe(**motif_desc_kwargs)}]"
+                f"translate {desc_op}"
                 f" so as to move its centroid {self.translation_vector:.{precision}f}"
                 f" angstroms {move_word} the centroid of"
-                f" [{self.relative_to_motif.describe(**relative_motif_desc_kwargs)}]."
+                f" {desc_re}."
+                f" {info_op} {info_re}"
                 + " " + common_instruction
             )
         if self.mode_flag == "relative_to_self":
             return (
-                f"translate [{self.operated_motif.describe(**motif_desc_kwargs)}] by"
+                f"translate {desc_op} by"
                 f" {describe_arraylike(self.translation_vector, precision=precision)}"
                 f" in {coord_word}."
                 + " " + common_instruction
@@ -352,7 +361,7 @@ class TranslateMotifAction(BaseMotifAction):
         """
         rng = np.random.default_rng(seed)
 
-        max_cluster_size = max(4, len(operated_atoms) - 1)
+        max_cluster_size = min(4, len(operated_atoms) - 1)
 
         # Randomly select a non-bond site collection motif.
         class_alias = rng.choice(

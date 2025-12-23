@@ -105,8 +105,11 @@ def check_integer_translation(
 
     # Sort the arrays to handle permutations.
     # Sort by x, then y, then z.
-    idx1 = np.lexsort((a1[:, 2], a1[:, 1], a1[:, 0]))
-    idx2 = np.lexsort((a2[:, 2], a2[:, 1], a2[:, 0]))
+    # Round to avoid numerical issues with floating point comparison.
+    a1_rounded = np.round(a1, decimals=8)
+    a2_rounded = np.round(a2, decimals=8)
+    idx1 = np.lexsort((a1_rounded[:, 2], a1_rounded[:, 1], a1_rounded[:, 0]))
+    idx2 = np.lexsort((a2_rounded[:, 2], a2_rounded[:, 1], a2_rounded[:, 0]))
 
     diffs = a2[idx2] - a1[idx1]
 

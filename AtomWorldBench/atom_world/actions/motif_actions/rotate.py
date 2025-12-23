@@ -440,80 +440,99 @@ class RotateMotifAction(BaseMotifAction):
             "update atom coordinates only, do not change their order in structure."
         )
 
+        operated_motif_desc, operated_other_notes = self.operated_motif.describe(**motif_desc_kwargs)
+        if relative_motif_desc_kwargs is not None and self.relative_to_motif is not None:
+            relative_motif_desc, relative_other_notes = self.relative_to_motif.describe(
+                **relative_motif_desc_kwargs
+            )
+            # check the other notes are same or not
+            if relative_other_notes == operated_other_notes:
+                relative_other_notes = ""
+
         if self.mode_flag == "euler_relative_to_position":
             return (
-                f"rotate [{self.operated_motif.describe(**motif_desc_kwargs)}]"
+                f"rotate {operated_motif_desc}"
                 f" in the structure by euler angles (Z-X-Z intrinsic convention,"
                 f" active rotation, right-hand counter-clockwise direction) in"
                 f" {describe_arraylike(self.euler_angles, precision=precision)} degrees"
                 f" around a center position in {coord_word}"
                 f" {describe_arraylike(self.relative_to_position, precision=precision)}."
+                f" {operated_other_notes}"
                 + " " + common_instruction
             )
         elif self.mode_flag == "euler_relative_to_motif":
             return (
-                f"rotate [{self.operated_motif.describe(**motif_desc_kwargs)}]"
+                f"rotate {operated_motif_desc}"
                 f" in the structure by euler angles (Z-X-Z intrinsic convention,"
                 f" active rotation, right-hand counter-clockwise direction) in"
                 f" {describe_arraylike(self.euler_angles, precision=precision)} degrees,"
                 f" around the centroid of"
-                f" [{self.relative_to_motif.describe(**relative_motif_desc_kwargs)}]"
+                f" {relative_motif_desc}"
                 f" as the rotation center."
+                f" {operated_other_notes}"
+                f" {relative_other_notes}"
                 + " " + common_instruction
             )
         elif self.mode_flag == "euler_relative_to_self":
             return (
-                f"rotate [{self.operated_motif.describe(**motif_desc_kwargs)}]"
+                f"rotate {operated_motif_desc}"
                 f" in the structure by euler angles (Z-X-Z intrinsic convention,"
                 f" active rotation, right-hand counter-clockwise direction) in"
                 f" {describe_arraylike(self.euler_angles, precision=precision)} degrees,"
                 f" around its own centroid as the rotation center."
+                f" {operated_other_notes}"
                 + " " + common_instruction
             )
         elif self.mode_flag == "axis_relative_to_self":
             return (
-                f"rotate [{self.operated_motif.describe(**motif_desc_kwargs)}]"
+                f"rotate {operated_motif_desc}"
                 f" in the structure by {self.rotation_axis_angle:.{precision}f}"
                 f" degrees right-hand counter-clockwise around a rotation axis"
                 f" defined by the cartesian vector"
                 f" {describe_arraylike(self.rotation_axis_vector, precision=precision)}"
                 f" around its own centroid as the rotation center."
+                f" {operated_other_notes}"
                 + " " + common_instruction
             )
         elif self.mode_flag == "axis_relative_to_position":
             return (
-                f"rotate [{self.operated_motif.describe(**motif_desc_kwargs)}]"
+                f"rotate {operated_motif_desc}"
                 f" in the structure by {self.rotation_axis_angle:.{precision}f}"
                 f" degrees right-hand counter-clockwise around a rotation axis"
                 f" defined by the cartesian vector"
                 f" {describe_arraylike(self.rotation_axis_vector, precision=precision)}"
                 f" around a rotation center in {coord_word}"
                 f" {describe_arraylike(self.relative_to_position, precision=precision)}."
+                f" {operated_other_notes}"
                 + " " + common_instruction
             )
         elif self.mode_flag == "axis_relative_to_regular_motif":
             return (
-                f"rotate [{self.operated_motif.describe(**motif_desc_kwargs)}]"
+                f"rotate {operated_motif_desc}"
                 f" in the structure by {self.rotation_axis_angle:.{precision}f}"
                 f" degrees right-hand counter-clockwise around a rotation axis"
                 f" defined by the cartesian vector"
                 f" {describe_arraylike(self.rotation_axis_vector, precision=precision)}"
                 f" around the centroid of"
-                f" [{self.relative_to_motif.describe(**relative_motif_desc_kwargs)}]"
+                f" {relative_motif_desc}"
                 f" as the rotation center."
+                f" {operated_other_notes}"
+                f" {relative_other_notes}"
                 + " " + common_instruction
             )
         elif self.mode_flag == "axis_relative_to_pair_motif":
             relative_motif_desc_kwargs.update({"style": "index"})
             return (
-                f"rotate [{self.operated_motif.describe(**motif_desc_kwargs)}]"
+                f"rotate {operated_motif_desc}"
                 f" in the structure by {self.rotation_axis_angle:.{precision}f}"
                 f" degrees right-hand counter-clockwise around a rotation axis defined by the line of"
-                f" [{self.relative_to_motif.describe(**relative_motif_desc_kwargs)}],"
+                f" {relative_motif_desc},"
                 f" pointing from the atom"
                 f" with index {self.relative_to_motif.indices[self.relative_axis_origin_index]}"
                 f" to the other atom, around the centroid of the axis pair"
                 f" as the rotation center."
+                f" {operated_other_notes}"
+                f" {relative_other_notes}"
                 + " " + common_instruction
             )
         else:
