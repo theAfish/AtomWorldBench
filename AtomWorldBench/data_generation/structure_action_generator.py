@@ -122,6 +122,8 @@ class StructureActionGenerator(BaseDataGenerator):
                 try:
                     cif_idx = self.cif_indices[idx]
                     atoms = read(self.cif_files[cif_idx])
+                    # Ensure atoms are wrapped so motifs see the same coordinates. This is a must!
+                    atoms.wrap()
                     
                     
                     if action_name:
@@ -158,6 +160,7 @@ class StructureActionGenerator(BaseDataGenerator):
                     count += 1
                     break
                 except Exception as e:
+                    # assert False
                     print(f"Error generating sample: {e}")
                     print("File path: ", self.cif_files[self.cif_indices[idx]])
                     # Move to next structure on error
@@ -195,17 +198,17 @@ if __name__ == "__main__":
     cif_folder = "D:\\Codes\\AtomWorld\\src\\data\\_raw_data\\input_cifs"
     output_dir = "D:\\Codes\\AtomWorld\\debug\\output_cifs"
     action_names = [
-        # "ChangeElementAction",
-        # "LatticeTransformAction",
-        # "MakeSupercellAction",
-        # "RotateStructureAction",
-        # "AddMotifAction",
+        "ChangeElementAction",
+        "LatticeTransformAction",
+        "MakeSupercellAction",
+        "RotateStructureAction",
+        "AddMotifAction",
         "RemoveMotifAction",
-        # "ReplaceMotifAction",
-        # "ResizeMotifAction",
-        # "RotateMotifAction",
-        # "SwapMotifAction",
-        # "TranslateMotifAction"
+        "ReplaceMotifAction",
+        "ResizeMotifAction",
+        "RotateMotifAction",
+        "SwapMotifAction",
+        "TranslateMotifAction"
     ]
     
     generator = StructureActionGenerator(

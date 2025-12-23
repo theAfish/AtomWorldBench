@@ -11,6 +11,8 @@ from ....common.globals import DEFAULT_FLOAT_TO_STRING_PRECISION
 from ....utils.coord_utils import check_lattice_matrix_shape
 from ....utils.description_utils import describe_arraylike
 
+LATTICE_VOLUME_TOL = 1e-6
+
 
 def _check_lattice_parameters(parameters: Optional[Sequence] = None):
     if parameters is not None:
@@ -23,6 +25,14 @@ def _check_lattice_parameters(parameters: Optional[Sequence] = None):
             raise ValueError("Lattice lengths must be positive.")
         if np.any(parameters[3:] <= 0) or np.any(parameters[3:] >= 180):
             raise ValueError("Lattice angles must be in the range (0, 180).")
+        cos_alpha, cos_beta, cos_gamma = np.cos(np.deg2rad(parameters[3:]))
+        volume_term = 1 + 2 * cos_alpha * cos_beta * cos_gamma - (
+            cos_alpha ** 2 + cos_beta ** 2 + cos_gamma ** 2
+        )
+        if volume_term <= LATTICE_VOLUME_TOL:
+            raise ValueError(
+                "Lattice lengths/angles yield a non-physical cell (zero or imaginary volume)."
+            )
     return parameters
 
 
@@ -161,11 +171,18 @@ class LatticeTransformAction(BaseStructureAction):
             ab_norm_vec = ab_norm_vec / np.linalg.norm(ab_norm_vec)
             orig_unit_a = orig_vec_a / np.linalg.norm(orig_vec_a)
             # Fix a and ab plane normal direction to avoid arbitrary rotation.
-            return Cell.fromcellpar(
-                self.set_to_lattice_parameters,
-                ab_normal=ab_norm_vec,
-                a_direction=orig_unit_a
-            )
+            try:
+                return Cell.fromcellpar(
+                    self.set_to_lattice_parameters,
+                    ab_normal=ab_norm_vec,
+                    a_direction=orig_unit_a
+                )
+            except Exception as e:
+                print("Error in setting lattice from parameters:", e)
+                print("set_to_lattice_parameters: ", self.set_to_lattice_parameters)
+                print("ab_normal: ", ab_norm_vec)
+                print("a_direction: ", orig_unit_a)
+                raise e
         else:
             raise NotImplementedError(f"Invalid mode_flag: {self.mode_flag}")
 
@@ -251,6 +268,7 @@ class LatticeTransformAction(BaseStructureAction):
             cls,
             operated_atoms: Atoms,
             seed: Optional[int] = None,
+            n_attempts: int = 10,
     ) -> "LatticeTransformAction":
         """Generate a random LatticeTransformAction instance.
 
@@ -293,11 +311,21 @@ class LatticeTransformAction(BaseStructureAction):
                 set_to_lattice_matrix=random_matrix,
             )
         elif chosen_mode == "to_lattice_parameters":
-            a, b, c = rng.uniform(2.0, 10.0, size=3).tolist()
-            alpha, beta, gamma = rng.uniform(30.0, 120.0, size=3).tolist()
-            return cls(
-                operated_atoms=operated_atoms,
-                set_to_lattice_parameters=[a, b, c, alpha, beta, gamma],
-            )
+            try:
+                for _ in range(n_attempts):
+                    a, b, c = rng.uniform(2.0, 10.0, size=3).tolist()
+                    alpha, beta, gamma = rng.uniform(30.0, 120.0, size=3).tolist()
+                    params = [a, b, c, alpha, beta, gamma]
+                    try:
+                        _check_lattice_parameters(params)
+                    except ValueError:
+                        continue
+                    return cls(
+                        operated_atoms=operated_atoms,
+                        set_to_lattice_parameters=params,
+                    )
+            except Exception as e:
+                print("Failed to generate valid lattice parameters:", e)
+                raise e
         else:
             raise ValueError(f"Invalid mode: {chosen_mode}")

@@ -260,12 +260,12 @@ class SphereRegionMotif(BaseRegionMotif, MultiModeInitMixin):
             # min_cell_length = np.min(cell_lengths)
             max_radius = _get_inner_pbc_radius(atoms)
 
-            if max_radius <= 1.5:
+            if max_radius <= 1.4:
                 raise ValueError(
                     f"The cell is too small to fit a suitable spherical region motif. The inner radius is {max_radius:.2f} angstroms."
                 )
             else:
-                radius = rng.uniform(1.5, max_radius)
+                radius = rng.uniform(1.4, max_radius)
 
             # avoid too small radius that cause overlap with periodic images
             # if min_cell_length / 2.0 <= 3.0:
