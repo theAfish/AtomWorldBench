@@ -27,7 +27,7 @@ def cif_action_prompt(
         "   - After each step, wrap all atomic coordinates back into the unit cell"
         " so that fractional coordinates are within [0, 1].\n"
         "   - Any coordinates mentioned in subsequent steps refer to these wrapped positions.\n"
-        f"Input CIF:\n{input_cif}\n",
+        f"Input CIF:\n{input_cif}\n"
         f"Action instruction:\n{action_prompt}"
     )
     return prompt

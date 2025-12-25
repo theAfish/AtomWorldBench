@@ -1,8 +1,8 @@
 import os
+import json
 import pandas as pd
-from scripts.load_data_from_h5 import load_cifs_from_hdf5
-from pymatgen.io.cif import CifParser
 import logging
+from pymatgen.io.cif import CifParser
 
 
 def load_cif_file(cif_file, primitive=True):
@@ -42,52 +42,46 @@ def load_cif_file_from_string(cif_string, primitive=True):
 
 def load_data(data_folder, action_name=None):
     """
-    Loads data for training/analysis.
+    Loads data for training/analysis from JSON files.
     Args:
-        data_folder: Path to the folder containing input_cifs.hdf5, action CSVs, and HDF5s.
-        action_name: If specified, only load data for this action (e.g., 'add_atom_action').
+        data_folder: Path to the folder containing action JSON files.
+        action_name: If specified, only load data for this action (e.g., 'AddMotifAction').
     Returns:
         pd.DataFrame with columns: input_cif, action_prompt, output_cif
     """
-    # Load all input CIFs
-    input_cifs_path = os.path.join(data_folder, "input_cifs.hdf5")
-    input_cifs = load_cifs_from_hdf5(input_cifs_path)
+    # Find all action JSONs
+    if not os.path.exists(data_folder):
+        logging.error(f"Data folder {data_folder} does not exist.")
+        return pd.DataFrame()
 
-    # Find all action CSVs
     files = os.listdir(data_folder)
-    action_csvs = [f for f in files if f.endswith(".csv")]
+    action_jsons = [f for f in files if f.endswith(".json")]
+    
     if action_name:
-        action_csvs = [f"{action_name}.csv"] if f"{action_name}.csv" in action_csvs else []
+        # Check if action_name has .json extension or not
+        target_file = f"{action_name}.json" if not action_name.endswith(".json") else action_name
+        if target_file in action_jsons:
+            action_jsons = [target_file]
+        else:
+            logging.warning(f"Action {action_name} not found in {data_folder}.")
+            return pd.DataFrame()
 
     rows = []
-    for csv_file in action_csvs:
-        action_base = csv_file[:-4]
-        h5_file = f"{action_base}.hdf5"
-        h5_path = os.path.join(data_folder, h5_file)
-        # Load output CIFs for this action
-        output_cifs = load_cifs_from_hdf5(h5_path) if os.path.exists(h5_path) else {}
-        # Read CSV
-        csv_path = os.path.join(data_folder, csv_file)
-        df = pd.read_csv(csv_path)
-        for _, row in df.iterrows():
-            # input_cif: get from input_cifs dict
-            input_cif_path = os.path.basename(row["input_cif"])
-            input_cif_str = input_cifs.get(input_cif_path, "")
-            # action_prompt: from CSV
-            action_prompt = row["action_prompt"]
-            # output_cif: get from output_cifs dict
-            output_cif_path = os.path.basename(row["output_cif"])
-            output_cif_str = output_cifs.get(output_cif_path, "")
-            rows.append({
-                "input_cif": input_cif_str,
-                "action_prompt": action_prompt,
-                "output_cif": output_cif_str
-            })
+    for json_file in action_jsons:
+        json_path = os.path.join(data_folder, json_file)
+        try:
+            with open(json_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+                
+            # data is expected to be a list of dictionaries
+            for item in data:
+                rows.append({
+                    "input_cif": item.get("input", ""),
+                    "action_prompt": item.get("action_prompt", ""),
+                    "output_cif": item.get("output", "")
+                })
+        except Exception as e:
+            logging.error(f"Error loading {json_file}: {e}")
+
     return pd.DataFrame(rows)
 
-
-if __name__ == "__main__":
-    data_folder = "." 
-    action_name = 'add_atom_action' 
-    df = load_data(data_folder, action_name)
-    print(df.head()['action_prompt'])

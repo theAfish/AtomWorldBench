@@ -9,9 +9,9 @@ from AtomWorldBench.atom_world.actions.structure_actions import BaseStructureAct
 from AtomWorldBench.atom_world.actions.motif_actions import BaseMotifAction
 from AtomWorldBench.common.registry import get_registered
 
-class StructureActionGenerator(BaseDataGenerator):
+class CIFActionGenerator(BaseDataGenerator):
     """
-    Generator for structure-action pairs using CIF files and registered actions.
+    Generator for cif-action pairs using CIF files and registered actions.
     """
     
     def __init__(
@@ -193,7 +193,7 @@ class StructureActionGenerator(BaseDataGenerator):
                 print(f"No samples generated for {action_name}")
 
 
-# debug
+# Example usage
 if __name__ == "__main__":
     cif_folder = "D:\\Codes\\AtomWorld\\src\\data\\_raw_data\\input_cifs"
     output_dir = "D:\\Codes\\AtomWorld\\debug\\output_cifs"
@@ -211,7 +211,7 @@ if __name__ == "__main__":
         "TranslateMotifAction"
     ]
     
-    generator = StructureActionGenerator(
+    generator = CIFActionGenerator(
         cif_folder=cif_folder,
         action_names=action_names,
         max_attempts=5,
@@ -223,14 +223,3 @@ if __name__ == "__main__":
         output_dir=output_dir,
         num_samples_per_action=1000
     )
-
-    # # load and print a sample
-    # sample_file = os.path.join(output_dir, "AddMotifAction.json")
-    # with open(sample_file, 'r') as f:
-    #     samples = json.load(f)
-    #     print(f"Loaded {len(samples)} samples from {sample_file}")
-    #     if samples:
-    #         print("Sample 0:")
-    #         print("Action Prompt:", samples[0]['action_prompt'])
-    #         print("Input CIF:", samples[0]['input'])
-    #         print("Output CIF:", samples[0]['output'])

@@ -28,7 +28,7 @@ class OpenAIModel(BaseModel):
 
         self.default_generation_params = {
             "temperature": 1.0,
-            # "max_tokens": 1024,
+            # "max_tokens": 8192,
             # "top_p": 1.0,
             # "response_format": {"type": "json_object"} # if you want structured output
         }
