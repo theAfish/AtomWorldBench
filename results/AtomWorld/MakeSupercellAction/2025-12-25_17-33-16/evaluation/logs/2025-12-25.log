@@ -1,0 +1,24 @@
+2025-12-25 17:37:22,169 - AtomWorldEvaluator - INFO - Loading results from results\AtomWorld\MakeSupercellAction\2025-12-25_17-33-16\inference\inference_results.json
+2025-12-25 17:37:22,213 - AtomWorldEvaluator - INFO - Evaluating 50 items...
+2025-12-25 17:37:32,420 - AtomWorldEvaluator - INFO - Evaluation completed.
+2025-12-25 17:37:32,422 - AtomWorldEvaluator - INFO - Summary: {
+  "total_samples": 50,
+  "success_count": 7,
+  "error_count": 43,
+  "success_rate": 0.14,
+  "error_types": {
+    "CIFParsingError": 40,
+    "StructureMismatch": 3
+  }
+}
+2025-12-25 17:37:32,423 - AtomWorldEvaluator - INFO - Statistics: {
+  "rmsd_mean": 1.2120742324462878e-06,
+  "rmsd_median": 1.0057144784266608e-15,
+  "rmsd_max": 8.484519620168957e-06,
+  "rmsd_min": 3.7046015738868076e-16,
+  "max_dist_mean": 4.420415383824375e-06,
+  "max_dist_median": 2.8402882167637437e-15,
+  "max_dist_max": 3.0942907667435336e-05,
+  "max_dist_min": 9.346601422881856e-16
+}
+2025-12-25 17:37:32,447 - AtomWorldEvaluator - INFO - Detailed results saved to results\AtomWorld\MakeSupercellAction\2025-12-25_17-33-16\evaluation\evaluation_results.json

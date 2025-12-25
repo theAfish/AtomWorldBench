@@ -1,0 +1,2 @@
+2025-12-25 15:37:35,902 - AtomWorldInferencer - INFO - Starting inference with 50 samples in batches of 50
+2025-12-25 15:39:20,893 - AtomWorldInferencer - INFO - Inference completed. Results saved to results\AtomWorld\ChangeElementAction\2025-12-25_15-37-35\inference\inference_results.json

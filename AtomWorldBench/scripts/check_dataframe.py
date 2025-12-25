@@ -69,9 +69,21 @@ def check_one_frame(
 
 
 if __name__ == "__main__":
+    data_file = "D:/Codes/AtomWorld/AtomWorldBench/data/RotateStructureAction.json"
     check_one_frame(
-        "D:/Codes/AtomWorld/AtomWorldBench/data/RotateMotifAction.json",
-        1,
-        "D:/Codes/AtomWorld/debug/output_cifs",
-        format='cif'
+        data_file, 1, "D:/Codes/AtomWorld/debug/output_cifs", format='cif'
     )
+
+    from AtomWorldBench.benchmark.evaluation.metrics import compute_exact_match_positional_metrics, match_structures
+    from AtomWorldBench.utils.dataloader import load_cif_file_from_string
+
+    with open(data_file, 'r') as f:
+        data = json.load(f)[1]  # load the second sample
+
+    input_structure = load_cif_file_from_string(data['input'], primitive=False)
+    generated_structure = load_cif_file_from_string(data['output'], primitive=False)
+    metrics = match_structures(input_structure, generated_structure)
+    print("Is match: ", metrics)
+
+    metrics = compute_exact_match_positional_metrics(input_structure, generated_structure)
+    print("Metrics: ", metrics)

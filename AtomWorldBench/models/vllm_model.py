@@ -1,8 +1,11 @@
 import os 
 from pathlib import Path
-from vllm import LLM, SamplingParams
-from vllm.lora.request import LoRARequest
-
+try:
+    from vllm import LLM, SamplingParams
+    from vllm.lora.request import LoRARequest
+except ImportError:
+    print("vLLM is not installed. Please install vLLM to use VLLMModel.")
+    
 from typing import Any, Dict, List, Optional, Union
 from .base_model import BaseModel
 

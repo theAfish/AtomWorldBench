@@ -10,8 +10,12 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from benchmark.inference.inferencer import AtomWorldInferencer
 from benchmark.evaluation.atomworld_evaluator import AtomWorldEvaluator
+from utils.visualization import plot_metrics_distribution
 from models.openai_model import OpenAIModel
 from models.azure_openai_model import AzureOpenAIModel
+from models.huggingface_model import HuggingFaceModel
+from models.vllm_model import vllmModel
+
 from utils.args import get_benchmark_parser
 
 def load_model_from_config(config_path, model_key):
@@ -40,6 +44,10 @@ def load_model_from_config(config_path, model_key):
         return OpenAIModel(**model_config)
     elif model_class_name == 'AzureOpenAIModel':
         return AzureOpenAIModel(**model_config)
+    elif model_class_name == 'HuggingFaceModel':
+        return HuggingFaceModel(**model_config)
+    elif model_class_name == 'VLLMModel':
+        return vllmModel(**model_config)
     else:
         raise ValueError(f"Unknown model class {model_class_name}")
 
@@ -86,7 +94,14 @@ def main():
             action_name=args.action_name,
             results_folder=evaluation_folder
         )
-        evaluator.evaluate(inference_file)
+        results = evaluator.evaluate(inference_file)
+        
+        # Plot metrics distribution
+        try:
+            print(f"Plotting metrics distribution to {evaluation_folder}...")
+            plot_metrics_distribution(results, evaluation_folder)
+        except Exception as e:
+            print(f"Error plotting metrics distribution: {e}")
 
         if not args.keep_inference:
             print(f"Deleting inference file: {inference_file}")

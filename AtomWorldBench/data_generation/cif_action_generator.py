@@ -198,17 +198,17 @@ if __name__ == "__main__":
     cif_folder = "D:\\Codes\\AtomWorld\\src\\data\\_raw_data\\input_cifs"
     output_dir = "D:\\Codes\\AtomWorld\\debug\\output_cifs"
     action_names = [
-        "ChangeElementAction",
-        "LatticeTransformAction",
+        # "ChangeElementAction",
+        # "LatticeTransformAction",
         "MakeSupercellAction",
-        "RotateStructureAction",
-        "AddMotifAction",
-        "RemoveMotifAction",
-        "ReplaceMotifAction",
-        "ResizeMotifAction",
-        "RotateMotifAction",
-        "SwapMotifAction",
-        "TranslateMotifAction"
+        # "RotateStructureAction",
+        # "AddMotifAction",
+        # "RemoveMotifAction",
+        # "ReplaceMotifAction",
+        # "ResizeMotifAction",
+        # "RotateMotifAction",
+        # "SwapMotifAction",
+        # "TranslateMotifAction"
     ]
     
     generator = CIFActionGenerator(

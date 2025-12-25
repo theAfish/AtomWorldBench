@@ -2,7 +2,7 @@ import argparse
 
 def get_benchmark_parser():
     parser = argparse.ArgumentParser(description="Run AtomWorld Benchmark")
-    parser.add_argument("-f", "--data_folder", type=str, default="AtomWorldBench/data", required=True, help="Path to data folder")
+    parser.add_argument("-f", "--data_folder", type=str, default="AtomWorldBench/data", help="Path to data folder")
     parser.add_argument("-a", "--action_name", type=str, default=None, help="Specific action to run")
     parser.add_argument("-m", "--model", type=str, default="deepseek_chat", help="Model key in config file")
     parser.add_argument("-c", "--config_path", type=str, default="AtomWorldBench/config/llm_api_config.yaml", help="Path to config file")
@@ -13,4 +13,10 @@ def get_benchmark_parser():
     parser.add_argument("--skip_inference", action="store_true", help="Skip inference and only run evaluation")
     parser.add_argument("--inference_file", type=str, default=None, help="Path to inference results file (if skipping inference)")
     parser.add_argument("--keep_inference", action="store_true", help="Keep inference results after evaluation")
+    return parser
+
+def get_visualization_parser():
+    parser = argparse.ArgumentParser(description="Visualize AtomWorld Benchmark Results")
+    parser.add_argument("-i", "--input_file", type=str, required=True, help="Path to evaluation_results.json file")
+    parser.add_argument("-o", "--output_folder", type=str, default=None, help="Output folder for plots. Defaults to the same folder as input file.")
     return parser

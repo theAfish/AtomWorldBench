@@ -64,7 +64,7 @@ class AtomWorldEvaluator(BaseOfflineEvaluator):
             correct = False
             wrong_type = "CIFParsingError"
 
-            rmsd, max_diff = None, None
+            rmsd, max_dist = None, None
         else:
             # Check atom counts
             if not check_atom_counts(output_structure, generated_structure):
@@ -73,7 +73,7 @@ class AtomWorldEvaluator(BaseOfflineEvaluator):
                 wrong_type = "AtomCountMismatch"
 
             # Match structures
-            rmsd, max_diff = self._compute_structural_metrics(output_structure, generated_structure)
+            rmsd, max_dist = self._compute_structural_metrics(output_structure, generated_structure)
             if rmsd is None:
                 stats['num_invalid_cif'] += 1
                 correct = False
@@ -88,7 +88,7 @@ class AtomWorldEvaluator(BaseOfflineEvaluator):
             'generated_cif': generated_cif,
             'target_cif': row['output_cif'],
             'rmsd': rmsd,
-            'max_diff': max_diff,
+            'max_dist': max_dist,
             'generated_output': generated_output,
             'frame_index': item.get('frame_index'),
             'repeat_index': item.get('repeat_index'),
@@ -101,7 +101,7 @@ class AtomWorldEvaluator(BaseOfflineEvaluator):
 
     def _log_success_metrics(self, result: Dict) -> None:
         """Log metrics for successful generations."""
-        # self.logger.info(f"RMSD: {result['rmsd']}, Max Diff: {result['max_diff']}")
+        # self.logger.info(f"RMSD: {result['rmsd']}, Max Diff: {result['max_dist']}")
         pass
 
     def _should_use_exact_match_metrics(self) -> bool:
@@ -109,7 +109,7 @@ class AtomWorldEvaluator(BaseOfflineEvaluator):
         return (self.action_name or "").lower() == "move_all_action"
 
     def _compute_structural_metrics(self, target_structure, generated_structure):
-        """Compute (rmsd, max_diff) using the right metric for the configured action."""
+        """Compute (rmsd, max_dist) using the right metric for the configured action."""
         if self._use_exact_match_metrics:
             return compute_exact_match_positional_metrics(target_structure, generated_structure)
         return match_structures(target_structure, generated_structure, primitive_cell=False)
@@ -119,25 +119,25 @@ class AtomWorldEvaluator(BaseOfflineEvaluator):
         Calculate statistical metrics from successful results.
         """
         rmsd_values = [res['rmsd'] for res in results if res.get('correct')]
-        max_diff_values = [res['max_diff'] for res in results if res.get('correct')]
+        max_dist_values = [res['max_dist'] for res in results if res.get('correct')]
         
         stats = {
             'rmsd_mean': sum(rmsd_values) / len(rmsd_values) if rmsd_values else None,
             'rmsd_median': sorted(rmsd_values)[len(rmsd_values)//2] if rmsd_values else None,
             'rmsd_max': max(rmsd_values) if rmsd_values else None,
             'rmsd_min': min(rmsd_values) if rmsd_values else None,
-            'max_diff_mean': sum(max_diff_values) / len(max_diff_values) if max_diff_values else None,
-            'max_diff_median': sorted(max_diff_values)[len(max_diff_values)//2] if max_diff_values else None,
-            'max_diff_max': max(max_diff_values) if max_diff_values else None,
-            'max_diff_min': min(max_diff_values) if max_diff_values else None,
+            'max_dist_mean': sum(max_dist_values) / len(max_dist_values) if max_dist_values else None,
+            'max_dist_median': sorted(max_dist_values)[len(max_dist_values)//2] if max_dist_values else None,
+            'max_dist_max': max(max_dist_values) if max_dist_values else None,
+            'max_dist_min': min(max_dist_values) if max_dist_values else None,
         }
         return stats
 
     def _finalize_evaluation(self, results: List[Dict], stats: Dict):
         """Print evaluation summary and save results."""
         
-        valid_results = [r for r in results if not r.get('is_error', False)]
-        wrongs = [r for r in results if r.get('is_error', False)]
+        valid_results = [r for r in results if r.get('correct', False)]
+        wrongs = [r for r in results if not r.get('correct', False)]
         
         # Calculate overall statistics
         total_processed = len(results)

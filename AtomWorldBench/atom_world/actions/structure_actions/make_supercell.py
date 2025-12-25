@@ -30,6 +30,35 @@ def _check_supercell_matrix(
     return supercell_matrix
 
 
+def _sample_integer_diagonal(
+    max_det=8,
+    allow_identity=True
+):
+    """
+    Generate (a, d, f) such that:
+    - a, d, f > 0
+    - a*d*f <= max_det
+    - if allow_identity=False, (1,1,1) is excluded
+    """
+    triples = []
+
+    for a in range(1, max_det + 1):
+        for d in range(1, max_det + 1):
+            for f in range(1, max_det + 1):
+                if a * d * f > max_det:
+                    continue
+                if not allow_identity and (a, d, f) == (1, 1, 1):
+                    continue
+                triples.append((a, d, f))
+
+    if not triples:
+        raise RuntimeError("No valid diagonal triples found.")
+
+    return triples
+
+_diag_lists = _sample_integer_diagonal(max_det=8, allow_identity=True)
+
+
 @register(BaseStructureAction, ["make-supercell"])
 class MakeSupercellAction(BaseStructureAction):
     """An action that creates a supercell from a crystal structure.
@@ -120,14 +149,24 @@ class MakeSupercellAction(BaseStructureAction):
         # Randomly choose scale factors between 2 and 4 for each lattice vector.
         if rng.random() < 0.5:
             # Diagonal supercell matrix.
-            scale_factors = rng.integers(2, 5, size=3)
+            # without 111
+            scale_factors = _diag_lists[
+                rng.integers(1, len(_diag_lists))
+            ]
             return cls(
                 operated_atoms=operated_atoms,
                 supercell_matrix=scale_factors,
             )
         else:
             # Upper triangular supercell matrix. This guarantees a non-zero determinant.
-            scale_factors = rng.integers(2, 5, size=(3, 3))
+            scale_factors = rng.integers(-2, 3, size=(3, 3))
+            # Set the diagonal elements to be the choosen scale factors
+            diag_factors = _diag_lists[
+                rng.integers(0, len(_diag_lists))
+            ]
+            scale_factors[0, 0] = diag_factors[0]
+            scale_factors[1, 1] = diag_factors[1]
+            scale_factors[2, 2] = diag_factors[2]
             scale_factors[1, 0] = 0
             scale_factors[2, 0] = 0
             scale_factors[2, 1] = 0
