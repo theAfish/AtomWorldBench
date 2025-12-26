@@ -115,7 +115,7 @@ class CIFActionGenerator(BaseDataGenerator):
     def _atoms_to_cif_string(self, atoms: Atoms) -> str:
         with io.BytesIO() as buffer:
             write(buffer, atoms, format='cif')
-            return buffer.getvalue().decode('utf-8')
+            return buffer.getvalue().decode('utf-8').replace('\r\n', '\n')
 
     def generate(self, num_samples: int = -1, action_name: Optional[str] = None, **kwargs) -> Iterator[Dict[str, Any]]:
         count = 0

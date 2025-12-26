@@ -85,3 +85,10 @@ qwen3_32B:
   model_name: Qwen/Qwen3-32B
   device: cuda
   temperature: 1.0
+
+# TODO: under development
+agentom:
+  class: GoogleADKModel  # Matches the class name in __init__.py
+  model_name: Agentom
+  app_name: agentom
+  agent_url: http://127.0.0.1:8000  # Custom parameter defined in __init__
