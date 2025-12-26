@@ -11,10 +11,8 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from benchmark.inference.inferencer import AtomWorldInferencer
 from benchmark.evaluation.atomworld_evaluator import AtomWorldEvaluator
 from utils.visualization import plot_metrics_distribution
-from models.openai_model import OpenAIModel
-from models.azure_openai_model import AzureOpenAIModel
-from models.huggingface_model import HuggingFaceModel
-from models.vllm_model import vllmModel
+import models
+import importlib
 
 from utils.args import get_benchmark_parser
 
@@ -40,16 +38,21 @@ def load_model_from_config(config_path, model_key):
                 env_var = match.group(1)
                 model_config[k] = os.environ.get(env_var)
             
-    if model_class_name == 'OpenAIModel':
-        return OpenAIModel(**model_config)
-    elif model_class_name == 'AzureOpenAIModel':
-        return AzureOpenAIModel(**model_config)
-    elif model_class_name == 'HuggingFaceModel':
-        return HuggingFaceModel(**model_config)
-    elif model_class_name == 'VLLMModel':
-        return vllmModel(**model_config)
+    # Dynamic loading
+    if hasattr(models, model_class_name):
+        model_class = getattr(models, model_class_name)
+    elif '.' in model_class_name:
+        # Try to import from module path
+        module_name, class_name = model_class_name.rsplit('.', 1)
+        try:
+            module = importlib.import_module(module_name)
+            model_class = getattr(module, class_name)
+        except (ImportError, AttributeError) as e:
+             raise ValueError(f"Could not import model class {model_class_name}: {e}")
     else:
-        raise ValueError(f"Unknown model class {model_class_name}")
+        raise ValueError(f"Unknown model class {model_class_name}. Available models: {models.__all__}")
+
+    return model_class(**model_config)
 
 def main():
     parser = get_benchmark_parser()
