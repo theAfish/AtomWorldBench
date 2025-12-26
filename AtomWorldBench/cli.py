@@ -4,18 +4,25 @@ from AtomWorldBench.benchmark.run_benchmark import main as benchmark_main
 from AtomWorldBench.data_generation.cif_action_generator import main as generate_main
 from AtomWorldBench.scripts.visualize_results import main as visualize_main
 
-BANNER = r"""
+# ANSI color codes
+CYAN = "\033[96m"
+MAGENTA = "\033[95m"
+RESET = "\033[0m"
+
+BANNER_ATOM = r"""
    ___  __                 
   / _ |/ /____  __ _       
  / __ / __/ _ \/  ' \      
-/_/ |_\__/\___/_/_/_/_   __
+/_/ |_\__/\___/_/_/_/"""
+
+BANNER_WORLD = r"""_   __
  | | /| / /__  ____/ /__/ /
  | |/ |/ / _ \/ __/ / _  / 
  |__/|__/\___/_/ /_/\_,_/  
                            """
 
 def main():
-    print(BANNER)
+    print(f"{CYAN}{BANNER_ATOM}{RESET}{MAGENTA}{BANNER_WORLD}{RESET}", end="\n")
     
     try:
         version = importlib.metadata.version("atom_world")
