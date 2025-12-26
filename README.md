@@ -21,9 +21,7 @@ This branch contains the latest updates and new features with improved benchmark
 - [Installation](#installation)
 - [Usage of the Bench](#usage)
   - [Run the Benchmark](#run-the-benchmark)
-    - [Available Benchmarks](#available-benchmarks)
     - [Available Actions](#available-actions)
-    - [StructProp Task](#structprop-task)
   - [Analyze the Results](#analyze-the-results)
   - [Construct Your Own Data](#construct-your-own-data-with-mp-api)
 - [Usage of the Gym]
@@ -45,7 +43,7 @@ pip install -e .
 
 ## Usage of the Bench
 
-If you want to run the benchmark for your own model, implement your model in `AtomWorldBench/models/` and corresponding parameters in `config/models.yaml`. Currently, we have implemented openai_model, azure_openai_model, huggingface_model, and vllm_model.
+If you want to run the benchmark for your own model, implement your model in `AtomWorldBench/models/` and corresponding parameters in `config/llm_api_config.yaml`. Currently, we have implemented openai_model, azure_openai_model, huggingface_model, and vllm_model.
 
 ### Run the Benchmark
 
@@ -55,14 +53,20 @@ atomworld benchmark -m [model_name] -a [action_name] -b [batch_size] -n [num_bat
 
 **Arguments:**
 
-| Argument         | Description                                                                 |
-|------------------|-----------------------------------------------------------------------------|
-| `model_name`     | Model to test (e.g., `deepseek_chat`).                                  |
-| `action_name`    | Action to test (see [Available Actions](#available-actions)). Only for AtomWorld and PointWorld. |
-| `batch_size`     | Number of parallel LLM calls (default: 50).                                 |
-| `num_batch`      | Number of batches to test (default: all data).                              |
-| `output_folder`  | Folder to save results (default: `./results/`).                            |
-| `keep_inference` | Whether to keep inference files (default: False).                           |
+| Argument | Description | Default |
+|----------|-------------|---------|
+| `-m`, `--model` | Model to test (e.g., `deepseek_chat`). | `deepseek_chat` |
+| `-a`, `--action_name` | Action to test (see [Available Actions](#available-actions)). If not provided, runs all actions. | `None` |
+| `-b`, `--batch_size` | Number of parallel LLM calls. | `50` |
+| `-n`, `--num_batch` | Number of batches to test. -1 means all data. | `-1` |
+| `-f`, `--data_folder` | Path to data folder. | `AtomWorldBench/data` |
+| `-c`, `--config_path` | Path to config file. | `AtomWorldBench/config/llm_api_config.yaml` |
+| `-o`, `--output_folder` | Folder to save results. | `results` |
+| `-s`, `--start_index` | Start index for inference. | `0` |
+| `-r`, `--repeat` | Repeat count for each sample. | `1` |
+| `--skip_inference` | Skip inference and only run evaluation. | `False` |
+| `--inference_file` | Path to inference results file (if skipping inference). | `None` |
+| `--keep_inference` | Whether to keep inference files. | `False` |
 
 ---
 
@@ -87,6 +91,19 @@ atomworld benchmark -m [model_name] -a [action_name] -b [batch_size] -n [num_bat
 
 In the new codes, the results are saved in `./results/[BenchmarkType]/[ModelName]/[ActionName]/[Timestamp]/`. The `evaluation_results.json` contains the results.
 
+You can visualize the results using the `visualize` command:
+
+```bash
+atomworld visualize -i [path_to_evaluation_results.json] -o [output_folder]
+```
+
+**Arguments:**
+
+| Argument | Description | Default |
+|----------|-------------|---------|
+| `-i`, `--input_file` | Path to `evaluation_results.json` file. | Required |
+| `-o`, `--output_folder` | Output folder for plots. | Same as input file folder |
+
 
 ---
 
@@ -101,8 +118,21 @@ In the new codes, the results are saved in `./results/[BenchmarkType]/[ModelName
     The input CIFs we used are available in `./src/data/input_cifs.zip`.
 2. Generate data:
 	```bash
-	atomworld data_generator -a [action_name] --input_cif_folder [path_to_input_cifs] --output_json_path [output_json_path] --num_samples [num_samples] (--no_random) (--allow_repeat)
+	atomworld generate -c [cif_folder] -o [output_dir] -a [action_names] -n [num_samples]
 	```
+
+**Arguments:**
+
+| Argument | Description | Default |
+|----------|-------------|---------|
+| `-c`, `--cif_folder` | Path to folder containing input CIF files. | Required |
+| `-o`, `--output_dir` | Directory to save generated JSON files. | Required |
+| `-a`, `--action_names` | List of action names to generate. If not provided, uses all ready actions. | `None` |
+| `-n`, `--num_samples` | Number of samples per action. | `1000` |
+| `--max_attempts` | Max attempts to generate a valid sample. | `10` |
+| `--seed` | Random seed. | `75` |
+| `--no_random` | Disable random shuffling of structures. | `False` |
+| `--allow_repeat` | Allow repeating structures across samples. | `False` |
 ---
 
 
