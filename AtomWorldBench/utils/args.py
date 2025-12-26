@@ -20,3 +20,15 @@ def get_visualization_parser():
     parser.add_argument("-i", "--input_file", type=str, required=True, help="Path to evaluation_results.json file")
     parser.add_argument("-o", "--output_folder", type=str, default=None, help="Output folder for plots. Defaults to the same folder as input file.")
     return parser
+
+def get_generation_parser():
+    parser = argparse.ArgumentParser(description="Generate AtomWorld Benchmark Data")
+    parser.add_argument("-c", "--cif_folder", type=str, required=True, help="Path to folder containing input CIF files")
+    parser.add_argument("-o", "--output_dir", type=str, required=True, help="Directory to save generated JSON files")
+    parser.add_argument("-a", "--action_names", type=str, nargs="+", default=None, help="List of action names to generate. If not provided, uses all ready actions.")
+    parser.add_argument("-n", "--num_samples", type=int, default=1000, help="Number of samples per action")
+    parser.add_argument("--max_attempts", type=int, default=10, help="Max attempts to generate a valid sample")
+    parser.add_argument("--seed", type=int, default=75, help="Random seed")
+    parser.add_argument("--no_random", action="store_true", help="Disable random shuffling of structures")
+    parser.add_argument("--allow_repeat", action="store_true", help="Allow repeating structures across samples")
+    return parser

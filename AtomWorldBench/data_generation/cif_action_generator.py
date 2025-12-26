@@ -8,6 +8,21 @@ from AtomWorldBench.data_generation.base_data_generator import BaseDataGenerator
 from AtomWorldBench.atom_world.actions.structure_actions import BaseStructureAction
 from AtomWorldBench.atom_world.actions.motif_actions import BaseMotifAction
 from AtomWorldBench.common.registry import get_registered
+from AtomWorldBench.utils.args import get_generation_parser
+
+ready_actions = [
+    "ChangeElementAction",
+    "LatticeTransformAction",
+    "MakeSupercellAction",
+    # "RotateStructureAction",
+    "AddMotifAction",
+    "RemoveMotifAction",
+    "ReplaceMotifAction",
+    "ResizeMotifAction",
+    "RotateMotifAction",
+    "SwapMotifAction",
+    "TranslateMotifAction"
+]
 
 class CIFActionGenerator(BaseDataGenerator):
     """
@@ -192,34 +207,58 @@ class CIFActionGenerator(BaseDataGenerator):
             else:
                 print(f"No samples generated for {action_name}")
 
+def generate_all(
+    cif_folder: str,
+    output_dir: str,
+    action_names: List[str] = ready_actions,
+    num_samples_per_action: int = 1000,
+    max_attempts: int = 10,
+    is_random: bool = True,
+    allow_repeat_structures: bool = False,
+    seed: Optional[int] = 75
+):
+    """
+    Generate CIF-action pairs for all specified actions and save to output directory.
 
-# Example usage
-if __name__ == "__main__":
-    cif_folder = "D:\\Codes\\AtomWorld\\src\\data\\_raw_data\\input_cifs"
-    output_dir = "D:\\Codes\\AtomWorld\\debug\\output_cifs"
-    action_names = [
-        # "ChangeElementAction",
-        # "LatticeTransformAction",
-        "MakeSupercellAction",
-        # "RotateStructureAction",
-        # "AddMotifAction",
-        # "RemoveMotifAction",
-        # "ReplaceMotifAction",
-        # "ResizeMotifAction",
-        # "RotateMotifAction",
-        # "SwapMotifAction",
-        # "TranslateMotifAction"
-    ]
-    
+    Args:
+        cif_folder (str): Path to the folder containing CIF files.
+        output_dir (str): Directory to save the generated JSON files.
+        action_names (List[str]): List of action names to generate samples for.
+        num_samples_per_action (int): Number of samples to generate per action.
+        max_attempts (int): Max attempts to generate a valid sample per iteration.
+        is_random (bool): Whether to randomize the order of CIF files.
+        allow_repeat_structures (bool): If False, each structure (CIF file) will be used at most once
+                                        across all generation calls until reset.
+        seed (int, optional): Random seed.
+    """
     generator = CIFActionGenerator(
         cif_folder=cif_folder,
         action_names=action_names,
-        max_attempts=5,
-        is_random=True,
-        allow_repeat_structures=False
+        seed=seed,
+        max_attempts=max_attempts,
+        is_random=is_random,
+        allow_repeat_structures=allow_repeat_structures
     )
     
     generator.generate_and_save_per_action(
         output_dir=output_dir,
-        num_samples_per_action=1000
+        num_samples_per_action=num_samples_per_action
+    )
+
+# Example usage
+if __name__ == "__main__":
+    parser = get_generation_parser()
+    args = parser.parse_args()
+
+    actions_to_run = args.action_names if args.action_names else ready_actions
+
+    generate_all(
+        cif_folder=args.cif_folder,
+        output_dir=args.output_dir,
+        action_names=actions_to_run,
+        num_samples_per_action=args.num_samples,
+        max_attempts=args.max_attempts,
+        is_random=not args.no_random,
+        allow_repeat_structures=args.allow_repeat,
+        seed=args.seed
     )
