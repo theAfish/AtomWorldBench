@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 import json
 import os
+import logging
 from typing import List, Dict, Any
 from utils.logger import get_logger
 
@@ -14,6 +15,15 @@ class BaseOfflineEvaluator(ABC):
             name=self.__class__.__name__,
             log_dir=os.path.join(self.results_folder, "logs")
         )
+
+        # Redirect warnings to logger
+        logging.captureWarnings(True)
+        warnings_logger = logging.getLogger("py.warnings")
+        warnings_logger.handlers = [] # Clear previous handlers
+        for handler in self.logger.handlers:
+            if isinstance(handler, logging.FileHandler):
+                warnings_logger.addHandler(handler)
+        warnings_logger.propagate = False
 
     def evaluate(self, inference_results_path: str):
         """

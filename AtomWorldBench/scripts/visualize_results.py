@@ -8,10 +8,10 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from utils.visualization import plot_metrics_distribution
 from utils.args import get_visualization_parser
 
-def main():
+def main(args=None):
     parser = get_visualization_parser()
     
-    args = parser.parse_args()
+    args = parser.parse_args(args)
     
     if not os.path.exists(args.input_file):
         print(f"Error: Input file not found: {args.input_file}")

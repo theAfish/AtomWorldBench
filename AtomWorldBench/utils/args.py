@@ -9,6 +9,7 @@ def get_benchmark_parser():
     parser.add_argument("-o", "--output_folder", type=str, default="results", help="Output folder")
     parser.add_argument("-b", "--batch_size", type=int, default=50, help="Batch size")
     parser.add_argument("-n", "--num_batch", type=int, default=-1, help="Number of batches")
+    parser.add_argument("-s", "--start_index", type=int, default=0, help="Start index for inference")
     parser.add_argument("-r", "--repeat", type=int, default=1, help="Repeat count")
     parser.add_argument("--skip_inference", action="store_true", help="Skip inference and only run evaluation")
     parser.add_argument("--inference_file", type=str, default=None, help="Path to inference results file (if skipping inference)")

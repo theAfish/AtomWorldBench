@@ -10,6 +10,10 @@ Testing LLMs' ability on operating 3D atomic structures.
 > *"Forget the messy details, I just need a model that can play Lego with atoms."* ⚛️🤖
 
 
+Please refer to v1 branch for the codebase corresponding to the paper: https://arxiv.org/abs/2510.04704.
+
+This branch contains the latest updates and new features with improved benchmark formulations.
+
 ---
 
 ## Table of Contents
@@ -41,34 +45,24 @@ pip install -e .
 
 ## Usage of the Bench
 
-If you want to run the benchmark for your own model, implement your model in `src/models/` and corresponding parameters in `config/models.yaml`. Currently, we have implemented openai_model, azure_openai_model, huggingface_model, and vllm_model.
+If you want to run the benchmark for your own model, implement your model in `AtomWorldBench/models/` and corresponding parameters in `config/models.yaml`. Currently, we have implemented openai_model, azure_openai_model, huggingface_model, and vllm_model.
 
 ### Run the Benchmark
 
 ```bash
-python ./src/run_benchmark.py -t [benchmark_type] -m [model_name] -a [action_name] -b [batch_size] -n [num_batch]
+atomworld benchmark -m [model_name] -a [action_name] -b [batch_size] -n [num_batch]
 ```
 
 **Arguments:**
 
 | Argument         | Description                                                                 |
 |------------------|-----------------------------------------------------------------------------|
-| `benchmark_type` | Benchmark to run. See [Available Benchmarks](#available-benchmarks).        |
 | `model_name`     | Model to test (e.g., `deepseek_chat`).                                  |
 | `action_name`    | Action to test (see [Available Actions](#available-actions)). Only for AtomWorld and PointWorld. |
 | `batch_size`     | Number of parallel LLM calls (default: 50).                                 |
 | `num_batch`      | Number of batches to test (default: all data).                              |
-
----
-
-#### Available Benchmarks
-
-- `atomworld`: AtomWorld
-- `pointworld`: PointWorld
-- `cifgen`: CIFGen
-- `cifrepair`: CIFRepair
-
-> For the StructProp task, see below.
+| `output_folder`  | Folder to save results (default: `./results/`).                            |
+| `keep_inference` | Whether to keep inference files (default: False).                           |
 
 ---
 
@@ -76,57 +70,22 @@ python ./src/run_benchmark.py -t [benchmark_type] -m [model_name] -a [action_nam
 
 **AtomWorld:**
 
-- add_atom_action
-- change_atom_action
-- delete_around_atom_action
-- delete_below_atom_action
-- insert_between_atoms_action
-- move_around_atom_action
-- move_atom_action
-- move_selected_atoms_action
-- move_towards_atom_action
-- remove_atom_action
-- rotate_around_atom_action
-- swap_atoms_action
-
-**PointWorld:**
-
-- move
-- move_towards
-- insert_between
-- rotate_around
-
----
-
-### StructProp Task
-
-To get CIFs from LLM for StructProp:
-
-```bash
-python ./src/struct_prop_bench/inferring.py -m [model_name] -p [property] -b [batch_size] -n [num_batch]
-```
-
-Then run your own calculation pipelines. The results should be saved with the format similar to `./results/StructPropBench/dft_statistics.csv` in order to use the `./src/scripts/analyze_structprop_results.py` for final metrics. Or you can modify the analysis script for your own results.
+- AddMotifAction
+- ChangeElementAction
+- LatticeTransformAction
+- MakeSupercellAction
+- RemoveMotifAction
+- ReplaceMotifAction
+- ResizeMotifAction
+- RotateMotifAction
+- SwapMotifAction
+- TranslateMotifAction
 
 ---
 
 ### Analyze the Results
 
-In the new codes, the results are saved in `./results/[BenchmarkType]/[ModelName]/[ActionName]/[Timestamp]/`. The `evaluation_results.csv` contains the correct results, and `evaluation_wrongs.csv` contains the incorrect ones. `metrics.json` contains the summary of the metrics.
-
-
-
-Plotting after evaluation
-------------------------
-
-You can now request an automatic max_dist histogram to be generated after a benchmark run by adding the `--plot` flag to `run_benchmark.py`. The runner supports plotting for `atomworld`, `pointworld`, and `cifgen` benchmarks. The plot is saved to the same results folder as `evaluation_results.csv` and will not open an interactive window by default.
-
-Examples:
-
-```powershell
-python .\src\run_benchmark.py -t atomworld -m deepseek_chat -a move_atom_action -b 10 -n 1 --plot
-python .\src\run_benchmark.py -t cifgen -m deepseek_chat -b 10 -n 1 --plot
-```
+In the new codes, the results are saved in `./results/[BenchmarkType]/[ModelName]/[ActionName]/[Timestamp]/`. The `evaluation_results.json` contains the results.
 
 
 ---
@@ -137,18 +96,13 @@ python .\src\run_benchmark.py -t cifgen -m deepseek_chat -b 10 -n 1 --plot
 
 1. (Optional) Download random structures:
 	```bash
-	python src/scripts/download_random_mp_data.py --api_key [YOUR_API_KEY] --out_path [path] --min_natoms [min_atoms] --max_natoms [max_atoms] --num_entries [total_entries]
+	python AtomWorldBench/scripts/download_random_mp_data.py --api_key [YOUR_API_KEY] --out_path [path] --min_natoms [min_atoms] --max_natoms [max_atoms] --num_entries [total_entries]
 	```
     The input CIFs we used are available in `./src/data/input_cifs.zip`.
 2. Generate data:
 	```bash
-	python src/atom_world/data_generator.py
+	atomworld data_generator -a [action_name] --input_cif_folder [path_to_input_cifs] --output_json_path [output_json_path] --num_samples [num_samples] (--no_random) (--allow_repeat)
 	```
-3. Convert to h5:
-	```bash
-	python src/scripts/convert_cifs_to_h5.py
-	```
-4. Put the generated [action_name].csv and [action_name].h5 files in `./src/data/`. Then you can run the benchmark with your own data.
 ---
 
 
@@ -164,7 +118,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ```
 @misc{lv2025atomworldbenchmarkevaluatingspatial,
       title={AtomWorld: A Benchmark for Evaluating Spatial Reasoning in Large Language Models on Crystalline Materials}, 
-      author={Taoyuze Lv and Alexander Chen and Fengyu Xie and Chu Wu and Jeffrey Meng and Dongzhan Zhou and Bram Hoex and Zhicheng Zhong and Tong Xie},
+      author={Taoyuze Lv, Alexander Chen, Fengyu Xie, Chu Wu, Jeffrey Meng, Dongzhan Zhou, Bram Hoex, Yingheng Wang, Zhicheng Zhong, Tong Xie},
       year={2025},
       eprint={2510.04704},
       archivePrefix={arXiv},

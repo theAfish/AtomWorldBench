@@ -24,7 +24,8 @@ def load_model_from_config(config_path, model_key):
         config = yaml.safe_load(f)
     
     if model_key not in config:
-        raise ValueError(f"Model {model_key} not found in config")
+        available_models = list(config.keys())
+        raise ValueError(f"Model {model_key} not found in config. Available models: {available_models}")
     
     model_config = config[model_key]
     model_class_name = model_config.pop('class')
@@ -54,15 +55,15 @@ def load_model_from_config(config_path, model_key):
 
     return model_class(**model_config)
 
-def main():
+def main(args=None):
     parser = get_benchmark_parser()
     
-    args = parser.parse_args()
+    args = parser.parse_args(args)
 
     # Setup folders
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     action_subfolder = args.action_name if args.action_name else "All_Actions"
-    base_output_path = os.path.join(args.output_folder, "AtomWorld", action_subfolder, timestamp)
+    base_output_path = os.path.join(args.output_folder, "AtomWorld", action_subfolder, args.model, timestamp)
     
     inference_folder = os.path.join(base_output_path, "inference")
     evaluation_folder = os.path.join(base_output_path, "evaluation")
@@ -88,6 +89,7 @@ def main():
         inference_file = inferencer.infer(
             batch_size=args.batch_size,
             num_batch=args.num_batch,
+            restart_from_index=args.start_index,
             repeat=args.repeat
         )
     

@@ -245,10 +245,9 @@ def generate_all(
         num_samples_per_action=num_samples_per_action
     )
 
-# Example usage
-if __name__ == "__main__":
+def main(args=None):
     parser = get_generation_parser()
-    args = parser.parse_args()
+    args = parser.parse_args(args)
 
     actions_to_run = args.action_names if args.action_names else ready_actions
 
@@ -262,3 +261,7 @@ if __name__ == "__main__":
         allow_repeat_structures=args.allow_repeat,
         seed=args.seed
     )
+
+# Example usage
+if __name__ == "__main__":
+    main()

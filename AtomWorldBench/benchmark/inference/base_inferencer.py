@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 from models.base_model import BaseModel
 import os
 import json
+import logging
 from tqdm import tqdm
 from typing import Any, List, Dict, Optional
 from utils.logger import get_logger
@@ -34,6 +35,15 @@ class BaseInferencer(ABC):
             name=self.__class__.__name__,
             log_dir=os.path.join(self.output_folder, "logs")
         )
+
+        # Redirect warnings to logger
+        logging.captureWarnings(True)
+        warnings_logger = logging.getLogger("py.warnings")
+        warnings_logger.handlers = [] # Clear previous handlers
+        for handler in self.logger.handlers:
+            if isinstance(handler, logging.FileHandler):
+                warnings_logger.addHandler(handler)
+        warnings_logger.propagate = False
 
     @abstractmethod
     def _create_prompt(self, row: Any) -> str:
@@ -77,7 +87,8 @@ class BaseInferencer(ABC):
             else available_frames
         )
         
-        self.logger.info(f"Starting inference with {target_frames} samples in batches of {batch_size}")
+        self.logger.info(f"Starting inference with {target_frames} samples in batches of {batch_size}.")
+        self.logger.info(f"Inferring from index: {restart_from_index}, Repeat each frame {repeat} times.")
 
         def process_batch():
             nonlocal prompts, batch_metadata, batch_count

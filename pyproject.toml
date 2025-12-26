@@ -27,3 +27,6 @@ dependencies = [
     "pytest",
     "pyyaml",
 ]
+
+[project.scripts]
+atomworld = "AtomWorldBench.cli:main"
