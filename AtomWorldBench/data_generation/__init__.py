@@ -11,8 +11,9 @@ package includes:
   extend this class to generate specific types of data such as CIF-action pairs
   for training and evaluation.
 
-All data generators follow a common pattern: initialize with configuration,
-then call generate() to yield data samples as dictionaries.
+All data generators follow a common pattern: initialize with parameters (including
+an optional seed for reproducibility), then call generate() to yield data samples
+as dictionaries.
 """
 
 from .base_data_generator import BaseDataGenerator
