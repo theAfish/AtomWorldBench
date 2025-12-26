@@ -1,0 +1,116 @@
+"""Comprehensive pytest suite for and SiteMotif."""
+import pytest
+from ase import Atoms
+import numpy as np
+import numpy.testing as npt
+
+from AtomWorldBench.atom_world.motifs.site_collections.site import SiteMotif
+
+
+def test_resigstry():
+    """Test that SiteMotif is registered in the motif registry."""
+    from AtomWorldBench.atom_world.motifs.site_collections.site import SiteMotif
+    from AtomWorldBench.atom_world.motifs.site_collections.base import BaseSiteCollectionMotif
+    from AtomWorldBench.common.registry import _REGISTRY
+    motif_registry = _REGISTRY[BaseSiteCollectionMotif]
+    assert 'site' in motif_registry
+    assert motif_registry['site'] is SiteMotif
+    assert "single-site" in motif_registry
+    assert motif_registry["single-site"] is SiteMotif
+    assert "site-motif" in motif_registry
+    assert motif_registry["site-motif"] is SiteMotif
+    assert "site_motif" in motif_registry
+    assert motif_registry["site_motif"] is SiteMotif
+    assert "sitemotif" in motif_registry
+    assert motif_registry["sitemotif"] is SiteMotif
+    assert "SiteMotif" in motif_registry
+    assert motif_registry["SiteMotif"] is SiteMotif
+
+
+@pytest.fixture
+def simple_atoms():
+    """2-atom cubic cell for basic tests."""
+    cell = np.eye(3) * 3.0
+    atoms = Atoms(
+        "NaCl",
+        positions=[(0.0, 0.0, 0.0), (1.5, 0.0, 0.0)],
+        cell=cell,
+        pbc=True
+    )
+    atoms.set_initial_charges([+1, -1])
+    return atoms
+
+
+def test_post_init(simple_atoms):
+    """Test that SiteMotif raises ValueError if not exactly one site."""
+
+    # Valid case
+    motif = SiteMotif(simple_atoms, indices=[0])
+    assert len(motif) == 1
+
+    # Invalid case: more than one site
+    with pytest.raises(ValueError, match="SiteMotif must contain exactly one site"):
+        SiteMotif(simple_atoms, indices=[0, 1])
+
+    with pytest.raises(ValueError, match="SiteMotif must contain exactly one site"):
+        SiteMotif(atoms=simple_atoms[[0, 1]])
+
+    # Invalid case: zero sites
+    with pytest.raises(ValueError, match="SiteMotif must contain exactly one site"):
+        SiteMotif(simple_atoms, indices=[])
+
+
+def test_default_name(simple_atoms):
+    """Test default name generation based on species and coordinates."""
+    motif = SiteMotif(simple_atoms, indices=[0])
+    expected_name = "a species Na+"
+    assert motif.name == expected_name
+
+    motif2 = SiteMotif(simple_atoms, indices=[1])
+    expected_name2 = "a species Cl-"
+    assert motif2.name == expected_name2
+
+    simple_atoms_no_charge = simple_atoms.copy()
+    simple_atoms_no_charge.set_initial_charges([0, 0])
+    motif3 = SiteMotif(simple_atoms_no_charge, indices=[0])
+    expected_name3 = "an atom Na"
+    assert motif3.name == expected_name3
+
+    # Test name in additive mode.
+    motif_additive = SiteMotif(
+        atoms=Atoms(symbols=["K"], positions=[(0, 0, 0)]),
+    )
+    assert motif_additive.name == "an atom K"
+
+def test_detect_random_one(simple_atoms):
+    """Test random site motif detection."""
+    # Non-additive mode
+    motif = SiteMotif.detect_random_one(simple_atoms, seed=42)
+    assert isinstance(motif, SiteMotif)
+    assert len(motif) == 1
+    assert motif.indices[0] in [0, 1]  # Should be one of the two atoms
+    npt.assert_array_equal(motif.cell_offsets, np.array([[0, 0, 0]]))
+    # No offsets in site autodetect case.
+
+    # Additive mode.
+    motif_additive = SiteMotif.detect_random_one(
+        simple_atoms,
+        seed=42,
+        additive_mode=True,
+        additive_mode_allowed_symbols=["Na"]
+    )
+    assert isinstance(motif_additive, SiteMotif)
+    assert len(motif_additive) == 1
+    assert motif_additive.get_atoms()[0].symbol == "Na"
+    assert motif_additive.is_additive == True
+    npt.assert_allclose(motif_additive.cart_coords, 0)
+    npt.assert_allclose(motif_additive.get_centroid(fractional=False), 0)
+
+    # Test a case where excluded_site_indices is used.
+    for _ in range(5):
+        motif_excluded = SiteMotif.detect_random_one(
+            simple_atoms,
+            seed=42,
+            excluded_site_indices=[0]
+        )
+        assert motif_excluded.indices[0] == 1  # Only index 1 should be selectable.

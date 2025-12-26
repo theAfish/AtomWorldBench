@@ -1,0 +1,2 @@
+2025-12-25 18:32:47,408 - AtomWorldInferencer - INFO - Starting inference with 50 samples in batches of 50
+2025-12-25 18:34:28,434 - AtomWorldInferencer - INFO - Inference completed. Results saved to results\AtomWorld\TranslateMotifAction\2025-12-25_18-32-47\inference\inference_results.json

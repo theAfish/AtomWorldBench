@@ -1,0 +1,48 @@
+2025-12-26 09:59:21,510 - AtomWorldEvaluator - INFO - Loading results from results\AtomWorld\RotateMotifAction\deepseek_reasoner\2025-12-26_09-25-35\inference\inference_results.json
+2025-12-26 09:59:21,537 - AtomWorldEvaluator - INFO - Evaluating 50 items...
+2025-12-26 09:59:21,692 - py.warnings - WARNING - D:\Codes\AtomWorld\AtomWorldBench\utils\dataloader.py:32: UserWarning: Issues encountered while parsing CIF: 8 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  structures = parser.parse_structures(primitive=primitive)
+
+2025-12-26 09:59:22,224 - py.warnings - WARNING - d:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Incorrect stoichiometry:
+  CIF={'Ce': 1.0, 'Mg': 14.0, 'Ga': 1.0}
+  PMG={'Ce': 1.0, 'Mg': 15.0, 'Ga': 1.0}
+  ratios={'Mg': 1.0714285714285714, 'Ga': 1.0, 'Ce': 1.0}
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-12-26 09:59:22,383 - py.warnings - WARNING - D:\Codes\AtomWorld\AtomWorldBench\utils\dataloader.py:32: UserWarning: Issues encountered while parsing CIF: 4 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  structures = parser.parse_structures(primitive=primitive)
+
+2025-12-26 09:59:22,933 - py.warnings - WARNING - d:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\io\cif.py:1313: UserWarning: Some occupancies ([2.0]) sum to > 1! If they are within the occupancy_tolerance, they will be rescaled. The current occupancy_tolerance is set to: 1.0
+  if struct := self._get_structure(data, primitive, symmetrized, check_occu=check_occu):
+
+2025-12-26 09:59:22,935 - py.warnings - WARNING - D:\Codes\AtomWorld\AtomWorldBench\utils\dataloader.py:32: UserWarning: No structure parsed for section 1 in CIF.
+Occupancy 2.0 exceeded tolerance.
+  structures = parser.parse_structures(primitive=primitive)
+
+2025-12-26 09:59:22,935 - py.warnings - WARNING - D:\Codes\AtomWorld\AtomWorldBench\utils\dataloader.py:32: UserWarning: Issues encountered while parsing CIF: Some occupancies ([2.0]) sum to > 1! If they are within the occupancy_tolerance, they will be rescaled. The current occupancy_tolerance is set to: 1.0
+No structure parsed for section 1 in CIF.
+Occupancy 2.0 exceeded tolerance.
+  structures = parser.parse_structures(primitive=primitive)
+
+2025-12-26 09:59:23,102 - AtomWorldEvaluator - INFO - Evaluation completed.
+2025-12-26 09:59:23,103 - AtomWorldEvaluator - INFO - Summary: {
+  "total_samples": 50,
+  "success_count": 20,
+  "error_count": 30,
+  "success_rate": 0.4,
+  "error_types": {
+    "StructureMismatch": 29,
+    "CIFParsingError": 1
+  }
+}
+2025-12-26 09:59:23,103 - AtomWorldEvaluator - INFO - Statistics: {
+  "rmsd_mean": 0.01647411498625064,
+  "rmsd_median": 0.0006835254122640181,
+  "rmsd_max": 0.12412733175497563,
+  "rmsd_min": 3.259751593807238e-16,
+  "max_dist_mean": 0.07504293440778723,
+  "max_dist_median": 0.0027231463527659975,
+  "max_dist_max": 0.48074308869618365,
+  "max_dist_min": 5.462114121637979e-16
+}
+2025-12-26 09:59:23,106 - AtomWorldEvaluator - INFO - Detailed results saved to results\AtomWorld\RotateMotifAction\deepseek_reasoner\2025-12-26_09-25-35\evaluation\evaluation_results.json

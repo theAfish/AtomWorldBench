@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "atom_world"
-version = "0.1.0"
+version = "0.2.0"
 description = "AtomWorld package"
 authors = [{name = "Taoyuze Lv, Alex, Fengyu Xie"}]
 dependencies = [
@@ -27,3 +27,6 @@ dependencies = [
     "pytest",
     "pyyaml",
 ]
+
+[project.scripts]
+atomworld = "AtomWorldBench.cli:main"

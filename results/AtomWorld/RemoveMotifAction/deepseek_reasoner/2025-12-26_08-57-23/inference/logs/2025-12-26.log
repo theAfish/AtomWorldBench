@@ -1,0 +1,2 @@
+2025-12-26 08:57:23,304 - AtomWorldInferencer - INFO - Starting inference with 50 samples in batches of 50
+2025-12-26 09:06:12,580 - AtomWorldInferencer - INFO - Inference completed. Results saved to results\AtomWorld\RemoveMotifAction\deepseek_reasoner\2025-12-26_08-57-23\inference\inference_results.json

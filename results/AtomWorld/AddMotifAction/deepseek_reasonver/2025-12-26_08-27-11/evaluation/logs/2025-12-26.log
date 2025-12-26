@@ -1,0 +1,23 @@
+2025-12-26 08:43:44,147 - AtomWorldEvaluator - INFO - Loading results from results\AtomWorld\AddMotifAction\2025-12-26_08-27-11\inference\inference_results.json
+2025-12-26 08:43:44,164 - AtomWorldEvaluator - INFO - Evaluating 50 items...
+2025-12-26 08:43:45,361 - AtomWorldEvaluator - INFO - Evaluation completed.
+2025-12-26 08:43:45,362 - AtomWorldEvaluator - INFO - Summary: {
+  "total_samples": 50,
+  "success_count": 38,
+  "error_count": 12,
+  "success_rate": 0.76,
+  "error_types": {
+    "StructureMismatch": 12
+  }
+}
+2025-12-26 08:43:45,362 - AtomWorldEvaluator - INFO - Statistics: {
+  "rmsd_mean": 0.01382331732779437,
+  "rmsd_median": 0.00015492573261423047,
+  "rmsd_max": 0.1800032055004817,
+  "rmsd_min": 3.4521007254115446e-16,
+  "max_dist_mean": 0.04827373511416823,
+  "max_dist_median": 0.00042278964683317564,
+  "max_dist_max": 0.38475973065367125,
+  "max_dist_min": 4.686212125058454e-16
+}
+2025-12-26 08:43:45,367 - AtomWorldEvaluator - INFO - Detailed results saved to results\AtomWorld\AddMotifAction\2025-12-26_08-27-11\evaluation\evaluation_results.json
