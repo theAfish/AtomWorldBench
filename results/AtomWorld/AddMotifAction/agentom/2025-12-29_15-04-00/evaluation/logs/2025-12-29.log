@@ -1,0 +1,41 @@
+2025-12-29 15:12:44,783 - AtomWorldEvaluator - INFO - Loading results from results\AtomWorld\AddMotifAction\agentom\2025-12-29_15-04-00\inference\inference_results.json
+2025-12-29 15:12:44,793 - AtomWorldEvaluator - INFO - Evaluating 4 items...
+2025-12-29 15:12:44,857 - py.warnings - WARNING - d:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\periodic_table.py:252: UserWarning: No Pauling electronegativity for Sg. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  if not hasattr(other, "X") or not hasattr(other, "symbol"):
+
+2025-12-29 15:12:44,857 - py.warnings - WARNING - d:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\periodic_table.py:255: UserWarning: No Pauling electronegativity for Sg. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  x2 = float("inf") if other.X != other.X else other.X
+
+2025-12-29 15:12:44,869 - py.warnings - WARNING - d:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\composition.py:328: UserWarning: No Pauling electronegativity for Sg. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  return sum((el.X * abs(amt) for el, amt in self.items())) / self.num_atoms
+
+2025-12-29 15:12:44,892 - py.warnings - WARNING - d:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\periodic_table.py:252: UserWarning: No Pauling electronegativity for Og. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  if not hasattr(other, "X") or not hasattr(other, "symbol"):
+
+2025-12-29 15:12:44,892 - py.warnings - WARNING - d:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\periodic_table.py:255: UserWarning: No Pauling electronegativity for Og. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  x2 = float("inf") if other.X != other.X else other.X
+
+2025-12-29 15:12:44,893 - py.warnings - WARNING - d:\Codes\AtomWorld\.venv\Lib\site-packages\pymatgen\core\composition.py:328: UserWarning: No Pauling electronegativity for Og. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  return sum((el.X * abs(amt) for el, amt in self.items())) / self.num_atoms
+
+2025-12-29 15:12:44,943 - AtomWorldEvaluator - INFO - Evaluation completed.
+2025-12-29 15:12:44,944 - AtomWorldEvaluator - INFO - Summary: {
+  "total_samples": 4,
+  "success_count": 3,
+  "error_count": 1,
+  "success_rate": 0.75,
+  "error_types": {
+    "StructureMismatch": 1
+  }
+}
+2025-12-29 15:12:44,944 - AtomWorldEvaluator - INFO - Statistics: {
+  "rmsd_mean": 4.198082883243332e-05,
+  "rmsd_median": 4.23312943495776e-16,
+  "rmsd_max": 0.00012594248649656345,
+  "rmsd_min": 3.1320462671361044e-16,
+  "max_dist_mean": 0.00013031019409544001,
+  "max_dist_median": 1.4390360164945906e-15,
+  "max_dist_max": 0.00039093058228423954,
+  "max_dist_min": 6.414326385899008e-16
+}
+2025-12-29 15:12:44,945 - AtomWorldEvaluator - INFO - Detailed results saved to results\AtomWorld\AddMotifAction\agentom\2025-12-29_15-04-00\evaluation\evaluation_results.json

@@ -1,0 +1,3 @@
+2025-12-29 15:17:47,096 - AtomWorldInferencer - INFO - Starting inference with 4 samples in batches of 2.
+2025-12-29 15:17:47,096 - AtomWorldInferencer - INFO - Inferring from index: 0, Repeat each frame 1 times.
+2025-12-29 15:25:08,012 - AtomWorldInferencer - INFO - Inference completed. Results saved to results\AtomWorld\RotateMotifAction\agentom\2025-12-29_15-17-47\inference\inference_results.json
