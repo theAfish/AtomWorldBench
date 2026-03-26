@@ -1,0 +1,17 @@
+2026-03-25 15:30:43,294 - AtomWorldEvaluator - INFO - Starting evaluation with 250 samples in batches of 50
+2026-03-25 15:30:43,294 - AtomWorldEvaluator - INFO - Repeating each frame 1 time(s)
+2026-03-25 15:30:43,298 - AtomWorldEvaluator - DEBUG - Processing batch 1 of 5
+2026-03-25 15:40:05,635 - AtomWorldEvaluator - DEBUG - Processing batch 2 of 5
+2026-03-25 15:47:43,928 - AtomWorldEvaluator - DEBUG - Processing batch 3 of 5
+2026-03-25 15:54:43,353 - AtomWorldEvaluator - DEBUG - Processing batch 4 of 5
+2026-03-25 16:54:33,961 - AtomWorldEvaluator - DEBUG - Processing batch 5 of 5
+2026-03-25 17:06:24,004 - AtomWorldEvaluator - INFO - Evaluation completed
+2026-03-25 17:06:24,005 - AtomWorldEvaluator - INFO - summary: {'total_samples': 250, 'success_count': 1, 'error_count': 249, 'success_rate': 0.004, 'error_types': {'AtomCountMismatch': {'count': 206, 'percentage': 0.8273092369477911}, 'StructureMismatch': {'count': 30, 'percentage': 0.12048192771084337}, 'CIFParsingError': {'count': 12, 'percentage': 0.04819277108433735}, 'OutputFormatError': {'count': 1, 'percentage': 0.004016064257028112}}} - statistics: {'rmsd_mean': np.float64(0.02678206671995709), 'rmsd_median': np.float64(0.02678206671995709), 'rmsd_max': np.float64(0.02678206671995709), 'rmsd_min': np.float64(0.02678206671995709), 'max_diff_mean': np.float64(0.09027746664935775), 'max_diff_median': np.float64(0.09027746664935775), 'max_diff_max': np.float64(0.09027746664935775), 'max_diff_min': np.float64(0.09027746664935775)}
+2026-03-25 17:06:24,023 - AtomWorldEvaluator - INFO - Saved metrics to /scratch/pawsey1302/alexchen5/AtomWorldBench/results/AtomWorld/qwen3_4B/super_cell_action/20260325_153042/metrics.json
+2026-03-25 17:06:24,106 - AtomWorldEvaluator - INFO - Evaluation results saved to /scratch/pawsey1302/alexchen5/AtomWorldBench/results/AtomWorld/qwen3_4B/super_cell_action/20260325_153042/evaluation_results.csv
+2026-03-25 17:06:24,181 - AtomWorldEvaluator - INFO - Failed cases saved to /scratch/pawsey1302/alexchen5/AtomWorldBench/results/AtomWorld/qwen3_4B/super_cell_action/20260325_153042/evaluation_wrongs.csv
+2026-03-25 17:06:24,181 - AtomWorldEvaluator - INFO - 
+======== Evaluation Summary ========
+2026-03-25 17:06:24,181 - AtomWorldEvaluator - INFO - Total inputs: 1000
+2026-03-25 17:06:24,181 - AtomWorldEvaluator - INFO - num_unreadable_out: 1
+2026-03-25 17:06:24,181 - AtomWorldEvaluator - INFO - num_invalid_cif: 248

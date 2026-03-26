@@ -13,3 +13,4 @@ local.models.yaml
 
 run.log
 .coverage
+output/
