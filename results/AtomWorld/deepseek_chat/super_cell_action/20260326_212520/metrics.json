@@ -1,0 +1,32 @@
+{
+  "summary": {
+    "total_samples": 250,
+    "success_count": 176,
+    "error_count": 74,
+    "success_rate": 0.704,
+    "error_types": {
+      "OutputFormatError": {
+        "count": 43,
+        "percentage": 0.581081081081081
+      },
+      "AtomCountMismatch": {
+        "count": 16,
+        "percentage": 0.21621621621621623
+      },
+      "StructureMismatch": {
+        "count": 15,
+        "percentage": 0.20270270270270271
+      }
+    }
+  },
+  "statistics": {
+    "rmsd_mean": 0.004553431789948618,
+    "rmsd_median": 2.457559576694203e-15,
+    "rmsd_max": 0.45316384123214193,
+    "rmsd_min": 1.749513696789131e-16,
+    "max_diff_mean": 0.005124175463482795,
+    "max_diff_median": 6.631840590903831e-15,
+    "max_diff_max": 0.45316384123214276,
+    "max_diff_min": 4.250739166572195e-16
+  }
+}

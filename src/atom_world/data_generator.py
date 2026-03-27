@@ -270,33 +270,34 @@ class _DataGenerator:
 
 if __name__ == "__main__":
     # # for data generation
-    all_actions = [DeleteBelowAtomAction] #[SuperCellAction]
-    data_gen = DataGenerator("input_cifs", "output_cifs")
-    data_gen.generate_data(all_actions)
+    # all_actions = [DeleteBelowAtomAction] #[SuperCellAction]
+    # data_gen = DataGenerator("input_cifs", "output_cifs")
+    # data_gen.generate_data(all_actions)
 
-    convert_cifs_to_h5(
-        folder_path="output_cifs/delete_below_atom_action_bad/",
-        hdf5_output_path="delete_below_atom_action_bad.hdf5"
-    )
+    # convert_cifs_to_h5(
+    #     folder_path="output_cifs/delete_below_atom_action_bad/",
+    #     hdf5_output_path="delete_below_atom_action_bad.hdf5"
+    # )
     
 
     # for analysis data generation
 
-    # data_gen = DataGenerator("D:/Codes/AtomWorld/src/data/_raw_data/input_cifs", 
-    #                          "D:/Codes/AtomWorld/src/data/_raw_data/output4analysis")
-    # data_gen.generate_analysis_data(
-    #     InsertBetweenAtomsAction,
-    #     action_kwargs={'index1': -2, 'index2': -1, 'distance_ratio': 0.45, 'symbol': 'H'},
-    #     analysis_name="late_pos"
-    # )
+    data_gen = DataGenerator("D:/Codes/AtomWorld/src/data/_raw_data/input_cifs", 
+                             "D:/Codes/AtomWorld/src/data/_raw_data/output4analysis")
+    data_gen.generate_analysis_data(
+        MoveAtomAction,
+        # action_kwargs={'index1': -2, 'index2': -1, 'distance_ratio': 0.45, 'symbol': 'H'},
+        action_kwargs={'index': 0, 'd_pos': np.array([0.1, 0.1, 0.1])},
+        analysis_name="late_pos"
+    )
 
     # Convert CIFs to HDF5
-    # convert_cifs_to_h5(
-    #     folder_path="D:/AI/PythonProjects/AtomWorldBench/src/data/_raw_data/input4analysis/pos",
-    #     hdf5_output_path="analysis_input_pos.hdf5"
-    # )
+    convert_cifs_to_h5(
+        folder_path="D:/AI/PythonProjects/AtomWorldBench/src/data/_raw_data/input4analysis/pos",
+        hdf5_output_path="analysis_input_pos.hdf5"
+    )
 
-    # convert_cifs_to_h5(
-    #     folder_path="D:/Codes/AtomWorld/src/data/_raw_data/output4analysis/insert_between_atoms_action_late_pos/",
-    #     hdf5_output_path="insert_between_atoms_action_late_pos.hdf5"
-    # )
+    convert_cifs_to_h5(
+        folder_path="D:/Codes/AtomWorld/src/data/_raw_data/output4analysis/insert_between_atoms_action_late_pos/",
+        hdf5_output_path="insert_between_atoms_action_late_pos.hdf5"
+    )

@@ -1,4 +1,4 @@
-input_cif,action_prompt,generated_output,target_cif
+input_cif,action_prompt,generated_output,target_cif,wrong_type,is_error
 "# generated using pymatgen
 data_Na3Mn2(GeO4)3
 _symmetry_space_group_name_H-M   'P 1'
@@ -457,7 +457,7 @@ loop_
   O   O46       1.0  0.013530999999999974  0.19478599999999993  0.11275399999999997  1.0000
   O   O47       1.0  0.112957  0.013364999999999993  0.194508  1.0000
   O   O48       1.0  0.417773  0.818774  0.80519  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_CrN2
 _symmetry_space_group_name_H-M   'P 1'
@@ -1432,7 +1432,7 @@ loop_
   N   N6        1.0  0.3113792021366412  0.33634271637271634  0.12195628507338574  1.0000
   N   N7        1.0  0.8462995386459234  0.8937329895243264  0.30764451866787185  1.0000
   N   N8        1.0  0.025000331245531335  0.21944704906112844  0.7585212191529328  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Mg6NbCd
 _symmetry_space_group_name_H-M   'P 1'
@@ -2570,7 +2570,7 @@ loop_
   Nb  Nb2       1.0  0.0  0.0  0.833741  1.0000
   Cd  Cd1       1.0  0.4299949922524827  0.6237323333146146  0.17391400000000004  1.0000
   Cd  Cd2       1.0  0.5  0.0  0.673914  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_HfMg6Mo
 _symmetry_space_group_name_H-M   'P 1'
@@ -3770,7 +3770,7 @@ loop_
   Mg  Mg12      1.0  0.5  0.5  0.6692409999999999  1.0000
   Mo  Mo1       1.0  0.0  0.5  0.301743  1.0000
   Mo  Mo2       1.0  0.0  0.0  0.801743  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Na2ZnB6O11
 _symmetry_space_group_name_H-M   'P 1'
@@ -4510,7 +4510,7 @@ loop_
   O   O20       1.0  0.7138370000000002  0.23849000000000004  0.396776  1.0000
   O   O21       1.0  0.6271749999999998  0.20952500000000007  0.611328  1.0000
   O   O22       1.0  0.2095249999999999  0.6271750000000001  0.11132799999999998  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Rb3B(SO4)3
 _symmetry_space_group_name_H-M   'P 1'
@@ -5338,7 +5338,7 @@ loop_
   O   O46       1.0  0.021063329999999995  0.5741036199999998  0.9518741599999998  1.0000
   O   O47       1.0  0.12222945000000002  0.06918915999999996  0.54812584  1.0000
   O   O48       1.0  0.3777705499999999  0.92589638  0.9469597099999999  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_LiMg6Ga
 _symmetry_space_group_name_H-M   'P 1'
@@ -5709,7 +5709,7 @@ loop_
   Mg  Mg12      1.0  0.0  0.0  0.831405  1.0000
   Ga  Ga1       1.0  0.524506983629891  0.5  0.15151390772365342  1.0000
   Ga  Ga2       1.0  0.4999999999999999  0.0  0.665923  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Mg6VSb
 _symmetry_space_group_name_H-M   'P 1'
@@ -6624,7 +6624,7 @@ loop_
   V   V2        1.0  0.9887951012887815  0.5052096571118553  0.831626  1.0000
   Sb  Sb1       1.0  0.5112683575969182  0.9919290906170283  0.17419699999999988  1.0000
   Sb  Sb2       1.0  0.48909632794676744  0.49162786395904234  0.674197  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_LiMg6V
 _symmetry_space_group_name_H-M   'P 1'
@@ -7504,7 +7504,7 @@ loop_
   Mg  Mg12      1.0  0.888627938597994  0.8938417161382078  0.168296  1.0000
   V   V1        1.0  0.8938417161382078  0.2558366416690735  0.33356700000000006  1.0000
   V   V2        1.0  0.0  0.0  0.833567  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Mg6CdFe
 _symmetry_space_group_name_H-M   'P 1'
@@ -8448,7 +8448,7 @@ loop_
   Cd  Cd2       1.0  0.5  0.0  0.6691170000000001  1.0000
   Fe  Fe1       1.0  0.0  0.5  0.34750900000000007  1.0000
   Fe  Fe2       1.0  0.0  0.2312829103206314  0.7844900384622021  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_CeMg14Ga
 _symmetry_space_group_name_H-M   'P 1'
@@ -9509,7 +9509,7 @@ loop_
   Mg  Mg13      1.0  0.5339126042806408  0.067826207451009  0.3959149013834865  1.0000
   Mg  Mg14      1.0  0.09447964006833796  0.18896027739695398  0.6149834492446283  1.0000
   Ga  Ga1       1.0  0.16666700000000004  0.33333300000000005  0.625  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_CeMg14Ga
 _symmetry_space_group_name_H-M   'P 1'
@@ -10498,7 +10498,7 @@ loop_
   Mg  Mg13      1.0  0.4650443974430838  0.6729965800000001  0.05001245281486815  1.0000
   Mg  Mg14      1.0  0.6898770918165363  0.6729965800000001  0.8392125515274386  1.0000
   Ga  Ga1       1.0  0.17715700561188163  0.8471896300000002  0.716288364714134  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_SrLiMg14
 _symmetry_space_group_name_H-M   'P 1'
@@ -11620,7 +11620,7 @@ loop_
   Mg  Mg12      1.0  0.799247512291428  0.2607640952895122  0.88535478  1.0000
   Mg  Mg13      1.0  0.833333  0.666667  0.37931591  1.0000
   Mg  Mg14      1.0  0.833333  0.666667  0.87068409  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_KSrMg14
 _symmetry_space_group_name_H-M   'P 1'
@@ -11744,7 +11744,7 @@ loop_
   Mg  Mg12      1.0  0.005899117032724943  0.16106136  0.5169448375587812  1.0000
   Mg  Mg13      1.0  0.44145338939616685  0.66202899  0.588708648628357  1.0000
   Mg  Mg14      1.0  0.21385670768461584  0.66202899  0.666551918130432  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Mg14NbCu
 _symmetry_space_group_name_H-M   'P 1'
@@ -12633,7 +12633,7 @@ loop_
   Mg  Mg14      1.0  0.3201144610761267  0.6717372990020242  0.9290495640181254  1.0000
   Nb  Nb1       1.0  0.37059619040695857  0.8285989994720673  0.5776926682965817  1.0000
   Cu  Cu1       1.0  0.8726530975622776  0.33618594895179876  0.608450924569792  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Te2MoW3(Se2S)2
 _symmetry_space_group_name_H-M   'P 1'
@@ -13793,7 +13793,7 @@ loop_
   Se  Se4       1.0  0.333333  0.666667  0.6163570000000002  1.0000
   S   S1        1.0  0.6666669999999999  0.333333  0.05568700000000001  1.0000
   S   S2        1.0  0.6666669999999999  0.333333  0.13214  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Te6Mo3WS2
 _symmetry_space_group_name_H-M   'P 1'
@@ -14955,7 +14955,7 @@ loop_
   W   W1        1.0  0.6666669999999998  0.333333  0.281513  1.0000
   S   S1        1.0  0.6666669999999998  0.333333  0.056118  1.0000
   S   S2        1.0  0.6666669999999998  0.333333  0.131954  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Mg14ZrNb
 _symmetry_space_group_name_H-M   'P 1'
@@ -16077,7 +16077,7 @@ loop_
   Mg  Mg14      1.0  0.8460013  0.67300115  0.8824582000000002  1.0000
   Zr  Zr1       1.0  0.15838987999999996  0.32919444  0.125  1.0000
   Nb  Nb1       1.0  0.6063049865136364  0.807153496792024  0.4148242456322297  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_YMg14Ga
 _symmetry_space_group_name_H-M   'P 1'
@@ -16777,7 +16777,7 @@ loop_
   Mg  Mg13      1.0  0.84414022  0.67207061  0.36209262  1.0000
   Mg  Mg14      1.0  0.014906375068360948  0.5700528829059452  0.88790738  1.0000
   Ga  Ga1       1.0  0.8511025676221593  0.8177896357429927  0.12500000000000017  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_LiMg14Zn
 _symmetry_space_group_name_H-M   'P 1'
@@ -17514,7 +17514,7 @@ loop_
   Mg  Mg13      1.0  0.8343657  0.66718335  0.37514166  1.0000
   Mg  Mg14      1.0  0.3050687413687705  0.66718335  0.5694904632236054  1.0000
   Zn  Zn1       1.0  0.9485661851518217  0.3346739  0.900929856606913  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_CaMg14Ga
 _symmetry_space_group_name_H-M   'P 1'
@@ -18276,7 +18276,7 @@ loop_
   Mg  Mg13      1.0  0.8333329999999999  0.666667  0.37107122000000003  1.0000
   Mg  Mg14      1.0  0.8333329999999999  0.666667  0.8789287800000001  1.0000
   Ga  Ga1       1.0  0.166667  0.333333  0.625  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_RbMg14Mn
 _symmetry_space_group_name_H-M   'P 1'
@@ -19531,7 +19531,7 @@ loop_
   Mg  Mg13      1.0  0.833333  0.666667  0.38361308  1.0000
   Mg  Mg14      1.0  0.833333  0.666667  0.8663869200000001  1.0000
   Mn  Mn1       1.0  0.166667  0.333333  0.125  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Mg14AlC
 _symmetry_space_group_name_H-M   'P 1'
@@ -20475,7 +20475,7 @@ loop_
   Mg  Mg14      1.0  0.833333  0.666667  0.87591536  1.0000
   Al  Al1       1.0  0.166667  0.333333  0.125  1.0000
   C   C1        1.0  0.166667  0.333333  0.625  1.0000
-"
+",AtomCountMismatch,True
 "# generated using pymatgen
 data_RbMg14Ni
 _symmetry_space_group_name_H-M   'P 1'
@@ -21383,7 +21383,7 @@ loop_
   Mg  Mg13      1.0  0.6656807190670339  0.66617419  0.5332911657825837  1.0000
   Mg  Mg14      1.0  0.8323473899999998  0.66617419  0.8480833299999999  1.0000
   Ni  Ni1       1.0  0.7045528187890969  0.35989205999999996  0.1472985510870785  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Mg14CoBi
 _symmetry_space_group_name_H-M   'P 1'
@@ -22041,7 +22041,7 @@ loop_
   Mg  Mg14      1.0  0.82957122  0.66478611  0.8676708500000001  1.0000
   Co  Co1       1.0  0.18335813414682045  0.33230198  0.3082153781117094  1.0000
   Bi  Bi1       1.0  0.15960286999999998  0.8298009299999999  0.125  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Te2MoWSeS
 _symmetry_space_group_name_H-M   'P 1'
@@ -23112,7 +23112,7 @@ loop_
   Se  Se2       1.0  0.33333300000000005  0.666667  0.136657  1.0000
   S   S1        1.0  0.6364663899187442  0.2729338598893096  0.5015712245542969  1.0000
   S   S2        1.0  0.702464500782305  0.4049300740349676  0.42465507122099483  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Te2MoW3(SeS2)2
 _symmetry_space_group_name_H-M   'P 1'
@@ -23603,7 +23603,7 @@ loop_
   S   S2        1.0  0.666667  0.333333  0.054894000000000005  1.0000
   S   S3        1.0  0.666667  0.333333  0.132937  1.0000
   S   S4        1.0  0.333333  0.666667  0.242466  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Mg2VN3
 _symmetry_space_group_name_H-M   'P 1'
@@ -24674,7 +24674,7 @@ loop_
   N   N4        1.0  0.2977972599999999  0.96533266  0.39428712  1.0000
   N   N5        1.0  0.4644497340792369  0.63668009  0.3753162300714844  1.0000
   N   N6        1.0  0.9475046796320051  0.36331991  0.38506300267200316  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_LiMg6SbO8
 _symmetry_space_group_name_H-M   'P 1'
@@ -25799,7 +25799,7 @@ loop_
   O   O6        1.0  0.6841318331631134  0.0  0.6629371544250331  1.0000
   O   O7        1.0  0.0  0.5  0.0  1.0000
   O   O8        1.0  0.4999999999999999  0.5  0.0  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_BaMg6CoO8
 _symmetry_space_group_name_H-M   'P 1'
@@ -26672,7 +26672,7 @@ loop_
   O   O6        1.0  0.6104625077546095  0.3941550789319776  0.5  1.0000
   O   O7        1.0  0.5572759943850749  0.4884861209352671  0.0  1.0000
   O   O8        1.0  0.8258589464742658  0.6627380310211686  0.0  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Mg6NbCO8
 _symmetry_space_group_name_H-M   'P 1'
@@ -27333,7 +27333,7 @@ loop_
   O   O6        1.0  0.5  0.0  0.5  1.0000
   O   O7        1.0  0.25807978390669906  0.7470883184206045  0.0  1.0000
   O   O8        1.0  0.5833290751245307  0.9026612026696517  0.0  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_NaMg14BiO16
 _symmetry_space_group_name_H-M   'P 1'
@@ -28214,7 +28214,7 @@ loop_
   O   O14       1.0  0.0  0.73712656  0.0  1.0000
   O   O15       1.0  0.6319623131013589  0.7301436297451931  0.0  1.0000
   O   O16       1.0  0.3680376868986412  0.26985637025480685  0.0  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Mg14CrFeO16
 _symmetry_space_group_name_H-M   'P 1'
@@ -29094,7 +29094,7 @@ loop_
   O   O14       1.0  0.0  0.74120302  0.0  1.0000
   O   O15       1.0  0.5  0.25219249  0.0  1.0000
   O   O16       1.0  0.5  0.74780751  0.0  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Mg14ZnCuO16
 _symmetry_space_group_name_H-M   'P 1'
@@ -30250,7 +30250,7 @@ loop_
   O   O14       1.0  0.746378  0.0  0.0  1.0000
   O   O15       1.0  0.4268874560813503  0.7421857598677996  0.0  1.0000
   O   O16       1.0  0.5731125439186497  0.25781424013220033  0.0  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Mg30ZnCdO32
 _symmetry_space_group_name_H-M   'P 1'
@@ -31008,7 +31008,7 @@ loop_
   O   O30       1.0  0.251816  0.5  0.5  1.0000
   O   O31       1.0  0.749533  0.9161185674992504  0.13015396849839717  1.0000
   O   O32       1.0  0.748184  0.3680874410172222  0.9168873959499647  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Mg30NbCO32
 _symmetry_space_group_name_H-M   'P 1'
@@ -32008,7 +32008,7 @@ loop_
   O   O30       1.0  0.5  0.24994900000000003  0.5  1.0000
   O   O31       1.0  0.0  0.750041  0.5  1.0000
   O   O32       1.0  0.5  0.750051  0.5  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Mg30CrBiO32
 _symmetry_space_group_name_H-M   'P 1'
@@ -32275,7 +32275,7 @@ loop_
   O   O30       1.0  0.249781  0.5  0.5  1.0000
   O   O31       1.0  0.748073  0.0  0.5  1.0000
   O   O32       1.0  0.7502189999999997  0.5  0.5  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_RbCeMg30O32
 _symmetry_space_group_name_H-M   'P 1'
@@ -32966,7 +32966,7 @@ loop_
   O   O30       1.0  0.5  0.25591600000000003  0.5  1.0000
   O   O31       1.0  0.5  0.746307  0.0  1.0000
   O   O32       1.0  0.5  0.744084  0.5  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_SrMg30TiO32
 _symmetry_space_group_name_H-M   'P 1'
@@ -33513,7 +33513,7 @@ loop_
   O   O30       1.0  0.5  0.25397542  0.5  1.0000
   O   O31       1.0  0.5  0.74869119  0.0  1.0000
   O   O32       1.0  0.5  0.7460245799999999  0.5  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_MgFe2(PO4)2
 _symmetry_space_group_name_H-M   'P 1'
@@ -34295,7 +34295,7 @@ loop_
   O   O30       1.0  0.6580429999999998  0.237315  0.210195  1.0000
   O   O31       1.0  0.038187747694735576  0.7766516230166629  0.710195  1.0000
   O   O32       1.0  0.8428319999999999  0.395459  0.644094  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_MgCu2(TeO4)2
 _symmetry_space_group_name_H-M   'P 1'
@@ -35469,7 +35469,7 @@ loop_
   O   O30       1.0  0.574446  0.714098  0.42704700000000007  1.0000
   O   O31       1.0  0.277315  0.615248  0.164782  1.0000
   O   O32       1.0  0.927982  0.9447990000000002  0.796963  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_P4W3O14
 _symmetry_space_group_name_H-M   'P 1'
@@ -36310,7 +36310,7 @@ loop_
   O   O26       1.0  0.8522419999999998  0.3163589999999999  0.350692  1.0000
   O   O27       1.0  0.5907806358578604  0.03175843095024546  0.9183630485400746  1.0000
   O   O28       1.0  0.338928  0.610499  0.421293  1.0000
-"
+",AtomCountMismatch,True
 "# generated using pymatgen
 data_CaMn2O4
 _symmetry_space_group_name_H-M   'P 1'
@@ -36999,7 +36999,7 @@ loop_
   O   O6        1.0  0.4803601602802352  0.4885701372950908  0.53671  1.0000
   O   O7        1.0  0.26532888214301376  0.8797948861898098  0.498457  1.0000
   O   O8        1.0  0.11563204709648889  0.8280621314232299  0.0015430000000000383  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Ca(WO2)2
 _symmetry_space_group_name_H-M   'P 1'
@@ -38032,7 +38032,7 @@ loop_
   O   O14       1.0  0.17483824817184246  0.756778  0.7283358521351971  1.0000
   O   O15       1.0  0.16470699999999996  0.7432219999999999  0.353468  1.0000
   O   O16       1.0  0.8880258842370536  0.256778  0.8942701577451302  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_YCo(WO4)2
 _symmetry_space_group_name_H-M   'P 1'
@@ -39153,7 +39153,7 @@ loop_
   O   O14       1.0  0.887586  0.1997413614410964  0.6151812875513087  1.0000
   O   O15       1.0  0.11977399999999998  0.173353  0.153104  1.0000
   O   O16       1.0  0.887586  0.8002586385589031  0.3848187124486915  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_BiTeO5
 _symmetry_space_group_name_H-M   'P 1'
@@ -39799,7 +39799,7 @@ loop_
   O   O38       1.0  0.38338  0.19930400000000004  0.7021690000000003  1.0000
   O   O39       1.0  0.348662  0.9994630000000002  0.334967  1.0000
   O   O40       1.0  0.38338  0.6993040000000003  0.797831  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_CaBi2O5
 _symmetry_space_group_name_H-M   'P 1'
@@ -40689,7 +40689,7 @@ loop_
   O   O38       1.0  0.383588  0.190515  0.683412  1.0000
   O   O39       1.0  0.260663  0.9949380000000001  0.351023  1.0000
   O   O40       1.0  0.383588  0.690515  0.816588  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_W3O8
 _symmetry_space_group_name_H-M   'P 1'
@@ -41845,7 +41845,7 @@ loop_
   O   O14       1.0  0.893699  0.04206899999999998  0.391247  1.0000
   O   O15       1.0  0.10630099999999998  0.042069000000000106  0.891247  1.0000
   O   O16       1.0  0.893699  0.9579309999999999  0.10875300000000002  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Zn3Fe4(SbO4)6
 _symmetry_space_group_name_H-M   'P 1'
@@ -42625,7 +42625,7 @@ loop_
   O   O22       1.0  0.23362599999999994  0.7881019999999999  0.9861179999999999  1.0000
   O   O23       1.0  0.14289139419672703  0.7758932278062539  0.013882000000000007  1.0000
   O   O24       1.0  0.864768  0.9679279999999999  0.35379499999999997  1.0000
-"
+",AtomCountMismatch,True
 "# generated using pymatgen
 data_CaMn2CoO7
 _symmetry_space_group_name_H-M   'P 1'
@@ -43677,7 +43677,7 @@ loop_
   O   O54       1.0  0.608676  0.172454  0.558963  1.0000
   O   O55       1.0  0.608676  0.672454  0.941037  1.0000
   O   O56       1.0  0.9499790000000001  0.116669  0.659159  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Ge2BiO6
 _symmetry_space_group_name_H-M   'P 1'
@@ -44385,7 +44385,7 @@ loop_
   O   O10       1.0  0.6057159221390764  0.027883994348378627  0.15233981774575467  1.0000
   O   O11       1.0  0.2445745515990121  0.7814577804197245  0.3774083253419646  1.0000
   O   O12       1.0  0.177548  0.05590799999999999  0.36078800000000005  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_MgTiBi(PO4)3
 _symmetry_space_group_name_H-M   'P 1'
@@ -45112,7 +45112,7 @@ loop_
   O   O22       1.0  0.17219684957852402  0.5410636841644275  0.035013977641966676  1.0000
   O   O23       1.0  0.7066790000000001  0.878502  0.506788  1.0000
   O   O24       1.0  0.878502  0.5067879999999999  0.7066790000000001  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_CaBi3O7
 _symmetry_space_group_name_H-M   'P 1'
@@ -46165,7 +46165,7 @@ loop_
   O   O26       1.0  0.339815  0.414952  0.461954  1.0000
   O   O27       1.0  0.160185  0.21800715746535593  0.04767263947386723  1.0000
   O   O28       1.0  0.660185  0.914952  0.538046  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Y4Cu13Si2(SbO14)2
 _symmetry_space_group_name_H-M   'P 1'
@@ -46942,7 +46942,7 @@ loop_
   O   O26       1.0  0.6070070000000002  0.8554760000000001  0.274397  1.0000
   O   O27       1.0  0.9497159999999999  0.417741  0.751843  1.0000
   O   O28       1.0  0.47458500000000003  0.611636  0.42147499999999993  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_MgNi(PO3)4
 _symmetry_space_group_name_H-M   'P 1'
@@ -48073,7 +48073,7 @@ loop_
   O   O22       1.0  0.911696  0.15128799999999998  0.09474400000000002  1.0000
   O   O23       1.0  0.151288  0.911696  0.594744  1.0000
   O   O24       1.0  0.08830399999999979  0.8487120000000002  0.9052560000000002  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_CaCuO2
 _symmetry_space_group_name_H-M   'P 1'
@@ -49042,7 +49042,7 @@ loop_
   O   O6        1.0  0.02167067474853168  0.502642469671847  0.016424681163583754  1.0000
   O   O7        1.0  0.7643129999999999  0.026593  0.65919  1.0000
   O   O8        1.0  0.8826169999999999  0.309602  0.364251  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Ca2Ta2WO8
 _symmetry_space_group_name_H-M   'P 1'
@@ -49967,7 +49967,7 @@ loop_
   O   O14       1.0  0.15414500000000003  0.476032  0.583706  1.0000
   O   O15       1.0  0.7557479999999999  0.877651  0.7280399999999999  1.0000
   O   O16       1.0  0.5758506413863349  0.22761887600517966  0.43831484398336085  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Ca(SnO2)2
 _symmetry_space_group_name_H-M   'P 1'
@@ -50953,7 +50953,7 @@ loop_
   O   O6        1.0  0.8227005510538838  0.6229681801050757  0.11882092794882615  1.0000
   O   O7        1.0  0.794521  0.787802  0.4932810000000001  1.0000
   O   O8        1.0  0.205479  0.69876  0.993281  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Sr2Mn2GaO7
 _symmetry_space_group_name_H-M   'P 1'
@@ -51768,7 +51768,7 @@ loop_
   O   O12       1.0  0.6081587073351484  0.9305602140932983  0.867178381440443  1.0000
   O   O13       1.0  0.6280691055326011  0.8213748224023618  0.552892685345088  1.0000
   O   O14       1.0  0.3344486144163934  0.4872433246925268  0.07377958123393236  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Zn2TeWO6
 _symmetry_space_group_name_H-M   'P 1'
@@ -52407,7 +52407,7 @@ loop_
   O   O4        1.0  0.08901921915596622  0.6513368206355579  0.08822600000000001  1.0000
   O   O5        1.0  0.5399842917678138  0.30414848508877557  0.764835  1.0000
   O   O6        1.0  0.0679239324674514  0.6379005230490097  0.777858  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_MgCr2O4
 _symmetry_space_group_name_H-M   'P 1'
@@ -53557,7 +53557,7 @@ loop_
   O   O6        1.0  0.5364558692498672  0.8336048102485228  0.75  1.0000
   O   O7        1.0  0.5  0.5  0.0  1.0000
   O   O8        1.0  0.12215979497477836  0.27162659046649185  0.5  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_CuMoO4
 _symmetry_space_group_name_H-M   'P 1'
@@ -54362,7 +54362,7 @@ loop_
   O   O30       1.0  0.261329  0.415983  0.388452  1.0000
   O   O31       1.0  0.37364399999999987  0.685377  0.21476  1.0000
   O   O32       1.0  0.014992  0.12648  0.7863  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_BaAlCu4O7
 _symmetry_space_group_name_H-M   'P 1'
@@ -55365,7 +55365,7 @@ loop_
   O   O12       1.0  0.63839227063883  0.27678448349479745  0.48692640264103415  1.0000
   O   O13       1.0  0.515014  0.484986  0.768775  1.0000
   O   O14       1.0  0.3297676833458226  0.11449325379002229  0.26484581611956987  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_AlSb3Se2ClO8
 _symmetry_space_group_name_H-M   'P 1'
@@ -55920,7 +55920,7 @@ loop_
   O   O14       1.0  0.703308  0.16972  0.33205499999999993  1.0000
   O   O15       1.0  0.534459  0.0  0.8752639999999999  1.0000
   O   O16       1.0  0.46759  0.5  0.3738499999999999  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Sr2Y2Ni2O7
 _symmetry_space_group_name_H-M   'P 1'
@@ -56695,7 +56695,7 @@ loop_
   O   O12       1.0  0.6385650000000004  0.11571500000000001  0.4284050000000001  1.0000
   O   O13       1.0  0.18730999999999998  0.615715  0.47715  1.0000
   O   O14       1.0  0.6627504787468701  0.7853915958924199  0.812068358196594  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Ti3AlO6
 _symmetry_space_group_name_H-M   'P 1'
@@ -57790,7 +57790,7 @@ loop_
   O   O22       1.0  0.17003699999999997  0.340074  0.419913  1.0000
   O   O23       1.0  0.15109116967875166  0.3021823121453793  0.9583069156393765  1.0000
   O   O24       1.0  0.34267592519018275  0.6853508049755876  0.3318078833465743  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_K3SbO4
 _symmetry_space_group_name_H-M   'P 1'
@@ -58759,7 +58759,7 @@ loop_
   O   O6        1.0  0.06970146  0.29196572  0.7039243400000003  1.0000
   O   O7        1.0  0.407917172717415  0.33226592  0.6340071761556074  1.0000
   O   O8        1.0  0.6967129776344657  0.66773408  0.8834401131929348  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_MgSi2
 _symmetry_space_group_name_H-M   'P 1'
@@ -59503,7 +59503,7 @@ loop_
   Si  Si14      1.0  0.818767  0.996004  0.087792  1.0000
   Si  Si15      1.0  0.412263  0.49800300000000003  0.37433200000000005  1.0000
   Si  Si16      1.0  0.06246600000000003  0.6848069999999999  0.838743  1.0000
-"
+",AtomCountMismatch,True
 "# generated using pymatgen
 data_MgSi
 _symmetry_space_group_name_H-M   'P 1'
@@ -60328,7 +60328,7 @@ loop_
   Si  Si4       1.0  0.7748584814394356  0.49911868909909307  0.41476644051550465  1.0000
   Si  Si5       1.0  0.4674501123010539  0.3183206478913488  0.04809316943567056  1.0000
   Si  Si6       1.0  0.812854  0.8455530000000001  0.58597  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Mg4Si3
 _symmetry_space_group_name_H-M   'P 1'
@@ -61442,7 +61442,7 @@ loop_
   Si  Si4       1.0  0.783826  0.672767  0.181784  1.0000
   Si  Si5       1.0  0.2674406394369848  0.24486845849514124  0.5662014011506513  1.0000
   Si  Si6       1.0  0.8593489999999999  0.033952  0.811713  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Mg3Si4
 _symmetry_space_group_name_H-M   'P 1'
@@ -61560,7 +61560,7 @@ loop_
   Si  Si6       1.0  0.2908531105797808  0.13701625058528422  0.613447050440955  1.0000
   Si  Si7       1.0  0.182676  0.422588  0.447999  1.0000
   Si  Si8       1.0  0.454749  0.070875  0.934419  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_La5Sm3Co7CuO24
 _symmetry_space_group_name_H-M   'P 1'
@@ -62506,7 +62506,7 @@ loop_
   O   O22       1.0  0.503646  0.0016540000000000003  0.753155  1.0000
   O   O23       1.0  0.37470352910808147  0.49697489994840494  0.029135296415289315  1.0000
   O   O24       1.0  0.506865  0.500005  0.7473960000000002  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Ba2Sr6Co3Cu5O24
 _symmetry_space_group_name_H-M   'P 1'
@@ -63176,7 +63176,7 @@ loop_
   O   O22       1.0  0.9949509999999998  0.746542  0.497185  1.0000
   O   O23       1.0  0.504511  0.26275  0.503778  1.0000
   O   O24       1.0  0.504511  0.73725  0.496222  1.0000
-"
+",AtomCountMismatch,True
 "# generated using pymatgen
 data_Pr(NiBi)2
 _symmetry_space_group_name_H-M   'P 1'
@@ -63803,7 +63803,7 @@ loop_
   Bi  Bi2       1.0  0.5  0.5  0.5  1.0000
   Bi  Bi3       1.0  0.19736177529245258  0.8980076694560848  0.875028  1.0000
   Bi  Bi4       1.0  0.10199233054391521  0.19736177529245258  0.124972  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_CeSe2
 _symmetry_space_group_name_H-M   'P 1'
@@ -65014,7 +65014,7 @@ loop_
   Se  Se10      1.0  0.5791319999999999  0.8568700000000001  0.322031  1.0000
   Se  Se11      1.0  0.507101  0.28483800000000004  0.177969  1.0000
   Se  Se12      1.0  0.10687000000000003  0.3291320000000001  0.822031  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_CeSe2
 _symmetry_space_group_name_H-M   'P 1'
@@ -65845,7 +65845,7 @@ loop_
   Se  Se14      1.0  0.21638562  0.21638562  0.0  1.0000
   Se  Se15      1.0  0.033614380000000006  0.96638562  0.5  1.0000
   Se  Se16      1.0  0.46638562  0.53361438  0.5  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Er2Ni2Sn
 _symmetry_space_group_name_H-M   'P 1'
@@ -67124,7 +67124,7 @@ loop_
   Ni  Ni4       1.0  0.9224953766936334  0.8791161399999998  0.8809948470022915  1.0000
   Sn  Sn1       1.0  0.49999922  0.50000382  0.0  1.0000
   Sn  Sn2       1.0  0.99999922  0.99999618  0.0  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_MgCd2
 _symmetry_space_group_name_H-M   'P 1'
@@ -67615,7 +67615,7 @@ loop_
   Cd  Cd6       1.0  0.5  0.72096685  0.25  1.0000
   Cd  Cd7       1.0  0.0  0.77903315  0.75  1.0000
   Cd  Cd8       1.0  0.5  0.60822636  0.75  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Sm2CdGe2
 _symmetry_space_group_name_H-M   'P 1'
@@ -68210,7 +68210,7 @@ loop_
   Ge  Ge2       1.0  0.15769130995112912  0.5414351180213955  0.0  1.0000
   Ge  Ge3       1.0  0.4626757401517574  0.06711086398520294  0.0  1.0000
   Ge  Ge4       1.0  0.6320155639873217  0.8464195482220237  0.0  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_LaSnPd
 _symmetry_space_group_name_H-M   'P 1'
@@ -68875,7 +68875,7 @@ loop_
   Pd  Pd2       1.0  0.7500000000000002  0.7024298999999998  0.58621209  1.0000
   Pd  Pd3       1.0  0.25  0.7975700999999997  0.08621209  1.0000
   Pd  Pd4       1.0  0.25  0.2975700999999999  0.41378791  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Y3(CuSn)4
 _symmetry_space_group_name_H-M   'P 1'
@@ -70043,7 +70043,7 @@ loop_
   Sn  Sn2       1.0  0.71630384  0.21630384  0.5  1.0000
   Sn  Sn3       1.0  0.1369299716826804  0.27632816071885924  0.9817408851167181  1.0000
   Sn  Sn4       1.0  0.20238703  0.5  0.70238703  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Er2Ga8Fe
 _symmetry_space_group_name_H-M   'P 1'
@@ -70918,7 +70918,7 @@ loop_
   Ga  Ga7       1.0  0.5  0.5  0.699058  1.0000
   Ga  Ga8       1.0  0.5  0.5  0.300942  1.0000
   Fe  Fe1       1.0  0.0  0.0  0.0  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_NbCr2
 _symmetry_space_group_name_H-M   'P 1'
@@ -71865,7 +71865,7 @@ loop_
   Cr  Cr6       1.0  0.16958297999999994  0.83041702  0.75  1.0000
   Cr  Cr7       1.0  0.16958298  0.33916596  0.75  1.0000
   Cr  Cr8       1.0  0.6608340399999999  0.83041702  0.75  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_CeAsS
 _symmetry_space_group_name_H-M   'P 1'
@@ -72894,7 +72894,7 @@ loop_
   S   S2        1.0  0.75645458  0.25  0.18543232  1.0000
   S   S3        1.0  0.2564545800000001  0.75  0.31456768  1.0000
   S   S4        1.0  0.24354542  0.75  0.81456768  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_NpSb2
 _symmetry_space_group_name_H-M   'P 1'
@@ -73641,7 +73641,7 @@ loop_
   Sb  Sb6       1.0  0.12492496599293133  0.24937257109550748  0.5784687141384651  1.0000
   Sb  Sb7       1.0  0.6307885884848033  0.5750685053905044  0.482777365826913  1.0000
   Sb  Sb8       1.0  0.872389  0.3723889999999999  0.75  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_CrN2
 _symmetry_space_group_name_H-M   'P 1'
@@ -74706,7 +74706,7 @@ loop_
   N   N6        1.0  0.991643  0.308639  0.723416  1.0000
   N   N7        1.0  0.991643  0.808639  0.776584  1.0000
   N   N8        1.0  0.491643  0.19136099999999998  0.22341600000000006  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Mg14CdC
 _symmetry_space_group_name_H-M   'P 1'
@@ -75675,7 +75675,7 @@ loop_
   Mg  Mg14      1.0  0.166734  0.8332659999999998  0.74103  1.0000
   Cd  Cd1       1.0  0.0028933380344946524  0.4974841241304585  0.9834585020503056  1.0000
   C   C1        1.0  0.27314199999999994  0.7268579999999998  0.5  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_CaSnS3
 _symmetry_space_group_name_H-M   'P 1'
@@ -76854,7 +76854,7 @@ loop_
   S   S10       1.0  0.769803  0.820916  0.416608  1.0000
   S   S11       1.0  0.2301969999999999  0.9762644173335716  0.1369186752776718  1.0000
   S   S12       1.0  0.269803  0.6790840000000001  0.583392  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Li9Mn7O16
 _symmetry_space_group_name_H-M   'P 1'
@@ -77566,7 +77566,7 @@ loop_
   O   O14       1.0  0.13064899999999996  0.693568  0.955933  1.0000
   O   O15       1.0  0.8137260000000002  0.4520209999999998  0.843179  1.0000
   O   O16       1.0  0.4332889999999999  0.20105999999999996  0.716247  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Li9Mn2Co5O16
 _symmetry_space_group_name_H-M   'P 1'
@@ -78617,7 +78617,7 @@ loop_
   O   O14       1.0  0.5  0.382159  0.12154399999999999  1.0000
   O   O15       1.0  0.0  0.134142  0.611534  1.0000
   O   O16       1.0  0.5311509563870548  0.05183506031621716  0.11046099999999999  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Li9Mn2Co5O16
 _symmetry_space_group_name_H-M   'P 1'
@@ -79833,7 +79833,7 @@ loop_
   O   O14       1.0  0.7246460000000005  0.7246459999999999  0.336317  1.0000
   O   O15       1.0  0.9729270000000004  0.972927  0.588771  1.0000
   O   O16       1.0  0.3512159999999999  0.35121600000000003  0.463275  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Li9Mn2Co5O16
 _symmetry_space_group_name_H-M   'P 1'
@@ -80756,7 +80756,7 @@ loop_
   O   O14       1.0  0.18292659112591303  0.8147643218524294  0.3382480000000001  1.0000
   O   O15       1.0  0.9729790000000001  0.9729789999999999  0.580837  1.0000
   O   O16       1.0  0.358685  0.358685  0.46356300000000006  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Mg5Si6
 _symmetry_space_group_name_H-M   'P 1'
@@ -81644,7 +81644,7 @@ loop_
   Si  Si4       1.0  0.6026077389932671  0.8551096699040748  0.07096499999999996  1.0000
   Si  Si5       1.0  0.5124165914036336  0.47518285098089785  0.893241  1.0000
   Si  Si6       1.0  0.2722796121386573  0.959432656182349  0.9290349999999998  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Y5O4F7
 _symmetry_space_group_name_H-M   'P 1'
@@ -82517,7 +82517,7 @@ loop_
   F   F12       1.0  0.012256  0.35981  0.077561  1.0000
   F   F13       1.0  0.982234  0.5258469999999997  0.8030309999999999  1.0000
   F   F14       1.0  0.838771  0.7489529999999998  0.342259  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_V9(P2O7)8
 _symmetry_space_group_name_H-M   'P 1'
@@ -83427,7 +83427,7 @@ loop_
   O   O54       1.0  0.9082689999999999  0.30564  0.737077  1.0000
   O   O55       1.0  0.872961  0.32042100000000007  0.943403  1.0000
   O   O56       1.0  0.9230940000000002  0.10536799999999995  0.879546  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Sb3(PO4)4
 _symmetry_space_group_name_H-M   'P 1'
@@ -84009,7 +84009,7 @@ loop_
   O   O46       1.0  0.805767  0.324938  0.24313999999999994  1.0000
   O   O47       1.0  0.204858  0.141171  0.29014499999999993  1.0000
   O   O48       1.0  0.301717  0.998023  0.6224469999999998  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_NbFe7(PO4)12
 _symmetry_space_group_name_H-M   'P 1'
@@ -85120,7 +85120,7 @@ loop_
   O   O46       1.0  0.9342499999999999  0.408624  0.138539  1.0000
   O   O47       1.0  0.937717  0.155855  0.418239  1.0000
   O   O48       1.0  0.9310359999999999  0.343584  0.574706  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Na2CO3
 _symmetry_space_group_name_H-M   'P 1'
@@ -86577,7 +86577,7 @@ loop_
   O   O4        1.0  0.8270422576787181  0.22733351433528182  0.6761824804356767  1.0000
   O   O5        1.0  0.4109714723335513  0.8219419441509016  0.029042673639952277  1.0000
   O   O6        1.0  0.7373447064810321  0.47469041236959053  0.4414695885473461  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_MgF2
 _symmetry_space_group_name_H-M   'P 1'
@@ -87130,7 +87130,7 @@ loop_
   F   F6        1.0  0.3875745536584667  0.551475104831499  0.641382  1.0000
   F   F7        1.0  0.13575254981665874  0.24545952830405032  0.141382  1.0000
   F   F8        1.0  0.9110753388632424  0.26248642535322103  0.3586180000000001  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_POsS
 _symmetry_space_group_name_H-M   'P 1'
@@ -88131,7 +88131,7 @@ loop_
   S   S2        1.0  0.6578803627754269  0.1741754410856915  0.26430688411031134  1.0000
   S   S3        1.0  0.13413654198628736  0.04195905582414403  0.13512757429248956  1.0000
   S   S4        1.0  0.62206295  0.66329925  0.19151972999999997  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_ErZnPt
 _symmetry_space_group_name_H-M   'P 1'
@@ -89073,7 +89073,7 @@ loop_
   Pt  Pt2       1.0  0.25  0.7490065200000001  0.8773811  1.0000
   Pt  Pt3       1.0  0.3100270979975234  0.75099348  0.5698985761252494  1.0000
   Pt  Pt4       1.0  0.7878737014567602  0.25099348  0.4794002563930622  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Li8BiO3
 _symmetry_space_group_name_H-M   'P 1'
@@ -90332,7 +90332,7 @@ loop_
   O   O1        1.0  0.0  0.5  0.5  1.0000
   O   O2        1.0  0.5  0.5  0.0  1.0000
   O   O3        1.0  0.5  0.0  0.5  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_GdNi4B
 _symmetry_space_group_name_H-M   'P 1'
@@ -91640,7 +91640,7 @@ loop_
   Ni  Ni8       1.0  0.26669156785359327  0.03338302638536339  0.541346887034382  1.0000
   B   B1        1.0  0.9332626164695931  0.8665241236566953  0.3340796040388744  1.0000
   B   B2        1.0  0.33333299999999993  0.666667  0.5  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_VO2
 _symmetry_space_group_name_H-M   'P 1'
@@ -91761,7 +91761,7 @@ loop_
   O   O6        1.0  0.298629  0.89905  0.400806  1.0000
   O   O7        1.0  0.201371  0.39905  0.400806  1.0000
   O   O8        1.0  0.701371  0.10094999999999997  0.599194  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_TaRh2
 _symmetry_space_group_name_H-M   'P 1'
@@ -92509,7 +92509,7 @@ loop_
   Rh  Rh6       1.0  0.6890094324172868  0.6076195220081659  0.23180035  1.0000
   Rh  Rh7       1.0  0.6883609932377134  0.09740735187336202  0.73179251  1.0000
   Rh  Rh8       1.0  0.17837554275799392  0.7653284869668736  0.7682074899999998  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Pr2In8Co
 _symmetry_space_group_name_H-M   'P 1'
@@ -93304,7 +93304,7 @@ loop_
   In  In7       1.0  0.7954927740190266  0.5  0.032012891716676206  1.0000
   In  In8       1.0  0.5  0.5  0.3025  1.0000
   Co  Co1       1.0  0.30212842485212255  0.0  0.47407579163244606  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_NdSbSe
 _symmetry_space_group_name_H-M   'P 1'
@@ -94369,7 +94369,7 @@ loop_
   Se  Se2       1.0  0.7487134162122295  0.26653472119098043  0.18660182999999997  1.0000
   Se  Se3       1.0  0.44915134250166355  0.3686822049195523  0.31339817  1.0000
   Se  Se4       1.0  0.25  0.73601904  0.81339817  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Li6PClO5
 _symmetry_space_group_name_H-M   'P 1'
@@ -95481,7 +95481,7 @@ loop_
   O   O3        1.0  0.42363478469069005  0.7158838135913623  0.3919960000000001  1.0000
   O   O4        1.0  0.39199599999999973  0.391996  0.8240120000000001  1.0000
   O   O5        1.0  0.6080928372864366  0.5103630818559997  0.75  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Ni(N4O3)2
 _symmetry_space_group_name_H-M   'P 1'
@@ -96563,7 +96563,7 @@ loop_
   O   O4        1.0  0.3018946298716335  0.8351997301652273  0.5  1.0000
   O   O5        1.0  0.8351997301652274  0.3629056399631393  0.5  1.0000
   O   O6        1.0  0.6648002698347728  0.13709436003686065  0.0  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Fe(BO2)2
 _symmetry_space_group_name_H-M   'P 1'
@@ -97338,7 +97338,7 @@ loop_
   O   O14       1.0  0.3646544637098905  0.6000089816270973  0.41331663999999996  1.0000
   O   O15       1.0  0.863988711693272  0.3078924148067379  0.91331942  1.0000
   O   O16       1.0  0.8133495407991923  0.35425009566146476  0.41334558  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Fe5SiB2
 _symmetry_space_group_name_H-M   'P 1'
@@ -98076,7 +98076,7 @@ loop_
   B   B2        1.0  0.619553  0.119553  0.0  1.0000
   B   B3        1.0  0.5688898339055201  0.6292355205717164  0.4975769507652414  1.0000
   B   B4        1.0  0.048857445407965334  0.03920234218724494  0.8392985319271484  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Ce3Bi4Au3
 _symmetry_space_group_name_H-M   'P 1'
@@ -98214,7 +98214,7 @@ loop_
   Au  Au4       1.0  0.75  0.875  0.125  1.0000
   Au  Au5       1.0  0.625  0.375  0.25  1.0000
   Au  Au6       1.0  0.6172550295983348  0.7667162531493477  0.75  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_As2O3
 _symmetry_space_group_name_H-M   'P 1'
@@ -99278,7 +99278,7 @@ loop_
   O   O10       1.0  0.195527  0.015194000000000001  0.140371  1.0000
   O   O11       1.0  0.195527  0.484806  0.6403709999999998  1.0000
   O   O12       1.0  0.5875965075413591  0.07259310029970978  0.859629  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_BeSO8
 _symmetry_space_group_name_H-M   'P 1'
@@ -100405,7 +100405,7 @@ loop_
   O   O14       1.0  0.23248124552439542  0.9208432970269022  0.1254365939570945  1.0000
   O   O15       1.0  0.6796610413669524  0.13167170916995935  0.37276441838654917  1.0000
   O   O16       1.0  0.3947856192876037  0.1548472925373399  0.4191135850602307  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_NaFeSO4F
 _symmetry_space_group_name_H-M   'P 1'
@@ -100578,7 +100578,7 @@ loop_
   F   F2        1.0  0.9999969999999999  0.086361  0.7500009999999998  1.0000
   F   F3        1.0  0.6281205802993293  0.4136276960638682  0.6100508803912412  1.0000
   F   F4        1.0  5.000000000002031e-06  0.9136379999999998  0.250001  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Bi14Mo5
 _symmetry_space_group_name_H-M   'P 1'
@@ -101470,7 +101470,7 @@ loop_
   Mo  Mo3       1.0  0.580183  0.5801830000000001  0.038535000000000014  1.0000
   Mo  Mo4       1.0  0.837475  0.8374750000000001  0.9064440000000002  1.0000
   Mo  Mo5       1.0  0.16252500000000003  0.162525  0.09355600000000003  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Pr2Si5Pt3
 _symmetry_space_group_name_H-M   'P 1'
@@ -102532,7 +102532,7 @@ loop_
   Pt  Pt4       1.0  0.1646723465371729  0.26966023394861244  0.7924838295198473  1.0000
   Pt  Pt5       1.0  0.473139  0.363564  0.10957500000000002  1.0000
   Pt  Pt6       1.0  0.526861  0.636436  0.890425  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_RbNa2CoF6
 _symmetry_space_group_name_H-M   'P 1'
@@ -103507,7 +103507,7 @@ loop_
   F   F4        1.0  0.789539  0.210461  0.21046100000000004  1.0000
   F   F5        1.0  0.2104609999999999  0.7895390000000001  0.7895389999999999  1.0000
   F   F6        1.0  0.21046100000000012  0.210461  0.7895389999999999  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_K2RbSbBr6
 _symmetry_space_group_name_H-M   'P 1'
@@ -104231,7 +104231,7 @@ loop_
   Br  Br4       1.0  0.23217699999999994  0.767823  0.23217699999999994  1.0000
   Br  Br5       1.0  0.767823  0.232177  0.767823  1.0000
   Br  Br6       1.0  0.7678229999999999  0.767823  0.23217699999999994  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_K2RbInBr6
 _symmetry_space_group_name_H-M   'P 1'
@@ -104864,7 +104864,7 @@ loop_
   Br  Br4       1.0  0.22768799999999997  0.7723119999999999  0.227689  1.0000
   Br  Br5       1.0  0.772312  0.22768900000000009  0.7723119999999998  1.0000
   Br  Br6       1.0  0.7723119999999999  0.772312  0.227688  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_K2RbAlI6
 _symmetry_space_group_name_H-M   'P 1'
@@ -105552,7 +105552,7 @@ loop_
   I   I4        1.0  0.22258399999999987  0.7774160000000002  0.222584  1.0000
   I   I5        1.0  0.7774159999999998  0.222584  0.7774160000000002  1.0000
   I   I6        1.0  0.7774159999999999  0.7774160000000002  0.222584  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_K2GaCuF6
 _symmetry_space_group_name_H-M   'P 1'
@@ -105948,7 +105948,7 @@ loop_
   F   F4        1.0  0.14791404132190047  0.20797838251412984  0.961191534842069  1.0000
   F   F5        1.0  0.30620833845400974  0.6337753225322768  0.2888100005597032  1.0000
   F   F6        1.0  0.6829160413219006  0.20797838251412984  0.961191534842069  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_K2RuAuF6
 _symmetry_space_group_name_H-M   'P 1'
@@ -106740,7 +106740,7 @@ loop_
   F   F4        1.0  0.1410188635455402  0.13261996303211232  0.1444961109036632  1.0000
   F   F5        1.0  0.027256736412013538  0.9672083129385932  0.5560190611842208  1.0000
   F   F6        1.0  0.43075827196964595  0.35217407756799934  0.48583376729600203  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Rb2TbCuCl6
 _symmetry_space_group_name_H-M   'P 1'
@@ -107784,7 +107784,7 @@ loop_
   Cl  Cl4       1.0  0.25406799999999996  0.745932  0.254068  1.0000
   Cl  Cl5       1.0  0.7459319999999999  0.254068  0.745932  1.0000
   Cl  Cl6       1.0  0.745932  0.745932  0.254068  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_BaCu9Si4
 _symmetry_space_group_name_H-M   'P 1'
@@ -108699,7 +108699,7 @@ loop_
   Si  Si6       1.0  0.3449414239646187  0.21680480159743243  0.9322913809788391  1.0000
   Si  Si7       1.0  0.195361225919374  0.49854191512380996  0.10108061629269649  1.0000
   Si  Si8       1.0  0.20945600000000006  0.060175000000000006  0.5  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_BaCu9Ge4
 _symmetry_space_group_name_H-M   'P 1'
@@ -109717,7 +109717,7 @@ loop_
   Ge  Ge6       1.0  0.299284  0.442239  0.5  1.0000
   Ge  Ge7       1.0  0.6978478071124403  0.07235360768233945  0.9937456260098408  1.0000
   Ge  Ge8       1.0  0.44223900000000005  0.9422389999999998  0.142955  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_BaNb4O11
 _symmetry_space_group_name_H-M   'P 1'
@@ -110666,7 +110666,7 @@ loop_
   O   O20       1.0  0.070998  0.6358689999999999  0.34781299999999993  1.0000
   O   O21       1.0  0.5648720000000002  0.929002  0.34781299999999993  1.0000
   O   O22       1.0  0.36413100000000004  0.43512799999999996  0.34781299999999993  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Mg2Au
 _symmetry_space_group_name_H-M   'P 1'
@@ -111877,7 +111877,7 @@ loop_
   Au  Au2       1.0  0.9509904343148142  0.09787339339362439  0.6221452600000003  1.0000
   Au  Au3       1.0  0.9782480533091553  0.4491987945900397  0.12214525999999998  1.0000
   Au  Au4       1.0  0.6645463843699959  0.12319953906208171  0.87785474  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_CaTi(SiO3)2
 _symmetry_space_group_name_H-M   'P 1'
@@ -112495,7 +112495,7 @@ loop_
   O   O10       1.0  0.7758339999999998  0.9684149999999999  0.6520600000000001  1.0000
   O   O11       1.0  0.22416599999999995  0.03158500000000001  0.34794  1.0000
   O   O12       1.0  0.9684150000000001  0.7758339999999998  0.15206  1.0000
-"
+",AtomCountMismatch,True
 "# generated using pymatgen
 data_Rb4Sb2O5
 _symmetry_space_group_name_H-M   'P 1'
@@ -113146,7 +113146,7 @@ loop_
   O   O3        1.0  0.6511459999999999  0.348854  0.723538  1.0000
   O   O4        1.0  0.349392  0.650608  0.778496  1.0000
   O   O5        1.0  0.05353899999999988  0.946461  0.4999999999999999  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Pr3(ZnAs3)2
 _symmetry_space_group_name_H-M   'P 1'
@@ -114139,7 +114139,7 @@ loop_
   As  As10      1.0  0.25  0.50171  0.416157  1.0000
   As  As11      1.0  0.75  0.49828999999999996  0.583843  1.0000
   As  As12      1.0  0.75  0.8450229999999999  0.081271  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_NdTa3O9
 _symmetry_space_group_name_H-M   'P 1'
@@ -114991,7 +114991,7 @@ loop_
   O   O34       1.0  0.916071  0.748998  0.748553  1.0000
   O   O35       1.0  0.915663  0.750158  0.252251  1.0000
   O   O36       1.0  0.992785  0.000684  0.734767  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Na3TbTi2Nb2O12
 _symmetry_space_group_name_H-M   'P 1'
@@ -115814,7 +115814,7 @@ loop_
   O   O22       1.0  0.7783090000000001  0.768663  0.730731  1.0000
   O   O23       1.0  0.3331292973393398  0.507583  0.24062065474897948  1.0000
   O   O24       1.0  0.9238840000000001  0.507583  0.8797739999999997  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Li2CoO3
 _symmetry_space_group_name_H-M   'P 1'
@@ -116238,7 +116238,7 @@ loop_
   O   O4        1.0  0.4383204072032201  0.8679868674752567  0.5446853744791796  1.0000
   O   O5        1.0  0.6183796030230287  0.5835291185036922  0.25094850603964236  1.0000
   O   O6        1.0  0.22607100000000002  0.7830650000000001  0.998213  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Li3MnCoO5
 _symmetry_space_group_name_H-M   'P 1'
@@ -116921,7 +116921,7 @@ loop_
   O   O8        1.0  0.8869977342419505  0.7753457982887313  0.3203018986565537  1.0000
   O   O9        1.0  0.03412100000000001  0.11520200000000001  0.839026  1.0000
   O   O10       1.0  0.626512  0.309145  0.04537200000000001  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Li3MnCoO5
 _symmetry_space_group_name_H-M   'P 1'
@@ -117764,7 +117764,7 @@ loop_
   O   O8        1.0  0.580297  0.22206000000000004  0.439899  1.0000
   O   O9        1.0  0.1784550000000001  0.22570600000000013  0.6271170000000003  1.0000
   O   O10       1.0  0.820607  0.229635  0.859166  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Li4Mn3O7
 _symmetry_space_group_name_H-M   'P 1'
@@ -118263,7 +118263,7 @@ loop_
   O   O12       1.0  0.426126  0.4261260000000001  0.6203429999999998  1.0000
   O   O13       1.0  0.2804619999999998  0.28046200000000016  0.33133799999999997  1.0000
   O   O14       1.0  0.8553649999999999  0.8553650000000002  0.4744039999999999  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Li4MnCo2O7
 _symmetry_space_group_name_H-M   'P 1'
@@ -118949,7 +118949,7 @@ loop_
   O   O12       1.0  0.8522660000000001  0.295468  0.1921  1.0000
   O   O13       1.0  0.7596248102159503  0.48074937959444786  0.9584190049204856  1.0000
   O   O14       1.0  0.5638330000000003  0.8723329999999999  0.034073  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Li4MnCo2O7
 _symmetry_space_group_name_H-M   'P 1'
@@ -119898,7 +119898,7 @@ loop_
   O   O12       1.0  0.7758669999999999  0.775867  0.31434600000000007  1.0000
   O   O13       1.0  0.21812800000000002  0.21812799999999996  0.17547  1.0000
   O   O14       1.0  0.6206769999999999  0.620677  0.033474  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Li4MnCo2O7
 _symmetry_space_group_name_H-M   'P 1'
@@ -120987,7 +120987,7 @@ loop_
   O   O12       1.0  0.44913814440977284  0.019198838626549124  0.2760882096552458  1.0000
   O   O13       1.0  0.961244  0.155253  0.11335599999999997  1.0000
   O   O14       1.0  0.38120400000000004  0.298906  0.967385  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Li4MnCo2O7
 _symmetry_space_group_name_H-M   'P 1'
@@ -121712,7 +121712,7 @@ loop_
   O   O12       1.0  0.6054736325957638  0.2827819359214241  0.3019876434743042  1.0000
   O   O13       1.0  0.6918617842151775  0.6324289828977041  0.49966695455467725  1.0000
   O   O14       1.0  0.8433387622164457  0.8795459110767347  0.2578824183650137  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Li7Mn2(CoO4)3
 _symmetry_space_group_name_H-M   'P 1'
@@ -122416,7 +122416,7 @@ loop_
   O   O10       1.0  0.761401  0.053299999999999965  0.4031609999999999  1.0000
   O   O11       1.0  0.786614  0.7174220000000001  0.081792  1.0000
   O   O12       1.0  0.777415  0.210687  0.070432  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Li7Mn2(CoO4)3
 _symmetry_space_group_name_H-M   'P 1'
@@ -122800,7 +122800,7 @@ loop_
   O   O10       1.0  0.481122  0.0025930000000000245  0.891118  1.0000
   O   O11       1.0  0.17048817831006938  0.7168676821428926  0.05472800000000001  1.0000
   O   O12       1.0  0.8613590000000002  0.6528140000000002  0.21218  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Li9Mn2Co5O16
 _symmetry_space_group_name_H-M   'P 1'
@@ -123607,7 +123607,7 @@ loop_
   O   O14       1.0  0.7761679999999997  0.087283  0.20780599999999994  1.0000
   O   O15       1.0  0.777659  0.97167  0.596842  1.0000
   O   O16       1.0  0.7813430000000002  0.848091  0.959787  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Li9Mn2Co5O16
 _symmetry_space_group_name_H-M   'P 1'
@@ -124618,7 +124618,7 @@ loop_
   O   O14       1.0  0.9254762330333189  0.529612340702455  0.36961769948634265  1.0000
   O   O15       1.0  0.43874289563486785  0.7557834302034293  0.58799647435499  1.0000
   O   O16       1.0  0.9736624576458169  0.6297143462687834  0.47776207179500907  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Li9Mn2Co5O16
 _symmetry_space_group_name_H-M   'P 1'
@@ -125734,7 +125734,7 @@ loop_
   O   O14       1.0  0.695702965861414  0.732855854873711  0.6893776244693247  1.0000
   O   O15       1.0  0.1221765296685342  0.946983218418628  0.5200180153627992  1.0000
   O   O16       1.0  0.2813214831128041  0.5688273210020836  0.205087758858807  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Li9Mn2Co5O16
 _symmetry_space_group_name_H-M   'P 1'
@@ -126204,7 +126204,7 @@ loop_
   O   O14       1.0  0.6790780000000003  0.771659  0.684951  1.0000
   O   O15       1.0  0.11482461908487651  0.6066755847302746  0.8497499813737985  1.0000
   O   O16       1.0  0.5353359541917828  0.30687414465723284  0.3305953228023643  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Li9Mn2Co5O16
 _symmetry_space_group_name_H-M   'P 1'
@@ -126795,7 +126795,7 @@ loop_
   O   O14       1.0  0.359169  0.568559  0.11453299999999998  1.0000
   O   O15       1.0  0.89454  0.79093  0.6132659999999999  1.0000
   O   O16       1.0  0.869442  0.291688  0.10222199999999997  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_MnCo9O10
 _symmetry_space_group_name_H-M   'P 1'
@@ -127634,7 +127634,7 @@ loop_
   O   O8        1.0  0.530195252049215  0.9346593521415155  0.6028298909595871  1.0000
   O   O9        1.0  0.9998180000000004  0.9998179999999998  0.744081  1.0000
   O   O10       1.0  0.00018199999999999431  0.0001820000000000005  0.255919  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Mn2V3Sn(PO4)6
 _symmetry_space_group_name_H-M   'P 1'
@@ -128556,7 +128556,7 @@ loop_
   O   O22       1.0  0.503242  0.309853  0.116401  1.0000
   O   O23       1.0  0.11640099999999998  0.503242  0.309853  1.0000
   O   O24       1.0  0.30985300000000005  0.11640100000000003  0.5032419999999999  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_LiSn(PO3)4
 _symmetry_space_group_name_H-M   'P 1'
@@ -129126,7 +129126,7 @@ loop_
   O   O22       1.0  0.532983  0.3195119999999999  0.147495  1.0000
   O   O23       1.0  0.70697  0.196346  0.9264409999999998  1.0000
   O   O24       1.0  0.2025680000000001  0.342393  0.336846  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_LiMn3(PO4)3
 _symmetry_space_group_name_H-M   'P 1'
@@ -129838,7 +129838,7 @@ loop_
   O   O46       1.0  0.8374210000000002  0.363676  0.098721  1.0000
   O   O47       1.0  0.587497  0.070696  0.11825199999999998  1.0000
   O   O48       1.0  0.957268  0.644941  0.04547799999999999  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_LiFeSnO4
 _symmetry_space_group_name_H-M   'P 1'
@@ -130668,7 +130668,7 @@ loop_
   O   O14       1.0  0.738874  0.983281  0.497777  1.0000
   O   O15       1.0  0.983281  0.26112599999999997  0.747777  1.0000
   O   O16       1.0  0.983281  0.738874  0.752223  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_LiFePCO7
 _symmetry_space_group_name_H-M   'P 1'
@@ -131664,7 +131664,7 @@ loop_
   O   O12       1.0  0.765572  0.871305  0.046636999999999984  1.0000
   O   O13       1.0  0.36698796408765527  0.713821374326599  0.08682500000000005  1.0000
   O   O14       1.0  0.706826628608229  0.911834200277863  0.09617999999999999  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Li6MnV3(PO4)6
 _symmetry_space_group_name_H-M   'P 1'
@@ -132886,7 +132886,7 @@ loop_
   O   O46       1.0  0.93670859  0.08773869  0.6618213699999999  1.0000
   O   O47       1.0  0.98755556  0.40669806  0.39694456999999994  1.0000
   O   O48       1.0  0.98755556  0.59330194  0.89694457  1.0000
-"
+",AtomCountMismatch,True
 "# generated using pymatgen
 data_Li4TiCu3(PO4)4
 _symmetry_space_group_name_H-M   'P 1'
@@ -133617,7 +133617,7 @@ loop_
   O   O14       1.0  0.713415  0.183252  0.6715629999999999  1.0000
   O   O15       1.0  0.286585  0.183252  0.6715629999999999  1.0000
   O   O16       1.0  0.2842042592476213  0.7606608937511171  0.46698  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Li4Fe5NiO12
 _symmetry_space_group_name_H-M   'P 1'
@@ -134818,7 +134818,7 @@ loop_
   O   O10       1.0  0.7951953849221615  0.33121133292153593  0.891817  1.0000
   O   O11       1.0  0.17732526490349312  0.9759816108771495  0.9055010000000001  1.0000
   O   O12       1.0  0.2031980136263844  0.7945561124897826  0.403742  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Li3MnV(PO4)3
 _symmetry_space_group_name_H-M   'P 1'
@@ -135842,7 +135842,7 @@ loop_
   O   O46       1.0  0.94931266  0.08653702  0.65975353  1.0000
   O   O47       1.0  0.9941868  0.3948631  0.39332861  1.0000
   O   O48       1.0  0.9941868  0.6051369  0.89332861  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Li3MnV(PO4)3
 _symmetry_space_group_name_H-M   'P 1'
@@ -136259,7 +136259,7 @@ loop_
   O   O46       1.0  0.051161  0.667389  0.600536  1.0000
   O   O47       1.0  0.048652  0.87014  0.444206  1.0000
   O   O48       1.0  0.053001999999999994  0.889142  0.897574  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Li2VCr3O8
 _symmetry_space_group_name_H-M   'P 1'
@@ -136420,7 +136420,7 @@ loop_
   O   O14       1.0  0.6233069999999999  0.6229359999999999  0.602437  1.0000
   O   O15       1.0  0.6513789999999998  0.123151  0.10241700000000001  1.0000
   O   O16       1.0  0.15134100000000006  0.623117  0.602376  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Li2Co3TeO8
 _symmetry_space_group_name_H-M   'P 1'
@@ -137348,7 +137348,7 @@ loop_
   O   O6        1.0  0.6880983235701146  0.6078937676574783  0.7883759045694119  1.0000
   O   O7        1.0  0.1601507707689454  0.06622547063445511  0.7544575148445145  1.0000
   O   O8        1.0  0.5384441521155102  0.7569547313285497  0.2417397510656285  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Li11Fe5(OF11)2
 _symmetry_space_group_name_H-M   'P 1'
@@ -138091,7 +138091,7 @@ loop_
   F   F20       1.0  0.857862  0.829996  0.263969  1.0000
   F   F21       1.0  0.020566000000000004  0.9867540000000001  0.509283  1.0000
   F   F22       1.0  0.382405  0.99869  0.236447  1.0000
-"
+",AtomCountMismatch,True
 "# generated using pymatgen
 data_KLi(WO3)3
 _symmetry_space_group_name_H-M   'P 1'
@@ -139189,7 +139189,7 @@ loop_
   O   O16       1.0  0.20718800000000012  0.780279  0.9840159999999998  1.0000
   O   O17       1.0  0.9704019042021039  0.013971300579955007  0.514477  1.0000
   O   O18       1.0  0.25145921418055633  0.19835198124527717  0.2501129999999998  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_FeCo3O8
 _symmetry_space_group_name_H-M   'P 1'
@@ -140265,7 +140265,7 @@ loop_
   O   O30       1.0  0.42461136525867205  0.38266559715051124  0.614095  1.0000
   O   O31       1.0  0.3376511072052909  0.11466005369031312  0.889167  1.0000
   O   O32       1.0  0.898621  0.626808  0.1058  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Ca9(WO3)20
 _symmetry_space_group_name_H-M   'P 1'
@@ -141121,7 +141121,7 @@ loop_
   O   O58       1.0  0.5247555528391857  0.34575130920691854  0.6260603065673231  1.0000
   O   O59       1.0  0.8251175838498819  0.9987031430742819  0.5687231883966444  1.0000
   O   O60       1.0  0.6780275985714027  0.4992923768739545  0.4296562859880224  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_NaZrP2O9
 _symmetry_space_group_name_H-M   'P 1'
@@ -142132,7 +142132,7 @@ loop_
   O   O34       1.0  0.209873  0.17036099999999996  0.7987000000000002  1.0000
   O   O35       1.0  0.290127  0.17036099999999996  0.29870000000000013  1.0000
   O   O36       1.0  0.7901270000000001  0.829639  0.20130000000000006  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_NiC4Br3N
 _symmetry_space_group_name_H-M   'P 1'
@@ -143291,7 +143291,7 @@ loop_
   Br  Br6       1.0  0.755989  0.144515  0.05665  1.0000
   N   N1        1.0  0.477655  0.6659029999999998  0.670871  1.0000
   N   N2        1.0  0.977655  0.3340969999999999  0.329129  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Mg2Cu2CO11
 _symmetry_space_group_name_H-M   'P 1'
@@ -144158,7 +144158,7 @@ loop_
   O   O20       1.0  0.737648  0.962596  0.265578  1.0000
   O   O21       1.0  0.962596  0.737648  0.765578  1.0000
   O   O22       1.0  0.3196203499039357  0.8088528107135573  0.00958225774880032  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Nb3(Cl3O4)2
 _symmetry_space_group_name_H-M   'P 1'
@@ -145057,7 +145057,7 @@ loop_
   O   O14       1.0  0.15937099999999998  0.21879800000000002  0.05785699999999999  1.0000
   O   O15       1.0  0.13341600000000012  0.8912040000000001  0.05601199999999999  1.0000
   O   O16       1.0  0.8642130000000001  0.9419480000000001  0.110126  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Li4P4O17
 _symmetry_space_group_name_H-M   'P 1'
@@ -146290,7 +146290,7 @@ loop_
   O   O66       1.0  0.6883819400000004  0.4637374599999998  0.8379712500000002  1.0000
   O   O67       1.0  0.53626254  0.31161806  0.33797125  1.0000
   O   O68       1.0  0.31161806  0.53626254  0.16202875  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_H4C(N2O)2
 _symmetry_space_group_name_H-M   'P 1'
@@ -147063,7 +147063,7 @@ loop_
   O   O6        1.0  0.6889530000000001  0.8588639999999997  0.95053  1.0000
   O   O7        1.0  0.39113600000000026  0.5610469999999997  0.748346  1.0000
   O   O8        1.0  0.2994700000000002  0.7483459999999997  0.561047  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_CrH12N3(OF2)3
 _symmetry_space_group_name_H-M   'P 1'
@@ -147867,7 +147867,7 @@ loop_
   F   F10       1.0  0.910901  0.29101299999999997  0.020266  1.0000
   F   F11       1.0  0.7365830000000001  0.996002  0.11215199999999999  1.0000
   F   F12       1.0  0.263417  0.003998000000000001  0.887848  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_CoH10(SeO5)2
 _symmetry_space_group_name_H-M   'P 1'
@@ -148723,7 +148723,7 @@ loop_
   O   O18       1.0  0.6427960000000005  0.646589  0.99387  1.0000
   O   O19       1.0  0.6465890000000001  0.642796  0.49387  1.0000
   O   O20       1.0  0.357204  0.353411  0.00613  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_H18Se3(NO3)4
 _symmetry_space_group_name_H-M   'P 1'
@@ -149868,7 +149868,7 @@ loop_
   O   O22       1.0  0.945798  0.786746  0.20277400000000004  1.0000
   O   O23       1.0  0.036701000000000004  0.21449799999999997  0.05007100000000001  1.0000
   O   O24       1.0  0.9632990000000005  0.785502  0.949929  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_MgSiO3
 _symmetry_space_group_name_H-M   'P 1'
@@ -151027,7 +151027,7 @@ loop_
   O   O22       1.0  0.183759  0.8550280000000002  0.40534  1.0000
   O   O23       1.0  0.04491499999999999  0.412744  0.950645  1.0000
   O   O24       1.0  0.766114  0.7905890000000002  0.079985  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Co2Mo3
 _symmetry_space_group_name_H-M   'P 1'
@@ -151928,7 +151928,7 @@ loop_
   Mo  Mo4       1.0  0.75  0.2544540884313933  0.2134770968352766  1.0000
   Mo  Mo5       1.0  0.75  0.57659  0.11196  1.0000
   Mo  Mo6       1.0  0.25  0.6000371510171996  0.9826138995660588  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_AgBiTe2
 _symmetry_space_group_name_H-M   'P 1'
@@ -152962,7 +152962,7 @@ loop_
   Te  Te4       1.0  0.333333  0.666667  0.9243749999999998  1.0000
   Te  Te5       1.0  0.666667  0.3333330000000001  0.590319  1.0000
   Te  Te6       1.0  0.333333  0.666667  0.409681  1.0000
-"
+",CIFParsingError,True
 "# generated using pymatgen
 data_AlC7IN
 _symmetry_space_group_name_H-M   'P 1'
@@ -153516,7 +153516,7 @@ loop_
   N   N2        1.0  0.206452  0.46024  0.266607  1.0000
   N   N3        1.0  0.1936329999999999  0.9602399999999999  0.7537879999999998  1.0000
   N   N4        1.0  0.806367  0.5601549999999998  0.7666069999999999  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Mg16Al12Pt
 _symmetry_space_group_name_H-M   'P 1'
@@ -154419,7 +154419,7 @@ loop_
   Al  Al11      1.0  0.369657  0.18415599999999996  0.632537  1.0000
   Al  Al12      1.0  0.8351  0.6515669999999999  0.979827  1.0000
   Pt  Pt1       1.0  0.321626  0.32162599999999997  0.3573150000000001  1.0000
-"
+",AtomCountMismatch,True
 "# generated using pymatgen
 data_Mg16MnAl12
 _symmetry_space_group_name_H-M   'P 1'
@@ -155166,7 +155166,7 @@ loop_
   Al  Al10      1.0  0.7527437808615232  0.15306111269680966  0.18365800000000002  1.0000
   Al  Al11      1.0  0.5767318205218203  0.10884115922405595  0.821714  1.0000
   Al  Al12      1.0  0.0  0.18365800000000002  0.36194399999999993  1.0000
-"
+",AtomCountMismatch,True
 "# generated using pymatgen
 data_Mg16TaAl12
 _symmetry_space_group_name_H-M   'P 1'
@@ -155979,7 +155979,7 @@ loop_
   Al  Al10      1.0  0.6298339999999999  0.814671  0.629834  1.0000
   Al  Al11      1.0  0.35335871015228826  0.4303276982933108  0.8548974770212965  1.0000
   Al  Al12      1.0  0.9159233008041024  0.902325218594217  0.08877216402331833  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Na(MoSe)3
 _symmetry_space_group_name_H-M   'P 1'
@@ -156704,7 +156704,7 @@ loop_
   Se  Se4       1.0  0.38154228  0.08664718  0.250001  1.0000
   Se  Se5       1.0  0.9101212611323952  0.4974135991560803  0.06479394661914445  1.0000
   Se  Se6       1.0  0.07867418688847336  0.9490431461217262  0.5407282787055816  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_C2N2O5
 _symmetry_space_group_name_H-M   'P 1'
@@ -157289,7 +157289,7 @@ loop_
   O   O8        1.0  0.08635900000000003  0.8613609999999998  0.8610319999999999  1.0000
   O   O9        1.0  0.4339080000000001  0.0  0.5  1.0000
   O   O10       1.0  0.566092  0.4999999999999999  0.0  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Nb4SiC3
 _symmetry_space_group_name_H-M   'P 1'
@@ -158283,7 +158283,7 @@ loop_
   C   C4        1.0  0.3333329999999999  0.6666669999999999  0.613474  1.0000
   C   C5        1.0  0.3333329999999999  0.6666669999999999  0.8865260000000001  1.0000
   C   C6        1.0  0.6666669999999998  0.333333  0.11347400000000002  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Hg5Br11N
 _symmetry_space_group_name_H-M   'P 1'
@@ -159407,7 +159407,7 @@ loop_
   Br  Br10      1.0  0.8557760000000001  0.855776  0.39482800000000007  1.0000
   Br  Br11      1.0  0.5000000000000001  0.5  0.5  1.0000
   N   N1        1.0  0.5  0.5  0.0  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_UTlB5O11F
 _symmetry_space_group_name_H-M   'P 1'
@@ -160271,7 +160271,7 @@ loop_
   O   O10       1.0  0.7183476028073873  0.23141658543304122  0.5617428442100065  1.0000
   O   O11       1.0  0.6309871581750258  0.07058110310681001  0.7981576820720155  1.0000
   F   F1        1.0  0.9335990000000001  0.507431  0.6072599999999998  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Gd3Cu3Sb4
 _symmetry_space_group_name_H-M   'P 1'
@@ -160995,7 +160995,7 @@ loop_
   Sb  Sb6       1.0  0.159057  0.5  0.0  1.0000
   Sb  Sb7       1.0  3.314759779567029e-17  0.15905700000000006  0.5  1.0000
   Sb  Sb8       1.0  0.340943  0.340943  0.340943  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_CaSeO4
 _symmetry_space_group_name_H-M   'P 1'
@@ -161587,7 +161587,7 @@ loop_
   O   O14       1.0  0.21025686  0.60011363  0.11391135  1.0000
   O   O15       1.0  0.7102568600000001  0.39988636999999994  0.38608865  1.0000
   O   O16       1.0  0.7289355386794797  0.6524077264784642  0.88608865  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_NaNbSe2O7
 _symmetry_space_group_name_H-M   'P 1'
@@ -162733,7 +162733,7 @@ loop_
   O   O12       1.0  0.9287308478798801  0.25919132905375075  0.28417965900312775  1.0000
   O   O13       1.0  0.41287000000000007  0.4128699999999999  0.631402  1.0000
   O   O14       1.0  0.5871300000000002  0.58713  0.131402  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Ba(Sn2Ru)3
 _symmetry_space_group_name_H-M   'P 1'
@@ -163882,7 +163882,7 @@ loop_
   Ru  Ru4       1.0  0.9733909999999998  0.403691  0.25  1.0000
   Ru  Ru5       1.0  0.8873244994058873  0.6175855519265561  0.25  1.0000
   Ru  Ru6       1.0  0.8620193744642848  0.5466846136031073  0.75  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Mn2ClO3
 _symmetry_space_group_name_H-M   'P 1'
@@ -164940,7 +164940,7 @@ loop_
   O   O10       1.0  0.551766  0.559907  0.7256739999999999  1.0000
   O   O11       1.0  0.6270618310444097  0.7594799387601645  0.22567399999999996  1.0000
   O   O12       1.0  0.44823399999999997  0.059907  0.274326  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Nd3(SiNi3)2
 _symmetry_space_group_name_H-M   'P 1'
@@ -165661,7 +165661,7 @@ loop_
   Ni  Ni10      1.0  0.6693039999999998  0.669304  0.3386070000000001  1.0000
   Ni  Ni11      1.0  0.16652056648561606  0.6672061339994679  0.832354565123003  1.0000
   Ni  Ni12      1.0  0.33860700000000005  0.669304  0.669304  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Zn(NO4)2
 _symmetry_space_group_name_H-M   'P 1'
@@ -166842,7 +166842,7 @@ loop_
   O   O14       1.0  0.748239  0.21009399999999998  0.461524  1.0000
   O   O15       1.0  0.751761  0.7782919882061471  0.2536683666342223  1.0000
   O   O16       1.0  0.251761  0.7899059999999998  0.538476  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_CeIn2Pd3
 _symmetry_space_group_name_H-M   'P 1'
@@ -167361,7 +167361,7 @@ loop_
   Pd  Pd10      1.0  0.25  0.604755  0.473525  1.0000
   Pd  Pd11      1.0  0.37813771049001543  0.104755  0.10162897798436941  1.0000
   Pd  Pd12      1.0  0.18713194429322755  0.395245  0.43812991784346217  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_K2Cr2O7
 _symmetry_space_group_name_H-M   'P 1'
@@ -168543,7 +168543,7 @@ loop_
   O   O12       1.0  0.24886900000000003  0.24886900000000003  0.9574360000000001  1.0000
   O   O13       1.0  0.7194126852422837  0.7622851271974562  0.03013830717198518  1.0000
   O   O14       1.0  0.22103499999999998  0.22103500000000006  0.468922  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_VO2F3
 _symmetry_space_group_name_H-M   'P 1'
@@ -169291,7 +169291,7 @@ loop_
   F   F10       1.0  0.138989  0.37848799999999994  0.393436  1.0000
   F   F11       1.0  0.361011  0.37848799999999977  0.8934360000000002  1.0000
   F   F12       1.0  0.861011  0.6215120000000001  0.606564  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Eu2Co12P7
 _symmetry_space_group_name_H-M   'P 1'
@@ -170327,7 +170327,7 @@ loop_
   P   P5        1.0  0.5156014817257876  0.23705128459475744  0.7823370935182152  1.0000
   P   P6        1.0  0.4999999999999999  0.892971  0.2911970000000001  1.0000
   P   P7        1.0  0.0  0.999889  0.000475  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_BaC2
 _symmetry_space_group_name_H-M   'P 1'
@@ -171290,7 +171290,7 @@ loop_
   C   C14       1.0  0.608658  0.292405  0.364385  1.0000
   C   C15       1.0  0.8451389432774075  0.13430037951658608  0.864385  1.0000
   C   C16       1.0  0.108658  0.7075949999999998  0.635615  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_LiEr(WO4)2
 _symmetry_space_group_name_H-M   'P 1'
@@ -172423,7 +172423,7 @@ loop_
   O   O14       1.0  0.10996599999999998  0.6498479999999999  0.402406  1.0000
   O   O15       1.0  0.8900339999999999  0.9472260591499806  0.683833564970837  1.0000
   O   O16       1.0  0.10996599999999998  0.350152  0.097594  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Ba4Li2(CdP2)3
 _symmetry_space_group_name_H-M   'P 1'
@@ -173243,7 +173243,7 @@ loop_
   P   P10       1.0  0.569677  0.430323  0.75  1.0000
   P   P11       1.0  0.12034200000000018  0.879658  0.25  1.0000
   P   P12       1.0  0.879658  0.120342  0.75  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_RbBaPS4
 _symmetry_space_group_name_H-M   'P 1'
@@ -174161,7 +174161,7 @@ loop_
   S   S14       1.0  0.24999999999999994  0.563705  0.09022999999999999  1.0000
   S   S15       1.0  0.75  0.06370500000000001  0.40977  1.0000
   S   S16       1.0  0.75  0.436295  0.90977  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_PWO5
 _symmetry_space_group_name_H-M   'P 1'
@@ -175458,7 +175458,7 @@ loop_
   O   O18       1.0  0.0  0.0  0.4999999999999999  1.0000
   O   O19       1.0  0.5  0.5  0.0  1.0000
   O   O20       1.0  0.0  0.5  0.0  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Nd3GaFeSe7
 _symmetry_space_group_name_H-M   'P 1'
@@ -176794,7 +176794,7 @@ loop_
   Se  Se12      1.0  0.24327000000000004  0.134522  0.235789  1.0000
   Se  Se13      1.0  0.244441  0.7639679999999999  0.8988629999999999  1.0000
   Se  Se14      1.0  0.24261500000000003  0.10033800000000001  0.864949  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Al5Re24
 _symmetry_space_group_name_H-M   'P 1'
@@ -177656,7 +177656,7 @@ loop_
   Re  Re22      1.0  0.4257620596855967  0.43455020859818544  0.4092539703260437  1.0000
   Re  Re23      1.0  0.7531780695468081  0.6338741489788693  0.42576205961931607  1.0000
   Re  Re24      1.0  0.625086  0.8166900000000002  0.625086  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_TiZn(OF)6
 _symmetry_space_group_name_H-M   'P 1'
@@ -178301,7 +178301,7 @@ loop_
   F   F10       1.0  0.23162  0.459278  0.8829360000000003  1.0000
   F   F11       1.0  0.76838  0.040722  0.382936  1.0000
   F   F12       1.0  0.76838  0.540721  0.117064  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_CdC4S2(NO)4
 _symmetry_space_group_name_H-M   'P 1'
@@ -179275,7 +179275,7 @@ loop_
   O   O6        1.0  0.9571819999999998  0.05323800000000001  0.348226  1.0000
   O   O7        1.0  0.04281799999999999  0.446762  0.848226  1.0000
   O   O8        1.0  0.04281799999999999  0.553238  0.151774  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Y3Te3N
 _symmetry_space_group_name_H-M   'P 1'
@@ -180247,7 +180247,7 @@ loop_
   N   N2        1.0  0.03481167  0.3269172199999999  0.12310538000000001  1.0000
   N   N3        1.0  0.4651883300000001  0.6507463560014382  0.7620711483882611  1.0000
   N   N4        1.0  0.9651883300000004  0.32353183456336404  0.4887519893903445  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Hf9Re4As
 _symmetry_space_group_name_H-M   'P 1'
@@ -181417,7 +181417,7 @@ loop_
   Re  Re8       1.0  0.0  0.0  0.0  1.0000
   As  As1       1.0  0.66668704  0.33331296  0.7499999999999999  1.0000
   As  As2       1.0  0.6916063392651512  0.66668704  0.1388576322540433  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_HfNF5
 _symmetry_space_group_name_H-M   'P 1'
@@ -182540,7 +182540,7 @@ loop_
   F   F18       1.0  0.13655299999999998  0.863447  0.0  1.0000
   F   F19       1.0  0.636553  0.36344700000000013  0.5  1.0000
   F   F20       1.0  0.863447  0.136553  0.0  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_NiP
 _symmetry_space_group_name_H-M   'P 1'
@@ -183599,7 +183599,7 @@ loop_
   P   P12       1.0  0.2568117757830698  0.8671770121378193  0.0017602865580216898  1.0000
   P   P13       1.0  0.6874255099999999  0.68742551  0.2344873  1.0000
   P   P14       1.0  0.31257449  0.31257449  0.7344873  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Hf10SiMo3
 _symmetry_space_group_name_H-M   'P 1'
@@ -184685,7 +184685,7 @@ loop_
   Mo  Mo4       1.0  0.031212207167067282  0.7116326770792886  0.7500000000000002  1.0000
   Mo  Mo5       1.0  0.11565600000000001  0.23131200000000005  0.7500000000000002  1.0000
   Mo  Mo6       1.0  0.7686880000000001  0.8843440000000002  0.7500000000000002  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_SiH12C6(NO2)4
 _symmetry_space_group_name_H-M   'P 1'
@@ -185335,7 +185335,7 @@ loop_
   O   O14       1.0  0.10808800000000002  0.667444  0.14233799999999996  1.0000
   O   O15       1.0  0.773075  0.496256  0.722649  1.0000
   O   O16       1.0  0.22692499999999996  0.5037439999999999  0.27735099999999996  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_KGd(BH4)4
 _symmetry_space_group_name_H-M   'P 1'
@@ -186256,7 +186256,7 @@ loop_
   H   H30       1.0  0.3879201851346241  0.6991031276856976  0.05389253307976283  1.0000
   H   H31       1.0  0.17922250662961775  0.8305005402004089  0.5197693147465271  1.0000
   H   H32       1.0  0.7870660000000003  0.14142  0.813186  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Na2LuC2O6F
 _symmetry_space_group_name_H-M   'P 1'
@@ -187024,7 +187024,7 @@ loop_
   F   F2        1.0  0.30096158  0.81538943  0.68170161  1.0000
   F   F3        1.0  0.8153894300000001  0.30096158  0.18170161  1.0000
   F   F4        1.0  0.69903842  0.18461057000000003  0.31829839000000004  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_NaNb2H7O9
 _symmetry_space_group_name_H-M   'P 1'
@@ -187858,7 +187858,7 @@ loop_
   O   O34       1.0  0.8819390000000001  0.439027  0.332446  1.0000
   O   O35       1.0  0.6180610000000002  0.4390270000000001  0.8324459999999999  1.0000
   O   O36       1.0  0.118061  0.5609730000000002  0.6675539999999998  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Tl4PbSe3
 _symmetry_space_group_name_H-M   'P 1'
@@ -188918,7 +188918,7 @@ loop_
   Se  Se10      1.0  0.82793164  0.82793164  0.24999999999999994  1.0000
   Se  Se11      1.0  0.17206836  0.17206836  0.24999999999999994  1.0000
   Se  Se12      1.0  0.82793164  0.17206836  0.75  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_H8C5
 _symmetry_space_group_name_H-M   'P 1'
@@ -189767,7 +189767,7 @@ loop_
   C   C18       1.0  0.98782944110642  0.6691286888669069  0.808711  1.0000
   C   C19       1.0  0.5  0.5  0.308711  1.0000
   C   C20       1.0  0.0  0.0  0.191289  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_H6C3S(NO)2
 _symmetry_space_group_name_H-M   'P 1'
@@ -190617,7 +190617,7 @@ loop_
   O   O6        1.0  0.26182600000000006  0.9063620000000002  0.6249620000000001  1.0000
   O   O7        1.0  0.7381740000000003  0.4063620000000001  0.8750380000000002  1.0000
   O   O8        1.0  0.738174  0.09363800000000001  0.375038  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Ir(SeBr3)3
 _symmetry_space_group_name_H-M   'P 1'
@@ -191357,7 +191357,7 @@ loop_
   Br  Br34      1.0  0.5607342  0.21249256  0.81041986  1.0000
   Br  Br35      1.0  0.060734199999999995  0.28750744  0.6895801400000002  1.0000
   Br  Br36      1.0  0.4392658  0.7875074399999998  0.18958014  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Dy3(Al3Ru)4
 _symmetry_space_group_name_H-M   'P 1'
@@ -192090,7 +192090,7 @@ loop_
   Ru  Ru6       1.0  0.49999967000000006  0.50000016  5.1e-07  1.0000
   Ru  Ru7       1.0  0.49999966  0.99999962  3.9e-07  1.0000
   Ru  Ru8       1.0  0.24359295065954653  0.6110101023578659  4.1000000011874967e-07  1.0000
-"
+",AtomCountMismatch,True
 "# generated using pymatgen
 data_SrLiAlF6
 _symmetry_space_group_name_H-M   'P 1'
@@ -192561,7 +192561,7 @@ loop_
   F   F22       1.0  0.39694065000000006  0.43814771  0.3498874  1.0000
   F   F23       1.0  0.39694065000000006  0.06185228999999999  0.8498874  1.0000
   F   F24       1.0  0.60305935  0.56185229  0.6501126  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_P3Pb5IO12
 _symmetry_space_group_name_H-M   'P 1'
@@ -193294,7 +193294,7 @@ loop_
   O   O22       1.0  0.906484  0.633946  0.581339  1.0000
   O   O23       1.0  0.727461  0.093516  0.581339  1.0000
   O   O24       1.0  0.366054  0.272539  0.581339  1.0000
-"
+",AtomCountMismatch,True
 "# generated using pymatgen
 data_AuCl4O3
 _symmetry_space_group_name_H-M   'P 1'
@@ -194151,7 +194151,7 @@ loop_
   O   O10       1.0  0.91117  0.7685569999999998  0.088601  1.0000
   O   O11       1.0  0.58883  0.768557  0.588601  1.0000
   O   O12       1.0  0.08882999999999999  0.2314430000000001  0.9113989999999998  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_SrUP2(HO5)2
 _symmetry_space_group_name_H-M   'P 1'
@@ -195002,7 +195002,7 @@ loop_
   O   O18       1.0  0.05479299999999999  0.4115069999999999  0.022524  1.0000
   O   O19       1.0  0.70124  0.227737  0.010909  1.0000
   O   O20       1.0  0.29876  0.7722629999999997  0.9890909999999998  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Mn7Zn4Si2(AsO12)2
 _symmetry_space_group_name_H-M   'P 1'
@@ -196185,7 +196185,7 @@ loop_
   O   O46       1.0  0.45602499999999996  0.8414009999999998  0.391851  1.0000
   O   O47       1.0  0.956025  0.8414009999999998  0.108149  1.0000
   O   O48       1.0  0.8853759999999999  0.8414009999999998  0.891851  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Pr2S3O20
 _symmetry_space_group_name_H-M   'P 1'
@@ -197128,7 +197128,7 @@ loop_
   O   O38       1.0  0.47354  0.331847  0.005082  1.0000
   O   O39       1.0  0.3766763107113825  0.3313862823710326  0.6717746483570883  1.0000
   O   O40       1.0  0.5264599999999999  0.668153  0.9949180000000001  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_ScGe2Ru
 _symmetry_space_group_name_H-M   'P 1'
@@ -198203,7 +198203,7 @@ loop_
   Ru  Ru10      1.0  0.753672  0.0  0.0  1.0000
   Ru  Ru11      1.0  0.753672  0.5  0.5  1.0000
   Ru  Ru12      1.0  0.24632799999999996  0.0  0.0  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_KS3
 _symmetry_space_group_name_H-M   'P 1'
@@ -199435,7 +199435,7 @@ loop_
   S   S22       1.0  0.7193766000000003  0.88913039  0.9387787800000001  1.0000
   S   S23       1.0  0.7806234000000001  0.38913039  0.56122122  1.0000
   S   S24       1.0  0.2806234  0.11086961  0.06122122000000001  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_K2Cd(BH4)4
 _symmetry_space_group_name_H-M   'P 1'
@@ -200666,7 +200666,7 @@ loop_
   H   H62       1.0  0.7061790000000002  0.66004  0.3702760000000001  1.0000
   H   H63       1.0  0.7938210000000002  0.16004  0.129724  1.0000
   H   H64       1.0  0.4448130269941032  0.33996  0.7700282415654418  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_Dy3Ni19B10
 _symmetry_space_group_name_H-M   'P 1'
@@ -202002,7 +202002,7 @@ loop_
   B   B8        1.0  0.8160824317728715  0.8950038578307413  0.569162  1.0000
   B   B9        1.0  0.6366911811287929  0.32515231276734424  0.430838  1.0000
   B   B10       1.0  0.9459640980475944  0.29773189225352414  0.430838  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_PrC2ClO7
 _symmetry_space_group_name_H-M   'P 1'
@@ -203124,7 +203124,7 @@ loop_
   O   O26       1.0  0.844859  0.4632690000000001  0.851968  1.0000
   O   O27       1.0  0.344859  0.536731  0.648032  1.0000
   O   O28       1.0  0.155141  0.536731  0.148032  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_B6P2H14N2O19
 _symmetry_space_group_name_H-M   'P 1'
@@ -204020,7 +204020,7 @@ loop_
   O   O17       1.0  0.689987  0.845242  0.461636  1.0000
   O   O18       1.0  0.31440386163313744  0.2516686154658009  0.4444561221895649  1.0000
   O   O19       1.0  0.0  0.0  0.0  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_La5Rh4
 _symmetry_space_group_name_H-M   'P 1'
@@ -205206,7 +205206,7 @@ loop_
   Rh  Rh14      1.0  0.801052  0.361354  0.7499999999999998  1.0000
   Rh  Rh15      1.0  0.698948  0.8613539999999997  0.24999999999999994  1.0000
   Rh  Rh16      1.0  0.198948  0.6386459999999998  0.24999999999999994  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_NbBi2O5F
 _symmetry_space_group_name_H-M   'P 1'
@@ -205957,7 +205957,7 @@ loop_
   F   F2        1.0  0.022083000000000002  0.9487980000000001  0.3772619999999999  1.0000
   F   F3        1.0  0.022083000000000002  0.44879800000000003  0.6227379999999999  1.0000
   F   F4        1.0  0.69538282211837  0.551202  0.13052398226973383  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_V4Cd(SeO6)3
 _symmetry_space_group_name_H-M   'P 1'
@@ -206613,7 +206613,7 @@ loop_
   O   O34       1.0  0.31065  0.169936  0.068711  1.0000
   O   O35       1.0  0.798924  0.056086000000000046  0.689998  1.0000
   O   O36       1.0  0.20107600000000003  0.9439140000000003  0.310002  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_U11(PbO12)3
 _symmetry_space_group_name_H-M   'P 1'
@@ -207326,7 +207326,7 @@ loop_
   O   O70       1.0  0.49868099999999993  0.0  0.4363029999999999  1.0000
   O   O71       1.0  0.501319  0.5  0.936303  1.0000
   O   O72       1.0  0.501319  0.5  0.063697  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_MgH8C3(NO3)2
 _symmetry_space_group_name_H-M   'P 1'
@@ -208495,7 +208495,7 @@ loop_
   O   O22       1.0  0.8664891399999998  0.57280066  0.9176596300000001  1.0000
   O   O23       1.0  0.3664891399999999  0.92719934  0.08234037  1.0000
   O   O24       1.0  0.13351085999999995  0.07280069  0.5823403700000003  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_PuUP4H4(CO8)2
 _symmetry_space_group_name_H-M   'P 1'
@@ -209289,7 +209289,7 @@ loop_
   O   O30       1.0  0.8250229999999998  0.595162  0.152026  1.0000
   O   O31       1.0  0.674977  0.595162  0.152026  1.0000
   O   O32       1.0  0.174977  0.6858529364022976  0.0642877278392826  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Ba2B5O11
 _symmetry_space_group_name_H-M   'P 1'
@@ -210321,7 +210321,7 @@ loop_
   O   O42       1.0  0.834084  0.5657670000000002  0.866278  1.0000
   O   O43       1.0  0.6659160000000002  0.565767  0.366278  1.0000
   O   O44       1.0  0.16591600000000006  0.4342330000000001  0.133722  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_NbBi4BrO8
 _symmetry_space_group_name_H-M   'P 1'
@@ -210980,7 +210980,7 @@ loop_
   O   O30       1.0  0.24168200000000004  0.45369  0.7671199999999998  1.0000
   O   O31       1.0  0.24168200000000004  0.04631  0.26712  1.0000
   O   O32       1.0  0.7416820000000002  0.95369  0.7328799999999998  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_Ba4CrGa2(S3F2)2
 _symmetry_space_group_name_H-M   'P 1'
@@ -211694,7 +211694,7 @@ loop_
   F   F14       1.0  0.510771  0.8746490000000002  0.498319  1.0000
   F   F15       1.0  0.010771  0.625351  0.501681  1.0000
   F   F16       1.0  0.489229  0.125351  0.9983189999999998  1.0000
-"
+",AtomCountMismatch,True
 "# generated using pymatgen
 data_Rb4Mo5(PO11)2
 _symmetry_space_group_name_H-M   'P 1'
@@ -212351,7 +212351,7 @@ loop_
   O   O42       1.0  0.67813969  0.78561161  0.11690544999999998  1.0000
   O   O43       1.0  0.21438839000000004  0.32186031  0.38309455  1.0000
   O   O44       1.0  0.3218603099999999  0.21438838999999998  0.61690545  1.0000
-"
+",AtomCountMismatch,True
 "# generated using pymatgen
 data_AlH10C3N
 _symmetry_space_group_name_H-M   'P 1'
@@ -213511,7 +213511,7 @@ loop_
   N   N2        1.0  0.533376  0.04347  0.878781  1.0000
   N   N3        1.0  0.9666239999999999  0.54347  0.621219  1.0000
   N   N4        1.0  0.466624  0.9565300000000001  0.121219  1.0000
-"
+",OutputFormatError,True
 "# generated using pymatgen
 data_NaGaBP2H3O10
 _symmetry_space_group_name_H-M   'P 1'
@@ -214566,7 +214566,7 @@ loop_
   O   O18       1.0  0.7166499999999999  0.9316000000000003  0.612221  1.0000
   O   O19       1.0  0.9315999999999999  0.71665  0.112221  1.0000
   O   O20       1.0  0.2833499999999998  0.0684  0.387779  1.0000
-"
+",AtomCountMismatch,True
 "# generated using pymatgen
 data_Na12(CuO2)7
 _symmetry_space_group_name_H-M   'P 1'
@@ -215411,7 +215411,7 @@ loop_
   O   O12       1.0  0.18566241  0.18567211999999997  0.22994339  1.0000
   O   O13       1.0  0.7558461000000002  0.6085005800000001  0.2770279  1.0000
   O   O14       1.0  0.6085320199999998  0.75585152  0.27701354  1.0000
-"
+",StructureMismatch,True
 "# generated using pymatgen
 data_ThUP4H4(CO8)2
 _symmetry_space_group_name_H-M   'P 1'
@@ -216500,4 +216500,4 @@ loop_
   O   O30       1.0  0.75  0.735518  0.363096  1.0000
   O   O31       1.0  0.25  0.586611  0.086354  1.0000
   O   O32       1.0  0.75  0.413389  0.9136459999999998  1.0000
-"
+",OutputFormatError,True
