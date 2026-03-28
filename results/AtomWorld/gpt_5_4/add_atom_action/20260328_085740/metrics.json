@@ -1,0 +1,24 @@
+{
+  "summary": {
+    "total_samples": 5,
+    "success_count": 3,
+    "error_count": 2,
+    "success_rate": 0.6,
+    "error_types": {
+      "StructureMismatch": {
+        "count": 2,
+        "percentage": 1.0
+      }
+    }
+  },
+  "statistics": {
+    "rmsd_mean": 0.025007861446290552,
+    "rmsd_median": 1.0637375038612045e-05,
+    "rmsd_max": 0.075004388866685,
+    "rmsd_min": 8.558097148042652e-06,
+    "max_diff_mean": 0.08663320216808344,
+    "max_diff_median": 4.254950015444818e-05,
+    "max_diff_max": 0.2598228246155037,
+    "max_diff_min": 3.4232388592170615e-05
+  }
+}
