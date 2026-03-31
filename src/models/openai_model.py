@@ -24,6 +24,7 @@ class OpenAIModel(BaseModel):
             )
 
         self.base_url = base_url if base_url else os.getenv("OPENAI_API_BASE_URL")
+        print("OpenAI params:", self.base_url, self.api_key)
         self.client = OpenAI(api_key=self.api_key, base_url=self.base_url)
 
         self.default_generation_params = {
@@ -36,7 +37,7 @@ class OpenAIModel(BaseModel):
 
     def _call_api(self, messages: List[Dict[str, str]], **kwargs) -> str:
         """ private method to call OpenAI API with given messages and parameters."""
-        max_retries = 3
+        max_retries = 14
         backoff = 2  # seconds
         for attempt in range(max_retries):
             try:

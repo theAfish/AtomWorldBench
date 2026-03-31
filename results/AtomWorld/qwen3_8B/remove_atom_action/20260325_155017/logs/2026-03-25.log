@@ -1,0 +1,17 @@
+2026-03-25 15:50:17,798 - AtomWorldEvaluator - INFO - Starting evaluation with 250 samples in batches of 50
+2026-03-25 15:50:17,798 - AtomWorldEvaluator - INFO - Repeating each frame 1 time(s)
+2026-03-25 15:50:17,802 - AtomWorldEvaluator - DEBUG - Processing batch 1 of 5
+2026-03-25 16:01:23,307 - AtomWorldEvaluator - DEBUG - Processing batch 2 of 5
+2026-03-25 16:03:41,158 - AtomWorldEvaluator - DEBUG - Processing batch 3 of 5
+2026-03-25 16:05:41,379 - AtomWorldEvaluator - DEBUG - Processing batch 4 of 5
+2026-03-25 16:08:06,480 - AtomWorldEvaluator - DEBUG - Processing batch 5 of 5
+2026-03-25 16:11:15,288 - AtomWorldEvaluator - INFO - Evaluation completed
+2026-03-25 16:11:15,289 - AtomWorldEvaluator - INFO - summary: {'total_samples': 250, 'success_count': 198, 'error_count': 52, 'success_rate': 0.792, 'error_types': {'AtomCountMismatch': {'count': 44, 'percentage': 0.8461538461538461}, 'StructureMismatch': {'count': 7, 'percentage': 0.1346153846153846}, 'OutputFormatError': {'count': 1, 'percentage': 0.019230769230769232}}} - statistics: {'rmsd_mean': np.float64(6.702091894402246e-08), 'rmsd_median': np.float64(2.8653531738173794e-16), 'rmsd_max': np.float64(3.8618600202099274e-06), 'rmsd_min': np.float64(4.0904396379007095e-17), 'max_diff_mean': np.float64(1.209789889046899e-07), 'max_diff_median': np.float64(6.349045464762925e-16), 'max_diff_max': np.float64(5.8566509983435215e-06), 'max_diff_min': np.float64(7.652511843152058e-17)}
+2026-03-25 16:11:15,337 - AtomWorldEvaluator - INFO - Saved metrics to /scratch/pawsey1302/alexchen5/AtomWorldBench/results/AtomWorld/qwen3_8B/remove_atom_action/20260325_155017/metrics.json
+2026-03-25 16:11:15,374 - AtomWorldEvaluator - INFO - Evaluation results saved to /scratch/pawsey1302/alexchen5/AtomWorldBench/results/AtomWorld/qwen3_8B/remove_atom_action/20260325_155017/evaluation_results.csv
+2026-03-25 16:11:15,382 - AtomWorldEvaluator - INFO - Failed cases saved to /scratch/pawsey1302/alexchen5/AtomWorldBench/results/AtomWorld/qwen3_8B/remove_atom_action/20260325_155017/evaluation_wrongs.csv
+2026-03-25 16:11:15,382 - AtomWorldEvaluator - INFO - 
+======== Evaluation Summary ========
+2026-03-25 16:11:15,382 - AtomWorldEvaluator - INFO - Total inputs: 1000
+2026-03-25 16:11:15,382 - AtomWorldEvaluator - INFO - num_unreadable_out: 1
+2026-03-25 16:11:15,382 - AtomWorldEvaluator - INFO - num_invalid_cif: 51

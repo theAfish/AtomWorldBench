@@ -4,12 +4,7 @@ from typing import Union
 from models.openai_model import OpenAIModel
 from models.azure_openai_model import AzureOpenAIModel
 from models.huggingface_model import HuggingFaceModel
-try:
-    from models.vllm_model import vllmModel
-except ImportError:
-    pass
 import yaml
-
 
 def load_model(config):
     model_class = config.get("class")
@@ -48,6 +43,8 @@ def load_model(config):
             **generation_params
         )
     elif model_class == "vllmModel":
+        from models.vllm_model import vllmModel
+
         model_name = config.get("model_name", None)
         lora_path = config.get("lora_path", None)
         generation_params = {k: v for k, v in config.items() if k not in ["class", "model_name", "lora_path"]}
