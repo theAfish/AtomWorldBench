@@ -60,6 +60,12 @@ class BenchmarkArgumentParser:
             help="Number of batches to use. Default: -1 for all data"
         )
         parser.add_argument(
+            "--repeat",
+            type=int,
+            default=1,
+            help="Number of times to repeat each frame/task (default: 1)"
+        )
+        parser.add_argument(
             "-f",
             "--results_folder",
             type=str,
@@ -77,6 +83,18 @@ class BenchmarkArgumentParser:
             "--plot",
             action="store_true",
             help="Generate histogram after evaluation (for atomworld, pointworld, cifgen)"
+        )
+        parser.add_argument(
+            "--data_path",
+            type=str,
+            default=None,
+            help="Override the default dataset location (folder for atomworld/pointworld/cifgen, CSV for cifrepair)"
+        )
+        parser.add_argument(
+            "--input_cifs_file",
+            type=str,
+            default=None,
+            help="AtomWorld only: name of the input CIF HDF5 file to load from the data path"
         )
         
         # Action argument (only used by some benchmark types)
@@ -98,6 +116,15 @@ class BenchmarkArgumentParser:
         # Convert to dictionary for easier manipulation
         args_dict = vars(args)
         
+        data_path = args_dict.get('data_path')
+        input_cifs_file = args_dict.get('input_cifs_file')
+
+        if args.repeat < 1:
+            parser.error("--repeat must be a positive integer")
+
+        if args.benchmark_type != 'atomworld' and input_cifs_file:
+            parser.error("--input_cifs_file is only valid for the atomworld benchmark")
+
         # Validate action argument usage
         if args.benchmark_type in ['atomworld', 'pointworld']:
             # Action is required for these benchmark types
@@ -105,9 +132,11 @@ class BenchmarkArgumentParser:
                 parser.error(f"--action is required for {args.benchmark_type} benchmark")
             
             valid_actions = cls.BENCHMARK_TYPES[args.benchmark_type]
-            if args.action not in valid_actions:
-                parser.error(f"Invalid action '{args.action}' for {args.benchmark_type}. "
-                           f"Must be one of: {valid_actions}")
+            if args.action not in valid_actions and not data_path:
+                parser.error(
+                    f"Invalid action '{args.action}' for {args.benchmark_type}. "
+                    f"Must be one of: {valid_actions}, or provide --data_path to use a custom dataset."
+                )
         elif args.action is not None:
             # Action should not be provided for other benchmark types
             parser.error(f"--action argument is not used for {args.benchmark_type} benchmark. "

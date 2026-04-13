@@ -1,0 +1,22 @@
+2025-11-15 17:59:41,557 - AtomWorldEvaluator - INFO - Starting evaluation with 6 samples in batches of 6
+2025-11-15 17:59:41,558 - AtomWorldEvaluator - INFO - Repeating each frame 10 time(s)
+2025-11-15 17:59:41,560 - AtomWorldEvaluator - DEBUG - Processing batch 1 of all
+2025-11-15 18:00:46,476 - AtomWorldEvaluator - DEBUG - Processing batch 2 of all
+2025-11-15 18:04:05,692 - AtomWorldEvaluator - DEBUG - Processing batch 3 of all
+2025-11-15 18:07:32,824 - AtomWorldEvaluator - DEBUG - Processing batch 4 of all
+2025-11-15 18:11:59,103 - AtomWorldEvaluator - DEBUG - Processing batch 5 of all
+2025-11-15 18:16:45,177 - AtomWorldEvaluator - DEBUG - Processing batch 6 of all
+2025-11-15 18:17:47,127 - AtomWorldEvaluator - DEBUG - Processing batch 7 of all
+2025-11-15 18:19:23,392 - AtomWorldEvaluator - DEBUG - Processing batch 8 of all
+2025-11-15 18:20:40,825 - AtomWorldEvaluator - DEBUG - Processing batch 9 of all
+2025-11-15 18:22:48,065 - AtomWorldEvaluator - DEBUG - Processing batch 10 of all
+2025-11-15 18:24:58,182 - AtomWorldEvaluator - INFO - Evaluation completed
+2025-11-15 18:24:58,182 - AtomWorldEvaluator - INFO - summary: {'total_samples': 60, 'success_count': 13, 'error_count': 47, 'success_rate': 0.21666666666666667, 'error_types': {'OutputFormatError': {'count': 36, 'percentage': 0.7659574468085106}, 'StructureMismatch': {'count': 11, 'percentage': 0.23404255319148937}}} - statistics: {'rmsd_mean': np.float64(0.03700768149658961), 'rmsd_median': np.float64(0.03831999865547326), 'rmsd_max': np.float64(0.08273510179373696), 'rmsd_min': np.float64(0.00021052606350948554), 'max_diff_mean': np.float64(0.22930697262677163), 'max_diff_median': np.float64(0.2563848583490274), 'max_diff_max': np.float64(0.48600058325944895), 'max_diff_min': np.float64(0.0007292836766318023)}
+2025-11-15 18:24:58,183 - AtomWorldEvaluator - INFO - Saved metrics to D:\AI\PythonProjects\AtomWorldBench\results\AtomWorld\deepseek_chat\insert_between_atoms_action_natoms\20251115_175941\metrics.json
+2025-11-15 18:24:58,197 - AtomWorldEvaluator - INFO - Evaluation results saved to D:\AI\PythonProjects\AtomWorldBench\results\AtomWorld\deepseek_chat\insert_between_atoms_action_natoms\20251115_175941\evaluation_results.csv
+2025-11-15 18:24:58,208 - AtomWorldEvaluator - INFO - Failed cases saved to D:\AI\PythonProjects\AtomWorldBench\results\AtomWorld\deepseek_chat\insert_between_atoms_action_natoms\20251115_175941\evaluation_wrongs.csv
+2025-11-15 18:24:58,208 - AtomWorldEvaluator - INFO - 
+======== Evaluation Summary ========
+2025-11-15 18:24:58,208 - AtomWorldEvaluator - INFO - Total inputs: 6
+2025-11-15 18:24:58,208 - AtomWorldEvaluator - INFO - num_unreadable_out: 36
+2025-11-15 18:24:58,208 - AtomWorldEvaluator - INFO - num_invalid_cif: 11

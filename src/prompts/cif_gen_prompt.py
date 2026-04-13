@@ -18,11 +18,11 @@ def cif_gen_prompt(
     # get info according to must_fields from reference_cif
     info_lines = []
     if "a" in info:
-        info_lines.append(f"- Lattice constant a: {info["a"]} Angstrom")
+        info_lines.append(f"- Lattice constant a: {info['a']} Angstrom")
     if "b" in info:
-        info_lines.append(f"- Lattice constant b: {info["b"]} Angstrom")
+        info_lines.append(f"- Lattice constant b: {info['b']} Angstrom")
     if "c" in info:
-        info_lines.append(f"- Lattice constant c: {info["c"]} Angstrom")
+        info_lines.append(f"- Lattice constant c: {info['c']} Angstrom")
     if "c-aligned atom" in info:
         the_atom = info.get("c-aligned atom", None)
         if the_atom:
