@@ -1,0 +1,13 @@
+2025-11-17 11:47:35,773 - AtomWorldEvaluator - INFO - Starting evaluation with 50 samples in batches of 50
+2025-11-17 11:47:35,773 - AtomWorldEvaluator - INFO - Repeating each frame 1 time(s)
+2025-11-17 11:47:35,775 - AtomWorldEvaluator - DEBUG - Processing batch 1 of 1
+2025-11-17 11:50:31,642 - AtomWorldEvaluator - INFO - Evaluation completed
+2025-11-17 11:50:31,642 - AtomWorldEvaluator - INFO - summary: {'total_samples': 50, 'success_count': 45, 'error_count': 5, 'success_rate': 0.9, 'error_types': {'AtomCountMismatch': {'count': 3, 'percentage': 0.6}, 'StructureMismatch': {'count': 2, 'percentage': 0.4}}} - statistics: {'rmsd_mean': np.float64(0.023977833845133054), 'rmsd_median': np.float64(0.0038507677139084893), 'rmsd_max': np.float64(0.09875177568570061), 'rmsd_min': np.float64(3.072432664629822e-16), 'max_diff_mean': np.float64(0.10917881518821555), 'max_diff_median': np.float64(0.015403068386205263), 'max_diff_max': np.float64(0.47219240629513015), 'max_diff_min': np.float64(1.0180206828064362e-15)}
+2025-11-17 11:50:31,644 - AtomWorldEvaluator - INFO - Saved metrics to D:\Codes\AtomWorld\results\AtomWorld\deepseek_chat\insert_between_atoms_action_early_pos\20251117_114735\metrics.json
+2025-11-17 11:50:31,653 - AtomWorldEvaluator - INFO - Evaluation results saved to D:\Codes\AtomWorld\results\AtomWorld\deepseek_chat\insert_between_atoms_action_early_pos\20251117_114735\evaluation_results.csv
+2025-11-17 11:50:31,655 - AtomWorldEvaluator - INFO - Failed cases saved to D:\Codes\AtomWorld\results\AtomWorld\deepseek_chat\insert_between_atoms_action_early_pos\20251117_114735\evaluation_wrongs.csv
+2025-11-17 11:50:31,655 - AtomWorldEvaluator - INFO - 
+======== Evaluation Summary ========
+2025-11-17 11:50:31,655 - AtomWorldEvaluator - INFO - Total inputs: 1000
+2025-11-17 11:50:31,655 - AtomWorldEvaluator - INFO - num_unreadable_out: 0
+2025-11-17 11:50:31,655 - AtomWorldEvaluator - INFO - num_invalid_cif: 5

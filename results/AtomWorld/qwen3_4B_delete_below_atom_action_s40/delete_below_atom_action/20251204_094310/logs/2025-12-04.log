@@ -1,0 +1,13 @@
+2025-12-04 09:43:11,054 - AtomWorldEvaluator - INFO - Starting evaluation with 250 samples in batches of 250
+2025-12-04 09:43:11,055 - AtomWorldEvaluator - INFO - Repeating each frame 1 time(s)
+2025-12-04 09:43:11,064 - AtomWorldEvaluator - DEBUG - Processing batch 1 of 1
+2025-12-04 10:13:48,017 - AtomWorldEvaluator - INFO - Evaluation completed
+2025-12-04 10:13:48,018 - AtomWorldEvaluator - INFO - summary: {'total_samples': 250, 'success_count': 65, 'error_count': 185, 'success_rate': 0.26, 'error_types': {'AtomCountMismatch': {'count': 165, 'percentage': 0.8918918918918919}, 'StructureMismatch': {'count': 5, 'percentage': 0.02702702702702703}, 'OutputFormatError': {'count': 13, 'percentage': 0.07027027027027027}, 'CIFParsingError': {'count': 2, 'percentage': 0.010810810810810811}}} - statistics: {'rmsd_mean': 0.0009184801035354644, 'rmsd_median': 2.0252627715418062e-16, 'rmsd_max': 0.05823226182492714, 'rmsd_min': 0.0, 'max_diff_mean': 0.0031609655762611885, 'max_diff_median': 3.5565501004033663e-16, 'max_diff_max': 0.2017224722408547, 'max_diff_min': 0.0}
+2025-12-04 10:13:48,145 - AtomWorldEvaluator - INFO - Saved metrics to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/AtomWorld/qwen3_4B_delete_below_atom_action_s40/delete_below_atom_action/20251204_094310/metrics.json
+2025-12-04 10:13:48,173 - AtomWorldEvaluator - INFO - Evaluation results saved to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/AtomWorld/qwen3_4B_delete_below_atom_action_s40/delete_below_atom_action/20251204_094310/evaluation_results.csv
+2025-12-04 10:13:48,201 - AtomWorldEvaluator - INFO - Failed cases saved to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/AtomWorld/qwen3_4B_delete_below_atom_action_s40/delete_below_atom_action/20251204_094310/evaluation_wrongs.csv
+2025-12-04 10:13:48,201 - AtomWorldEvaluator - INFO - 
+======== Evaluation Summary ========
+2025-12-04 10:13:48,201 - AtomWorldEvaluator - INFO - Total inputs: 999
+2025-12-04 10:13:48,201 - AtomWorldEvaluator - INFO - num_unreadable_out: 13
+2025-12-04 10:13:48,201 - AtomWorldEvaluator - INFO - num_invalid_cif: 172

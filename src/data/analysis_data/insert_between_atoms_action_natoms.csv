@@ -1,0 +1,7 @@
+input_cif,action_prompt,output_cif
+mp-762304_12.cif,"Insert a H atom in the line between atoms at indices 3 and 5, and the inserted atom must be 2.09 angstrom from atom at 3 in the cif file.",mp-762304_12_processed.cif
+mp-762304_144.cif,"Insert a H atom in the line between atoms at indices 3 and 5, and the inserted atom must be 2.09 angstrom from atom at 3 in the cif file.",mp-762304_144_processed.cif
+mp-762304_216.cif,"Insert a H atom in the line between atoms at indices 3 and 5, and the inserted atom must be 2.09 angstrom from atom at 3 in the cif file.",mp-762304_216_processed.cif
+mp-762304_24.cif,"Insert a H atom in the line between atoms at indices 3 and 5, and the inserted atom must be 2.09 angstrom from atom at 3 in the cif file.",mp-762304_24_processed.cif
+mp-762304_48.cif,"Insert a H atom in the line between atoms at indices 3 and 5, and the inserted atom must be 2.09 angstrom from atom at 3 in the cif file.",mp-762304_48_processed.cif
+mp-762304_96.cif,"Insert a H atom in the line between atoms at indices 3 and 5, and the inserted atom must be 2.09 angstrom from atom at 3 in the cif file.",mp-762304_96_processed.cif

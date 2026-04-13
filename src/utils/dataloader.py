@@ -1,4 +1,5 @@
 import os
+import re
 import pandas as pd
 from scripts.load_data_from_h5 import load_cifs_from_hdf5
 from pymatgen.io.cif import CifParser
@@ -12,7 +13,7 @@ def load_cif_file(cif_file, primitive=True):
     """
     try:
         parser = CifParser(cif_file)
-        structures = parser.parse_structures(primitive=primitive)
+        structures = parser.parse_structures(primitive=primitive, check_occu=False)
         if structures:
             return structures[0]
         else:
@@ -29,7 +30,7 @@ def load_cif_file_from_string(cif_string, primitive=True):
     """
     try:
         parser = CifParser.from_str(cif_string)
-        structures = parser.parse_structures(primitive=primitive)
+        structures = parser.parse_structures(primitive=primitive, check_occu=False)
         if structures:
             return structures[0]
         else:
@@ -38,19 +39,46 @@ def load_cif_file_from_string(cif_string, primitive=True):
     except Exception as e:
         logging.info(f"Error loading CIF from string: {e}")
         return None
+    
 
 
-def load_data(data_folder, action_name=None):
+def format_floats_in_string(s, precision):
+    """
+    Format floating-point numbers found in string `s` to given `precision` decimal places.
+    Only matches floats (numbers with a decimal point or exponent) and leaves integers alone.
+    """
+    if s is None or precision is None:
+        return s
+    # match floats with optional exponent, avoid matching plain integers or
+    # numbers that are just an integer followed by a punctuation dot (e.g. "0.")
+    # Require at least one digit after the decimal point.
+    pattern = re.compile(r'[-+]?\d*\.\d+(?:[eE][-+]?\d+)?')
+
+    def repl(m):
+        txt = m.group(0)
+        try:
+            val = float(txt)
+        except Exception:
+            return txt
+        fmt = f"{{:.{precision}f}}"
+        return fmt.format(val)
+
+    return pattern.sub(repl, s)
+
+
+def load_data(data_folder, action_name=None, input_cifs="input_cifs.hdf5", precision=None):
     """
     Loads data for training/analysis.
     Args:
         data_folder: Path to the folder containing input_cifs.hdf5, action CSVs, and HDF5s.
         action_name: If specified, only load data for this action (e.g., 'add_atom_action').
+        precision: Optional int. If specified, formats float numbers in `input_cif`,
+            `action_prompt`, and `output_cif` to this many decimal places.
     Returns:
         pd.DataFrame with columns: input_cif, action_prompt, output_cif
     """
     # Load all input CIFs
-    input_cifs_path = os.path.join(data_folder, "input_cifs.hdf5")
+    input_cifs_path = os.path.join(data_folder, input_cifs)
     input_cifs = load_cifs_from_hdf5(input_cifs_path)
 
     # Find all action CSVs
@@ -78,6 +106,21 @@ def load_data(data_folder, action_name=None):
             # output_cif: get from output_cifs dict
             output_cif_path = os.path.basename(row["output_cif"])
             output_cif_str = output_cifs.get(output_cif_path, "")
+            # If precision is provided, format floating point numbers consistently
+            if precision is not None:
+                try:
+                    input_cif_str = format_floats_in_string(input_cif_str, precision)
+                except Exception:
+                    pass
+                try:
+                    action_prompt = format_floats_in_string(action_prompt, precision)
+                except Exception:
+                    pass
+                try:
+                    output_cif_str = format_floats_in_string(output_cif_str, precision)
+                except Exception:
+                    pass
+
             rows.append({
                 "input_cif": input_cif_str,
                 "action_prompt": action_prompt,
@@ -89,5 +132,6 @@ def load_data(data_folder, action_name=None):
 if __name__ == "__main__":
     data_folder = "." 
     action_name = 'add_atom_action' 
-    df = load_data(data_folder, action_name)
+    # Example: set precision=6 to format floats to 6 decimal places
+    df = load_data(data_folder, action_name, precision=6)
     print(df.head()['action_prompt'])

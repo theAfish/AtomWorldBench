@@ -1,0 +1,15 @@
+2026-03-25 14:45:38,209 - AtomWorldEvaluator - INFO - Starting evaluation with 150 samples in batches of 50
+2026-03-25 14:45:38,209 - AtomWorldEvaluator - INFO - Repeating each frame 1 time(s)
+2026-03-25 14:45:38,212 - AtomWorldEvaluator - DEBUG - Processing batch 1 of 3
+2026-03-25 14:47:07,264 - AtomWorldEvaluator - DEBUG - Processing batch 2 of 3
+2026-03-25 14:48:54,180 - AtomWorldEvaluator - DEBUG - Processing batch 3 of 3
+2026-03-25 14:50:13,355 - AtomWorldEvaluator - INFO - Evaluation completed
+2026-03-25 14:50:13,355 - AtomWorldEvaluator - INFO - summary: {'total_samples': 150, 'success_count': 72, 'error_count': 78, 'success_rate': 0.48, 'error_types': {'StructureMismatch': {'count': 73, 'percentage': 0.9358974358974359}, 'AtomCountMismatch': {'count': 4, 'percentage': 0.05128205128205128}, 'CIFParsingError': {'count': 1, 'percentage': 0.01282051282051282}}} - statistics: {'rmsd_mean': np.float64(0.00376463003348825), 'rmsd_median': np.float64(3.7730331387773983e-16), 'rmsd_max': np.float64(0.23215827686958057), 'rmsd_min': np.float64(0.0), 'max_diff_mean': np.float64(0.008301694481890292), 'max_diff_median': np.float64(7.926859009577666e-16), 'max_diff_max': np.float64(0.5337477405081291), 'max_diff_min': np.float64(0.0)}
+2026-03-25 14:50:13,364 - AtomWorldEvaluator - INFO - Saved metrics to D:\Codes\AtomWorld\results\AtomWorld\deepseek_chat\swap_atoms_action\20260325_144537\metrics.json
+2026-03-25 14:50:13,375 - AtomWorldEvaluator - INFO - Evaluation results saved to D:\Codes\AtomWorld\results\AtomWorld\deepseek_chat\swap_atoms_action\20260325_144537\evaluation_results.csv
+2026-03-25 14:50:13,382 - AtomWorldEvaluator - INFO - Failed cases saved to D:\Codes\AtomWorld\results\AtomWorld\deepseek_chat\swap_atoms_action\20260325_144537\evaluation_wrongs.csv
+2026-03-25 14:50:13,383 - AtomWorldEvaluator - INFO - 
+======== Evaluation Summary ========
+2026-03-25 14:50:13,383 - AtomWorldEvaluator - INFO - Total inputs: 998
+2026-03-25 14:50:13,383 - AtomWorldEvaluator - INFO - num_unreadable_out: 0
+2026-03-25 14:50:13,383 - AtomWorldEvaluator - INFO - num_invalid_cif: 78

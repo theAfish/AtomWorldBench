@@ -1,0 +1,37 @@
+2026-03-28 10:06:08,165 - AtomWorldEvaluator - INFO - Starting evaluation with 250 samples in batches of 10
+2026-03-28 10:06:08,171 - AtomWorldEvaluator - INFO - Repeating each frame 1 time(s)
+2026-03-28 10:06:08,207 - AtomWorldEvaluator - DEBUG - Processing batch 1 of 25
+2026-03-28 10:06:57,394 - AtomWorldEvaluator - DEBUG - Processing batch 2 of 25
+2026-03-28 10:07:12,545 - AtomWorldEvaluator - DEBUG - Processing batch 3 of 25
+2026-03-28 10:07:27,467 - AtomWorldEvaluator - DEBUG - Processing batch 4 of 25
+2026-03-28 10:08:20,326 - AtomWorldEvaluator - DEBUG - Processing batch 5 of 25
+2026-03-28 10:09:07,625 - AtomWorldEvaluator - DEBUG - Processing batch 6 of 25
+2026-03-28 10:09:58,386 - AtomWorldEvaluator - DEBUG - Processing batch 7 of 25
+2026-03-28 10:10:28,085 - AtomWorldEvaluator - DEBUG - Processing batch 8 of 25
+2026-03-28 10:10:54,670 - AtomWorldEvaluator - DEBUG - Processing batch 9 of 25
+2026-03-28 10:11:08,607 - AtomWorldEvaluator - DEBUG - Processing batch 10 of 25
+2026-03-28 10:12:06,135 - AtomWorldEvaluator - DEBUG - Processing batch 11 of 25
+2026-03-28 10:12:18,003 - AtomWorldEvaluator - DEBUG - Processing batch 12 of 25
+2026-03-28 10:12:38,419 - AtomWorldEvaluator - DEBUG - Processing batch 13 of 25
+2026-03-28 10:12:57,363 - AtomWorldEvaluator - DEBUG - Processing batch 14 of 25
+2026-03-28 10:13:26,457 - AtomWorldEvaluator - DEBUG - Processing batch 15 of 25
+2026-03-28 10:13:51,718 - AtomWorldEvaluator - DEBUG - Processing batch 16 of 25
+2026-03-28 10:14:31,081 - AtomWorldEvaluator - DEBUG - Processing batch 17 of 25
+2026-03-28 10:15:26,429 - AtomWorldEvaluator - DEBUG - Processing batch 18 of 25
+2026-03-28 10:17:16,050 - AtomWorldEvaluator - DEBUG - Processing batch 19 of 25
+2026-03-28 10:17:49,042 - AtomWorldEvaluator - DEBUG - Processing batch 20 of 25
+2026-03-28 10:18:11,575 - AtomWorldEvaluator - DEBUG - Processing batch 21 of 25
+2026-03-28 10:18:46,427 - AtomWorldEvaluator - DEBUG - Processing batch 22 of 25
+2026-03-28 10:19:39,326 - AtomWorldEvaluator - DEBUG - Processing batch 23 of 25
+2026-03-28 10:20:44,442 - AtomWorldEvaluator - DEBUG - Processing batch 24 of 25
+2026-03-28 10:22:04,016 - AtomWorldEvaluator - DEBUG - Processing batch 25 of 25
+2026-03-28 10:23:12,384 - AtomWorldEvaluator - INFO - Evaluation completed
+2026-03-28 10:23:12,392 - AtomWorldEvaluator - INFO - summary: {'total_samples': 250, 'success_count': 219, 'error_count': 31, 'success_rate': 0.876, 'error_types': {'AtomCountMismatch': {'count': 16, 'percentage': 0.5161290322580645}, 'StructureMismatch': {'count': 14, 'percentage': 0.45161290322580644}, 'CIFParsingError': {'count': 1, 'percentage': 0.03225806451612903}}} - statistics: {'rmsd_mean': np.float64(5.3977983341038606e-08), 'rmsd_median': np.float64(4.870391685243083e-16), 'rmsd_max': np.float64(2.2315764592987995e-06), 'rmsd_min': np.float64(1.2040541159377071e-32), 'max_diff_mean': np.float64(7.633218703920631e-08), 'max_diff_median': np.float64(1.050214209594966e-15), 'max_diff_max': np.float64(2.8104706839338014e-06), 'max_diff_min': np.float64(3.951495884654552e-32)}
+2026-03-28 10:23:12,412 - AtomWorldEvaluator - INFO - Saved metrics to /scratch/pawsey1302/alexchen5/AtomWorldBench/results/AtomWorld/gpt_5_4/swap_atoms_action/20260328_100559/metrics.json
+2026-03-28 10:23:13,228 - AtomWorldEvaluator - INFO - Evaluation results saved to /scratch/pawsey1302/alexchen5/AtomWorldBench/results/AtomWorld/gpt_5_4/swap_atoms_action/20260328_100559/evaluation_results.csv
+2026-03-28 10:23:13,364 - AtomWorldEvaluator - INFO - Failed cases saved to /scratch/pawsey1302/alexchen5/AtomWorldBench/results/AtomWorld/gpt_5_4/swap_atoms_action/20260328_100559/evaluation_wrongs.csv
+2026-03-28 10:23:13,366 - AtomWorldEvaluator - INFO - 
+======== Evaluation Summary ========
+2026-03-28 10:23:13,367 - AtomWorldEvaluator - INFO - Total inputs: 998
+2026-03-28 10:23:13,368 - AtomWorldEvaluator - INFO - num_unreadable_out: 0
+2026-03-28 10:23:13,369 - AtomWorldEvaluator - INFO - num_invalid_cif: 31

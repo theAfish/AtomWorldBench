@@ -4,6 +4,7 @@ deepseek_chat:
   api_key: ${DEEPSEEK_API_KEY} 
   base_url: https://api.deepseek.com/v1
   temperature: 1.0
+  max_tokens: 8192
 
 deepseek_reasoner:
   class: OpenAIModel 
@@ -11,6 +12,23 @@ deepseek_reasoner:
   api_key: ${DEEPSEEK_API_KEY} 
   base_url: https://api.deepseek.com/v1 
   temperature: 1.0
+
+# use from Ali
+# deepseek_chat:
+#   class: OpenAIModel
+#   model_name: deepseek-v3.2
+#   api_key: ${DEEPSEEK_API_KEY} 
+#   base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+#   temperature: 1.0
+#   max_tokens: 8192
+
+# deepseek_reasoner:
+#   class: OpenAIModel 
+#   model_name: deepseek-v3.2
+#   api_key: ${DEEPSEEK_API_KEY} 
+#   base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+#   extra_body: {"enable_thinking": True}
+#   temperature: 1.0
 
 gpt_4o:
   class: OpenAIModel

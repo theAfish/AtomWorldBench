@@ -1,0 +1,14 @@
+2026-03-25 14:54:14,838 - AtomWorldEvaluator - INFO - Starting evaluation with 250 samples in batches of 125
+2026-03-25 14:54:14,839 - AtomWorldEvaluator - INFO - Repeating each frame 1 time(s)
+2026-03-25 14:54:14,845 - AtomWorldEvaluator - DEBUG - Processing batch 1 of 2
+2026-03-25 15:09:15,592 - AtomWorldEvaluator - DEBUG - Processing batch 2 of 2
+2026-03-25 15:18:26,099 - AtomWorldEvaluator - INFO - Evaluation completed
+2026-03-25 15:18:26,099 - AtomWorldEvaluator - INFO - summary: {'total_samples': 250, 'success_count': 188, 'error_count': 62, 'success_rate': 0.752, 'error_types': {'AtomCountMismatch': {'count': 52, 'percentage': 0.8387096774193549}, 'StructureMismatch': {'count': 10, 'percentage': 0.16129032258064516}}} - statistics: {'rmsd_mean': np.float64(0.0005604031155363559), 'rmsd_median': np.float64(2.8679684613945384e-16), 'rmsd_max': np.float64(0.10464623145121135), 'rmsd_min': np.float64(3.418681141450234e-17), 'max_diff_mean': np.float64(0.002178749997677768), 'max_diff_median': np.float64(6.43195159063121e-16), 'max_diff_max': np.float64(0.4057669423938761), 'max_diff_min': np.float64(3.7449775561796046e-17)}
+2026-03-25 15:18:26,102 - AtomWorldEvaluator - INFO - Saved metrics to /scratch/pawsey1302/alexchen5/AtomWorldBench/results/AtomWorld/qwen3_4B/remove_atom_action/20260325_145414/metrics.json
+2026-03-25 15:18:26,135 - AtomWorldEvaluator - INFO - Evaluation results saved to /scratch/pawsey1302/alexchen5/AtomWorldBench/results/AtomWorld/qwen3_4B/remove_atom_action/20260325_145414/evaluation_results.csv
+2026-03-25 15:18:26,143 - AtomWorldEvaluator - INFO - Failed cases saved to /scratch/pawsey1302/alexchen5/AtomWorldBench/results/AtomWorld/qwen3_4B/remove_atom_action/20260325_145414/evaluation_wrongs.csv
+2026-03-25 15:18:26,143 - AtomWorldEvaluator - INFO - 
+======== Evaluation Summary ========
+2026-03-25 15:18:26,143 - AtomWorldEvaluator - INFO - Total inputs: 1000
+2026-03-25 15:18:26,143 - AtomWorldEvaluator - INFO - num_unreadable_out: 0
+2026-03-25 15:18:26,143 - AtomWorldEvaluator - INFO - num_invalid_cif: 62
