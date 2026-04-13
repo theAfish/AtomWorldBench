@@ -1,0 +1,15 @@
+2025-11-17 18:04:32,233 - AtomWorldEvaluator - INFO - Starting evaluation with 140 samples in batches of 50
+2025-11-17 18:04:32,234 - AtomWorldEvaluator - INFO - Repeating each frame 1 time(s)
+2025-11-17 18:04:32,237 - AtomWorldEvaluator - DEBUG - Processing batch 1 of all
+2025-11-17 18:19:26,940 - AtomWorldEvaluator - DEBUG - Processing batch 2 of all
+2025-11-17 18:35:52,562 - AtomWorldEvaluator - DEBUG - Processing batch 3 of all
+2025-11-17 18:49:09,421 - AtomWorldEvaluator - INFO - Evaluation completed
+2025-11-17 18:49:09,422 - AtomWorldEvaluator - INFO - summary: {'total_samples': 140, 'success_count': 128, 'error_count': 12, 'success_rate': 0.9142857142857143, 'error_types': {'StructureMismatch': {'count': 6, 'percentage': 0.5}, 'AtomCountMismatch': {'count': 4, 'percentage': 0.3333333333333333}, 'OutputFormatError': {'count': 2, 'percentage': 0.16666666666666666}}} - statistics: {'rmsd_mean': 0.007180019743056093, 'rmsd_median': 0.0002968204741431319, 'rmsd_max': 0.1264244020580694, 'rmsd_min': 8.609290097376768e-17, 'max_diff_mean': 0.026623012837024167, 'max_diff_median': 0.001236903654156395, 'max_diff_max': 0.46655253235010563, 'max_diff_min': 1.2488979592971683e-16}
+2025-11-17 18:49:09,782 - AtomWorldEvaluator - INFO - Saved metrics to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/AtomWorld/qwen3_32B/insert_between_atoms_action_sg/20251117_180430/metrics.json
+2025-11-17 18:49:09,881 - AtomWorldEvaluator - INFO - Evaluation results saved to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/AtomWorld/qwen3_32B/insert_between_atoms_action_sg/20251117_180430/evaluation_results.csv
+2025-11-17 18:49:09,888 - AtomWorldEvaluator - INFO - Failed cases saved to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/AtomWorld/qwen3_32B/insert_between_atoms_action_sg/20251117_180430/evaluation_wrongs.csv
+2025-11-17 18:49:09,888 - AtomWorldEvaluator - INFO - 
+======== Evaluation Summary ========
+2025-11-17 18:49:09,888 - AtomWorldEvaluator - INFO - Total inputs: 140
+2025-11-17 18:49:09,888 - AtomWorldEvaluator - INFO - num_unreadable_out: 2
+2025-11-17 18:49:09,888 - AtomWorldEvaluator - INFO - num_invalid_cif: 10

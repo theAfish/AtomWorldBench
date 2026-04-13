@@ -23,6 +23,10 @@ class BenchmarkRunner:
         """Initialize the model based on configuration"""
         model_config = load_config(self.config.config_dir / self.config.config_name)[self.config.model_id]
         return load_model(model_config)
+
+    def _resolve_data_path(self, default_path: Path) -> Path:
+        """Return the custom data path if provided, otherwise the default."""
+        return self.config.custom_data_path or default_path
     
     def _get_results_folder(self) -> str:
         """Generate results folder path based on benchmark type and configuration"""
@@ -40,17 +44,19 @@ class BenchmarkRunner:
     
     def _create_atomworld_evaluator(self) -> AtomWorldEvaluator:
         """Create an evaluator for AtomWorld benchmark"""
-        data_dir = Path(__file__).parent.parent / "data"
+        data_dir = self._resolve_data_path(Path(__file__).parent.parent / "data")
+        input_cifs_file = self.config.atomworld_input_cifs or "input_cifs.hdf5"
         return AtomWorldEvaluator(
             model=self.model,
-            data_folder=data_dir,
+            data_folder=str(data_dir),
             action_name=self.config.action,
-            results_folder=self._get_results_folder()
+            results_folder=self._get_results_folder(),
+            input_cifs_filename=input_cifs_file,
         )
     
     def _create_pointworld_evaluator(self) -> PointWorldEvaluator:
         """Create an evaluator for PointWorld benchmark"""
-        data_dir = Path(__file__).parent.parent / "point_world/datasets"
+        data_dir = self._resolve_data_path(Path(__file__).parent.parent / "point_world/datasets")
         return PointWorldEvaluator(
             model=self.model,
             data_folder=str(data_dir),
@@ -60,7 +66,7 @@ class BenchmarkRunner:
     
     def _create_cifgen_evaluator(self) -> CIFGenEvaluator:
         """Create an evaluator for CIFGen benchmark"""
-        data_dir = Path(__file__).parent.parent / "perceptual/cif_gen/base_cif"
+        data_dir = self._resolve_data_path(Path(__file__).parent.parent / "perceptual/cif_gen/base_cif")
         data = load_cif_gen_data(data_dir)
         return CIFGenEvaluator(
             model=self.model,
@@ -70,7 +76,9 @@ class BenchmarkRunner:
     
     def _create_cifrepair_evaluator(self) -> CIFRepairEvaluator:
         """Create an evaluator for CIFRepair benchmark"""
-        data_file = Path(__file__).parent.parent / "perceptual/cif_repair/cif_modifications.csv"
+        data_file = self._resolve_data_path(
+            Path(__file__).parent.parent / "perceptual/cif_repair/cif_modifications.csv"
+        )
         data = load_data(data_file)
         return CIFRepairEvaluator(
             model=self.model,
@@ -99,7 +107,8 @@ class BenchmarkRunner:
         evaluator.evaluate(
             batch_size=self.config.batch_size,
             num_batch=self.config.num_batch,
-            restart_from_index=self.config.restart_from_index if self.config.restart_from_index else 0
+            restart_from_index=self.config.restart_from_index if self.config.restart_from_index else 0,
+            repeat=self.config.repeat
         )
         # Optionally generate max_dist histogram after evaluation for supported benchmarks
         if getattr(self.config, "plot", False):

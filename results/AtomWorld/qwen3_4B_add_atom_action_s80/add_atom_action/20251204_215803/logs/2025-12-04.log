@@ -1,0 +1,13 @@
+2025-12-04 21:58:03,892 - AtomWorldEvaluator - INFO - Starting evaluation with 250 samples in batches of 250
+2025-12-04 21:58:03,893 - AtomWorldEvaluator - INFO - Repeating each frame 1 time(s)
+2025-12-04 21:58:03,902 - AtomWorldEvaluator - DEBUG - Processing batch 1 of 1
+2025-12-04 22:15:53,801 - AtomWorldEvaluator - INFO - Evaluation completed
+2025-12-04 22:15:53,809 - AtomWorldEvaluator - INFO - summary: {'total_samples': 250, 'success_count': 124, 'error_count': 126, 'success_rate': 0.496, 'error_types': {'StructureMismatch': {'count': 56, 'percentage': 0.4444444444444444}, 'CIFParsingError': {'count': 10, 'percentage': 0.07936507936507936}, 'OutputFormatError': {'count': 50, 'percentage': 0.3968253968253968}, 'AtomCountMismatch': {'count': 10, 'percentage': 0.07936507936507936}}} - statistics: {'rmsd_mean': 0.029193834634719203, 'rmsd_median': 0.00380034988509089, 'rmsd_max': 0.15509182146170863, 'rmsd_min': 1.0322547303263183e-16, 'max_diff_mean': 0.13105553288907745, 'max_diff_median': 0.01861783612503473, 'max_diff_max': 0.6203534802673685, 'max_diff_min': 2.1949690834577444e-16}
+2025-12-04 22:15:53,812 - AtomWorldEvaluator - INFO - Saved metrics to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/AtomWorld/qwen3_4B_add_atom_action_s80/add_atom_action/20251204_215803/metrics.json
+2025-12-04 22:15:53,867 - AtomWorldEvaluator - INFO - Evaluation results saved to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/AtomWorld/qwen3_4B_add_atom_action_s80/add_atom_action/20251204_215803/evaluation_results.csv
+2025-12-04 22:15:53,917 - AtomWorldEvaluator - INFO - Failed cases saved to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/AtomWorld/qwen3_4B_add_atom_action_s80/add_atom_action/20251204_215803/evaluation_wrongs.csv
+2025-12-04 22:15:53,917 - AtomWorldEvaluator - INFO - 
+======== Evaluation Summary ========
+2025-12-04 22:15:53,918 - AtomWorldEvaluator - INFO - Total inputs: 1000
+2025-12-04 22:15:53,918 - AtomWorldEvaluator - INFO - num_unreadable_out: 50
+2025-12-04 22:15:53,918 - AtomWorldEvaluator - INFO - num_invalid_cif: 76

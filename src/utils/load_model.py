@@ -1,11 +1,10 @@
 import os
 from pathlib import Path
+from typing import Union
 from models.openai_model import OpenAIModel
 from models.azure_openai_model import AzureOpenAIModel
 from models.huggingface_model import HuggingFaceModel
-from models.vllm_model import vllmModel
 import yaml
-
 
 def load_model(config):
     model_class = config.get("class")
@@ -34,23 +33,25 @@ def load_model(config):
         )
     elif model_class == "HuggingFaceModel":
         model_name = config.get("model_name", None)
-        device = config.get("device", "cpu")
         use_pipeline = config.get("use_pipeline", True)
         generation_params = {k: v for k, v in config.items() if
-                             k not in ["class", "model_name", "device", "use_pipeline"]}
+                             k not in ["class", "model_name", "use_pipeline"]}
 
         model = HuggingFaceModel(
             model_name=model_name,
-            device=device,
             use_pipeline=use_pipeline,
             **generation_params
         )
     elif model_class == "vllmModel":
+        from models.vllm_model import vllmModel
+
         model_name = config.get("model_name", None)
-        generation_params = {k: v for k, v in config.items() if k not in ["class", "model_name", "device", "use_pipeline"]}
+        lora_path = config.get("lora_path", None)
+        generation_params = {k: v for k, v in config.items() if k not in ["class", "model_name", "lora_path"]}
         
         model = vllmModel(
             model_name=model_name,
+            lora_path=lora_path,
             **generation_params
         )
     else:
@@ -59,17 +60,20 @@ def load_model(config):
     return model
 
 
-def load_config(config_name: str) -> dict:
+def load_config(config_name: Union[str, Path]) -> dict:
     """
     Load configuration from a YAML file.
     
     Args:
-        config_name (str): Name of the configuration file (without .yaml extension).
+        config_name (str | Path): Name of the configuration file (with or without .yaml extension).
     
     Returns:
         dict: Configuration parameters.
     """
-    config_path = Path(f"{config_name}.yaml")
+    # Normalize to Path so callers can pass either str or Path
+    config_path = Path(config_name)
+    if config_path.suffix != '.yaml':
+        config_path = config_path.with_name(config_path.name + '.yaml')
     if not config_path.exists():
         raise FileNotFoundError(f"Configuration file {config_path} does not exist.")
     

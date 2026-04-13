@@ -28,6 +28,17 @@ def test_atomworld_invalid_action(monkeypatch):
         run_with_args(["-t", "atomworld", "-a", "nonexistent_action"])
 
 
+def test_atomworld_custom_action_allowed_with_data_path(tmp_path):
+    custom_path = str(tmp_path)
+    args = run_with_args([
+        "-t", "atomworld",
+        "-a", "insert_between_atoms_action_natoms",
+        "--data_path", custom_path,
+    ])
+    assert args["action"] == "insert_between_atoms_action_natoms"
+    assert args["data_path"] == custom_path
+
+
 def test_atomworld_valid_action():
     # Valid action should parse and return dict containing provided values
     args = run_with_args(["-t", "atomworld", "-a", "add_atom_action", "-m", "deepseek_chat", "-b", "10"]) 
@@ -48,6 +59,11 @@ def test_cifgen_no_action_allowed():
         run_with_args(["-t", "cifgen", "-a", "some_action"]) 
 
 
+def test_input_cifs_only_valid_for_atomworld():
+    with pytest.raises(SystemExit):
+        run_with_args(["-t", "cifgen", "--input_cifs_file", "custom.hdf5"])
+
+
 def test_default_values_for_missing_optional_args():
     args = run_with_args(["-t", "cifgen"]) 
     # Check some defaults
@@ -58,3 +74,5 @@ def test_default_values_for_missing_optional_args():
     assert args["restart_from_index"] == 0
     assert args["plot"] is False
     assert args["results_folder"] is None
+    assert args["data_path"] is None
+    assert args["input_cifs_file"] is None

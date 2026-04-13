@@ -58,6 +58,14 @@ python ./src/run_benchmark.py -t [benchmark_type] -m [model_name] -a [action_nam
 | `action_name`    | Action to test (see [Available Actions](#available-actions)). Only for AtomWorld and PointWorld. |
 | `batch_size`     | Number of parallel LLM calls (default: 50).                                 |
 | `num_batch`      | Number of batches to test (default: all data).                              |
+| `--repeat`       | Repeat each frame/task this many times (default: 1).                        |
+| `results_folder` | Optional output directory override. Otherwise a timestamped folder is created. |
+| `restart_from_index` | Resume an interrupted job starting from the provided index. |
+| `--plot`         | Produce a max-dist histogram after evaluation (AtomWorld, PointWorld, CIFGen). |
+| `--data_path`    | Override the default dataset location. For AtomWorld/PointWorld/CIFGen pass a folder; for CIFRepair pass a CSV file. |
+| `--input_cifs_file` | (AtomWorld only) Alternate `input_cifs` HDF5 filename to load from the data path. |
+
+Use `--repeat` when you need multiple independent generations per frame. For example, `--repeat 10` will call the LLM ten times for every input frame while preserving the frame index in the output CSVs.
 
 ---
 
@@ -98,6 +106,24 @@ python ./src/run_benchmark.py -t [benchmark_type] -m [model_name] -a [action_nam
 
 ---
 
+#### Use custom datasets
+
+Pass `--data_path` to point the runner at your own dataset without changing the existing directory layout. The flag is benchmark-agnostic:
+
+- **AtomWorld / PointWorld**: provide a folder that contains the CSV/HDF5 pairs (and optional `input_cifs` file). When `--data_path` is set you can also supply action names that are not in the built-in lists (e.g., `insert_between_atoms_action_natoms`).
+- **CIFGen**: provide a folder containing your `.cif` files plus the accompanying `description_cards.json`.
+- **CIFRepair**: provide the path to a CSV file with the `original_cif`, `modified_cif`, and `removed_value` columns.
+
+For AtomWorld-specific datasets you can additionally set `--input_cifs_file` to choose a different HDF5 file that stores the base `input_cifs` mapping.
+
+Example (PowerShell) using a custom AtomWorld dataset stored under `./data/analysis_data`:
+
+```powershell
+python .\src\run_benchmark.py -t atomworld -m deepseek_chat -a insert_between_atoms_action_natoms --data_path .\src\data\analysis_data --input_cifs_file analysis_input_natoms.hdf5
+```
+
+---
+
 ### StructProp Task
 
 To get CIFs from LLM for StructProp:
@@ -112,8 +138,29 @@ Then run your own calculation pipelines. The results should be saved with the fo
 
 ### Analyze the Results
 
-In the new codes, the results are saved in `./results/[BenchmarkType]/[ModelName]/[ActionName]/[Timestamp]/`. The `evaluation_results.csv` contains the correct results, and `evaluation_wrongs.csv` contains the incorrect ones. `metrics.json` contains the summary of the metrics.
+In the new codes, the results are saved in `./results/[BenchmarkType]/[ModelName]/[ActionName]/[Timestamp]/`. The `evaluation_results.csv` contains the correct results, and `evaluation_wrongs.csv` contains the incorrect ones. `metrics.json` contains the summary of the metrics. Every record now includes a `frame_index` (and `repeat_index`) column so you can group statistics per original dataset frame, especially when running with `--repeat > 1`.
 
+#### Evaluate JSON Results
+
+If you have results in a JSON format (e.g., collected from users or other sources) instead of running the full benchmark workflow, you can use the `evaluate_json_results.py` script to evaluate them.
+
+**Input Format:**
+The input JSON file should be a list of objects, where each object has the following fields:
+- `instruction`: The instruction given to the model.
+- `input`: The input CIF structure.
+- `output`: The target CIF structure (ground truth).
+- `response`: The model's generated response (containing the generated CIF).
+
+**Usage:**
+
+```bash
+python src/scripts/evaluate_json_results.py [input_file] --output_file [output_file]
+```
+
+**Arguments:**
+- `input_file`: Path to the input JSON file.
+- `--output_file`: Path to save the detailed evaluation results (JSON).
+- `--summary_file`: (Optional) Path to save the summary statistics (JSON). If not provided, a summary file will be created next to the output file.
 
 
 Plotting after evaluation

@@ -6,18 +6,14 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
 from .base_model import BaseModel
 
 class HuggingFaceModel(BaseModel):
-    # HuggingFaceModel is untested. 
-    # Use vllm_model instead.
 
     def __init__(
         self,
         model_name: str,
-        device: Optional[Union[str, int]] = None,
         use_pipeline: bool = False,
         **kwargs
     ):
         super().__init__(model_name, **kwargs)
-        self.device = device if device is not None else "cpu"
         self.use_pipeline = use_pipeline
 
         # Load tokenizer and model
@@ -30,7 +26,6 @@ class HuggingFaceModel(BaseModel):
                 "text-generation",
                 model=self.model,
                 tokenizer=self.tokenizer,
-                device=self.device if isinstance(self.device, int) else 0 if self.device == "cuda" else -1,
                 **kwargs
             )
         else:
@@ -48,7 +43,7 @@ class HuggingFaceModel(BaseModel):
             outputs = self.generator(prompt, **params)
             return outputs[0]["generated_text"]
         else:
-            inputs = self.tokenizer(prompt, return_tensors="pt").to(self.model.device)
+            inputs = self.tokenizer(prompt, return_tensors="pt")
             output_ids = self.model.generate(**inputs, **params)
             return self.tokenizer.decode(output_ids[0], skip_special_tokens=True)
 
@@ -61,7 +56,7 @@ class HuggingFaceModel(BaseModel):
         else:
             results = []
             for prompt in prompts:
-                inputs = self.tokenizer(prompt, return_tensors="pt", truncation=False).to(self.model.device)
+                inputs = self.tokenizer(prompt, return_tensors="pt", truncation=False)
                 output_ids = self.model.generate(**inputs, **params)
                 results.append(self.tokenizer.decode(output_ids[0], skip_special_tokens=True, truncation=False))
             return results

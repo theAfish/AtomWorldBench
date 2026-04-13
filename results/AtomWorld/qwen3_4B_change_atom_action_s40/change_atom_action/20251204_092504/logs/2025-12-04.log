@@ -1,0 +1,13 @@
+2025-12-04 09:25:04,997 - AtomWorldEvaluator - INFO - Starting evaluation with 250 samples in batches of 250
+2025-12-04 09:25:04,998 - AtomWorldEvaluator - INFO - Repeating each frame 1 time(s)
+2025-12-04 09:25:05,007 - AtomWorldEvaluator - DEBUG - Processing batch 1 of 1
+2025-12-04 09:41:17,395 - AtomWorldEvaluator - INFO - Evaluation completed
+2025-12-04 09:41:17,396 - AtomWorldEvaluator - INFO - summary: {'total_samples': 250, 'success_count': 181, 'error_count': 69, 'success_rate': 0.724, 'error_types': {'AtomCountMismatch': {'count': 66, 'percentage': 0.9565217391304348}, 'StructureMismatch': {'count': 3, 'percentage': 0.043478260869565216}}} - statistics: {'rmsd_mean': 2.8386446873135795e-06, 'rmsd_median': 3.152073241133414e-16, 'rmsd_max': 0.0004987390441204356, 'rmsd_min': 0.0, 'max_diff_mean': 5.967744257410942e-06, 'max_diff_median': 6.619816156472875e-16, 'max_diff_max': 0.0010537761860606478, 'max_diff_min': 0.0}
+2025-12-04 09:41:17,400 - AtomWorldEvaluator - INFO - Saved metrics to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/AtomWorld/qwen3_4B_change_atom_action_s40/change_atom_action/20251204_092504/metrics.json
+2025-12-04 09:41:17,442 - AtomWorldEvaluator - INFO - Evaluation results saved to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/AtomWorld/qwen3_4B_change_atom_action_s40/change_atom_action/20251204_092504/evaluation_results.csv
+2025-12-04 09:41:17,454 - AtomWorldEvaluator - INFO - Failed cases saved to /scratch/pawsey1151/alexchen5/AtomWorldBench/results/AtomWorld/qwen3_4B_change_atom_action_s40/change_atom_action/20251204_092504/evaluation_wrongs.csv
+2025-12-04 09:41:17,454 - AtomWorldEvaluator - INFO - 
+======== Evaluation Summary ========
+2025-12-04 09:41:17,454 - AtomWorldEvaluator - INFO - Total inputs: 1000
+2025-12-04 09:41:17,454 - AtomWorldEvaluator - INFO - num_unreadable_out: 0
+2025-12-04 09:41:17,454 - AtomWorldEvaluator - INFO - num_invalid_cif: 69

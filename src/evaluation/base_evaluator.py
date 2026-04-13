@@ -35,55 +35,88 @@ class BaseEvaluator(ABC):
             log_dir=os.path.join(self.results_folder, "logs")
         )
 
-    def evaluate(self, batch_size: int = 8, num_batch: int = -1, restart_from_index: int = 0) -> None:
+    def evaluate(
+        self,
+        batch_size: int = 8,
+        num_batch: int = -1,
+        restart_from_index: int = 0,
+        repeat: int = 1,
+    ) -> None:
         """
         Main evaluation loop with batch processing.
         """
         if len(self.data) <= restart_from_index:
             self.logger.warning("Restart index exceeds data length. No evaluation performed.")
             return
+        if repeat < 1:
+            self.logger.warning("Repeat count must be >= 1. Defaulting to 1.")
+            repeat = 1
         results = []
         wrongs = []
         stats = self._initialize_stats()
-        
+
         prompts = []
-        rows = []
+        batch_metadata = []  # (frame_index, repeat_index, row)
         batch_count = 0
-        
-        total = min(num_batch * batch_size, len(self.data)) if num_batch > 0 else len(self.data)
-        self.logger.info(f"Starting evaluation with {total} samples in batches of {batch_size}")
+        processed_frames = 0
+
+        available_frames = max(len(self.data) - restart_from_index, 0)
+        target_frames = (
+            min(num_batch * batch_size, available_frames)
+            if num_batch > 0
+            else available_frames
+        )
+        planned_frames = target_frames if num_batch > 0 else available_frames
+        self.logger.info(
+            f"Starting evaluation with {planned_frames} samples in batches of {batch_size}"
+        )
+        self.logger.info(f"Repeating each frame {repeat} time(s)")
         if restart_from_index > 0:
             self.logger.info(f"Resuming from index {restart_from_index}")
         
-        for i, row in tqdm(self._get_data_iterator(), total=total, desc="LLM Calling"):
-            if i < restart_from_index:
+        def process_batch():
+            nonlocal prompts, batch_metadata, batch_count
+            if not prompts:
+                return
+            self.logger.debug(
+                f"Processing batch {batch_count + 1} of {num_batch if num_batch > 0 else 'all'}"
+            )
+            generated_outputs = self.model.generate_batch(prompts)
+            for (frame_index, repeat_index, data_row), generated_output in zip(batch_metadata, generated_outputs):
+                result = self._process_single_output(data_row, generated_output, stats)
+                result['frame_index'] = frame_index
+                result['repeat_index'] = repeat_index
+                if result.get('is_error'):
+                    wrongs.append(result)
+                else:
+                    results.append(result)
+                    stats['results'].append(result)
+                    self._log_success_metrics(result)
+            prompts = []
+            batch_metadata = []
+            batch_count += 1
+
+        for frame_index, row in tqdm(
+            self._get_data_iterator(),
+            total=target_frames if target_frames > 0 else None,
+            desc="LLM Calling"
+        ):
+            if frame_index < restart_from_index:
                 continue
             
             prompt = self._create_prompt(row)
-            prompts.append(prompt)
-            rows.append(row)
-            
-            if len(prompts) == batch_size or i == len(self.data) - 1:
-                self.logger.debug(f"Processing batch {batch_count + 1} of {num_batch if num_batch > 0 else 'all'}")
-                generated_outputs = self.model.generate_batch(prompts)
-                
-                for j, generated_output in enumerate(generated_outputs):
-                    row = rows[j]
-                    result = self._process_single_output(row, generated_output, stats)
-                    
-                    if result.get('is_error'):
-                        wrongs.append(result)
-                    else:
-                        results.append(result)
-                        stats['results'].append(result)
-                        self._log_success_metrics(result)
-                
-                prompts = []
-                rows = []
-                batch_count += 1
-                
-                if num_batch > 0 and batch_count >= num_batch:
-                    break
+            for repeat_index in range(repeat):
+                prompts.append(prompt)
+                batch_metadata.append((frame_index, repeat_index, row))
+
+                is_last_entry = frame_index == len(self.data) - 1 and repeat_index == repeat - 1
+                if len(prompts) == batch_size or is_last_entry:
+                    process_batch()
+            processed_frames += 1
+
+            if num_batch > 0 and processed_frames >= target_frames:
+                break
+        process_batch()
         
         # Log final statistics
         self.logger.info("Evaluation completed")
