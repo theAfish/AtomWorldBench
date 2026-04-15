@@ -23,13 +23,12 @@ BANNER_WORLD  =  r"""_   __
 
 
 def _resolve_version() -> str:
-    try:
-        return importlib.metadata.version("atom_world")
-    except importlib.metadata.PackageNotFoundError:
+    for pkg in ("atomworld", "atom_world", "AtomWorldBench"):
         try:
-            return importlib.metadata.version("AtomWorldBench")
+            return importlib.metadata.version(pkg)
         except importlib.metadata.PackageNotFoundError:
-            return "0.1.0 (dev)"
+            continue
+    return "0.1.0 (dev)"
 
 
 def _print_help() -> None:
