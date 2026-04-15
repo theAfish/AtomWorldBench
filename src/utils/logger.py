@@ -63,6 +63,11 @@ class Logger:
         # Store metrics
         self.metrics: Dict[str, Any] = {}
         self.results_dir = "results"
+
+    @property
+    def handlers(self):
+        """Expose the underlying logger's handlers for compatibility."""
+        return self.logger.handlers
     
     def debug(self, msg: str) -> None:
         """Log debug message"""

@@ -1,4 +1,5 @@
 from atom_world.actions import BaseAction
+import numpy as np
 import random
 from typing import Optional, List, Tuple, Union
 
@@ -60,6 +61,27 @@ class SuperCellAction(CellAction):
         multiply_symbols = ['×', 'x', '*', 'X', ' by ']
         mul_symbol = random.choice(multiply_symbols)
         return f"Create a supercell with the size {self.supercell_size[0]}{mul_symbol}{self.supercell_size[1]}{mul_symbol}{self.supercell_size[2]}."
+
+    @classmethod
+    def randomize(cls, atoms=None, rng=None, config=None):
+        """Sample random supercell parameters."""
+        rng = rng if rng is not None else np.random.default_rng()
+        for _ in range(50):
+            n1 = int(rng.integers(1, 5))
+            n2 = int(rng.integers(1, 5))
+            n3 = int(rng.integers(1, 5))
+            if n1 * n2 * n3 <= 8 and not (n1 == 1 and n2 == 1 and n3 == 1):
+                return {"supercell_size": (n1, n2, n3)}
+        return {"supercell_size": (2, 1, 1)}
+
+    @classmethod
+    def apply_random(cls, atoms, rng=None, config=None, copy=True):
+        rng = rng if rng is not None else np.random.default_rng()
+        target = atoms.copy() if copy else atoms
+        params = cls.randomize(target, rng=rng, config=config)
+        action = cls(**params)
+        result = action.execute(target)
+        return action, result
     
 
 # Example usage:

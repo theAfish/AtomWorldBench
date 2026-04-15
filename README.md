@@ -16,6 +16,7 @@ Testing LLMs' ability on operating 3D atomic structures.
 
 - [Installation](#installation)
 - [Usage of the Bench](#usage)
+  - [Unified CLI](#unified-cli)
   - [Run the Benchmark](#run-the-benchmark)
     - [Available Benchmarks](#available-benchmarks)
     - [Available Actions](#available-actions)
@@ -43,7 +44,42 @@ pip install -e .
 
 If you want to run the benchmark for your own model, implement your model in `src/models/` and corresponding parameters in `config/models.yaml`. Currently, we have implemented openai_model, azure_openai_model, huggingface_model, and vllm_model.
 
+### Unified CLI
+
+After installation (`pip install -e .`), you can use the unified CLI:
+
+```bash
+atomworld [generate|benchmark|eval|draw] [options]
+```
+
+Core commands:
+
+- `atomworld generate ...`: generate AtomWorld JSON datasets.
+- `atomworld benchmark ...`: run inference + evaluation (or evaluation-only if `--skip_inference` is provided).
+- `atomworld eval ...`: evaluation-only shortcut (automatically adds `--skip_inference`; requires `--inference_file` or `-i`).
+- `atomworld draw -i [evaluation_results.json]`: draw RMSD / max-distance distributions.
+
+Examples:
+
+```bash
+# Generate dataset
+atomworld generate -c ./src/data/_raw_data/training_cifs -o ./src/data/train_data -n 1000
+
+# Run benchmark (inference + evaluation)
+atomworld benchmark -f data -a move_atom_action -m deepseek_chat -c config/models.yaml -o results
+
+# Evaluate only from existing inference output
+atomworld eval -f data -a move_atom_action -m deepseek_chat -c config/models.yaml -o results -i path/to/inference_results.json
+
+# Draw plots from evaluation results
+atomworld draw -i path/to/evaluation_results.json
+```
+
 ### Run the Benchmark
+
+The benchmark supports two modes: a **legacy runner** (combined inference + evaluation) and a **separated pipeline** (independent inference and offline evaluation, aligned with v2 architecture).
+
+#### Legacy Runner (Combined)
 
 ```bash
 python ./src/run_benchmark.py -t [benchmark_type] -m [model_name] -a [action_name] -b [batch_size] -n [num_batch]
@@ -66,6 +102,28 @@ python ./src/run_benchmark.py -t [benchmark_type] -m [model_name] -a [action_nam
 | `--input_cifs_file` | (AtomWorld only) Alternate `input_cifs` HDF5 filename to load from the data path. |
 
 Use `--repeat` when you need multiple independent generations per frame. For example, `--repeat 10` will call the LLM ten times for every input frame while preserving the frame index in the output CSVs.
+
+#### Separated Pipeline (v2 Style)
+
+For AtomWorld, inference and evaluation can also be run independently via the new separated pipeline:
+
+```bash
+# Run inference only
+python ./src/run_benchmark.py -f [data_folder] -a [action_name] -c [config] -o [output]
+
+# Skip inference and evaluate existing results
+python ./src/run_benchmark.py -f [data_folder] -a [action_name] -c [config] -o [output] --skip_inference --inference_file [path/to/inference_results.json]
+```
+
+| Argument             | Description                                                       |
+|----------------------|-------------------------------------------------------------------|
+| `-f`                 | Data folder containing CIF action data (CSV+HDF5 or JSON format). |
+| `-a`                 | Action name to evaluate.                                          |
+| `-c`                 | Model config YAML file path.                                      |
+| `-o`                 | Output directory for results.                                     |
+| `--skip_inference`   | Skip inference and only run evaluation.                           |
+| `--inference_file`   | Path to existing inference results JSON.                          |
+| `--keep_inference`   | Keep inference results after evaluation.                          |
 
 ---
 
@@ -96,6 +154,9 @@ Use `--repeat` when you need multiple independent generations per frame. For exa
 - remove_atom_action
 - rotate_around_atom_action
 - swap_atoms_action
+- super_cell_action
+- rotate_whole_action
+- move_all_action
 
 **PointWorld:**
 
@@ -168,6 +229,12 @@ Plotting after evaluation
 
 You can now request an automatic max_dist histogram to be generated after a benchmark run by adding the `--plot` flag to `run_benchmark.py`. The runner supports plotting for `atomworld`, `pointworld`, and `cifgen` benchmarks. The plot is saved to the same results folder as `evaluation_results.csv` and will not open an interactive window by default.
 
+You can also draw plots later from a saved `evaluation_results.json` file with:
+
+```bash
+atomworld draw -i path/to/evaluation_results.json
+```
+
 Examples:
 
 ```powershell
@@ -180,22 +247,47 @@ python .\src\run_benchmark.py -t cifgen -m deepseek_chat -b 10 -n 1 --plot
 
 ### Construct Your Own Data with mp-api
 
-**The actions and data_generator are currently under refactoring.** The current pipeline will be updated soon. If you want to construct your own data, you can follow the steps below:
+Each action class now has a built-in `randomize(atoms, rng, config)` classmethod that samples valid random parameters, and an `apply_random(atoms, rng, config, copy)` classmethod that randomizes + executes in one step. This replaces the old reflection-based `ActionInputGenerator`.
+
+**Quick example:**
+
+```python
+from ase.io import read
+from atom_world.actions import AddAtomAction
+import numpy as np
+
+atoms = read("my_structure.cif")
+rng = np.random.default_rng(42)
+action, result = AddAtomAction.apply_random(atoms, rng=rng)
+print(action)  # Add one Fe atom at the Cartesian coordinate [1.23 4.56 7.89] to the cif file.
+```
+
+**Full pipeline:**
 
 1. (Optional) Download random structures:
 	```bash
 	python src/scripts/download_random_mp_data.py --api_key [YOUR_API_KEY] --out_path [path] --min_natoms [min_atoms] --max_natoms [max_atoms] --num_entries [total_entries]
 	```
     The input CIFs we used are available in `./src/data/input_cifs.zip`.
-2. Generate data:
+
+2. Generate data — **Option A** (legacy CSV+HDF5 output):
 	```bash
 	python src/atom_world/data_generator.py
 	```
-3. Convert to h5:
+	Then convert CIF folders to HDF5:
 	```bash
 	python src/scripts/convert_cifs_to_h5.py
 	```
-4. Put the generated [action_name].csv and [action_name].h5 files in `./src/data/`. Then you can run the benchmark with your own data.
+
+3. Generate data — **Option B** (v2 JSON output):
+	```bash
+	python src/data_generation/cif_action_generator.py --cif_folder [path] --output_dir [path] --num_samples [N]
+  # or
+  atomworld generate --cif_folder [path] --output_dir [path] --num_samples [N]
+	```
+	This produces per-action JSON files (e.g., `AddAtomAction.json`) with inline CIF strings.
+
+4. Put the generated data in `./src/data/` (or use `--data_path`). The data loader auto-detects CSV+HDF5 vs JSON format.
 ---
 
 

@@ -3,16 +3,57 @@
 import numpy as np
 from ase import Atoms
 from ase.data import chemical_symbols
-import random
 from abc import ABC, abstractmethod
+
+
+# Default hyperparameters for random sampling
+DEFAULT_CONFIG = {
+    "radius_min": 1.0,
+    "radius_max": 4.0,
+    "distance_min": 0.1,
+    "distance_max": 3.0,
+    "dpos_scale": 2.0,
+    "distance_ratio_min": 0.1,
+    "distance_ratio_max": 0.9,
+    "angle_min": 45.0,
+    "angle_max": 315.0,
+    "symbol_pool": list(chemical_symbols[1:]),
+    "decimal_places": 3,
+}
+
+
+def _get_config(config=None):
+    """Merge user config with defaults."""
+    if config is None:
+        return dict(DEFAULT_CONFIG)
+    cfg = dict(DEFAULT_CONFIG)
+    cfg.update(config)
+    return cfg
+
+
+def _safe_radius(atoms, index, rmin, rmax):
+    """Adjust radius bounds to avoid deleting all atoms."""
+    if index is not None and len(atoms) > 1:
+        distances = atoms.get_distances(index, range(len(atoms)), mic=True)
+        nonzero = distances[distances > 0]
+        if len(nonzero) > 0:
+            max_dist = np.max(nonzero)
+            min_dist = np.min(nonzero)
+            rmax = min(rmax, max_dist * 0.99)
+            rmin = max(rmin, min_dist * 1.01)
+            if rmax < rmin:
+                rmax = max_dist * 0.5
+            if rmax < 0.1:
+                rmax = 0.1
+    return rmin, rmax
 
 
 class BaseAction(ABC):
     """Abstract base class for atom actions.
 
-    Subclasses must implement `random_initialize` and `execute`.
-    Concrete helpers like `change_atoms` and `__str__` are provided
-    to keep backward compatibility with existing code.
+    Each subclass must implement ``execute`` and ``randomize``.
+    ``randomize`` returns a dict of kwargs for ``__init__``,
+    and ``apply_random`` is a convenience that randomizes + executes.
     """
 
     def __init__(self, atoms: Atoms):
@@ -22,15 +63,35 @@ class BaseAction(ABC):
         """Change the atoms object for this action."""
         self.atoms = atoms
 
-    # @abstractmethod
-    # def random_initialize(self):
-    #     """Randomly initialize action parameters (must be implemented by subclasses)."""
-    #     pass
-
     @abstractmethod
     def execute(self):
         """Execute the action and return the modified Atoms object."""
         pass
+
+    @classmethod
+    def randomize(cls, atoms, rng=None, config=None):
+        """Sample random parameters for this action.
+
+        Returns:
+            dict of kwargs for ``__init__``, or None if no valid params found.
+        """
+        raise NotImplementedError(f"{cls.__name__} must implement randomize()")
+
+    @classmethod
+    def apply_random(cls, atoms, rng=None, config=None, copy=True):
+        """Create a random action instance and execute it.
+
+        Returns:
+            (action, result_atoms) or (None, None) if no valid params found.
+        """
+        rng = rng if rng is not None else np.random.default_rng()
+        target = atoms.copy() if copy else atoms
+        params = cls.randomize(target, rng=rng, config=config)
+        if params is None:
+            return None, None
+        action = cls(**params)
+        result = action.execute()
+        return action, result
 
     def __str__(self):
         return f"{self.__class__.__name__} action on {len(self.atoms)} atoms."
@@ -49,7 +110,18 @@ class AddAtomAction(BaseAction):
 
     def __str__(self):
         return f"Add one {self.symbol} atom at the Cartesian coordinate {self.position} to the cif file."
-    
+
+    @classmethod
+    def randomize(cls, atoms, rng=None, config=None):
+        rng = rng if rng is not None else np.random.default_rng()
+        cfg = _get_config(config)
+        symbol = str(rng.choice(cfg['symbol_pool']))
+        frac = rng.random(3)
+        position = np.dot(frac, atoms.get_cell())
+        position = np.round(position, decimals=cfg['decimal_places'])
+        return {"atoms": atoms, "symbol": symbol, "position": position}
+
+
 class RemoveAtomAction(BaseAction):
     def __init__(self, atoms: Atoms, index: int):
         super().__init__(atoms)
@@ -64,7 +136,16 @@ class RemoveAtomAction(BaseAction):
         
     def __str__(self):
         return f"Remove the atom at index {self.index} from the cif file. The indices of atoms are started from 0."
-    
+
+    @classmethod
+    def randomize(cls, atoms, rng=None, config=None):
+        if len(atoms) == 0:
+            raise ValueError("No atoms to remove")
+        rng = rng if rng is not None else np.random.default_rng()
+        index = int(rng.integers(0, len(atoms)))
+        return {"atoms": atoms, "index": index}
+
+
 class MoveAtomAction(BaseAction):
     def __init__(self, atoms: Atoms, index: int, d_pos: np.ndarray):
         super().__init__(atoms)
@@ -80,7 +161,19 @@ class MoveAtomAction(BaseAction):
         
     def __str__(self):
         return f"Move the atom at index {self.index} by {self.d_pos} angstrom in the cif file."
-    
+
+    @classmethod
+    def randomize(cls, atoms, rng=None, config=None):
+        if len(atoms) == 0:
+            raise ValueError("No atoms to move")
+        rng = rng if rng is not None else np.random.default_rng()
+        cfg = _get_config(config)
+        index = int(rng.integers(0, len(atoms)))
+        d_pos = rng.normal(scale=cfg['dpos_scale'], size=3)
+        d_pos = np.round(d_pos, decimals=cfg['decimal_places'])
+        return {"atoms": atoms, "index": index, "d_pos": d_pos}
+
+
 class ChangeAtomAction(BaseAction):
     def __init__(self, atoms: Atoms, index: int, symbol: str):
         super().__init__(atoms)
@@ -96,6 +189,19 @@ class ChangeAtomAction(BaseAction):
         
     def __str__(self):
         return f"Change the atom at index {self.index} into {self.new_symbol} in the cif file. The indices of atoms are started from 0."
+
+    @classmethod
+    def randomize(cls, atoms, rng=None, config=None):
+        if len(atoms) == 0:
+            raise ValueError("No atoms to change")
+        rng = rng if rng is not None else np.random.default_rng()
+        cfg = _get_config(config)
+        index = int(rng.integers(0, len(atoms)))
+        current_symbol = atoms[index].symbol
+        pool = [s for s in cfg['symbol_pool'] if s != current_symbol]
+        symbol = str(rng.choice(pool))
+        return {"atoms": atoms, "index": index, "symbol": symbol}
+
 
 # double atom actions
 class SwapAtomsAction(BaseAction):
@@ -116,7 +222,19 @@ class SwapAtomsAction(BaseAction):
     def __str__(self):
         # return f"Swap atoms at indices {self.index1} and {self.index2} in the cif file. The indices of atoms are started from 0."
         return f"Swap the spatial positions of atoms at indices {self.index1} and {self.index2} in the cif file. The indices of atoms are started from 0."
-    
+
+    @classmethod
+    def randomize(cls, atoms, rng=None, config=None):
+        if len(atoms) < 2:
+            raise ValueError("Not enough atoms to swap")
+        rng = rng if rng is not None else np.random.default_rng()
+        for _ in range(20):
+            idx1, idx2 = rng.choice(len(atoms), size=2, replace=False)
+            if atoms[int(idx1)].symbol != atoms[int(idx2)].symbol:
+                return {"atoms": atoms, "index1": int(idx1), "index2": int(idx2)}
+        raise ValueError("Could not find two atoms of different types to swap.")
+
+
 class InsertBetweenAtomsAction(BaseAction):
     def __init__(self, atoms: Atoms, index1: int, index2: int, symbol: str, distance_ratio: float):
         super().__init__(atoms)
@@ -143,7 +261,21 @@ class InsertBetweenAtomsAction(BaseAction):
 
     def __str__(self):
         return f"Insert a {self.symbol} atom in the line between atoms at indices {self.index1} and {self.index2}, and the inserted atom must be {self.distance:.2f} angstrom from atom at {self.index1} in the cif file."
-    
+
+    @classmethod
+    def randomize(cls, atoms, rng=None, config=None):
+        if len(atoms) < 2:
+            raise ValueError("Not enough atoms to insert between")
+        rng = rng if rng is not None else np.random.default_rng()
+        cfg = _get_config(config)
+        idx1, idx2 = rng.choice(len(atoms), size=2, replace=False)
+        symbol = str(rng.choice(cfg['symbol_pool']))
+        dr = float(rng.uniform(cfg['distance_ratio_min'], cfg['distance_ratio_max']))
+        dr = round(dr, cfg['decimal_places'])
+        return {"atoms": atoms, "index1": int(idx1), "index2": int(idx2),
+                "symbol": symbol, "distance_ratio": dr}
+
+
 class MoveTowardsAtomAction(BaseAction):
     def __init__(self, atoms: Atoms, index1: int, index2: int, distance: float):
         super().__init__(atoms)
@@ -166,7 +298,20 @@ class MoveTowardsAtomAction(BaseAction):
 
     def __str__(self):
         return f"Move the atom at index {self.index1} towards the atom at index {self.index2} by {self.distance} angstrom in the cif file."
-    
+
+    @classmethod
+    def randomize(cls, atoms, rng=None, config=None):
+        if len(atoms) < 2:
+            raise ValueError("Not enough atoms for MoveTowardsAtomAction")
+        rng = rng if rng is not None else np.random.default_rng()
+        cfg = _get_config(config)
+        idx1, idx2 = rng.choice(len(atoms), size=2, replace=False)
+        distance = float(rng.uniform(cfg['distance_min'], cfg['distance_max']))
+        distance = round(distance, cfg['decimal_places'])
+        return {"atoms": atoms, "index1": int(idx1), "index2": int(idx2),
+                "distance": distance}
+
+
 # Multiple atom actions
 class DeleteBelowAtomAction(BaseAction):
     def __init__(self, atoms: Atoms, index: int, include_self: bool = False):
@@ -188,7 +333,23 @@ class DeleteBelowAtomAction(BaseAction):
     def __str__(self):
         # return f"Delete all atoms below the atom at index {self.index} in the cif file." + (" Including itself" if self.include_self else " Excluding itself") + " and atoms with the same z coordinate."
         return f"Delete all atoms whose z coordinate is lower than the atom at index {self.index} in the cif file." + (" Including itself" if self.include_self else " Excluding itself") + " and atoms with the same z coordinate."
-    
+
+    @classmethod
+    def randomize(cls, atoms, rng=None, config=None):
+        if len(atoms) < 2:
+            return None
+        rng = rng if rng is not None else np.random.default_rng()
+        for _ in range(20):
+            idx = int(rng.integers(0, len(atoms)))
+            z_threshold = atoms[idx].position[2]
+            indices_below = [i for i, a in enumerate(atoms)
+                             if a.position[2] < z_threshold and i != idx]
+            if indices_below:
+                include_self = bool(rng.random() < 0.5)
+                return {"atoms": atoms, "index": idx, "include_self": include_self}
+        return None
+
+
 class DeleteAroundAtomAction(BaseAction):
     def __init__(self, atoms: Atoms, index: int, radius: float):
         super().__init__(atoms)
@@ -210,6 +371,19 @@ class DeleteAroundAtomAction(BaseAction):
     def __str__(self):
         return f"Delete all atoms within {self.radius} angstrom around the atom at index {self.index} in the cif file."
 
+    @classmethod
+    def randomize(cls, atoms, rng=None, config=None):
+        if len(atoms) == 0:
+            raise ValueError("No atoms")
+        rng = rng if rng is not None else np.random.default_rng()
+        cfg = _get_config(config)
+        index = int(rng.integers(0, len(atoms)))
+        rmin, rmax = _safe_radius(atoms, index, cfg['radius_min'], cfg['radius_max'])
+        radius = float(rng.uniform(rmin, rmax))
+        radius = round(radius, cfg['decimal_places'])
+        return {"atoms": atoms, "index": index, "radius": radius}
+
+
 class MoveSelectedAtomsAction(BaseAction):
     def __init__(self, atoms: Atoms, indices: list[int], d_pos: np.ndarray):
         super().__init__(atoms)
@@ -226,7 +400,20 @@ class MoveSelectedAtomsAction(BaseAction):
     
     def __str__(self):
         return f"Move atoms at indices {self.indices} by {self.d_pos} angstrom in the cif file."
-    
+
+    @classmethod
+    def randomize(cls, atoms, rng=None, config=None):
+        if len(atoms) == 0:
+            raise ValueError("No atoms")
+        rng = rng if rng is not None else np.random.default_rng()
+        cfg = _get_config(config)
+        count = int(rng.integers(1, len(atoms) + 1))
+        indices = list(rng.choice(len(atoms), size=count, replace=False))
+        d_pos = rng.normal(scale=cfg['dpos_scale'], size=3)
+        d_pos = np.round(d_pos, decimals=cfg['decimal_places'])
+        return {"atoms": atoms, "indices": [int(i) for i in indices], "d_pos": d_pos}
+
+
 class MoveAroundAtomAction(BaseAction):
     def __init__(self, atoms: Atoms, index: int, radius: float, d_pos: np.ndarray):
         super().__init__(atoms)
@@ -248,7 +435,22 @@ class MoveAroundAtomAction(BaseAction):
 
     def __str__(self):
         return f"Move all surrounding atoms within {self.radius} angstrom around the center atom at index {self.index} by {self.d_pos} angstrom in the cif file."
-    
+
+    @classmethod
+    def randomize(cls, atoms, rng=None, config=None):
+        if len(atoms) == 0:
+            raise ValueError("No atoms")
+        rng = rng if rng is not None else np.random.default_rng()
+        cfg = _get_config(config)
+        index = int(rng.integers(0, len(atoms)))
+        rmin, rmax = _safe_radius(atoms, index, cfg['radius_min'], cfg['radius_max'])
+        radius = float(rng.uniform(rmin, rmax))
+        radius = round(radius, cfg['decimal_places'])
+        d_pos = rng.normal(scale=cfg['dpos_scale'], size=3)
+        d_pos = np.round(d_pos, decimals=cfg['decimal_places'])
+        return {"atoms": atoms, "index": index, "radius": radius, "d_pos": d_pos}
+
+
 class RotateAroundAtomAction(BaseAction):
     def __init__(self, atoms: Atoms, index: int, radius: float, angle: float, axis: np.ndarray):
         super().__init__(atoms)
@@ -283,6 +485,23 @@ class RotateAroundAtomAction(BaseAction):
     def __str__(self):
         return f"Rotate all surrounding atoms within {self.radius} angstrom of the center atom at index {self.index} by {self.angle} degree around the axis {self.axis} in the cif file. The rotation should following the right-hand rule."
 
+    @classmethod
+    def randomize(cls, atoms, rng=None, config=None):
+        if len(atoms) == 0:
+            raise ValueError("No atoms")
+        rng = rng if rng is not None else np.random.default_rng()
+        cfg = _get_config(config)
+        index = int(rng.integers(0, len(atoms)))
+        rmin, rmax = _safe_radius(atoms, index, cfg['radius_min'], cfg['radius_max'])
+        radius = float(rng.uniform(rmin, rmax))
+        radius = round(radius, cfg['decimal_places'])
+        angle = float(rng.uniform(cfg['angle_min'], cfg['angle_max']))
+        angle = round(angle, cfg['decimal_places'])
+        axes = np.array([[1,0,0],[0,1,0],[0,0,1],[-1,0,0],[0,-1,0],[0,0,-1]])
+        axis = axes[int(rng.integers(0, len(axes)))]
+        return {"atoms": atoms, "index": index, "radius": radius,
+                "angle": angle, "axis": axis}
+
 
 class RotateWholeAction(BaseAction):
     def __init__(self, atoms: Atoms, angle: float, axis: np.ndarray):
@@ -300,6 +519,26 @@ class RotateWholeAction(BaseAction):
 
     def __str__(self):
         return f"Rotate the structure and cell by {self.angle} degree around the axis {self.axis} in the cif file. The rotation should following the right-hand rule."
+
+    @classmethod
+    def randomize(cls, atoms, rng=None, config=None):
+        rng = rng if rng is not None else np.random.default_rng()
+        cfg = _get_config(config)
+        angle = float(rng.uniform(cfg['angle_min'], cfg['angle_max']))
+        angle = round(angle, cfg['decimal_places'])
+        axes = np.array([[1,0,0],[0,1,0],[0,0,1],[-1,0,0],[0,-1,0],[0,0,-1]])
+        axis = axes[int(rng.integers(0, len(axes)))]
+        return {"atoms": atoms, "angle": angle, "axis": axis}
+
+    @classmethod
+    def randomize(cls, atoms, rng=None, config=None):
+        rng = rng if rng is not None else np.random.default_rng()
+        cfg = _get_config(config)
+        angle = float(rng.uniform(cfg['angle_min'], cfg['angle_max']))
+        angle = round(angle, cfg['decimal_places'])
+        axes = np.array([[1,0,0],[0,1,0],[0,0,1],[-1,0,0],[0,-1,0],[0,0,-1]])
+        axis = axes[int(rng.integers(0, len(axes)))]
+        return {"atoms": atoms, "angle": angle, "axis": axis}
     
 
 class MoveAllAction(BaseAction):
@@ -314,6 +553,14 @@ class MoveAllAction(BaseAction):
 
     def __str__(self):
         return f"Move all the atoms in the structure by {self.d_pos} angstrom in the cif file. Do not need to consider periodic boundary conditions. Please keep the cell and the order of atoms unchanged."
+
+    @classmethod
+    def randomize(cls, atoms, rng=None, config=None):
+        rng = rng if rng is not None else np.random.default_rng()
+        cfg = _get_config(config)
+        d_pos = rng.normal(scale=cfg['dpos_scale'], size=3)
+        d_pos = np.round(d_pos, decimals=cfg['decimal_places'])
+        return {"atoms": atoms, "d_pos": d_pos}
     
 
 if __name__ == "__main__":
