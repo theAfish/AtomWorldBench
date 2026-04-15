@@ -22,15 +22,33 @@ __all__ = [
 def __getattr__(name: str):
     """Lazy imports for heavy modules that need optional dependencies."""
     if name == "BenchmarkRunner":
-        from benchmark.runner import BenchmarkRunner
+        try:
+            from benchmark.runner import BenchmarkRunner
+        except ImportError as exc:
+            raise AttributeError(
+                "BenchmarkRunner requires optional benchmark dependencies. "
+                "Install them with `pip install atomworld[benchmark]`."
+            ) from exc
 
         return BenchmarkRunner
     if name == "CIFActionGenerator":
-        from data_generation.cif_action_generator import CIFActionGenerator
+        try:
+            from data_generation.cif_action_generator import CIFActionGenerator
+        except ImportError as exc:
+            raise AttributeError(
+                "CIFActionGenerator requires optional data-generation dependencies. "
+                "Install them with `pip install atomworld[all]`."
+            ) from exc
 
         return CIFActionGenerator
     if name == "load_data":
-        from utils.dataloader import load_data
+        try:
+            from utils.dataloader import load_data
+        except ImportError as exc:
+            raise AttributeError(
+                "load_data requires optional data-loading dependencies. "
+                "Install them with `pip install atomworld[all]`."
+            ) from exc
 
         return load_data
     raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
