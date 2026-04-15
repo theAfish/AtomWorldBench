@@ -2,11 +2,14 @@ import datetime
 from pathlib import Path
 from typing import Any
 from utils.load_model import load_model, load_config
-from evaluation.evaluator import AtomWorldEvaluator
+from evaluation.evaluator import AtomWorldEvaluator as LegacyAtomWorldEvaluator
+from benchmark.inference.inferencer import AtomWorldInferencer
+from benchmark.evaluation.atomworld_evaluator import AtomWorldEvaluator
 from perceptual.evaluator.cif_gen_evaluator import CIFGenEvaluator
 from perceptual.evaluator.cif_repair_evaluator import CIFRepairEvaluator
 from point_world.evaluator import PointWorldEvaluator
 from perceptual.utils.dataloader import load_cif_gen_data, load_data
+from utils.visualization import plot_metrics_distribution
 from .config import BenchmarkConfig
 import importlib.util
 import sys
@@ -42,11 +45,11 @@ class BenchmarkRunner:
         components.append(timestamp)
         return str(Path().joinpath(*components))
     
-    def _create_atomworld_evaluator(self) -> AtomWorldEvaluator:
-        """Create an evaluator for AtomWorld benchmark"""
+    def _create_atomworld_evaluator(self) -> LegacyAtomWorldEvaluator:
+        """Create a legacy evaluator for AtomWorld benchmark (combined inference+eval)."""
         data_dir = self._resolve_data_path(Path(__file__).parent.parent / "data")
         input_cifs_file = self.config.atomworld_input_cifs or "input_cifs.hdf5"
-        return AtomWorldEvaluator(
+        return LegacyAtomWorldEvaluator(
             model=self.model,
             data_folder=str(data_dir),
             action_name=self.config.action,
@@ -102,7 +105,58 @@ class BenchmarkRunner:
         return creator()
     
     def run(self):
-        """Run the benchmark with current configuration"""
+        """Run the benchmark with current configuration.
+        
+        For AtomWorld, uses the separated inference + evaluation pipeline.
+        For other benchmarks, uses the legacy combined evaluator.
+        """
+        if self.config.benchmark_type == 'atomworld':
+            self._run_atomworld()
+        else:
+            self._run_legacy()
+
+    def _run_atomworld(self):
+        """Run AtomWorld benchmark with separated inference + evaluation."""
+        results_folder = self._get_results_folder()
+        inference_folder = str(Path(results_folder) / "inference")
+        evaluation_folder = str(Path(results_folder) / "evaluation")
+
+        data_dir = self._resolve_data_path(Path(__file__).parent.parent / "data")
+
+        # Inference
+        inferencer = AtomWorldInferencer(
+            model=self.model,
+            data_folder=str(data_dir),
+            action_name=self.config.action,
+            output_folder=inference_folder,
+        )
+        inference_file = inferencer.infer(
+            batch_size=self.config.batch_size,
+            num_batch=self.config.num_batch,
+            restart_from_index=self.config.restart_from_index or 0,
+            repeat=self.config.repeat,
+        )
+
+        if not inference_file:
+            print("No inference results generated.")
+            return
+
+        # Evaluation
+        evaluator = AtomWorldEvaluator(
+            action_name=self.config.action,
+            results_folder=evaluation_folder,
+        )
+        results = evaluator.evaluate(inference_file)
+
+        # Plot
+        if getattr(self.config, "plot", False):
+            try:
+                plot_metrics_distribution(results, evaluation_folder)
+            except Exception as e:
+                print(f"Error plotting metrics distribution: {e}")
+
+    def _run_legacy(self):
+        """Run benchmark using legacy combined evaluator (PointWorld, CIFGen, CIFRepair)."""
         evaluator = self.create_evaluator()
         evaluator.evaluate(
             batch_size=self.config.batch_size,
@@ -112,8 +166,7 @@ class BenchmarkRunner:
         )
         # Optionally generate max_dist histogram after evaluation for supported benchmarks
         if getattr(self.config, "plot", False):
-            # Only supported for atomworld, pointworld, cifgen
-            if self.config.benchmark_type not in ("atomworld", "pointworld", "cifgen"):
+            if self.config.benchmark_type not in ("pointworld", "cifgen"):
                 print(f"Plotting not supported for benchmark type: {self.config.benchmark_type}")
                 return
 
