@@ -16,10 +16,6 @@ __all__ = [
     # core — always available
     "evaluate",
     "EvaluateResult",
-    # lazy — require optional extras
-    "BenchmarkRunner",
-    "CIFActionGenerator",
-    "load_data",
 ]
 
 
