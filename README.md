@@ -21,7 +21,7 @@ pip install git+https://github.com/theAfish/AtomWorldBench.git
 **Full toolkit** — CLI, inference, data generation, plotting, etc.:
 
 ```bash
-pip install "git+https://github.com/theAfish/AtomWorldBench.git[all]"
+pip install "atomworld[all] @ git+https://github.com/theAfish/AtomWorldBench.git"
 ```
 
 For development:
