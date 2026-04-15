@@ -11,22 +11,28 @@ dependencies = [
     "numpy",
     "ase ==3.25.0",
     "pymatgen ==2025.6.14",
-    "openai >=1.90.0",
     "h5py >=3.14.0",
     "pandas",
     "matplotlib >=3.10.3",
     "seaborn >=0.13.2",
-    "transformers",
-    "sentencepiece",
     "torch",
     "tqdm",
-    "ray",
-    "packaging",
     "scipy",
-    "mp-api",
-    "pytest",
     "pyyaml",
 ]
 
 [project.scripts]
 atomworld = "cli:main"
+
+[project.optional-dependencies]
+
+dev = [
+    "pytest",
+    "packaging",
+]
+
+inference = [
+    "openai >=1.90.0",
+    "transformers",
+    "sentencepiece",
+]
