@@ -12,7 +12,7 @@ Benchmark & toolkit for evaluating LLMs on 3D crystal-structure manipulation.
 
 ## Installation
 
-**Lightweight** — just the evaluator (only needs `numpy` + `pymatgen`):
+**Lightweight** — just the evaluator:
 
 ```bash
 pip install git+https://github.com/theAfish/AtomWorldBench.git
@@ -40,7 +40,6 @@ pip install -e ".[dev]"
 | `[benchmark]`  | openai, pandas, h5py, tqdm, pyyaml          |
 | `[datagen]`    | ase, mp-api, scipy, pandas                   |
 | `[models]`     | transformers, sentencepiece, torch            |
-| `[viz]`        | matplotlib, seaborn                           |
 | `[all]`        | All of the above + ray                        |
 | `[dev]`        | `[all]` + pytest                              |
 
