@@ -1,5 +1,4 @@
 from atomworld.evaluation.base_evaluator import BaseEvaluator
-from atomworld.evaluation.evaluator import AtomWorldEvaluator
 from atomworld.evaluation.metrics import (
 	check_atom_counts,
 	match_structures,
@@ -11,7 +10,6 @@ from atomworld.evaluation.metrics import (
 
 __all__ = [
 	"BaseEvaluator",
-	"AtomWorldEvaluator",
 	"check_atom_counts",
 	"match_structures",
 	"compute_exact_match_positional_metrics",
