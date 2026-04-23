@@ -1,7 +1,7 @@
 from complementary.evaluation.base_evaluator import BaseEvaluator
 from models.base_model import BaseModel
-from point_world.data_io import load_dataset_from_h5
-from point_world.prompt import final_prompt
+from complementary.point_world.data_io import load_dataset_from_h5
+from complementary.point_world.prompt import final_prompt
 from typing import Dict, Any, List
 import numpy as np
 from scipy.optimize import linear_sum_assignment

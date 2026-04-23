@@ -1,5 +1,5 @@
-from point_world.env import PointWorldEnv
-from point_world.actions import *
+from complementary.point_world.env import PointWorldEnv
+from complementary.point_world.actions import *
 import numpy as np
 import random
 

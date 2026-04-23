@@ -5,10 +5,10 @@ from utils.load_model import load_model, load_config
 from atomworld.evaluation.evaluator import AtomWorldEvaluator as LegacyAtomWorldEvaluator
 from benchmark.inference.inferencer import AtomWorldInferencer
 from benchmark.evaluation.atomworld_evaluator import AtomWorldEvaluator
-from perceptual.evaluator.cif_gen_evaluator import CIFGenEvaluator
-from perceptual.evaluator.cif_repair_evaluator import CIFRepairEvaluator
-from point_world.evaluator import PointWorldEvaluator
-from perceptual.utils.dataloader import load_cif_gen_data, load_data
+from complementary.cif_gen.evaluator import CIFGenEvaluator
+from complementary.cif_repair.evaluator import CIFRepairEvaluator
+from complementary.point_world.evaluator import PointWorldEvaluator
+from complementary.utils.dataloader import load_cif_gen_data, load_data
 from utils.visualization import plot_metrics_distribution
 from .config import BenchmarkConfig
 import importlib.util

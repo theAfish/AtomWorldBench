@@ -13,7 +13,7 @@ if src_dir not in sys.path:
 
 from utils.extract_data import extract_from_string
 from utils.dataloader import load_cif_file_from_string
-from atomworld.evaluation.metrics import check_atom_counts, match_structures
+from complementary.evaluation.metrics import check_atom_counts, match_structures
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 

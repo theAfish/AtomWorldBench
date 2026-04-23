@@ -1,5 +1,5 @@
-from point_world.data_generator import PointWorldDataGenerator
-from point_world.data_io import save_dataset_to_h5, load_dataset_from_h5
+from complementary.point_world.data_generator import PointWorldDataGenerator
+from complementary.point_world.data_io import save_dataset_to_h5, load_dataset_from_h5
 
 
 generator = PointWorldDataGenerator(dim=3, num_points=2, gen_limit=10.0, seed=42)

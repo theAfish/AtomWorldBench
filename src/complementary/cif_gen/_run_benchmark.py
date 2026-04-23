@@ -3,12 +3,12 @@ import os
 import argparse
 from pathlib import Path
 from utils.load_model import load_model, load_config
-from perceptual.evaluator.cif_repair_evaluator import CIFRepairEvaluator as Evaluator
-from perceptual.utils.dataloader import load_data
+from complementary.cif_gen.evaluator import CIFGenEvaluator as Evaluator
+from complementary.utils.dataloader import load_cif_gen_data
 
 CONFIG_DIR = Path(__file__).parent.parent.parent / "config"
-DATA_DIR = Path(__file__).parent / "cif_modifications.csv"
-RESULT_DIR = Path(__file__).parent.parent.parent.parent / "results" / "CifRepair"
+DATA_DIR = Path(__file__).parent / "base_cif/"
+RESULT_DIR = Path(__file__).parent.parent.parent.parent / "results" / "CifGen"
 os.makedirs(RESULT_DIR, exist_ok=True)
 
 
@@ -21,7 +21,7 @@ def run_benchmark(
     ):
     config = load_config(CONFIG_DIR / config_name)[model_id]
     model = load_model(config)
-    data = load_data(DATA_DIR)
+    data = load_cif_gen_data(DATA_DIR)
 
     # automatically set results folder if not provided
     timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -71,7 +71,7 @@ if __name__ == "__main__":
         "--results_folder",
         type=str,
         default=None,
-        help="Folder to save results. Default: 'results/CifRepair/{model_id}/{timestamp}'"
+        help="Folder to save results. Default: 'results/CifGen/{model_id}/{timestamp}'"
     )
     args = parser.parse_args()
 

@@ -2,10 +2,10 @@ import datetime
 import argparse
 from pathlib import Path
 from utils.load_model import load_model, load_config
-from point_world.evaluator import PointWorldEvaluator as Evaluator
+from complementary.point_world.evaluator import PointWorldEvaluator as Evaluator
 
-CONFIG_DIR = Path(__file__).parent.parent.parent / "config"
-RESULT_DIR = Path(__file__).parent.parent.parent.parent / "results" / "PointWorld"
+CONFIG_DIR = Path(__file__).parent.parent.parent.parent / "config"
+RESULT_DIR = Path(__file__).parent.parent.parent.parent.parent / "results" / "PointWorld"
 DATA_DIR = Path(__file__).parent.parent / "datasets"
 
 action_names = [

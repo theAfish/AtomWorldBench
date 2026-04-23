@@ -11,9 +11,9 @@ import argparse
 import datetime
 
 
-CONFIG_DIR = Path(__file__).parent.parent / "config"
+CONFIG_DIR = Path(__file__).parent.parent.parent / "config"
 DATA_DIR = Path(__file__).parent
-RESULT_DIR = Path(__file__).parent.parent.parent / "results" / "StructPropBench"
+RESULT_DIR = Path(__file__).parent.parent.parent.parent / "results" / "StructPropBench"
 os.makedirs(RESULT_DIR, exist_ok=True)
 
 props_data_map = {

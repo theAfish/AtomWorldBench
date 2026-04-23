@@ -106,14 +106,3 @@ def check_atoms_too_close(struct, threshold=0.5):
     if np.any(dists < threshold):
         return True
     return False
-
-
-__all__ = [
-    "StructureMatcher",
-    "load_cif_file_from_string",
-    "check_atom_counts",
-    "match_structures",
-    "compute_exact_match_positional_metrics",
-    "check_partially_occupied_sites",
-    "check_atoms_too_close",
-]
