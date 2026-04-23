@@ -2,7 +2,7 @@ import datetime
 from pathlib import Path
 from typing import Any
 from utils.load_model import load_model, load_config
-from evaluation.evaluator import AtomWorldEvaluator as LegacyAtomWorldEvaluator
+from atomworld.evaluation.evaluator import AtomWorldEvaluator as LegacyAtomWorldEvaluator
 from benchmark.inference.inferencer import AtomWorldInferencer
 from benchmark.evaluation.atomworld_evaluator import AtomWorldEvaluator
 from perceptual.evaluator.cif_gen_evaluator import CIFGenEvaluator
@@ -13,7 +13,6 @@ from utils.visualization import plot_metrics_distribution
 from .config import BenchmarkConfig
 import importlib.util
 import sys
-from pathlib import Path
 
 class BenchmarkRunner:
     """Factory class for creating and running different types of benchmarks"""

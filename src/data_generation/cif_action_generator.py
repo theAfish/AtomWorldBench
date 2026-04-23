@@ -1,19 +1,20 @@
 import os
 import io
 import json
+import re
 from typing import List, Dict, Any, Iterator, Optional, Type
 import uuid
 from ase.io import read, write
 from ase import Atoms
 from data_generation.base_data_generator import BaseDataGenerator
-from atom_world.actions import (
+from atomworld.actions import (
     BaseAction,
     AddAtomAction, RemoveAtomAction, MoveAtomAction, ChangeAtomAction,
     SwapAtomsAction, InsertBetweenAtomsAction, MoveTowardsAtomAction,
     DeleteBelowAtomAction, DeleteAroundAtomAction, MoveSelectedAtomsAction,
     MoveAroundAtomAction, RotateAroundAtomAction,
 )
-from atom_world.cell_actions import SuperCellAction
+from atomworld.cell_actions import SuperCellAction
 
 ready_actions = [
     AddAtomAction,
@@ -30,6 +31,69 @@ ready_actions = [
     RotateAroundAtomAction,
     SuperCellAction,
 ]
+
+
+def _to_snake_case(name: str) -> str:
+    """Convert CamelCase to snake_case."""
+    return re.sub(r"(?<!^)(?=[A-Z])", "_", name).lower()
+
+
+def _canonical_action_key(name: str) -> str:
+    """Normalize user-provided action names for robust matching."""
+    normalized = name.strip().lower().replace("-", "_")
+    if normalized.endswith("_action"):
+        normalized = normalized[:-7]
+    return normalized
+
+
+def resolve_action_classes(action_names: List[str], available_actions: List[Type]) -> List[Type]:
+    """Resolve user action names to action classes.
+
+    Supports class-name style (AddAtomAction), snake_case style
+    (add_atom_action), and names without the optional "_action" suffix
+    (add_atom).
+    """
+    alias_map: Dict[str, Type] = {}
+    display_names: List[str] = []
+
+    for action_cls in available_actions:
+        class_name = action_cls.__name__
+        snake_name = _to_snake_case(class_name)
+        class_base = class_name[:-6] if class_name.lower().endswith("action") else class_name
+        snake_base = snake_name[:-7] if snake_name.endswith("_action") else snake_name
+
+        aliases = {
+            _canonical_action_key(class_name),
+            _canonical_action_key(class_base),
+            _canonical_action_key(snake_name),
+            _canonical_action_key(snake_base),
+        }
+
+        for alias in aliases:
+            alias_map[alias] = action_cls
+
+        display_names.append(snake_name)
+
+    resolved: List[Type] = []
+    unknown_names: List[str] = []
+    for raw_name in action_names:
+        key = _canonical_action_key(raw_name)
+        action_cls = alias_map.get(key)
+        if action_cls is None:
+            unknown_names.append(raw_name)
+            continue
+        if action_cls not in resolved:
+            resolved.append(action_cls)
+
+    if unknown_names:
+        available_text = ", ".join(sorted(display_names))
+        unknown_text = ", ".join(unknown_names)
+        raise ValueError(
+            f"Unknown action name(s): {unknown_text}. "
+            f"Available actions: {available_text}."
+        )
+
+    return resolved
 
 
 class CIFActionGenerator(BaseDataGenerator):
@@ -220,9 +284,14 @@ def main(args=None):
     parser = get_generation_parser()
     args = parser.parse_args(args)
 
+    action_classes = None
+    if args.action_names:
+        action_classes = resolve_action_classes(args.action_names, ready_actions)
+
     generate_all(
         cif_folder=args.cif_folder,
         output_dir=args.output_dir,
+        action_classes=action_classes,
         num_samples_per_action=args.num_samples,
         max_attempts=args.max_attempts,
         is_random=not args.no_random,

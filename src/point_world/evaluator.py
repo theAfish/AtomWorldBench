@@ -1,4 +1,4 @@
-from evaluation.base_evaluator import BaseEvaluator
+from atomworld.evaluation.base_evaluator import BaseEvaluator
 from models.base_model import BaseModel
 from point_world.data_io import load_dataset_from_h5
 from point_world.prompt import final_prompt

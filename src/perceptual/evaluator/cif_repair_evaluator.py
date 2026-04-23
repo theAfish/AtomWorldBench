@@ -1,10 +1,10 @@
-from evaluation.base_evaluator import BaseEvaluator
+from atomworld.evaluation.base_evaluator import BaseEvaluator
 from typing import Dict, Any
 import pandas as pd
 from utils.extract_data import extract_from_string
 from utils.dataloader import load_cif_file_from_string
 from prompts.cif_repair_prompt import cif_repair_prompt
-from evaluation.metrics import check_atom_counts, match_structures
+from atomworld.evaluation.metrics import check_atom_counts, match_structures
 from models.base_model import BaseModel
 import logging
 

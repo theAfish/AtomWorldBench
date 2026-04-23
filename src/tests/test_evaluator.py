@@ -6,7 +6,7 @@ import tempfile
 import shutil
 from unittest.mock import Mock, patch, MagicMock
 import pandas as pd
-from evaluation.evaluator import AtomWorldEvaluator
+from atomworld.evaluation.evaluator import AtomWorldEvaluator
 from models.base_model import BaseModel
 from pymatgen.core import Structure
 from pymatgen.symmetry.analyzer import SpacegroupAnalyzer
@@ -55,7 +55,7 @@ class TestAtomWorldEvaluator:
         except (OSError, PermissionError):
             pass  # Ignore cleanup errors in tests
 
-    @patch('evaluation.evaluator.load_data')
+    @patch('atomworld.evaluation.evaluator.load_data')
     def test_initialization(self, mock_load_data):
         """Test AtomWorldEvaluator initialization."""
         mock_load_data.return_value = self.mock_data
@@ -71,9 +71,11 @@ class TestAtomWorldEvaluator:
         assert evaluator.data_folder == "mock_folder"
         assert evaluator.action_name == "test_action"
         assert evaluator.data == self.mock_data
-        mock_load_data.assert_called_once_with("mock_folder", "test_action")
+        mock_load_data.assert_called_once_with(
+            "mock_folder", "test_action", input_cifs="input_cifs.hdf5"
+        )
 
-    @patch('evaluation.evaluator.load_data')
+    @patch('atomworld.evaluation.evaluator.load_data')
     def test_initialize_stats(self, mock_load_data):
         """Test _initialize_stats method."""
         mock_load_data.return_value = self.mock_data
@@ -92,7 +94,7 @@ class TestAtomWorldEvaluator:
         }
         assert stats == expected_stats
 
-    @patch('evaluation.evaluator.load_data')
+    @patch('atomworld.evaluation.evaluator.load_data')
     def test_create_prompt(self, mock_load_data):
         """Test _create_prompt method."""
         mock_load_data.return_value = self.mock_data
@@ -104,7 +106,7 @@ class TestAtomWorldEvaluator:
         )
 
         # Mock the cif_action_prompt function
-        with patch('evaluation.evaluator.cif_action_prompt') as mock_prompt_func:
+        with patch('atomworld.evaluation.evaluator.cif_action_prompt') as mock_prompt_func:
             mock_prompt_func.return_value = "mocked_prompt"
 
             row = self.mock_data[0]
@@ -117,7 +119,7 @@ class TestAtomWorldEvaluator:
             )
             assert prompt == "mocked_prompt"
 
-    @patch('evaluation.evaluator.load_data')
+    @patch('atomworld.evaluation.evaluator.load_data')
     def test_create_prompt_none_input_cif(self, mock_load_data):
         """Test _create_prompt with None input_cif."""
         mock_load_data.return_value = self.mock_data
@@ -132,11 +134,11 @@ class TestAtomWorldEvaluator:
         with pytest.raises(ValueError, match="input_cif is None"):
             evaluator._create_prompt(row)
 
-    @patch('evaluation.evaluator.load_data')
-    @patch('evaluation.evaluator.extract_from_string')
-    @patch('evaluation.evaluator.load_cif_file_from_string')
-    @patch('evaluation.evaluator.check_atom_counts')
-    @patch('evaluation.evaluator.match_structures')
+    @patch('atomworld.evaluation.evaluator.load_data')
+    @patch('atomworld.evaluation.evaluator.extract_from_string')
+    @patch('atomworld.evaluation.evaluator.load_cif_file_from_string')
+    @patch('atomworld.evaluation.evaluator.check_atom_counts')
+    @patch('atomworld.evaluation.evaluator.match_structures')
     def test_process_single_output_success(self, mock_match, mock_check_atoms,
                                          mock_load_cif, mock_extract, mock_load_data):
         """Test successful _process_single_output."""
@@ -166,8 +168,8 @@ class TestAtomWorldEvaluator:
         assert result['rmsd'] == 0.5
         assert result['max_diff'] == 0.1
 
-    @patch('evaluation.evaluator.load_data')
-    @patch('evaluation.evaluator.extract_from_string')
+    @patch('atomworld.evaluation.evaluator.load_data')
+    @patch('atomworld.evaluation.evaluator.extract_from_string')
     def test_process_single_output_unreadable(self, mock_extract, mock_load_data):
         """Test _process_single_output with unreadable output."""
         mock_load_data.return_value = self.mock_data
@@ -188,9 +190,9 @@ class TestAtomWorldEvaluator:
         assert result['wrong_type'] == "OutputFormatError"
         assert stats['num_unreadable_out'] == 1
 
-    @patch('evaluation.evaluator.load_data')
-    @patch('evaluation.evaluator.extract_from_string')
-    @patch('evaluation.evaluator.load_cif_file_from_string')
+    @patch('atomworld.evaluation.evaluator.load_data')
+    @patch('atomworld.evaluation.evaluator.extract_from_string')
+    @patch('atomworld.evaluation.evaluator.load_cif_file_from_string')
     def test_process_single_output_invalid_generated_cif(self, mock_load_cif,
                                                        mock_extract, mock_load_data):
         """Test _process_single_output with invalid generated CIF."""
@@ -216,10 +218,10 @@ class TestAtomWorldEvaluator:
         assert result['wrong_type'] == "CIFParsingError"
         assert stats['num_invalid_cif'] == 1
 
-    @patch('evaluation.evaluator.load_data')
-    @patch('evaluation.evaluator.extract_from_string')
-    @patch('evaluation.evaluator.load_cif_file_from_string')
-    @patch('evaluation.evaluator.check_atom_counts')
+    @patch('atomworld.evaluation.evaluator.load_data')
+    @patch('atomworld.evaluation.evaluator.extract_from_string')
+    @patch('atomworld.evaluation.evaluator.load_cif_file_from_string')
+    @patch('atomworld.evaluation.evaluator.check_atom_counts')
     def test_process_single_output_atom_count_mismatch(self, mock_check_atoms,
                                                       mock_load_cif, mock_extract,
                                                       mock_load_data):
@@ -247,11 +249,11 @@ class TestAtomWorldEvaluator:
         assert result['wrong_type'] == "AtomCountMismatch"
         assert stats['num_invalid_cif'] == 1
 
-    @patch('evaluation.evaluator.load_data')
-    @patch('evaluation.evaluator.extract_from_string')
-    @patch('evaluation.evaluator.load_cif_file_from_string')
-    @patch('evaluation.evaluator.check_atom_counts')
-    @patch('evaluation.evaluator.match_structures')
+    @patch('atomworld.evaluation.evaluator.load_data')
+    @patch('atomworld.evaluation.evaluator.extract_from_string')
+    @patch('atomworld.evaluation.evaluator.load_cif_file_from_string')
+    @patch('atomworld.evaluation.evaluator.check_atom_counts')
+    @patch('atomworld.evaluation.evaluator.match_structures')
     def test_process_single_output_structure_mismatch(self, mock_match, mock_check_atoms,
                                                     mock_load_cif, mock_extract, mock_load_data):
         """Test _process_single_output with structure mismatch."""
@@ -279,7 +281,7 @@ class TestAtomWorldEvaluator:
         assert result['wrong_type'] == "StructureMismatch"
         assert stats['num_invalid_cif'] == 1
 
-    @patch('evaluation.evaluator.load_data')
+    @patch('atomworld.evaluation.evaluator.load_data')
     def test_log_success_metrics(self, mock_load_data):
         """Test _log_success_metrics method."""
         mock_load_data.return_value = self.mock_data
@@ -295,7 +297,7 @@ class TestAtomWorldEvaluator:
         # Should not raise an error
         evaluator._log_success_metrics(result)
 
-    @patch('evaluation.evaluator.load_data')
+    @patch('atomworld.evaluation.evaluator.load_data')
     def test_calculate_result_statistics(self, mock_load_data):
         """Test _calculate_result_statistics method."""
         mock_load_data.return_value = self.mock_data
@@ -323,7 +325,7 @@ class TestAtomWorldEvaluator:
         assert stats['max_diff_max'] == 0.2
         assert stats['max_diff_min'] == 0.1
 
-    @patch('evaluation.evaluator.load_data')
+    @patch('atomworld.evaluation.evaluator.load_data')
     def test_calculate_result_statistics_empty(self, mock_load_data):
         """Test _calculate_result_statistics with no valid results."""
         mock_load_data.return_value = self.mock_data

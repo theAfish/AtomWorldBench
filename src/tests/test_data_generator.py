@@ -1,9 +1,8 @@
-from atom_world.data_generator import DataGenerator
-from atom_world.actions import (
+from atomworld.actions import (
     AddAtomAction, RemoveAtomAction, MoveAtomAction, ChangeAtomAction,
     SwapAtomsAction, DeleteBelowAtomAction,
 )
-from atom_world.cell_actions import SuperCellAction
+from atomworld.cell_actions import SuperCellAction
 import os
 import numpy as np
 import pytest
@@ -59,7 +58,7 @@ def test_apply_random_supercell():
 
 
 def test_apply_random_delete_below_returns_none():
-    # Single atom — should return None
+    # Single atom should return None
     atoms = Atoms('H', positions=[[0, 0, 0]], cell=[5, 5, 5], pbc=True)
     rng = np.random.default_rng(42)
     action, result = DeleteBelowAtomAction.apply_random(atoms, rng=rng)

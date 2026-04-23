@@ -4,7 +4,7 @@ import pytest
 from unittest.mock import Mock, patch
 import numpy as np
 from pymatgen.core import Structure, Lattice
-from evaluation.metrics import (
+from atomworld.evaluation.metrics import (
     check_atom_counts,
     match_structures,
     check_partially_occupied_sites,
@@ -49,7 +49,7 @@ class TestMetrics:
 
         assert check_atom_counts(struct1, struct2) == False
 
-    @patch('evaluation.metrics.StructureMatcher')
+    @patch('atomworld.evaluation.metrics.StructureMatcher')
     def test_match_structures_success(self, mock_matcher_class):
         """Test match_structures when structures match."""
         # Mock the StructureMatcher
@@ -69,7 +69,7 @@ class TestMetrics:
         mock_matcher_class.assert_called_once()
         mock_matcher.fit.assert_called_once_with(struct1, struct2)
 
-    @patch('evaluation.metrics.StructureMatcher')
+    @patch('atomworld.evaluation.metrics.StructureMatcher')
     def test_match_structures_no_match(self, mock_matcher_class):
         """Test match_structures when structures don't match."""
         # Mock the StructureMatcher
@@ -81,14 +81,14 @@ class TestMetrics:
         struct1 = Structure(lattice, ['Si'], [[0, 0, 0]])
         struct2 = Structure(lattice, ['C'], [[0, 0, 0]])
 
-        with patch('evaluation.metrics.logging') as mock_logging:
+        with patch('atomworld.evaluation.metrics.logging') as mock_logging:
             rmsd, max_dist = match_structures(struct1, struct2)
 
             assert rmsd == -1
             assert max_dist == -1
             mock_logging.info.assert_called_once_with("Structures do NOT match within tolerances.")
 
-    @patch('evaluation.metrics.StructureMatcher')
+    @patch('atomworld.evaluation.metrics.StructureMatcher')
     def test_match_structures_with_parameters(self, mock_matcher_class):
         """Test match_structures with custom parameters."""
         mock_matcher = Mock()

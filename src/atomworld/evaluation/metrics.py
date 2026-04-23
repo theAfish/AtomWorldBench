@@ -3,41 +3,19 @@ from pymatgen.io.cif import CifParser
 import numpy as np
 import logging
 
-# from utils.dataloader import load_cif_file, load_cif_file_from_string
 
-# def load_cif_file(cif_file):
-#     """
-#     Load a CIF file and return the first structure.
-#     If the file is not valid, return None.
-#     """
-#     try:
-#         parser = CifParser(cif_file)
-#         structures = parser.parse_structures(primitive=True)
-#         if structures:
-#             return structures[0]
-#         else:
-#             logging.info(f"No structures found in {cif_file}.")
-#             return None
-#     except Exception as e:
-#         logging.info(f"Error loading CIF file {cif_file}: {e}")
-#         return None
-
-# def load_cif_file_from_string(cif_string):
-#     """
-#     Load a CIF file from a string and return the first structure.
-#     If the string is not valid, return None.
-#     """
-#     try:
-#         parser = CifParser.from_str(cif_string)
-#         structures = parser.parse_structures(primitive=True)
-#         if structures:
-#             return structures[0]
-#         else:
-#             logging.info("No structures found in the CIF string.")
-#             return None
-#     except Exception as e:
-#         logging.info(f"Error loading CIF from string: {e}")
-#         return None
+def load_cif_file_from_string(cif_string, primitive=False):
+    """Load a CIF structure from a string and return the first structure."""
+    try:
+        parser = CifParser.from_str(cif_string)
+        structures = parser.parse_structures(primitive=primitive, check_occu=False)
+        if structures:
+            return structures[0]
+        logging.info("No structures found in CIF string.")
+        return None
+    except Exception as e:
+        logging.info(f"Error loading CIF from string: {e}")
+        return None
 
 def check_atom_counts(struct1, struct2):
     """
@@ -126,13 +104,3 @@ def check_atoms_too_close(struct, threshold=0.5):
     if np.any(dists < threshold):
         return True
     return False
-
-
-if __name__ == "__main__":
-    # Example usage
-    from pymatgen.io.cif import CifParser
-    struct1 = CifParser("original_water.cif").parse_structures()[0]
-    struct2 = CifParser("moved_water.cif").parse_structures()[0]
-
-    rmsd, max_dist = compute_exact_match_positional_rmsd(struct1, struct2)
-    print(f"RMSD: {rmsd}, Max Distance: {max_dist}")

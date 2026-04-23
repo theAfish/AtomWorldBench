@@ -6,7 +6,7 @@ import tempfile
 import shutil
 from unittest.mock import Mock, patch
 import pandas as pd
-from evaluation.base_evaluator import BaseEvaluator
+from atomworld.evaluation.base_evaluator import BaseEvaluator
 from models.base_model import BaseModel
 
 

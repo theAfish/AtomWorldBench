@@ -4,7 +4,7 @@ import pytest
 from ase import Atoms
 import ase.io
 
-from atom_world.actions import *
+from atomworld.actions import *
 
 
 def _find_cif(name='Li6PS5Cl.cif'):
@@ -97,13 +97,14 @@ def test_insert_atom_actions():
 
     atoms = ase.io.read(cif_path)
 
+    initial_count = len(atoms)
     insert_between_action = InsertBetweenAtomsAction(atoms, 0, 1, 'O', 0.4)
     result = insert_between_action.execute()
 
     # out_dir = _ensure_outputs_dir()
     # ase.io.write(os.path.join(out_dir, 'Li6PS5Cl_insert_between.cif'), result)
 
-    assert len(result) == len(atoms) + 1
+    assert len(result) == initial_count + 1
 
 
 def test_delete_below():

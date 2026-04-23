@@ -1,17 +1,8 @@
-from atom_world.actions import BaseAction
 import numpy as np
 import random
-from typing import Optional, List, Tuple, Union
+from typing import List, Tuple, Union
 
-class CellAction(BaseAction):
-    """Base class for actions that modify the simulation cell."""
-    
-    def __init__(self):
-        super().__init__()
-
-
-
-class SuperCellAction(CellAction):
+class SuperCellAction:
     """Action to create a supercell by scaling the lattice vectors."""
     
     def __init__(
@@ -58,7 +49,7 @@ class SuperCellAction(CellAction):
         return atoms
     
     def __str__(self):
-        multiply_symbols = ['×', 'x', '*', 'X', ' by ']
+        multiply_symbols = ['x', '*', 'X', ' by ']
         mul_symbol = random.choice(multiply_symbols)
         return f"Create a supercell with the size {self.supercell_size[0]}{mul_symbol}{self.supercell_size[1]}{mul_symbol}{self.supercell_size[2]}."
 
@@ -82,28 +73,3 @@ class SuperCellAction(CellAction):
         action = cls(**params)
         result = action.execute(target)
         return action, result
-    
-
-# Example usage:
-if __name__ == "__main__":
-    from ase import Atoms
-    from ase.visualize import view
-
-    # Create a simple cubic structure
-    a = 3.5  # Lattice constant
-    atoms = Atoms('NaCl', positions=[(0, 0, 0), (a/2, a/2, a/2)],
-                  cell=[a, a, a], pbc=True)
-
-    # Visualize the original structure
-    print("Original structure:")
-    view(atoms)
-
-    # Apply the SuperCellAction to create a 2x2x2 supercell
-    action = SuperCellAction(supercell_size=None)
-    supercell_atoms = action.execute(atoms)
-
-    # Visualize the supercell structure
-    print("Supercell structure:")
-    view(supercell_atoms)
-
-    print(action)  # Print the action description

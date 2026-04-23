@@ -2,7 +2,7 @@ from models.base_model import BaseModel
 import os
 import pandas as pd
 from utils.extract_data import extract_from_string
-from evaluation.metrics import load_cif_file_from_string, check_partially_occupied_sites, check_atoms_too_close
+from atomworld.evaluation.metrics import load_cif_file_from_string, check_partially_occupied_sites, check_atoms_too_close
 from tqdm import tqdm
 import logging
 from pathlib import Path

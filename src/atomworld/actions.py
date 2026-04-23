@@ -529,16 +529,6 @@ class RotateWholeAction(BaseAction):
         axes = np.array([[1,0,0],[0,1,0],[0,0,1],[-1,0,0],[0,-1,0],[0,0,-1]])
         axis = axes[int(rng.integers(0, len(axes)))]
         return {"atoms": atoms, "angle": angle, "axis": axis}
-
-    @classmethod
-    def randomize(cls, atoms, rng=None, config=None):
-        rng = rng if rng is not None else np.random.default_rng()
-        cfg = _get_config(config)
-        angle = float(rng.uniform(cfg['angle_min'], cfg['angle_max']))
-        angle = round(angle, cfg['decimal_places'])
-        axes = np.array([[1,0,0],[0,1,0],[0,0,1],[-1,0,0],[0,-1,0],[0,0,-1]])
-        axis = axes[int(rng.integers(0, len(axes)))]
-        return {"atoms": atoms, "angle": angle, "axis": axis}
     
 
 class MoveAllAction(BaseAction):
@@ -561,19 +551,3 @@ class MoveAllAction(BaseAction):
         d_pos = rng.normal(scale=cfg['dpos_scale'], size=3)
         d_pos = np.round(d_pos, decimals=cfg['decimal_places'])
         return {"atoms": atoms, "d_pos": d_pos}
-    
-
-if __name__ == "__main__":
-    atoms = Atoms("H2O", positions=[[0.1, 0, 0], [0.1, 0, 1], [1.1, 0, 0]], cell=[2, 2, 2], pbc=True)
-    atoms.write("original_water.cif", wrap=False)
-    mv_all = MoveAllAction(atoms, np.array([-0.2, 0., 0.]))
-    mv_all.execute()
-    print(atoms.positions)
-    # save to cif
-    atoms.write("moved_water.cif", wrap=False)
-
-    # load the cif file
-    from pymatgen.io.cif import CifParser
-    parser = CifParser("moved_water.cif")
-    structures = parser.parse_structures(primitive=False)
-    print(structures[0])

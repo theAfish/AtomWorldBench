@@ -23,7 +23,7 @@ BANNER_WORLD  =  r"""_   __
 
 
 def _resolve_version() -> str:
-    for pkg in ("atomworld", "atom_world", "AtomWorldBench"):
+    for pkg in ("atomworld", "AtomWorldBench"):
         try:
             return importlib.metadata.version(pkg)
         except importlib.metadata.PackageNotFoundError:

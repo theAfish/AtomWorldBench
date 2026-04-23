@@ -2,7 +2,7 @@ import datetime
 import os
 from pathlib import Path
 from utils.load_model import load_model, load_config
-from evaluation.evaluator import AtomWorldEvaluator as Evaluator
+from atomworld.evaluation.evaluator import AtomWorldEvaluator as Evaluator
 
 CONFIG_DIR = Path(__file__).parent.parent / "config"
 DATA_DIR = Path(__file__).parent.parent / "data"
