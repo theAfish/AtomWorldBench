@@ -1,9 +1,14 @@
 """
 AtomWorld — public Python API.
 
-Lightweight core (only pymatgen + numpy)::
+Lightweight core (only ASE + numpy)::
 
     from atomworld import evaluate, EvaluateResult
+
+Actions — simple (index-based) and verbose (motif-centric)::
+
+    from atomworld.actions.simple import AddAtomAction, RemoveAtomAction
+    from atomworld.actions.verbose import SiteMotif, AddMotifAction
 
 Full toolkit (install with ``pip install atomworld[all]``)::
 
@@ -11,11 +16,15 @@ Full toolkit (install with ``pip install atomworld[all]``)::
 """
 
 from atomworld.evaluate import evaluate, EvaluateResult
+from atomworld.actions import simple as simple_actions, verbose as verbose_actions
 
 __all__ = [
     # core — always available
     "evaluate",
     "EvaluateResult",
+    # action namespaces
+    "simple_actions",
+    "verbose_actions",
 ]
 
 

@@ -1,0 +1,201 @@
+"""Implements replace action."""
+from typing import Optional
+
+from ase import Atoms
+import numpy as np
+
+from .base import BaseMotifAction
+from .utils import get_random_motif
+from ..motifs.base import BaseMotif
+
+from ..common.registry import register
+from .utils import _must_be_non_bond_site_collection_motif
+
+
+
+@register(BaseMotifAction, ["replace", "replace-motif"])
+class ReplaceMotifAction(BaseMotifAction):
+    """Action to replace a motif in the structure.
+
+    This action replaces motifs in the structure based on their fractional coordinates.
+    """
+    kwargs_formatting_functions = {
+        # Use the same operated motif compatibility check as in AddMotifAction.
+        "operated_motif": _must_be_non_bond_site_collection_motif,
+        "relative_to_motif": _must_be_non_bond_site_collection_motif,
+    }
+    mode_definitions = {
+        "_excluded": ["operated_motif", "relative_to_motif", "operated_atoms"],
+        "default": {},
+    }
+
+    def __init__(
+            self,
+            operated_motif: BaseMotif,
+            relative_to_motif: BaseMotif,
+    ):
+        """Initialize the ReplaceMotifAction with fractional coordinates and cutoff.
+
+        Args:
+            operated_motif (BaseMotif):
+                A motif that will be added to the structure.
+            relative_to_motif (BaseMotif):
+                A motif that the action will replace in the structure.
+                Must be in the structure (will check at `execute` call).
+        """
+        super().__init__(
+            operated_motif=operated_motif,
+            relative_to_motif=relative_to_motif,
+        )
+        self.replaced_motif = self.relative_to_motif  # Make an alias for clarity.
+
+    # Deprecate BaseMotifAction.operated_atoms property.
+    @property
+    def operated_atoms(self) -> Atoms:
+        """Return the Atoms object associated with the operated motif."""
+        return self.relative_to_motif.in_atoms
+
+    def __post_init__(self):
+        """Post-initialization to ensure the action is valid."""
+        # Operated motif must be in is_additive mode.
+        if not self.operated_motif.is_additive:
+            raise ValueError(
+                "Inserted motif must be in is_additive mode."
+            )
+        if self.relative_to_motif.is_additive:
+            raise ValueError(
+                "The motif to be replaced must NOT be in is_additive mode."
+            )
+
+    def execute(self) -> Atoms:
+        """Execute the action to replace the motif in the structure.
+
+        Removes the motif defined by `self.relative_to_motif` from the structure, and
+        append `motif` to the remaining atoms. The order of the remaining atoms is preserved.
+
+        The newly added atoms will be translated such that their centroid matches the centroid
+        of the removed motif.
+
+        Returns:
+            Atoms: The modified structure with the motif replaced.
+        """
+        # _check_relative_motif_in_atoms() in __post_init__ guarantees that
+        # the motif to be replaced is in the atoms and has indices.
+        remove_indices = self.replaced_motif.indices
+        remaining_indices = np.setdiff1d(
+            np.arange(len(self.operated_atoms), dtype=int),
+            remove_indices,
+            assume_unique=True
+        ).tolist()
+        centroid = self.replaced_motif.get_centroid(fractional=False)
+        displacement = centroid - self.operated_motif.get_centroid(fractional=False)
+        operated_motif_atoms = self.operated_motif.get_atoms().copy()
+        operated_motif_atoms.translate(displacement)
+        # Preserve the order of remaining atoms.
+        atoms_cp = self.operated_atoms[np.sort(remaining_indices)]
+        atoms_cp += operated_motif_atoms
+
+        return atoms_cp
+
+    def describe(
+            self,
+            motif_desc_kwargs: Optional[dict] = None,
+            relative_motif_desc_kwargs: Optional[dict] = None,
+    ) -> str:
+        """Describe the action to replace a motif.
+
+        Args:
+            motif_desc_kwargs (Optional[dict]):
+                Additional keyword arguments for describing the motif.
+            relative_motif_desc_kwargs (Optional[dict]):
+                Additional keyword arguments for describing the relative motif.
+        Returns:
+            str: Description of the action.
+        """
+        motif_desc_kwargs = motif_desc_kwargs or {}
+        relative_motif_desc_kwargs = relative_motif_desc_kwargs or {}
+
+        replaced_motif_desc, replaced_motif_other_notes = self.replaced_motif.describe(**relative_motif_desc_kwargs)
+        operated_motif_desc, operated_motif_other_notes = self.operated_motif.describe(**motif_desc_kwargs)
+
+        # if other notes are the same, keep only one:
+        if replaced_motif_other_notes == operated_motif_other_notes:
+            operated_motif_other_notes = ""
+        desc = (
+            f"Replace {replaced_motif_desc}"
+            f" with {operated_motif_desc}."
+            f" {replaced_motif_other_notes}"
+            f" {operated_motif_other_notes}"
+        )
+        if len(self.operated_motif) > 1:
+            if len(self.replaced_motif) == 1:
+                cent_word = "the position of the removed atom"
+
+            else:
+                cent_word = "the centroid of the removed atoms"
+            desc += (
+                " place the new atoms such that their centroid matches"
+                f" {cent_word}."
+            )
+        desc += (
+            " do not change the order of other unaffected atoms,"
+            " and the newly added atoms should be appended to the end of"
+            " the structure in the order as described."
+        )
+        return desc
+
+    @classmethod
+    def get_random_one(
+            cls,
+            operated_atoms: Atoms,
+            seed: Optional[int] = None,
+    ):
+        """Get a random ReplaceMotifAction instance.
+
+        Args:
+            operated_atoms (Atoms):
+                The atoms to operate on.
+            seed (Optional[int]):
+                Random seed for reproducibility. If None, a random seed is used.
+
+        Returns:
+            ReplaceMotifAction: A random instance of ReplaceMotifAction.
+        """
+        rng = np.random.default_rng(seed)
+
+        max_cluster_size = min(4, len(operated_atoms) - 1)
+
+        class_alias = rng.choice(
+            ["site", "cluster"]
+        )
+
+        operated_motif_kwargs = {
+            "additive_mode": True,  # Must use additive mode.
+            "class_alias": class_alias,
+            "atoms": operated_atoms,
+            "seed": seed,
+        }
+        if class_alias == "cluster":
+            operated_motif_kwargs["cluster_size"] = rng.integers(2, max_cluster_size + 1)
+            operated_motif_kwargs["max_cluster_radius"] = 4.0
+
+        operated_motif = get_random_motif(**operated_motif_kwargs)
+
+        class_alias2 = rng.choice(
+            ["site", "cluster"]
+        )
+        replaced_motif_kwargs = {
+            "additive_mode": False,  # Must NOT use additive mode.
+            "class_alias": class_alias2,
+            "atoms": operated_atoms,
+            "seed": seed,
+        }
+        if class_alias == "cluster":
+            operated_motif_kwargs["cluster_size"] = rng.integers(2, 5)
+            operated_motif_kwargs["max_cluster_radius"] = 4.0
+        replaced_motif = get_random_motif(**replaced_motif_kwargs)
+
+        return cls(
+            operated_motif=operated_motif,
+            relative_to_motif=replaced_motif,
+        )

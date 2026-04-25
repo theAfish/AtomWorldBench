@@ -146,4 +146,12 @@ def get_generation_parser():
         action="store_true",
         help="Allow repeating structures across samples",
     )
+    parser.add_argument(
+        "--verbose",
+        action="store_true",
+        help=(
+            "Use the verbose (motif-based) action family instead of the "
+            "default simple (index-based) actions."
+        ),
+    )
     return parser

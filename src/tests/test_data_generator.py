@@ -2,7 +2,7 @@ from atomworld.actions import (
     AddAtomAction, RemoveAtomAction, MoveAtomAction, ChangeAtomAction,
     SwapAtomsAction, DeleteBelowAtomAction,
 )
-from atomworld.cell_actions import SuperCellAction
+from atomworld.actions import SuperCellAction
 import os
 import numpy as np
 import pytest
