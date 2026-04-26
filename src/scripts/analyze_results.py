@@ -27,8 +27,11 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument(
         "--results-base",
         type=Path,
-        default=Path("results/AtomWorld"),
-        help="Base results directory (default: results/AtomWorld)",
+        default=None,
+        help=(
+            "Base results directory. Defaults to results/AtomWorld/<category> "
+            "where <category> is derived from the action name via ACTION_CATEGORIES."
+        ),
     )
     parser.add_argument("--no-show", dest="show", action="store_false", help="Don't call plt.show()")
     parser.add_argument("--out-name", type=str, default=None, help="Optional custom output filename prefix")
@@ -226,7 +229,7 @@ def main(argv: list[str] | None = None) -> int:
         generate_max_dist_plot(
             model_name=args.model_name,
             action_name=args.action_name,
-            results_base=args.results_base,
+            results_base=args.results_base,  # None → auto-derived inside the function
             out_name=args.out_name,
             show=args.show,
             quiet=args.quiet,
@@ -244,18 +247,27 @@ def main(argv: list[str] | None = None) -> int:
 def generate_max_dist_plot(
     model_name: str,
     action_name: str,
-    results_base: Path | str = Path("results/AtomWorld"),
+    results_base: Path | str | None = None,
     out_name: str | None = None,
     show: bool = False,
     quiet: bool = True,
 ) -> Path:
     """Programmatic API to generate the max_dist histogram for a given model/action.
 
+    If *results_base* is None, the path is derived automatically as
+    ``results/AtomWorld/<category>`` where *category* comes from
+    ``atomworld.actions.get_action_category``.
+
     Returns the path to the saved PNG on success.
     """
+    from atomworld.actions import get_action_category
+
     level = logging.WARNING if quiet else logging.INFO
     logging.basicConfig(level=level, format="%(levelname)s: %(message)s")
 
+    if results_base is None:
+        category = get_action_category(action_name or '', default='simple')
+        results_base = Path(f"results/AtomWorld/{category}")
     results_base = Path(results_base)
     results_folder = find_latest_results_folder(results_base, model_name, action_name)
     logging.info("Analysing folder: %s", results_folder)

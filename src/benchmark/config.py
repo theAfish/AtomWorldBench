@@ -29,12 +29,21 @@ class BenchmarkConfig:
     
     @property
     def results_dir(self) -> Path:
-        """Get the appropriate results directory based on benchmark type"""
+        """Get the appropriate results directory based on benchmark type.
+
+        For AtomWorld the subfolder under results/AtomWorld/ is determined by
+        the action's category (e.g. 'simple', 'verbose') as declared in
+        atomworld.actions.ACTION_CATEGORIES.
+        """
+        if self.benchmark_type == 'atomworld':
+            from atomworld.actions import get_action_category
+            category = get_action_category(self.action or '', default='simple')
+            return self.base_results_dir / 'AtomWorld' / category
+
         type_to_dir = {
-            'atomworld': 'AtomWorld',
             'cifgen': 'CifGen',
             'cifrepair': 'CifRepair',
-            'pointworld': 'PointWorld'
+            'pointworld': 'PointWorld',
         }
         return self.base_results_dir / type_to_dir[self.benchmark_type]
 

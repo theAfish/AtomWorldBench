@@ -66,6 +66,7 @@ def load_model_from_config(config_path, model_key):
 def main(args=None):
     from benchmark.inference.inferencer import AtomWorldInferencer
     from benchmark.evaluation.atomworld_evaluator import AtomWorldEvaluator
+    from atomworld.actions import get_action_category
 
     parser = get_benchmark_parser()
     args = parser.parse_args(args)
@@ -73,8 +74,9 @@ def main(args=None):
     # Setup folders
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     action_subfolder = args.action_name if args.action_name else "All_Actions"
+    category = get_action_category(args.action_name or '', default='simple')
     base_output_path = os.path.join(
-        args.output_folder, "AtomWorld", action_subfolder, args.model, timestamp
+        args.output_folder, "AtomWorld", category, action_subfolder, args.model, timestamp
     )
 
     inference_folder = os.path.join(base_output_path, "inference")

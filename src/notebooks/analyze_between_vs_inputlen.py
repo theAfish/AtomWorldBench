@@ -11,9 +11,12 @@ model_name = "qwen3_4B"
 action_name = "insert_between_atoms_action_natoms"
 tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen3-4B")
 
+from atomworld.actions import get_action_category
+
 # get the datetime folder name
 current_file = Path(__file__)
-folder = current_file.parent / f"../../results/AtomWorld/{model_name}/{action_name}/"
+_category = get_action_category(action_name, default='simple')
+folder = current_file.parent / f"../../results/AtomWorld/{_category}/{model_name}/{action_name}/"
 datetime_folders = os.listdir(folder)
 # get the latest folder
 latest_folder = sorted(datetime_folders)[-1]

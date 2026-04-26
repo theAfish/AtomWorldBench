@@ -43,15 +43,6 @@ from .simple import (
 )
 
 from .verbose import (
-    # motifs
-    BaseMotif,
-    BaseSiteCollectionMotif,
-    SiteMotif,
-    ClusterMotif,
-    BondMotif,
-    BaseRegionMotif,
-    SphereRegionMotif,
-    BoxRegionMotif,
     # motif actions
     BaseMotifAction,
     AddMotifAction,
@@ -71,7 +62,58 @@ from .verbose import (
     structure_action_factory,
 )
 
+# ---------------------------------------------------------------------------
+# Category registry
+# ---------------------------------------------------------------------------
+# Maps every known AtomWorld action name (as used in data folders / CLI) to
+# the subfolder of results/AtomWorld/ it should be saved under.
+# When a new action category is introduced, add a block here and the rest
+# of the framework will pick it up automatically.
+ACTION_CATEGORIES: dict[str, str] = {
+    # ---- simple (index-based) actions ----
+    "add_atom_action": "simple",
+    "change_atom_action": "simple",
+    "delete_around_atom_action": "simple",
+    "delete_below_atom_action": "simple",
+    "insert_between_atoms_action": "simple",
+    "insert_between_atoms_action_natoms": "simple",  # data-folder variant
+    "move_all_action": "simple",
+    "move_around_atom_action": "simple",
+    "move_atom_action": "simple",
+    "move_selected_atoms_action": "simple",
+    "move_towards_atom_action": "simple",
+    "remove_atom_action": "simple",
+    "rotate_around_atom_action": "simple",
+    "rotate_whole_action": "simple",
+    "swap_atoms_action": "simple",
+    "super_cell_action": "simple",
+    # ---- verbose (motif-based) actions ----
+    "add_motif_action": "verbose",
+    "remove_motif_action": "verbose",
+    "replace_motif_action": "verbose",
+    "translate_motif_action": "verbose",
+    "rotate_motif_action": "verbose",
+    "swap_motif_action": "verbose",
+    "resize_motif_action": "verbose",
+    "change_element_action": "verbose",
+    "lattice_transform_action": "verbose",
+    "make_supercell_action": "verbose",
+    "rotate_structure_action": "verbose",
+}
+
+
+def get_action_category(action_name: str, default: str = "simple") -> str:
+    """Return the results subfolder category for the given AtomWorld action name.
+
+    If the action name is not recognised, *default* is returned so that new or
+    custom actions still produce a valid (if generic) output path.
+    """
+    return ACTION_CATEGORIES.get(action_name, default)
+
+
 __all__ = [
+    "get_action_category",
+    "ACTION_CATEGORIES",
     # ---- simple ----
     "BaseAction",
     "DEFAULT_CONFIG",
@@ -90,15 +132,6 @@ __all__ = [
     "RotateAroundAtomAction",
     "RotateWholeAction",
     "SuperCellAction",
-    # ---- verbose motifs ----
-    "BaseMotif",
-    "BaseSiteCollectionMotif",
-    "SiteMotif",
-    "ClusterMotif",
-    "BondMotif",
-    "BaseRegionMotif",
-    "SphereRegionMotif",
-    "BoxRegionMotif",
     # ---- verbose motif actions ----
     "BaseMotifAction",
     "AddMotifAction",

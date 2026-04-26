@@ -20,5 +20,5 @@ def convert_cifs_from_csv(csv_file, cif_col, cif_folder='cifs', name_col=None):
 
 
 if __name__ == "__main__":
-    file = "D:/Codes/AtomWorld/results/AtomWorld/deepseek_chat/super_cell_action/20250919_110406/evaluation_results.csv"
+    file = "D:/Codes/AtomWorld/results/AtomWorld/simple/deepseek_chat/super_cell_action/20250919_110406/evaluation_results.csv"
     convert_cifs_from_csv(file, "target_cif")
