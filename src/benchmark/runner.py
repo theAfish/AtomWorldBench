@@ -53,7 +53,7 @@ class BenchmarkRunner:
         inference_folder = str(Path(results_folder) / "inference")
         evaluation_folder = str(Path(results_folder) / "evaluation")
 
-        data_dir = self._resolve_data_path(Path(__file__).parent.parent / "data")
+        data_dir = self._resolve_data_path(Path(__file__).parent.parent.parent / "data" / "simple")
 
         # Inference
         inferencer = AtomWorldInferencer(
