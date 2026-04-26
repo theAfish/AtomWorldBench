@@ -106,17 +106,9 @@ def _build_dataset(results_root: Path) -> dict:
             if not latest:
                 continue
 
-            # Prefer standalone metrics.json; fall back to metrics embedded in
-            # evaluation_results.json (older / in-progress run format).
-            metrics_file = latest / "metrics.json"
-            eval_file    = latest / "evaluation_results.json"
+            eval_file = latest / "evaluation_results.json"
 
-            if metrics_file.exists():
-                with open(metrics_file, encoding="utf-8") as f:
-                    raw = json.load(f)
-                summary    = raw.get("summary", {})
-                statistics = raw.get("statistics", {})
-            elif eval_file.exists():
+            if eval_file.exists():
                 with open(eval_file, encoding="utf-8") as f:
                     raw = json.load(f)
                 metrics    = raw.get("metrics", {})

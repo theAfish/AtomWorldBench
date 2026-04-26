@@ -320,12 +320,13 @@ function getVal(data, model, action, key) {
 function drawSRHeatmap(data) {
   const { models, actions, model_labels, action_labels } = data;
 
+  // rows = actions, columns = models
   const z      = [];
   const zText  = [];
 
-  for (const m of models) {
+  for (const a of actions) {
     const row = [], rowText = [];
-    for (const a of actions) {
+    for (const m of models) {
       const sr = getVal(data, m, a, "success_rate");
       row.push(sr != null ? fmt(sr * 100, 1) : null);
       rowText.push(sr != null ? `${(sr * 100).toFixed(1)}%` : "—");
@@ -337,20 +338,24 @@ function drawSRHeatmap(data) {
   const trace = {
     type: "heatmap",
     z,
-    x: actions.map(a => action_labels[a] ?? a),
-    y: models.map(m => model_labels[m] ?? m),
+    // ── X axis: models ────────────────────────────────────────────────────
+    x: models.map(m => model_labels[m] ?? m),
+    // ── Y axis: actions ───────────────────────────────────────────────────
+    y: actions.map(a => action_labels[a] ?? a),
     text: zText,
     texttemplate: "%{text}",
+    // ── Colorscale: edit the hex strings below to change colors ───────────
+    // Format: [fraction_0_to_1, "#hexcolor"]
     colorscale: [
-      [0,    "#fde9d9"],
-      [0.25, "#f4a763"],
-      [0.5,  "#5ba85c"],
-      [0.75, "#2e7d47"],
-      [1,    "#1b4c2a"],
+      [0,    "#fde9d9"],   // 0%  → lightest (bad)
+      [0.25, "#f4a763"],   // 25%
+      [0.5,  "#5ba85c"],   // 50%
+      [0.75, "#2e7d47"],   // 75%
+      [1,    "#1b4c2a"],   // 100% → darkest (best)
     ],
     zmin: 0, zmax: 100,
     colorbar: { title: "%", thickness: 14 },
-    hovertemplate: "<b>%{y}</b><br>%{x}<br>Success rate: %{text}<extra></extra>",
+    hovertemplate: "<b>%{x}</b><br>%{y}<br>Success rate: %{text}<extra></extra>",
   };
 
   const layout = {
@@ -370,16 +375,27 @@ function drawSRHeatmap(data) {
 function drawMMDHeatmap(data) {
   const { models, actions, model_labels, action_labels } = data;
 
+  // rows = actions, columns = models
   const z     = [];
   const zText = [];
 
-  for (const m of models) {
+  // Choose label format: scientific if all non-null values are < 0.001, else 4 sig figs
+  const allVals = [];
+  for (const a of actions)
+    for (const m of models) {
+      const v = data?.data?.[m]?.[a]?.statistics?.max_dist_mean ?? null;
+      if (v != null) allVals.push(v);
+    }
+  const useSci = allVals.length > 0 && allVals.every(v => v < 0.001);
+  const fmtMD  = v => useSci ? v.toExponential(2) : parseFloat(v.toPrecision(4)).toString();
+
+  for (const a of actions) {
     const row = [], rowText = [];
-    for (const a of actions) {
+    for (const m of models) {
       const stats = data?.data?.[m]?.[a]?.statistics ?? null;
       const v = stats?.max_dist_mean ?? null;
-      row.push(v != null ? fmt(v, 4) : null);
-      rowText.push(v != null ? v.toFixed(4) : "—");
+      row.push(v != null ? v : null);
+      rowText.push(v != null ? fmtMD(v) : "—");
     }
     z.push(row);
     zText.push(rowText);
@@ -388,19 +404,23 @@ function drawMMDHeatmap(data) {
   const trace = {
     type: "heatmap",
     z,
-    x: actions.map(a => action_labels[a] ?? a),
-    y: models.map(m => model_labels[m] ?? m),
+    // ── X axis: models ────────────────────────────────────────────────────
+    x: models.map(m => model_labels[m] ?? m),
+    // ── Y axis: actions ───────────────────────────────────────────────────
+    y: actions.map(a => action_labels[a] ?? a),
     text: zText,
     texttemplate: "%{text}",
+    // ── Colorscale: edit the hex strings below to change colors ───────────
+    // Format: [fraction_0_to_1, "#hexcolor"]  (0 = min value, 1 = max value)
     colorscale: [
-      [0,   "#1b4c8a"],
+      [0,   "#1b4c8a"],   // min (best, smallest displacement)
       [0.2, "#4c78a8"],
       [0.5, "#9ecae1"],
       [0.8, "#fdd49e"],
-      [1,   "#d7191c"],
+      [1,   "#d7191c"],   // max (worst, largest displacement)
     ],
     colorbar: { title: "Å", thickness: 14 },
-    hovertemplate: "<b>%{y}</b><br>%{x}<br>Mean max-dist: %{text} Å<extra></extra>",
+    hovertemplate: "<b>%{x}</b><br>%{y}<br>Mean max-dist: %{text} Å<extra></extra>",
   };
 
   const layout = {
