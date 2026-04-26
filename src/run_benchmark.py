@@ -18,6 +18,21 @@ from utils.visualization import plot_metrics_distribution
 import models
 
 
+def _agent_cli_to_name(agent_cli: str) -> str:
+    """Derive a short, filesystem-safe name from an agent CLI string.
+
+    Examples::
+
+        "python examples/my_agent/run.py"  →  "run"
+        "my_agent"                          →  "my_agent"
+    """
+    # Take the last whitespace-separated token, strip path separators and extension
+    last_token = agent_cli.strip().split()[-1]
+    stem = os.path.splitext(os.path.basename(last_token))[0]
+    # Replace any remaining non-alphanumeric characters with underscores
+    return re.sub(r"[^A-Za-z0-9_.-]", "_", stem) or "agent"
+
+
 def load_model_from_config(config_path, model_key):
     if not os.path.exists(config_path):
         raise FileNotFoundError(f"Config file not found: {config_path}")
@@ -65,6 +80,7 @@ def load_model_from_config(config_path, model_key):
 
 def main(args=None):
     from benchmark.inference.inferencer import AtomWorldInferencer
+    from benchmark.inference.agent_inferencer import AgentInferencer
     from benchmark.evaluation.atomworld_evaluator import AtomWorldEvaluator
     from atomworld.actions import get_action_category
 
@@ -75,8 +91,16 @@ def main(args=None):
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     action_subfolder = args.action_name if args.action_name else "All_Actions"
     category = get_action_category(args.action_name or '', default='simple')
+
+    # Use the agent name (derived from the CLI command) or the model name as the
+    # run identifier so results land under a sensible subfolder.
+    if args.agent_cli:
+        run_id = _agent_cli_to_name(args.agent_cli)
+    else:
+        run_id = args.model
+
     base_output_path = os.path.join(
-        args.output_folder, "AtomWorld", category, action_subfolder, args.model, timestamp
+        args.output_folder, "AtomWorld", category, action_subfolder, run_id, timestamp
     )
 
     inference_folder = os.path.join(base_output_path, "inference")
@@ -85,27 +109,44 @@ def main(args=None):
     inference_file = args.inference_file
 
     if not args.skip_inference:
-        print(f"Loading model {args.model} from {args.config_path}...")
-        try:
-            model = load_model_from_config(args.config_path, args.model)
-        except Exception as e:
-            print(f"Error loading model: {e}")
-            return
+        if args.agent_cli:
+            # ── Agent mode ──────────────────────────────────────────────────
+            print(f"Starting agent inference with: {args.agent_cli}")
+            inferencer = AgentInferencer(
+                agent_cli=args.agent_cli,
+                data_folder=args.data_folder,
+                action_name=args.action_name,
+                output_folder=inference_folder,
+                timeout=args.timeout,
+                batch_size=args.batch_size,
+            )
+            inference_file = inferencer.infer(
+                num_batch=args.num_batch,
+                restart_from_index=args.start_index,
+                repeat=args.repeat,
+            )
+        else:
+            # ── LLM mode ────────────────────────────────────────────────────
+            print(f"Loading model {args.model} from {args.config_path}...")
+            try:
+                model = load_model_from_config(args.config_path, args.model)
+            except Exception as e:
+                print(f"Error loading model: {e}")
+                return
 
-        print("Starting inference...")
-        inferencer = AtomWorldInferencer(
-            model=model,
-            data_folder=args.data_folder,
-            action_name=args.action_name,
-            output_folder=inference_folder,
-        )
-
-        inference_file = inferencer.infer(
-            batch_size=args.batch_size,
-            num_batch=args.num_batch,
-            restart_from_index=args.start_index,
-            repeat=args.repeat,
-        )
+            print("Starting inference...")
+            inferencer = AtomWorldInferencer(
+                model=model,
+                data_folder=args.data_folder,
+                action_name=args.action_name,
+                output_folder=inference_folder,
+            )
+            inference_file = inferencer.infer(
+                batch_size=args.batch_size,
+                num_batch=args.num_batch,
+                restart_from_index=args.start_index,
+                repeat=args.repeat,
+            )
 
     if inference_file:
         print(f"Starting evaluation on {inference_file}...")

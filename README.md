@@ -262,12 +262,51 @@ atomworld benchmark -f DATA -a ACTION -m MODEL [-b BATCH] [-n NUM_BATCH] [-o OUT
 | `--keep_inference`        | Keep inference JSON after evaluation                  |
 | `--start_index`           | Resume from sample index                              |
 | `--plot`                  | Generate histogram after evaluation                   |
+| `--agent_cli`             | Shell command for an external agent (enables agent mode) |
+| `--timeout`               | Per-task timeout in seconds for agent mode (default: 120) |
 
 ### Available actions
 
 **AtomWorld:** `add_atom_action`, `change_atom_action`, `delete_around_atom_action`, `delete_below_atom_action`, `insert_between_atoms_action`, `move_around_atom_action`, `move_atom_action`, `move_selected_atoms_action`, `move_towards_atom_action`, `remove_atom_action`, `rotate_around_atom_action`, `swap_atoms_action`, `super_cell_action`, `rotate_whole_action`, `move_all_action`
 
 **PointWorld:** `move`, `move_towards`, `insert_between`, `rotate_around`
+
+### Agent Mode
+
+Agent mode lets you evaluate any external program — a Python script, a compiled binary, or an entire AI agent — without touching the benchmark codebase.  Pass `--agent_cli` instead of `--model` and the CLI handles the rest.
+
+#### CLI contract
+
+Your agent will be called once per task with three arguments:
+
+```
+<agent_cli> \
+    --workspace_dir <path>   # read-only; contains structure.cif (the input crystal)
+    --instruction   <str>    # natural-language manipulation instruction
+    --output_dir    <path>   # write your result.cif here
+```
+
+The agent **must** write `result.cif` into `--output_dir` before it exits.  Stdout and stderr are captured to `logs/task_<N>.log` under the results folder.
+
+#### Running agent mode
+
+```bash
+# Sequential (default)
+atomworld benchmark \
+    --agent_cli "python examples/my_agent/run.py" \
+    -f data/simple/ -a add_atom_action
+
+# Parallel — run 8 agent subprocesses concurrently (-b controls concurrency in agent mode)
+atomworld benchmark \
+    --agent_cli "python examples/my_agent/run.py" \
+    --timeout 120 \
+    -b 8 \
+    -f data/simple/ -a add_atom_action
+```
+
+> **`-b` in agent mode** sets the number of concurrent agent subprocesses (analogous to batch size in LLM mode). Every task runs in its own isolated temporary directory, so parallelism is safe.
+
+---
 
 ### Adding your own model
 
