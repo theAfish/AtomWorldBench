@@ -379,15 +379,7 @@ function drawMMDHeatmap(data) {
   const z     = [];
   const zText = [];
 
-  // Choose label format: scientific if all non-null values are < 0.001, else 4 sig figs
-  const allVals = [];
-  for (const a of actions)
-    for (const m of models) {
-      const v = data?.data?.[m]?.[a]?.statistics?.max_dist_mean ?? null;
-      if (v != null) allVals.push(v);
-    }
-  const useSci = allVals.length > 0 && allVals.every(v => v < 0.001);
-  const fmtMD  = v => useSci ? v.toExponential(2) : parseFloat(v.toPrecision(4)).toString();
+  const fmtMD  = v => v.toFixed(2);
 
   for (const a of actions) {
     const row = [], rowText = [];
