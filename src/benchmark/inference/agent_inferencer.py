@@ -74,9 +74,18 @@ class AgentInferencer(BaseInferencer):
     # BaseInferencer abstract method — required but unused in agent mode
     # ------------------------------------------------------------------
 
-    def _create_prompt(self, row: Any) -> str:
+    def _create_prompt(
+        self,
+        row: Any,
+        workspace_dir: str = "<workspace_dir>",
+        output_dir: str = "<output_dir>",
+    ) -> str:
         """Return the instruction string for this task."""
-        return agent_mode_prompt(row.get("action_prompt", ""))
+        return agent_mode_prompt(
+            row.get("action_prompt", ""),
+            workspace_dir=workspace_dir,
+            output_dir=output_dir,
+        )
 
     # ------------------------------------------------------------------
     # Core inference loop (fully overrides the LLM-based batch loop)
@@ -228,7 +237,11 @@ class AgentInferencer(BaseInferencer):
                 return None
 
             # --- build command ---
-            instruction = self._create_prompt(row)
+            instruction = self._create_prompt(
+                row,
+                workspace_dir=workspace_dir,
+                output_dir=output_dir,
+            )
             cmd = shlex.split(self.agent_cli) + [
                 "--workspace_dir", workspace_dir,
                 "--instruction", instruction,
