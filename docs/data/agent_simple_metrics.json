@@ -1,0 +1,35 @@
+{
+  "models": [
+    "AtomSculptor"
+  ],
+  "model_labels": {
+    "AtomSculptor": "AtomSculptor"
+  },
+  "actions": [
+    "rotate_around_atom_action"
+  ],
+  "action_labels": {
+    "rotate_around_atom_action": "Rotate Around"
+  },
+  "data": {
+    "AtomSculptor": {
+      "rotate_around_atom_action": {
+        "total": 5,
+        "success_count": 2,
+        "error_count": 3,
+        "success_rate": 0.4,
+        "error_types": {
+          "StructureMismatch": 3
+        },
+        "statistics": {
+          "rmsd_mean": 0.00016934330314515063,
+          "rmsd_median": 0.00019017584949237125,
+          "rmsd_max": 0.00019017584949237125,
+          "max_dist_mean": 0.00040027456288787764,
+          "max_dist_median": 0.0005774438941876599,
+          "max_dist_max": 0.0005774438941876599
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+2026-04-27 14:24:09,868 - AtomWorldEvaluator - INFO - Loading results from results/AtomWorld/simple/rotate_around_atom_action/AtomSculptor/2026-04-27_14-19-10/inference/inference_results.json
+2026-04-27 14:24:09,869 - AtomWorldEvaluator - INFO - Evaluating 5 items...
+2026-04-27 14:24:10,037 - AtomWorldEvaluator - INFO - Evaluation completed.
+2026-04-27 14:24:10,037 - AtomWorldEvaluator - INFO - Summary: {
+  "total_samples": 5,
+  "success_count": 2,
+  "error_count": 3,
+  "success_rate": 0.4,
+  "error_types": {
+    "StructureMismatch": 3
+  }
+}
+2026-04-27 14:24:10,037 - AtomWorldEvaluator - INFO - Statistics: {
+  "rmsd_mean": 0.00016934330314515063,
+  "rmsd_median": 0.00019017584949237125,
+  "rmsd_max": 0.00019017584949237125,
+  "rmsd_min": 0.00014851075679793001,
+  "max_dist_mean": 0.00040027456288787764,
+  "max_dist_median": 0.0005774438941876599,
+  "max_dist_max": 0.0005774438941876599,
+  "max_dist_min": 0.0002231052315880954
+}
+2026-04-27 14:24:10,037 - AtomWorldEvaluator - INFO - Cost: {
+  "runtime_seconds_total": 299.706416,
+  "runtime_seconds_avg": 59.9412832,
+  "runtime_samples_with_data": 5,
+  "token_usage_total": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  }
+}
+2026-04-27 14:24:10,037 - AtomWorldEvaluator - INFO - Detailed results saved to results/AtomWorld/simple/rotate_around_atom_action/AtomSculptor/2026-04-27_14-19-10/evaluation/evaluation_results.json

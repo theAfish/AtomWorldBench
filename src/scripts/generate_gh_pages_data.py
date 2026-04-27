@@ -76,46 +76,75 @@ ACTION_LABELS: dict[str, str] = {
 }
 
 
+_TS_PATTERNS = (
+    re.compile(r"\d{8}_\d{6}"),               # 20260325_085511
+    re.compile(r"\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2}"),  # 2026-04-27_14-19-10
+)
+
+
+def _is_timestamp_dir(name: str) -> bool:
+    return any(pat.fullmatch(name) for pat in _TS_PATTERNS)
+
+
+def _ts_sort_key(p: Path) -> str:
+    """Normalise both timestamp formats to a comparable YYYYMMDDHHMMSS string."""
+    return re.sub(r"\D", "", p.name)
+
+
 def _find_latest_dir(path: Path) -> Optional[Path]:
-    timestamped = [
-        p for p in path.iterdir()
-        if p.is_dir() and re.fullmatch(r"\d{8}_\d{6}", p.name)
-    ]
-    return max(timestamped, key=lambda p: p.name) if timestamped else None
+    timestamped = [p for p in path.iterdir() if p.is_dir() and _is_timestamp_dir(p.name)]
+    return max(timestamped, key=_ts_sort_key) if timestamped else None
+
+
+def _find_eval_file(ts_dir: Path) -> Optional[Path]:
+    """Locate evaluation_results.json under a timestamped run directory.
+
+    Checks two locations:
+    - <ts_dir>/evaluation/evaluation_results.json  (new format)
+    - <ts_dir>/evaluation_results.json             (old/migrated format)
+    """
+    for candidate in (
+        ts_dir / "evaluation" / "evaluation_results.json",
+        ts_dir / "evaluation_results.json",
+    ):
+        if candidate.exists():
+            return candidate
+    return None
 
 
 def _build_dataset(results_root: Path) -> dict:
-    """Read all metrics.json files under results_root and return aggregated dict."""
+    """Read all metrics.json files under results_root and return aggregated dict.
+
+    Expects the layout: results_root / <task> / <model> / <timestamp> /
+    """
     data: dict[str, dict] = {}
     models_found: list[str] = []
     actions_found: list[str] = []
 
-    for model_dir in sorted(results_root.iterdir()):
-        if not model_dir.is_dir():
+    for action_dir in sorted(results_root.iterdir()):
+        if not action_dir.is_dir():
             continue
-        model_name = model_dir.name
-        data[model_name] = {}
-        has_any = False
+        action_name = action_dir.name
 
-        for action_dir in sorted(model_dir.iterdir()):
-            if not action_dir.is_dir():
+        for model_dir in sorted(action_dir.iterdir()):
+            if not model_dir.is_dir():
                 continue
-            action_name = action_dir.name
+            model_name = model_dir.name
 
-            latest = _find_latest_dir(action_dir)
+            latest = _find_latest_dir(model_dir)
             if not latest:
                 continue
 
-            eval_file = latest / "evaluation_results.json"
+            eval_file = _find_eval_file(latest)
 
-            if eval_file.exists():
-                with open(eval_file, encoding="utf-8") as f:
-                    raw = json.load(f)
-                metrics    = raw.get("metrics", {})
-                summary    = metrics.get("summary", {})
-                statistics = metrics.get("statistics", {})
-            else:
+            if eval_file is None:
                 continue
+
+            with open(eval_file, encoding="utf-8") as f:
+                raw = json.load(f)
+            metrics    = raw.get("metrics", {})
+            summary    = metrics.get("summary", {})
+            statistics = metrics.get("statistics", {})
 
             # Normalise error_types — old format stores dicts, new stores ints
             raw_error_types = summary.get("error_types", {})
@@ -126,6 +155,8 @@ def _build_dataset(results_root: Path) -> dict:
                 else:
                     error_types[etype] = int(val)
 
+            if model_name not in data:
+                data[model_name] = {}
             data[model_name][action_name] = {
                 "total": int(summary.get("total_samples", 0)),
                 "success_count": int(summary.get("success_count", 0)),
@@ -148,10 +179,8 @@ def _build_dataset(results_root: Path) -> dict:
 
             if action_name not in actions_found:
                 actions_found.append(action_name)
-            has_any = True
-
-        if has_any:
-            models_found.append(model_name)
+            if model_name not in models_found:
+                models_found.append(model_name)
 
     def _ordered(found: list[str], order: list[str]) -> list[str]:
         result = [m for m in order if m in found]
@@ -176,28 +205,38 @@ def main() -> None:
     docs_data = repo_root / "docs" / "data"
     docs_data.mkdir(parents=True, exist_ok=True)
 
-    for dataset_type in ("simple", "verbose"):
-        results_root = results_root_base / dataset_type
-        if not results_root.exists():
-            print(f"[skip] {dataset_type}: folder not found")
-            continue
+    # Iterate over all mode/type combinations.
+    # The llm/simple output is also written as simple_metrics.json for
+    # backward-compat with the GitHub Pages dashboard.
+    for mode in ("llm", "agent"):
+        for dataset_type in ("simple", "verbose", "active"):
+            results_root = results_root_base / mode / dataset_type
+            if not results_root.exists():
+                continue
 
-        # Skip empty directories
-        model_dirs = [p for p in results_root.iterdir() if p.is_dir()]
-        if not model_dirs:
-            print(f"[skip] {dataset_type}: folder is empty")
-            continue
+            task_dirs = [p for p in results_root.iterdir() if p.is_dir()]
+            if not task_dirs:
+                print(f"[skip] {mode}/{dataset_type}: folder is empty")
+                continue
 
-        print(f"Processing {dataset_type}…")
-        output = _build_dataset(results_root)
+            print(f"Processing {mode}/{dataset_type}…")
+            output = _build_dataset(results_root)
 
-        out_file = docs_data / f"{dataset_type}_metrics.json"
-        with open(out_file, "w", encoding="utf-8") as f:
-            json.dump(output, f, indent=2)
+            # Primary output file: <mode>_<type>_metrics.json
+            out_file = docs_data / f"{mode}_{dataset_type}_metrics.json"
+            with open(out_file, "w", encoding="utf-8") as f:
+                json.dump(output, f, indent=2)
+            print(f"  Written: {out_file.relative_to(repo_root)}")
 
-        print(f"  Written: {out_file.relative_to(repo_root)}")
-        print(f"  Models : {output['models']}")
-        print(f"  Actions: {output['actions']}")
+            # Backward-compat alias used by the dashboard (llm mode only)
+            if mode == "llm":
+                alias = docs_data / f"{dataset_type}_metrics.json"
+                with open(alias, "w", encoding="utf-8") as f:
+                    json.dump(output, f, indent=2)
+                print(f"  Alias  : {alias.relative_to(repo_root)}")
+
+            print(f"  Models : {output['models']}")
+            print(f"  Actions: {output['actions']}")
 
 
 if __name__ == "__main__":

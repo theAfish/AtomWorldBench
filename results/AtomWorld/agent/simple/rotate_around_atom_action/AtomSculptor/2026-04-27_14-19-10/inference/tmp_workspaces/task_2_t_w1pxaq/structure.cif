@@ -1,0 +1,42 @@
+# generated using pymatgen
+data_Mg6NbCd
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.9444
+_cell_length_b   6.2967
+_cell_length_c   10.9135
+_cell_angle_alpha   90.0000
+_cell_angle_beta   90.0000
+_cell_angle_gamma   90.0000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Mg6NbCd
+_chemical_formula_sum   'Mg12 Nb2 Cd2'
+_cell_volume   339.7698
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Mg  Mg0  1  0.0000  0.2515  0.0819  1
+  Mg  Mg1  1  0.0000  0.7485  0.0819  1
+  Mg  Mg2  1  0.0000  0.0000  0.3345  1
+  Mg  Mg3  1  0.5000  0.7409  0.4136  1
+  Mg  Mg4  1  0.5000  0.2591  0.4136  1
+  Mg  Mg5  1  0.5000  0.0000  0.1669  1
+  Mg  Mg6  1  0.0000  0.7515  0.5819  1
+  Mg  Mg7  1  0.0000  0.2485  0.5819  1
+  Mg  Mg8  1  0.0000  0.5000  0.8345  1
+  Mg  Mg9  1  0.5000  0.2409  0.9136  1
+  Mg  Mg10  1  0.5000  0.7591  0.9136  1
+  Mg  Mg11  1  0.5000  0.5000  0.6669  1
+  Nb  Nb12  1  0.0000  0.5000  0.3337  1
+  Nb  Nb13  1  0.0000  0.0000  0.8337  1
+  Cd  Cd14  1  0.5000  0.5000  0.1739  1
+  Cd  Cd15  1  0.5000  0.0000  0.6739  1

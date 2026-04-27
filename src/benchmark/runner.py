@@ -28,11 +28,12 @@ class BenchmarkRunner:
             return self.config.results_folder
             
         timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-        components = [self.config.results_dir, self.config.model_id]
+        components = [self.config.results_dir]
         
         if self.config.action:  # For AtomWorld and PointWorld
             components.append(self.config.action)
-            
+
+        components.append(self.config.model_id)
         components.append(timestamp)
         return str(Path().joinpath(*components))
     

@@ -42,33 +42,39 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 def find_latest_results_folder(base: Path, model: str, action: str | None = None) -> Path:
     """Find the latest results folder.
 
-    Supports two layouts:
-    - base / model / action / <timestamp>/
-    - base / model / <timestamp>/
+    Expected layout (new format)::
 
-    If action is provided and exists under model, prefer that layout; otherwise fall back to model-level timestamps.
+        base / action / model / <timestamp>/
+
+    Falls back to the legacy layout ``base / model / action / <timestamp>/``
+    for backward compatibility with pre-migration results.
     """
     base = Path(base)
-    model_dir = base / model
 
-    # If action is provided and exists, look under it
+    # New layout: base / action / model / <timestamp>/
+    if action:
+        new_layout_dir = base / action / model
+        if new_layout_dir.exists() and new_layout_dir.is_dir():
+            subdirs = [p for p in new_layout_dir.iterdir() if p.is_dir()]
+            if subdirs:
+                return sorted(subdirs)[-1]
+
+    # Legacy fallback: base / model / action / <timestamp>/
+    model_dir = base / model
     if action:
         action_dir = model_dir / action
         if action_dir.exists() and action_dir.is_dir():
             subdirs = [p for p in action_dir.iterdir() if p.is_dir()]
             if subdirs:
                 return sorted(subdirs)[-1]
-            return action_dir
 
-    # Fallback: look for timestamped folders directly under model_dir
+    # Further fallback: base / model / <timestamp>/
     if model_dir.exists() and model_dir.is_dir():
         subdirs = [p for p in model_dir.iterdir() if p.is_dir()]
         if subdirs:
             return sorted(subdirs)[-1]
-        return model_dir
 
-    # nothing found
-    search_path = model_dir if not action else model_dir / action
+    search_path = base / (action or "") / model
     raise FileNotFoundError(f"Results folder not found: {search_path}")
 
 
@@ -267,7 +273,7 @@ def generate_max_dist_plot(
 
     if results_base is None:
         category = get_action_category(action_name or '', default='simple')
-        results_base = Path(f"results/AtomWorld/{category}")
+        results_base = Path(f"results/AtomWorld/llm/{category}")
     results_base = Path(results_base)
     results_folder = find_latest_results_folder(results_base, model_name, action_name)
     logging.info("Analysing folder: %s", results_folder)

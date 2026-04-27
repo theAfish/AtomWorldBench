@@ -1,0 +1,41 @@
+data_image0
+_chemical_formula_structural       Hf2Mg12Mo2
+_chemical_formula_sum              "Hf2 Mg12 Mo2"
+_cell_length_a       4.9016
+_cell_length_b       6.1078
+_cell_length_c       11.1463
+_cell_angle_alpha    90.0
+_cell_angle_beta     90.0
+_cell_angle_gamma    90.0
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Hf  Hf1       1.0  0.5  0.6546514601293895  0.3621590169603877  1.0000
+  Hf  Hf2       1.0  0.5  0.0  0.6976  1.0000
+  Mg  Mg1       1.0  0.0  0.6945093988773197  0.5433300952762703  1.0000
+  Mg  Mg2       1.0  0.0  0.980252303243417  0.3238593908275538  1.0000
+  Mg  Mg3       1.0  0.0  0.0  0.327  1.0000
+  Mg  Mg4       1.0  0.5  0.2571  0.4277000000000001  1.0000
+  Mg  Mg5       1.0  0.5  0.7429  0.4277000000000001  1.0000
+  Mg  Mg6       1.0  0.5  0.0  0.1692  1.0000
+  Mg  Mg7       1.0  0.0  0.246  0.5746000000000001  1.0000
+  Mg  Mg8       1.0  0.0  0.754  0.5746000000000001  1.0000
+  Mg  Mg9       1.0  0.0  0.5  0.827  1.0000
+  Mg  Mg10      1.0  0.5  0.7571  0.9277  1.0000
+  Mg  Mg11      1.0  0.5  0.2429  0.9277  1.0000
+  Mg  Mg12      1.0  0.5  0.5  0.6692  1.0000
+  Mo  Mo1       1.0  0.0  0.5  0.3017  1.0000
+  Mo  Mo2       1.0  0.0  0.0  0.8017000000000001  1.0000

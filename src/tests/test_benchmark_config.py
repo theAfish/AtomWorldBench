@@ -16,17 +16,17 @@ def _make_config(benchmark_type: str, action: str = None) -> BenchmarkConfig:
 
 def test_atomworld_simple_action_routes_to_simple():
     config = _make_config("atomworld", action="add_atom_action")
-    assert config.results_dir == config.base_results_dir / "AtomWorld" / "simple"
+    assert config.results_dir == config.base_results_dir / "AtomWorld" / "llm" / "simple"
 
 
 def test_atomworld_verbose_action_routes_to_verbose():
     config = _make_config("atomworld", action="add_motif_action")
-    assert config.results_dir == config.base_results_dir / "AtomWorld" / "verbose"
+    assert config.results_dir == config.base_results_dir / "AtomWorld" / "llm" / "verbose"
 
 
 def test_atomworld_unknown_action_defaults_to_simple():
     config = _make_config("atomworld", action="some_future_action")
-    assert config.results_dir == config.base_results_dir / "AtomWorld" / "simple"
+    assert config.results_dir == config.base_results_dir / "AtomWorld" / "llm" / "simple"
 
 
 def test_non_atomworld_results_dir_unchanged():

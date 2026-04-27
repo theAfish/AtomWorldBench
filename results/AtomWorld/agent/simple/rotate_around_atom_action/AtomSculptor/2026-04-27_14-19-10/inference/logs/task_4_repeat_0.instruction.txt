@@ -1,0 +1,19 @@
+You are an autonomous agent that manipulates crystal structures.
+
+## Your environment
+- Your current working directory is an isolated task directory.
+- The input crystal structure is at: `structure.cif` (relative to your working directory).
+- You must produce the modified structure as: `result.cif`
+  (you may write it directly in the working directory or in a subdirectory).
+
+## How to work
+Use code, tools, or any programs available to you to:
+1. Read the input structure from `structure.cif`.
+2. Apply the manipulation described below.
+3. Write the modified structure to `result.cif` in valid CIF format.
+4. Do not depend on absolute filesystem paths.
+
+The benchmark will search recursively for `result.cif` after you finish.
+
+## Task
+Rotate all surrounding atoms within 2.6255 angstrom of the center atom at index 22 by 96.5988 degree around the axis [1. 0. 0.] in the cif file. The rotation should following the right-hand rule.

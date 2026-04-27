@@ -1,0 +1,42 @@
+# generated using pymatgen
+data_HfMg6Mo
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.9016
+_cell_length_b   6.1078
+_cell_length_c   11.1463
+_cell_angle_alpha   90.0000
+_cell_angle_beta   90.0000
+_cell_angle_gamma   90.0000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   HfMg6Mo
+_chemical_formula_sum   'Hf2 Mg12 Mo2'
+_cell_volume   333.6952
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Hf  Hf0  1  0.5000  0.5000  0.1976  1
+  Hf  Hf1  1  0.5000  0.0000  0.6976  1
+  Mg  Mg2  1  0.0000  0.7460  0.0746  1
+  Mg  Mg3  1  0.0000  0.2540  0.0746  1
+  Mg  Mg4  1  0.0000  0.0000  0.3270  1
+  Mg  Mg5  1  0.5000  0.2571  0.4277  1
+  Mg  Mg6  1  0.5000  0.7429  0.4277  1
+  Mg  Mg7  1  0.5000  0.0000  0.1692  1
+  Mg  Mg8  1  0.0000  0.2460  0.5746  1
+  Mg  Mg9  1  0.0000  0.7540  0.5746  1
+  Mg  Mg10  1  0.0000  0.5000  0.8270  1
+  Mg  Mg11  1  0.5000  0.7571  0.9277  1
+  Mg  Mg12  1  0.5000  0.2429  0.9277  1
+  Mg  Mg13  1  0.5000  0.5000  0.6692  1
+  Mo  Mo14  1  0.0000  0.5000  0.3017  1
+  Mo  Mo15  1  0.0000  0.0000  0.8017  1

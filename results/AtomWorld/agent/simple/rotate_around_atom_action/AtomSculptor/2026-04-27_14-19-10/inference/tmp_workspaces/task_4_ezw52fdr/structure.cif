@@ -1,0 +1,66 @@
+# generated using pymatgen
+data_Na2ZnB6O11
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.6092
+_cell_length_b   6.6092
+_cell_length_c   11.6264
+_cell_angle_alpha   71.8982
+_cell_angle_beta   71.8982
+_cell_angle_gamma   68.9631
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Na2ZnB6O11
+_chemical_formula_sum   'Na4 Zn2 B12 O22'
+_cell_volume   439.0402
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Na  Na0  1  0.2653  0.4427  0.5344  1
+  Na  Na1  1  0.4427  0.2653  0.0344  1
+  Na  Na2  1  0.7347  0.5573  0.4656  1
+  Na  Na3  1  0.5573  0.7347  0.9656  1
+  Zn  Zn4  1  0.1318  0.8682  0.7500  1
+  Zn  Zn5  1  0.8682  0.1318  0.2500  1
+  B  B6  1  0.7875  0.7402  0.6541  1
+  B  B7  1  0.7402  0.7875  0.1541  1
+  B  B8  1  0.8928  0.2940  0.9878  1
+  B  B9  1  0.2940  0.8928  0.4878  1
+  B  B10  1  0.9080  0.3247  0.7657  1
+  B  B11  1  0.3247  0.9080  0.2657  1
+  B  B12  1  0.6753  0.0920  0.7343  1
+  B  B13  1  0.0920  0.6753  0.2343  1
+  B  B14  1  0.1072  0.7060  0.0122  1
+  B  B15  1  0.7060  0.1072  0.5122  1
+  B  B16  1  0.2598  0.2125  0.8459  1
+  B  B17  1  0.2125  0.2598  0.3459  1
+  O  O18  1  0.7461  0.8383  0.7502  1
+  O  O19  1  0.8383  0.7461  0.2502  1
+  O  O20  1  0.7905  0.3728  0.8887  1
+  O  O21  1  0.3728  0.7905  0.3887  1
+  O  O22  1  0.8521  0.5162  0.6625  1
+  O  O23  1  0.5162  0.8521  0.1625  1
+  O  O24  1  0.1265  0.2299  0.9656  1
+  O  O25  1  0.2299  0.1265  0.4656  1
+  O  O26  1  0.7701  0.8735  0.5344  1
+  O  O27  1  0.8735  0.7701  0.0344  1
+  O  O28  1  0.8686  0.1314  0.7500  1
+  O  O29  1  0.1314  0.8686  0.2500  1
+  O  O30  1  0.2862  0.7615  0.6032  1
+  O  O31  1  0.7615  0.2862  0.1032  1
+  O  O32  1  0.1617  0.2539  0.7498  1
+  O  O33  1  0.2539  0.1617  0.2498  1
+  O  O34  1  0.4838  0.1479  0.8375  1
+  O  O35  1  0.1479  0.4838  0.3375  1
+  O  O36  1  0.2385  0.7138  0.8968  1
+  O  O37  1  0.7138  0.2385  0.3968  1
+  O  O38  1  0.6272  0.2095  0.6113  1
+  O  O39  1  0.2095  0.6272  0.1113  1

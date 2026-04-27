@@ -96,11 +96,13 @@ def main(args=None):
     # run identifier so results land under a sensible subfolder.
     if args.agent_cli:
         run_id = _agent_cli_to_name(args.agent_cli)
+        mode = "agent"
     else:
         run_id = args.model
+        mode = "llm"
 
     base_output_path = os.path.join(
-        args.output_folder, "AtomWorld", category, action_subfolder, run_id, timestamp
+        args.output_folder, "AtomWorld", mode, category, action_subfolder, run_id, timestamp
     )
 
     inference_folder = os.path.join(base_output_path, "inference")

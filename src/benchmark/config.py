@@ -23,22 +23,23 @@ class BenchmarkConfig:
 
     # Optional benchmark-specific configurations
     action: Optional[str] = None  # Required for AtomWorld and PointWorld
+    mode: str = "llm"  # 'llm' or 'agent' — determines top-level results subfolder
     plot: bool = False  # Whether to generate the max_dist plot after evaluation
     custom_data_path: Optional[Path] = None  # Override default dataset location
     atomworld_input_cifs: Optional[str] = None  # Optional input_cifs filename override
-    
+
     @property
     def results_dir(self) -> Path:
         """Get the appropriate results directory based on benchmark type.
 
-        For AtomWorld the subfolder under results/AtomWorld/ is determined by
-        the action's category (e.g. 'simple', 'verbose') as declared in
-        atomworld.actions.ACTION_CATEGORIES.
+        For AtomWorld the path under results/AtomWorld/ is
+        ``<mode>/<category>`` where *mode* is 'llm' or 'agent' and *category*
+        (e.g. 'simple', 'verbose') comes from atomworld.actions.ACTION_CATEGORIES.
         """
         if self.benchmark_type == 'atomworld':
             from atomworld.actions import get_action_category
             category = get_action_category(self.action or '', default='simple')
-            return self.base_results_dir / 'AtomWorld' / category
+            return self.base_results_dir / 'AtomWorld' / self.mode / category
 
         type_to_dir = {
             'cifgen': 'CifGen',
@@ -61,6 +62,7 @@ class BenchmarkConfig:
             plot=args.get('plot', False),
             benchmark_type=args['benchmark_type'],
             action=args.get('action'),
+            mode=args.get('mode', 'llm'),
             custom_data_path=Path(args['data_path']).expanduser() if args.get('data_path') else None,
             atomworld_input_cifs=args.get('input_cifs_file'),
         )
