@@ -1,7 +1,7 @@
 from benchmark.inference.base_inferencer import BaseInferencer
 from models.base_model import BaseModel
 from utils.dataloader import load_data
-from prompts.cif_action_prompt import cif_action_prompt
+from prompts.llm_mode_prompt import llm_mode_prompt
 from typing import Any
 
 
@@ -30,7 +30,7 @@ class AtomWorldInferencer(BaseInferencer):
         if row["input_cif"] is None:
             raise ValueError("input_cif is None")
 
-        return cif_action_prompt(
+        return llm_mode_prompt(
             input_cif=row["input_cif"],
             action_prompt=row["action_prompt"],
             output_format="cif",

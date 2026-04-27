@@ -2,7 +2,7 @@ import pandas as pd
 from pymatgen.core.structure import Structure
 import os
 import json
-from prompts.cif_gen_prompt import cif_gen_prompt
+from complementary.prompts.cif_gen_prompt import cif_gen_prompt
 
 
 def load_data(data_file: str) -> pd.DataFrame:

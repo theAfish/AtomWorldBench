@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 from utils.dataloader import load_data
-from prompts.cif_action_prompt import cif_action_prompt
+from prompts.llm_mode_prompt import llm_mode_prompt
 
 
 def get_prompts(action_name, data_folder, num_prompts=20, save_folder: str = "prompts"):
@@ -21,7 +21,7 @@ def get_prompts(action_name, data_folder, num_prompts=20, save_folder: str = "pr
         if input_cif is None:
             raise ValueError(f"input_cif is None at row {i}")
 
-        prompt = cif_action_prompt(
+        prompt = llm_mode_prompt(
             input_cif=input_cif,
             action_prompt=action_prompt,
             output_format="cif"

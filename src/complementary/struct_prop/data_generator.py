@@ -1,6 +1,6 @@
 import os
 import re
-from prompts.property_action_prompt import property_action_prompt
+from complementary.prompts.property_action_prompt import property_action_prompt
 import pandas as pd
 import random
 

@@ -9,6 +9,7 @@ from tqdm import tqdm
 
 from benchmark.inference.base_inferencer import BaseInferencer
 from benchmark.inference.agent_workspace_materializer import AgentWorkspaceMaterializer
+from prompts.agent_mode_prompt import agent_mode_prompt
 from utils.dataloader import load_data
 
 
@@ -75,7 +76,7 @@ class AgentInferencer(BaseInferencer):
 
     def _create_prompt(self, row: Any) -> str:
         """Return the instruction string for this task."""
-        return row.get("action_prompt", "")
+        return agent_mode_prompt(row.get("action_prompt", ""))
 
     # ------------------------------------------------------------------
     # Core inference loop (fully overrides the LLM-based batch loop)
@@ -227,7 +228,7 @@ class AgentInferencer(BaseInferencer):
                 return None
 
             # --- build command ---
-            instruction = row.get("action_prompt", "")
+            instruction = self._create_prompt(row)
             cmd = shlex.split(self.agent_cli) + [
                 "--workspace_dir", workspace_dir,
                 "--instruction", instruction,

@@ -336,7 +336,7 @@ Contributions welcome — please open an issue or pull request.
 
 An interactive dashboard visualising benchmark results is hosted at:
 
-> **https://\<your-github-username\>.github.io/AtomWorldBench/**
+> **https://theafish.github.io/AtomWorldBench/**
 
 ### Generating / updating the dashboard data
 
@@ -347,15 +347,8 @@ After adding new benchmark results, regenerate the data file and push:
 python src/scripts/generate_gh_pages_data.py
 ```
 
-This reads every `results/AtomWorld/simple/<model>/<action>/<timestamp>/metrics.json`
+This reads every `results/AtomWorld/simple/<model>/<action>/<timestamp>/evaluation_results.json`
 and writes `docs/data/simple_metrics.json`.  Commit and push both files.
-
-### Enabling GitHub Pages
-
-1. Push the repository to GitHub.
-2. Open **Settings → Pages**.
-3. Under *Source*, choose **Deploy from a branch**, select `main`, and set the folder to `/docs`.
-4. Click **Save** — the site is live within a minute.
 
 ---
 
