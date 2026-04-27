@@ -1,9 +1,8 @@
 
 def agent_mode_prompt(
-        action_prompt: str,
-        workspace_dir: str = "<workspace_dir>",
-        output_dir: str = "<output_dir>",
-    ) -> str:
+    action_prompt: str,
+    output_filename: str = "result.cif",
+) -> str:
     """
     Generate a main prompt for agent-mode evaluation.
 
@@ -13,19 +12,16 @@ def agent_mode_prompt(
     agent may use any tools, code execution, or external programs it has access
     to — it is NOT expected to produce a CIF by writing text directly.
 
-    The workspace layout the agent will see:
-        {workspace_dir}/
-            structure.cif   ← read-only input crystal structure
+    The agent working directory contains the input file and is also where the
+    output should be written (though writing to a subdirectory is allowed):
 
-    The agent must write its result to:
-        {output_dir}/
-            result.cif      ← modified crystal structure (CIF format)
+        structure.cif       ← read-only input crystal structure
+        {output_filename}   ← the agent must produce this file
 
     Args:
         action_prompt: Natural-language description of the manipulation to
             perform (e.g. "move atom 3 by [1.0, 0.0, 0.0] Angstroms").
-        workspace_dir: Path to the workspace directory containing the input CIF.
-        output_dir: Path to the output directory where the result CIF should be written.
+        output_filename: Filename the agent must produce (default: ``result.cif``).
 
     Returns:
         A self-contained instruction string suitable for passing to an agent
@@ -35,18 +31,19 @@ def agent_mode_prompt(
         "You are an autonomous agent that manipulates crystal structures.",
         "",
         "## Your environment",
-        f"- The input crystal structure is stored at: `{workspace_dir}/structure.cif`",
-        "  (the exact path is provided to you via the `--workspace_dir` argument).",
-        f"- You must write the modified structure to: `{output_dir}/result.cif`",
-        "  (the exact path is provided to you via the `--output_dir` argument).",
+        "- Your current working directory is an isolated task directory.",
+        "- The input crystal structure is at: `structure.cif` (relative to your working directory).",
+        f"- You must produce the modified structure as: `{output_filename}`",
+        "  (you may write it directly in the working directory or in a subdirectory).",
         "",
         "## How to work",
         "Use code, tools, or any programs available to you to:",
-        f"1. Read the input structure from `{workspace_dir}/structure.cif`.",
+        "1. Read the input structure from `structure.cif`.",
         "2. Apply the manipulation described below.",
-        f"3. Write the modified structure to `{output_dir}/result.cif` in valid CIF format.",
+        f"3. Write the modified structure to `{output_filename}` in valid CIF format.",
+        "4. Do not depend on absolute filesystem paths.",
         "",
-        "The benchmark only reads `result.cif` from disk.",
+        f"The benchmark will search recursively for `{output_filename}` after you finish.",
         "",
         "## Task",
         action_prompt,

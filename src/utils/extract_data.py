@@ -11,6 +11,9 @@ def extract_from_string(data: str, format: str = "cif") -> str:
     Returns:
         str: The extracted content in the specified format.
     """
+    if not isinstance(data, str) or not data:
+        return None
+
     if format == "cif":
         start_tag = "<cif>"
         end_tag = "</cif>"

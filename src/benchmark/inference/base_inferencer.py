@@ -114,6 +114,7 @@ class BaseInferencer(ABC):
                     "repeat_index": repeat_index,
                     "input_data": data_row,
                     "generated_output": generated_output,
+                    "inference_mode": getattr(self, "inference_mode", "llm"),
                 }
                 results.append(result)
 

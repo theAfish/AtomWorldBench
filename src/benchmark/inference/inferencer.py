@@ -16,6 +16,7 @@ class AtomWorldInferencer(BaseInferencer):
         """
         Initialize the AtomWorld Inferencer.
         """
+        self.inference_mode = "llm"
         self.data_folder = data_folder
         self.action_name = action_name
 

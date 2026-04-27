@@ -277,16 +277,18 @@ Agent mode lets you evaluate any external program — a Python script, a compile
 
 #### CLI contract
 
-Your agent will be called once per task with three arguments:
+Your agent will be called once per task with a single argument:
 
 ```
 <agent_cli> \
-    --workspace_dir <path>   # read-only; contains structure.cif (the input crystal)
     --instruction   <str>    # natural-language manipulation instruction
-    --output_dir    <path>   # write your result.cif here
 ```
 
-The agent **must** write `result.cif` into `--output_dir` before it exits.  Stdout and stderr are captured to `logs/task_<N>.log` under the results folder.
+The benchmark creates an isolated temporary directory for each task, places `structure.cif` directly inside it, and sets that directory as the agent's working directory.  The agent can read the input from `structure.cif` (relative to its cwd) and must produce the output file (`result.cif` by default) anywhere inside the working directory — including subdirectories.  After the agent exits the benchmark searches recursively for the output file.
+
+Stdout and stderr are captured to `logs/task_<N>_repeat_<M>.log` under the results folder.
+
+In agent mode, inference also persists each produced CIF to `generated_cifs/task_<frame>_repeat_<repeat>.cif`; evaluation reads these files directly (file-based evaluation path) rather than re-parsing generated text.
 
 #### Running agent mode
 

@@ -119,6 +119,7 @@ def main(args=None):
                 output_folder=inference_folder,
                 timeout=args.timeout,
                 batch_size=args.batch_size,
+                keep_tmp_workspaces=args.keep_agent_tmp,
             )
             inference_file = inferencer.infer(
                 num_batch=args.num_batch,
@@ -150,9 +151,14 @@ def main(args=None):
 
     if inference_file:
         print(f"Starting evaluation on {inference_file}...")
+        evaluator_mode = None
+        if not args.skip_inference:
+            evaluator_mode = "agent" if args.agent_cli else "llm"
+
         evaluator = AtomWorldEvaluator(
             action_name=args.action_name,
             results_folder=evaluation_folder,
+            inference_mode=evaluator_mode,
         )
         results = evaluator.evaluate(inference_file)
 

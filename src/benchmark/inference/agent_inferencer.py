@@ -1,7 +1,10 @@
 import os
+import json
 import shlex
+import shutil
 import subprocess
 import tempfile
+import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import Any, Dict, List, Optional
 
@@ -19,20 +22,24 @@ class AgentInferencer(BaseInferencer):
 
     For each benchmark task the inferencer:
 
-    1. Materializes a temporary workspace (``structure.cif``).
-    2. Spawns the agent subprocess with ``--workspace_dir``, ``--instruction``,
-       and ``--output_dir`` arguments.
-    3. Reads ``result.cif`` from the agent's output directory.
-    4. Wraps the CIF content in ``<cif>…</cif>`` tags so the existing
-       :class:`~benchmark.evaluation.atomworld_evaluator.AtomWorldEvaluator`
-       can parse it without modification.
+    1. Creates an isolated temporary working directory and materializes
+       ``structure.cif`` directly inside it.
+    2. Spawns the agent subprocess with ``--instruction``.  The process
+       working directory is the task directory, so the agent sees
+       ``structure.cif`` directly in its cwd.
+    3. After the subprocess exits, searches the task directory recursively
+       for the output file (default: ``result.cif``).
+    4. Persists the found file to ``<output_folder>/generated_cifs`` so the
+       evaluator can load directly from file in agent mode.
 
     CLI contract expected of the agent::
 
         <agent_cli> \\
-            --workspace_dir <path>   # contains structure.cif
             --instruction   <str>    # natural-language instruction
-            --output_dir    <path>   # agent must write result.cif here
+
+    The agent's cwd is the task root.  Input is ``structure.cif`` there.
+    The agent may write the output file anywhere inside the task root
+    (including sub-directories); the benchmark finds it recursively.
     """
 
     def __init__(
@@ -43,6 +50,8 @@ class AgentInferencer(BaseInferencer):
         output_folder: str = "inference_outputs",
         timeout: int = 120,
         batch_size: int = 1,
+        keep_tmp_workspaces: bool = False,
+        output_filename: str = "result.cif",
     ):
         """
         Args:
@@ -55,13 +64,26 @@ class AgentInferencer(BaseInferencer):
                      exceed this budget are recorded as failures.
             batch_size: Number of agent subprocesses to run concurrently.
                         ``1`` (default) runs tasks sequentially.  Each worker
-                        gets its own isolated temporary workspace and output
-                        directory, so parallelism is safe without any locking.
+                        gets its own isolated temporary working directory,
+                        so parallelism is safe without any locking.
+            keep_tmp_workspaces: If True, retain per-task temporary directories
+                        under ``<output_folder>/tmp_workspaces`` for debugging.
+            output_filename: Filename the agent must produce (default:
+                        ``result.cif``).  The benchmark searches for this name
+                        recursively inside the task working directory.
         """
         self.agent_cli = agent_cli
+        self.inference_mode = "agent"
+        self.launch_cwd = os.getcwd()
         self.timeout = timeout
         self.workers = max(1, batch_size)
+        self.keep_tmp_workspaces = keep_tmp_workspaces
+        self.output_filename = output_filename
+        self.tmp_workspace_root = os.path.join(output_folder, "tmp_workspaces")
         self._materializer = AgentWorkspaceMaterializer()
+
+        if self.keep_tmp_workspaces:
+            os.makedirs(self.tmp_workspace_root, exist_ok=True)
 
         data = load_data(data_folder, action_name)
         if hasattr(data, "to_dict"):
@@ -77,14 +99,12 @@ class AgentInferencer(BaseInferencer):
     def _create_prompt(
         self,
         row: Any,
-        workspace_dir: str = "<workspace_dir>",
-        output_dir: str = "<output_dir>",
+        output_filename: str = "result.cif",
     ) -> str:
         """Return the instruction string for this task."""
         return agent_mode_prompt(
             row.get("action_prompt", ""),
-            workspace_dir=workspace_dir,
-            output_dir=output_dir,
+            output_filename=output_filename,
         )
 
     # ------------------------------------------------------------------
@@ -165,13 +185,14 @@ class AgentInferencer(BaseInferencer):
     def _run_tasks_sequential(self, tasks: List[tuple]) -> List[Dict]:
         results = []
         for frame_index, repeat_index, row in tqdm(tasks, desc="Agent Inference"):
-            generated_output = self._run_agent_task(frame_index, row)
+            task_result = self._run_agent_task_details(frame_index, row, repeat_index)
             results.append(
                 {
                     "frame_index": frame_index,
                     "repeat_index": repeat_index,
                     "input_data": row,
-                    "generated_output": generated_output,
+                    "inference_mode": self.inference_mode,
+                    **task_result,
                 }
             )
         return results
@@ -184,25 +205,39 @@ class AgentInferencer(BaseInferencer):
 
         with ThreadPoolExecutor(max_workers=self.workers) as executor:
             for idx, (frame_index, repeat_index, row) in enumerate(tasks):
-                future = executor.submit(self._run_agent_task, frame_index, row)
+                future = executor.submit(
+                    self._run_agent_task_details,
+                    frame_index,
+                    row,
+                    repeat_index,
+                )
                 future_to_meta[future] = (idx, frame_index, repeat_index, row)
 
             with tqdm(total=len(tasks), desc=f"Agent Inference (concurrency={self.workers})") as pbar:
                 for future in as_completed(future_to_meta):
                     idx, frame_index, repeat_index, row = future_to_meta[future]
                     try:
-                        generated_output = future.result()
+                        task_result = future.result()
                     except Exception as exc:
                         self.logger.error(
                             f"Task {frame_index} (repeat {repeat_index}) raised an "
                             f"unexpected exception: {exc}"
                         )
-                        generated_output = None
+                        task_result = {
+                            "generated_output": None,
+                            "generated_cif_path": None,
+                            "agent_status": "internal_error",
+                            "agent_elapsed_seconds": None,
+                            "agent_return_code": None,
+                            "token_usage": None,
+                            "agent_usage_source": None,
+                        }
                     results[idx] = {
                         "frame_index": frame_index,
                         "repeat_index": repeat_index,
                         "input_data": row,
-                        "generated_output": generated_output,
+                        "inference_mode": self.inference_mode,
+                        **task_result,
                     }
                     pbar.update(1)
 
@@ -214,66 +249,164 @@ class AgentInferencer(BaseInferencer):
 
     def _run_agent_task(self, frame_index: int, row: Dict[str, Any]) -> Optional[str]:
         """
-        Run the agent for a single task and return its CIF output (or None on
-        failure).  The CIF is wrapped in ``<cif>…</cif>`` tags so it is
-        compatible with the downstream evaluator.
+        Compatibility wrapper that returns only generated_output.
+
+        Tests and legacy callers rely on this return type.
+        """
+        return self._run_agent_task_details(frame_index, row, 0).get("generated_output")
+
+    def _resolve_agent_cli_tokens(self, cmd_tokens: List[str]) -> List[str]:
+        """Resolve relative executable/script tokens against benchmark launch cwd."""
+        if not cmd_tokens:
+            return cmd_tokens
+
+        resolved = list(cmd_tokens)
+        launch_cwd = getattr(self, "launch_cwd", os.getcwd())
+
+        # Resolve relative executable path when possible.
+        exe = resolved[0]
+        if not os.path.isabs(exe):
+            exe_abs = os.path.abspath(os.path.join(launch_cwd, exe))
+            if os.path.exists(exe_abs):
+                resolved[0] = exe_abs
+
+        # For python-like launchers, resolve the script argument if it is relative.
+        if len(resolved) >= 2:
+            exe_name = os.path.basename(resolved[0]).lower()
+            script = resolved[1]
+            if (
+                "python" in exe_name
+                and script.endswith(".py")
+                and not os.path.isabs(script)
+            ):
+                script_abs = os.path.abspath(os.path.join(launch_cwd, script))
+                if os.path.exists(script_abs):
+                    resolved[1] = script_abs
+
+        return resolved
+
+    def _run_agent_task_details(
+        self,
+        frame_index: int,
+        row: Dict[str, Any],
+        repeat_index: int = 0,
+    ) -> Dict[str, Any]:
+        """
+        Run the agent for a single task and return detailed task metadata.
+
+        The task result includes both a persisted ``generated_cif_path`` (for
+        file-based agent evaluation) and ``generated_output`` for compatibility.
         """
         log_dir = os.path.join(self.output_folder, "logs")
         os.makedirs(log_dir, exist_ok=True)
-        log_path = os.path.join(log_dir, f"task_{frame_index}.log")
+        log_path = os.path.join(
+            log_dir,
+            f"task_{frame_index}_repeat_{repeat_index}.log",
+        )
+        instruction_path = os.path.join(
+            log_dir,
+            f"task_{frame_index}_repeat_{repeat_index}.instruction.txt",
+        )
 
-        with tempfile.TemporaryDirectory() as tmp_dir:
-            workspace_dir = os.path.join(tmp_dir, "workspace")
-            output_dir = os.path.join(tmp_dir, "output")
-            os.makedirs(output_dir)
+        task_result: Dict[str, Any] = {
+            "generated_output": None,
+            "generated_cif_path": None,
+            "agent_status": "unknown",
+            "agent_elapsed_seconds": None,
+            "agent_return_code": None,
+            "token_usage": None,
+            "agent_usage_source": None,
+            "agent_log_path": log_path,
+            "agent_context_log_path": None,
+            "instruction_path": instruction_path,
+        }
 
-            # --- materialize workspace ---
+        keep_tmp_workspaces = getattr(self, "keep_tmp_workspaces", False)
+        tmp_workspace_root = getattr(
+            self,
+            "tmp_workspace_root",
+            os.path.join(self.output_folder, "tmp_workspaces"),
+        )
+
+        if keep_tmp_workspaces:
+            tmp_dir = tempfile.mkdtemp(
+                prefix=f"task_{frame_index}_",
+                dir=tmp_workspace_root,
+            )
+            tmp_ctx = None
+        else:
+            tmp_ctx = tempfile.TemporaryDirectory()
+            tmp_dir = tmp_ctx.name
+
+        task_result["tmp_dir"] = tmp_dir if keep_tmp_workspaces else None
+
+        try:
+            # --- materialize input CIF directly into workdir root ---
             try:
-                self._materializer.materialize(row, workspace_dir)
+                self._materializer.materialize(row, tmp_dir)
             except Exception as exc:
                 self.logger.error(
                     f"Task {frame_index}: workspace materialization failed: {exc}"
                 )
-                return None
+                task_result["agent_status"] = "workspace_materialization_failed"
+                return task_result
 
             # --- build command ---
-            instruction = self._create_prompt(
-                row,
-                workspace_dir=workspace_dir,
-                output_dir=output_dir,
-            )
-            cmd = shlex.split(self.agent_cli) + [
-                "--workspace_dir", workspace_dir,
+            output_filename = getattr(self, "output_filename", "result.cif")
+            instruction = self._create_prompt(row, output_filename=output_filename)
+
+            with open(instruction_path, "w", encoding="utf-8") as instruction_file:
+                instruction_file.write(instruction)
+
+            cmd = self._resolve_agent_cli_tokens(shlex.split(self.agent_cli)) + [
                 "--instruction", instruction,
-                "--output_dir", output_dir,
             ]
 
             # --- spawn agent ---
             try:
+                start = time.perf_counter()
                 with open(log_path, "w", encoding="utf-8") as log_file:
-                    subprocess.run(
+                    completed = subprocess.run(
                         cmd,
                         stdout=log_file,
                         stderr=subprocess.STDOUT,
                         timeout=self.timeout,
                         check=False,
+                        cwd=tmp_dir,
                     )
+                task_result["agent_elapsed_seconds"] = round(time.perf_counter() - start, 6)
+                task_result["agent_return_code"] = getattr(completed, "returncode", 0)
             except subprocess.TimeoutExpired:
                 self.logger.warning(
                     f"Task {frame_index}: agent timed out after {self.timeout}s."
                 )
-                return None
+                task_result["agent_status"] = "timeout"
+                return task_result
             except Exception as exc:
                 self.logger.error(f"Task {frame_index}: agent subprocess error: {exc}")
-                return None
+                task_result["agent_status"] = "subprocess_error"
+                return task_result
 
-            # --- read result.cif ---
-            result_cif_path = os.path.join(output_dir, "result.cif")
-            if not os.path.exists(result_cif_path):
+            # Optional usage payload written by external agent for cost tracking.
+            usage_path = self._find_file_in_dir(tmp_dir, "usage.json")
+            if usage_path is not None:
+                try:
+                    with open(usage_path, "r", encoding="utf-8") as usage_file:
+                        task_result["token_usage"] = json.load(usage_file)
+                    task_result["agent_usage_source"] = usage_path
+                except Exception as exc:
+                    self.logger.warning(
+                        f"Task {frame_index}: failed to read usage.json: {exc}"
+                    )
+
+            # --- find result.cif (recursive search) ---
+            result_cif_path = self._find_file_in_dir(tmp_dir, output_filename)
+            if result_cif_path is None:
                 self.logger.warning(
-                    f"Task {frame_index}: result.cif not found in {output_dir}."
+                    f"Task {frame_index}: {output_filename!r} not found anywhere in {tmp_dir}."
                 )
-                return None
+                task_result["agent_status"] = "missing_result_cif"
+                return task_result
 
             try:
                 with open(result_cif_path, "r", encoding="utf-8") as f:
@@ -282,7 +415,65 @@ class AgentInferencer(BaseInferencer):
                 self.logger.error(
                     f"Task {frame_index}: failed to read result.cif: {exc}"
                 )
-                return None
+                task_result["agent_status"] = "result_read_failed"
+                return task_result
 
-        # Wrap in tags expected by extract_from_string / AtomWorldEvaluator
-        return f"<cif>\n{cif_content}\n</cif>"
+            generated_cif_dir = os.path.join(self.output_folder, "generated_cifs")
+            os.makedirs(generated_cif_dir, exist_ok=True)
+            persisted_result_cif_path = os.path.join(
+                generated_cif_dir,
+                f"task_{frame_index}_repeat_{repeat_index}.cif",
+            )
+
+            try:
+                shutil.copyfile(result_cif_path, persisted_result_cif_path)
+            except Exception as exc:
+                self.logger.error(
+                    f"Task {frame_index}: failed to persist result.cif: {exc}"
+                )
+                task_result["agent_status"] = "result_persist_failed"
+                return task_result
+
+            task_result["generated_output"] = f"<cif>\n{cif_content}\n</cif>"
+            task_result["generated_cif_path"] = persisted_result_cif_path
+            task_result["agent_status"] = "ok"
+
+            if keep_tmp_workspaces:
+                self.logger.info(
+                    f"Task {frame_index}: preserved temporary workspace at {tmp_dir}"
+                )
+        finally:
+            agent_context_log_path = self._find_file_in_dir(tmp_dir, "agent_context.log")
+            if agent_context_log_path is not None:
+                persisted_context_log_path = os.path.join(
+                    log_dir,
+                    f"task_{frame_index}_repeat_{repeat_index}.agent_context.log",
+                )
+                try:
+                    shutil.copyfile(agent_context_log_path, persisted_context_log_path)
+                    task_result["agent_context_log_path"] = persisted_context_log_path
+                except Exception as exc:
+                    self.logger.warning(
+                        f"Task {frame_index}: failed to persist agent_context.log: {exc}"
+                    )
+
+            if tmp_ctx is not None:
+                tmp_ctx.cleanup()
+
+        return task_result
+
+    @staticmethod
+    def _find_file_in_dir(root: str, filename: str) -> Optional[str]:
+        """
+        Walk *root* recursively and return the path of the first file whose
+        name matches *filename*, or ``None`` if not found.
+
+        Hidden directories (names starting with ``'.'``) are skipped to avoid
+        traversing sandbox-control directories that agents should not see.
+        """
+        for dirpath, dirnames, filenames in os.walk(root):
+            # Skip hidden dirs in-place to avoid traversing sandbox control dirs.
+            dirnames[:] = [d for d in dirnames if not d.startswith(".")]
+            if filename in filenames:
+                return os.path.join(dirpath, filename)
+        return None

@@ -95,6 +95,14 @@ def get_benchmark_parser():
         default=120,
         help="Per-task timeout in seconds for agent mode (default: 120).",
     )
+    parser.add_argument(
+        "--keep_agent_tmp",
+        action="store_true",
+        help=(
+            "Agent mode only: keep per-task temporary workspaces under the "
+            "inference output folder for debugging."
+        ),
+    )
     return parser
 
 
