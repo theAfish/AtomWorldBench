@@ -92,6 +92,10 @@ def main(args=None):
     action_subfolder = args.action_name if args.action_name else "All_Actions"
     category = get_action_category(args.action_name or '', default='simple')
 
+    # Auto-resolve data_folder to the right subcategory when the default is used
+    if args.data_folder == "data":
+        args.data_folder = os.path.join("data", category)
+
     # Use the agent name (derived from the CLI command) or the model name as the
     # run identifier so results land under a sensible subfolder.
     if args.agent_cli:
