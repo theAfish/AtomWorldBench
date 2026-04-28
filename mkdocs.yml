@@ -30,8 +30,8 @@ theme:
     - content.code.copy
 
 nav:
-  - Home: index.md
-  - Dashboard: dashboard.html
+  - Dashboard: index.html
+  - Docs: docs.md
   - Getting Started:
     - Installation: installation.md
   - Python API:
