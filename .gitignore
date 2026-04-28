@@ -6,6 +6,7 @@ node_modules/
 *.pyc
 __pycache__/
 build/
+site/
 
 _raw_data/
 debug/
