@@ -32,18 +32,20 @@ def _resolve_version() -> str:
 
 
 def _print_help() -> None:
-    print("Usage: atomworld [generate|benchmark|eval|draw|visualize] [options]")
+    print("Usage: atomworld [generate|benchmark|eval|draw|visualize|serve] [options]")
     print("\nCommands:")
     print("  generate     Generate AtomWorld benchmark data")
     print("  benchmark    Run benchmark (inference + evaluation by default)")
     print("  eval         Evaluate an existing inference JSON (skip inference)")
     print("  draw         Draw metrics distributions from evaluation_results.json")
     print("  visualize    Alias of draw")
+    print("  serve        Start the AtomWorldBench REST API server")
     print("\nTips:")
     print("  atomworld benchmark --help")
     print("  atomworld eval --help")
     print("  atomworld generate --help")
     print("  atomworld draw --help")
+    print("  atomworld serve --help")
 
 
 def _normalize_eval_args(args: list[str]) -> list[str]:
@@ -106,6 +108,52 @@ def _run_draw(args: list[str]) -> None:
     print(f"Saved plots to: {output_folder}")
 
 
+def _run_serve(args: list[str]) -> None:
+    import argparse
+    import os
+    import uvicorn
+
+    parser = argparse.ArgumentParser(description="Start the AtomWorldBench REST API server")
+    parser.add_argument(
+        "--host", type=str, default="127.0.0.1", help="Host to bind (default: 127.0.0.1)"
+    )
+    parser.add_argument(
+        "--port", type=int, default=8000, help="Port to listen on (default: 8000)"
+    )
+    parser.add_argument(
+        "--api-key",
+        type=str,
+        required=True,
+        help="API key required in the X-API-Key header for all requests",
+    )
+    parser.add_argument(
+        "--data-folder",
+        type=str,
+        default="data",
+        help="Path to the benchmark data folder (default: data)",
+    )
+    parser.add_argument(
+        "--sessions-dir",
+        type=str,
+        default="sessions",
+        help="Directory to persist session state and results (default: sessions)",
+    )
+    parsed = parser.parse_args(args)
+
+    os.environ["ATOMWORLD_API_KEY"] = parsed.api_key
+
+    from api.server import create_app
+
+    app = create_app(
+        data_folder=parsed.data_folder,
+        sessions_dir=parsed.sessions_dir,
+    )
+    print(f"Starting AtomWorldBench API on http://{parsed.host}:{parsed.port}")
+    print(f"Data folder : {parsed.data_folder}")
+    print(f"Sessions dir: {parsed.sessions_dir}")
+    uvicorn.run(app, host=parsed.host, port=parsed.port)
+
+
 def main() -> None:
     print(f"{CYAN}{BANNER_ATOM}{RESET}{MAGENTA}{BANNER_WORLD}{RESET}", end="\n")
     print(f"Version: {_resolve_version()}")
@@ -134,6 +182,9 @@ def main() -> None:
         return
     if command in ["draw", "visualize"]:
         _run_draw(args)
+        return
+    if command == "serve":
+        _run_serve(args)
         return
 
     print(f"Unknown command: {command}")

@@ -43,11 +43,7 @@ def get_benchmark_parser():
         "--batch_size",
         type=int,
         default=10,
-        help=(
-            "LLM mode: number of prompts per API call. "
-            "Agent mode: number of agent subprocesses to run concurrently "
-            "(1 = sequential)."
-        ),
+        help="Number of prompts per API call.",
     )
     parser.add_argument(
         "-n", "--num_batch", type=int, default=-1, help="Number of batches"
@@ -77,31 +73,6 @@ def get_benchmark_parser():
         "--keep_inference",
         action="store_true",
         help="Keep inference results after evaluation",
-    )
-    parser.add_argument(
-        "--agent_cli",
-        type=str,
-        default=None,
-        help=(
-            "Shell command for an external agent CLI.  When set, agent mode is "
-            "used instead of LLM mode.  The command is called with "
-            "--workspace_dir, --instruction, and --output_dir arguments and "
-            "must write result.cif to --output_dir."
-        ),
-    )
-    parser.add_argument(
-        "--timeout",
-        type=int,
-        default=120,
-        help="Per-task timeout in seconds for agent mode (default: 120).",
-    )
-    parser.add_argument(
-        "--keep_agent_tmp",
-        action="store_true",
-        help=(
-            "Agent mode only: keep per-task temporary workspaces under the "
-            "inference output folder for debugging."
-        ),
     )
     return parser
 

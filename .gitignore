@@ -17,3 +17,5 @@ run.log
 output/
 
 _local_agents/
+
+sessions/

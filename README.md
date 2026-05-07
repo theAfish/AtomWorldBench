@@ -35,13 +35,13 @@ pip install -e ".[dev]"
 <details>
 <summary>Optional dependency groups</summary>
 
-| Extra          | What it adds                                |
-|----------------|---------------------------------------------|
-| `[benchmark]`  | openai, pandas, h5py, tqdm, pyyaml          |
-| `[datagen]`    | ase, mp-api, scipy, pandas                   |
-| `[models]`     | transformers, sentencepiece, torch            |
-| `[all]`        | All of the above + ray                        |
-| `[dev]`        | `[all]` + pytest                              |
+| Extra          | What it adds                                                   |
+|----------------|----------------------------------------------------------------|
+| `[benchmark]`  | openai, pandas, h5py, tqdm, pyyaml, fastapi, uvicorn, pydantic |
+| `[datagen]`    | ase, mp-api, scipy, pandas                                      |
+| `[models]`     | transformers, sentencepiece, torch                              |
+| `[all]`        | All of the above + ray                                          |
+| `[dev]`        | `[all]` + pytest                                                |
 
 </details>
 
@@ -222,7 +222,7 @@ All motif action classes:
 ## CLI
 
 ```bash
-atomworld [generate|benchmark|eval|draw] [options]
+atomworld [generate|benchmark|eval|draw|serve] [options]
 ```
 
 ### Quick examples
@@ -231,7 +231,7 @@ atomworld [generate|benchmark|eval|draw] [options]
 # Generate dataset from CIF files
 atomworld generate -c ./cifs -o ./dataset -n 1000
 
-# Run full benchmark (inference + evaluation)
+# Run full LLM benchmark (inference + evaluation)
 atomworld benchmark -f ./dataset -a move_atom_action -m deepseek_chat -o ./results
 
 # Evaluate existing inference results
@@ -239,6 +239,9 @@ atomworld eval -f ./dataset -a move_atom_action -i ./inference_results.json -o .
 
 # Plot RMSD / max-distance distributions
 atomworld draw -i ./results/evaluation_results.json
+
+# Start the agent benchmark API server
+atomworld serve --api-key mykey --data-folder data/simple --sessions-dir sessions
 ```
 
 ### Benchmark arguments
@@ -261,9 +264,6 @@ atomworld benchmark -f DATA -a ACTION -m MODEL [-b BATCH] [-n NUM_BATCH] [-o OUT
 | `--inference_file` / `-i` | Path to inference results JSON                        |
 | `--keep_inference`        | Keep inference JSON after evaluation                  |
 | `--start_index`           | Resume from sample index                              |
-| `--plot`                  | Generate histogram after evaluation                   |
-| `--agent_cli`             | Shell command for an external agent (enables agent mode) |
-| `--timeout`               | Per-task timeout in seconds for agent mode (default: 120) |
 
 ### Available actions
 
@@ -271,48 +271,130 @@ atomworld benchmark -f DATA -a ACTION -m MODEL [-b BATCH] [-n NUM_BATCH] [-o OUT
 
 **PointWorld:** `move`, `move_towards`, `insert_between`, `rotate_around`
 
-### Agent Mode
-
-Agent mode lets you evaluate any external program — a Python script, a compiled binary, or an entire AI agent — without touching the benchmark codebase.  Pass `--agent_cli` instead of `--model` and the CLI handles the rest.
-
-#### CLI contract
-
-Your agent will be called once per task with a single argument:
-
-```
-<agent_cli> \
-    --instruction   <str>    # natural-language manipulation instruction
-```
-
-The benchmark creates an isolated temporary directory for each task, places `structure.cif` directly inside it, and sets that directory as the agent's working directory.  The agent can read the input from `structure.cif` (relative to its cwd) and must produce the output file (`result.cif` by default) anywhere inside the working directory — including subdirectories.  After the agent exits the benchmark searches recursively for the output file.
-
-Stdout and stderr are captured to `logs/task_<N>_repeat_<M>.log` under the results folder.
-
-In agent mode, inference also persists each produced CIF to `generated_cifs/task_<frame>_repeat_<repeat>.cif`; evaluation reads these files directly (file-based evaluation path) rather than re-parsing generated text.
-
-#### Running agent mode
-
-```bash
-# Sequential (default)
-atomworld benchmark \
-    --agent_cli "python examples/my_agent/run.py" \
-    -f data/simple/ -a add_atom_action
-
-# Parallel — run 8 agent subprocesses concurrently (-b controls concurrency in agent mode)
-atomworld benchmark \
-    --agent_cli "python examples/my_agent/run.py" \
-    --timeout 120 \
-    -b 8 \
-    -f data/simple/ -a add_atom_action
-```
-
-> **`-b` in agent mode** sets the number of concurrent agent subprocesses (analogous to batch size in LLM mode). Every task runs in its own isolated temporary directory, so parallelism is safe.
-
 ---
 
 ### Adding your own model
 
 Implement your model class in `src/models/` and add its config to `config/models.yaml`. Built-in backends: OpenAI, Azure OpenAI, HuggingFace, vLLM.
+
+---
+
+## Agent Benchmarking via API
+
+Instead of wrapping your agent in a CLI shim, AtomWorldBench exposes a REST API. Your agent framework fetches tasks over HTTP, runs them however it likes, and submits results back. This works identically whether the server is running locally or hosted remotely.
+
+### Start the server
+
+```bash
+atomworld serve \
+  --api-key mykey \
+  --data-folder data/simple \
+  --sessions-dir sessions \
+  --host 0.0.0.0 \
+  --port 8000
+```
+
+All requests must include the header `X-API-Key: mykey`.
+
+### What your agent receives per task
+
+For each task the API returns a JSON object with:
+
+| Field | Type | Description |
+|---|---|---|
+| `task_id` | `string` | e.g. `"task_0_repeat_0"` |
+| `action_prompt` | `string` | Natural-language instruction, e.g. `"Add one Ba atom at [6.5465 4.7379 3.9022]."` |
+| `input_cif` | `string` | Full CIF text of the input crystal structure |
+| `action_type` | `string` | Action class name, e.g. `"AddAtomAction"` |
+| `frame_index` | `int` | Index of the task in the dataset |
+| `repeat_index` | `int` | Repeat number (0-based) |
+
+The ground-truth output is **never sent to the client** — evaluation runs server-side.
+
+### What your agent sends back
+
+```json
+{
+  "result_cif": "<full CIF text of the modified structure>",
+  "elapsed_seconds": 4.2,
+  "token_usage": {"prompt_tokens": 1200, "completion_tokens": 800, "total_tokens": 2000}
+}
+```
+
+`elapsed_seconds` and `token_usage` are optional metadata used for cost reporting.
+
+### Complete workflow
+
+```python
+import requests
+
+BASE = "http://localhost:8000"
+HEADERS = {"X-API-Key": "mykey"}
+
+# 1. Create a session
+session = requests.post(f"{BASE}/sessions", headers=HEADERS, json={
+    "action_name": "AddAtomAction",
+    "limit": 100,
+    "repeat": 1,
+}).json()
+sid = session["session_id"]
+
+# 2. Fetch task list (no CIF content, for overview)
+tasks = requests.get(f"{BASE}/sessions/{sid}/tasks", headers=HEADERS).json()
+
+# 3. For each task: fetch full details, run agent, submit result
+for task_meta in tasks:
+    tid = task_meta["task_id"]
+
+    # Fetch task with input CIF
+    task = requests.get(f"{BASE}/sessions/{sid}/tasks/{tid}", headers=HEADERS).json()
+    input_cif   = task["input_cif"]
+    instruction = task["action_prompt"]
+
+    # --- run your agent here ---
+    result_cif = my_agent.run(input_cif=input_cif, instruction=instruction)
+    # ---------------------------
+
+    requests.post(f"{BASE}/sessions/{sid}/tasks/{tid}/submit", headers=HEADERS, json={
+        "result_cif": result_cif,
+        "elapsed_seconds": 3.7,
+    })
+
+# 4. Trigger evaluation
+requests.post(f"{BASE}/sessions/{sid}/evaluate", headers=HEADERS)
+
+# 5. Retrieve metrics
+results = requests.get(f"{BASE}/sessions/{sid}/results", headers=HEADERS).json()
+print(results["metrics"]["summary"])
+```
+
+### Server-side storage layout
+
+```
+sessions/
+  {session_id}/
+    session.json                    ← session state, tasks, submissions
+    results/
+      evaluation_results.json       ← written after POST /evaluate
+      generated_cifs/
+        task_0_repeat_0.cif         ← each submitted result CIF
+        task_1_repeat_0.cif
+        ...
+```
+
+### API reference
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `POST` | `/sessions` | Create a benchmark session |
+| `GET`  | `/sessions/{id}` | Session status and progress |
+| `GET`  | `/sessions/{id}/tasks` | Paginated task list (no CIF) |
+| `GET`  | `/sessions/{id}/tasks/{tid}` | Task details + input CIF |
+| `POST` | `/sessions/{id}/tasks/{tid}/submit` | Submit result CIF |
+| `POST` | `/sessions/{id}/evaluate` | Trigger evaluation |
+| `GET`  | `/sessions/{id}/results` | Retrieve evaluation metrics |
+
+Interactive docs are available at `http://localhost:8000/docs` while the server is running.
 
 ---
 
