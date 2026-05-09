@@ -29,8 +29,10 @@ theme:
     - content.code.copy
 
 nav:
-  - Dashboard: index.html
-  - Docs: docs.md
+  - Cover: index.html
+  - Documentation: docs.md
+  - Leaderboard: dashboard.html
+  - API Usage (Agent/Human): api-usage.md
   - Getting Started:
     - Installation: installation.md
   - Python API:

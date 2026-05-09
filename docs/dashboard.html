@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AtomWorldBench — Results Dashboard</title>
+  <title>AtomWorldBench — Leaderboard</title>
 
   <!-- Plotly.js -->
   <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
@@ -73,6 +73,25 @@
     .docs-link:hover {
       background: rgba(255,255,255,.22);
       transform: translateY(-1px);
+    }
+    .header-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .45rem;
+      margin-top: .65rem;
+    }
+    .header-nav a {
+      text-decoration: none;
+      color: #fff;
+      font-size: .8rem;
+      font-weight: 700;
+      border: 1px solid rgba(255,255,255,.35);
+      border-radius: 999px;
+      padding: .3rem .7rem;
+      background: rgba(255,255,255,.08);
+    }
+    .header-nav a:hover {
+      background: rgba(255,255,255,.16);
     }
 
     /* ── Controls bar ────────────────────────────────────────────────────── */
@@ -229,10 +248,15 @@
 <header>
   <div class="header-bar">
     <div class="header-copy">
-      <h1>AtomWorldBench — Results Dashboard</h1>
-      <p>Benchmark evaluation of large language models on crystal-structure manipulation tasks</p>
+      <h1>AtomWorldBench — Leaderboard</h1>
+      <p>Benchmark performance overview for crystal-structure manipulation tasks</p>
+      <div class="header-nav">
+        <a href="index.html">Cover</a>
+        <a href="docs/">Docs</a>
+        <a href="api-usage/">API Usage</a>
+      </div>
     </div>
-    <a class="docs-link" href="docs/">Open Documentation</a>
+    <a class="docs-link" href="api-usage/">Agent API Guide</a>
   </div>
 </header>
 
@@ -293,7 +317,7 @@
 </main>
 
 <footer>
-  <a href="installation/" style="color: var(--muted); text-decoration: underline;">Documentation</a>
+  <a href="docs/" style="color: var(--muted); text-decoration: underline;">Documentation Hub</a>
   &nbsp;·&nbsp;
   AtomWorldBench
   &nbsp;·&nbsp;

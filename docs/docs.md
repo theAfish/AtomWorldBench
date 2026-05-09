@@ -1,16 +1,26 @@
 # AtomWorldBench Documentation
 
-This page is the entry point for the written documentation, while the site root opens the interactive benchmark dashboard.
+This is the unified documentation hub for benchmark users, API clients, and autonomous agents.
 
-## Start Here
+## Core Pages
+
+- [Cover](../index.html)
+- [Leaderboard](../dashboard.html)
+- [API Usage (for agents and humans)](api-usage.md)
+
+## Get Started
 
 - [Installation](installation.md)
-- [Python API](python-api.md)
 - [CLI](cli.md)
 - [Agent Mode](agent-mode.md)
+- [Python API](python-api.md)
+
+## Benchmark and Data Details
+
+- [Actions](actions.md)
 - [Data Generation](data-generation.md)
+
+## Project and Citation
+
 - [Contributing](contributing.md)
-
-## Dashboard
-
-- <a href="../">Return to the dashboard</a>
+- [Citation](citation.md)
