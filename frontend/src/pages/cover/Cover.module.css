@@ -1,0 +1,141 @@
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background: radial-gradient(circle at 8% 15%, #ffd7bd 0%, transparent 35%),
+    radial-gradient(circle at 84% 22%, #cce9de 0%, transparent 33%),
+    linear-gradient(180deg, #f8f5ee 0%, var(--bg) 100%);
+  color: var(--ink);
+  min-height: 100vh;
+}
+
+.page {
+  width: min(1120px, 92vw);
+  margin: 1.4rem auto 2rem;
+}
+
+/* ── Hero ──────────────────────────────────────────────────────────────── */
+.hero {
+  margin-top: 1.35rem;
+  padding: clamp(1.2rem, 3vw, 2rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: linear-gradient(145deg, #fffef8 0%, #fff8eb 100%);
+  box-shadow: var(--shadow);
+  animation: reveal 480ms ease both;
+}
+
+.hero h1 {
+  font-size: clamp(1.7rem, 4vw, 2.6rem);
+  line-height: 1.1;
+  max-width: 15ch;
+  margin-bottom: 0.9rem;
+}
+
+.hero p {
+  color: var(--muted);
+  max-width: 64ch;
+  margin-bottom: 1.15rem;
+}
+
+/* ── Badges ────────────────────────────────────────────────────────────── */
+.badgeRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.badge {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.8rem;
+  color: #2b2b2b;
+  border: 1px dashed #c8b893;
+  border-radius: 999px;
+  padding: 0.3rem 0.6rem;
+  background: #fff;
+}
+
+/* ── Card grid ─────────────────────────────────────────────────────────── */
+.grid {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 0.85rem;
+}
+
+.card {
+  border: 1px solid var(--line);
+  background: var(--card);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  transform: translateY(8px);
+  opacity: 0;
+  animation: rise 500ms ease forwards;
+}
+
+.card:nth-child(1) { grid-column: span 6; animation-delay: 80ms; }
+.card:nth-child(2) { grid-column: span 6; animation-delay: 140ms; }
+.card:nth-child(3) { grid-column: span 4; animation-delay: 200ms; }
+.card:nth-child(4) { grid-column: span 4; animation-delay: 260ms; }
+.card:nth-child(5) { grid-column: span 4; animation-delay: 320ms; }
+
+.card h2 {
+  font-size: 1.07rem;
+  margin-bottom: 0.45rem;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin-bottom: 0.8rem;
+}
+
+.card a {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--accent-2);
+  border-bottom: 1px solid rgba(45, 106, 111, 0.35);
+}
+
+/* ── Agent note ────────────────────────────────────────────────────────── */
+.agentNote {
+  margin-top: 1rem;
+  border: 1px solid #c4d4cc;
+  border-radius: 12px;
+  background: #f0faf5;
+  padding: 0.9rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  animation: reveal 620ms ease both;
+  white-space: pre-wrap;
+}
+
+/* ── Footer ────────────────────────────────────────────────────────────── */
+.footer {
+  margin: 1.25rem 0 0.8rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* ── Animations ────────────────────────────────────────────────────────── */
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rise {
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* ── Responsive ────────────────────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .card:nth-child(1),
+  .card:nth-child(2),
+  .card:nth-child(3),
+  .card:nth-child(4),
+  .card:nth-child(5) {
+    grid-column: span 12;
+  }
+}

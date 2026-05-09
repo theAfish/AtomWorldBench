@@ -1,0 +1,33 @@
+/* Shared CSS custom properties used across all pages */
+:root {
+  /* Cover page tokens */
+  --bg: #f6f3eb;
+  --ink: #19212b;
+  --muted: #44505d;
+  --card: #fffdf8;
+  --line: #d7d0bf;
+  --accent: #be4a2f;
+  --accent-2: #2d6a6f;
+  --shadow: 0 10px 36px rgba(18, 23, 31, 0.1);
+  --radius: 18px;
+
+  /* Dashboard tokens */
+  --dash-bg: #f0f4f8;
+  --surface: #ffffff;
+  --surface2: #f7f9fc;
+  --border: #dde3eb;
+  --text: #1a202c;
+  --dash-muted: #64748b;
+  --dash-accent: #3b5998;
+  --accent-light: #ebf0fb;
+  --dash-shadow: 0 1px 4px rgba(0, 0, 0, 0.08), 0 4px 16px rgba(0, 0, 0, 0.06);
+  --dash-radius: 10px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}

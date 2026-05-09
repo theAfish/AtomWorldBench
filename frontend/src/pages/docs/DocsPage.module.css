@@ -1,0 +1,247 @@
+/* ── Page shell ────────────────────────────────────────────────────────── */
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background:
+    radial-gradient(circle at 8% 15%, #ffd7bd 0%, transparent 35%),
+    radial-gradient(circle at 84% 22%, #cce9de 0%, transparent 33%),
+    linear-gradient(180deg, #f8f5ee 0%, var(--bg) 100%);
+  color: var(--ink);
+  min-height: 100vh;
+}
+
+.page {
+  width: min(1300px, 98vw);
+  margin: 1.4rem auto 2rem;
+  padding: 0 0.5rem;
+}
+
+/* ── Sidebar + content layout ──────────────────────────────────────────── */
+.layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 2rem;
+  margin-top: 1rem;
+  align-items: start;
+}
+
+/* ── Sidebar ───────────────────────────────────────────────────────────── */
+.sidebar {
+  position: sticky;
+  top: 80px; /* clears the floating TopBar */
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+
+.navGroup {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.navGroupLabel {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  padding: 0.25rem 0.5rem;
+}
+
+.navLink {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.35rem 0.6rem;
+  border-radius: 8px;
+  transition: background 0.12s ease;
+}
+
+.navLink:hover {
+  background: var(--line);
+}
+
+.navLinkActive {
+  background: var(--ink);
+  color: #fff;
+}
+
+.navLinkActive:hover {
+  background: var(--ink);
+}
+
+/* ── Markdown content area ─────────────────────────────────────────────── */
+.content {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  padding: 2rem 2.5rem;
+  min-width: 0; /* prevent grid blowout */
+  line-height: 1.7;
+}
+
+/* Headings */
+.content :global(h1) {
+  font-size: 1.9rem;
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 1rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.5rem;
+}
+
+.content :global(h2) {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 2rem 0 0.6rem;
+}
+
+.content :global(h3) {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 1.4rem 0 0.4rem;
+}
+
+/* Paragraphs & lists */
+.content :global(p) {
+  margin-bottom: 0.9rem;
+}
+
+.content :global(ul),
+.content :global(ol) {
+  padding-left: 1.5rem;
+  margin-bottom: 0.9rem;
+}
+
+.content :global(li) {
+  margin-bottom: 0.3rem;
+}
+
+/* Tables */
+.content :global(table) {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.2rem;
+  font-size: 0.9rem;
+}
+
+.content :global(th) {
+  background: var(--bg);
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 2px solid var(--line);
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.content :global(td) {
+  padding: 0.45rem 0.75rem;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.content :global(tr:last-child td) {
+  border-bottom: none;
+}
+
+/* Code blocks */
+.content :global(pre) {
+  background: #1e1e2e;
+  color: #cdd6f4;
+  border-radius: 10px;
+  padding: 1.1rem 1.3rem;
+  overflow-x: auto;
+  margin-bottom: 1.2rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* highlight.js dark theme: transparent bg so our pre colour shows through */
+.content :global(pre code.hljs) {
+  background: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+.inlineCode {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.83em;
+  background: #f0ebe0;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+}
+
+/* Blockquotes (also used for rendered admonitions) */
+.content :global(blockquote) {
+  border-left: 3px solid var(--accent-2);
+  background: #f0faf5;
+  border-radius: 0 8px 8px 0;
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+  color: var(--ink);
+}
+
+.content :global(blockquote p) {
+  margin: 0;
+}
+
+/* Links */
+.content :global(a) {
+  color: var(--accent-2);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.content :global(a:hover) {
+  color: var(--accent);
+}
+
+/* Horizontal rule */
+.content :global(hr) {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 2rem 0;
+}
+
+/* ── Responsive ────────────────────────────────────────────────────────── */
+@media (max-width: 800px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .navGroup {
+    margin-top: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .navGroupLabel {
+    display: none;
+  }
+
+  .content {
+    padding: 1.25rem;
+  }
+}

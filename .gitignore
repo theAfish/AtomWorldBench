@@ -19,3 +19,15 @@ output/
 _local_agents/
 
 sessions/
+
+# Frontend build outputs that land in docs/
+# Source lives in frontend/; run `cd frontend && npm run build` to regenerate.
+docs/index.html
+docs/dashboard.html
+docs/assets/fe/
+# Benchmark data served by the dashboard; source is frontend/public/data/
+docs/data/
+
+# Frontend build artifacts
+frontend/node_modules/
+frontend/dist/
