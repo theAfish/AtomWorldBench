@@ -1,6 +1,6 @@
 from typing import Any, Dict, List, Optional
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 # ---------------------------------------------------------------------------
@@ -17,6 +17,26 @@ class SubmitResultRequest(BaseModel):
     result_cif: str
     elapsed_seconds: Optional[float] = None
     token_usage: Optional[Dict[str, Any]] = None
+
+
+class RegisterUserRequest(BaseModel):
+    username: str = Field(min_length=1, max_length=128)
+    email: Optional[str] = Field(default=None, max_length=256)
+    organization: Optional[str] = Field(default=None, max_length=256)
+
+
+class IssueApiKeyRequest(BaseModel):
+    username: str = Field(min_length=1, max_length=128)
+    note: Optional[str] = Field(default=None, max_length=256)
+
+
+class AccessInfoResponse(BaseModel):
+    api_name: str
+    version: str
+    auth: Dict[str, Any]
+    endpoints: Dict[str, Any]
+    workflow: List[Dict[str, Any]]
+    notes: List[str]
 
 
 # ---------------------------------------------------------------------------
@@ -48,6 +68,22 @@ class SubmitResponse(BaseModel):
     task_id: str
     accepted: bool
     already_submitted: bool
+
+
+class RegisteredUserResponse(BaseModel):
+    username: str
+    email: Optional[str]
+    organization: Optional[str]
+    created_at: str
+
+
+class IssuedApiKeyResponse(BaseModel):
+    username: str
+    email: Optional[str]
+    organization: Optional[str]
+    api_key: str
+    note: Optional[str]
+    created_at: str
 
 
 class EvaluationResults(BaseModel):

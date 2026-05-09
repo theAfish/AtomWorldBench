@@ -1,0 +1,25 @@
+{
+  "service": "AtomWorldBench docs discovery",
+  "kind": "frontend-static",
+  "message": "This host serves the documentation frontend. It is not the benchmark API server.",
+  "docs_site_url": "http://wmml1463885.bohrium.tech:50001",
+  "default_local_api_base_url": "http://127.0.0.1:8000",
+  "api_discovery_path": "/access-info",
+  "auth": {
+    "benchmark_header": "X-API-Key",
+    "register_path": "/auth/register",
+    "issue_key_path": "/auth/issue-key"
+  },
+  "workflow": [
+    "POST /sessions",
+    "GET /sessions/{session_id}/tasks?offset=0&limit=500",
+    "GET /sessions/{session_id}/tasks/{task_id}",
+    "POST /sessions/{session_id}/tasks/{task_id}/submit",
+    "POST /sessions/{session_id}/evaluate",
+    "GET /sessions/{session_id}/results"
+  ],
+  "notes": [
+    "If the backend is running separately, curl <API_BASE>/access-info for the live machine-readable API description.",
+    "If you self-host with atomworld serve and do not override --port, the API listens on port 8000."
+  ]
+}

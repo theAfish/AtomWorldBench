@@ -115,16 +115,16 @@ def _run_serve(args: list[str]) -> None:
 
     parser = argparse.ArgumentParser(description="Start the AtomWorldBench REST API server")
     parser.add_argument(
-        "--host", type=str, default="127.0.0.1", help="Host to bind (default: 127.0.0.1)"
+        "--host", type=str, default="0.0.0.0", help="Host to bind (default: 0.0.0.0)"
     )
     parser.add_argument(
-        "--port", type=int, default=8000, help="Port to listen on (default: 8000)"
+        "--port", type=int, default=50001, help="Port to listen on (default: 50001)"
     )
     parser.add_argument(
         "--api-key",
         type=str,
         required=True,
-        help="API key required in the X-API-Key header for all requests",
+        help="Bootstrap admin API key used for privileged requests and fallback authentication",
     )
     parser.add_argument(
         "--data-folder",
@@ -149,6 +149,9 @@ def _run_serve(args: list[str]) -> None:
         sessions_dir=parsed.sessions_dir,
     )
     print(f"Starting AtomWorldBench API on http://{parsed.host}:{parsed.port}")
+    print(f"Public entry : http://<server-host>:{parsed.port}/")
+    print(f"Access info  : http://<server-host>:{parsed.port}/access-info")
+    print(f"OpenAPI docs : http://<server-host>:{parsed.port}/docs")
     print(f"Data folder : {parsed.data_folder}")
     print(f"Sessions dir: {parsed.sessions_dir}")
     uvicorn.run(app, host=parsed.host, port=parsed.port)

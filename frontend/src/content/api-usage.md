@@ -1,24 +1,67 @@
 # AtomWorldBench API Usage
 
-**Base URL (dev server):** `http://wmml1463885.bohrium.tech:50001`
+**Recommended Public Server URL:** `http://<your-server>:50001`
 
 This page describes how to run the benchmark via the REST API — follow the
 workflow below to create a session, fetch tasks, submit results, and retrieve
 your scores.
 
+If you start the benchmark server directly on a public machine, users and
+agents can begin from the same URL:
+
+```bash
+curl "http://<your-server>:50001/access-info"
+```
+
+That endpoint returns the live machine-readable benchmark access information for
+the running server.
+
+To expose the benchmark publicly, start the server with:
+
+```bash
+atomworld serve \
+    --host 0.0.0.0 \
+    --port 50001 \
+    --api-key <ADMIN_API_KEY> \
+    --data-folder data/simple \
+    --sessions-dir sessions
+```
+
+Then:
+
+- Browser users can open `http://<your-server>:50001/`
+- Agents can call `http://<your-server>:50001/access-info`
+- Interactive API docs are at `http://<your-server>:50001/docs`
+
 ---
 
 ## Get an API key
 
-Every request requires an `X-API-Key` header. Keys are issued per user — the
-server does not have a self-registration endpoint yet.
+Benchmark requests require an `X-API-Key` header. The server supports a
+two-step flow: users register themselves, then an administrator issues a key.
 
-To get a key:
+Register yourself:
 
-1. Open an issue or send a request to the maintainers (see the README for
-   contact details).
-2. You will receive a key string such as `awb-xxxxxxxxxxxxxxxx`.
-3. Store it safely; treat it like a password.
+```bash
+curl -X POST "$BASE_URL/auth/register" \
+    -H "Content-Type: application/json" \
+    -d '{"username": "alice", "email": "alice@example.com", "organization": "WMML"}'
+```
+
+Then issue a key for that user with the bootstrap admin key:
+
+```bash
+curl -X POST "$BASE_URL/auth/issue-key" \
+    -H "X-API-Key: $ADMIN_API_KEY" \
+    -H "Content-Type: application/json" \
+    -d '{"username": "alice", "note": "benchmark access"}'
+```
+
+The response includes a key string such as `awb-xxxxxxxxxxxxxxxx`. Store it
+safely and treat it like a password.
+
+If you self-host the server, `ADMIN_API_KEY` is the `--api-key` value passed to
+`atomworld serve`. That bootstrap key also remains valid for benchmark calls.
 
 ---
 

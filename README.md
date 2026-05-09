@@ -294,7 +294,27 @@ atomworld serve \
   --port 8000
 ```
 
-All requests must include the header `X-API-Key: mykey`.
+The startup `--api-key` is the bootstrap admin key. It remains valid for
+benchmark requests and is also used to issue per-user API keys.
+
+Users can register themselves with:
+
+```bash
+curl -X POST "$BASE/auth/register" \
+  -H "Content-Type: application/json" \
+  -d '{"username": "alice", "email": "alice@example.com"}'
+```
+
+An administrator can then issue a user key with:
+
+```bash
+curl -X POST "$BASE/auth/issue-key" \
+  -H "X-API-Key: mykey" \
+  -H "Content-Type: application/json" \
+  -d '{"username": "alice", "note": "benchmark access"}'
+```
+
+All benchmark requests must include a valid `X-API-Key` header.
 
 ### What your agent receives per task
 
