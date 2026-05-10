@@ -128,3 +128,28 @@ class AuthStore:
         path = self._store_path()
         with open(path, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2)
+
+    # ------------------------------------------------------------------
+    # Self-service helpers
+    # ------------------------------------------------------------------
+
+    def self_register(
+        self,
+        username: str,
+        email: Optional[str] = None,
+        organization: Optional[str] = None,
+    ) -> Dict[str, Any]:
+        """Register a user and immediately issue an API key in one step."""
+        self.register_user(username, email, organization)
+        result = self.issue_api_key(username, note="self-registered")
+        return result
+
+    def list_users(self) -> list:
+        with self._lock:
+            data = self._load_store()
+        return list(data["users"].values())
+
+    def list_keys(self) -> list:
+        with self._lock:
+            data = self._load_store()
+        return list(data["keys"].values())

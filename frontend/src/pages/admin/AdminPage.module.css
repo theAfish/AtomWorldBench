@@ -1,0 +1,249 @@
+.page {
+  width: min(1120px, 92vw);
+  margin: 1.4rem auto 2rem;
+}
+
+.hero {
+  margin-top: 1.35rem;
+  padding: clamp(1.2rem, 3vw, 2rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: linear-gradient(145deg, #fffef8 0%, #fff8eb 100%);
+  box-shadow: var(--shadow);
+}
+
+.hero h1 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  margin-bottom: 0.4rem;
+}
+
+.hero p {
+  color: var(--muted);
+  max-width: 60ch;
+}
+
+/* ── Auth gate ───────────────────────────────────────────────────────── */
+.authGate {
+  margin-top: 1.5rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  max-width: 480px;
+  box-shadow: var(--shadow);
+}
+
+.authGate h2 {
+  font-size: 1.05rem;
+  margin-bottom: 0.9rem;
+}
+
+.keyRow {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.keyInput {
+  flex: 1;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--ink);
+  background: #fff;
+  outline: none;
+}
+
+.keyInput:focus {
+  border-color: var(--accent-2);
+}
+
+.loadBtn {
+  padding: 0.55rem 1rem;
+  background: var(--accent-2);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 150ms;
+}
+
+.loadBtn:hover:not(:disabled) {
+  opacity: 0.88;
+}
+
+.loadBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.errorMsg {
+  margin-top: 0.6rem;
+  color: #c0392b;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.6rem;
+  background: #fdf0ee;
+  border: 1px solid #f5c6c2;
+  border-radius: 6px;
+}
+
+/* ── Main panels ─────────────────────────────────────────────────────── */
+.panels {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.cardHeader h2 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.reloadBtn {
+  padding: 0.3rem 0.75rem;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  color: var(--muted);
+  transition: background 120ms;
+}
+
+.reloadBtn:hover {
+  background: var(--line);
+}
+
+/* ── Issue key form ──────────────────────────────────────────────────── */
+.issueForm {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.issueInput {
+  flex: 1;
+  min-width: 160px;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 0.88rem;
+  color: var(--ink);
+  background: #fff;
+  outline: none;
+}
+
+.issueInput:focus {
+  border-color: var(--accent-2);
+}
+
+.issueBtn {
+  padding: 0.45rem 0.9rem;
+  background: var(--accent-2);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 150ms;
+}
+
+.issueBtn:hover:not(:disabled) {
+  opacity: 0.88;
+}
+
+.issueBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.issuedKey {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.88rem;
+  background: #f0f9f6;
+  border: 1px solid #9ad4c4;
+  border-radius: 6px;
+  padding: 0.45rem 0.7rem;
+  color: #1a5f52;
+  word-break: break-all;
+  margin-bottom: 0.75rem;
+}
+
+/* ── Tables ──────────────────────────────────────────────────────────── */
+.tableWrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+th {
+  text-align: left;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  padding: 0.4rem 0.6rem;
+  border-bottom: 2px solid var(--line);
+  white-space: nowrap;
+}
+
+td {
+  padding: 0.45rem 0.6rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  vertical-align: top;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.15em 0.45em;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: var(--line);
+  color: var(--muted);
+}
+
+.empty {
+  color: var(--muted);
+  font-size: 0.88rem;
+  padding: 0.5rem 0;
+}

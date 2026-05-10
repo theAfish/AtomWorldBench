@@ -9,10 +9,12 @@ bootstrap admin credential and can also issue per-user API keys.
 """
 
 import os
-from typing import Annotated, Optional
+from pathlib import Path
+from typing import Annotated, List, Optional
 
 from fastapi import Depends, FastAPI, Header, HTTPException, Query, Request, status
-from fastapi.responses import HTMLResponse
+from fastapi.responses import FileResponse, HTMLResponse
+from fastapi.staticfiles import StaticFiles
 
 from api.auth import (
     AuthPrincipal,
@@ -23,12 +25,21 @@ from api.auth import (
 )
 from api.models import (
     AccessInfoResponse,
+    AdminKeyItem,
+    AdminUserItem,
+    BenchmarkRequest,
+    BenchmarkResponse,
+    BenchmarkTaskItem,
     CreateSessionRequest,
+    DatasetInfo,
+    DatasetListResponse,
     EvaluationResults,
     IssueApiKeyRequest,
     IssuedApiKeyResponse,
     RegisterUserRequest,
     RegisteredUserResponse,
+    SelfRegisterRequest,
+    SelfRegisterResponse,
     SessionInfo,
     SubmitResponse,
     SubmitResultRequest,
@@ -37,8 +48,11 @@ from api.models import (
 )
 from api.session_manager import SessionManager, SessionNotFoundError, TaskNotFoundError
 
+# Path to the pre-built React SPA (built with `npm run build` in frontend/).
+_DIST_DIR = Path(__file__).parent.parent.parent / "frontend" / "dist"
 
-def create_app(data_folder: str, sessions_dir: str) -> FastAPI:
+
+def create_app(data_root: str, sessions_dir: str) -> FastAPI:
     app = FastAPI(
         title="AtomWorldBench API",
         description=(
@@ -48,7 +62,7 @@ def create_app(data_folder: str, sessions_dir: str) -> FastAPI:
         version="0.1.0",
     )
 
-    manager = SessionManager(data_folder=data_folder, sessions_dir=sessions_dir)
+    manager = SessionManager(data_root=data_root, sessions_dir=sessions_dir)
     auth_store = AuthStore(root_dir=os.path.join(sessions_dir, "_auth"))
 
     # ------------------------------------------------------------------
@@ -111,17 +125,20 @@ def create_app(data_folder: str, sessions_dir: str) -> FastAPI:
 
     @app.get(
         "/",
-        response_class=HTMLResponse,
-        summary="AtomWorldBench service entry page",
+        summary="AtomWorldBench service entry page (serves SPA if built)",
     )
     def root(request: Request):
+        index_file = _DIST_DIR / "index.html"
+        if index_file.exists():
+            return FileResponse(str(index_file))
+        # Fallback plain-HTML for agents when the SPA is not built yet
         base_url = str(request.base_url).rstrip("/")
-        return f"""
+        return HTMLResponse(f"""
 <!DOCTYPE html>
-<html lang=\"en\">
+<html lang="en">
   <head>
-    <meta charset=\"utf-8\" />
-    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>AtomWorldBench</title>
     <style>
       body {{ font-family: sans-serif; max-width: 900px; margin: 40px auto; padding: 0 16px; line-height: 1.5; }}
@@ -135,15 +152,26 @@ def create_app(data_folder: str, sessions_dir: str) -> FastAPI:
     <p>This server is ready for direct benchmark access by users and agents.</p>
     <p><strong>Base URL:</strong> {base_url}</p>
     <ul>
-      <li><a href=\"{base_url}/access-info\">Machine-readable access info</a></li>
-      <li><a href=\"{base_url}/docs\">OpenAPI docs</a></li>
-      <li><a href=\"{base_url}/healthz\">Health check</a></li>
+      <li><a href="{base_url}/access-info">Machine-readable access info</a></li>
+      <li><a href="{base_url}/docs">OpenAPI docs</a></li>
+      <li><a href="{base_url}/healthz">Health check</a></li>
     </ul>
     <p>Quick start for agents:</p>
     <pre>curl {base_url}/access-info</pre>
   </body>
 </html>
-"""
+""")
+
+    @app.get(
+        "/datasets",
+        response_model=DatasetListResponse,
+        summary="List available benchmark datasets",
+    )
+    def list_datasets():
+        items = manager.list_datasets()
+        return DatasetListResponse(
+            datasets=[DatasetInfo(**d) for d in items]
+        )
 
     @app.get(
         "/healthz",
@@ -166,6 +194,13 @@ def create_app(data_folder: str, sessions_dir: str) -> FastAPI:
                 "server_base_url": base_url,
                 "benchmark_header": "X-API-Key",
                 "registration_required": True,
+                "self_register_endpoint": {
+                    "method": "POST",
+                    "path": "/auth/self-register",
+                    "url": f"{base_url}/auth/self-register",
+                    "authentication": "none",
+                    "note": "Single-step: creates user and issues API key immediately.",
+                },
                 "registration_endpoint": {
                     "method": "POST",
                     "path": "/auth/register",
@@ -184,6 +219,10 @@ def create_app(data_folder: str, sessions_dir: str) -> FastAPI:
                 ),
             },
             endpoints={
+                "datasets": {"method": "GET", "path": "/datasets", "url": f"{base_url}/datasets",
+                             "note": "List available dataset names to pass as 'dataset' in /benchmark."},
+                "benchmark": {"method": "POST", "path": "/benchmark", "url": f"{base_url}/benchmark",
+                              "note": "One-shot: creates session and returns all tasks with CIFs."},
                 "create_session": {"method": "POST", "path": "/sessions", "url": f"{base_url}/sessions"},
                 "list_tasks": {"method": "GET", "path": "/sessions/{{session_id}}/tasks", "url_template": f"{base_url}/sessions/{{session_id}}/tasks"},
                 "get_task": {"method": "GET", "path": "/sessions/{{session_id}}/tasks/{{task_id}}", "url_template": f"{base_url}/sessions/{{session_id}}/tasks/{{task_id}}"},
@@ -261,6 +300,7 @@ def create_app(data_folder: str, sessions_dir: str) -> FastAPI:
                 },
             ],
             notes=[
+                "QUICK START: POST /auth/self-register to get an API key instantly, then POST /benchmark to get all tasks at once.",
                 "Process one task at a time.",
                 "Do not call /evaluate until all submissions are complete.",
                 "Each task is independent and only exposes action_prompt and input_cif.",
@@ -274,10 +314,29 @@ def create_app(data_folder: str, sessions_dir: str) -> FastAPI:
     # ------------------------------------------------------------------
 
     @app.post(
+        "/auth/self-register",
+        response_model=SelfRegisterResponse,
+        status_code=status.HTTP_201_CREATED,
+        summary="Self-service registration: creates a user and issues an API key in one step",
+    )
+    def self_register(req: SelfRegisterRequest):
+        try:
+            result = auth_store.self_register(
+                username=req.username,
+                email=req.email,
+                organization=req.organization,
+            )
+            return SelfRegisterResponse(**result)
+        except UserAlreadyExistsError:
+            raise _conflict(f"User {req.username!r} is already registered.")
+        except ValueError as exc:
+            raise _bad_request(str(exc))
+
+    @app.post(
         "/auth/register",
         response_model=RegisteredUserResponse,
         status_code=status.HTTP_201_CREATED,
-        summary="Register a user for API access",
+        summary="Register a user for API access (admin must issue key separately)",
     )
     def register_user(req: RegisterUserRequest):
         try:
@@ -295,7 +354,7 @@ def create_app(data_folder: str, sessions_dir: str) -> FastAPI:
         "/auth/issue-key",
         response_model=IssuedApiKeyResponse,
         status_code=status.HTTP_201_CREATED,
-        summary="Issue an API key for a registered user",
+        summary="Issue an API key for a registered user (admin only)",
     )
     def issue_api_key(_: AdminAuth, req: IssueApiKeyRequest):
         try:
@@ -304,6 +363,66 @@ def create_app(data_folder: str, sessions_dir: str) -> FastAPI:
             raise _not_found(f"User {req.username!r} is not registered.")
         except ValueError as exc:
             raise _bad_request(str(exc))
+
+    # ------------------------------------------------------------------
+    # Admin endpoints
+    # ------------------------------------------------------------------
+
+    @app.get(
+        "/admin/users",
+        response_model=List[AdminUserItem],
+        summary="List all registered users (admin only)",
+    )
+    def admin_list_users(_: AdminAuth):
+        return [AdminUserItem(**u) for u in auth_store.list_users()]
+
+    @app.get(
+        "/admin/keys",
+        response_model=List[AdminKeyItem],
+        summary="List all issued API keys (admin only)",
+    )
+    def admin_list_keys(_: AdminAuth):
+        return [AdminKeyItem(**k) for k in auth_store.list_keys()]
+
+    # ------------------------------------------------------------------
+    # One-shot benchmark endpoint
+    # ------------------------------------------------------------------
+
+    @app.post(
+        "/benchmark",
+        response_model=BenchmarkResponse,
+        status_code=status.HTTP_201_CREATED,
+        summary="Create a session and return all tasks with CIFs in one call",
+    )
+    def run_benchmark(principal: Auth, req: BenchmarkRequest):
+        create_req = CreateSessionRequest(
+            dataset=req.dataset,
+            action_name=req.action_name,
+            limit=req.limit,
+            repeat=1,
+        )
+        try:
+            session_info = manager.create_session(create_req)
+        except ValueError as exc:
+            raise _bad_request(str(exc))
+
+        session_id = session_info.session_id
+        # Fetch all tasks with CIF details
+        all_tasks = manager.list_tasks(session_id, offset=0, limit=10000)
+        task_details: List[BenchmarkTaskItem] = []
+        for t in all_tasks:
+            detail = manager.get_task(session_id, t.task_id)
+            task_details.append(
+                BenchmarkTaskItem(
+                    task_id=detail.task_id,
+                    frame_index=detail.frame_index,
+                    repeat_index=detail.repeat_index,
+                    action_type=detail.action_type,
+                    action_prompt=detail.action_prompt,
+                    input_cif=detail.input_cif,
+                )
+            )
+        return BenchmarkResponse(session_id=session_id, tasks=task_details)
 
     # ------------------------------------------------------------------
     # Session endpoints
@@ -421,5 +540,11 @@ def create_app(data_folder: str, sessions_dir: str) -> FastAPI:
             raise _bad_request(str(exc))
         except FileNotFoundError as exc:
             raise _not_found(str(exc))
+
+    # ------------------------------------------------------------------
+    # Serve pre-built React SPA (must come last so API routes take priority)
+    # ------------------------------------------------------------------
+    if _DIST_DIR.is_dir():
+        app.mount("/", StaticFiles(directory=str(_DIST_DIR), html=True), name="spa")
 
     return app

@@ -34,13 +34,50 @@ class TaskNotFoundError(Exception):
 
 
 class SessionManager:
-    def __init__(self, data_folder: str, sessions_dir: str) -> None:
-        self.data_folder = data_folder
+    def __init__(self, data_root: str, sessions_dir: str) -> None:
+        self.data_root = data_root
         self.sessions_dir = sessions_dir
         os.makedirs(sessions_dir, exist_ok=True)
         # Per-session locks to prevent concurrent write races
         self._locks: Dict[str, Lock] = {}
         self._global_lock = Lock()
+
+    # ------------------------------------------------------------------
+    # Dataset discovery
+    # ------------------------------------------------------------------
+
+    def list_datasets(self) -> List[Dict[str, Any]]:
+        """Return metadata for every dataset (subdirectory) under data_root."""
+        from utils.dataloader import load_data
+
+        datasets = []
+        try:
+            entries = sorted(os.listdir(self.data_root))
+        except OSError:
+            return datasets
+
+        for name in entries:
+            folder = os.path.join(self.data_root, name)
+            if not os.path.isdir(folder):
+                continue
+            # Count JSON files (= action files)
+            json_files = [f for f in os.listdir(folder) if f.endswith(".json")]
+            if not json_files:
+                continue
+            try:
+                data = load_data(folder, action_name=None)
+                rows = data.to_dict("records") if hasattr(data, "to_dict") else list(data)
+                task_count = len(rows)
+            except Exception:
+                task_count = -1
+            datasets.append(
+                {
+                    "name": name,
+                    "action_count": len(json_files),
+                    "task_count": task_count,
+                }
+            )
+        return datasets
 
     # ------------------------------------------------------------------
     # Public API
@@ -49,7 +86,16 @@ class SessionManager:
     def create_session(self, req: CreateSessionRequest) -> SessionInfo:
         from utils.dataloader import load_data
 
-        data = load_data(self.data_folder, req.action_name)
+        # Resolve dataset folder
+        dataset_name = (req.dataset or "simple").strip()
+        data_folder = os.path.join(self.data_root, dataset_name)
+        if not os.path.isdir(data_folder):
+            raise ValueError(
+                f"Dataset {dataset_name!r} not found. "
+                f"Available datasets: {[d['name'] for d in self.list_datasets()]}"
+            )
+
+        data = load_data(data_folder, req.action_name)
         if hasattr(data, "to_dict"):
             rows = data.to_dict("records")
         else:
@@ -58,7 +104,7 @@ class SessionManager:
         if not rows:
             raise ValueError(
                 f"No tasks found for action_name={req.action_name!r} "
-                f"in data_folder={self.data_folder!r}"
+                f"in dataset={dataset_name!r}"
             )
 
         # Apply limit
@@ -89,6 +135,7 @@ class SessionManager:
         session_data: Dict[str, Any] = {
             "session_id": session_id,
             "created_at": datetime.now(timezone.utc).isoformat(),
+            "dataset": dataset_name,
             "action_name": req.action_name,
             "status": "pending",
             "tasks": tasks,

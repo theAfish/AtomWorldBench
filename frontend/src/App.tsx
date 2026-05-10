@@ -2,6 +2,8 @@ import { HashRouter, Routes, Route } from 'react-router-dom'
 import { Cover } from './pages/cover/Cover'
 import { Dashboard } from './pages/dashboard/Dashboard'
 import { DocsPage } from './pages/docs/DocsPage'
+import { RegisterPage } from './pages/register/RegisterPage'
+import { AdminPage } from './pages/admin/AdminPage'
 
 // Markdown files imported as raw strings at build time — no server needed.
 import docsMd from './content/docs.md?raw'
@@ -31,6 +33,8 @@ export function App() {
         <Route path="/data-generation" element={<DocsPage content={dataGenMd} title="Data Generation" />} />
         <Route path="/contributing" element={<DocsPage content={contributingMd} title="Contributing" />} />
         <Route path="/citation" element={<DocsPage content={citationMd} title="Citation" />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/admin" element={<AdminPage />} />
         {/* Fallback */}
         <Route path="*" element={<Cover />} />
       </Routes>

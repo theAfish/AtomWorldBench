@@ -127,10 +127,15 @@ def _run_serve(args: list[str]) -> None:
         help="Bootstrap admin API key used for privileged requests and fallback authentication",
     )
     parser.add_argument(
-        "--data-folder",
+        "--data-root",
+        "--data-folder",          # keep old flag as alias for backwards compat
+        dest="data_root",
         type=str,
         default="data",
-        help="Path to the benchmark data folder (default: data)",
+        help=(
+            "Root directory that contains dataset sub-folders (e.g. simple/, verbose/). "
+            "Users/agents choose the dataset when they create a session. (default: data)"
+        ),
     )
     parser.add_argument(
         "--sessions-dir",
@@ -145,14 +150,15 @@ def _run_serve(args: list[str]) -> None:
     from api.server import create_app
 
     app = create_app(
-        data_folder=parsed.data_folder,
+        data_root=parsed.data_root,
         sessions_dir=parsed.sessions_dir,
     )
     print(f"Starting AtomWorldBench API on http://{parsed.host}:{parsed.port}")
     print(f"Public entry : http://<server-host>:{parsed.port}/")
     print(f"Access info  : http://<server-host>:{parsed.port}/access-info")
+    print(f"Datasets     : http://<server-host>:{parsed.port}/datasets")
     print(f"OpenAPI docs : http://<server-host>:{parsed.port}/docs")
-    print(f"Data folder : {parsed.data_folder}")
+    print(f"Data root   : {parsed.data_root}")
     print(f"Sessions dir: {parsed.sessions_dir}")
     uvicorn.run(app, host=parsed.host, port=parsed.port)
 

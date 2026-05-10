@@ -1,0 +1,256 @@
+.page {
+  width: min(1120px, 92vw);
+  margin: 1.4rem auto 2rem;
+}
+
+.hero {
+  margin-top: 1.35rem;
+  padding: clamp(1.2rem, 3vw, 2rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: linear-gradient(145deg, #fffef8 0%, #fff8eb 100%);
+  box-shadow: var(--shadow);
+}
+
+.hero h1 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  margin-bottom: 0.4rem;
+}
+
+.hero p {
+  color: var(--muted);
+  max-width: 60ch;
+}
+
+/* ── Layout ──────────────────────────────────────────────────────────── */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 700px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Card ────────────────────────────────────────────────────────────── */
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.card h2 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+/* ── Form ────────────────────────────────────────────────────────────── */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.fieldGroup label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.fieldGroup input {
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background: #fff;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 150ms;
+}
+
+.fieldGroup input:focus {
+  border-color: var(--accent-2);
+}
+
+.optional {
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.submitBtn {
+  margin-top: 0.4rem;
+  padding: 0.65rem 1.2rem;
+  background: var(--accent-2);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 150ms;
+}
+
+.submitBtn:hover:not(:disabled) {
+  opacity: 0.88;
+}
+
+.submitBtn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.errorMsg {
+  color: #c0392b;
+  font-size: 0.88rem;
+  padding: 0.5rem 0.75rem;
+  background: #fdf0ee;
+  border: 1px solid #f5c6c2;
+  border-radius: 6px;
+}
+
+/* ── Success box ─────────────────────────────────────────────────────── */
+.successBox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.successTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent-2);
+}
+
+.keyBox {
+  background: #f0f9f6;
+  border: 1px solid #9ad4c4;
+  border-radius: 8px;
+  padding: 0.9rem 1rem;
+}
+
+.keyLabel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.4rem;
+}
+
+.keyValue {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.95rem;
+  color: #1a5f52;
+  word-break: break-all;
+}
+
+.copyBtn {
+  padding: 0.4rem 0.9rem;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  color: var(--ink);
+  transition: background 120ms;
+  align-self: flex-start;
+}
+
+.copyBtn:hover {
+  background: var(--line);
+}
+
+.warning {
+  font-size: 0.82rem;
+  color: #7a4f00;
+  background: #fff8e1;
+  border: 1px solid #ffe08a;
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+}
+
+.resetBtn {
+  align-self: flex-start;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 0.88rem;
+  cursor: pointer;
+  color: var(--ink);
+}
+
+/* ── Info panel ──────────────────────────────────────────────────────── */
+.infoCard {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.infoCard h2 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.stepList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.stepList li {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.stepNum {
+  flex-shrink: 0;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: var(--accent-2);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stepText {
+  font-size: 0.9rem;
+  color: var(--muted);
+  padding-top: 0.1rem;
+}
+
+.stepText code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  background: #f0f0e8;
+  padding: 0.1em 0.3em;
+  border-radius: 4px;
+  color: var(--ink);
+}
