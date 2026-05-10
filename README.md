@@ -241,7 +241,7 @@ atomworld eval -f ./dataset -a move_atom_action -i ./inference_results.json -o .
 atomworld draw -i ./results/evaluation_results.json
 
 # Start the agent benchmark API server
-atomworld serve --api-key mykey --data-folder data/simple --sessions-dir sessions
+atomworld serve --api-key mykey --data-root data --sessions-dir sessions
 ```
 
 ### Benchmark arguments
@@ -285,36 +285,27 @@ Instead of wrapping your agent in a CLI shim, AtomWorldBench exposes a REST API.
 
 ### Start the server
 
+Start the server **once** and leave it running. All registered users share the same running instance — there is no per-user restart.
+
 ```bash
 atomworld serve \
-  --api-key mykey \
-  --data-folder data/simple \
+  --api-key <ADMIN_KEY> \
+  --data-root data \
   --sessions-dir sessions \
   --host 0.0.0.0 \
-  --port 8000
+  --port 50001
 ```
 
-The startup `--api-key` is the bootstrap admin key. It remains valid for
-benchmark requests and is also used to issue per-user API keys.
-
-Users can register themselves with:
+`--api-key` sets the **bootstrap admin key** (for `/admin/*` endpoints only). Regular users obtain their own keys by self-registering — no admin action required:
 
 ```bash
-curl -X POST "$BASE/auth/register" \
+curl -X POST "http://<server>:50001/auth/self-register" \
   -H "Content-Type: application/json" \
   -d '{"username": "alice", "email": "alice@example.com"}'
+# Response includes a ready-to-use "api_key" value (awb-...)
 ```
 
-An administrator can then issue a user key with:
-
-```bash
-curl -X POST "$BASE/auth/issue-key" \
-  -H "X-API-Key: mykey" \
-  -H "Content-Type: application/json" \
-  -d '{"username": "alice", "note": "benchmark access"}'
-```
-
-All benchmark requests must include a valid `X-API-Key` header.
+All benchmark requests must include a valid `X-API-Key: <api_key>` header.
 
 ### What your agent receives per task
 
@@ -348,31 +339,35 @@ The ground-truth output is **never sent to the client** — evaluation runs serv
 ```python
 import requests
 
-BASE = "http://localhost:8000"
-HEADERS = {"X-API-Key": "mykey"}
+BASE = "http://<server>:50001"
+HEADERS = {"X-API-Key": "<your-awb-key>"}
 
-# 1. Create a session
-session = requests.post(f"{BASE}/sessions", headers=HEADERS, json={
-    "action_name": "AddAtomAction",
-    "limit": 100,
-    "repeat": 1,
+# 0. (Once) Self-register and get your key
+reg = requests.post(f"{BASE}/auth/self-register", json={"username": "alice"}).json()
+HEADERS = {"X-API-Key": reg["api_key"]}
+
+# 1. Discover available datasets
+datasets = requests.get(f"{BASE}/datasets").json()["datasets"]
+print([d["name"] for d in datasets])  # e.g. ["simple", "verbose"]
+
+# 2. Get all tasks in one call (session created server-side)
+resp = requests.post(f"{BASE}/benchmark", headers=HEADERS, json={
+    "dataset": "simple",
+    "action_name": None,   # None = all actions
+    "limit": -1,           # -1 = all tasks
 }).json()
-sid = session["session_id"]
+sid   = resp["session_id"]
+tasks = resp["tasks"]      # list of {task_id, action_prompt, input_cif, ...}
 
-# 2. Fetch task list (no CIF content, for overview)
-tasks = requests.get(f"{BASE}/sessions/{sid}/tasks", headers=HEADERS).json()
-
-# 3. For each task: fetch full details, run agent, submit result
-for task_meta in tasks:
-    tid = task_meta["task_id"]
-
-    # Fetch task with input CIF
-    task = requests.get(f"{BASE}/sessions/{sid}/tasks/{tid}", headers=HEADERS).json()
-    input_cif   = task["input_cif"]
-    instruction = task["action_prompt"]
+# 3. For each task: run your agent and submit the result
+for task in tasks:
+    tid = task["task_id"]
 
     # --- run your agent here ---
-    result_cif = my_agent.run(input_cif=input_cif, instruction=instruction)
+    result_cif = my_agent.run(
+        input_cif=task["input_cif"],
+        instruction=task["action_prompt"],
+    )
     # ---------------------------
 
     requests.post(f"{BASE}/sessions/{sid}/tasks/{tid}/submit", headers=HEADERS, json={
@@ -404,17 +399,21 @@ sessions/
 
 ### API reference
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `POST` | `/sessions` | Create a benchmark session |
-| `GET`  | `/sessions/{id}` | Session status and progress |
-| `GET`  | `/sessions/{id}/tasks` | Paginated task list (no CIF) |
-| `GET`  | `/sessions/{id}/tasks/{tid}` | Task details + input CIF |
-| `POST` | `/sessions/{id}/tasks/{tid}/submit` | Submit result CIF |
-| `POST` | `/sessions/{id}/evaluate` | Trigger evaluation |
-| `GET`  | `/sessions/{id}/results` | Retrieve evaluation metrics |
+| Method | Endpoint | Auth | Description |
+|--------|----------|------|-------------|
+| `POST` | `/auth/self-register` | none | Register and receive an API key instantly |
+| `GET`  | `/datasets` | none | List available datasets (`simple`, `verbose`, …) |
+| `POST` | `/benchmark` | user key | Create a session and return all tasks + CIFs in one call |
+| `GET`  | `/sessions/{id}` | user key | Session status and progress |
+| `GET`  | `/sessions/{id}/tasks` | user key | Paginated task list (no CIF content) |
+| `GET`  | `/sessions/{id}/tasks/{tid}` | user key | Task details + input CIF |
+| `POST` | `/sessions/{id}/tasks/{tid}/submit` | user key | Submit result CIF |
+| `POST` | `/sessions/{id}/evaluate` | user key | Trigger evaluation |
+| `GET`  | `/sessions/{id}/results` | user key | Retrieve evaluation metrics |
+| `GET`  | `/admin/users` | admin key | List all registered users |
+| `GET`  | `/admin/keys` | admin key | List all issued keys |
 
-Interactive docs are available at `http://localhost:8000/docs` while the server is running.
+Interactive docs are available at `http://<server>:50001/docs` while the server is running.
 
 ---
 

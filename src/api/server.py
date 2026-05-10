@@ -2,7 +2,7 @@
 AtomWorldBench REST API server.
 
 Start with:
-    atomworld serve --api-key <key> --data-folder data/simple --sessions-dir sessions
+    atomworld serve --api-key <key> --data-root data --sessions-dir sessions
 
 Session endpoints require the ``X-API-Key`` header. The startup key remains a
 bootstrap admin credential and can also issue per-user API keys.
@@ -305,7 +305,7 @@ def create_app(data_root: str, sessions_dir: str) -> FastAPI:
                 "Do not call /evaluate until all submissions are complete.",
                 "Each task is independent and only exposes action_prompt and input_cif.",
                 "This endpoint is public so agents can discover benchmark access details with curl.",
-                f"Recommended public startup: atomworld serve --host 0.0.0.0 --port 50001 --api-key <ADMIN_KEY> --data-folder data/simple --sessions-dir sessions",
+                f"Recommended public startup: atomworld serve --host 0.0.0.0 --port 50001 --api-key <ADMIN_KEY> --data-root data --sessions-dir sessions",
             ],
         )
 
