@@ -35,13 +35,13 @@ pip install -e ".[dev]"
 <details>
 <summary>Optional dependency groups</summary>
 
-| Extra          | What it adds                                                   |
-|----------------|----------------------------------------------------------------|
-| `[benchmark]`  | openai, pandas, h5py, tqdm, pyyaml, fastapi, uvicorn, pydantic |
-| `[datagen]`    | ase, mp-api, scipy, pandas                                      |
-| `[models]`     | transformers, sentencepiece, torch                              |
-| `[all]`        | All of the above + ray                                          |
-| `[dev]`        | `[all]` + pytest                                                |
+| Extra          | What it adds                                                          |
+|----------------|-----------------------------------------------------------------------|
+| `[benchmark]`  | openai, pandas, h5py, tqdm, pyyaml, fastapi, uvicorn, pydantic        |
+| `[datagen]`    | ase, mp-api, scipy, pandas, rdkit                                     |
+| `[models]`     | transformers, sentencepiece, torch                                    |
+| `[all]`        | All of the above + ray                                                |
+| `[dev]`        | `[all]` + pytest                                                      |
 
 </details>
 
@@ -219,6 +219,40 @@ All motif action classes:
 
 ---
 
+#### Active tasks (observation + action)
+
+Active tasks combine an **observation** (a structure the model must inspect) with an **action** (a goal it must achieve). Unlike simple/verbose actions, the model receives a structure that already encodes all necessary context, and the target output is evaluated against a verifier chain rather than a single metric.
+
+The first active task is **RemoveMoleculeAction**: given a slab with one or more adsorbed molecules, remove all adsorbates and return the clean slab.
+
+**Dataset items** carry extra fields beyond the standard simple/verbose format:
+
+| Field | Type | Description |
+|---|---|---|
+| `task_category` | `string` | `"active"` |
+| `verifiers` | `list[string]` | Ordered list of verifiers applied during evaluation |
+| `metadata` | `dict` | Task-specific metadata (molecule formula, indices, slab composition, …) |
+
+**Available active tasks:**
+
+| Class | Description |
+|---|---|
+| `RemoveMoleculeAction` | Remove all adsorbed molecule(s) from a slab to produce the clean surface |
+
+**Verifier framework:** each active task specifies a verifier chain. Verifiers run in order and short-circuit on the first blocking failure.
+
+| Verifier key | What it checks |
+|---|---|
+| `output_format` | Model output is a non-empty string (CIF) |
+| `cif_parsing` | Output is a parseable CIF / structure |
+| `atom_count` | Atom count matches the target |
+| `structure_match` | Full structural match via `StructureMatcher` (reports RMSD / max-dist) |
+| `exact_structure_match` | Positional RMSD under 0.1 Å (used for rigid-translation tasks) |
+
+> **CLI note:** The `atomworld generate` command supports active-task generation via `--active`. Use `--active` to generate datasets for the RemoveMoleculeAction task.
+
+---
+
 ## CLI
 
 ```bash
@@ -230,6 +264,12 @@ atomworld [generate|benchmark|eval|draw|serve] [options]
 ```bash
 # Generate dataset from CIF files
 atomworld generate -c ./cifs -o ./dataset -n 1000
+
+# Generate verbose (motif-based) dataset
+atomworld generate -c ./cifs -o ./dataset -n 1000 --verbose
+
+# Generate active-task dataset (RemoveMoleculeAction)
+atomworld generate -c ./cifs -o ./dataset/active -n 200 --active
 
 # Run full LLM benchmark (inference + evaluation)
 atomworld benchmark -f ./dataset -a move_atom_action -m deepseek_chat -o ./results
@@ -268,6 +308,10 @@ atomworld benchmark -f DATA -a ACTION -m MODEL [-b BATCH] [-n NUM_BATCH] [-o OUT
 ### Available actions
 
 **AtomWorld:** `add_atom_action`, `change_atom_action`, `delete_around_atom_action`, `delete_below_atom_action`, `insert_between_atoms_action`, `move_around_atom_action`, `move_atom_action`, `move_selected_atoms_action`, `move_towards_atom_action`, `remove_atom_action`, `rotate_around_atom_action`, `swap_atoms_action`, `super_cell_action`, `rotate_whole_action`, `move_all_action`
+
+**AtomWorld (verbose):** `add_motif_action`, `remove_motif_action`, `replace_motif_action`, `translate_motif_action`, `rotate_motif_action`, `swap_motif_action`, `resize_motif_action`, `change_element_action`, `lattice_transform_action`, `make_supercell_action`, `rotate_structure_action`
+
+**AtomWorld (active):** `remove_molecule_action`
 
 **PointWorld:** `move`, `move_towards`, `insert_between`, `rotate_around`
 

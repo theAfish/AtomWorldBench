@@ -196,6 +196,10 @@ def _load_data_from_json(data_folder, action_name=None, json_files=None):
                     "input_cif": item.get("input", ""),
                     "action_prompt": item.get("action_prompt", ""),
                     "output_cif": item.get("output", ""),
+                    # Active-task fields — None for simple/verbose items
+                    "task_category": item.get("task_category", None),
+                    "verifiers": item.get("verifiers", None),
+                    "metadata": item.get("metadata", None),
                 })
         except Exception as e:
             logging.error(f"Error loading {json_file}: {e}")

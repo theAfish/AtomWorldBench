@@ -113,10 +113,17 @@ def main(args=None):
 
     if inference_file:
         print(f"Starting evaluation on {inference_file}...")
-        evaluator = AtomWorldEvaluator(
-            action_name=args.action_name,
-            results_folder=evaluation_folder,
-        )
+        if category == "active":
+            from benchmark.evaluation.active_evaluator import ActiveEvaluator
+            evaluator = ActiveEvaluator(
+                action_name=args.action_name,
+                results_folder=evaluation_folder,
+            )
+        else:
+            evaluator = AtomWorldEvaluator(
+                action_name=args.action_name,
+                results_folder=evaluation_folder,
+            )
         results = evaluator.evaluate(inference_file)
 
         # Plot metrics distribution

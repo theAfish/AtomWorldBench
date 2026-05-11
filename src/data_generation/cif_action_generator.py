@@ -463,7 +463,19 @@ def main(args=None):
     parser = get_generation_parser()
     args = parser.parse_args(args)
 
-    if args.verbose:
+    if args.active:
+        from data_generation.active_data_generator import RemoveMoleculeDataGenerator
+        generator = RemoveMoleculeDataGenerator(
+            cif_folder=args.cif_folder,
+            seed=args.seed,
+            max_attempts=args.max_attempts,
+            allow_repeat_structures=args.allow_repeat,
+        )
+        generator.generate_and_save(
+            output_dir=args.output_dir,
+            num_samples=args.num_samples,
+        )
+    elif args.verbose:
         action_classes = None
         if args.action_names:
             action_classes = resolve_action_classes(args.action_names, ready_verbose_actions)

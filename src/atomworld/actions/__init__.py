@@ -62,6 +62,10 @@ from .verbose import (
     structure_action_factory,
 )
 
+from .active import (
+    RemoveMoleculeAction,
+)
+
 # ---------------------------------------------------------------------------
 # Category registry
 # ---------------------------------------------------------------------------
@@ -99,6 +103,8 @@ ACTION_CATEGORIES: dict[str, str] = {
     "lattice_transform_action": "verbose",
     "make_supercell_action": "verbose",
     "rotate_structure_action": "verbose",
+    # ---- active (observation + action) tasks ----
+    "remove_molecule_action": "active",
 }
 
 
@@ -149,4 +155,6 @@ __all__ = [
     "MakeSupercellAction",
     "RotateStructureAction",
     "structure_action_factory",
+    # ---- active task actions ----
+    "RemoveMoleculeAction",
 ]

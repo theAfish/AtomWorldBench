@@ -158,4 +158,13 @@ def get_generation_parser():
             "default simple (index-based) actions."
         ),
     )
+    parser.add_argument(
+        "--active",
+        action="store_true",
+        help=(
+            "Generate active-task data (observation + action) instead of "
+            "the default simple/verbose action families.  Currently supports "
+            "the RemoveMoleculeAction task."
+        ),
+    )
     return parser
