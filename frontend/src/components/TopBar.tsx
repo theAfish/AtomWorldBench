@@ -1,13 +1,19 @@
 import { Link } from 'react-router-dom'
 import styles from './TopBar.module.css'
 
+const isStaticSite = import.meta.env.VITE_STATIC_SITE === 'true'
+
 const NAV_LINKS = [
   { to: '/', label: 'Home' },
   { to: '/docs', label: 'Docs' },
   { to: '/dashboard', label: 'Leaderboard' },
   { to: '/api-usage', label: 'API Usage' },
-  { to: '/register', label: 'Get API Key' },
-  { to: '/admin', label: 'Admin' },
+  ...(!isStaticSite
+    ? [
+        { to: '/register', label: 'Get API Key' },
+        { to: '/admin', label: 'Admin' },
+      ]
+    : []),
 ]
 
 export function TopBar() {
