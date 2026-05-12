@@ -68,10 +68,10 @@ logger = logging.getLogger(__name__)
 
 # Path to the ZINC SMILES file (relative to project root).
 # Resolved at import time based on this file's location:
-#   src/data_generation/ → ../../data/molecules/zinc.txt
+#   src/data_generation/ → molecules/zinc.txt
 _DEFAULT_ZINC_PATH: str = os.path.normpath(
     os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                 "..", "..", "data", "molecules", "zinc.txt")
+                 "molecules", "zinc.txt")
 )
 
 DEFAULT_MILLER_INDICES: List[Tuple[int, int, int]] = [
@@ -84,6 +84,12 @@ DEFAULT_MILLER_INDICES: List[Tuple[int, int, int]] = [
 VACUUM: float = 10.0        # Å vacuum above slab (passed to ASE surface())
 MIN_SEPARATION: float = 1.8  # Å — minimum adsorbate-to-slab distance
 ADSORPTION_HEIGHT: float = 2.0  # Å — height above topmost surface atom
+
+# Bulk-insertion variant constants
+BULK_MIN_SEPARATION: float = 1.8      # Å — bulk atoms within this of any mol atom are removed;
+                                      #     also the minimum distance required to remaining atoms
+BULK_MAX_REMOVED_FRACTION: float = 0.25  # cap on fraction of bulk atoms that may be removed
+BULK_CLEARANCE: float = 2.0           # Å — extra clearance when sizing the supercell
 
 # ---------------------------------------------------------------------------
 # ZINC molecule library
@@ -369,6 +375,157 @@ def _structure_to_cif(structure) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Bulk-insertion helpers (new variant)
+# ---------------------------------------------------------------------------
+
+def _molecule_max_extent(mol: Molecule) -> float:
+    """Return the maximum distance from the molecular centroid to any atom (Å)."""
+    coords = np.array(mol.cart_coords)
+    centroid = coords.mean(axis=0)
+    return float(np.max(np.linalg.norm(coords - centroid, axis=1)))
+
+
+def _build_bulk_supercell(bulk_structure, repeat: int):
+    """Build an isotropic (repeat × repeat × repeat) supercell of *bulk_structure*.
+
+    The conventional standard cell is used as the starting point.
+    Returns the pymatgen Structure or ``None`` on failure.
+    """
+    try:
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            analyzer = SpacegroupAnalyzer(bulk_structure, symprec=0.1)
+            conventional = analyzer.get_conventional_standard_structure()
+        supercell = conventional.copy()
+        if repeat > 1:
+            supercell.make_supercell([repeat, repeat, repeat])
+        return supercell
+    except Exception as exc:
+        logger.debug("Bulk supercell build failed (repeat=%d): %s", repeat, exc)
+        return None
+
+
+def _choose_bulk_repeat(bulk_structure, mol: Molecule, base_repeat: int, max_repeat: int = 3) -> int:
+    """Return the isotropic repeat factor so the supercell comfortably contains *mol*.
+
+    Each lattice vector must be at least ``2 * (mol_extent + BULK_CLEARANCE)`` Å.
+    """
+    extent = _molecule_max_extent(mol)
+    min_cell_len = 2.0 * (extent + BULK_CLEARANCE)
+    try:
+        cell = bulk_structure.lattice.matrix
+        min_axis = min(float(np.linalg.norm(cell[i])) for i in range(3))
+    except Exception:
+        return base_repeat
+    if min_axis < 1e-6:
+        return base_repeat
+    needed = math.ceil(min_cell_len / max(min_axis, 1e-6))
+    return min(max(base_repeat, needed), max_repeat)
+
+
+def _insert_molecule_in_bulk(
+    bulk_supercell,
+    molecule: Molecule,
+    rng: np.random.Generator,
+    min_separation: float = BULK_MIN_SEPARATION,
+    max_removed_fraction: float = BULK_MAX_REMOVED_FRACTION,
+    n_attempts: int = 40,
+) -> Tuple[Optional[Any], Optional[Any], Optional[List[int]], Optional[Dict[str, int]], Optional[int]]:
+    """Insert *molecule* into *bulk_supercell*, carving out overlapping bulk atoms.
+
+    For each attempt a fresh random rotation **and** random position inside the
+    supercell are drawn.  Bulk atoms within *overlap_threshold* of any molecule
+    atom (under PBC minimum-image) are removed to make room.
+
+    Returns
+    -------
+    (input_structure, output_structure, mol_indices, bulk_composition, n_removed)
+        ``input_structure``  — bulk (cavities carved) + molecule
+        ``output_structure`` — bulk (cavities carved), no molecule
+        ``mol_indices``      — 0-based indices of molecule atoms in *input_structure*
+        ``bulk_composition`` — elemental composition of *output_structure*
+        ``n_removed``        — number of bulk atoms deleted
+        All ``None`` on failure.
+    """
+    lattice = bulk_supercell.lattice
+    n_bulk = len(bulk_supercell)
+    max_removed = max(1, int(n_bulk * max_removed_fraction))
+
+    # Pre-compute bulk fractional coords once
+    bulk_frac_coords = bulk_supercell.frac_coords  # (n_bulk, 3)
+
+    for _ in range(n_attempts):
+        # Random rotation for the molecule
+        R = _random_rotation_matrix(rng)
+        rotated_mol = _rotate_molecule(molecule, R)
+
+        # Centre the molecule at the origin, then shift to a random cell position.
+        # Avoid fractional positions too close to cell boundaries (0.1–0.9) so
+        # the molecule stays well inside and doesn't straddle a PBC face.
+        mol_cart_centered = rotated_mol.cart_coords - rotated_mol.cart_coords.mean(axis=0)
+        frac_center = rng.uniform(0.15, 0.85, size=3)
+        cart_center = lattice.get_cartesian_coords(frac_center)
+        mol_cart_coords = mol_cart_centered + cart_center  # (n_mol, 3)
+
+        try:
+            mol_frac_coords = lattice.get_fractional_coords(mol_cart_coords)  # (n_mol, 3)
+
+            # Vectorised PBC distances: (n_mol, n_bulk)
+            diff = bulk_frac_coords[np.newaxis, :, :] - mol_frac_coords[:, np.newaxis, :]
+            diff -= np.round(diff)                        # minimum image
+            cart_diff = diff @ lattice.matrix             # (n_mol, n_bulk, 3)
+            all_dists = np.linalg.norm(cart_diff, axis=-1)  # (n_mol, n_bulk)
+
+            # Bulk atoms to remove: within min_separation of ANY mol atom
+            close_bulk_mask = (all_dists < min_separation).any(axis=0)  # (n_bulk,)
+            close_bulk_indices = set(np.where(close_bulk_mask)[0].tolist())
+
+            # Reject if too many bulk atoms would be carved out
+            if len(close_bulk_indices) > max_removed:
+                continue
+
+            # Minimum distance from any mol atom to any REMAINING bulk atom
+            remaining_dists = all_dists[:, ~close_bulk_mask]  # (n_mol, n_remaining)
+            if remaining_dists.size > 0 and remaining_dists.min() < min_separation:
+                continue
+
+            # Intra-molecule geometry sanity (detect collapsed/overlapping atoms)
+            if len(mol_cart_coords) > 1:
+                diff_mat = mol_cart_coords[:, np.newaxis, :] - mol_cart_coords[np.newaxis, :, :]
+                intra_dists = np.linalg.norm(diff_mat, axis=-1)
+                np.fill_diagonal(intra_dists, np.inf)
+                if intra_dists.min() < 0.5:
+                    continue
+
+            # Build output structure (bulk with close atoms removed)
+            output_structure = bulk_supercell.copy()
+            for idx in sorted(close_bulk_indices, reverse=True):
+                output_structure.remove_sites([idx])
+
+            # Build input structure (output + molecule appended)
+            input_structure = output_structure.copy()
+            mol_start_idx = len(input_structure)
+            for spec, cart_coord in zip(rotated_mol.species, mol_cart_coords):
+                input_structure.append(
+                    spec, cart_coord, coords_are_cartesian=True, validate_proximity=False
+                )
+            mol_indices = list(range(mol_start_idx, len(input_structure)))
+
+            bulk_composition = {
+                str(el): int(cnt)
+                for el, cnt in output_structure.composition.as_dict().items()
+            }
+
+            return input_structure, output_structure, mol_indices, bulk_composition, len(close_bulk_indices)
+
+        except Exception as exc:
+            logger.debug("Bulk insertion attempt failed: %s", exc)
+            continue
+
+    return None, None, None, None, None
+
+
+# ---------------------------------------------------------------------------
 # Generator class
 # ---------------------------------------------------------------------------
 
@@ -382,7 +539,7 @@ class RemoveMoleculeDataGenerator(BaseDataGenerator):
         Path to a folder of bulk CIF files.
     zinc_path : str | None
         Path to the ZINC SMILES file (one SMILES per line).  Defaults to
-        ``data/molecules/zinc.txt`` under the project root.
+        ``src/data_generation/molecules/zinc.txt`` (bundled with the package).
     miller_indices : list[tuple] | None
         Miller indices to try (in order) when cutting slabs.
     n_layers_range : tuple[int, int]
@@ -425,7 +582,7 @@ class RemoveMoleculeDataGenerator(BaseDataGenerator):
         if not os.path.exists(self.zinc_path):
             raise FileNotFoundError(
                 f"ZINC SMILES file not found: {self.zinc_path}\n"
-                "Place zinc.txt at data/molecules/zinc.txt or pass zinc_path= explicitly."
+                "Place zinc.txt at src/data_generation/molecules/zinc.txt or pass zinc_path= explicitly."
             )
 
         self.cif_files = [
@@ -452,7 +609,7 @@ class RemoveMoleculeDataGenerator(BaseDataGenerator):
             self._zinc_smiles = _load_zinc_smiles(self.zinc_path)
         return self._zinc_smiles
 
-    def _try_generate_sample(self, cif_path: str) -> Optional[Dict[str, Any]]:
+    def _try_generate_sample_surface(self, cif_path: str) -> Optional[Dict[str, Any]]:
         mp_id = os.path.splitext(os.path.basename(cif_path))[0]
 
         bulk = _load_bulk_structure(cif_path)
@@ -523,6 +680,7 @@ class RemoveMoleculeDataGenerator(BaseDataGenerator):
                 "structure_match",
             ],
             "metadata": {
+                "task_variant": "surface",
                 "molecule_smiles": smiles,
                 "molecule_formula": pmg_mol.composition.formula.replace(" ", ""),
                 "molecule_num_atoms": len(pmg_mol),
@@ -533,6 +691,88 @@ class RemoveMoleculeDataGenerator(BaseDataGenerator):
                 "supercell": [nx, ny],
             },
         }
+
+    def _try_generate_sample_bulk(self, cif_path: str) -> Optional[Dict[str, Any]]:
+        """Bulk-interstitial variant: insert a molecule inside a 3-D periodic supercell.
+
+        Pipeline
+        --------
+        1. Load bulk CIF → conventional standard cell.
+        2. Build an isotropic supercell sized to fit the molecule.
+        3. Randomly rotate and position the molecule inside the supercell.
+        4. Remove bulk atoms that overlap with the molecule (PBC-aware).
+        5. Input  = cavitated bulk + molecule.
+           Output = cavitated bulk (molecule absent).
+        """
+        mp_id = os.path.splitext(os.path.basename(cif_path))[0]
+
+        bulk = _load_bulk_structure(cif_path)
+        if bulk is None:
+            return None
+
+        # Sample a ZINC molecule
+        zinc_smiles = self._get_zinc_smiles()
+        smiles = zinc_smiles[int(self.rng.integers(len(zinc_smiles)))]
+        pmg_mol = _build_molecule_from_smiles(smiles)
+        if pmg_mol is None:
+            return None
+
+        # Choose supercell repeat so the molecule fits comfortably
+        base_repeat = int(self.rng.integers(self.supercell_range[0], self.supercell_range[1] + 1))
+        repeat = _choose_bulk_repeat(bulk, pmg_mol, base_repeat)
+
+        supercell = _build_bulk_supercell(bulk, repeat)
+        if supercell is None:
+            return None
+
+        (
+            input_struct,
+            output_struct,
+            mol_indices,
+            bulk_composition,
+            n_removed,
+        ) = _insert_molecule_in_bulk(supercell, pmg_mol, self.rng)
+        if input_struct is None:
+            return None
+
+        try:
+            input_cif = _structure_to_cif(input_struct)
+            output_cif = _structure_to_cif(output_struct)
+        except Exception as exc:
+            logger.debug("CIF serialisation failed: %s", exc)
+            return None
+
+        return {
+            "action_type": "RemoveMoleculeAction",
+            "task_category": "active",
+            "problem_id": str(uuid.uuid4()),
+            "mp_id": mp_id,
+            "action_prompt": "Remove the molecule(s) inside the structure.",
+            "input": input_cif,
+            "output": output_cif,
+            "verifiers": [
+                "output_format",
+                "cif_parsing",
+                "atom_count",
+                "structure_match",
+            ],
+            "metadata": {
+                "task_variant": "bulk",
+                "molecule_smiles": smiles,
+                "molecule_formula": pmg_mol.composition.formula.replace(" ", ""),
+                "molecule_num_atoms": len(pmg_mol),
+                "molecule_indices": mol_indices,
+                "bulk_composition": bulk_composition,
+                "n_removed_atoms": n_removed,
+                "supercell_repeat": repeat,
+            },
+        }
+
+    def _try_generate_sample(self, cif_path: str) -> Optional[Dict[str, Any]]:
+        """Randomly dispatch between the surface-adsorption and bulk-interstitial variants."""
+        if self.rng.integers(2) == 0:
+            return self._try_generate_sample_surface(cif_path)
+        return self._try_generate_sample_bulk(cif_path)
 
     def generate(self, num_samples: int = -1, **kwargs) -> Iterator[Dict[str, Any]]:
         if num_samples < 0:
