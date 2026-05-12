@@ -1,0 +1,35 @@
+2026-05-12 12:17:08,018 - AtomWorldEvaluator - INFO - Loading results from results/AtomWorld/change_atom_action/naturelm/2026-05-12_12-17-00/inference/inference_results.json
+2026-05-12 12:17:08,019 - AtomWorldEvaluator - INFO - Evaluating 16 items...
+2026-05-12 12:17:08,045 - py.warnings - WARNING - /scratch/pawsey1302/alexchen5/venvs/AtomWorldBench/lib/python3.11/site-packages/pymatgen/core/periodic_table.py:255: UserWarning: No Pauling electronegativity for Mt. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  x1 = float("inf") if self.X != self.X else self.X
+
+2026-05-12 12:17:08,048 - py.warnings - WARNING - /scratch/pawsey1302/alexchen5/venvs/AtomWorldBench/lib/python3.11/site-packages/pymatgen/core/periodic_table.py:253: UserWarning: No Pauling electronegativity for Ds. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  if not hasattr(other, "X") or not hasattr(other, "symbol"):
+
+2026-05-12 12:17:08,048 - py.warnings - WARNING - /scratch/pawsey1302/alexchen5/venvs/AtomWorldBench/lib/python3.11/site-packages/pymatgen/core/periodic_table.py:256: UserWarning: No Pauling electronegativity for Ds. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  x2 = float("inf") if other.X != other.X else other.X
+
+2026-05-12 12:17:08,050 - py.warnings - WARNING - /scratch/pawsey1302/alexchen5/AtomWorldBench/src/utils/dataloader.py:33: UserWarning: Issues encountered while parsing CIF: 4 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  structures = parser.parse_structures(primitive=primitive, check_occu=False)
+
+2026-05-12 12:17:08,056 - AtomWorldEvaluator - INFO - Evaluation completed.
+2026-05-12 12:17:08,056 - AtomWorldEvaluator - INFO - Summary: {
+  "total_samples": 16,
+  "success_count": 0,
+  "error_count": 16,
+  "success_rate": 0.0,
+  "error_types": {
+    "OutputFormatError": 16
+  }
+}
+2026-05-12 12:17:08,056 - AtomWorldEvaluator - INFO - Statistics: {
+  "rmsd_mean": null,
+  "rmsd_median": null,
+  "rmsd_max": null,
+  "rmsd_min": null,
+  "max_dist_mean": null,
+  "max_dist_median": null,
+  "max_dist_max": null,
+  "max_dist_min": null
+}
+2026-05-12 12:17:08,058 - AtomWorldEvaluator - INFO - Detailed results saved to results/AtomWorld/change_atom_action/naturelm/2026-05-12_12-17-00/evaluation/evaluation_results.json

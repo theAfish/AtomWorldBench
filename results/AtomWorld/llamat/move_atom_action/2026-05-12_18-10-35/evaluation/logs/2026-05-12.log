@@ -1,0 +1,29 @@
+2026-05-12 18:10:39,312 - AtomWorldEvaluator - INFO - Loading results from results/AtomWorld/llamat/move_atom_action/2026-05-12_18-10-35/inference/inference_results.json
+2026-05-12 18:10:39,321 - AtomWorldEvaluator - INFO - Evaluating 16 items...
+2026-05-12 18:10:39,352 - py.warnings - WARNING - /scratch/pawsey1302/alexchen5/AtomWorldBench/src/utils/dataloader.py:33: UserWarning: Issues encountered while parsing CIF: 4 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  structures = parser.parse_structures(primitive=primitive, check_occu=False)
+
+2026-05-12 18:10:39,356 - py.warnings - WARNING - /scratch/pawsey1302/alexchen5/AtomWorldBench/src/utils/dataloader.py:33: UserWarning: Issues encountered while parsing CIF: 3 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  structures = parser.parse_structures(primitive=primitive, check_occu=False)
+
+2026-05-12 18:10:39,359 - AtomWorldEvaluator - INFO - Evaluation completed.
+2026-05-12 18:10:39,359 - AtomWorldEvaluator - INFO - Summary: {
+  "total_samples": 16,
+  "success_count": 0,
+  "error_count": 16,
+  "success_rate": 0.0,
+  "error_types": {
+    "OutputFormatError": 16
+  }
+}
+2026-05-12 18:10:39,359 - AtomWorldEvaluator - INFO - Statistics: {
+  "rmsd_mean": null,
+  "rmsd_median": null,
+  "rmsd_max": null,
+  "rmsd_min": null,
+  "max_dist_mean": null,
+  "max_dist_median": null,
+  "max_dist_max": null,
+  "max_dist_min": null
+}
+2026-05-12 18:10:39,361 - AtomWorldEvaluator - INFO - Detailed results saved to results/AtomWorld/llamat/move_atom_action/2026-05-12_18-10-35/evaluation/evaluation_results.json

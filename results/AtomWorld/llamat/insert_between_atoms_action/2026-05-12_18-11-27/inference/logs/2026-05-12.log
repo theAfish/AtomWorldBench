@@ -1,0 +1,4 @@
+2026-05-12 18:11:28,559 - AtomWorldInferencer - INFO - Starting inference with 16 samples in batches of 16.
+2026-05-12 18:11:28,561 - AtomWorldInferencer - INFO - Inferring from index: 0, Repeat each frame 1 times.
+2026-05-12 18:11:28,568 - AtomWorldInferencer - DEBUG - Processing batch 1
+2026-05-12 18:11:33,191 - AtomWorldInferencer - INFO - Inference completed. Results saved to results/AtomWorld/llamat/insert_between_atoms_action/2026-05-12_18-11-27/inference/inference_results.json

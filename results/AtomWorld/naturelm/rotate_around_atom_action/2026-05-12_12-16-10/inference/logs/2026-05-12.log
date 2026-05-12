@@ -1,0 +1,4 @@
+2026-05-12 12:16:11,353 - AtomWorldInferencer - INFO - Starting inference with 16 samples in batches of 16.
+2026-05-12 12:16:11,355 - AtomWorldInferencer - INFO - Inferring from index: 0, Repeat each frame 1 times.
+2026-05-12 12:16:11,361 - AtomWorldInferencer - DEBUG - Processing batch 1
+2026-05-12 12:16:21,155 - AtomWorldInferencer - INFO - Inference completed. Results saved to results/AtomWorld/rotate_around_atom_action/naturelm/2026-05-12_12-16-10/inference/inference_results.json
