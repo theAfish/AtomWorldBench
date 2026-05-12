@@ -38,12 +38,18 @@ datagen = [
 models = [
     "transformers",
     "sentencepiece",
-    "torch",
+    "torch==2.10.0",
+    "torchaudio",
+    "torchvision",
 ]
 # Everything needed to run the full CLI
 all = [
     "atomworld[benchmark,datagen,models]",
-    "ray",
+    "accelerate",
+    "vllm",
+    "bitsandbytes",
+    "deepspeed",
+    "liger-kernel",
 ]
 # Development & testing
 dev = [
