@@ -74,7 +74,7 @@ def main(args=None):
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     action_subfolder = args.action_name if args.action_name else "All_Actions"
     base_output_path = os.path.join(
-        args.output_folder, "AtomWorld", action_subfolder, args.model, timestamp
+        args.output_folder, "AtomWorld", args.model, action_subfolder, timestamp
     )
 
     inference_folder = os.path.join(base_output_path, "inference")
