@@ -1,0 +1,1 @@
+{% for message in messages %}{% if message['role'] == 'user' %}{{'Instruction: ' + message['content'] + '\n\n\n'}}{% elif message['role'] == 'assistant' %}{{'Response: ' + message['content'] + '\n\n\n'}}{% endif %}{% endfor %}{% if add_generation_prompt %}{{'Response:'}}{% endif %}
