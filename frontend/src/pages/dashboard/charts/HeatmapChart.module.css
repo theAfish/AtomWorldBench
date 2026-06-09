@@ -4,9 +4,14 @@
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   touch-action: pan-x;
+  cursor: grab;
 }
 
 .plot {
   display: block;
   min-height: 460px;
+}
+
+.scrollArea:active {
+  cursor: grabbing;
 }
