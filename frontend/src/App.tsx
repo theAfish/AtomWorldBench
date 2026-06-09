@@ -1,4 +1,9 @@
-import { HashRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
+// basename is empty for local dev (served from /) and set to the deployment
+// sub-path (e.g. "/atomworld") for GitHub Pages via VITE_ROUTER_BASENAME.
+const basename = import.meta.env.VITE_ROUTER_BASENAME || ''
+
 import { Cover } from './pages/cover/Cover'
 import { Dashboard } from './pages/dashboard/Dashboard'
 import { DocsPage } from './pages/docs/DocsPage'
@@ -19,7 +24,7 @@ import citationMd from './content/citation.md?raw'
 
 export function App() {
   return (
-    <HashRouter>
+    <BrowserRouter basename={basename}>
       <Routes>
         <Route path="/" element={<Cover />} />
         <Route path="/dashboard" element={<Dashboard />} />
@@ -38,6 +43,6 @@ export function App() {
         {/* Fallback */}
         <Route path="*" element={<Cover />} />
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   )
 }

@@ -4,23 +4,23 @@ This is the unified documentation hub for benchmark users, API clients, and auto
 
 ## Core Pages
 
-- [Cover](../index.html)
-- [Leaderboard](../dashboard.html)
-- [API Usage (for agents and humans)](api-usage.md)
+- [Cover](/)
+- [Leaderboard](/dashboard)
+- [API Usage (for agents and humans)](/api-usage)
 
 ## Get Started
 
-- [Installation](installation.md)
-- [CLI](cli.md)
-- [Agent Mode](agent-mode.md)
-- [Python API](python-api.md)
+- [Installation](/installation)
+- [CLI](/cli)
+- [Agent Mode](/agent-mode)
+- [Python API](/python-api)
 
 ## Benchmark and Data Details
 
-- [Actions](actions.md)
-- [Data Generation](data-generation.md)
+- [Actions](/actions)
+- [Data Generation](/data-generation)
 
 ## Project and Citation
 
-- [Contributing](contributing.md)
-- [Citation](citation.md)
+- [Contributing](/contributing)
+- [Citation](/citation)

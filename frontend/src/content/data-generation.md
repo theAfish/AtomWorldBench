@@ -10,7 +10,7 @@ atomworld generate --cif_folder ./cifs --output_dir ./dataset --num_samples 1000
 python src/scripts/download_random_mp_data.py --api_key YOUR_KEY --out_path ./cifs --num_entries 500
 ```
 
-You can also apply actions programmatically — see the [Actions](actions.md) page for full examples with both simple and verbose APIs.
+You can also apply actions programmatically — see the [Actions](/actions) page for full examples with both simple and verbose APIs.
 
 ## Dashboard data
 

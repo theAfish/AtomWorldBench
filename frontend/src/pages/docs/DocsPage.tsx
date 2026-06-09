@@ -49,6 +49,11 @@ interface Props {
 export function DocsPage({ content }: Props) {
   const { pathname } = useLocation()
 
+  /** Recognise SPA-internal paths so we can navigate with React Router
+   *  instead of a full-page load (which would 404 on GitHub Pages). */
+  const isInternal = (href: string) =>
+    href.startsWith('/') && !href.startsWith('//')
+
   return (
     <div className={styles.page}>
       <TopBar />
@@ -87,6 +92,16 @@ export function DocsPage({ content }: Props) {
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[rehypeHighlight]}
             components={{
+              a({ href, children, node, ...props }) {
+                if (href && isInternal(href)) {
+                  return (
+                    <Link to={href} {...props}>
+                      {children}
+                    </Link>
+                  )
+                }
+                return <a href={href} target={href ? '_blank' : undefined} rel="noreferrer" {...props}>{children}</a>
+              },
               // Admonition-like blockquote handling for !!! tip / !!! info
               // (react-markdown doesn't parse MkDocs admonitions natively, so
               // we convert them with a pre-processing step in the content string)

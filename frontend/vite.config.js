@@ -2,9 +2,23 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { copyFileSync } from 'fs';
 var __dirname = dirname(fileURLToPath(import.meta.url));
+// After the build, copy index.html → 404.html so GitHub Pages serves the
+// SPA for any direct URL access (e.g. /atomworld/dashboard).  Without this,
+// GitHub Pages returns its default 404 page because there is no matching
+// static file at that path.
+function ghPages404Plugin() {
+    return {
+        name: 'gh-pages-404',
+        closeBundle: function () {
+            var distDir = resolve(__dirname, 'dist');
+            copyFileSync(resolve(distDir, 'index.html'), resolve(distDir, '404.html'));
+        },
+    };
+}
 export default defineConfig({
-    plugins: [react()],
+    plugins: [react(), ghPages404Plugin()],
     // Relative base so asset URLs work when served from any path.
     base: './',
     build: {
