@@ -1,0 +1,12 @@
+.scrollArea {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+}
+
+.plot {
+  display: block;
+  min-height: 460px;
+}

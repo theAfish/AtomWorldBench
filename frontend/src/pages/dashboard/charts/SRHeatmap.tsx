@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react'
 import Plotly from 'plotly.js-dist-min'
 import type { BenchmarkData } from '../../../types'
+import styles from './HeatmapChart.module.css'
+import { useIsMobile } from './useIsMobile'
 
 interface Props {
   data: BenchmarkData
@@ -9,6 +11,8 @@ interface Props {
 
 export function SRHeatmap({ data, visible }: Props) {
   const ref = useRef<HTMLDivElement>(null)
+  const isMobile = useIsMobile()
+  const chartWidth = isMobile ? Math.max(620, data.models.length * 84 + 140) : undefined
 
   useEffect(() => {
     if (!ref.current) return
@@ -24,7 +28,7 @@ export function SRHeatmap({ data, visible }: Props) {
         const sr = data.data[m]?.[a]?.success_rate
         if (sr != null && !isNaN(sr)) {
           row.push(parseFloat((sr * 100).toFixed(1)))
-          rowText.push(`${(sr * 100).toFixed(1)}%`)
+          rowText.push((sr * 100).toFixed(1))
         } else {
           row.push(null)
           rowText.push('—')
@@ -41,6 +45,7 @@ export function SRHeatmap({ data, visible }: Props) {
       y: actions.map(a => action_labels[a] ?? a),
       text: zText,
       texttemplate: '%{text}',
+      textfont: { size: isMobile ? 10 : 12 },
       colorscale: [
         [0, '#fde9d9'],
         [0.25, '#f4a763'],
@@ -55,9 +60,14 @@ export function SRHeatmap({ data, visible }: Props) {
     }
 
     const layout = {
-      margin: { l: 130, r: 60, t: 20, b: 120 },
-      xaxis: { tickangle: -35, automargin: true },
-      yaxis: { automargin: true },
+      width: chartWidth,
+      margin: { l: isMobile ? 82 : 130, r: isMobile ? 46 : 60, t: 20, b: isMobile ? 78 : 120 },
+      xaxis: {
+        tickangle: isMobile ? -20 : -35,
+        tickfont: { size: isMobile ? 10 : 12 },
+        automargin: true,
+      },
+      yaxis: { tickfont: { size: isMobile ? 10 : 12 }, automargin: true },
       paper_bgcolor: 'transparent',
       plot_bgcolor: 'transparent',
     }
@@ -69,11 +79,19 @@ export function SRHeatmap({ data, visible }: Props) {
 
     const el = ref.current
     return () => Plotly.purge(el)
-  }, [data])
+  }, [data, isMobile])
 
   useEffect(() => {
     if (visible && ref.current) Plotly.Plots.resize(ref.current)
   }, [visible])
 
-  return <div ref={ref} style={{ height: 460 }} />
+  return (
+    <div className={styles.scrollArea}>
+      <div
+        ref={ref}
+        className={styles.plot}
+        style={{ width: chartWidth ? `${chartWidth}px` : '100%', height: 460 }}
+      />
+    </div>
+  )
 }
