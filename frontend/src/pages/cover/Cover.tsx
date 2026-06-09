@@ -17,6 +17,18 @@ const CARDS: { title: string; desc: string; to?: string; href?: string; cta: str
     cta: 'View leaderboard',
   },
   {
+    title: 'Project Source',
+    desc: 'Inspect implementation details, run local workflows, and contribute improvements.',
+    href: 'https://github.com/MasterAI-EAM/atomworld',
+    cta: 'GitHub repository',
+  },
+  {
+    title: 'Hugging Face Dataset',
+    desc: 'Download and explore the AtomWorldBench dataset for crystal-structure manipulation tasks.',
+    href: 'https://huggingface.co/datasets/Master-AI-Lab/AtomWorldBench',
+    cta: 'View on Hugging Face',
+  },
+  {
     title: 'API Usage',
     desc: 'Step-by-step guide to creating a session, fetching tasks, submitting results, and retrieving scores via the REST API.',
     to: '/api-usage',
@@ -27,12 +39,6 @@ const CARDS: { title: string; desc: string; to?: string; href?: string; cta: str
     desc: 'Run external tools or autonomous systems with clean task isolation and reproducible logs.',
     to: '/agent-mode',
     cta: 'Open agent mode docs',
-  },
-  {
-    title: 'Project Source',
-    desc: 'Inspect implementation details, run local workflows, and contribute improvements.',
-    href: 'https://github.com/MasterAI-EAM/atomworld',
-    cta: 'GitHub repository',
   },
 ]
 
