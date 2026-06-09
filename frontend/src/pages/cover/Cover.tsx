@@ -31,7 +31,7 @@ const CARDS: { title: string; desc: string; to?: string; href?: string; cta: str
   {
     title: 'Project Source',
     desc: 'Inspect implementation details, run local workflows, and contribute improvements.',
-    href: 'https://github.com/theAfish/AtomWorldBench',
+    href: 'https://github.com/MasterAI-EAM/atomworld',
     cta: 'GitHub repository',
   },
 ]
