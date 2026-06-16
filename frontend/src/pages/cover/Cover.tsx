@@ -17,6 +17,12 @@ const CARDS: { title: string; desc: string; to?: string; href?: string; cta: str
     cta: 'View leaderboard',
   },
   {
+    title: 'Paper',
+    desc: 'Read the AtomWorld paper on arXiv.',
+    href: 'https://arxiv.org/abs/2510.04704',
+    cta: 'Open paper',
+  },
+  {
     title: 'Project Source',
     desc: 'Inspect implementation details, run local workflows, and contribute improvements.',
     href: 'https://github.com/MasterAI-EAM/atomworld',

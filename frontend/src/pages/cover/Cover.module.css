@@ -72,12 +72,13 @@ body {
   animation: rise 500ms ease forwards;
 }
 
-.card:nth-child(1) { grid-column: span 8; animation-delay: 80ms; }
+.card:nth-child(1) { grid-column: span 4; animation-delay: 80ms; }
 .card:nth-child(2) { grid-column: span 4; animation-delay: 140ms; }
-.card:nth-child(3) { grid-column: span 5; animation-delay: 200ms; }
-.card:nth-child(4) { grid-column: span 7; animation-delay: 260ms; }
-.card:nth-child(5) { grid-column: span 4; animation-delay: 320ms; }
-.card:nth-child(6) { grid-column: span 8; animation-delay: 380ms; }
+.card:nth-child(3) { grid-column: span 4; animation-delay: 200ms; }
+.card:nth-child(4) { grid-column: span 6; animation-delay: 260ms; }
+.card:nth-child(5) { grid-column: span 6; animation-delay: 320ms; }
+.card:nth-child(6) { grid-column: span 6; animation-delay: 380ms; }
+.card:nth-child(7) { grid-column: span 6; animation-delay: 440ms; }
 
 .card h2 {
   font-size: 1.07rem;
@@ -138,6 +139,10 @@ body {
   .card:nth-child(4),
   .card:nth-child(5),
   .card:nth-child(6) {
+    grid-column: span 12;
+  }
+
+  .card:nth-child(7) {
     grid-column: span 12;
   }
 }
